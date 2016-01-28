@@ -11,13 +11,15 @@
 @class ZCPButtonCellItem;
 @protocol ZCPButtonCellDelegate;
 
+// 按钮初始状态枚举
 typedef enum {
-    ZCPButtonInitStateNormal=100,
-    ZCPButtonInitStateHighlighted,
-    ZCPButtonInitStateDisabled
+    ZCPButtonInitStateNormal=100,   // normal
+    ZCPButtonInitStateHighlighted,  // highlighted
+    ZCPButtonInitStateDisabled      // disabled
 }ZCPButtonInitialize;
 
 
+// 只有一个Button的Cell
 @interface ZCPButtonCell : ZCPTableViewCell
 
 @property (nonatomic, strong) UIButton *button;

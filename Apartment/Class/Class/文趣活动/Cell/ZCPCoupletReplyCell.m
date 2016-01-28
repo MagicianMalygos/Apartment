@@ -10,6 +10,13 @@
 
 @implementation ZCPCoupletReplyCell
 
+@synthesize userHeadImgView = _userHeadImgView;
+@synthesize userNameLabel = _userNameLabel;
+@synthesize supportButton = _supportButton;
+@synthesize replyContentLabel = _replyContentLabel;
+@synthesize replyTimeLabel = _replyTimeLabel;
+@synthesize item = _item;
+
 - (void)setupContentView {
     [super setupContentView];
     
@@ -76,7 +83,12 @@
 
 @implementation ZCPCoupletReplyCellItem
 
-#pragma mark - init
+@synthesize replyContent = _replyContent;
+@synthesize userHeadImageURL = _userHeadImageURL;
+@synthesize userName = _userName;
+@synthesize replyTime = _replyTime;
+
+#pragma mark - instancetype
 - (instancetype)init {
     if (self = [super init]) {
         self.cellClass = [ZCPCoupletReplyCell class];

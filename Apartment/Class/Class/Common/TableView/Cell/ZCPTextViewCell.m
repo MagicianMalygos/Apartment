@@ -10,6 +10,9 @@
 
 @implementation ZCPTextViewCell
 
+@synthesize textView = _textView;
+@synthesize item = _item;
+
 - (void)setupContentView {
     [super setupContentView];
     
@@ -39,7 +42,10 @@
 
 @implementation ZCPTextViewCellItem
 
-#pragma mark - init
+@synthesize placeholder = _placeholder;
+@synthesize textEdgeInset = _textEdgeInset;
+
+#pragma mark - instancetype
 - (instancetype)init {
     if (self = [super init]) {
         self.cellClass = [ZCPTextViewCell class];

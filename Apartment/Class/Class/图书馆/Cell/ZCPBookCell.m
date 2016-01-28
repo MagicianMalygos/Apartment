@@ -25,6 +25,7 @@
 @synthesize contributorLabel = _contributorLabel;
 @synthesize collectNumberLabel = _collectNumberLabel;
 @synthesize commentCountLabel = _commentCountLabel;
+@synthesize item = _item;
 
 - (void)setupContentView {
     [super setupContentView];
@@ -143,6 +144,18 @@
 
 @implementation ZCPBookCellItem
 
+@synthesize bookCoverURL = _bookCoverURL;
+@synthesize bookName = _bookName;
+@synthesize bookAuthor = _bookAuthor;
+@synthesize bookPublisher = _bookPublisher;
+@synthesize field = _field;
+@synthesize bookPublishTime = _bookPublishTime;
+@synthesize contributor = _contributor;
+@synthesize bookCollectNumber = _bookCollectNumber;
+@synthesize bookCommentCount = _bookCommentCount;
+@synthesize bookSummary = _bookSummary;
+
+#pragma mark - instancetype
 - (instancetype)init {
     if (self = [super init]) {
         self.cellClass = [ZCPBookCell class];

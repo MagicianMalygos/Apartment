@@ -10,6 +10,7 @@
 
 @implementation ZCPTableViewCell
 
+#pragma mark - instancetype
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
     if (self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
         self.backgroundColor = [UIColor clearColor];
@@ -19,6 +20,8 @@
     }
     return self;
 }
+
+#pragma mark - Override Method
 - (void)setupContentView {
     self.backgroundColor = [UIColor clearColor];
     self.accessoryType = UITableViewCellAccessoryNone;

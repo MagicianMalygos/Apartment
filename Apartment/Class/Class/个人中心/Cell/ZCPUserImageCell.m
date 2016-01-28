@@ -55,7 +55,7 @@
 @synthesize bgImageURL = _bgImageURL;
 @synthesize userHeadURL = _userHeadURL;
 
-#pragma mark - init
+#pragma mark - instancetype
 - (instancetype)init {
     if (self = [super init]) {
         self.cellClass = [ZCPUserImageCell class];

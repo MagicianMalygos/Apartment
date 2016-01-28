@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
+// 视图控制器基类
 @interface ZCPViewController : UIViewController <ZCPNavigatorProtocol>
 
 @property (nonatomic, assign) APPTheme appTheme;

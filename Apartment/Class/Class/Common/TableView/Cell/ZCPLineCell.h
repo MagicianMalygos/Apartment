@@ -10,14 +10,15 @@
 
 @class ZCPLineCellItem;
 
+// 空白Cell
 @interface ZCPLineCell : ZCPTableViewCell
 
-@property (nonatomic, strong) ZCPDataModel *item;
+@property (nonatomic, strong) ZCPDataModel *item;           // item
 
 @end
 
 @interface ZCPLineCellItem : ZCPDataModel
 
-@property (nonatomic, strong) UIColor *backgroundColor;
+@property (nonatomic, strong) UIColor *backgroundColor;     // 背景颜色
 
 @end

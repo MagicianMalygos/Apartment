@@ -21,6 +21,7 @@
 #define MARGIN_IMG_TEXT     20
 
 #pragma mark - Text Cell&Item
+// 左边只有一个标签的cell
 @interface ZCPTextCell : ZCPTableViewWithLineCell
 @property (nonatomic, strong) UILabel *textLabel;
 @property (nonatomic, strong) ZCPDataModel *item;
@@ -33,6 +34,7 @@
 
 
 #pragma mark - Image Text Cell&Item
+// 左边有一个图片和标签的cell
 @interface ZCPImageTextCell : ZCPTextCell
 @property (nonatomic, strong) UIImageView *imgIcon;
 @end
@@ -43,6 +45,7 @@
 
 
 #pragma mark - Image Text Switch Cell&Item
+// 左边有一个图片和标签，右边有一个开关的Cell
 @interface ZCPImageTextSwitchCell : ZCPImageTextCell
 @property (nonatomic, strong) UISwitch *switchView;
 @end

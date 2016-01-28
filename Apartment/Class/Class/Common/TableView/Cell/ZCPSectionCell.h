@@ -12,6 +12,7 @@
 @class ZCPSectionCellItem;
 
 #pragma mark - Section Cell
+// 用作Section的Cell
 @interface ZCPSectionCell : ZCPLineCell
 
 @property (nonatomic, strong) UILabel *sectionTitleLabel;

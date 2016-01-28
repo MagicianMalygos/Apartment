@@ -10,6 +10,14 @@
 
 @implementation ZCPCoupletMainCell
 
+@synthesize userHeadImgView = _userHeadImgView;
+@synthesize userNameLabel = _userNameLabel;
+@synthesize coupletContentLabel = _coupletContentLabel;
+@synthesize timeLabel = _timeLabel;
+@synthesize supportLabel = _supportLabel;
+@synthesize replyNumLabel = _replyNumLabel;
+@synthesize item = _item;
+
 - (void)setupContentView {
     [super setupContentView];
     
@@ -89,7 +97,15 @@
 @end
 
 @implementation ZCPCoupletMainCellItem
-#pragma mark - init
+
+@synthesize userHeadImageURL = _userHeadImageURL;
+@synthesize userName = _userName;
+@synthesize coupletContent = _coupletContent;
+@synthesize time = _time;
+@synthesize supportNumber = _supportNumber;
+@synthesize replyNumber = _replyNumber;
+
+#pragma mark - instancetype
 - (instancetype)init {
     if (self = [super init]) {
         self.cellClass = [ZCPCoupletMainCell class];

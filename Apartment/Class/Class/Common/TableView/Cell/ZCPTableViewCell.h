@@ -8,8 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-#define MARGIN_DEFAULT      8
-
+// Cell基类
 @interface ZCPTableViewCell : UITableViewCell
 
 @property (nonatomic, strong) NSObject *object;

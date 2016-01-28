@@ -10,6 +10,13 @@
 
 @implementation ZCPSwitchRadioCell
 
+@synthesize switchView = _switchView;
+@synthesize switchLabel = _switchLabel;
+@synthesize radioButtonOne = _radioButtonOne;
+@synthesize radioLabelOne = _radioLabelOne;
+@synthesize radioButtonTwo = _radioButtonTwo;
+@synthesize radioLabelTwo = _radioLabelTwo;
+
 - (void)setupContentView {
     [super setupContentView];
     
@@ -65,11 +72,17 @@
     return [item.cellHeight floatValue];
 }
 
-
 @end
 
 @implementation ZCPSwitchRadioCellItem
 
+@synthesize switchInitialValue = _switchInitialValue;
+@synthesize switchResponser = _switchResponser;
+@synthesize switchTipText = _switchTipText;
+@synthesize radioTipTextOne = _radioTipTextOne;
+@synthesize radioTipTextTwo = _radioTipTextTwo;
+
+#pragma mark - instancetype
 - (instancetype)init {
     if (self = [super init]) {
         self.cellClass = [ZCPSwitchRadioCell class];

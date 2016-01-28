@@ -18,6 +18,14 @@
 
 @implementation ZCPArgumentCell
 
+@synthesize userHeadImgView = _userHeadImgView;
+@synthesize userNameLabel = _userNameLabel;
+@synthesize supportNumberLabel = _supportNumberLabel;
+@synthesize supportButton = _supportButton;
+@synthesize argumentContentLabel = _argumentContentLabel;
+@synthesize timeLabel = _timeLabel;
+@synthesize item = _item;
+
 - (void)setupContentView {
     [super setupContentView];
     
@@ -97,7 +105,13 @@
 
 @implementation ZCPArgumentCellItem
 
-#pragma mark - init
+@synthesize userHeadImgURL = _userHeadImgURL;
+@synthesize userName = _userName;
+@synthesize argumentContent = _argumentContent;
+@synthesize time = _time;
+@synthesize supportNumber = _supportNumber;
+
+#pragma mark - instancetype
 - (instancetype)init {
     if (self = [super init]) {
         self.cellClass = [ZCPArgumentCell class];

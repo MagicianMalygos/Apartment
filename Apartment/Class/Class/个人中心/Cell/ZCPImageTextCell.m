@@ -121,7 +121,7 @@
 
 @synthesize imageURL = _imageURL;
 
-#pragma mark - init
+#pragma mark - instancetype
 - (instancetype)init {
     if (self = [super init]) {
         self.cellClass = [ZCPImageTextCell class];

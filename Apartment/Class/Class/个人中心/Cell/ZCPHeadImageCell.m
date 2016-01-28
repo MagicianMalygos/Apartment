@@ -76,7 +76,7 @@
 
 @synthesize headImageURL = _headImageURL;
 
-#pragma mark - init
+#pragma mark - instancetype
 - (instancetype)init {
     if (self = [super init]) {
         self.cellClass = [ZCPHeadImageCell class];

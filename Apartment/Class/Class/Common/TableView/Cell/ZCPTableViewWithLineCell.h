@@ -9,9 +9,7 @@
 // 直接配置subview block
 typedef void(^PACellConfigBlock)(id subview);
 
-/**
- *  cell上下都有自定义边线
- */
+// 上下都有自定义边线的Cell
 @interface ZCPTableViewWithLineCell : ZCPTableViewCell
 
 @property (nonatomic, strong) UILabel* lineUpper;

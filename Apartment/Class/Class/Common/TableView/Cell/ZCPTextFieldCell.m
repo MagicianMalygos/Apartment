@@ -10,6 +10,9 @@
 
 @implementation ZCPTextFieldCell
 
+@synthesize textField = _textField;
+@synthesize item = _item;
+
 - (void)setupContentView {
     
     self.textField = [[UITextField alloc] init];
@@ -35,6 +38,10 @@
 
 @implementation ZCPTextFieldCellItem
 
+@synthesize textFieldConfigBlock = _textFieldConfigBlock;
+@synthesize placeholder = _placeholder;
+
+#pragma mark - instancetype
 - (instancetype)init {
     if (self = [super init]) {
         self.cellClass = [ZCPTextFieldCell class];

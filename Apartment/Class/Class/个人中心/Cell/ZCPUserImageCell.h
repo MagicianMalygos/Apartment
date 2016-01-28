@@ -12,6 +12,7 @@
 
 @class ZCPUserImageCellItem;
 
+// 用户图片和名字Cell
 @interface ZCPUserImageCell : ZCPTableViewWithLineCell
 
 @property (nonatomic, strong) UIImageView *bgImageView;

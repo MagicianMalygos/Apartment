@@ -34,6 +34,8 @@
 //#define Height_TABBAR                              ((int)(APPLICATIONWIDTH *  68.0/320.0))
 #define Height_TABBAR                               48
 
+// 默认间距
+#define MARGIN_DEFAULT                              8
 // 水平边距
 #define HorizontalMargin                            8
 // 垂直边距

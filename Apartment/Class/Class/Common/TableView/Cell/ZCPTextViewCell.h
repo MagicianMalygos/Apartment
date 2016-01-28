@@ -10,7 +10,7 @@
 
 @class ZCPTextViewCellItem;
 
-// 文本输入框TextView Cell
+// 只有一个TextView的Cell
 @interface ZCPTextViewCell : ZCPTableViewWithLineCell
 
 @property (nonatomic, strong) UITextView *textView;             // 文本输入框

@@ -10,6 +10,9 @@
 
 @implementation ZCPOptionCell
 
+@synthesize optionView = _optionView;
+@synthesize item = _item;
+
 - (void)setupContentView {
     [super setupContentView];
     
@@ -42,7 +45,10 @@
 
 @implementation ZCPOptionCellItem
 
-#pragma mark - init
+@synthesize attributedStringArr = _attributedStringArr;
+@synthesize delegate = _delegate;
+
+#pragma mark - instancetype
 - (instancetype)init {
     if (self = [super init]) {
         self.cellClass = [ZCPOptionCell class];

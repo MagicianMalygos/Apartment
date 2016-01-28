@@ -10,6 +10,7 @@
 #import "ZCPViewController.h"
 #import "ZCPListTableViewAdaptor.h"
 
+// 表格视图控制器基类
 @interface ZCPTableViewController : ZCPViewController <ZCPListTableViewAdaptorDelegate, UITableViewDelegate, UITableViewDataSource>
 
 // table view

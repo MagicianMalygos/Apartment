@@ -11,6 +11,8 @@
 #pragma mark - Section Cell
 @implementation ZCPSectionCell
 
+@synthesize sectionTitleLabel = _sectionTitleLabel;
+
 /**
  *  cell的初始化方法
  */
@@ -88,10 +90,12 @@
 @implementation ZCPSectionCellItem
 
 @synthesize sectionTitle = _sectionTitle;
+@synthesize sectionAttrTitle = _sectionAttrTitle;
 @synthesize font = _font;
+@synthesize titleEdgeInset = _titleEdgeInset;
 
 
-#pragma mark - init
+#pragma mark - instancetype
 - (instancetype)init {
     if (self = [super init]) {
         self.cellClass = [ZCPSectionCell class];

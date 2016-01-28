@@ -110,6 +110,7 @@
 @synthesize state = _state;
 @synthesize delegate = _delegate;
 
+#pragma mark - instancetype
 + (instancetype)buttonCellItem {
     ZCPButtonCellItem *buttonItem = [[ZCPButtonCellItem alloc] initWithDefault];
     buttonItem.buttonConfigBlock = ^(UIButton *button) {

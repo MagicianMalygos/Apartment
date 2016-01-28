@@ -10,6 +10,8 @@
 
 @implementation ZCPLineCell
 
+@synthesize item = _item;
+
 - (void)setupContentView {
     self.backgroundColor = [UIColor clearColor];
     self.accessoryType = UITableViewCellAccessoryNone;
@@ -32,6 +34,9 @@
 
 @implementation ZCPLineCellItem
 
+@synthesize backgroundColor = _backgroundColor;
+
+#pragma mark - instancetype
 - (instancetype)init {
     if (self = [super init]) {
         self.cellClass = [ZCPLineCell class];

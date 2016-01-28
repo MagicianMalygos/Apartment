@@ -9,10 +9,11 @@
 #import "ZCPTableViewWithLineCell.h"
 
 @implementation ZCPTableViewWithLineCell
+
 @synthesize lineUpper = _lineUpper;
 @synthesize lineLower = _lineLower;
 
-#pragma mark - init
+#pragma mark - instancetype
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
     if (self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
         //设置空白透明
