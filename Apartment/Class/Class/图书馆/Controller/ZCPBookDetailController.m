@@ -28,5 +28,20 @@
     return self;
 }
 
+#pragma mark - life circle
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self clearNavigationBar];
+    self.tabBarController.title = @"图书详情";
+}
+- (void)viewWillLayoutSubviews {
+    [super viewWillLayoutSubviews];
+    self.tableView.frame = CGRectMake(0, 0, APPLICATIONWIDTH, APPLICATIONHEIGHT - Height_NavigationBar);
+}
+
+#pragma mark - Construct Data
+- (void)constructData {
+    
+}
 
 @end
