@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>className</key>
+		<string>ZCPUserFocusOnPeopleController</string>
+		<key>identifier</key>
+		<string>ZCPUserFocusOnPeopleController</string>
+		<key>description</key>
+		<string>个人中心-所关注人 视图控制器</string>
+	</dict>
+	<dict>
+		<key>className</key>
+		<string>ZCPUserAchievementController</string>
+		<key>identifier</key>
+		<string>ZCPUserAchievementController</string>
+		<key>description</key>
+		<string>个人中心-个人成就 视图控制器</string>
+	</dict>
+	<dict>
+		<key>className</key>
+		<string>ZCPUserCollectionController</string>
+		<key>identifier</key>
+		<string>ZCPUserCollectionController</string>
+		<key>description</key>
+		<string>个人中心-我的收藏 视图控制器</string>
+	</dict>
+	<dict>
+		<key>className</key>
+		<string>ZCPUserSettingController</string>
+		<key>identifier</key>
+		<string>ZCPUserSettingController</string>
+		<key>description</key>
+		<string>个人中心-设置 视图控制器</string>
+	</dict>
+	<dict>
+		<key>className</key>
+		<string>ZCPUserAboutController</string>
+		<key>identifier</key>
+		<string>ZCPUserAboutController</string>
+		<key>description</key>
+		<string>个人中心-关于 视图控制器</string>
+	</dict>
+	<dict>
+		<key>className</key>
+		<string>ZCPSettingUserInfoController</string>
+		<key>identifier</key>
+		<string>ZCPSettingUserInfoController</string>
+		<key>description</key>
+		<string>个人中心-设置-用户信息 视图控制器</string>
+	</dict>
+	<dict>
+		<key>className</key>
+		<string>ZCPSettingChangePwdController</string>
+		<key>identifier</key>
+		<string>ZCPSettingChangePwdController</string>
+		<key>description</key>
+		<string>个人中心-设置-用户信息 视图控制器</string>
+	</dict>
+	<dict>
+		<key>className</key>
+		<string>ZCPSettingChangeSecurityController</string>
+		<key>identifier</key>
+		<string>ZCPSettingChangeSecurityController</string>
+		<key>description</key>
+		<string>个人中心-设置-用户信息 视图控制器</string>
+	</dict>
+	<dict>
+		<key>className</key>
+		<string>ZCPCoupletDetailController</string>
+		<key>identifier</key>
+		<string>ZCPCoupletDetailController</string>
+		<key>description</key>
+		<string>文趣活动-对对联-对联详情 视图控制器</string>
+	</dict>
+	<dict>
+		<key>className</key>
+		<string>ZCPArgumentListController</string>
+		<key>identifier</key>
+		<string>ZCPArgumentListController</string>
+		<key>description</key>
+		<string>文趣活动-舌场争锋-论据列表 视图控制器</string>
+	</dict>
+	<dict>
+		<key>className</key>
+		<string>ZCPAddCoupletController</string>
+		<key>identifier</key>
+		<string>ZCPAddCoupletController</string>
+		<key>description</key>
+		<string>文趣活动-对对联-添加对联 视图控制器</string>
+	</dict>
+	<dict>
+		<key>className</key>
+		<string>ZCPAddThesisController</string>
+		<key>identifier</key>
+		<string>ZCPAddThesisController</string>
+		<key>description</key>
+		<string>文趣活动-舌场争锋-添加辩题 视图控制器</string>
+	</dict>
+	<dict>
+		<key>className</key>
+		<string>ZCPAddArgumentController</string>
+		<key>identifier</key>
+		<string>ZCPAddArgumentController</string>
+		<key>description</key>
+		<string>文趣活动-舌场争锋-添加论据 视图控制器</string>
+	</dict>
+	<dict>
+		<key>className</key>
+		<string>ZCPBookDetailController</string>
+		<key>identifier</key>
+		<string>ZCPBookDetailController</string>
+		<key>description</key>
+		<string>图书馆-图书详情 视图控制器</string>
+	</dict>
+</array>
+</plist>

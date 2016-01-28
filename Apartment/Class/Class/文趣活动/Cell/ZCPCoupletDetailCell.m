@@ -1,0 +1,106 @@
+//
+//  ZCPCoupletDetailCell.m
+//  Apartment
+//
+//  Created by apple on 16/1/23.
+//  Copyright © 2016年 zcp. All rights reserved.
+//
+
+#import "ZCPCoupletDetailCell.h"
+
+@implementation ZCPCoupletDetailCell
+
+- (void)setupContentView {
+    [super setupContentView];
+    
+    // 第一行
+    self.supportButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    self.supportButton.frame = CGRectMake(APPLICATIONWIDTH - HorizontalMargin - 20, VerticalMargin, 20, 20);
+    self.collectionButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    self.collectionButton.frame = CGRectMake(self.supportButton.left - UIMargin -20, VerticalMargin, 20, 20);
+    
+    // 第二行
+    self.coupletContentLabel = [[UILabel alloc] init];
+    self.coupletContentLabel.textAlignment = NSTextAlignmentLeft;  // 左对齐
+    self.coupletContentLabel.font = [UIFont systemFontOfSize:18.0f weight:10.0f];  // 设置字体样式
+    self.coupletContentLabel.numberOfLines = 0;  // 多行显示
+    
+    // 第三行
+    self.userHeadImgView = [[UIImageView alloc] init];
+    self.userNameLabel = [[UILabel alloc] init];
+    self.userNameLabel.textAlignment = NSTextAlignmentLeft;
+    self.userNameLabel.font = [UIFont systemFontOfSize:14.0f];
+    
+    self.timeLabel = [[UILabel alloc] init];
+    self.timeLabel.textAlignment = NSTextAlignmentRight;
+    self.timeLabel.font = [UIFont systemFontOfSize:13.0f];
+    
+    // 设置背景颜色
+    self.supportButton.backgroundColor = [UIColor redColor];
+    self.collectionButton.backgroundColor = [UIColor greenColor];
+    self.coupletContentLabel.backgroundColor = [UIColor blueColor];
+    self.userHeadImgView.backgroundColor = [UIColor redColor];
+    self.userNameLabel.backgroundColor = [UIColor yellowColor];
+    self.timeLabel.backgroundColor = [UIColor magentaColor];
+    
+    // 添加
+    [self.contentView addSubview:self.supportButton];
+    [self.contentView addSubview:self.collectionButton];
+    [self.contentView addSubview:self.coupletContentLabel];
+    [self.contentView addSubview:self.userHeadImgView];
+    [self.contentView addSubview:self.userNameLabel];
+    [self.contentView addSubview:self.timeLabel];
+}
+
+- (void)setObject:(NSObject *)object {
+    if ([object isKindOfClass:[ZCPCoupletDetailCellItem class]] && self.item != object) {
+        [super setObject:object];
+        self.item = (ZCPCoupletDetailCellItem *)object;
+        
+        // 计算高度
+        CGFloat contentHeight = [self.item.coupletContent boundingRectWithSize:CGSizeMake(APPLICATIONWIDTH - HorizontalMargin * 2, CGFLOAT_MAX) options:NSStringDrawingUsesFontLeading| NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName: [UIFont systemFontOfSize:18.0f weight:10.0f]} context:nil].size.height;
+        
+        // 设置frame
+        self.coupletContentLabel.frame = CGRectMake(HorizontalMargin, self.collectionButton.bottom + VerticalMargin, APPLICATIONWIDTH - HorizontalMargin * 2, contentHeight);
+        self.userHeadImgView.frame = CGRectMake(HorizontalMargin, self.coupletContentLabel.bottom + VerticalMargin, 25, 25);
+        self.timeLabel.frame = CGRectMake(APPLICATIONWIDTH - HorizontalMargin - 100, self.userHeadImgView.y, 100, 25);
+        self.userNameLabel.frame = CGRectMake(self.userHeadImgView.right + UIMargin, self.userHeadImgView.y, APPLICATIONWIDTH - HorizontalMargin * 2 - self.userHeadImgView.width - self.timeLabel.width - UIMargin * 2, 25);
+        
+        // 设置属性
+        self.coupletContentLabel.text = self.item.coupletContent;
+        self.userHeadImgView.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:self.item.userHeadImageURL]]];
+        self.userNameLabel.text = self.item.userName;
+        self.timeLabel.text = [ZCPDataModel stringValueFromDateValue:self.item.time];
+        
+        // 设置cell高度
+        self.item.cellHeight = [NSNumber numberWithFloat:self.userHeadImgView.bottom + VerticalMargin];
+    }
+    
+}
++ (CGFloat)tableView:(UITableView *)tableView rowHeightForObject:(id)object {
+    ZCPCoupletDetailCellItem *item = (ZCPCoupletDetailCellItem *)object;
+    // 计算高度
+    CGFloat contentHeight = [item.coupletContent boundingRectWithSize:CGSizeMake(APPLICATIONWIDTH - HorizontalMargin * 2, CGFLOAT_MAX) options:NSStringDrawingUsesFontLeading| NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName: [UIFont systemFontOfSize:18.0f weight:10.0f]} context:nil].size.height;
+    return 20.0f + contentHeight + 25.0f + UIMargin * 2 + VerticalMargin * 2;
+}
+
+@end
+
+@implementation ZCPCoupletDetailCellItem
+
+- (instancetype)init {
+    if (self = [super init]) {
+        self.cellClass = [ZCPCoupletDetailCell class];
+        self.cellType = [ZCPCoupletDetailCell cellIdentifier];
+    }
+    return self;
+}
+- (instancetype)initWithDefault {
+    if (self = [super initWithDefault]) {
+        self.cellClass = [ZCPCoupletDetailCell class];
+        self.cellType = [ZCPCoupletDetailCell cellIdentifier];
+    }
+    return self;
+}
+
+@end
