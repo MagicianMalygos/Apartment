@@ -8,6 +8,7 @@
 
 #import "ZCPTableViewCell.h"
 
+// 个人中心-我的收藏 视图空使其
 @interface ZCPUserCollectionController : ZCPTableViewController
 
 @end

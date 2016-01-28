@@ -8,6 +8,7 @@
 
 #import "ZCPTableViewCell.h"
 
+// 用户中心-所关注人 视图控制器
 @interface ZCPUserFocusOnPeopleController : ZCPTableViewController
 
 @end

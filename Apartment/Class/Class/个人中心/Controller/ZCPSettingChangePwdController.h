@@ -8,6 +8,7 @@
 
 #import "ZCPTableViewController.h"
 
+// 修改密码视图控制器
 @interface ZCPSettingChangePwdController : ZCPTableViewController
 
 @end

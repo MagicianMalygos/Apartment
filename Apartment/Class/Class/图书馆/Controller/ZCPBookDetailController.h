@@ -8,6 +8,7 @@
 
 #import "ZCPTableViewController.h"
 
+// 图书详情视图控制器
 @interface ZCPBookDetailController : ZCPTableViewController
 
 @end

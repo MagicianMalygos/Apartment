@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
+// 用户中心视图控制器
 @interface ZCPMainUserController : ZCPTableViewController
 
 @end
