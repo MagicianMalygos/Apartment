@@ -14,6 +14,7 @@
 @synthesize textLabel = _textLabel;
 @synthesize item = _item;
 
+#pragma mark - Setup Cell
 /**
  *  初始化视图
  */
@@ -33,7 +34,7 @@
         self.accessoryType = item.accessoryType;
         CGFloat cellHeight = [item.cellHeight floatValue];
         
-        self.textLabel.frame = CGRectMake(MARGIN_DEFAULT, MARGIN_DEFAULT, APPLICATIONWIDTH - MARGIN_DEFAULT * 2 - RIGHT_WIDTH, cellHeight - MARGIN_DEFAULT * 2);
+        self.textLabel.frame = CGRectMake(MARGIN_DEFAULT, MARGIN_DEFAULT, CELLWIDTH_DEFAULT - MARGIN_DEFAULT * 2 - RIGHT_WIDTH, cellHeight - MARGIN_DEFAULT * 2);
         
         [self.textLabel setAttributedText:item.text];
     }
@@ -103,7 +104,7 @@
         CGFloat cellHeight = [self.item.cellHeight floatValue];
         
         self.imgIcon.frame = CGRectMake(MARGIN_DEFAULT, MARGIN_DEFAULT, cellHeight - MARGIN_DEFAULT * 2, cellHeight - MARGIN_DEFAULT * 2);
-        self.textLabel.frame = CGRectMake(self.imgIcon.frame.origin.x + self.imgIcon.frame.size.width + MARGIN_IMG_TEXT, MARGIN_DEFAULT, APPLICATIONWIDTH - self.imgIcon.frame.size.width - MARGIN_IMG_TEXT - MARGIN_DEFAULT * 2 - RIGHT_WIDTH, cellHeight - MARGIN_DEFAULT * 2);
+        self.textLabel.frame = CGRectMake(self.imgIcon.x + self.imgIcon.width + MARGIN_IMG_TEXT, MARGIN_DEFAULT, CELLWIDTH_DEFAULT - self.imgIcon.width - MARGIN_IMG_TEXT - MARGIN_DEFAULT * 2 - RIGHT_WIDTH, cellHeight - MARGIN_DEFAULT * 2);
         [self.imgIcon setImage:[UIImage imageNamed:item.imageURL]];
         [self.textLabel setAttributedText:item.text];
     }
@@ -169,15 +170,14 @@
  */
 - (void)setObject:(NSObject *)object {
     if ([object isKindOfClass:[ZCPImageTextSwitchCellItem class]] && self.item != object) {
-        [super setObject:object];
         
         self.item = (ZCPImageTextSwitchCellItem *)object;
         ZCPImageTextSwitchCellItem *item = (ZCPImageTextSwitchCellItem *)self.item;
         CGFloat cellHeight = [self.item.cellHeight floatValue];
         
         self.imgIcon.frame = CGRectMake(MARGIN_DEFAULT, VerticalMargin, cellHeight - MARGIN_DEFAULT * 2, cellHeight - MARGIN_DEFAULT * 2);
-        self.textLabel.frame = CGRectMake(self.imgIcon.frame.origin.x + self.imgIcon.frame.size.width + MARGIN_IMG_TEXT, VerticalMargin, APPLICATIONWIDTH - self.imgIcon.frame.size.width - MARGIN_IMG_TEXT - MARGIN_DEFAULT * 2 - RIGHT_WIDTH, cellHeight - MARGIN_DEFAULT * 2);
-        self.switchView.frame = CGRectMake(APPLICATIONWIDTH - MARGIN_DEFAULT - self.switchView.frame.size.width, VerticalMargin, self.switchView.frame.size.width, self.switchView.frame.size.height);
+        self.textLabel.frame = CGRectMake(self.imgIcon.x + self.imgIcon.width + MARGIN_IMG_TEXT, VerticalMargin, CELLWIDTH_DEFAULT - self.imgIcon.width - MARGIN_IMG_TEXT - MARGIN_DEFAULT * 2 - RIGHT_WIDTH, cellHeight - MARGIN_DEFAULT * 2);
+        self.switchView.frame = CGRectMake(CELLWIDTH_DEFAULT - MARGIN_DEFAULT - self.switchView.width, VerticalMargin, self.switchView.width, self.switchView.height);
         
         [self.imgIcon setImage:[UIImage imageNamed:item.imageURL]];
         [self.textLabel setAttributedText:item.text];

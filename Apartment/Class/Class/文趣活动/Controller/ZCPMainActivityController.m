@@ -63,7 +63,7 @@
                                                                     attributes:@{NSFontAttributeName: [UIFont systemFontOfSize:16.0f]}]
                                    ,[[NSAttributedString alloc] initWithString:@"头脑风暴"
                                                                     attributes:@{NSFontAttributeName: [UIFont systemFontOfSize:16.0f]}]];
-        _optionView = [[ZCPOptionView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, OptionHeight) attributeStringArr:attrStringArr];
+        _optionView = [[ZCPOptionView alloc] initWithFrame:CGRectMake(0, 0, self.view.width, OptionHeight) attributeStringArr:attrStringArr];
         _optionView.delegate = self;
     }
     return _optionView;

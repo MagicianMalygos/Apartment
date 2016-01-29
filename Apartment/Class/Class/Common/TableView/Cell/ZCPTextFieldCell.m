@@ -13,6 +13,7 @@
 @synthesize textField = _textField;
 @synthesize item = _item;
 
+#pragma mark - Setup Cell
 - (void)setupContentView {
     
     self.textField = [[UITextField alloc] init];
@@ -20,12 +21,11 @@
 }
 - (void)setObject:(NSObject *)object {
     if ([object isKindOfClass:[ZCPTextFieldCellItem class]] && self.item != object) {
-        [super setObject:object];
         self.item = (ZCPTextFieldCellItem *)object;
         ZCPTextFieldCellItem *item = (ZCPTextFieldCellItem *)object;
         CGFloat cellHeight = [item.cellHeight floatValue];
         
-        self.textField.frame = CGRectMake(8, 8, APPLICATIONWIDTH - 8*2, cellHeight - 8*2);
+        self.textField.frame = CGRectMake(HorizontalMargin, VerticalMargin, CELLWIDTH_DEFAULT - HorizontalMargin * 2, cellHeight - VerticalMargin * 2);
         self.textField.placeholder = item.placeholder;
     }
 }

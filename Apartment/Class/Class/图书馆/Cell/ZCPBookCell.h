@@ -9,6 +9,7 @@
 #import "ZCPTableViewWithLineCell.h"
 
 @class ZCPBookCellItem;
+@class ZCPBookDetailCellItem;
 
 // 图书cell
 @interface ZCPBookCell : ZCPTableViewWithLineCell
@@ -40,5 +41,24 @@
 @property (nonatomic, assign) NSInteger bookCommentCount;           // 图书评论数量
 
 @property (nonatomic, copy) NSString *bookSummary;                  // 图书简介
+
+@end
+
+
+#pragma mark - ZCPBookDetailCell
+// 图书详情cell
+@interface ZCPBookDetailCell : ZCPBookCell
+
+@property (nonatomic, strong) UIButton *supportButton;              // 点赞按钮
+@property (nonatomic, strong) UIButton *collectionButton;           // 收藏按钮
+@property (nonatomic, strong) UIButton *bookpostSearchButton;       // 相关图书贴搜索按钮
+@property (nonatomic, strong) UIButton *webSearchButton;            // 网上搜索按钮
+
+@end
+
+@interface ZCPBookDetailCellItem : ZCPBookCellItem
+
+@property (nonatomic, copy) NSString *bookpostSearchButtonTitle;    // 相关图书帖搜索按钮标题
+@property (nonatomic, copy) NSString *webSearchButtonTitle;         // 网上搜索按钮标题
 
 @end

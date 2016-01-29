@@ -202,23 +202,23 @@
     switch (object.cellTag) {
         case ZCPUserFocusOnPeopleCellTag:
             [[ZCPNavigator sharedInstance] gotoViewWithIdentifier:APPURL_VIEW_IDENTIFIER_USER_FOCUSON_PEOPLE
-                                                 paramDictForInit:@{}];
+                                                 paramDictForInit:nil];
             break;
         case ZCPUserAchievementCellTag:
             [[ZCPNavigator sharedInstance] gotoViewWithIdentifier:APPURL_VIEW_IDENTIFIER_USER_ACHIEVEMENT
-                                                 paramDictForInit:@{}];
+                                                 paramDictForInit:nil];
             break;
         case ZCPUserCollectionCellTag:
             [[ZCPNavigator sharedInstance] gotoViewWithIdentifier:APPURL_VIEW_IDENTIFIER_USER_COLLECTION
-                                                 paramDictForInit:@{}];
+                                                 paramDictForInit:nil];
             break;
         case ZCPUserSettingCellTag:
             [[ZCPNavigator sharedInstance] gotoViewWithIdentifier:APPURL_VIEW_IDENTIFIER_USER_SETTING
-                                                 paramDictForInit:@{}];
+                                                 paramDictForInit:nil];
             break;
         case ZCPUserAboutCellTag:
             [[ZCPNavigator sharedInstance] gotoViewWithIdentifier:APPURL_VIEW_IDENTIFIER_USER_ABOUT
-                                                 paramDictForInit:@{}];
+                                                 paramDictForInit:nil];
             break;
         default:
             break;

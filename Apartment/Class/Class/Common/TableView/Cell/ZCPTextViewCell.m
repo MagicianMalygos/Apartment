@@ -13,8 +13,8 @@
 @synthesize textView = _textView;
 @synthesize item = _item;
 
+#pragma mark - Setup Cell
 - (void)setupContentView {
-    [super setupContentView];
     
     self.textView = [[UITextView alloc] init];
     self.textView.backgroundColor = [UIColor whiteColor];
@@ -23,13 +23,12 @@
 }
 - (void)setObject:(NSObject *)object {
     if ([object isKindOfClass:[ZCPTextViewCellItem class]] && self.item != object) {
-        [super setObject:object];
         self.item = (ZCPTextViewCellItem *)object;
         
         [self.textView setHeight:[self.item.cellHeight floatValue]];
         self.textView.frame = CGRectMake(self.item.textEdgeInset.left
                                          , self.item.textEdgeInset.top
-                                         , APPLICATIONWIDTH - self.item.textEdgeInset.left - self.item.textEdgeInset.right
+                                         , CELLWIDTH_DEFAULT - self.item.textEdgeInset.left - self.item.textEdgeInset.right
                                          , [self.item.cellHeight floatValue] - self.item.textEdgeInset.top - self.item.textEdgeInset.bottom);
     }
 }

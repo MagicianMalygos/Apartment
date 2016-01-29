@@ -17,6 +17,7 @@
 @synthesize item = _item;
 @synthesize delegate = _delegate;
 
+#pragma mark - Setup Cell
 - (void)setupContentView {
     
     self.bigButton = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -36,7 +37,6 @@
 }
 - (void)setObject:(NSObject *)object {
     if ([object isKindOfClass:[ZCPHeadImageCellItem class]] && self.item != object) {
-        [super setObject:object];
         self.item = (ZCPHeadImageCellItem *)object;
         self.delegate = self.item.delegate;
         
@@ -45,12 +45,18 @@
         
         CGFloat marginTop = 16;
         CGFloat buttonSide = (cellHeight - marginTop * 2) / 5;
-        CGFloat marginLeft = (APPLICATIONWIDTH - 12*buttonSide) / 4;
+        CGFloat marginLeft = (CELLWIDTH_DEFAULT - buttonSide * 12) / 4;
         
-        self.bigButton.frame = CGRectMake(marginLeft, marginTop, 5*buttonSide, 5*buttonSide);
-        self.middleButton.frame = CGRectMake(marginLeft*2 + buttonSide*5, marginTop + 0.5*buttonSide, 4*buttonSide, 4*buttonSide);
-        self.smallButton.frame = CGRectMake(marginLeft*3 + buttonSide*9, marginTop + buttonSide, 3*buttonSide, 3*buttonSide);
-        self.bgImageView.frame = CGRectMake(0, 0, APPLICATIONWIDTH, cellHeight);
+        self.bigButton.frame = CGRectMake(marginLeft, marginTop, 5 * buttonSide, 5 * buttonSide);
+        self.middleButton.frame = CGRectMake(marginLeft * 2 + buttonSide * 5
+                                             , marginTop + buttonSide * 0.5
+                                             , buttonSide * 4
+                                             , buttonSide * 4);
+        self.smallButton.frame = CGRectMake(marginLeft * 3 + buttonSide * 9
+                                            , marginTop + buttonSide
+                                            , buttonSide * 3
+                                            , buttonSide * 3);
+        self.bgImageView.frame = CGRectMake(0, 0, CELLWIDTH_DEFAULT, cellHeight);
         [self.contentView sendSubviewToBack:self.bgImageView];
         
         [self.bigButton addTarget:self action:@selector(headImageButtonClicked:) forControlEvents:UIControlEventTouchUpInside];

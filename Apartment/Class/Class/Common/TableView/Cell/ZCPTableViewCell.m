@@ -16,16 +16,17 @@
         self.backgroundColor = [UIColor clearColor];
         self.accessoryType = UITableViewCellAccessoryNone;
         self.selectionStyle = UITableViewCellSelectionStyleNone;
+        
+        //设置空白透明
+        [self clearBackgroundColor];
+        
         [self setupContentView];
     }
     return self;
 }
 
-#pragma mark - Override Method
+#pragma mark - Setup Cell
 - (void)setupContentView {
-    self.backgroundColor = [UIColor clearColor];
-    self.accessoryType = UITableViewCellAccessoryNone;
-    self.selectionStyle = UITableViewCellSelectionStyleNone;
 }
 - (void)setObject:(NSObject *)object {
     _object = object;

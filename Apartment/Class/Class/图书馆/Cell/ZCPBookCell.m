@@ -14,6 +14,7 @@
 #define TIMELABEL_WIDTH         130.0f  // 事件标签宽度
 #define NUMBERLABEL_WIDTH       60.0f   // 计数标签宽度
 
+#pragma mark - ZCPBookCell
 @implementation ZCPBookCell
 
 @synthesize coverImageView = _coverImageView;
@@ -27,8 +28,8 @@
 @synthesize commentCountLabel = _commentCountLabel;
 @synthesize item = _item;
 
+#pragma mark - Setup Cell
 - (void)setupContentView {
-    [super setupContentView];
     
     // 图片
     self.coverImageView = [[UIImageView alloc] initWithFrame:CGRectMake(HorizontalMargin
@@ -38,15 +39,16 @@
     // 第一行
     self.nameLabel = [[UILabel alloc] initWithFrame:CGRectMake(self.coverImageView.right + UIMargin
                                                                , VerticalMargin
-                                                               , APPLICATIONWIDTH - HorizontalMargin * 2 - UIMargin - self.coverImageView.width
+                                                               , CELLWIDTH_DEFAULT - HorizontalMargin * 2 - UIMargin - self.coverImageView.width
                                                                , NAMELABEL_HEIGHT)];
     self.nameLabel.textAlignment = NSTextAlignmentCenter;
     self.nameLabel.font = [UIFont systemFontOfSize:15.0f];
+    self.nameLabel.numberOfLines = 0;
     
     // 第二行
     self.authorLabel = [[UILabel alloc] initWithFrame:CGRectMake(self.coverImageView.right + UIMargin
                                                                  , self.nameLabel.bottom + UIMargin
-                                                                 , APPLICATIONWIDTH - HorizontalMargin * 2 - UIMargin - self.coverImageView.width
+                                                                 , CELLWIDTH_DEFAULT - HorizontalMargin * 2 - UIMargin - self.coverImageView.width
                                                                  , LABEL_HEIGHT)];
     self.authorLabel.textAlignment = NSTextAlignmentLeft;
     self.authorLabel.font = [UIFont systemFontOfSize:12.0f];
@@ -54,7 +56,7 @@
     // 第三行
     self.publisherLabel = [[UILabel alloc] initWithFrame:CGRectMake(self.coverImageView.right + UIMargin
                                                                     , self.authorLabel.bottom + UIMargin
-                                                                    , APPLICATIONWIDTH - HorizontalMargin * 2 - UIMargin - self.coverImageView.width
+                                                                    , CELLWIDTH_DEFAULT - HorizontalMargin * 2 - UIMargin - self.coverImageView.width
                                                                     , LABEL_HEIGHT)];
     self.publisherLabel.textAlignment = NSTextAlignmentLeft;
     self.publisherLabel.font = [UIFont systemFontOfSize:12.0f];
@@ -69,7 +71,7 @@
     
     self.fieldLabel = [[UILabel alloc] initWithFrame:CGRectMake(self.publishTimeLabel.right + UIMargin
                                                                 , self.publisherLabel.bottom + UIMargin
-                                                                , APPLICATIONWIDTH - HorizontalMargin * 2 - UIMargin * 2 - self.coverImageView.width - TIMELABEL_WIDTH
+                                                                , CELLWIDTH_DEFAULT - HorizontalMargin * 2 - UIMargin * 2 - self.coverImageView.width - TIMELABEL_WIDTH
                                                                 , LABEL_HEIGHT)];
     self.fieldLabel.textAlignment = NSTextAlignmentCenter;
     self.fieldLabel.font = [UIFont systemFontOfSize:12.0f];
@@ -77,19 +79,19 @@
     // 第五行
     self.contributorLabel = [[UILabel alloc] initWithFrame:CGRectMake(self.coverImageView.right + UIMargin
                                                                 , self.coverImageView.bottom - LABEL_HEIGHT
-                                                                , APPLICATIONWIDTH - HorizontalMargin * 2 - UIMargin * 3 - self.coverImageView.width - NUMBERLABEL_WIDTH * 2
+                                                                , CELLWIDTH_DEFAULT - HorizontalMargin * 2 - UIMargin * 3 - self.coverImageView.width - NUMBERLABEL_WIDTH * 2
                                                                 , LABEL_HEIGHT)];
     self.contributorLabel.textAlignment = NSTextAlignmentLeft;
     self.contributorLabel.font = [UIFont systemFontOfSize:10.0f];
     
-    self.collectNumberLabel = [[UILabel alloc] initWithFrame:CGRectMake(APPLICATIONWIDTH - HorizontalMargin - UIMargin - NUMBERLABEL_WIDTH * 2
+    self.collectNumberLabel = [[UILabel alloc] initWithFrame:CGRectMake(CELLWIDTH_DEFAULT - HorizontalMargin - UIMargin - NUMBERLABEL_WIDTH * 2
                                                                         , self.coverImageView.bottom - LABEL_HEIGHT
                                                                         , NUMBERLABEL_WIDTH
                                                                         , LABEL_HEIGHT)];
     self.collectNumberLabel.textAlignment = NSTextAlignmentRight;
     self.collectNumberLabel.font = [UIFont systemFontOfSize:10.0f];
     
-    self.commentCountLabel = [[UILabel alloc] initWithFrame:CGRectMake(APPLICATIONWIDTH - HorizontalMargin - NUMBERLABEL_WIDTH
+    self.commentCountLabel = [[UILabel alloc] initWithFrame:CGRectMake(CELLWIDTH_DEFAULT - HorizontalMargin - NUMBERLABEL_WIDTH
                                                                        , self.coverImageView.bottom - LABEL_HEIGHT
                                                                        , NUMBERLABEL_WIDTH, LABEL_HEIGHT)];
     self.commentCountLabel.textAlignment = NSTextAlignmentRight;
@@ -116,8 +118,7 @@
     [self.contentView addSubview:self.commentCountLabel];
 }
 - (void)setObject:(NSObject *)object {
-    if ([object isKindOfClass:[ZCPBookCellItem class]] && self.item != object) {
-        [super setObject:object];
+    if ([object isKindOfClass:[ZCPBookCellItem class]]) {
         self.item = (ZCPBookCellItem *)object;
         
         // 设置属性
@@ -169,6 +170,77 @@
         self.cellClass = [ZCPBookCell class];
         self.cellType = [ZCPBookCell cellIdentifier];
         self.cellHeight = @CELL_HEIGHT;
+    }
+    return self;
+}
+
+@end
+
+
+
+#pragma mark - ZCPBookDetailCell
+@implementation ZCPBookDetailCell
+
+#pragma mark - Setup Cell
+- (void)setupContentView {
+    [super setupContentView];
+    
+    self.supportButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    self.supportButton.frame = CGRectMake(HorizontalMargin, self.coverImageView.bottom + UIMargin, 20, 20);
+    
+    self.collectionButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    self.collectionButton.frame = CGRectMake(self.supportButton.right + UIMargin, self.coverImageView.bottom + UIMargin, 20, 20);
+    
+    self.bookpostSearchButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    self.bookpostSearchButton.frame = CGRectMake(CELLWIDTH_DEFAULT - HorizontalMargin - UIMargin - NUMBERLABEL_WIDTH * 2, self.coverImageView.bottom + UIMargin, NUMBERLABEL_WIDTH, 20);
+    
+    self.webSearchButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    self.webSearchButton.frame = CGRectMake(CELLWIDTH_DEFAULT - HorizontalMargin - NUMBERLABEL_WIDTH, self.coverImageView.bottom + UIMargin, NUMBERLABEL_WIDTH, 20);
+    
+    self.supportButton.backgroundColor  = [UIColor redColor];
+    self.collectionButton.backgroundColor = [UIColor redColor];
+    self.bookpostSearchButton.backgroundColor = [UIColor redColor];
+    self.webSearchButton.backgroundColor = [UIColor redColor];
+    
+    [self.contentView addSubview:self.supportButton];
+    [self.contentView addSubview:self.collectionButton];
+    [self.contentView addSubview:self.bookpostSearchButton];
+    [self.contentView addSubview:self.webSearchButton];
+}
+
+- (void)setObject:(NSObject *)object {
+    if ([object isKindOfClass:[ZCPBookDetailCellItem class]]) {
+        [super setObject:object];
+        self.item = (ZCPBookDetailCellItem *)object;
+        ZCPBookDetailCellItem *item = (ZCPBookDetailCellItem *)object;
+        
+        self.bookpostSearchButton.titleLabel.text = item.bookpostSearchButtonTitle;
+        self.webSearchButton.titleLabel.text = item.webSearchButtonTitle;
+    }
+}
++ (CGFloat)tableView:(UITableView *)tableView rowHeightForObject:(id)object {
+    ZCPBookDetailCellItem *item = (ZCPBookDetailCellItem *)object;
+    return [item.cellHeight floatValue];
+}
+
+
+@end
+
+@implementation ZCPBookDetailCellItem
+
+#pragma mark - instancetype
+- (instancetype)init {
+    if (self = [super init]) {
+        self.cellClass = [ZCPBookDetailCell class];
+        self.cellType = [ZCPBookDetailCell cellIdentifier];
+    }
+    return self;
+}
+- (instancetype)initWithDefault {
+    if (self = [super initWithDefault]) {
+        self.cellClass = [ZCPBookDetailCell class];
+        self.cellType = [ZCPBookDetailCell cellIdentifier];
+        self.cellHeight = @178;
     }
     return self;
 }

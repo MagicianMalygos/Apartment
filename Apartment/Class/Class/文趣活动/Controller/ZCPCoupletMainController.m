@@ -89,7 +89,9 @@
  *  @param indexPath cell索引
  */
 - (void)tableView:(UITableView *)tableView didSelectObject:(id<ZCPTableViewCellItemBasicProtocol>)object rowAtIndexPath:(NSIndexPath *)indexPath {
-    [[ZCPNavigator sharedInstance] gotoViewWithIdentifier:APPURL_VIEW_IDENTIFIER_COUPLET_DETAIL paramDictForInit:@{@"_selectedCoupletModel":[self.coupletModelArr objectAtIndex:indexPath.row]}];
+    // 跳转到对联详情界面，并进行nil值判断
+    ZCPCoupletModel *selectedCoupletModel = [self.coupletModelArr objectAtIndex:indexPath.row];
+    [[ZCPNavigator sharedInstance] gotoViewWithIdentifier:APPURL_VIEW_IDENTIFIER_COUPLET_DETAIL paramDictForInit:@{@"_selectedCoupletModel": (selectedCoupletModel != nil)? selectedCoupletModel: [NSNull null]}];
 }
 
 #pragma mark - ZCPOptionView Delegate

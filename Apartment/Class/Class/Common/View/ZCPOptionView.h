@@ -10,6 +10,7 @@
 
 @protocol ZCPOptionViewDelegate;
 
+// 类似SegmentView的选项卡视图
 @interface ZCPOptionView : UIView
 
 @property (nonatomic, strong) NSMutableArray *optionItemLabelArr;   // 各选项label数组

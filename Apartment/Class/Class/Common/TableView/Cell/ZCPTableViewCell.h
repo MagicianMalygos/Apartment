@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
+#define CELLWIDTH_DEFAULT   APPLICATIONWIDTH
+
 // Cell基类
 @interface ZCPTableViewCell : UITableViewCell
 

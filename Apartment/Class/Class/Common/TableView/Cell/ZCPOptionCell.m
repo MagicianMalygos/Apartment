@@ -13,20 +13,19 @@
 @synthesize optionView = _optionView;
 @synthesize item = _item;
 
+#pragma mark - Setup Cell
 - (void)setupContentView {
-    [super setupContentView];
     
     self.optionView = [[ZCPOptionView alloc] initWithFrame:CGRectMake(0, 0, 0, 0)];
     [self addSubview:self.optionView];
 }
 - (void)setObject:(NSObject *)object {
     if ([object isKindOfClass:[ZCPOptionCellItem class]] && self.item != object) {
-        [super setObject:object];
         self.item = (ZCPOptionCellItem *)object;
         ZCPOptionCellItem *item = (ZCPOptionCellItem *)object;
         
         // 设置frame
-        self.optionView.frame  = CGRectMake(0, 0, APPLICATIONWIDTH, [item.cellHeight floatValue]);
+        self.optionView.frame  = CGRectMake(0, 0, CELLWIDTH_DEFAULT, [item.cellHeight floatValue]);
         
         // 设置属性
         [self.optionView setLabelArrWithAttributeStringArr:item.attributedStringArr];

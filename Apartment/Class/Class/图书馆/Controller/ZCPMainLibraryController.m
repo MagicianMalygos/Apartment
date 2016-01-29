@@ -8,33 +8,28 @@
 
 #import "ZCPMainLibraryController.h"
 
+#import "ZCPOptionView.h"
 #import "ZCPBookCell.h"
 #import "ZCPBookModel.h"
 
-@interface ZCPMainLibraryController () <ZCPListTableViewAdaptorDelegate>
+@interface ZCPMainLibraryController () <ZCPListTableViewAdaptorDelegate, ZCPOptionViewDelegate>
 
+@property (nonatomic, strong) ZCPOptionView *optionView;    // 选项视图
 @property (nonatomic, strong) NSMutableArray *bookArr;      // 图书模型数组
 
 @end
 
 @implementation ZCPMainLibraryController
 #pragma mark - life circle
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-    [self clearNavigationBar];
-    self.tabBarController.title = @"图书馆";
-}
-- (void)viewWillLayoutSubviews {
-    [super viewWillLayoutSubviews];
-    self.tableView.frame = CGRectMake(0, 0, APPLICATIONWIDTH, APPLICATIONHEIGHT - Height_NavigationBar - Height_TABBAR);
-}
-
-#pragma mark - Construct Data
-- (void)constructData {
-    NSMutableArray *items = [NSMutableArray array];
+- (void)viewDidLoad {
+    [super viewDidLoad];
     
+    // 添加选项视图
+    [self.view addSubview:self.optionView];
+    
+    self.bookArr = [NSMutableArray array];
     ZCPBookModel *model = [ZCPBookModel modelFromDictionary:@{@"bookId":@1
-                                                              ,@"bookName":@"像恋爱一样去工作"
+                                                              ,@"bookName":@"像恋爱一样去工作 - 啊啊啊啊啊啊啊啊啊啊啊啊"
                                                               ,@"bookAuthor":@"XXX"
                                                               ,@"bookPublishTime":@"2013-12-14"
                                                               ,@"bookCoverURL":@"http://"
@@ -45,27 +40,78 @@
                                                               ,@"bookTime":@"2015-2-12"
                                                               ,@"field":@{@"fieldId":@4,@"fieldName":@"工作"}
                                                               ,@"contributor":@{@"userName":@"ZCP"}}];
+    [self.bookArr addObject:model];
+    [self constructData];
+    [self.tableView reloadData];
+}
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self clearNavigationBar];
+    self.tabBarController.title = @"图书馆";
+}
+- (void)viewWillLayoutSubviews {
+    [super viewWillLayoutSubviews];
+    self.tableView.frame = CGRectMake(0, self.optionView.bottom, APPLICATIONWIDTH, APPLICATIONHEIGHT - Height_NavigationBar - Height_TABBAR - self.optionView.height);
+}
+
+#pragma mark - getter / setter
+/**
+ *  懒加载选项视图
+ *
+ *  @return 选项视图
+ */
+- (ZCPOptionView *)optionView {
+    if (_optionView == nil) {
+        NSArray *attrStringArr = @[[[NSAttributedString alloc] initWithString:@"最新"
+                                                                   attributes:@{NSFontAttributeName: [UIFont systemFontOfSize:13.0f]}]
+                                   ,[[NSAttributedString alloc] initWithString:@"收藏"
+                                                                    attributes:@{NSFontAttributeName: [UIFont systemFontOfSize:13.0f]}]
+                                   ,[[NSAttributedString alloc] initWithString:@"评论"
+                                                                    attributes:@{NSFontAttributeName: [UIFont systemFontOfSize:13.0f]}]];
+        _optionView = [[ZCPOptionView alloc] initWithFrame:CGRectMake(0, 0, self.view.width, 30) attributeStringArr:attrStringArr];
+        _optionView.delegate = self;
+        [_optionView hideMarkView];
+    }
+    return _optionView;
+}
+
+#pragma mark - Construct Data
+- (void)constructData {
+    NSMutableArray *items = [NSMutableArray array];
     
-    ZCPBookCellItem *bookItem = [[ZCPBookCellItem alloc] initWithDefault];
-    bookItem.bookCoverURL = model.bookCoverURL;
-    bookItem.bookName = model.bookName;
-    bookItem.bookAuthor = model.bookAuthor;
-    bookItem.bookPublisher = model.bookPublisher;
-    bookItem.field = @[model.field.fieldName];
-    bookItem.bookPublishTime = model.bookPublishTime;
-    bookItem.contributor = model.contributor.userName;
-    bookItem.bookCommentCount = model.bookCommentCount;
-    bookItem.bookCollectNumber = model.bookCollectNumber;
-    bookItem.bookSummary = model.bookSummary;
-    
-    [items addObject:bookItem];
+    for (ZCPBookModel *model in self.bookArr) {
+        
+        ZCPBookCellItem *bookItem = [[ZCPBookCellItem alloc] initWithDefault];
+        bookItem.bookCoverURL = model.bookCoverURL;
+        bookItem.bookName = model.bookName;
+        bookItem.bookAuthor = model.bookAuthor;
+        bookItem.bookPublisher = model.bookPublisher;
+        bookItem.field = @[model.field.fieldName];
+        bookItem.bookPublishTime = model.bookPublishTime;
+        bookItem.contributor = model.contributor.userName;
+        bookItem.bookCommentCount = model.bookCommentCount;
+        bookItem.bookCollectNumber = model.bookCollectNumber;
+        bookItem.bookSummary = model.bookSummary;
+        
+        [items addObject:bookItem];
+    }
+
     self.tableViewAdaptor.items = items;
 }
 
 
 #pragma mark - ZCPListTableViewAdaptor Delegate
+/**
+ *  Cell点击事件
+ *
+ *  @param tableView cell所属Tableview
+ *  @param object    cellItem
+ *  @param indexPath cell索引
+ */
 - (void)tableView:(UITableView *)tableView didSelectObject:(id<ZCPTableViewCellItemBasicProtocol>)object rowAtIndexPath:(NSIndexPath *)indexPath {
-    [[ZCPNavigator sharedInstance] gotoViewWithIdentifier:APPURL_VIEW_IDENTIFIER_LIBRARY_BOOKDETAIL paramDictForInit:@{@"_currentBookModel": [self.bookArr objectAtIndex:indexPath.row]}];
+    // 跳转到图书详情界面，判断如果图书模型为nil，则向字典中传入[NSNull null]
+    ZCPBookModel *currentBookModel = [self.bookArr objectAtIndex:indexPath.row];
+    [[ZCPNavigator sharedInstance] gotoViewWithIdentifier:APPURL_VIEW_IDENTIFIER_LIBRARY_BOOKDETAIL paramDictForInit:@{@"_currentBookModel": (currentBookModel != nil)? currentBookModel: [NSNull null]}];
 }
 
 @end

@@ -17,8 +17,8 @@
 @synthesize radioButtonTwo = _radioButtonTwo;
 @synthesize radioLabelTwo = _radioLabelTwo;
 
+#pragma mark - Setup Cell
 - (void)setupContentView {
-    [super setupContentView];
     
     self.switchView = [[UISwitch alloc] init];
     self.switchLabel = [[UILabel alloc] init];
@@ -48,13 +48,12 @@
 }
 - (void)setObject:(NSObject *)object {
     if ([object isKindOfClass:[ZCPSwitchRadioCellItem class]] && self.item != object) {
-        [super setObject:object];
         self.item = (ZCPSwitchRadioCellItem *)object;
         
         // 设置frame
         self.switchView.frame = CGRectMake(HorizontalMargin, VerticalMargin, self.switchView.width, self.switchView.height);
         self.switchLabel.frame = CGRectMake(self.switchView.right + UIMargin, VerticalMargin, self.switchView.width, self.switchView.height);
-        self.radioButtonOne.frame = CGRectMake(APPLICATIONWIDTH - HorizontalMargin - UIMargin * 3 - self.switchView.height * 4, VerticalMargin, self.switchView.height, self.switchView.height);
+        self.radioButtonOne.frame = CGRectMake(CELLWIDTH_DEFAULT - HorizontalMargin - UIMargin * 3 - self.switchView.height * 4, VerticalMargin, self.switchView.height, self.switchView.height);
         self.radioLabelOne.frame = CGRectMake(self.radioButtonOne.right + UIMargin, VerticalMargin, self.switchView.height, self.switchView.height);
         self.radioButtonTwo.frame = CGRectMake(self.radioLabelOne.right + UIMargin, VerticalMargin, self.switchView.height, self.switchView.height);
         self.radioLabelTwo.frame = CGRectMake(self.radioButtonTwo.right + UIMargin, VerticalMargin, self.switchView.height, self.switchView.height);

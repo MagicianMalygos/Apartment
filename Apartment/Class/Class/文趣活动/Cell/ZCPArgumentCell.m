@@ -26,20 +26,20 @@
 @synthesize timeLabel = _timeLabel;
 @synthesize item = _item;
 
+#pragma mark - Setup Cell
 - (void)setupContentView {
-    [super setupContentView];
     
     // 第一行
     self.userHeadImgView = [[UIImageView alloc] initWithFrame:CGRectMake(HorizontalMargin, VerticalMargin, IMG_WIDTH, IMG_HEIGHT)];
 
-    self.supportNumberLabel = [[UILabel alloc] initWithFrame:CGRectMake(APPLICATIONWIDTH - HorizontalMargin - UIMargin - SUPPORTLABEL_WIDTH - BUTTON_WIDTH, VerticalMargin + 10, SUPPORTLABEL_WIDTH, SUPPORTLABEL_HEIGHT)];
+    self.supportNumberLabel = [[UILabel alloc] initWithFrame:CGRectMake(CELLWIDTH_DEFAULT - HorizontalMargin - UIMargin - SUPPORTLABEL_WIDTH - BUTTON_WIDTH, VerticalMargin + 10, SUPPORTLABEL_WIDTH, SUPPORTLABEL_HEIGHT)];
     self.supportNumberLabel.textAlignment = NSTextAlignmentRight;
     self.supportNumberLabel.font = [UIFont systemFontOfSize:13.0f];
     
     self.supportButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    self.supportButton.frame = CGRectMake(APPLICATIONWIDTH - HorizontalMargin - BUTTON_WIDTH, VerticalMargin + 5, BUTTON_WIDTH, BUTTON_HEIGHT);
+    self.supportButton.frame = CGRectMake(CELLWIDTH_DEFAULT - HorizontalMargin - BUTTON_WIDTH, VerticalMargin + 5, BUTTON_WIDTH, BUTTON_HEIGHT);
     
-    self.userNameLabel = [[UILabel alloc] initWithFrame:CGRectMake(self.userHeadImgView.right + UIMargin, VerticalMargin, APPLICATIONWIDTH - HorizontalMargin * 2 - UIMargin * 3 - IMG_WIDTH - BUTTON_WIDTH - SUPPORTLABEL_WIDTH, NAMELABEL_HEIGHT)];
+    self.userNameLabel = [[UILabel alloc] initWithFrame:CGRectMake(self.userHeadImgView.right + UIMargin, VerticalMargin, CELLWIDTH_DEFAULT - HorizontalMargin * 2 - UIMargin * 3 - IMG_WIDTH - BUTTON_WIDTH - SUPPORTLABEL_WIDTH, NAMELABEL_HEIGHT)];
     self.userNameLabel.textAlignment = NSTextAlignmentLeft;
     self.userNameLabel.font = [UIFont systemFontOfSize:15.0f];
     
@@ -70,17 +70,16 @@
 }
 - (void)setObject:(NSObject *)object {
     if ([object isKindOfClass:[ZCPArgumentCellItem class]] && self.item != object) {
-        [super setObject:object];
         self.item = (ZCPArgumentCellItem *)object;
         
         // 计算高度
-        CGFloat contentHeight = [self.item.argumentContent boundingRectWithSize:CGSizeMake(APPLICATIONWIDTH - HorizontalMargin * 2, CGFLOAT_MAX)
+        CGFloat contentHeight = [self.item.argumentContent boundingRectWithSize:CGSizeMake(CELLWIDTH_DEFAULT - HorizontalMargin * 2, CGFLOAT_MAX)
                                                                         options:NSStringDrawingUsesFontLeading| NSStringDrawingUsesLineFragmentOrigin
                                                                      attributes:@{NSFontAttributeName: [UIFont systemFontOfSize:17.0f weight:10.0f]}
                                                                         context:nil].size.height;
         // 设置frame
-        self.argumentContentLabel.frame = CGRectMake(HorizontalMargin, self.userHeadImgView.bottom + UIMargin, APPLICATIONWIDTH - HorizontalMargin * 2, contentHeight);
-        self.timeLabel.frame = CGRectMake(HorizontalMargin, self.argumentContentLabel.bottom + UIMargin, APPLICATIONWIDTH - HorizontalMargin * 2, 20);
+        self.argumentContentLabel.frame = CGRectMake(HorizontalMargin, self.userHeadImgView.bottom + UIMargin, CELLWIDTH_DEFAULT - HorizontalMargin * 2, contentHeight);
+        self.timeLabel.frame = CGRectMake(HorizontalMargin, self.argumentContentLabel.bottom + UIMargin, CELLWIDTH_DEFAULT - HorizontalMargin * 2, 20);
         
         // 设置内容
         self.userHeadImgView.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:self.item.userHeadImgURL]]];
@@ -94,7 +93,7 @@
 }
 + (CGFloat)tableView:(UITableView *)tableView rowHeightForObject:(id)object {
     ZCPArgumentCellItem *item = (ZCPArgumentCellItem *)object;
-    CGFloat contentHeight = [item.argumentContent boundingRectWithSize:CGSizeMake(APPLICATIONWIDTH - HorizontalMargin * 2, CGFLOAT_MAX)
+    CGFloat contentHeight = [item.argumentContent boundingRectWithSize:CGSizeMake(CELLWIDTH_DEFAULT - HorizontalMargin * 2, CGFLOAT_MAX)
                                                                     options:NSStringDrawingUsesFontLeading| NSStringDrawingUsesLineFragmentOrigin
                                                                  attributes:@{NSFontAttributeName: [UIFont systemFontOfSize:17.0f weight:10.0f]}
                                                                     context:nil].size.height;

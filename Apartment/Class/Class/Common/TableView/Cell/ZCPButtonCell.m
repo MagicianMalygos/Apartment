@@ -16,11 +16,13 @@
 @synthesize item = _item;
 @synthesize delegate = _delegate;
 
+#pragma mark - life circle
 - (void)layoutSubviews {
     [super layoutSubviews];
-    _button.frame = CGRectMake(8, 0, APPLICATIONWIDTH - 16, self.height);
+    _button.frame = CGRectMake(HorizontalMargin, 0, CELLWIDTH_DEFAULT - HorizontalMargin * 2, self.height);
 }
 
+#pragma mark - Setup Cell
 - (void)setupContentView {
     [self setCustomBackgroundColor:[UIColor clearColor]];
     self.accessoryType = UITableViewCellAccessoryNone;
@@ -34,7 +36,6 @@
 }
 - (void)setObject:(NSObject *)object {
     if ([object isKindOfClass:[ZCPButtonCellItem class]] && self.item != object) {
-        [super setObject:object];
         self.item = (ZCPButtonCellItem *)object;
         ZCPButtonCellItem *item = (ZCPButtonCellItem *)object;
         

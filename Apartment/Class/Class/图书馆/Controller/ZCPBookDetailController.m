@@ -9,6 +9,7 @@
 #import "ZCPBookDetailController.h"
 
 #import "ZCPBookModel.h"
+#import "ZCPBookCell.h"
 
 @interface ZCPBookDetailController ()
 
@@ -42,6 +43,24 @@
 #pragma mark - Construct Data
 - (void)constructData {
     
+    NSMutableArray *items = [NSMutableArray array];
+    
+    ZCPBookDetailCellItem* bookItem = [[ZCPBookDetailCellItem alloc] initWithDefault];
+    bookItem.bookCoverURL = self.currentBookModel.bookCoverURL;
+    bookItem.bookName = self.currentBookModel.bookName;
+    bookItem.bookAuthor = self.currentBookModel.bookAuthor;
+    bookItem.bookPublisher = self.currentBookModel.bookPublisher;
+    bookItem.field = @[self.currentBookModel.field.fieldName];
+    bookItem.bookPublishTime = self.currentBookModel.bookPublishTime;
+    bookItem.contributor = self.currentBookModel.contributor.userName;
+    bookItem.bookCommentCount = self.currentBookModel.bookCommentCount;
+    bookItem.bookCollectNumber = self.currentBookModel.bookCollectNumber;
+    bookItem.bookSummary = self.currentBookModel.bookSummary;
+    bookItem.bookpostSearchButtonTitle = @"搜索图书贴相关内容";
+    bookItem.webSearchButtonTitle = @"搜索网络相关内容";
+    
+    [items addObject:bookItem];
+    self.tableViewAdaptor.items = items;
 }
 
 @end

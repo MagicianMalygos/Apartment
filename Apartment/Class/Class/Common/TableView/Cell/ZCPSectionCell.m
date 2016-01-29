@@ -21,7 +21,7 @@
         [self setCustomBackgroundColor:[UIColor clearColor]];
         self.accessoryType = UITableViewCellAccessoryNone;
         self.selectionStyle = UITableViewCellSelectionStyleNone;
-        _sectionTitleLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, 15, APPLICATIONWIDTH - 20, 0)];
+        _sectionTitleLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, 15, CELLWIDTH_DEFAULT - 20, 0)];
         _sectionTitleLabel.textColor = [UIColor blackColor];
         _sectionTitleLabel.backgroundColor = [UIColor clearColor];
         _sectionTitleLabel.numberOfLines = 1;
@@ -34,8 +34,6 @@
 - (void)setObject:(id)object {
     if ([object isKindOfClass:[ZCPSectionCellItem class]] && self.item != object) {
         
-        [super setObject:object];
-        
         self.item = (ZCPSectionCellItem *)object;
         ZCPSectionCellItem *item = (ZCPSectionCellItem *)object;
         
@@ -43,13 +41,13 @@
         if (![item.sectionAttrTitle length]) {
             _sectionTitleLabel.font = item.font;
             _sectionTitleLabel.text = item.sectionTitle;
-            CGSize size = [item.sectionTitle boundingRectWithSize:CGSizeMake(APPLICATIONWIDTH - 20, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin attributes:nil context:nil].size;
-            _sectionTitleLabel.frame = CGRectMake(_sectionTitleLabel.frame.origin.x, _sectionTitleLabel.frame.origin.y, _sectionTitleLabel.frame.size.width, size.height);
+            CGSize size = [item.sectionTitle boundingRectWithSize:CGSizeMake(CELLWIDTH_DEFAULT - 20, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin attributes:nil context:nil].size;
+            _sectionTitleLabel.frame = CGRectMake(_sectionTitleLabel.x, _sectionTitleLabel.y, _sectionTitleLabel.frame.size.width, size.height);
         }
         else {
             _sectionTitleLabel.attributedText = item.sectionAttrTitle;
-            CGSize size = [item.sectionAttrTitle boundingRectWithSize:CGSizeMake(APPLICATIONWIDTH - 20, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin context:nil].size;
-            _sectionTitleLabel.frame = CGRectMake(_sectionTitleLabel.frame.origin.x, _sectionTitleLabel.frame.origin.y, _sectionTitleLabel.frame.size.width, size.height);
+            CGSize size = [item.sectionAttrTitle boundingRectWithSize:CGSizeMake(CELLWIDTH_DEFAULT - 20, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin context:nil].size;
+            _sectionTitleLabel.frame = CGRectMake(_sectionTitleLabel.x, _sectionTitleLabel.y, _sectionTitleLabel.width, size.height);
         }
         
     }
@@ -66,7 +64,7 @@
         }
         else {
             ZCPSectionCellItem *item = (ZCPSectionCellItem *)object;
-            CGSize size = [item.sectionTitle boundingRectWithSize:CGSizeMake(APPLICATIONWIDTH - 20, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin attributes:nil context:nil].size;
+            CGSize size = [item.sectionTitle boundingRectWithSize:CGSizeMake(CELLWIDTH_DEFAULT - 20, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin attributes:nil context:nil].size;
             return size.height + 20;
         }
     }
@@ -77,10 +75,10 @@
     [super layoutSubviews];
     UIEdgeInsets insets = [(ZCPSectionCellItem *)self.item titleEdgeInset];
     if (UIEdgeInsetsEqualToEdgeInsets(insets, UIEdgeInsetsZero)) {
-        self.sectionTitleLabel.frame = CGRectMake(8, insets.top, self.frame.size.width - 8 * 2, self.frame.size.height - insets.top - insets.bottom);
+        self.sectionTitleLabel.frame = CGRectMake(HorizontalMargin, insets.top, self.width - HorizontalMargin * 2, self.height - insets.top - insets.bottom);
     }
     else {
-        self.sectionTitleLabel.frame = CGRectMake(insets.left, insets.top, self.frame.size.width - insets.left - insets.right, self.frame.size.height - insets.top - insets.bottom);
+        self.sectionTitleLabel.frame = CGRectMake(insets.left, insets.top, self.width - insets.left - insets.right, self.height - insets.top - insets.bottom);
     }
 }
 

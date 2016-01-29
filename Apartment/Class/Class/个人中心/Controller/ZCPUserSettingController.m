@@ -107,15 +107,15 @@
     switch (object.cellTag) {
         case ZCPSettingUserInfoCellTag:
             [[ZCPNavigator sharedInstance] gotoViewWithIdentifier:APPURL_VIEW_IDENTIFIER_USER_SETTING_USERINFO
-                                                 paramDictForInit:@{}];
+                                                 paramDictForInit:nil];
             break;
         case ZCPSettingChangePwdCellTag:
             [[ZCPNavigator sharedInstance] gotoViewWithIdentifier:APPURL_VIEW_IDENTIFIER_USER_SETTING_CHANGEPWD
-                                                 paramDictForInit:@{}];
+                                                 paramDictForInit:nil];
             break;
         case ZCPSettingChangeSecurityCellTag:
             [[ZCPNavigator sharedInstance] gotoViewWithIdentifier:APPURL_VIEW_IDENTIFIER_USER_SETTING_CHANGESECURITY
-                                                 paramDictForInit:@{}];
+                                                 paramDictForInit:nil];
             break;
         default:
             break;

@@ -12,6 +12,7 @@
 
 @synthesize item = _item;
 
+#pragma mark - Setup Cell
 - (void)setupContentView {
     self.backgroundColor = [UIColor clearColor];
     self.accessoryType = UITableViewCellAccessoryNone;

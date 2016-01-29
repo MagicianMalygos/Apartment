@@ -18,6 +18,7 @@
 @synthesize userHeadButton = _userHeadButton;
 @synthesize item = _item;
 
+#pragma mark - Setup Cell
 - (void)setupContentView {
     
     self.bgImageView = [[UIImageView alloc] init];
@@ -31,13 +32,12 @@
 }
 - (void)setObject:(NSObject *)object {
     if ([object isKindOfClass:[ZCPUserImageCellItem class]] && self.item != object) {
-        [super setObject:object];
         
         self.item = (ZCPUserImageCellItem *)object;
         ZCPUserImageCellItem *item = (ZCPUserImageCellItem *)object;
         
-        self.bgImageView.frame = CGRectMake(0, 0, APPLICATIONWIDTH, [item.cellHeight floatValue]);
-        self.userHeadButton.frame = CGRectMake((APPLICATIONWIDTH - USER_HEADER_WIDTH)/2, self.bgImageView.frame.size.height - USER_HEADER_HEIGHT, USER_HEADER_WIDTH, USER_HEADER_HEIGHT);
+        self.bgImageView.frame = CGRectMake(0, 0, CELLWIDTH_DEFAULT, [item.cellHeight floatValue]);
+        self.userHeadButton.frame = CGRectMake((CELLWIDTH_DEFAULT - USER_HEADER_WIDTH)/2, self.bgImageView.frame.size.height - USER_HEADER_HEIGHT, USER_HEADER_WIDTH, USER_HEADER_HEIGHT);
         
         [self.bgImageView setImage:[UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:item.bgImageURL]]]];
         [self.userHeadButton setImage:[UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:item.bgImageURL]]] forState:UIControlStateNormal];

@@ -40,7 +40,7 @@
     self.optionItemLabelArr = [NSMutableArray arrayWithCapacity:self.labelCount];
     NSInteger perWidth = self.frame.size.width / self.labelCount;
     for (int i = 0; i < self.labelCount; i++) {
-        UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(i * perWidth, 0, perWidth, self.frame.size.height - 4)];
+        UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(i * perWidth, 0, perWidth, self.height - 4)];
         [label setAttributedText:[attrStrArr objectAtIndex:i]];
         label.textAlignment = NSTextAlignmentCenter;
         // 设置标识
@@ -53,12 +53,12 @@
     
     // 初始化markView
     self.currentSelectedLabelTag = 0;
-    self.markView = [[UIView alloc] initWithFrame:CGRectMake(0, self.frame.size.height - 4, perWidth, 4)];
+    self.markView = [[UIView alloc] initWithFrame:CGRectMake(0, self.height - 4, perWidth, 4)];
     self.markView.backgroundColor = [UIColor blueColor];
     [self addSubview:self.markView];
     
     // 初始化lineView
-    self.lineView = [[UIView alloc] initWithFrame:CGRectMake(0, self.frame.size.height - 1, self.width, 1)];
+    self.lineView = [[UIView alloc] initWithFrame:CGRectMake(0, self.height - 1, self.width, 1)];
     self.lineView.backgroundColor = [UIColor blackColor];
     [self addSubview:self.lineView];
 }
