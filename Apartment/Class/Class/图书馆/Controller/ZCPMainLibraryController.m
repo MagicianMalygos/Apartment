@@ -34,7 +34,7 @@
                                                               ,@"bookPublishTime":@"2013-12-14"
                                                               ,@"bookCoverURL":@"http://"
                                                               ,@"bookPublisher":@"xxx出版社"
-                                                              ,@"bookSummary":@"XXXXXXXXXXXXXXXXXXXXXX"
+                                                              ,@"bookSummary":@""
                                                               ,@"bookCommentCount":@20
                                                               ,@"bookCollectNumber":@100
                                                               ,@"bookTime":@"2015-2-12"
@@ -91,7 +91,6 @@
         bookItem.contributor = model.contributor.userName;
         bookItem.bookCommentCount = model.bookCommentCount;
         bookItem.bookCollectNumber = model.bookCollectNumber;
-        bookItem.bookSummary = model.bookSummary;
         
         [items addObject:bookItem];
     }
@@ -110,8 +109,10 @@
  */
 - (void)tableView:(UITableView *)tableView didSelectObject:(id<ZCPTableViewCellItemBasicProtocol>)object rowAtIndexPath:(NSIndexPath *)indexPath {
     // 跳转到图书详情界面，判断如果图书模型为nil，则向字典中传入[NSNull null]
-    ZCPBookModel *currentBookModel = [self.bookArr objectAtIndex:indexPath.row];
-    [[ZCPNavigator sharedInstance] gotoViewWithIdentifier:APPURL_VIEW_IDENTIFIER_LIBRARY_BOOKDETAIL paramDictForInit:@{@"_currentBookModel": (currentBookModel != nil)? currentBookModel: [NSNull null]}];
+//    ZCPBookModel *currentBookModel = [self.bookArr objectAtIndex:indexPath.row];
+//    [[ZCPNavigator sharedInstance] gotoViewWithIdentifier:APPURL_VIEW_IDENTIFIER_LIBRARY_BOOKDETAIL paramDictForInit:@{@"_currentBookModel": (currentBookModel != nil)? currentBookModel: [NSNull null]}];
+    
+    [[ZCPNavigator sharedInstance] gotoViewWithIdentifier:APPURL_VIEW_IDENTIFIER_LIBRARY_ADDBOOK paramDictForInit:nil];
 }
 
 @end

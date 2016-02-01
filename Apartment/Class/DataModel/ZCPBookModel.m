@@ -15,7 +15,7 @@
 - (void)setValue:(id)value forKey:(NSString *)key {
     if ([key isEqualToString:@"bookPublishTime"]
         || [key isEqualToString:@"bookTime"]) {
-        value = [ZCPDataModel dateValueFromStringValue:value];
+        value = [value toDate];
     }
     if ([key isEqualToString:@"field"]) {
         value = [ZCPRequestResponseTranslator translateResponse_FieldModel:value];

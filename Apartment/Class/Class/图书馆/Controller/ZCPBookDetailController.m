@@ -9,11 +9,16 @@
 #import "ZCPBookDetailController.h"
 
 #import "ZCPBookModel.h"
+#import "ZCPBookReplyModel.h"
 #import "ZCPBookCell.h"
+#import "ZCPIntroductionCell.h"
+#import "ZCPSectionCell.h"
+#import "ZCPBookReplyCell.h"
 
 @interface ZCPBookDetailController ()
 
 @property (nonatomic, strong) ZCPBookModel *currentBookModel;       // 当前的图书模型
+@property (nonatomic, strong) NSMutableArray *bookreplyArr;         // 图书回复模型列表
 
 @end
 
@@ -30,6 +35,22 @@
 }
 
 #pragma mark - life circle
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    
+    self.bookreplyArr = [NSMutableArray array];
+    for (int i = 0; i < 10; i++) {
+        ZCPBookReplyModel *model = [ZCPBookReplyModel modelFromDictionary:@{@"bookreplyContent":@"asdasd"
+                                                                            ,@"bookreplySupport":@50
+                                                                            ,@"bookreplyTime":@"2016-1-1"
+                                                                            ,@"user":@{@"userName":@"zcp"
+                                                                                       , @"userFaceURL":@"xx://xx"}}];
+        [self.bookreplyArr addObject:model];
+    }
+    
+    [self constructData];
+    [self.tableView reloadData];
+}
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [self clearNavigationBar];
@@ -45,6 +66,7 @@
     
     NSMutableArray *items = [NSMutableArray array];
     
+    // book info item
     ZCPBookDetailCellItem* bookItem = [[ZCPBookDetailCellItem alloc] initWithDefault];
     bookItem.bookCoverURL = self.currentBookModel.bookCoverURL;
     bookItem.bookName = self.currentBookModel.bookName;
@@ -55,11 +77,33 @@
     bookItem.contributor = self.currentBookModel.contributor.userName;
     bookItem.bookCommentCount = self.currentBookModel.bookCommentCount;
     bookItem.bookCollectNumber = self.currentBookModel.bookCollectNumber;
-    bookItem.bookSummary = self.currentBookModel.bookSummary;
     bookItem.bookpostSearchButtonTitle = @"搜索图书贴相关内容";
     bookItem.webSearchButtonTitle = @"搜索网络相关内容";
     
+    // sectionItem
+    ZCPSectionCellItem *sectionItem = [[ZCPSectionCellItem alloc] initWithDefault];
+    sectionItem.sectionTitle = @"简介";
+    
+    // introductionItem
+    ZCPIntroductionCellItem *introductionItem = [[ZCPIntroductionCellItem alloc] initWithDefault];
+    introductionItem.introductionString = self.currentBookModel.bookSummary;
+    
     [items addObject:bookItem];
+    [items addObject:sectionItem];
+    [items addObject:introductionItem];
+    
+    // bookreply
+    for (ZCPBookReplyModel *model in self.bookreplyArr) {
+        ZCPBookReplyCellItem *bookreplyItem = [[ZCPBookReplyCellItem alloc] initWithDefault];
+        bookreplyItem.userHeadImageURL = model.user.userFaceURL;
+        bookreplyItem.userName = model.user.userName;
+        bookreplyItem.bookreplyContent = model.bookreplyContent;
+        bookreplyItem.bookreplyTime = model.bookreplyTime;
+        bookreplyItem.bookreplySupportNumber = model.bookreplySupport;
+        
+        [items addObject:bookreplyItem];
+    }
+    
     self.tableViewAdaptor.items = items;
 }
 

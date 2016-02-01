@@ -22,6 +22,7 @@
 
 // 图书馆
 #define APPURL_VIEW_IDENTIFIER_LIBRARY_BOOKDETAIL           @"ZCPBookDetailController"
+#define APPURL_VIEW_IDENTIFIER_LIBRARY_ADDBOOK              @"ZCPAddBookController"
 
 //个人中心
 #define APPURL_VIEW_IDENTIFIER_USER_FOCUSON_PEOPLE          @"ZCPUserFocusOnPeopleController"

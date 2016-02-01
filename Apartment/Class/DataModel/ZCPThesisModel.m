@@ -16,7 +16,7 @@
     if ([key isEqualToString:@"thesisStartTime"]
         || [key isEqualToString:@"thesisEndTime"]
         || [key isEqualToString:@"thesisTime"]) {
-        value = [ZCPDataModel dateValueFromStringValue:value];
+        value = [value toDate];
     }
     if ([key isEqualToString:@"state"]) {
         value = [ZCPRequestResponseTranslator translateResponse_StateModel:value];

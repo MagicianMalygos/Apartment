@@ -14,7 +14,7 @@
 
 #import "ZCPOptionView.h"
 
-#define OptionHeight 50.0f
+#define OptionHeight 40.0f
 
 @interface ZCPMainActivityController () <UIScrollViewDelegate, ZCPOptionViewDelegate>
 
@@ -58,11 +58,11 @@
 - (ZCPOptionView *)optionView {
     if (_optionView == nil) {
         NSArray *attrStringArr = @[[[NSAttributedString alloc] initWithString:@"对对联"
-                                                                   attributes:@{NSFontAttributeName: [UIFont systemFontOfSize:16.0f]}]
+                                                                   attributes:@{NSFontAttributeName: [UIFont defaultFontWithSize:14.0f]}]
                                    ,[[NSAttributedString alloc] initWithString:@"舌场争锋"
-                                                                    attributes:@{NSFontAttributeName: [UIFont systemFontOfSize:16.0f]}]
+                                                                    attributes:@{NSFontAttributeName: [UIFont defaultFontWithSize:14.0f]}]
                                    ,[[NSAttributedString alloc] initWithString:@"头脑风暴"
-                                                                    attributes:@{NSFontAttributeName: [UIFont systemFontOfSize:16.0f]}]];
+                                                                    attributes:@{NSFontAttributeName: [UIFont defaultFontWithSize:14.0f]}]];
         _optionView = [[ZCPOptionView alloc] initWithFrame:CGRectMake(0, 0, self.view.width, OptionHeight) attributeStringArr:attrStringArr];
         _optionView.delegate = self;
     }
@@ -79,8 +79,8 @@
         CGFloat height = self.view.frame.size.height;
         
         // 设置mainScrollView
-        _mainScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 50, width, height - 50)];
-        _mainScrollView.contentSize = CGSizeMake(width * 3, height - 50);
+        _mainScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, OptionHeight, width, height - OptionHeight)];
+        _mainScrollView.contentSize = CGSizeMake(width * 3, height - OptionHeight);
         _mainScrollView.scrollEnabled = YES;                        // 设置可以滑动
         _mainScrollView.bounces = YES;                              // 设置弹簧效果
         [_mainScrollView setPagingEnabled:YES];                     // 设置分页

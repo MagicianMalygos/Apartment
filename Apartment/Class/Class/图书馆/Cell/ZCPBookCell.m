@@ -8,7 +8,7 @@
 
 #import "ZCPBookCell.h"
 
-#define CELL_HEIGHT             150.0f  // 宽度
+#define CELL_HEIGHT             150.0f  // 高度
 #define LABEL_HEIGHT            15.0f   // 标签高度
 #define NAMELABEL_HEIGHT        42.0f   // 书名标签高度
 #define TIMELABEL_WIDTH         130.0f  // 事件标签宽度
@@ -130,7 +130,7 @@
         for (NSString *f in self.item.field) {
             self.fieldLabel.text = [self.fieldLabel.text stringByAppendingString:f];
         }
-        self.publishTimeLabel.text = [NSString stringWithFormat:@"出版日期：%@", [ZCPDataModel stringValueFromDateValue:self.item.bookPublishTime]];
+        self.publishTimeLabel.text = [NSString stringWithFormat:@"出版日期：%@", [self.item.bookPublishTime toString]];
         self.contributorLabel.text = [NSString stringWithFormat:@"贡献者：%@", self.item.contributor];
         self.collectNumberLabel.text = [NSString stringWithFormat:@"%lu 人点赞", self.item.bookCollectNumber];
         self.commentCountLabel.text = [NSString stringWithFormat:@"%lu 人评论", self.item.bookCommentCount];
@@ -154,7 +154,6 @@
 @synthesize contributor = _contributor;
 @synthesize bookCollectNumber = _bookCollectNumber;
 @synthesize bookCommentCount = _bookCommentCount;
-@synthesize bookSummary = _bookSummary;
 
 #pragma mark - instancetype
 - (instancetype)init {

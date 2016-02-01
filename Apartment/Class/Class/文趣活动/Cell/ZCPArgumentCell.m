@@ -85,7 +85,7 @@
         self.userHeadImgView.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:self.item.userHeadImgURL]]];
         self.userNameLabel.text = self.item.userName;
         self.argumentContentLabel.text = self.item.argumentContent;
-        self.timeLabel.text = [ZCPDataModel stringValueFromDateValue:self.item.time];
+        self.timeLabel.text = [self.item.time toString];
         
         // 设置cell高度
         self.item.cellHeight = [NSNumber numberWithFloat:self.timeLabel.bottom + VerticalMargin];

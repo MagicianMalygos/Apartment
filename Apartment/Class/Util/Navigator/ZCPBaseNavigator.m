@@ -107,7 +107,9 @@
 //                if (paramDictForInit) {
 //                    params = @[paramDictForInit];
 //                }
-                [object performSelector:initMethod withObject:paramDictForInit];
+                SuppressPerformSelectorLeakWarning(
+                    [object performSelector:initMethod  withObject:paramDictForInit];
+                );
             }
             // 实例化方法
             if ([object respondsToSelector:instanceMethod]) {
@@ -115,7 +117,9 @@
 //                if (paramDictForInstance) {
 //                    params = @[paramDictForInstance];
 //                }
-                [object performSelector:instanceMethod withObject:paramDictForInstance];
+                SuppressPerformSelectorLeakWarning (
+                    [object performSelector:instanceMethod withObject:paramDictForInstance];
+                );
             }
         }
     }

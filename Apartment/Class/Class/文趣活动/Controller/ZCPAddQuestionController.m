@@ -44,28 +44,36 @@
     sectionItem1.sectionTitle = @"选项一";
     // 选项一
     ZCPTextFieldCellItem *optionItem1 = [[ZCPTextFieldCellItem alloc] initWithDefault];
-    optionItem1.placeholder = @"请输入选项一,不超过20字...";
+    optionItem1.textFieldConfigBlock = ^(UITextField *textField) {
+        textField.placeholder = @"请输入选项一,不超过20字...";
+    };
     
     // section 2
     ZCPSectionCellItem *sectionItem2 = [[ZCPSectionCellItem alloc] initWithDefault];
     sectionItem2.sectionTitle = @"选项二";
     // 选项二
     ZCPTextFieldCellItem *optionItem2 = [[ZCPTextFieldCellItem alloc] initWithDefault];
-    optionItem2.placeholder = @"请输入选项二,不超过20字...";
+    optionItem2.textFieldConfigBlock = ^(UITextField *textField) {
+        textField.placeholder = @"请输入选项二,不超过20字...";
+    };
     
     // section 3
     ZCPSectionCellItem *sectionItem3 = [[ZCPSectionCellItem alloc] initWithDefault];
     sectionItem3.sectionTitle = @"选项三";
     // 选项三
     ZCPTextFieldCellItem *optionItem3 = [[ZCPTextFieldCellItem alloc] initWithDefault];
-    optionItem3.placeholder = @"请输入选项三,不超过20字...";
+    optionItem3.textFieldConfigBlock = ^(UITextField *textField) {
+        textField.placeholder = @"请输入选项三,不超过20字...";
+    };
     
     // section 4
     ZCPSectionCellItem *sectionItem4 = [[ZCPSectionCellItem alloc] initWithDefault];
     sectionItem4.sectionTitle = @"选项四";
     // 正确答案
     ZCPTextFieldCellItem *answerItem = [[ZCPTextFieldCellItem alloc] initWithDefault];
-    answerItem.placeholder = @"请输入选项四,不超过20字...";
+    answerItem.textFieldConfigBlock = ^(UITextField *textField) {
+        textField.placeholder = @"请输入选项四,不超过20字...";
+    };
     
     // blank
     ZCPLineCellItem *blankItem = [[ZCPLineCellItem alloc] initWithDefault];

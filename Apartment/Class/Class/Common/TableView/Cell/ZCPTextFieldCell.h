@@ -9,6 +9,7 @@
 #import "ZCPTableViewWithLineCell.h"
 
 @class ZCPTextFieldCellItem;
+@class ZCPLabelTextFieldCellItem;
 
 typedef void(^ZCPTextFieldConfigBlock)(UITextField *);
 
@@ -22,7 +23,20 @@ typedef void(^ZCPTextFieldConfigBlock)(UITextField *);
 
 @interface ZCPTextFieldCellItem : ZCPDataModel
 
-@property (nonatomic, strong) ZCPTextFieldConfigBlock textFieldConfigBlock;     // 输入框配置块
-@property (nonatomic, copy) NSString *placeholder;                              // 输入提示信息
+@property (nonatomic, copy) ZCPTextFieldConfigBlock textFieldConfigBlock;     // 输入框配置块
+
+@end
+
+
+// Label + TextField
+@interface ZCPLabelTextFieldCell : ZCPTextFieldCell
+
+@property (nonatomic, strong) UILabel *label;
+
+@end
+
+@interface ZCPLabelTextFieldCellItem : ZCPTextFieldCellItem
+
+@property (nonatomic, copy) NSString *labelText;
 
 @end

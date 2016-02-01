@@ -40,8 +40,6 @@
 @property (nonatomic, assign) NSInteger bookCollectNumber;          // 收藏数量
 @property (nonatomic, assign) NSInteger bookCommentCount;           // 图书评论数量
 
-@property (nonatomic, copy) NSString *bookSummary;                  // 图书简介
-
 @end
 
 

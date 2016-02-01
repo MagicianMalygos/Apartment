@@ -42,9 +42,13 @@
         [self setBackBarButton];
     }
     self.view.backgroundColor = [UIColor whiteColor];
+    
+    // 添加键盘响应事件
+    [self registerKeyboardNotification];
 }
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    
     self.appTheme = [[ZCPControlingCenter sharedInstance] appTheme];
     if (self.appTheme == LightTheme) {
         [self.view setBackgroundColor:[UIColor colorFromHexRGB:@"ececec"]];
@@ -147,21 +151,5 @@
 }
 - (void)initNavigationBar {
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 @end

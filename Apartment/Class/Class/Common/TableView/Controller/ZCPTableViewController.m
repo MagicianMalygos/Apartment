@@ -86,7 +86,7 @@
 - (void)createTableView {
     // 初始化tableview
     self.tableView                      = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, 0, 0) style:UITableViewStylePlain];
-    self.tableView.backgroundColor      = [UIColor colorFromHexRGB:@"ececec"];
+    self.tableView.backgroundColor      = [UIColor clearColor];
     self.tableView.backgroundView       = nil;
     self.tableView.separatorStyle       = UITableViewCellSeparatorStyleNone;
     self.tableView.dataSource           = self.tableViewAdaptor;

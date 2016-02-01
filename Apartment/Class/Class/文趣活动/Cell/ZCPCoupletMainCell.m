@@ -25,23 +25,23 @@
     self.userHeadImgView = [[UIImageView alloc] initWithFrame:CGRectMake(HorizontalMargin, VerticalMargin, 25, 25)];
     self.userNameLabel = [[UILabel alloc] initWithFrame:CGRectMake(self.userHeadImgView.right + HorizontalMargin, VerticalMargin, CELLWIDTH_DEFAULT - self.userHeadImgView.right - HorizontalMargin * 2, 25)];
     self.userNameLabel.textAlignment = NSTextAlignmentLeft;
-    self.userNameLabel.font = [UIFont systemFontOfSize:14.0f];
+    self.userNameLabel.font = [UIFont defaultFontWithSize:14.0f];
     
     // 第二行
     self.coupletContentLabel = [[UILabel alloc] init];
     self.coupletContentLabel.textAlignment = NSTextAlignmentLeft;  // 左对齐
-    self.coupletContentLabel.font = [UIFont systemFontOfSize:18.0f weight:10.0f];  // 设置字体样式
+    self.coupletContentLabel.font = [UIFont defaultBoldFontWithSize:18.0f];  // 设置字体样式
     self.coupletContentLabel.numberOfLines = 0;  // 多行显示
     
     // 第三行
     self.timeLabel = [[UILabel alloc] init];
-    self.timeLabel.font = [UIFont systemFontOfSize:13.0f];
+    self.timeLabel.font = [UIFont defaultFontWithSize:13.0f];
     self.timeLabel.textAlignment = NSTextAlignmentRight;
     self.supportLabel = [[UILabel alloc] init];
-    self.supportLabel.font = [UIFont systemFontOfSize:13.0f];
+    self.supportLabel.font = [UIFont defaultFontWithSize:13.0f];
     self.supportLabel.textAlignment = NSTextAlignmentRight;
     self.replyNumLabel = [[UILabel alloc] init];
-    self.replyNumLabel.font = [UIFont systemFontOfSize:13.0f];
+    self.replyNumLabel.font = [UIFont defaultFontWithSize:13.0f];
     self.replyNumLabel.textAlignment = NSTextAlignmentRight;
     
     // 测试用
@@ -65,7 +65,7 @@
         self.item = (ZCPCoupletMainCellItem *)object;
         
         // 计算高度
-        CGFloat contentHeight = [self.item.coupletContent boundingRectWithSize:CGSizeMake(CELLWIDTH_DEFAULT - 2 * HorizontalMargin, CGFLOAT_MAX) options:NSStringDrawingUsesLineFragmentOrigin|NSStringDrawingUsesFontLeading attributes:@{NSFontAttributeName: [UIFont systemFontOfSize:18.0f weight:10.0f]} context:nil].size.height;
+        CGFloat contentHeight = [self.item.coupletContent boundingRectWithSize:CGSizeMake(CELLWIDTH_DEFAULT - 2 * HorizontalMargin, CGFLOAT_MAX) options:NSStringDrawingUsesLineFragmentOrigin|NSStringDrawingUsesFontLeading attributes:@{NSFontAttributeName: [UIFont defaultBoldFontWithSize:18.0f]} context:nil].size.height;
         
         // 设置frame
         self.coupletContentLabel.frame = CGRectMake(HorizontalMargin, self.userHeadImgView.bottom + UIMargin, CELLWIDTH_DEFAULT - 2 * HorizontalMargin, contentHeight);
@@ -79,7 +79,7 @@
         [self.coupletContentLabel setText:self.item.coupletContent];
         self.supportLabel.text = [NSString stringWithFormat:@"%lu 人点赞", self.item.supportNumber];
         self.replyNumLabel.text = [NSString stringWithFormat:@"%lu 人回复", self.item.replyNumber];
-        self.timeLabel.text = [ZCPDataModel stringValueFromDateValue:self.item.time];
+        self.timeLabel.text = [self.item.time toString];
         
         // 设置cell高度
         self.item.cellHeight = [NSNumber numberWithFloat:self.timeLabel.bottom + VerticalMargin];
@@ -88,7 +88,7 @@
 + (CGFloat)tableView:(UITableView *)tableView rowHeightForObject:(id)object {
     ZCPCoupletMainCellItem *item = (ZCPCoupletMainCellItem *)object;
     // 计算高度
-    CGFloat contentHeight = [item.coupletContent boundingRectWithSize:CGSizeMake(CELLWIDTH_DEFAULT - 2 * HorizontalMargin, CGFLOAT_MAX) options:NSStringDrawingUsesLineFragmentOrigin|NSStringDrawingUsesFontLeading attributes:@{NSFontAttributeName: [UIFont systemFontOfSize:18.0f weight:10.0f]} context:nil].size.height;
+    CGFloat contentHeight = [item.coupletContent boundingRectWithSize:CGSizeMake(CELLWIDTH_DEFAULT - 2 * HorizontalMargin, CGFLOAT_MAX) options:NSStringDrawingUsesLineFragmentOrigin|NSStringDrawingUsesFontLeading attributes:@{NSFontAttributeName: [UIFont defaultBoldFontWithSize:18.0f]} context:nil].size.height;
     return 25.0f + contentHeight + 20.0f + UIMargin * 2 + VerticalMargin * 2;
 }
 

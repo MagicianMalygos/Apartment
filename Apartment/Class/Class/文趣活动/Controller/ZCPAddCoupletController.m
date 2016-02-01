@@ -41,7 +41,9 @@
     sectionItem.titleEdgeInset = UIEdgeInsetsZero;
     // 对联内容
     ZCPTextFieldCellItem *textItem = [[ZCPTextFieldCellItem alloc] initWithDefault];
-    textItem.placeholder = @"请输入对联内容，不超过N个字...";
+    textItem.textFieldConfigBlock = ^(UITextField *textField) {
+        textField.placeholder = @"请输入对联内容，不超过N个字...";
+    };
     
     // blank
     ZCPLineCellItem *blankItem = [[ZCPLineCellItem alloc] initWithDefault];

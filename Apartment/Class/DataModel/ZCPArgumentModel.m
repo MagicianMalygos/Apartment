@@ -14,7 +14,7 @@
 
 - (void)setValue:(id)value forKey:(NSString *)key {
     if ([key isEqualToString:@"argumentTime"]) {
-        value = [ZCPDataModel dateValueFromStringValue:value];
+        value = [value toDate];
     }
     if ([key isEqualToString:@"thesis"]) {
         value = [ZCPRequestResponseTranslator translateResponse_ThesisModel:value];

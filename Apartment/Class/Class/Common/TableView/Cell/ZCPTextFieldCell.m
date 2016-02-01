@@ -26,7 +26,9 @@
         CGFloat cellHeight = [item.cellHeight floatValue];
         
         self.textField.frame = CGRectMake(HorizontalMargin, VerticalMargin, CELLWIDTH_DEFAULT - HorizontalMargin * 2, cellHeight - VerticalMargin * 2);
-        self.textField.placeholder = item.placeholder;
+        if (self.item.textFieldConfigBlock) {
+            self.item.textFieldConfigBlock(self.textField);
+        }
     }
 }
 + (CGFloat)tableView:(UITableView *)tableView rowHeightForObject:(id)object {
@@ -39,7 +41,6 @@
 @implementation ZCPTextFieldCellItem
 
 @synthesize textFieldConfigBlock = _textFieldConfigBlock;
-@synthesize placeholder = _placeholder;
 
 #pragma mark - instancetype
 - (instancetype)init {
@@ -53,9 +54,72 @@
     if (self = [super initWithDefault]) {
         self.cellClass = [ZCPTextFieldCell class];
         self.cellType = [ZCPTextFieldCell cellIdentifier];
-        self.cellHeight = @50;
+        self.cellHeight = @46;
     }
     return self;
 }
 
+@end
+
+
+@implementation ZCPLabelTextFieldCell
+
+#pragma mark - Setup Cell
+- (void)setupContentView {
+    self.label = [[UILabel alloc] initWithFrame:CGRectMake(HorizontalMargin, VerticalMargin, 0, 30)];
+    self.label.numberOfLines = 1;
+    self.label.font = [UIFont fontWithName:@"Helvetica" size:15.0f];
+    
+    self.textField = [[UITextField alloc] init],
+    
+    self.label.backgroundColor = [UIColor redColor];
+    self.textField.backgroundColor = [UIColor redColor];
+    
+    [self.contentView addSubview:self.label];
+    [self.contentView addSubview:self.textField];
+}
+- (void)setObject:(NSObject *)object {
+    if ([object isKindOfClass:[ZCPLabelTextFieldCellItem class]]) {
+        self.item = (ZCPLabelTextFieldCellItem *)object;
+        ZCPLabelTextFieldCellItem *item = (ZCPLabelTextFieldCellItem *)object;
+        
+        // 设置label文字，并适配宽度
+        self.label.text = item.labelText;
+        [self.label sizeToFit];
+        
+        // 根据label宽度设置textField的frame
+        self.textField.frame = CGRectMake(self.label.right + UIMargin, VerticalMargin, CELLWIDTH_DEFAULT - HorizontalMargin * 2 - UIMargin - self.label.width, 30);
+        if (self.item.textFieldConfigBlock) {
+            self.item.textFieldConfigBlock(self.textField);
+        }
+        // 设置label中心的y值
+        self.label.center = CGPointMake(self.label.center.x, self.textField.center.y);
+        
+    }
+}
++ (CGFloat)tableView:(UITableView *)tableView rowHeightForObject:(id)object {
+    ZCPLabelTextFieldCellItem *item = (ZCPLabelTextFieldCellItem *)object;
+    return [item.cellHeight floatValue];
+}
+
+@end
+
+@implementation ZCPLabelTextFieldCellItem
+
+#pragma mark - instancetype
+- (instancetype)init {
+    if (self = [super init]) {
+        self.cellClass = [ZCPLabelTextFieldCell class];
+        self.cellType = [ZCPLabelTextFieldCell cellIdentifier];
+    }
+    return self;
+}
+- (instancetype)initWithDefault {
+    if (self = [super initWithDefault]) {
+        self.cellClass = [ZCPLabelTextFieldCell class];
+        self.cellType = [ZCPLabelTextFieldCell cellIdentifier];
+        self.cellHeight = @46;
+    }
+    return self;
+}
 @end

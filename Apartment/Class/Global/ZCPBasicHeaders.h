@@ -31,9 +31,14 @@
 #import "UILabel+Category.h"
 #import "UIButton+Style.h"
 #import "UIImage+Category.h"
+#import "UIFont+Category.h"
 #import "NSObject+Category.h"
+#import "NSDate+Category.h"
+#import "NSString+Category.h"
+#import "NSString+PACheckValid.h"
+#import "NSString+PAFormat.h"
+#import "NSDateFormatter+ExtraMethod.h"
 #import "ZCPTableViewCell+Category.h"
-#import "ZCPDataModel+Category.h"
 
 #pragma mark - Class
 #import "ZCPNavigationController.h"

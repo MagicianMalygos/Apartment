@@ -41,7 +41,9 @@
     sectionItem1.sectionAttrTitle = [[NSMutableAttributedString alloc] initWithString:@"请输入旧密码" attributes:@{NSForegroundColorAttributeName: textColor, NSFontAttributeName: [UIFont systemFontOfSize:14.0f]}];
     // 密码
     ZCPTextFieldCellItem *oldPwdItem = [[ZCPTextFieldCellItem alloc] initWithDefault];
-    oldPwdItem.placeholder = @"请输入旧密码";
+    oldPwdItem.textFieldConfigBlock = ^(UITextField *textField) {
+        textField.placeholder = @"请输入旧密码";
+    };
     
     ZCPSectionCellItem *sectionItem2 = [[ZCPSectionCellItem alloc] initWithDefault];
     sectionItem2.backgroundColor = [UIColor lightGrayColor];;
@@ -49,7 +51,9 @@
     sectionItem2.sectionAttrTitle = [[NSMutableAttributedString alloc] initWithString:@"请输入新密码" attributes:@{NSForegroundColorAttributeName: textColor, NSFontAttributeName: [UIFont systemFontOfSize:14.0f]}];
     // 密码
     ZCPTextFieldCellItem *newPwdItem = [[ZCPTextFieldCellItem alloc] initWithDefault];
-    newPwdItem.placeholder = @"请输入新密码";
+    newPwdItem.textFieldConfigBlock = ^(UITextField *textField) {
+        textField.placeholder = @"请输入新密码";
+    };
     
     ZCPSectionCellItem *sectionItem3 = [[ZCPSectionCellItem alloc] initWithDefault];
     sectionItem3.backgroundColor = [UIColor lightGrayColor];;
@@ -57,7 +61,9 @@
     sectionItem3.sectionAttrTitle = [[NSMutableAttributedString alloc] initWithString:@"请再次输入" attributes:@{NSForegroundColorAttributeName: textColor, NSFontAttributeName: [UIFont systemFontOfSize:14.0f]}];
     // 重复密码
     ZCPTextFieldCellItem *reNewPwdItem = [[ZCPTextFieldCellItem alloc] initWithDefault];
-    reNewPwdItem.placeholder = @"请再次输入";
+    reNewPwdItem.textFieldConfigBlock = ^(UITextField *textField) {
+        textField.placeholder = @"请再次输入";
+    };
     
     ZCPLineCellItem *blankItem = [[ZCPLineCellItem alloc] initWithDefault];
     // 退出登录

@@ -40,9 +40,13 @@
     sectionItem1.sectionAttrTitle = [[NSMutableAttributedString alloc] initWithString:@"密保问题一" attributes:@{NSForegroundColorAttributeName: textColor, NSFontAttributeName: [UIFont systemFontOfSize:14.0f]}];
     // 密码
     ZCPTextFieldCellItem *questionItem1 = [[ZCPTextFieldCellItem alloc] initWithDefault];
-    questionItem1.placeholder = @"输入问题";
+    questionItem1.textFieldConfigBlock = ^(UITextField *textField) {
+        textField.placeholder = @"输入问题";
+    };
     ZCPTextFieldCellItem *answerItem1 = [[ZCPTextFieldCellItem alloc] initWithDefault];
-    answerItem1.placeholder = @"输入答案";
+    answerItem1.textFieldConfigBlock = ^(UITextField *textField) {
+        textField.placeholder = @"输入答案";
+    };
     
     ZCPSectionCellItem *sectionItem2 = [[ZCPSectionCellItem alloc] initWithDefault];
     sectionItem2.backgroundColor = [UIColor lightGrayColor];;
@@ -50,9 +54,13 @@
     sectionItem2.sectionAttrTitle = [[NSMutableAttributedString alloc] initWithString:@"密保问题二" attributes:@{NSForegroundColorAttributeName: textColor, NSFontAttributeName: [UIFont systemFontOfSize:14.0f]}];
     // 密码
     ZCPTextFieldCellItem *questionItem2 = [[ZCPTextFieldCellItem alloc] initWithDefault];
-    questionItem2.placeholder = @"输入问题";
+    questionItem2.textFieldConfigBlock = ^(UITextField *textField) {
+        textField.placeholder = @"输入问题";
+    };
     ZCPTextFieldCellItem *answerItem2 = [[ZCPTextFieldCellItem alloc] initWithDefault];
-    answerItem2.placeholder = @"输入答案";
+    answerItem2.textFieldConfigBlock = ^(UITextField *textField) {
+        textField.placeholder = @"输入答案";
+    };
     
     ZCPSectionCellItem *sectionItem3 = [[ZCPSectionCellItem alloc] initWithDefault];
     sectionItem3.backgroundColor = [UIColor lightGrayColor];;
@@ -60,9 +68,13 @@
     sectionItem3.sectionAttrTitle = [[NSMutableAttributedString alloc] initWithString:@"密保问题三" attributes:@{NSForegroundColorAttributeName: textColor, NSFontAttributeName: [UIFont systemFontOfSize:14.0f]}];
     // 密码
     ZCPTextFieldCellItem *questionItem3 = [[ZCPTextFieldCellItem alloc] initWithDefault];
-    questionItem3.placeholder = @"输入问题";
+    questionItem3.textFieldConfigBlock = ^(UITextField *textField) {
+        textField.placeholder = @"输入问题";
+    };
     ZCPTextFieldCellItem *answerItem3 = [[ZCPTextFieldCellItem alloc] initWithDefault];
-    answerItem3.placeholder = @"输入答案";
+    answerItem3.textFieldConfigBlock = ^(UITextField *textField) {
+        textField.placeholder = @"输入答案";
+    };
     
     ZCPLineCellItem *blankItem = [[ZCPLineCellItem alloc] initWithDefault];
     // 退出登录

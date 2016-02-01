@@ -40,10 +40,14 @@
     sectionItem1.sectionAttrTitle = [[NSMutableAttributedString alloc] initWithString:@"修改信息" attributes:@{NSForegroundColorAttributeName: textColor, NSFontAttributeName: [UIFont systemFontOfSize:14.0f]}];
     // 昵称
     ZCPTextFieldCellItem *nameItem = [[ZCPTextFieldCellItem alloc] initWithDefault];
-    nameItem.placeholder = @"请输入昵称";
+    nameItem.textFieldConfigBlock = ^(UITextField *textField) {
+        textField.placeholder = @"请输入昵称";
+    };
     // 年龄
     ZCPTextFieldCellItem *ageItem = [[ZCPTextFieldCellItem alloc] initWithDefault];
-    ageItem.placeholder = @"请输入年龄";
+    ageItem.textFieldConfigBlock = ^(UITextField *textField) {
+        textField.placeholder = @"请输入年龄";
+    };
     
     ZCPSectionCellItem *sectionItem2 = [[ZCPSectionCellItem alloc] initWithDefault];
     sectionItem2.backgroundColor = [UIColor lightGrayColor];

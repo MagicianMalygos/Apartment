@@ -12,7 +12,7 @@
 
 - (void)setValue:(id)value forKey:(NSString *)key {
     if ([key isEqualToString:@"userRegisterTime"]) {
-        value = [ZCPUserModel dateValueFromStringValue:value];
+        value = [value toDate];
     }
     if ([key isEqualToString:@"foucusFieldsArr"]) {
         value = [value mutableCopy];

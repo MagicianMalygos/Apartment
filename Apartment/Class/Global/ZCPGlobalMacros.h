@@ -19,6 +19,17 @@
 #define IS_RETINA                       ([[UIScreen mainScreen] respondsToSelector:@selector(displayLinkWithTarget:selector:)] && ([UIScreen mainScreen].scale == 2.0))
 #define OnePoint (1/[UIScreen mainScreen].scale)
 
+// TODO: 时间性能测量用
+#define START_COUNT_TIME(start) clock_t start = clock()
+#define END_COUNT_TIME(start) (clock() - start)
+
+// The general purpose logger. This ignores logging levels.
+#ifdef DEBUG
+#define TTDPRINT(xx, ...)  NSLog(@"%s(%d): " xx, __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__)
+#else
+#define TTDPRINT(xx, ...)  ((void)0)
+#endif // #ifdef DEBUG
+
 //屏幕高度
 #define SCREENHEIGHT                                [[UIScreen mainScreen] bounds].size.height
 //应用高度
@@ -68,5 +79,15 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
 #define COLOR_VIEW                          [UIColor colorWithRed:244.0f/255.0f green:243.0f/255.0f blue:237.0f/255.0f alpha:1.0f]
 #define COLOR_VIEW2                         [UIColor colorWithRed:248.0f/255.0f green:248.0f/255.0f blue:248.0f/255.0f alpha:1.0f]
 #define COLOR_LINE                          [UIColor colorWithRed:187.0f/255.0f green:187.0f/255.0f blue:187.0f/255.0f alpha:1.0f]
+
+// 忽略PerformSelectorleak警告宏
+#define SuppressPerformSelectorLeakWarning(Stuff) \
+do { \
+    _Pragma("clang diagnostic push") \
+    _Pragma("clang diagnostic ignored \"-Warc-performSelector-leaks\"") \
+    Stuff; \
+    _Pragma("clang diagnostic pop") \
+} while (0)
+
 
 #endif /* ZCPGlobalMacros_h */

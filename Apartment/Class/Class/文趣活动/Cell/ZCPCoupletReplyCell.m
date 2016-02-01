@@ -65,7 +65,7 @@
         
         // 设置内容
         self.replyContentLabel.text = self.item.replyContent;
-        self.replyTimeLabel.text = [ZCPDataModel stringValueFromDateValue:self.item.replyTime];
+        self.replyTimeLabel.text = [self.item.replyTime toString];
         
         // 设置cell高度
         self.item.cellHeight = [NSNumber numberWithFloat:self.replyTimeLabel.bottom + VerticalMargin];

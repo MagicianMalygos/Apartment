@@ -38,8 +38,6 @@
     _thesisModel = thesisModel;
     
     // 添加的顺序不能变，因为需要计算文字高度的问题，所以后者的frame是由前者控制的
-    [self addSubview:self.thesisContentLabel];
-    
     [self addSubview:[self createThesisContentLabel]];
     [self addSubview:[self createProsLabel]];
     [self addSubview:[self createConsLabel]];
