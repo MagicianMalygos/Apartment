@@ -63,7 +63,7 @@
     sectionItem1.cellHeight = @20;
     sectionItem1.backgroundColor = [UIColor lightGrayColor];;
     sectionItem1.titleEdgeInset = UIEdgeInsetsZero;
-    sectionItem1.sectionAttrTitle = [[NSMutableAttributedString alloc] initWithString:@"用户信息" attributes:@{NSForegroundColorAttributeName: textColor, NSFontAttributeName: [UIFont systemFontOfSize:14.0f]}];
+    sectionItem1.sectionAttrTitle = [[NSMutableAttributedString alloc] initWithString:@"用户信息" attributes:@{NSForegroundColorAttributeName: textColor, NSFontAttributeName: [UIFont defaultFontWithSize:14.0f]}];
     
     // 年龄cell
     ZCPImageTextCellItem *ageItem = [[ZCPImageTextCellItem alloc] initWithDefault];
@@ -96,7 +96,7 @@
     sectionItem2.cellHeight = @20;
     sectionItem2.backgroundColor = [UIColor lightGrayColor];
     sectionItem2.titleEdgeInset = UIEdgeInsetsZero;
-    sectionItem2.sectionAttrTitle = [[NSMutableAttributedString alloc] initWithString:@"社交信息" attributes:@{NSForegroundColorAttributeName: textColor, NSFontAttributeName: [UIFont systemFontOfSize:14.0f]}];
+    sectionItem2.sectionAttrTitle = [[NSMutableAttributedString alloc] initWithString:@"社交信息" attributes:@{NSForegroundColorAttributeName: textColor, NSFontAttributeName: [UIFont defaultFontWithSize:14.0f]}];
     
     // 关注领域cell
     ZCPImageTextCellItem *fieldItem = [[ZCPImageTextCellItem alloc] initWithDefault];
@@ -134,7 +134,7 @@
     sectionItem3.cellHeight = @20;
     sectionItem3.backgroundColor = [UIColor lightGrayColor];;
     sectionItem3.titleEdgeInset = UIEdgeInsetsZero;
-    sectionItem3.sectionAttrTitle = [[NSMutableAttributedString alloc] initWithString:@"设置" attributes:@{NSForegroundColorAttributeName: textColor, NSFontAttributeName: [UIFont systemFontOfSize:14.0f]}];
+    sectionItem3.sectionAttrTitle = [[NSMutableAttributedString alloc] initWithString:@"设置" attributes:@{NSForegroundColorAttributeName: textColor, NSFontAttributeName: [UIFont defaultFontWithSize:14.0f]}];
     
     // 夜间模式设置cell
     ZCPImageTextSwitchCellItem *themeItem = [[ZCPImageTextSwitchCellItem alloc] initWithDefault];
@@ -157,7 +157,7 @@
     sectionItem4.cellHeight = @20;
     sectionItem4.backgroundColor = [UIColor lightGrayColor];
     sectionItem4.titleEdgeInset = UIEdgeInsetsZero;
-    sectionItem4.sectionAttrTitle = [[NSMutableAttributedString alloc] initWithString:@"其他" attributes:@{NSForegroundColorAttributeName: textColor, NSFontAttributeName: [UIFont systemFontOfSize:14.0f]}];
+    sectionItem4.sectionAttrTitle = [[NSMutableAttributedString alloc] initWithString:@"其他" attributes:@{NSForegroundColorAttributeName: textColor, NSFontAttributeName: [UIFont defaultFontWithSize:14.0f]}];
     
     // 关于cell
     ZCPTextCellItem *aboutItem = [[ZCPTextCellItem alloc] initWithDefault];

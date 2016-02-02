@@ -10,12 +10,8 @@
 
 @interface UIFont (Category)
 
-//使用平安好房字体
+// 默认字体
 + (UIFont *)defaultFontWithSize:(CGFloat)size;
 + (UIFont *)defaultBoldFontWithSize:(CGFloat)size;
-+ (UIFont *)defaultFontWithSize:(CGFloat)size weight:(CGFloat)weight;
 
-+ (UIFont *)defaultCellTitleFont;
-+ (UIFont *)defaultListTitleFont;
-+ (UIFont *)defaultListSubTitleFont;
 @end

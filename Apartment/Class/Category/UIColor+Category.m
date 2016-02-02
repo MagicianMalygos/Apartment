@@ -10,6 +10,15 @@
 
 @implementation UIColor (Category)
 
+/**
+ *  系统的Nav颜色
+ */
++ (UIColor *)systemNavigationColor {
+    return [UIColor colorWithRed:213.0f/255.0f green:213.0f/255.0f blue:213.0f/255.0f alpha:1.0f];
+}
+
+
+// - - - - - - - - - - - - - - - - - - - - - - - - - - 
 + (UIColor *)PADefaultBackgroundColor  {
      return [UIColor colorFromHexRGB:@"ececec"];
 }

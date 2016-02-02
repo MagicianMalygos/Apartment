@@ -34,25 +34,25 @@
 
     self.supportNumberLabel = [[UILabel alloc] initWithFrame:CGRectMake(CELLWIDTH_DEFAULT - HorizontalMargin - UIMargin - SUPPORTLABEL_WIDTH - BUTTON_WIDTH, VerticalMargin + 10, SUPPORTLABEL_WIDTH, SUPPORTLABEL_HEIGHT)];
     self.supportNumberLabel.textAlignment = NSTextAlignmentRight;
-    self.supportNumberLabel.font = [UIFont systemFontOfSize:13.0f];
+    self.supportNumberLabel.font = [UIFont defaultFontWithSize:13.0f];
     
     self.supportButton = [UIButton buttonWithType:UIButtonTypeCustom];
     self.supportButton.frame = CGRectMake(CELLWIDTH_DEFAULT - HorizontalMargin - BUTTON_WIDTH, VerticalMargin + 5, BUTTON_WIDTH, BUTTON_HEIGHT);
     
     self.userNameLabel = [[UILabel alloc] initWithFrame:CGRectMake(self.userHeadImgView.right + UIMargin, VerticalMargin, CELLWIDTH_DEFAULT - HorizontalMargin * 2 - UIMargin * 3 - IMG_WIDTH - BUTTON_WIDTH - SUPPORTLABEL_WIDTH, NAMELABEL_HEIGHT)];
     self.userNameLabel.textAlignment = NSTextAlignmentLeft;
-    self.userNameLabel.font = [UIFont systemFontOfSize:15.0f];
+    self.userNameLabel.font = [UIFont defaultFontWithSize:15.0f];
     
     // 第二行
     self.argumentContentLabel = [[UILabel alloc] init];
     self.argumentContentLabel.numberOfLines = 0;
     self.argumentContentLabel.textAlignment = NSTextAlignmentLeft;
-    self.argumentContentLabel.font = [UIFont systemFontOfSize:17.0f weight:10.0f];
+    self.argumentContentLabel.font = [UIFont defaultBoldFontWithSize:18.0f];
     
     // 第三行
     self.timeLabel = [[UILabel alloc] init];
     self.timeLabel.textAlignment = NSTextAlignmentRight;
-    self.timeLabel.font = [UIFont systemFontOfSize:13.0f];
+    self.timeLabel.font = [UIFont defaultFontWithSize:13.0f];
     
     self.userHeadImgView.backgroundColor = [UIColor redColor];
     self.userNameLabel.backgroundColor = [UIColor redColor];
@@ -75,7 +75,7 @@
         // 计算高度
         CGFloat contentHeight = [self.item.argumentContent boundingRectWithSize:CGSizeMake(CELLWIDTH_DEFAULT - HorizontalMargin * 2, CGFLOAT_MAX)
                                                                         options:NSStringDrawingUsesFontLeading| NSStringDrawingUsesLineFragmentOrigin
-                                                                     attributes:@{NSFontAttributeName: [UIFont systemFontOfSize:17.0f weight:10.0f]}
+                                                                     attributes:@{NSFontAttributeName: [UIFont defaultBoldFontWithSize:18.0f]}
                                                                         context:nil].size.height;
         // 设置frame
         self.argumentContentLabel.frame = CGRectMake(HorizontalMargin, self.userHeadImgView.bottom + UIMargin, CELLWIDTH_DEFAULT - HorizontalMargin * 2, contentHeight);

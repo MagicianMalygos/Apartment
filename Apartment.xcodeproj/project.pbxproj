@@ -54,6 +54,8 @@
 		187335B51C5F55D9003284EE /* NSDateFormatter+ExtraMethod.m in Sources */ = {isa = PBXBuildFile; fileRef = 187335B41C5F55D9003284EE /* NSDateFormatter+ExtraMethod.m */; };
 		187335B61C5F5D0B003284EE /* ZCPNavigator.m in Sources */ = {isa = PBXBuildFile; fileRef = 189698231C32229B0018BA3F /* ZCPNavigator.m */; };
 		187335B91C5F6359003284EE /* UIFont+Category.m in Sources */ = {isa = PBXBuildFile; fileRef = 187335B81C5F6359003284EE /* UIFont+Category.m */; };
+		188229761C608D2600199332 /* UIButton+Category.m in Sources */ = {isa = PBXBuildFile; fileRef = 188229751C608D2600199332 /* UIButton+Category.m */; };
+		188229791C60AFBC00199332 /* ZCPThesisCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 188229781C60AFBC00199332 /* ZCPThesisCell.m */; };
 		188DA20D1C58D64F00FFF3E5 /* ZCPBookCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 188DA20C1C58D64F00FFF3E5 /* ZCPBookCell.m */; };
 		189624F91C4CCEAA003733CE /* ZCPImageTextCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 189624F81C4CCEAA003733CE /* ZCPImageTextCell.m */; };
 		189624FC1C4CD981003733CE /* ZCPUserControllerHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 189624FB1C4CD981003733CE /* ZCPUserControllerHelper.m */; };
@@ -77,6 +79,7 @@
 		18A1DE911C537B9600551C52 /* ZCPThesisView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18A1DE901C537B9600551C52 /* ZCPThesisView.m */; };
 		18A1DE941C537BF000551C52 /* ZCPThesisModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 18A1DE931C537BF000551C52 /* ZCPThesisModel.m */; };
 		18A1DE971C537C2700551C52 /* ZCPStateModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 18A1DE961C537C2700551C52 /* ZCPStateModel.m */; };
+		18A6FC811C5F843500D6F946 /* ZCPBookPostCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 18A6FC801C5F843500D6F946 /* ZCPBookPostCell.m */; };
 		18A7538E1C58C928007CEB5F /* ZCPAddQuestionController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18A7538D1C58C928007CEB5F /* ZCPAddQuestionController.m */; };
 		18A753931C58CECC007CEB5F /* ZCPTextFieldCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 18A753901C58CECC007CEB5F /* ZCPTextFieldCell.m */; };
 		18A753941C58CECC007CEB5F /* ZCPTextViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 18A753921C58CECC007CEB5F /* ZCPTextViewCell.m */; };
@@ -223,6 +226,10 @@
 		187335B41C5F55D9003284EE /* NSDateFormatter+ExtraMethod.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDateFormatter+ExtraMethod.m"; sourceTree = "<group>"; };
 		187335B71C5F6359003284EE /* UIFont+Category.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIFont+Category.h"; sourceTree = "<group>"; };
 		187335B81C5F6359003284EE /* UIFont+Category.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIFont+Category.m"; sourceTree = "<group>"; };
+		188229741C608D2600199332 /* UIButton+Category.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+Category.h"; sourceTree = "<group>"; };
+		188229751C608D2600199332 /* UIButton+Category.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+Category.m"; sourceTree = "<group>"; };
+		188229771C60AFBC00199332 /* ZCPThesisCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZCPThesisCell.h; sourceTree = "<group>"; };
+		188229781C60AFBC00199332 /* ZCPThesisCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZCPThesisCell.m; sourceTree = "<group>"; };
 		188DA20B1C58D64F00FFF3E5 /* ZCPBookCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZCPBookCell.h; sourceTree = "<group>"; };
 		188DA20C1C58D64F00FFF3E5 /* ZCPBookCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZCPBookCell.m; sourceTree = "<group>"; };
 		189624F71C4CCEAA003733CE /* ZCPImageTextCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZCPImageTextCell.h; sourceTree = "<group>"; };
@@ -271,6 +278,8 @@
 		18A1DE931C537BF000551C52 /* ZCPThesisModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZCPThesisModel.m; sourceTree = "<group>"; };
 		18A1DE951C537C2700551C52 /* ZCPStateModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZCPStateModel.h; sourceTree = "<group>"; };
 		18A1DE961C537C2700551C52 /* ZCPStateModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZCPStateModel.m; sourceTree = "<group>"; };
+		18A6FC7F1C5F843500D6F946 /* ZCPBookPostCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZCPBookPostCell.h; sourceTree = "<group>"; };
+		18A6FC801C5F843500D6F946 /* ZCPBookPostCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZCPBookPostCell.m; sourceTree = "<group>"; };
 		18A7538C1C58C928007CEB5F /* ZCPAddQuestionController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZCPAddQuestionController.h; sourceTree = "<group>"; };
 		18A7538D1C58C928007CEB5F /* ZCPAddQuestionController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZCPAddQuestionController.m; sourceTree = "<group>"; };
 		18A7538F1C58CECC007CEB5F /* ZCPTextFieldCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZCPTextFieldCell.h; sourceTree = "<group>"; };
@@ -423,6 +432,8 @@
 				18EF8A041C57088900924CCF /* ZCPArgumentCell.m */,
 				184DB2141C58B5C400B504C1 /* ZCPSwitchRadioCell.h */,
 				184DB2151C58B5C400B504C1 /* ZCPSwitchRadioCell.m */,
+				188229771C60AFBC00199332 /* ZCPThesisCell.h */,
+				188229781C60AFBC00199332 /* ZCPThesisCell.m */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -437,6 +448,8 @@
 		180700441C48EF2E00F3BE2B /* Cell */ = {
 			isa = PBXGroup;
 			children = (
+				18A6FC7F1C5F843500D6F946 /* ZCPBookPostCell.h */,
+				18A6FC801C5F843500D6F946 /* ZCPBookPostCell.m */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -676,6 +689,13 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		18A6FC7B1C5F83D300D6F946 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		18AB4D481C30DA2300C52BF6 = {
 			isa = PBXGroup;
 			children = (
@@ -776,6 +796,8 @@
 				18D0B06E1C34C9B200F4B2DB /* UIBarButtonItem+Category.m */,
 				1836F24B1C47AD2C000FCB36 /* ZCPTableViewCell+Category.h */,
 				1836F24C1C47AD2C000FCB36 /* ZCPTableViewCell+Category.m */,
+				188229741C608D2600199332 /* UIButton+Category.h */,
+				188229751C608D2600199332 /* UIButton+Category.m */,
 			);
 			name = Category;
 			path = Class/Category;
@@ -840,6 +862,7 @@
 		18AB4DA21C30DC5600C52BF6 /* 观点交流 */ = {
 			isa = PBXGroup;
 			children = (
+				18A6FC7B1C5F83D300D6F946 /* View */,
 				1845A55D1C59B00B00491A4B /* Controller */,
 				180700441C48EF2E00F3BE2B /* Cell */,
 			);
@@ -1156,6 +1179,7 @@
 				187335B51C5F55D9003284EE /* NSDateFormatter+ExtraMethod.m in Sources */,
 				180700231C48837300F3BE2B /* UIScrollView+ExtraMethod.m in Sources */,
 				1836F24D1C47AD2C000FCB36 /* ZCPTableViewCell+Category.m in Sources */,
+				188229791C60AFBC00199332 /* ZCPThesisCell.m in Sources */,
 				18A1DE8A1C536A5C00551C52 /* ZCPCoupletReplyModel.m in Sources */,
 				187335A31C5F5232003284EE /* ZCPPickerView.m in Sources */,
 				1844C9B81C5731BD004F08E3 /* ZCPArgumentListController.m in Sources */,
@@ -1174,6 +1198,7 @@
 				18B0EE001C4F1A1400F078EB /* ZCPSettingChangePwdController.m in Sources */,
 				1896980B1C321F2C0018BA3F /* ZCPViewController.m in Sources */,
 				180469751C565485004E7DCC /* ZCPFieldModel.m in Sources */,
+				188229761C608D2600199332 /* UIButton+Category.m in Sources */,
 				187335A91C5F5383003284EE /* NSDate+Category.m in Sources */,
 				1807001E1C48821600F3BE2B /* PADragRefreshImageView.m in Sources */,
 				184DB20A1C584F1400B504C1 /* ZCPAddCoupletController.m in Sources */,
@@ -1234,6 +1259,7 @@
 				18B0EE1F1C4F575100F078EB /* ZCPUserModel.m in Sources */,
 				180469781C565527004E7DCC /* ZCPQuestionModel.m in Sources */,
 				1845A5581C59AFEF00491A4B /* ZCPMainLibraryController.m in Sources */,
+				18A6FC811C5F843500D6F946 /* ZCPBookPostCell.m in Sources */,
 				182400911C5B0280001D5147 /* ZCPOptionView.m in Sources */,
 				18EF89F61C56FF5200924CCF /* ZCPBookPostModel.m in Sources */,
 				18E3F7251C50802E00318761 /* ZCPQuestionMainController.m in Sources */,

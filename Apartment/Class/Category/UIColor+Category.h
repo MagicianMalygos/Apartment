@@ -10,6 +10,11 @@
 
 @interface UIColor (Category)
 
+// 系统的Nav颜色
++ (UIColor *)systemNavigationColor;
+
+
+// - - - - - - - - - - - - - - - - - - - - - - - -
 + (UIColor *)PADefaultBackgroundColor;
 + (UIColor *)PAGrayColor;
 + (UIColor *)PALightGrayColor;

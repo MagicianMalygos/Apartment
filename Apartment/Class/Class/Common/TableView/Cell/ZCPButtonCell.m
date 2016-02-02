@@ -117,7 +117,7 @@
     buttonItem.buttonConfigBlock = ^(UIButton *button) {
         [button setBackgroundImage:[UIImage imageWithColor:UIColorFromRGB(0xeeeeee)] forState:UIControlStateDisabled];
         [button setBackgroundImage:nil forState:UIControlStateNormal];
-        [button.titleLabel setFont:[UIFont systemFontOfSize:18.0f]];
+        [button.titleLabel setFont:[UIFont defaultFontWithSize:18.0f]];
     };
     return buttonItem;
 }

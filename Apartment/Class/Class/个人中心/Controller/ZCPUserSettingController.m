@@ -45,7 +45,7 @@
     sectionItem1.cellHeight = @20;
     sectionItem1.backgroundColor = [UIColor lightGrayColor];
     sectionItem1.titleEdgeInset = UIEdgeInsetsZero;
-    sectionItem1.sectionAttrTitle = [[NSAttributedString alloc] initWithString:@"修改头像" attributes:@{NSForegroundColorAttributeName: textColor, NSFontAttributeName: [UIFont systemFontOfSize:14.0f]}];
+    sectionItem1.sectionAttrTitle = [[NSAttributedString alloc] initWithString:@"修改头像" attributes:@{NSForegroundColorAttributeName: textColor, NSFontAttributeName: [UIFont defaultFontWithSize:14.0f]}];
     // 头像cell
     ZCPHeadImageCellItem *headItem = [[ZCPHeadImageCellItem alloc] initWithDefault];
     headItem.cellHeight = @150;
@@ -57,7 +57,7 @@
     sectionItem2.cellHeight = @20;
     sectionItem2.backgroundColor = [UIColor lightGrayColor];
     sectionItem2.titleEdgeInset = UIEdgeInsetsZero;
-    sectionItem2.sectionAttrTitle = [[NSAttributedString alloc] initWithString:@"修改信息" attributes:@{NSForegroundColorAttributeName: textColor, NSFontAttributeName: [UIFont systemFontOfSize:14.0f]}];
+    sectionItem2.sectionAttrTitle = [[NSAttributedString alloc] initWithString:@"修改信息" attributes:@{NSForegroundColorAttributeName: textColor, NSFontAttributeName: [UIFont defaultFontWithSize:14.0f]}];
     
     // 修改个人资料
     ZCPTextCellItem *userInfoItem = [[ZCPTextCellItem alloc] initWithDefault];

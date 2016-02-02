@@ -22,7 +22,7 @@
 #pragma mark - life circle
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    self.title = @"添加论据";
+    self.title = @"发表观点";
 }
 - (void)viewWillLayoutSubviews {
     [super viewWillLayoutSubviews];
@@ -45,6 +45,12 @@
     optionItem.switchTipText = @"匿名";
     optionItem.radioTipTextOne = @"正方";
     optionItem.radioTipTextTwo = @"反方";
+    optionItem.radioButtonOneConfigBlock = ^(UIButton *button) {
+        [button setImageNameNormal:@"choice_normal" Highlighted:@"choice_selected" Selected:@"choice_selected" Disabled:@"choice_normal"];
+    };
+    optionItem.radioButtonTwoConfigBlock = ^(UIButton *button) {
+        [button setImageNameNormal:@"choice_normal" Highlighted:@"choice_selected" Selected:@"choice_selected" Disabled:@"choice_normal"];
+    };
     
     // blankItem
     ZCPLineCellItem *blankItem = [[ZCPLineCellItem alloc] initWithDefault];

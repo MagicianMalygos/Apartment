@@ -35,9 +35,8 @@ typedef NS_ENUM(NSInteger, ZCPBookpostCollectState){
 @property (nonatomic, strong) ZCPFieldModel *field;                 // 帖子所属领域
 @property (nonatomic, strong) ZCPBookModel *book;                   // 帖子所关联书籍
 @property (nonatomic, assign) int bookpostReplyNumber;              // 帖子回复数量
-@property (nonatomic ,assign) int bookpostCollectNumber;            // 收藏人数
-@property(nonatomic,assign) int bookpostReplyNum;                   // 帖子回复数量
-@property(nonatomic,assign) ZCPBookpostSupportState supported;      // 当前用户是否已点过赞
-@property(nonatomic,assign) ZCPBookpostCollectState collected;      // 当前用户是否已收藏
+@property (nonatomic, assign) int bookpostCollectNumber;            // 收藏人数
+@property (nonatomic, assign) ZCPBookpostSupportState supported;      // 当前用户是否已点过赞
+@property (nonatomic, assign) ZCPBookpostCollectState collected;      // 当前用户是否已收藏
 
 @end

@@ -30,21 +30,21 @@
     self.userHeadImageView = [[UIImageView alloc] initWithFrame:CGRectMake(HorizontalMargin, VerticalMargin, 20, 20)];
     self.userNameLabel = [[UILabel alloc] initWithFrame:CGRectMake(self.userHeadImageView.right + UIMargin, VerticalMargin, APPLICATIONWIDTH - self.userHeadImageView.right - HorizontalMargin - UIMargin, 20)];
     self.userNameLabel.textAlignment = NSTextAlignmentLeft;
-    self.userNameLabel.font =[UIFont systemFontOfSize:15.0f];
+    self.userNameLabel.font =[UIFont defaultFontWithSize:15.0f];
     
     // 第二行
     self.bookreplyContentLabel = [[UILabel alloc] init];
     self.bookreplyContentLabel.textAlignment = NSTextAlignmentLeft;
-    self.bookreplyContentLabel.font = [UIFont systemFontOfSize:13.0f];
+    self.bookreplyContentLabel.font = [UIFont defaultFontWithSize:15.0f];
     
     // 第三行
     self.bookreplyTiemLabel = [[UILabel alloc] init];
     self.bookreplyTiemLabel.textAlignment = NSTextAlignmentLeft;
-    self.bookreplyTiemLabel.font = [UIFont systemFontOfSize:10.0f];
+    self.bookreplyTiemLabel.font = [UIFont defaultFontWithSize:13.0f];
     
     self.bookreplySupportLabel = [[UILabel alloc] init];
     self.bookreplySupportLabel.textAlignment = NSTextAlignmentLeft;
-    self.bookreplySupportLabel.font = [UIFont systemFontOfSize:10.0f];
+    self.bookreplySupportLabel.font = [UIFont defaultFontWithSize:13.0f];
     
     self.supportButton = [UIButton buttonWithType:UIButtonTypeCustom];
     
@@ -67,13 +67,28 @@
         self.item = (ZCPBookReplyCellItem *)object;
         
         // 计算内容标签高度
-        CGFloat contentLabelHeight = [self.item.bookreplyContent boundingRectWithSize:CGSizeMake(APPLICATIONWIDTH - HorizontalMargin, CGFLOAT_MAX) options:NSStringDrawingUsesFontLeading| NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName: [UIFont systemFontOfSize:13.0f]} context:nil].size.height;
+        CGFloat contentLabelHeight = [self.item.bookreplyContent boundingRectWithSize:CGSizeMake(APPLICATIONWIDTH - HorizontalMargin, CGFLOAT_MAX)
+                                                                              options:NSStringDrawingUsesFontLeading| NSStringDrawingUsesLineFragmentOrigin
+                                                                           attributes:@{NSFontAttributeName: [UIFont defaultFontWithSize:15.0f]}
+                                                                              context:nil].size.height;
         
         // 设置frame
-        self.bookreplyContentLabel.frame = CGRectMake(HorizontalMargin, self.userHeadImageView.bottom + UIMargin, APPLICATIONWIDTH - HorizontalMargin * 2, contentLabelHeight);
-        self.bookreplyTiemLabel.frame = CGRectMake(HorizontalMargin, self.bookreplyContentLabel.bottom + UIMargin, TimeLabelWidth, ButtonHeight);
-        self.bookreplySupportLabel.frame = CGRectMake(APPLICATIONWIDTH - HorizontalMargin - UIMargin - ButtonWidth - TimeLabelWidth, self.bookreplyContentLabel.bottom + UIMargin, TimeLabelWidth, ButtonHeight);
-        self.supportButton.frame = CGRectMake(APPLICATIONWIDTH - HorizontalMargin - ButtonWidth, self.bookreplyContentLabel.bottom + UIMargin, ButtonWidth, ButtonHeight);
+        self.bookreplyContentLabel.frame = CGRectMake(HorizontalMargin
+                                                      , self.userHeadImageView.bottom + UIMargin
+                                                      , APPLICATIONWIDTH - HorizontalMargin * 2
+                                                      , contentLabelHeight);
+        self.bookreplyTiemLabel.frame = CGRectMake(HorizontalMargin
+                                                   , self.bookreplyContentLabel.bottom + UIMargin
+                                                   , TimeLabelWidth
+                                                   , ButtonHeight);
+        self.bookreplySupportLabel.frame = CGRectMake(APPLICATIONWIDTH - HorizontalMargin - UIMargin - ButtonWidth - TimeLabelWidth
+                                                      , self.bookreplyContentLabel.bottom + UIMargin
+                                                      , TimeLabelWidth
+                                                      , ButtonHeight);
+        self.supportButton.frame = CGRectMake(APPLICATIONWIDTH - HorizontalMargin - ButtonWidth
+                                              , self.bookreplyContentLabel.bottom + UIMargin
+                                              , ButtonWidth
+                                              , ButtonHeight);
         
         // 设置内容
         self.userHeadImageView.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:self.item.userHeadImageURL]]];

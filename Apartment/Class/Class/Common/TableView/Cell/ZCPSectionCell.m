@@ -98,7 +98,7 @@
     if (self = [super init]) {
         self.cellClass = [ZCPSectionCell class];
         self.cellType = [ZCPSectionCell cellIdentifier];
-        self.font = [UIFont systemFontOfSize:14.0f];
+        self.font = [UIFont defaultFontWithSize:14.0f];
         self.titleEdgeInset = UIEdgeInsetsZero;
     }
     return self;
@@ -107,7 +107,7 @@
     if (self = [super initWithDefault]) {
         self.cellClass = [ZCPSectionCell class];
         self.cellType = [ZCPSectionCell cellIdentifier];
-        self.font = [UIFont systemFontOfSize:14.0f];
+        self.font = [UIFont defaultFontWithSize:14.0f];
         self.titleEdgeInset = UIEdgeInsetsZero;
         self.cellHeight = @20;
     }

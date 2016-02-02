@@ -37,7 +37,7 @@
     ZCPSectionCellItem *sectionItem1 = [[ZCPSectionCellItem alloc] initWithDefault];
     sectionItem1.backgroundColor = [UIColor lightGrayColor];
     sectionItem1.titleEdgeInset = UIEdgeInsetsZero;
-    sectionItem1.sectionAttrTitle = [[NSMutableAttributedString alloc] initWithString:@"密保问题一" attributes:@{NSForegroundColorAttributeName: textColor, NSFontAttributeName: [UIFont systemFontOfSize:14.0f]}];
+    sectionItem1.sectionAttrTitle = [[NSMutableAttributedString alloc] initWithString:@"密保问题一" attributes:@{NSForegroundColorAttributeName: textColor, NSFontAttributeName: [UIFont defaultFontWithSize:14.0f]}];
     // 密码
     ZCPTextFieldCellItem *questionItem1 = [[ZCPTextFieldCellItem alloc] initWithDefault];
     questionItem1.textFieldConfigBlock = ^(UITextField *textField) {
@@ -51,7 +51,7 @@
     ZCPSectionCellItem *sectionItem2 = [[ZCPSectionCellItem alloc] initWithDefault];
     sectionItem2.backgroundColor = [UIColor lightGrayColor];;
     sectionItem2.titleEdgeInset = UIEdgeInsetsZero;
-    sectionItem2.sectionAttrTitle = [[NSMutableAttributedString alloc] initWithString:@"密保问题二" attributes:@{NSForegroundColorAttributeName: textColor, NSFontAttributeName: [UIFont systemFontOfSize:14.0f]}];
+    sectionItem2.sectionAttrTitle = [[NSMutableAttributedString alloc] initWithString:@"密保问题二" attributes:@{NSForegroundColorAttributeName: textColor, NSFontAttributeName: [UIFont defaultFontWithSize:14.0f]}];
     // 密码
     ZCPTextFieldCellItem *questionItem2 = [[ZCPTextFieldCellItem alloc] initWithDefault];
     questionItem2.textFieldConfigBlock = ^(UITextField *textField) {
@@ -65,7 +65,7 @@
     ZCPSectionCellItem *sectionItem3 = [[ZCPSectionCellItem alloc] initWithDefault];
     sectionItem3.backgroundColor = [UIColor lightGrayColor];;
     sectionItem3.titleEdgeInset = UIEdgeInsetsZero;
-    sectionItem3.sectionAttrTitle = [[NSMutableAttributedString alloc] initWithString:@"密保问题三" attributes:@{NSForegroundColorAttributeName: textColor, NSFontAttributeName: [UIFont systemFontOfSize:14.0f]}];
+    sectionItem3.sectionAttrTitle = [[NSMutableAttributedString alloc] initWithString:@"密保问题三" attributes:@{NSForegroundColorAttributeName: textColor, NSFontAttributeName: [UIFont defaultFontWithSize:14.0f]}];
     // 密码
     ZCPTextFieldCellItem *questionItem3 = [[ZCPTextFieldCellItem alloc] initWithDefault];
     questionItem3.textFieldConfigBlock = ^(UITextField *textField) {

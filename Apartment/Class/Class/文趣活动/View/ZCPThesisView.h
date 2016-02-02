@@ -14,6 +14,7 @@
 @interface ZCPThesisView : UIView
 
 @property (nonatomic, strong) ZCPThesisModel *thesisModel;              // 辩题模型
+@property (nonatomic, strong) UIImageView *bgView;                      // 背景视图
 
 @property (nonatomic, strong) UILabel *prosLabel;                       // 正方标签
 @property (nonatomic, strong) UILabel *consLabel;                       // 反方标签

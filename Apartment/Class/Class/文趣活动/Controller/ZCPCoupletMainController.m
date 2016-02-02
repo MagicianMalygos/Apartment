@@ -12,7 +12,7 @@
 #import "ZCPCoupletMainCell.h"
 #import "ZCPCoupletModel.h"
 
-#define OptionHeight 50.0f
+#define OptionHeight 35.0f
 
 @interface ZCPCoupletMainController () <ZCPOptionViewDelegate, ZCPListTableViewAdaptorDelegate>
 
@@ -55,14 +55,14 @@
     
     // 选项视图cell
     ZCPOptionCellItem *optionItem = [[ZCPOptionCellItem alloc] initWithDefault];
-    optionItem.cellHeight = @30;
+    optionItem.cellHeight = @OptionHeight;
     optionItem.delegate = self;
     optionItem.attributedStringArr = @[[[NSAttributedString alloc] initWithString:@"按时间排序"
-                                                                       attributes:@{NSFontAttributeName: [UIFont systemFontOfSize:14.0f]}]
+                                                                       attributes:@{NSFontAttributeName: [UIFont defaultFontWithSize:13.0f]}]
                                        ,[[NSAttributedString alloc] initWithString:@"按点赞量排序"
-                                                                        attributes:@{NSFontAttributeName: [UIFont systemFontOfSize:14.0f]}]
+                                                                        attributes:@{NSFontAttributeName: [UIFont defaultFontWithSize:13.0f]}]
                                        ,[[NSAttributedString alloc] initWithString:@"写对联"
-                                                                        attributes:@{NSFontAttributeName: [UIFont systemFontOfSize:14.0f]}]];
+                                                                        attributes:@{NSFontAttributeName: [UIFont defaultFontWithSize:13.0f]}]];
     [items addObject:optionItem];
     
     // 对联列表cell

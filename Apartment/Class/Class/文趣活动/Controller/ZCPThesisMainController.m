@@ -8,7 +8,7 @@
 
 #import "ZCPThesisMainController.h"
 
-#import "ZCPThesisView.h"
+#import "ZCPThesisCell.h"
 #import "ZCPThesisModel.h"
 #import "ZCPArgumentModel.h"
 #import "ZCPSectionCell.h"
@@ -39,11 +39,11 @@
     // thesisView
     ZCPThesisModel *thesisModel = [[ZCPThesisModel alloc] initWithDictionary:@{
                                                                                @"thesisId":@10
-                                                                               ,@"thesisContent":@"asdfsadf"
-                                                                               ,@"thesisPros":@"Prosa;lsdfjalskdjflaksjdflkasjdlfksjdfksdjfk"
+                                                                               ,@"thesisContent":@"中国能否继续做苹果的避风港？？？？？？？？？？？？？？？？？？？？？？？"
+                                                                               ,@"thesisPros":@"正方：还是可以的。。。。。。。。。。。。。。。。。。。。。"
                                                                                ,@"thesisProsCount":@5
                                                                                ,@"thesisProsReplyNumber":@5
-                                                                               ,@"thesisCons":@"Consadasdasdaaaaaaaaaaaaaaaaaaaaaaaaaa"
+                                                                               ,@"thesisCons":@"反方：不行！！！！！！！！！！！！！！！"
                                                                                ,@"thesisConsCount":@10
                                                                                ,@"thesisConsReplyNumber":@10
                                                                                ,@"thesisCollectNumber":@15
@@ -51,9 +51,9 @@
                                                                                ,@"thesisEndTime":@"2016-2-1"
                                                                                ,@"collected":@YES}];
     self.thesisModel = thesisModel;
-    self.thesisView = [[ZCPThesisView alloc] initWithFrame:CGRectMake(0, 0, APPLICATIONWIDTH, 200) thesis:thesisModel];
-    self.thesisView.delegate = self;
-    [self.view addSubview:self.thesisView];
+//    self.thesisView = [[ZCPThesisView alloc] initWithFrame:CGRectMake(0, 0, APPLICATIONWIDTH, 200) thesis:thesisModel];
+//    self.thesisView.delegate = self;
+//    [self.view addSubview:self.thesisView];
     
     // 初始化正反方论据数组
     self.prosArgumentArr = [NSMutableArray array];
@@ -93,7 +93,7 @@
 }
 - (void)viewWillLayoutSubviews {
     [super viewWillLayoutSubviews];
-    self.tableView.frame = CGRectMake(0, self.thesisView.bottom, APPLICATIONWIDTH, APPLICATIONHEIGHT - Height_NavigationBar - Height_TABBAR - OptionHeight - self.thesisView.height);
+    self.tableView.frame = CGRectMake(0, self.thesisView.bottom, APPLICATIONWIDTH, APPLICATIONHEIGHT - Height_NavigationBar - Height_TABBAR - OptionHeight);
 }
 
 #pragma mark - Construct Data
@@ -103,12 +103,18 @@
     UIColor *textColor = (self.appTheme == LightTheme)?[UIColor blackColor]:[UIColor whiteColor];
     NSMutableArray *items = [NSMutableArray array];
     
+    // thesisItem
+    ZCPThesisCellItem *thesisItem = [[ZCPThesisCellItem alloc] initWithDefault];
+    thesisItem.thesisModel = self.thesisModel;
+    thesisItem.delegate = self;
+    [items addObject:thesisItem];
+    
     // 正方 section
     ZCPSectionCellItem *sectionItem1 = [[ZCPSectionCellItem alloc] initWithDefault];
     sectionItem1.cellHeight = @20;
     sectionItem1.titleEdgeInset = UIEdgeInsetsZero;
     sectionItem1.backgroundColor = [UIColor lightGrayColor];
-    sectionItem1.sectionAttrTitle = [[NSAttributedString alloc] initWithString:@"正方观点" attributes:@{NSForegroundColorAttributeName: textColor, NSFontAttributeName: [UIFont systemFontOfSize:14.0f]}];
+    sectionItem1.sectionAttrTitle = [[NSAttributedString alloc] initWithString:@"正方观点" attributes:@{NSForegroundColorAttributeName: textColor, NSFontAttributeName: [UIFont defaultFontWithSize:14.0f]}];
     [items addObject:sectionItem1];
     
     for (ZCPArgumentModel *model in self.prosArgumentArr) {
@@ -125,7 +131,7 @@
     sectionItem2.cellHeight = @20;
     sectionItem2.titleEdgeInset = UIEdgeInsetsZero;
     sectionItem2.backgroundColor = [UIColor lightGrayColor];
-    sectionItem2.sectionAttrTitle = [[NSAttributedString alloc] initWithString:@"反方观点" attributes:@{NSForegroundColorAttributeName: textColor, NSFontAttributeName: [UIFont systemFontOfSize:14.0f]}];
+    sectionItem2.sectionAttrTitle = [[NSAttributedString alloc] initWithString:@"反方观点" attributes:@{NSForegroundColorAttributeName: textColor, NSFontAttributeName: [UIFont defaultFontWithSize:14.0f]}];
     [items addObject:sectionItem2];
     
     for (ZCPArgumentModel *model in self.consArgumentArr) {

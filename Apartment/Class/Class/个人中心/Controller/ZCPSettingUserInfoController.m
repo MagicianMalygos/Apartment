@@ -37,7 +37,7 @@
     ZCPSectionCellItem *sectionItem1 = [[ZCPSectionCellItem alloc] initWithDefault];
     sectionItem1.backgroundColor = [UIColor lightGrayColor];
     sectionItem1.titleEdgeInset = UIEdgeInsetsZero;
-    sectionItem1.sectionAttrTitle = [[NSMutableAttributedString alloc] initWithString:@"修改信息" attributes:@{NSForegroundColorAttributeName: textColor, NSFontAttributeName: [UIFont systemFontOfSize:14.0f]}];
+    sectionItem1.sectionAttrTitle = [[NSMutableAttributedString alloc] initWithString:@"修改信息" attributes:@{NSForegroundColorAttributeName: textColor, NSFontAttributeName: [UIFont defaultFontWithSize:14.0f]}];
     // 昵称
     ZCPTextFieldCellItem *nameItem = [[ZCPTextFieldCellItem alloc] initWithDefault];
     nameItem.textFieldConfigBlock = ^(UITextField *textField) {
@@ -52,7 +52,7 @@
     ZCPSectionCellItem *sectionItem2 = [[ZCPSectionCellItem alloc] initWithDefault];
     sectionItem2.backgroundColor = [UIColor lightGrayColor];
     sectionItem2.titleEdgeInset = UIEdgeInsetsZero;
-    sectionItem2.sectionAttrTitle = [[NSMutableAttributedString alloc] initWithString:@"修改领域" attributes:@{NSForegroundColorAttributeName: textColor, NSFontAttributeName: [UIFont systemFontOfSize:14.0f]}];
+    sectionItem2.sectionAttrTitle = [[NSMutableAttributedString alloc] initWithString:@"修改领域" attributes:@{NSForegroundColorAttributeName: textColor, NSFontAttributeName: [UIFont defaultFontWithSize:14.0f]}];
     // 领域
     
     ZCPLineCellItem *blankItem = [[ZCPLineCellItem alloc] initWithDefault];

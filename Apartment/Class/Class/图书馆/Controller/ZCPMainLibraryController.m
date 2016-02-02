@@ -12,6 +12,8 @@
 #import "ZCPBookCell.h"
 #import "ZCPBookModel.h"
 
+#define OptionViewHight     35
+
 @interface ZCPMainLibraryController () <ZCPListTableViewAdaptorDelegate, ZCPOptionViewDelegate>
 
 @property (nonatomic, strong) ZCPOptionView *optionView;    // 选项视图
@@ -29,16 +31,16 @@
     
     self.bookArr = [NSMutableArray array];
     ZCPBookModel *model = [ZCPBookModel modelFromDictionary:@{@"bookId":@1
-                                                              ,@"bookName":@"像恋爱一样去工作 - 啊啊啊啊啊啊啊啊啊啊啊啊"
-                                                              ,@"bookAuthor":@"XXX"
+                                                              ,@"bookName":@"《像恋爱一样去工作》- 爱上邓丽君阿里的卡上了肯德基"
+                                                              ,@"bookAuthor":@"茅侃侃"
                                                               ,@"bookPublishTime":@"2013-12-14"
                                                               ,@"bookCoverURL":@"http://"
                                                               ,@"bookPublisher":@"xxx出版社"
-                                                              ,@"bookSummary":@""
+                                                              ,@"bookSummary":@"拉萨的骄傲了斯柯达"
                                                               ,@"bookCommentCount":@20
                                                               ,@"bookCollectNumber":@100
                                                               ,@"bookTime":@"2015-2-12"
-                                                              ,@"field":@{@"fieldId":@4,@"fieldName":@"工作"}
+                                                              ,@"field":@{@"fieldId":@4, @"fieldName":@"工作"}
                                                               ,@"contributor":@{@"userName":@"ZCP"}}];
     [self.bookArr addObject:model];
     [self constructData];
@@ -51,7 +53,7 @@
 }
 - (void)viewWillLayoutSubviews {
     [super viewWillLayoutSubviews];
-    self.tableView.frame = CGRectMake(0, self.optionView.bottom, APPLICATIONWIDTH, APPLICATIONHEIGHT - Height_NavigationBar - Height_TABBAR - self.optionView.height);
+    self.tableView.frame = CGRectMake(0, self.optionView.bottom, APPLICATIONWIDTH, APPLICATIONHEIGHT - Height_NavigationBar - Height_TABBAR - OptionViewHight);
 }
 
 #pragma mark - getter / setter
@@ -63,12 +65,16 @@
 - (ZCPOptionView *)optionView {
     if (_optionView == nil) {
         NSArray *attrStringArr = @[[[NSAttributedString alloc] initWithString:@"最新"
-                                                                   attributes:@{NSFontAttributeName: [UIFont systemFontOfSize:13.0f]}]
+                                                                   attributes:@{NSFontAttributeName: [UIFont defaultFontWithSize:13.0f]}]
                                    ,[[NSAttributedString alloc] initWithString:@"收藏"
-                                                                    attributes:@{NSFontAttributeName: [UIFont systemFontOfSize:13.0f]}]
+                                                                    attributes:@{NSFontAttributeName: [UIFont defaultFontWithSize:13.0f]}]
                                    ,[[NSAttributedString alloc] initWithString:@"评论"
-                                                                    attributes:@{NSFontAttributeName: [UIFont systemFontOfSize:13.0f]}]];
-        _optionView = [[ZCPOptionView alloc] initWithFrame:CGRectMake(0, 0, self.view.width, 30) attributeStringArr:attrStringArr];
+                                                                    attributes:@{NSFontAttributeName: [UIFont defaultFontWithSize:13.0f]}]];
+        _optionView = [[ZCPOptionView alloc] initWithFrame:CGRectMake(0
+                                                                      , 0
+                                                                      , self.view.width
+                                                                      , OptionViewHight)
+                                        attributeStringArr:attrStringArr];
         _optionView.delegate = self;
         [_optionView hideMarkView];
     }

@@ -62,7 +62,7 @@ IMP_SINGLETON
     navigationBar.tintColor = color;                    // 左右按钮文字颜色
     navigationBar.barTintColor = [UIColor greenColor];  // navigationBar背景颜色
     navigationBar.translucent = NO;                     // 取消半透明效果，解决界面跳转的时候能看到导航栏的颜色发生变化
-    NSDictionary *navTitleDict = [NSDictionary dictionaryWithObjectsAndKeys:[UIFont systemFontOfSize:18], NSFontAttributeName, [UIColor whiteColor], NSForegroundColorAttributeName, nil];
+    NSDictionary *navTitleDict = [NSDictionary dictionaryWithObjectsAndKeys:[UIFont defaultFontWithSize:18.0f], NSFontAttributeName, [UIColor whiteColor], NSForegroundColorAttributeName, nil];
     [navigationBar setTitleTextAttributes:navTitleDict];
     
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent animated:YES];

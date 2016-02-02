@@ -14,7 +14,7 @@
 
 #import "ZCPOptionView.h"
 
-#define OptionHeight 40.0f
+#define OptionHeight 44.0f
 
 @interface ZCPMainActivityController () <UIScrollViewDelegate, ZCPOptionViewDelegate>
 
