@@ -48,7 +48,8 @@
                                                                                           ,@"stateName":@"Argument"
                                                                                           ,@"stateValue":@1
                                                                                           ,@"stateType":@"Argument"
-                                                                                          ,@"stateTime":@"2014-4-4"}}];
+                                                                                          ,@"stateTime":@"2014-4-4"}
+                                                                                  ,@"user":@{@"userName":@"zcp"}}];
         [self.argumentArr addObject:argumentModel];
     }
     [self constructData];

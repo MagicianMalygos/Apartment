@@ -44,13 +44,13 @@
     self.replyNumLabel.font = [UIFont defaultFontWithSize:13.0f];
     self.replyNumLabel.textAlignment = NSTextAlignmentRight;
     
-    // 测试用
-    self.userHeadImgView.backgroundColor = [UIColor redColor];
-    self.userNameLabel.backgroundColor = [UIColor greenColor];
-    self.coupletContentLabel.backgroundColor = [UIColor redColor];
-    self.timeLabel.backgroundColor = [UIColor yellowColor];
-    self.supportLabel.backgroundColor = [UIColor blueColor];
-    self.replyNumLabel.backgroundColor = [UIColor magentaColor];
+    // 设置背景颜色
+    self.userHeadImgView.backgroundColor = [UIColor clearColor];
+    self.userNameLabel.backgroundColor = [UIColor clearColor];
+    self.coupletContentLabel.backgroundColor = [UIColor clearColor];
+    self.timeLabel.backgroundColor = [UIColor clearColor];
+    self.supportLabel.backgroundColor = [UIColor clearColor];
+    self.replyNumLabel.backgroundColor = [UIColor clearColor];
     
     
     [self addSubview:self.userHeadImgView];
@@ -74,7 +74,7 @@
         self.supportLabel.frame = CGRectMake(self.replyNumLabel.left - UIMargin - 80, self.timeLabel.y, 80, 20);
         
         // 设置内容
-        self.userHeadImgView.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:self.item.userHeadImageURL]]];
+        [self.userHeadImgView sd_setImageWithURL:[NSURL URLWithString:self.item.userHeadImageURL] placeholderImage:[UIImage imageNamed:@"head_default"]];
         self.userNameLabel.text = self.item.userName;
         [self.coupletContentLabel setText:self.item.coupletContent];
         self.supportLabel.text = [NSString stringWithFormat:@"%lu 人点赞", self.item.supportNumber];
@@ -83,6 +83,8 @@
         
         // 设置cell高度
         self.item.cellHeight = [NSNumber numberWithFloat:self.timeLabel.bottom + VerticalMargin];
+        
+        [self.userHeadImgView changeToRound];
     }
 }
 + (CGFloat)tableView:(UITableView *)tableView rowHeightForObject:(id)object {

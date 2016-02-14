@@ -12,9 +12,7 @@
 #import "ZCPCoupletDetailCell.h"
 #import "ZCPCoupletReplyCell.h"
 #import "ZCPCoupletReplyModel.h"
-
 #import "ZCPSectionCell.h"
-
 
 @interface ZCPCoupletDetailController ()
 
@@ -47,12 +45,17 @@
                                                                         ,@"replyContent":@"asdasdasdasdasdasddddddddddddddddddddddasdddddddddd"
                                                                         ,@"replySupport":[NSNumber numberWithInt:i]
                                                                         ,@"replyTime":@"2015-10-20"
-                                                                        ,@"supported":@YES}];
+                                                                        ,@"supported":@YES
+                                                                        ,@"user":@{@"userName":@"zcp"}}];
         [self.coupletReplyModelArr addObject:model];
     }
     
     [self constructData];
     [self.tableView reloadData];
+}
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    self.title = @"对联详情";
 }
 - (void)viewWillLayoutSubviews {
     [super viewWillLayoutSubviews];
@@ -71,9 +74,10 @@
     detailItem.time = self.selectedCoupletModel.coupletTime;
     [items addObject:detailItem];
 
-//    ZCPSectionCellItem * section = [[ZCPSectionCellItem alloc] initWithDefault];
-//    section.cellHeight = @20;
-//    [items addObject:section];
+    ZCPSectionCellItem * section = [[ZCPSectionCellItem alloc] initWithDefault];
+    section.cellHeight = @20;
+    section.sectionTitle = @"评论";
+    [items addObject:section];
     
     for (ZCPCoupletReplyModel *model in self.coupletReplyModelArr) {
         ZCPCoupletReplyCellItem * replyItem = [[ZCPCoupletReplyCellItem alloc] initWithDefault];

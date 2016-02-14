@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
+#import "ZCPListDataModel.h"
 #import "ZCPUserModel.h"
 #import "ZCPCoupletModel.h"
 #import "ZCPCoupletReplyModel.h"
@@ -40,6 +41,8 @@
 + (ZCPCoupletModel *)translateResponse_CoupletModel:(NSDictionary *)dict;
 // 对联回复模型转换
 + (ZCPCoupletReplyModel *)translateResponse_CoupletReplyModel:(NSDictionary *)dict;
+// 对联列表模型转换
++ (ZCPListDataModel *)translateResponse_CoupletModel_List:(NSDictionary *)dict;
 
 // 辩题模型转换
 + (ZCPThesisModel *)translateResponse_ThesisModel:(NSDictionary *)dict;

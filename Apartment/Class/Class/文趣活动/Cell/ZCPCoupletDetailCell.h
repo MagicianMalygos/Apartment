@@ -13,6 +13,7 @@
 // 对联详情Cell
 @interface ZCPCoupletDetailCell : ZCPTableViewWithLineCell
 
+@property (nonatomic, strong) UIButton *commentButton;          // 评论按钮
 @property (nonatomic, strong) UIButton *collectionButton;       // 收藏按钮
 @property (nonatomic, strong) UIButton *supportButton;          // 点赞按钮
 @property (nonatomic, strong) UILabel *coupletContentLabel;     // 对联内容

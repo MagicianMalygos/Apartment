@@ -33,6 +33,7 @@
 #import "UIButton+Style.h"
 #import "UIImage+Category.h"
 #import "UIFont+Category.h"
+#import "UIImageView+Category.h"
 #import "NSObject+Category.h"
 #import "NSDate+Category.h"
 #import "NSString+Category.h"
@@ -50,6 +51,7 @@
 #pragma mark - Thirdpast
 #import <MGBox.h>
 #import <AFNetworking.h>
+#import <UIImageView+WebCache.h>
 
 
 #endif /* ZCPBasicHeaders_h */

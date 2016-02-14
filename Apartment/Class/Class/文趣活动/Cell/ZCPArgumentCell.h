@@ -30,6 +30,6 @@
 @property (nonatomic, copy) NSString *userName;               // 用户名
 @property (nonatomic, copy) NSString *argumentContent;        // 论据内容
 @property (nonatomic, strong) NSDate *time;                   // 论据发布时间
-@property (nonatomic, assign) NSInteger *supportNumber;       // 点赞人数
+@property (nonatomic, assign) NSInteger supportNumber;       // 点赞人数
 
 @end

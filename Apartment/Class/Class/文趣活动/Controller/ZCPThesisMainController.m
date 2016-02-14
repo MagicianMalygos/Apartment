@@ -58,7 +58,7 @@
     // 初始化正反方论据数组
     self.prosArgumentArr = [NSMutableArray array];
     self.consArgumentArr = [NSMutableArray array];
-    for (int i = 0; i < 10; i++) {
+    for (int i = 0; i < 1; i++) {
         ZCPArgumentModel *argumentModel = [ZCPArgumentModel modelFromDictionary:@{
                                                                                   @"argumentId":[NSNumber numberWithInteger:i]
                                                                                   ,@"argumentContent":@"alnvoawenvoanvlaksdv"
@@ -70,10 +70,11 @@
                                                                                           ,@"stateName":@"Argument"
                                                                                           ,@"stateValue":@1
                                                                                           ,@"stateType":@"Argument"
-                                                                                          ,@"stateTime":@"2014-4-4"}}];
+                                                                                          ,@"stateTime":@"2014-4-4"}
+                                                                                  ,@"user":@{@"userName":@"zcp"}}];
         [self.prosArgumentArr addObject:argumentModel];
     }
-    for (int i = 10; i < 20; i++) {
+    for (int i = 0; i < 1; i++) {
         ZCPArgumentModel *argumentModel = [ZCPArgumentModel modelFromDictionary:@{
                                                                                   @"argumentId":[NSNumber numberWithInteger:i]
                                                                                   ,@"argumentContent":@"alnvoawenvoanvlaksdv"
@@ -85,7 +86,8 @@
                                                                                           ,@"stateName":@"Argument"
                                                                                           ,@"stateValue":@1
                                                                                           ,@"stateType":@"Argument"
-                                                                                          ,@"stateTime":@"2014-4-4"}}];
+                                                                                          ,@"stateTime":@"2014-4-4"}
+                                                                                  ,@"user":@{@"userName":@"zcp"}}];
         [self.consArgumentArr addObject:argumentModel];
     }
     [self constructData];

@@ -38,6 +38,7 @@
     
     self.supportButton = [UIButton buttonWithType:UIButtonTypeCustom];
     self.supportButton.frame = CGRectMake(CELLWIDTH_DEFAULT - HorizontalMargin - BUTTON_WIDTH, VerticalMargin + 5, BUTTON_WIDTH, BUTTON_HEIGHT);
+    [self.supportButton setImageNameNormal:@"support_normal" Highlighted:@"support_selected" Selected:@"support_selected" Disabled:@"support_normal"];
     
     self.userNameLabel = [[UILabel alloc] initWithFrame:CGRectMake(self.userHeadImgView.right + UIMargin, VerticalMargin, CELLWIDTH_DEFAULT - HorizontalMargin * 2 - UIMargin * 3 - IMG_WIDTH - BUTTON_WIDTH - SUPPORTLABEL_WIDTH, NAMELABEL_HEIGHT)];
     self.userNameLabel.textAlignment = NSTextAlignmentLeft;
@@ -54,12 +55,12 @@
     self.timeLabel.textAlignment = NSTextAlignmentRight;
     self.timeLabel.font = [UIFont defaultFontWithSize:13.0f];
     
-    self.userHeadImgView.backgroundColor = [UIColor redColor];
-    self.userNameLabel.backgroundColor = [UIColor redColor];
-    self.supportButton.backgroundColor = [UIColor redColor];
-    self.supportNumberLabel.backgroundColor = [UIColor redColor];
-    self.argumentContentLabel.backgroundColor = [UIColor greenColor];
-    self.timeLabel.backgroundColor = [UIColor yellowColor];
+    self.userHeadImgView.backgroundColor = [UIColor clearColor];
+    self.userNameLabel.backgroundColor = [UIColor clearColor];
+    self.supportButton.backgroundColor = [UIColor clearColor];
+    self.supportNumberLabel.backgroundColor = [UIColor clearColor];
+    self.argumentContentLabel.backgroundColor = [UIColor clearColor];
+    self.timeLabel.backgroundColor = [UIColor clearColor];
     
     [self.contentView addSubview:self.userHeadImgView];
     [self.contentView addSubview:self.userNameLabel];
@@ -82,13 +83,16 @@
         self.timeLabel.frame = CGRectMake(HorizontalMargin, self.argumentContentLabel.bottom + UIMargin, CELLWIDTH_DEFAULT - HorizontalMargin * 2, 20);
         
         // 设置内容
-        self.userHeadImgView.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:self.item.userHeadImgURL]]];
+        [self.userHeadImgView sd_setImageWithURL:[NSURL URLWithString:self.item.userHeadImgURL] placeholderImage:[UIImage imageNamed:@"head_default"]];
         self.userNameLabel.text = self.item.userName;
+        self.supportNumberLabel.text = [NSString stringWithFormat:@"%lu 人点赞", self.item.supportNumber];
         self.argumentContentLabel.text = self.item.argumentContent;
         self.timeLabel.text = [self.item.time toString];
         
         // 设置cell高度
         self.item.cellHeight = [NSNumber numberWithFloat:self.timeLabel.bottom + VerticalMargin];
+        
+        [self.userHeadImgView changeToRound];
     }
 }
 + (CGFloat)tableView:(UITableView *)tableView rowHeightForObject:(id)object {

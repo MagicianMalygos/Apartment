@@ -10,6 +10,7 @@
 
 @implementation ZCPCoupletDetailCell
 
+@synthesize commentButton = _commentButton;
 @synthesize collectionButton = _collectionButton;
 @synthesize supportButton = _supportButton;
 @synthesize coupletContentLabel = _coupletContentLabel;
@@ -24,8 +25,14 @@
     // 第一行
     self.supportButton = [UIButton buttonWithType:UIButtonTypeCustom];
     self.supportButton.frame = CGRectMake(CELLWIDTH_DEFAULT - HorizontalMargin - 20, VerticalMargin, 20, 20);
+    [self.supportButton setImageNameNormal:@"support_normal" Highlighted:@"support_selected" Selected:@"support_selected" Disabled:@"support_normal"];
     self.collectionButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    self.collectionButton.frame = CGRectMake(self.supportButton.left - UIMargin -20, VerticalMargin, 20, 20);
+    self.collectionButton.frame = CGRectMake(self.supportButton.left - UIMargin * 2 - 20, VerticalMargin, 20, 20);
+    [self.collectionButton setImageNameNormal:@"collection_normal" Highlighted:@"collection_selected" Selected:@"collection_selected" Disabled:@"collection_normal"];
+    self.commentButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    self.commentButton.frame = CGRectMake(self.collectionButton.left - UIMargin * 2 - 20, VerticalMargin, 20, 20);
+    [self.commentButton setOnlyImageName:@"comment_normal"];
+    
     
     // 第二行
     self.coupletContentLabel = [[UILabel alloc] init];
@@ -44,14 +51,16 @@
     self.timeLabel.font = [UIFont defaultFontWithSize:13.0f];
     
     // 设置背景颜色
-    self.supportButton.backgroundColor = [UIColor redColor];
-    self.collectionButton.backgroundColor = [UIColor greenColor];
-    self.coupletContentLabel.backgroundColor = [UIColor blueColor];
-    self.userHeadImgView.backgroundColor = [UIColor redColor];
-    self.userNameLabel.backgroundColor = [UIColor yellowColor];
-    self.timeLabel.backgroundColor = [UIColor magentaColor];
+    self.commentButton.backgroundColor = [UIColor clearColor];
+    self.supportButton.backgroundColor = [UIColor clearColor];
+    self.collectionButton.backgroundColor = [UIColor clearColor];
+    self.coupletContentLabel.backgroundColor = [UIColor clearColor];
+    self.userHeadImgView.backgroundColor = [UIColor clearColor];
+    self.userNameLabel.backgroundColor = [UIColor clearColor];
+    self.timeLabel.backgroundColor = [UIColor clearColor];
     
     // 添加
+    [self.contentView addSubview:self.commentButton];
     [self.contentView addSubview:self.supportButton];
     [self.contentView addSubview:self.collectionButton];
     [self.contentView addSubview:self.coupletContentLabel];
@@ -90,12 +99,14 @@
         
         // 设置属性
         self.coupletContentLabel.text = self.item.coupletContent;
-        self.userHeadImgView.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:self.item.userHeadImageURL]]];
+        [self.userHeadImgView sd_setImageWithURL:[NSURL URLWithString:self.item.userHeadImageURL] placeholderImage:[UIImage imageNamed:@"head_default"]];
         self.userNameLabel.text = self.item.userName;
         self.timeLabel.text = [self.item.time toString];
         
         // 设置cell高度
         self.item.cellHeight = [NSNumber numberWithFloat:self.userHeadImgView.bottom + VerticalMargin];
+        
+        [self.userHeadImgView changeToRound];
     }
     
 }

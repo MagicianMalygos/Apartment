@@ -102,6 +102,13 @@
     }
     return model;
 }
++ (ZCPListDataModel *)translateResponse_CoupletModel_List:(NSDictionary *)dict {
+    ZCPListDataModel *listModel = nil;
+    if ([dict isKindOfClass:[NSDictionary class]]) {
+        listModel = [[ZCPListDataModel alloc] init];
+    }
+    return listModel;
+}
 
 /**
  *  辩题模型转换

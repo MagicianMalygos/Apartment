@@ -11,6 +11,9 @@
 #import "ZCPOptionCell.h"
 #import "ZCPCoupletMainCell.h"
 #import "ZCPCoupletModel.h"
+#import "ZCPRequestManager+Couplet.h"
+
+#import "ZCPCoupletDetailController.h"
 
 #define OptionHeight 35.0f
 
@@ -29,6 +32,14 @@
     [super viewDidLoad];
     
     // 从网络获取数据
+//    [[ZCPRequestManager sharedInstance] getCoupletListByTimeWithPageCount:1 currUserId:1 success:^(AFHTTPRequestOperation *operation, ZCPDataModel *model) {
+//        self.coupletModelArr = [NSMutableArray array];
+//        
+//        // 重新构造并加载数据
+//        [self constructData];
+//        [self.tableView reloadData];
+//    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+//    }];
     self.coupletModelArr = [NSMutableArray array];
     for (int i = 0; i < 10; i++) {
         ZCPCoupletModel *model = [ZCPCoupletModel modelFromDictionary:@{@"coupletId":[NSNumber numberWithInt:i]
@@ -36,7 +47,8 @@
                                                                         ,@"coupletReplyNumber":[NSNumber numberWithInt:i]
                                                                         ,@"coupletCollectNumber":[NSNumber numberWithInt:i]
                                                                         ,@"coupletSupport":[NSNumber numberWithInt:i]
-                                                                        ,@"coupletTime":@"2015-10-20"}];
+                                                                        ,@"coupletTime":@"2015-10-20"
+                                                                        ,@"user":@{@"userName":@"zcp"}}];
         [self.coupletModelArr addObject:model];
     }
     
@@ -106,6 +118,17 @@
     switch (index) {
         case 0:
             // 获取按时间排序的对联数组
+            self.coupletModelArr = [NSMutableArray array];
+            for (int i = 0; i < 10; i++) {
+                ZCPCoupletModel *model = [ZCPCoupletModel modelFromDictionary:@{@"coupletId":[NSNumber numberWithInt:i]
+                                                                                ,@"coupletContent":@"按时间排序"
+                                                                                ,@"coupletReplyNumber":[NSNumber numberWithInt:i]
+                                                                                ,@"coupletCollectNumber":[NSNumber numberWithInt:i]
+                                                                                ,@"coupletSupport":[NSNumber numberWithInt:i]
+                                                                                ,@"coupletTime":@"2015-10-20"
+                                                                                ,@"user":@{@"userName":@"zcp"}}];
+                [self.coupletModelArr addObject:model];
+            }
             
             // 重新构造并加载数据
             [self constructData];
@@ -113,6 +136,17 @@
             break;
         case 1:
             // 获取按点赞量排序的对联数组
+            self.coupletModelArr = [NSMutableArray array];
+            for (int i = 0; i < 10; i++) {
+                ZCPCoupletModel *model = [ZCPCoupletModel modelFromDictionary:@{@"coupletId":[NSNumber numberWithInt:i]
+                                                                                ,@"coupletContent":@"按点赞量排序"
+                                                                                ,@"coupletReplyNumber":[NSNumber numberWithInt:i]
+                                                                                ,@"coupletCollectNumber":[NSNumber numberWithInt:i]
+                                                                                ,@"coupletSupport":[NSNumber numberWithInt:i]
+                                                                                ,@"coupletTime":@"2015-10-20"
+                                                                                ,@"user":@{@"userName":@"zcp"}}];
+                [self.coupletModelArr addObject:model];
+            }
             
             // 重新构造并加载数据
             [self constructData];

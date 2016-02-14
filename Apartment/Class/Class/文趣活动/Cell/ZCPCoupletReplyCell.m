@@ -48,11 +48,11 @@
     self.replyTimeLabel.textAlignment = NSTextAlignmentRight;
     self.replyTimeLabel.font = [UIFont defaultFontWithSize:13.0f];
     
-    self.userHeadImgView.backgroundColor = [UIColor redColor];
-    self.userNameLabel.backgroundColor = [UIColor blueColor];
-    self.supportButton.backgroundColor = [UIColor yellowColor];
-    self.replyContentLabel.backgroundColor = [UIColor magentaColor];
-    self.replyTimeLabel.backgroundColor = [UIColor greenColor];
+    self.userHeadImgView.backgroundColor = [UIColor clearColor];
+    self.userNameLabel.backgroundColor = [UIColor clearColor];
+    self.supportButton.backgroundColor = [UIColor clearColor];
+    self.replyContentLabel.backgroundColor = [UIColor clearColor];
+    self.replyTimeLabel.backgroundColor = [UIColor clearColor];
     
     [self.contentView addSubview:self.userHeadImgView];
     [self.contentView addSubview:self.userNameLabel];
@@ -82,11 +82,15 @@
                                                , 20);
         
         // 设置内容
+        [self.userHeadImgView sd_setImageWithURL:[NSURL URLWithString:self.item.userHeadImageURL] placeholderImage:[UIImage imageNamed:@"head_default"]];
+        self.userNameLabel.text = self.item.userName;
         self.replyContentLabel.text = self.item.replyContent;
         self.replyTimeLabel.text = [self.item.replyTime toString];
         
         // 设置cell高度
         self.item.cellHeight = [NSNumber numberWithFloat:self.replyTimeLabel.bottom + VerticalMargin];
+        
+        [self.userHeadImgView changeToRound];
     }
 }
 + (CGFloat)tableView:(UITableView *)tableView rowHeightForObject:(id)object {
