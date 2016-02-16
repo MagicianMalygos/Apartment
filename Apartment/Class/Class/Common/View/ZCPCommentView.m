@@ -9,70 +9,94 @@
 #import "ZCPCommentView.h"
 
 @implementation ZCPCommentView
+
 // ----------------------------------------------------------------------
-#pragma mark - Basic Method
+#pragma mark - instancetype
 // ----------------------------------------------------------------------
-/**
- *  实例化方法
- *
- *  @param target    目标视图控制器
- *  @param showView  要展示在CommentView上的视图
- *  @param responder 键盘响应者
- *
- *  @return 实例化对象
- */
-- (instancetype)initWithTarget:(UIViewController *)target showView:(UIView *)showView keyBoardResponder:(UIView<UITextInput>*)responder {
+- (instancetype)initWithTarget:(UIViewController *)target {
     if (self = [super init]) {
+        // 初始化CommentView
         CGRect bounds = [[UIScreen mainScreen] bounds];
         [self setFrame:CGRectMake(0, bounds.size.height, bounds.size.width, 44)];
         [self setBackgroundColor:[UIColor colorWithRed:220.0/255 green:220.0/255 blue:220.0/255 alpha:1.0f]];
         self.hidden = YES;
         
-        if (showView != nil) {
-            [self addSubview:showView];
-        }
+        // 添加键盘响应者
+        [self addSubview:self.keyboardResponder];
         
-        // 创建可以覆盖整个视图的coverView，为其添加点击手势与响应事件
+        // 创建可以覆盖整个视图的coverView，为其添加点击手势与点击响应事件
         self.coverView = [[UIView alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
         [self.coverView setAlpha:0.01009f];
         [self.coverView setBackgroundColor:[UIColor whiteColor]];
         [self.coverView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapCoverView)]];
         
-        self.responder = responder;
-        if ([responder isKindOfClass:[UITextField class]]) {
-            ((UITextField *)self.responder).delegate = self;
-        }
-        else if ([responder isKindOfClass:[UITextView class]]) {
-            ((UITextView *)self.responder).delegate = self;
-        }
-        
-        self.target = target;
         // 监听键盘事件
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showCommentView:) name:UIKeyboardWillShowNotification object:nil];
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(hideCommentView:) name:UIKeyboardWillHideNotification object:nil];
+        
+        // 设置目标控制器
+        self.target = target;
     }
     return self;
 }
+
+// ----------------------------------------------------------------------
+#pragma mark - life circle
+// ----------------------------------------------------------------------
 /**
- *  遮盖背景视图点击响应方法（隐藏键盘）
+ *  销毁观察者
  */
-- (void)tapCoverView {
-    [self.responder resignFirstResponder];  // 缩回键盘
+- (void)dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillShowNotification object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillHideNotification object:nil];
 }
+
+// ----------------------------------------------------------------------
+#pragma mark - getter / setter
+// ----------------------------------------------------------------------
+- (ZCPTextView *)keyboardResponder {
+    if (_keyboardResponder == nil) {
+        _keyboardResponder = [[ZCPTextView alloc] initWithFrame:CGRectMake(4, 4, self.width - 8, self.height - 8)];
+        _keyboardResponder.placeholder = @"请输入内容...";
+        _keyboardResponder.keyboardType = UIKeyboardTypeDefault;    // 设置键盘样式
+        _keyboardResponder.returnKeyType = UIReturnKeySend;         // 设置return键为send
+        _keyboardResponder.delegate = self;
+    }
+    return _keyboardResponder;
+}
+
+// ----------------------------------------------------------------------
+#pragma mark - Private Method
+// ----------------------------------------------------------------------
+- (void)showCommentView {
+    // 键盘响应者得到第一响应者，弹出键盘
+    [self.keyboardResponder becomeFirstResponder];
+}
+- (void)hideCommentView {
+    // 键盘响应者失去第一响应者，缩回键盘
+    [self.keyboardResponder resignFirstResponder];
+}
+
+// ----------------------------------------------------------------------
+#pragma mark - Private Method
+// ----------------------------------------------------------------------
 /**
  *  显示评论视图
  */
 - (void)showCommentView:(NSNotification *)notification {
+    // 添加覆盖视图
     [self.target.view addSubview:self.coverView];
     
+    // ------------------
     // 将‘响应键盘输入视图’和‘评论视图’置顶
-    UIView *responderView = self.responder;
+    UIView *responderView = self.keyboardResponder;
     while (![[responderView superview] isEqual:self.target.view]) {
         responderView = [responderView superview];
     }
     [self.target.view bringSubviewToFront:responderView];
     [self.target.view bringSubviewToFront:self];
     [self changeCommentViewByNotification:notification isShow:YES];
+    // ------------------
 }
 /**
  *  隐藏评论视图
@@ -110,37 +134,32 @@
     }];
 }
 /**
- *  销毁观察者
+ *  遮盖背景视图点击响应方法（隐藏键盘）
  */
-- (void)dealloc {
-    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillShowNotification object:nil];
-    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillHideNotification object:nil];
+- (void)tapCoverView {
+    [self.keyboardResponder resignFirstResponder];  // 缩回键盘
 }
 
 // ----------------------------------------------------------------------
-#pragma mark - UITextFiledDelegate & UITextFiledDelegate
+#pragma mark - UITextFiledDelegate
 // ----------------------------------------------------------------------
 /**
- *  响应键盘Retuen按键
+ *  textView内容将要发生改变的时调用
+ *
+ *  @param textView textView
+ *  @param range    变化范围：range.location表示从何处开始变化，range.length始终为0
+ *  @param text     变化的值（即输入的值）
+ *
+ *  @return YES是允许修改textview的值， NO是不允许修改textview的值
  */
-- (BOOL)textFieldShouldReturn:(UITextField *)textField {
-    BOOL keyBoardIsHidden = [self.delegate textInputShouldReturn:self.responder];
-    textField.text = @"";
-    if (keyBoardIsHidden) {
-        // 缩回commentView和键盘
-        [self tapCoverView];
-    }
-    return YES;
-}
 - (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text {
-    BOOL keyBoardIsHidden = [self.delegate textInputShouldReturn:self.responder];
-    textView.text = @"";
-    if (keyBoardIsHidden) {
-        // 缩回commentView和键盘
-        [self tapCoverView];
-    }
+    
     if ([text isEqualToString:@"\n"]) {
-        [textView resignFirstResponder];
+        if(![textView.text isEqualToString:@""]
+           && self.delegate
+           && [self.delegate respondsToSelector:@selector(textInputShouldReturn:)]){
+            [self.delegate textInputShouldReturn:self.keyboardResponder];
+        }
         return NO;
     }
     return YES;

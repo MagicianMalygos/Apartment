@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
+// 扩展UITextView，使其具有placeholder功能
 @interface ZCPTextView : UITextView
 
 @property (nonatomic, copy) NSString *placeholder;
