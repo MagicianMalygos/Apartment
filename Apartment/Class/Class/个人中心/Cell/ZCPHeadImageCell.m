@@ -25,10 +25,10 @@
     self.smallButton = [UIButton buttonWithType:UIButtonTypeCustom];
     self.bgImageView = [[UIImageView alloc] init];
     
-    [self.bigButton setBackgroundColor:[UIColor redColor]];
-    [self.middleButton setBackgroundColor:[UIColor greenColor]];
-    [self.smallButton setBackgroundColor:[UIColor blueColor]];
-    [self.bgImageView setBackgroundColor:[UIColor lightGrayColor]];
+    [self.bigButton setBackgroundColor:[UIColor clearColor]];
+    [self.middleButton setBackgroundColor:[UIColor clearColor]];
+    [self.smallButton setBackgroundColor:[UIColor clearColor]];
+    [self.bgImageView setBackgroundColor:[UIColor clearColor]];
     
     [self.contentView addSubview:self.bigButton];
     [self.contentView addSubview:self.middleButton];
@@ -47,6 +47,7 @@
         CGFloat buttonSide = (cellHeight - marginTop * 2) / 5;
         CGFloat marginLeft = (CELLWIDTH_DEFAULT - buttonSide * 12) / 4;
         
+        // 设置frame
         self.bigButton.frame = CGRectMake(marginLeft, marginTop, 5 * buttonSide, 5 * buttonSide);
         self.middleButton.frame = CGRectMake(marginLeft * 2 + buttonSide * 5
                                              , marginTop + buttonSide * 0.5
@@ -59,6 +60,22 @@
         self.bgImageView.frame = CGRectMake(0, 0, CELLWIDTH_DEFAULT, cellHeight);
         [self.contentView sendSubviewToBack:self.bgImageView];
         
+        // 设置图片
+        WEAK_SELF;
+        [self.bgImageView sd_setImageWithURL:[NSURL URLWithString:self.item.headImageURL] placeholderImage:[UIImage imageNamed:HEAD_DEFAULT] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+            // 设置大中小头像
+            [weakSelf.bigButton setOnlyImage:weakSelf.bgImageView.image];
+            [weakSelf.middleButton setOnlyImage:weakSelf.bgImageView.image];
+            [weakSelf.smallButton setOnlyImage:weakSelf.bgImageView.image];
+            
+            // 毛玻璃
+            UIBlurEffect *blur = [UIBlurEffect effectWithStyle:UIBlurEffectStyleLight];
+            UIVisualEffectView *effectview = [[UIVisualEffectView alloc] initWithEffect:blur];
+            effectview.frame = CGRectMake(0, 0, weakSelf.bgImageView.width, weakSelf.bgImageView.height);
+            [weakSelf.bgImageView addSubview:effectview];
+        }];
+        
+        // 添加头像按钮点击事件
         [self.bigButton addTarget:self action:@selector(headImageButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
         [self.middleButton addTarget:self action:@selector(headImageButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
         [self.smallButton addTarget:self action:@selector(headImageButtonClicked:) forControlEvents:UIControlEventTouchUpInside];

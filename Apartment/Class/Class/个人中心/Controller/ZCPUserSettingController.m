@@ -12,8 +12,10 @@
 #import "ZCPButtonCell.h"
 #import "ZCPImageTextCell.h"
 #import "ZCPHeadImageCell.h"
+#import "ZCPUserCenter.h"
+#import "ZCPRequestManager+User.h"
 
-@interface ZCPUserSettingController() <ZCPButtonCellDelegate, ZCPHeadImageCellDelegate>
+@interface ZCPUserSettingController() <ZCPButtonCellDelegate, ZCPHeadImageCellDelegate, UIActionSheetDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 
 @end
 
@@ -49,7 +51,7 @@
     // 头像cell
     ZCPHeadImageCellItem *headItem = [[ZCPHeadImageCellItem alloc] initWithDefault];
     headItem.cellHeight = @150;
-    headItem.headImageURL = @"";
+    headItem.headImageURL = [ZCPUserCenter sharedInstance].currentUserModel.userFaceURL;
     headItem.delegate = self;
     
     // Setting Section
@@ -103,6 +105,9 @@
 }
 
 #pragma mark - ZCPListTableViewAdaptorDelegate
+/**
+ *  cell点击响应方法
+ */
 - (void)tableView:(UITableView *)tableView didSelectObject:(id<ZCPTableViewCellItemBasicProtocol>)object rowAtIndexPath:(NSIndexPath *)indexPath {
     switch (object.cellTag) {
         case ZCPSettingUserInfoCellTag:
@@ -123,13 +128,80 @@
 }
 
 #pragma mark - ZCPButtonCell Delegate
+/**
+ *  退出登陆按钮点击响应方法
+ */
 - (void)cell:(UITableViewCell *)cell buttonClicked:(UIButton *)button {
-    NSLog(@"Button Click");
+    TTDPRINT(@"退出登陆");
 }
 #pragma mark - ZCPHeadImageCell Delegate
+/**
+ *  用户头像按钮点击响应方法
+ */
 - (void)cell:(UITableViewCell *)cell headImageButtonClicked:(UIButton *)button {
-    NSLog(@"打开相册");
+    TTDPRINT(@"显示菜单");
+    // 菜单视图
+    UIActionSheet *sheet = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:nil otherButtonTitles:@"打开相册", nil];
+    [sheet showInView:self.tableView];
 }
+#pragma mark - UIActionSheetDelegate
+/**
+ *  菜单视图选项按钮点击响应方法
+ */
+- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
+    if (buttonIndex == 0) {
+        TTDPRINT(@"打开相册");
+        // 相册视图控制器
+        UIImagePickerController *picker = [[UIImagePickerController alloc] init];
+        picker.delegate = self;
+        picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;      // 资源类型为图片库
+        
+        // 跳转到相册视图控制器
+        // 此处不能使用navigationController的push方法进行跳转，否则会crash
+//        [self.navigationController pushViewController:picker animated:YES];
+        [self presentViewController:picker animated:YES completion:nil];
+    }
+}
+#pragma mark - UIImagePickerControllerDelegate
+/**
+ *  点击图片响应事件
+ *
+ *  @param picker 相册视图控制器
+ *  @param info   点击图片信息
+ */
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info {
+    TTDPRINT(@"所选图片信息：%@", info);
+    if ([[info valueForKey:UIImagePickerControllerMediaType] isEqualToString:@"public.image"]) {
+        UIImage *selectedImage = [info valueForKey:UIImagePickerControllerOriginalImage];
+        
+        [[ZCPRequestManager sharedInstance] uploadUserHeadImage:selectedImage
+                                                         userID:[ZCPUserCenter sharedInstance].currentUserModel.userId
+                                                        success:^(AFHTTPRequestOperation *operation, UIImage *headImage, ZCPDataModel *userModel) {
+                                                            if (userModel && [userModel isKindOfClass:[ZCPUserModel class]]) {
+                                                                // 更新用户信息
+                                                                [[ZCPUserCenter sharedInstance] saveUserModel:(ZCPUserModel *)userModel];
+                                                                
+                                                                // 更新tableview（全局更新，可优化为局部更新）
+                                                                [self constructData];
+                                                                [self.tableView reloadData];
+                                                            }
+                                                            else {
+                                                                TTDPRINT(@"上传图片失败！");
+                                                            }
+                                                        }
+                                                        failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                                                            TTDPRINT(@"上传图片失败");
+                                                        }];
+        [picker dismissViewControllerAnimated:YES completion:nil];
+    }
+}
+/**
+ *  点击取消按钮
+ */
+- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
+    [picker dismissViewControllerAnimated:YES completion:nil];
+}
+
 #pragma mark - UIViewController Category
 - (void)backTo {
     [super backTo];

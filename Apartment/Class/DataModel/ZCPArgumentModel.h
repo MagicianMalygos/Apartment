@@ -24,8 +24,8 @@ typedef NS_ENUM(NSInteger, ZCPArgumentBelong) {
 };
 // 论点是否匿名(有点问题：是先获取的论据信息再去判断的是否匿名，如果别人使用了接口查看获取到的数据其实是能看到论据发表人的信息的)
 typedef NS_ENUM(NSInteger, ZCPArgumentAnonymousState) {
-    ZCPArgumentAnonymous = 0,  // 匿名
-    ZCPArgumentNormal = 1  // 不匿名
+    ZCPArgumentAnonymous = 0,   // 匿名
+    ZCPArgumentNormal = 1       // 不匿名
 };
 
 @interface ZCPArgumentModel : ZCPDataModel

@@ -12,6 +12,7 @@
 
 @implementation ZCPRequestManager
 
+#pragma mark - instancetype
 + (instancetype)sharedInstance {
     static id instance;
     static dispatch_once_t onceToken;

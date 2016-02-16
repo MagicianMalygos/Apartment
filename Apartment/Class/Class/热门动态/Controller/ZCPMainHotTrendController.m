@@ -8,7 +8,11 @@
 
 #import "ZCPMainHotTrendController.h"
 
-@interface ZCPMainHotTrendController () <UITextFieldDelegate>
+#import "ZCPTextView.h"
+
+@interface ZCPMainHotTrendController () <UITextFieldDelegate, UITextViewDelegate>
+
+@property (nonatomic, strong) ZCPTextView *textView;
 
 @end
 
@@ -16,19 +20,23 @@
 
 #pragma mark - life circle
 - (void)viewDidLoad {
-    [super viewDidLoad];
+    [super viewDidLoad];    
     
-    // 这几个根控制器都是tabBarControler上的tab，要修改他们的title的时候需要去修改tabBarController上的title
-    UILabel *infoLabel = [[UILabel alloc] initWithFrame:CGRectMake(100, 100, 300, 100)];
-    infoLabel.text = @"这是热门动态主界面";
-    infoLabel.backgroundColor = [UIColor redColor];
-    [self.view addSubview:infoLabel];
+    self.textView = [[ZCPTextView alloc] init];
+    self.textView.frame = CGRectMake(0, 0, APPLICATIONWIDTH, 100);
+    self.textView.placeholder = @"请输入...";
+    [self.textView setFont:[UIFont systemFontOfSize:50.0f]];
+    
+    self.textView.delegate = self;
+    [self.view addSubview:self.textView];
+    
 }
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     [self clearNavigationBar];
     self.title = @"热门动态";
 }
+
 @end
 
 

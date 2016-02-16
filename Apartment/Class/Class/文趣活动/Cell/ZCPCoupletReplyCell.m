@@ -30,6 +30,7 @@
                                           , VerticalMargin + 5
                                           , 20
                                           , 20);
+    [self.supportButton setImageNameNormal:@"support_normal" Highlighted:@"support_selected" Selected:@"support_selected" Disabled:@"support_normal"];
     self.userNameLabel = [[UILabel alloc] initWithFrame:CGRectMake(self.userHeadImgView.right + UIMargin
                                                                    , VerticalMargin
                                                                    , CELLWIDTH_DEFAULT - HorizontalMargin * 2 - UIMargin * 2 - self.userHeadImgView.width - self.supportButton.width

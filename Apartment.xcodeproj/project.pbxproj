@@ -22,6 +22,12 @@
 		1807003D1C48D14600F3BE2B /* UILabel+Category.m in Sources */ = {isa = PBXBuildFile; fileRef = 1807003C1C48D14600F3BE2B /* UILabel+Category.m */; };
 		180700471C48F7EA00F3BE2B /* ZCPUserImageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 180700461C48F7EA00F3BE2B /* ZCPUserImageCell.m */; };
 		181CAB821C52289300FF9382 /* ZCPCoupletMainCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 181CAB811C52289300FF9382 /* ZCPCoupletMainCell.m */; };
+		181F06691C71B247002E6994 /* ZCPRequestManager+User.m in Sources */ = {isa = PBXBuildFile; fileRef = 181F06681C71B247002E6994 /* ZCPRequestManager+User.m */; };
+		181F066C1C71C032002E6994 /* ZCPRequestManager+Thesis.m in Sources */ = {isa = PBXBuildFile; fileRef = 181F066B1C71C032002E6994 /* ZCPRequestManager+Thesis.m */; };
+		181F066F1C71C063002E6994 /* ZCPRequestManager+Question.m in Sources */ = {isa = PBXBuildFile; fileRef = 181F066E1C71C063002E6994 /* ZCPRequestManager+Question.m */; };
+		181F06721C71D034002E6994 /* ZCPRequestManager+Library.m in Sources */ = {isa = PBXBuildFile; fileRef = 181F06711C71D034002E6994 /* ZCPRequestManager+Library.m */; };
+		181F06751C71D7F4002E6994 /* ZCPCommentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 181F06741C71D7F3002E6994 /* ZCPCommentView.m */; };
+		181F06781C71DB38002E6994 /* ZCPTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 181F06771C71DB38002E6994 /* ZCPTextView.m */; };
 		182400911C5B0280001D5147 /* ZCPOptionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 182400901C5B0280001D5147 /* ZCPOptionView.m */; };
 		182400941C5B028A001D5147 /* ZCPOptionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 182400931C5B028A001D5147 /* ZCPOptionCell.m */; };
 		182F79D11C4DC94800D5B079 /* UIButton+Style.m in Sources */ = {isa = PBXBuildFile; fileRef = 182F79D01C4DC94800D5B079 /* UIButton+Style.m */; };
@@ -169,6 +175,18 @@
 		180700461C48F7EA00F3BE2B /* ZCPUserImageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZCPUserImageCell.m; sourceTree = "<group>"; };
 		181CAB801C52289300FF9382 /* ZCPCoupletMainCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZCPCoupletMainCell.h; sourceTree = "<group>"; };
 		181CAB811C52289300FF9382 /* ZCPCoupletMainCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZCPCoupletMainCell.m; sourceTree = "<group>"; };
+		181F06671C71B247002E6994 /* ZCPRequestManager+User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ZCPRequestManager+User.h"; sourceTree = "<group>"; };
+		181F06681C71B247002E6994 /* ZCPRequestManager+User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ZCPRequestManager+User.m"; sourceTree = "<group>"; };
+		181F066A1C71C032002E6994 /* ZCPRequestManager+Thesis.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ZCPRequestManager+Thesis.h"; sourceTree = "<group>"; };
+		181F066B1C71C032002E6994 /* ZCPRequestManager+Thesis.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ZCPRequestManager+Thesis.m"; sourceTree = "<group>"; };
+		181F066D1C71C063002E6994 /* ZCPRequestManager+Question.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ZCPRequestManager+Question.h"; sourceTree = "<group>"; };
+		181F066E1C71C063002E6994 /* ZCPRequestManager+Question.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ZCPRequestManager+Question.m"; sourceTree = "<group>"; };
+		181F06701C71D034002E6994 /* ZCPRequestManager+Library.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ZCPRequestManager+Library.h"; sourceTree = "<group>"; };
+		181F06711C71D034002E6994 /* ZCPRequestManager+Library.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ZCPRequestManager+Library.m"; sourceTree = "<group>"; };
+		181F06731C71D7F3002E6994 /* ZCPCommentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZCPCommentView.h; sourceTree = "<group>"; };
+		181F06741C71D7F3002E6994 /* ZCPCommentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZCPCommentView.m; sourceTree = "<group>"; };
+		181F06761C71DB38002E6994 /* ZCPTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZCPTextView.h; sourceTree = "<group>"; };
+		181F06771C71DB38002E6994 /* ZCPTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZCPTextView.m; sourceTree = "<group>"; };
 		1824008F1C5B0280001D5147 /* ZCPOptionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZCPOptionView.h; sourceTree = "<group>"; };
 		182400901C5B0280001D5147 /* ZCPOptionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZCPOptionView.m; sourceTree = "<group>"; };
 		182400921C5B028A001D5147 /* ZCPOptionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZCPOptionCell.h; sourceTree = "<group>"; };
@@ -472,8 +490,12 @@
 		1824008E1C5B0280001D5147 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				181F06731C71D7F3002E6994 /* ZCPCommentView.h */,
+				181F06741C71D7F3002E6994 /* ZCPCommentView.m */,
 				1824008F1C5B0280001D5147 /* ZCPOptionView.h */,
 				182400901C5B0280001D5147 /* ZCPOptionView.m */,
+				181F06761C71DB38002E6994 /* ZCPTextView.h */,
+				181F06771C71DB38002E6994 /* ZCPTextView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -545,6 +567,14 @@
 				18E7277E1C706318005BC5D7 /* ZCPRequestManager.m */,
 				18E727801C706799005BC5D7 /* ZCPRequestManager+Couplet.h */,
 				18E727811C706799005BC5D7 /* ZCPRequestManager+Couplet.m */,
+				181F06671C71B247002E6994 /* ZCPRequestManager+User.h */,
+				181F06681C71B247002E6994 /* ZCPRequestManager+User.m */,
+				181F066A1C71C032002E6994 /* ZCPRequestManager+Thesis.h */,
+				181F066B1C71C032002E6994 /* ZCPRequestManager+Thesis.m */,
+				181F066D1C71C063002E6994 /* ZCPRequestManager+Question.h */,
+				181F066E1C71C063002E6994 /* ZCPRequestManager+Question.m */,
+				181F06701C71D034002E6994 /* ZCPRequestManager+Library.h */,
+				181F06711C71D034002E6994 /* ZCPRequestManager+Library.m */,
 			);
 			path = WebService;
 			sourceTree = "<group>";
@@ -1194,6 +1224,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1896981B1C3220C40018BA3F /* ZCPTableViewController.m in Sources */,
+				181F06691C71B247002E6994 /* ZCPRequestManager+User.m in Sources */,
 				1873359D1C5F3390003284EE /* ZCPAddBookController.m in Sources */,
 				1896250F1C4CD9EC003733CE /* ZCPUserSettingController.m in Sources */,
 				18F1BD641C5F057C003C43A8 /* ZCPBookReplyCell.m in Sources */,
@@ -1203,6 +1234,7 @@
 				18D0B06C1C34C54D00F4B2DB /* UIViewController+Category.m in Sources */,
 				187335B51C5F55D9003284EE /* NSDateFormatter+ExtraMethod.m in Sources */,
 				180700231C48837300F3BE2B /* UIScrollView+ExtraMethod.m in Sources */,
+				181F06721C71D034002E6994 /* ZCPRequestManager+Library.m in Sources */,
 				1836F24D1C47AD2C000FCB36 /* ZCPTableViewCell+Category.m in Sources */,
 				188229791C60AFBC00199332 /* ZCPThesisCell.m in Sources */,
 				18A1DE8A1C536A5C00551C52 /* ZCPCoupletReplyModel.m in Sources */,
@@ -1235,6 +1267,7 @@
 				18A7538E1C58C928007CEB5F /* ZCPAddQuestionController.m in Sources */,
 				189698271C32229B0018BA3F /* ZCPControlingCenter.m in Sources */,
 				18B0EE0F1C4F537000F078EB /* ZCPRequestResponseTranslator.m in Sources */,
+				181F066F1C71C063002E6994 /* ZCPRequestManager+Question.m in Sources */,
 				1896250E1C4CD9EC003733CE /* ZCPUserFocusOnPeopleController.m in Sources */,
 				183F3B211C533AF0007D2F10 /* ZCPCoupletDetailCell.m in Sources */,
 				180700201C48821600F3BE2B /* PATableHeaderDragRefreshView.m in Sources */,
@@ -1291,12 +1324,15 @@
 				18A6FC811C5F843500D6F946 /* ZCPBookPostCell.m in Sources */,
 				182400911C5B0280001D5147 /* ZCPOptionView.m in Sources */,
 				18EF89F61C56FF5200924CCF /* ZCPBookPostModel.m in Sources */,
+				181F06781C71DB38002E6994 /* ZCPTextView.m in Sources */,
 				18E3F7251C50802E00318761 /* ZCPQuestionMainController.m in Sources */,
 				1896250A1C4CD9EC003733CE /* ZCPMainUserController.m in Sources */,
+				181F066C1C71C032002E6994 /* ZCPRequestManager+Thesis.m in Sources */,
 				18EF8A051C57088900924CCF /* ZCPArgumentCell.m in Sources */,
 				184DB2161C58B5C400B504C1 /* ZCPSwitchRadioCell.m in Sources */,
 				18A1DE911C537B9600551C52 /* ZCPThesisView.m in Sources */,
 				18B0EE091C4F203F00F078EB /* ZCPHeadImageCell.m in Sources */,
+				181F06751C71D7F4002E6994 /* ZCPCommentView.m in Sources */,
 				18E7278B1C7087DE005BC5D7 /* UIImageView+Category.m in Sources */,
 				18EF89FC1C5702E800924CCF /* ZCPBookReplyModel.m in Sources */,
 			);

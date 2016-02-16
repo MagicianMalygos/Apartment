@@ -91,5 +91,7 @@ do { \
     _Pragma("clang diagnostic pop") \
 } while (0)
 
+// 默认用户头像
+#define HEAD_DEFAULT    @"head_default"
 
 #endif /* ZCPGlobalMacros_h */

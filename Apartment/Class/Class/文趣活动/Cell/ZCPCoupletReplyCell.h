@@ -15,7 +15,7 @@
 
 @property (nonatomic, strong) UIImageView *userHeadImgView;     // 用户头像
 @property (nonatomic, strong) UILabel *userNameLabel;           // 用户名
-@property (nonatomic, strong) UIButton *supportButton;          //点赞按钮
+@property (nonatomic, strong) UIButton *supportButton;          // 点赞按钮
 @property (nonatomic, strong) UILabel *replyContentLabel;       // 回复内容
 @property (nonatomic, strong) UILabel *replyTimeLabel;          // 回复时间
 @property (nonatomic, strong) ZCPCoupletReplyCellItem * item;   // item

@@ -88,8 +88,6 @@
     self.tableViewAdaptor.items = items;
 }
 
-
-
 #pragma mark - ZCPButtonCell Delegate
 - (void)cell:(UITableViewCell *)cell buttonClicked:(UIButton *)button {
 }

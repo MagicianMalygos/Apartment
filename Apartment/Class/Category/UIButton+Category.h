@@ -20,5 +20,17 @@
 - (void)setOnlyImageName:(NSString *)imageName;
 
 
+/**
+ *  使用URL设置
+ */
+- (void)setImageURLNormal:(NSURL *)normalURL Highlighted:(NSURL *)highlightedURL Selected:(NSURL *)selectedURL Disabled:(NSURL *)disabledURL;
+- (void)setOnlyImageURL:(NSURL *)imageURL;
+
+/**
+ *  使用UIImage设置
+ */
+- (void)setImageNormal:(UIImage *)normalImage Highlighted:(UIImage *)highlightedImage Selected:(UIImage *)selectedImage Disabled:(UIImage *)disabledImage;
+- (void)setOnlyImage:(UIImage *)image;
+
 
 @end
