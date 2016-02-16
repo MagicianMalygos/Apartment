@@ -18,6 +18,9 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
+    // 初始化api
+    [[ZCPURLCommon sharedInstance] initialize];
+    
     self.window = [[ZCPNavigator sharedInstance] window];
     [[ZCPNavigator sharedInstance] setupRootViewController];
     [self.window makeKeyAndVisible];

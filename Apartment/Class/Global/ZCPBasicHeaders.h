@@ -22,6 +22,7 @@
 #import "ZCPNavigator.h"
 #import "ZCPViewMap.h"
 #import "ZCPControlingCenter.h"
+#import "ZCPURLCommon.h"
 
 #pragma mark - Category
 #import "UIViewController+Category.h"

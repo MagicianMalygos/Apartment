@@ -8,6 +8,8 @@
 
 #import <AFNetworking/AFNetworking.h>
 
+extern NSString *ZCPMakeURLString(NSString *scheme, NSString *host, NSString *path);
+
 typedef void(^requestSuccessHandler)(AFHTTPRequestOperation *operation, id responseObject);
 typedef void(^requestFailHandler)(AFHTTPRequestOperation *operation, NSError *error);
 

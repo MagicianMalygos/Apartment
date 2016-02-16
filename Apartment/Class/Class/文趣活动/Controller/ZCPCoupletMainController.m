@@ -32,29 +32,30 @@
     [super viewDidLoad];
     
     // 从网络获取数据
-//    [[ZCPRequestManager sharedInstance] getCoupletListByTimeWithPageCount:1 currUserId:1 success:^(AFHTTPRequestOperation *operation, ZCPDataModel *model) {
-//        self.coupletModelArr = [NSMutableArray array];
-//        
-//        // 重新构造并加载数据
-//        [self constructData];
-//        [self.tableView reloadData];
-//    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-//    }];
-    self.coupletModelArr = [NSMutableArray array];
-    for (int i = 0; i < 10; i++) {
-        ZCPCoupletModel *model = [ZCPCoupletModel modelFromDictionary:@{@"coupletId":[NSNumber numberWithInt:i]
-                                                                        ,@"coupletContent":@"asdasdasdasdasdasddddddddddddddddddddddasdddddddddd"
-                                                                        ,@"coupletReplyNumber":[NSNumber numberWithInt:i]
-                                                                        ,@"coupletCollectNumber":[NSNumber numberWithInt:i]
-                                                                        ,@"coupletSupport":[NSNumber numberWithInt:i]
-                                                                        ,@"coupletTime":@"2015-10-20"
-                                                                        ,@"user":@{@"userName":@"zcp"}}];
-        [self.coupletModelArr addObject:model];
-    }
+    [[ZCPRequestManager sharedInstance] getCoupletListByTimeWithPageCount:1 currUserID:1 success:^(AFHTTPRequestOperation *operation, ZCPDataModel *model) {
+        self.coupletModelArr = [NSMutableArray array];
+        
+        // 重新构造并加载数据
+        [self constructData];
+        [self.tableView reloadData];
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        TTDPRINT(@"%@", error);
+    }];
     
-    // 重新构造并加载数据
-    [self constructData];
-    [self.tableView reloadData];
+//    self.coupletModelArr = [NSMutableArray array];
+//    for (int i = 0; i < 10; i++) {
+//        ZCPCoupletModel *model = [ZCPCoupletModel modelFromDictionary:@{@"coupletId":[NSNumber numberWithInt:i]
+//                                                                        ,@"coupletContent":@"asdasdasdasdasdasddddddddddddddddddddddasdddddddddd"
+//                                                                        ,@"coupletReplyNumber":[NSNumber numberWithInt:i]
+//                                                                        ,@"coupletCollectNumber":[NSNumber numberWithInt:i]
+//                                                                        ,@"coupletSupport":[NSNumber numberWithInt:i]
+//                                                                        ,@"coupletTime":@"2015-10-20"
+//                                                                        ,@"user":@{@"userName":@"zcp"}}];
+//        [self.coupletModelArr addObject:model];
+//    }
+//    // 重新构造并加载数据
+//    [self constructData];
+//    [self.tableView reloadData];
 }
 - (void)viewWillLayoutSubviews {
     [super viewWillLayoutSubviews];

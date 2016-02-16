@@ -22,18 +22,22 @@
                                         currUserID:(NSInteger)currUserID
                                            success:(void (^)(AFHTTPRequestOperation *operation, ZCPDataModel *coupletListModel))success
                                            failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure {
-    AFHTTPRequestOperation *operation = [self POST:@""
-                                        parameters:@{@"pageCount":@(pageCount)
-                                                        , @"currUserID":@(currUserID)}
-                               success:^(AFHTTPRequestOperation *operation, id responseObject) {
-                                   if (success) {
-                                       ZCPDataModel *model = [ZCPRequestResponseTranslator translateResponse_CoupletModel_List:[responseObject objectForKey:@"data"]];
-                                       success(operation, model);
-                                   }
-                               }
-                               failure:failure];
     
-    TTDPRINT(@"request=%@\nparams=%@", operation, [[NSString alloc] initWithData:operation.request.HTTPBody encoding:NSUTF8StringEncoding]);
+    NSString * scheme       = schemeForType(kURLTypeCommon);
+    NSString * host         = hostForType(kURLTypeCommon);
+    NSString * path         = urlForKey(COUPLET_LIST_BY_TIME);
+    
+    AFHTTPRequestOperation *operation = [self POST:ZCPMakeURLString(scheme, host, path)
+                                        parameters:@{@"pageCount":@(pageCount)
+                                                     , @"currUserID":@(currUserID)}
+                                           success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                                               if (success) {
+                                                   ZCPDataModel *model = [ZCPRequestResponseTranslator translateResponse_CoupletModel_List:[responseObject objectForKey:@"data"]];
+                                                   success(operation, model);
+                                               }
+                                           } failure:failure];
+    
+    TTDPRINT(@"request: %@\nparams: %@", operation, [[NSString alloc] initWithData:operation.request.HTTPBody encoding:NSUTF8StringEncoding]);
     return operation;
 }
 

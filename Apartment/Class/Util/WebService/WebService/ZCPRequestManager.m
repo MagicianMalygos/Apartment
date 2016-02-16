@@ -10,6 +10,12 @@
 
 #import <AFNetworkActivityIndicatorManager.h>
 
+NSString *ZCPMakeURLString(NSString *scheme, NSString *host, NSString *path) {
+    scheme = scheme ? scheme : @"http";
+    return [NSString stringWithFormat:@"%@://%@%@",scheme, host, path];
+}
+
+
 @implementation ZCPRequestManager
 
 #pragma mark - instancetype

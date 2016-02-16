@@ -124,6 +124,7 @@
 		18EF8A051C57088900924CCF /* ZCPArgumentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 18EF8A041C57088900924CCF /* ZCPArgumentCell.m */; };
 		18F1BD611C5EF8E3003C43A8 /* ZCPIntroductionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F1BD601C5EF8E3003C43A8 /* ZCPIntroductionCell.m */; };
 		18F1BD641C5F057C003C43A8 /* ZCPBookReplyCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F1BD631C5F057C003C43A8 /* ZCPBookReplyCell.m */; };
+		18FE5EB91C73077500F3CFEA /* ZCPURLCommon.m in Sources */ = {isa = PBXBuildFile; fileRef = 18FE5EB81C73077500F3CFEA /* ZCPURLCommon.m */; };
 		59270AFCF362F5F599DC29B9 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CF86021FDC156551CF6948C1 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -385,6 +386,8 @@
 		18F1BD601C5EF8E3003C43A8 /* ZCPIntroductionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZCPIntroductionCell.m; sourceTree = "<group>"; };
 		18F1BD621C5F057C003C43A8 /* ZCPBookReplyCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZCPBookReplyCell.h; sourceTree = "<group>"; };
 		18F1BD631C5F057C003C43A8 /* ZCPBookReplyCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZCPBookReplyCell.m; sourceTree = "<group>"; };
+		18FE5EB71C73077500F3CFEA /* ZCPURLCommon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZCPURLCommon.h; sourceTree = "<group>"; };
+		18FE5EB81C73077500F3CFEA /* ZCPURLCommon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZCPURLCommon.m; sourceTree = "<group>"; };
 		8364B8CEAECFADBA9DD965F8 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		9A0B59AD51081B5C1C24C487 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		CF86021FDC156551CF6948C1 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -927,6 +930,8 @@
 				18AB4DA81C30DEEB00C52BF6 /* ZCPSingleton.h */,
 				18AB4DA91C30DF2500C52BF6 /* ZCPBasicHeaders.h */,
 				18AB4DAA1C30DF8600C52BF6 /* ZCPGlobalMacros.h */,
+				18FE5EB71C73077500F3CFEA /* ZCPURLCommon.h */,
+				18FE5EB81C73077500F3CFEA /* ZCPURLCommon.m */,
 			);
 			name = Global;
 			path = Class/Global;
@@ -1281,6 +1286,7 @@
 				180469721C56545D004E7DCC /* ZCPBookModel.m in Sources */,
 				18EF89F91C57012B00924CCF /* ZCPBookPostCommentModel.m in Sources */,
 				18AB4D9A1C30DAB300C52BF6 /* main.m in Sources */,
+				18FE5EB91C73077500F3CFEA /* ZCPURLCommon.m in Sources */,
 				18D0B06F1C34C9B200F4B2DB /* UIBarButtonItem+Category.m in Sources */,
 				1807001D1C48821600F3BE2B /* PACircleLoadingView.m in Sources */,
 				18EF89FF1C57040300924CCF /* ZCPBookPostCommentReplyModel.m in Sources */,
