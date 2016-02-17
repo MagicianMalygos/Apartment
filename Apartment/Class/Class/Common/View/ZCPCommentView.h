@@ -37,6 +37,10 @@
  *  隐藏评论视图
  */
 - (void)hideCommentView;
+/**
+ *  清除文本框内容
+ */
+- (void)clearText;
 
 @end
 

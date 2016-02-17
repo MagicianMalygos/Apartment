@@ -68,13 +68,25 @@
 // ----------------------------------------------------------------------
 #pragma mark - Private Method
 // ----------------------------------------------------------------------
+/**
+ *  显示评论视图
+ */
 - (void)showCommentView {
     // 键盘响应者得到第一响应者，弹出键盘
     [self.keyboardResponder becomeFirstResponder];
 }
+/**
+ *  隐藏评论视图
+ */
 - (void)hideCommentView {
     // 键盘响应者失去第一响应者，缩回键盘
     [self.keyboardResponder resignFirstResponder];
+}
+/**
+ *  清除文本框内容
+ */
+- (void)clearText {
+    self.keyboardResponder.text = @"";
 }
 
 // ----------------------------------------------------------------------
@@ -84,6 +96,7 @@
  *  显示评论视图
  */
 - (void)showCommentView:(NSNotification *)notification {
+    
     // 添加覆盖视图
     [self.target.view addSubview:self.coverView];
     
@@ -158,7 +171,10 @@
         if(![textView.text isEqualToString:@""]
            && self.delegate
            && [self.delegate respondsToSelector:@selector(textInputShouldReturn:)]){
-            [self.delegate textInputShouldReturn:self.keyboardResponder];
+            BOOL isHiddenKeyboard = [self.delegate textInputShouldReturn:self.keyboardResponder];
+            if (isHiddenKeyboard) {
+                [self hideCommentView];
+            }
         }
         return NO;
     }

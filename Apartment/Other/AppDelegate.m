@@ -20,6 +20,9 @@
     // 初始化api
     [[ZCPURLCommon sharedInstance] initialize];
     
+    [ZCPUserCenter sharedInstance].currentUserModel = [ZCPUserModel modelFromDictionary:@{@"userId":@(1)
+                                                                                          ,@"userName": @"zcp"}];
+    
     self.window = [[ZCPNavigator sharedInstance] window];
     [[ZCPNavigator sharedInstance] setupRootViewController];
     [self.window makeKeyAndVisible];

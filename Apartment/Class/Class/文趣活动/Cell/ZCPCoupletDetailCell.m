@@ -26,13 +26,15 @@
     self.supportButton = [UIButton buttonWithType:UIButtonTypeCustom];
     self.supportButton.frame = CGRectMake(CELLWIDTH_DEFAULT - HorizontalMargin - 20, VerticalMargin, 20, 20);
     [self.supportButton setImageNameNormal:@"support_normal" Highlighted:@"support_selected" Selected:@"support_selected" Disabled:@"support_normal"];
+    [self.supportButton addTarget:self action:@selector(buttonClick:) forControlEvents:UIControlEventTouchUpInside];
     self.collectionButton = [UIButton buttonWithType:UIButtonTypeCustom];
     self.collectionButton.frame = CGRectMake(self.supportButton.left - UIMargin * 2 - 20, VerticalMargin, 20, 20);
     [self.collectionButton setImageNameNormal:@"collection_normal" Highlighted:@"collection_selected" Selected:@"collection_selected" Disabled:@"collection_normal"];
+    [self.collectionButton addTarget:self action:@selector(buttonClick:) forControlEvents:UIControlEventTouchUpInside];
     self.commentButton = [UIButton buttonWithType:UIButtonTypeCustom];
     self.commentButton.frame = CGRectMake(self.collectionButton.left - UIMargin * 2 - 20, VerticalMargin, 20, 20);
     [self.commentButton setOnlyImageName:@"comment_normal"];
-    
+    [self.commentButton addTarget:self action:@selector(buttonClick:) forControlEvents:UIControlEventTouchUpInside];
     
     // 第二行
     self.coupletContentLabel = [[UILabel alloc] init];
@@ -98,6 +100,7 @@
                                               , 25);
         
         // 设置属性
+        self.delegate = self.item.delegate;
         self.coupletContentLabel.text = self.item.coupletContent;
         [self.userHeadImgView sd_setImageWithURL:[NSURL URLWithString:self.item.userHeadImageURL] placeholderImage:[UIImage imageNamed:@"head_default"]];
         self.userNameLabel.text = self.item.userName;
@@ -113,12 +116,27 @@
 + (CGFloat)tableView:(UITableView *)tableView rowHeightForObject:(id)object {
     ZCPCoupletDetailCellItem *item = (ZCPCoupletDetailCellItem *)object;
     // 计算高度
-//    CGFloat contentHeight = [item.coupletContent boundingRectWithSize:CGSizeMake(CELLWIDTH_DEFAULT - HorizontalMargin * 2, CGFLOAT_MAX)
-//                                                              options:NSStringDrawingUsesFontLeading| NSStringDrawingUsesLineFragmentOrigin
-//                                                           attributes:@{NSFontAttributeName: [UIFont defaultBoldFontWithSize:18.0f]}
-//                                                              context:nil].size.height;
-//    return 20.0f + contentHeight + 25.0f + UIMargin * 2 + VerticalMargin * 2;
-    return [((ZCPCoupletDetailCellItem *)item).cellHeight floatValue];
+    CGFloat contentHeight = [item.coupletContent boundingRectWithSize:CGSizeMake(CELLWIDTH_DEFAULT - HorizontalMargin * 2, CGFLOAT_MAX)
+                                                              options:NSStringDrawingUsesFontLeading| NSStringDrawingUsesLineFragmentOrigin
+                                                           attributes:@{NSFontAttributeName: [UIFont defaultBoldFontWithSize:18.0f]}
+                                                              context:nil].size.height;
+    return 20.0f + contentHeight + 25.0f + UIMargin * 2 + VerticalMargin * 2;
+//    return [((ZCPCoupletDetailCellItem *)item).cellHeight floatValue];
+}
+
+#pragma mark - Button Click
+- (void)buttonClick:(UIButton *)button {
+    if (self.delegate) {
+        if (button == self.supportButton && [self.delegate respondsToSelector:@selector(coupletDetailCell:supportButtonClick:)]) {
+            [self.delegate coupletDetailCell:self supportButtonClick:button];
+        }
+        else if (button == self.collectionButton && [self.delegate respondsToSelector:@selector(coupletDetailCell:collectButtonClick:)]) {
+            [self.delegate coupletDetailCell:self collectButtonClick:button];
+        }
+        else if (button == self.commentButton && [self.delegate respondsToSelector:@selector(coupletDetailCell:commentButtonClick:)]) {
+            [self.delegate coupletDetailCell:self commentButtonClick:button];
+        }
+    }
 }
 
 @end
@@ -130,6 +148,7 @@
 @synthesize userName = _userName;
 @synthesize time = _time;
 @synthesize supportNumber = _supportNumber;
+@synthesize delegate = _delegate;
 
 #pragma mark - instancetype
 - (instancetype)init {

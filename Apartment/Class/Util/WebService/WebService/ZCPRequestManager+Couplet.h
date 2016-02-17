@@ -21,8 +21,21 @@
  */
 - (NSOperation *)getCoupletListByTimeWithPageCount:(NSInteger)pageCount
                                         currUserID:(NSInteger)currUserID
-                                           success:(void(^)(AFHTTPRequestOperation *operation, ZCPDataModel *model))success
+                                           success:(void(^)(AFHTTPRequestOperation *operation, ZCPListDataModel *coupletListModel))success
                                            failure:(void(^)(AFHTTPRequestOperation *operation, NSError *error))failure;
+
+/**
+ *  得到按时间排序，在oldCoupletID对应对联之后的对联列表
+ *
+ *  @param pageCount    一页数量
+ *  @param oldCoupletID 下拉刷新最后一个对联信息
+ *  @param currUserID   当前用户ID
+ */
+- (NSOperation *)getOldCoupletListByTimeWithPageCount:(NSInteger)pageCount
+                                         oldCoupletID:(NSInteger)oldCoupletID
+                                           currUserID:(NSInteger)currUserID
+                                              success:(void (^)(AFHTTPRequestOperation *operation, ZCPListDataModel *coupletListModel))success
+                                              failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure;
 
 /**
  *  得到按点赞量排序的对联列表
@@ -32,8 +45,20 @@
  */
 - (NSOperation *)getCoupletListBySupportWithPageCount:(NSInteger)pageCount
                                         currUserID:(NSInteger)currUserID
-                                           success:(void(^)(AFHTTPRequestOperation *operation, ZCPDataModel *model))success
+                                           success:(void(^)(AFHTTPRequestOperation *operation, ZCPListDataModel *coupletListModel))success
                                            failure:(void(^)(AFHTTPRequestOperation *operation, NSError *error))failure;
+
+/**
+ *  得到按时间排序的对联回复列表
+ *
+ *  @param pageCount  一页数量
+ *  @param currUserId 当前用户ID
+ */
+- (NSOperation *)getCoupletReplyListWithPageCount:(NSInteger)pageCount
+                                    currCoupletID:(NSInteger)currCoupletID
+                                       currUserID:(NSInteger)currUserID
+                                          success:(void (^)(AFHTTPRequestOperation *operation, ZCPListDataModel *coupletReplyListModel))success
+                                          failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure;
 
 /**
  *  添加对联
@@ -66,7 +91,7 @@
  *  @param currCoupletID 当前对联ID
  *  @param currUserID    当前用户ID
  */
-- (NSOperation *)changeCoupletSupportRecord:(NSInteger)currSupported
+- (NSOperation *)changeCoupletCurrSupportState:(NSInteger)currSupported
                               currCoupletID:(NSInteger)currCoupletID
                                  currUserID:(NSInteger)currUserID
                                     success:(void (^)(AFHTTPRequestOperation *operation, BOOL isSuccess))success
@@ -79,7 +104,7 @@
  *  @param currCoupletID 当前对联ID
  *  @param currUserID    当前用户ID
  */
-- (NSOperation *)changeCoupletCollectionRecord:(NSInteger)currCollected
+- (NSOperation *)changeCoupletCurrCollectionState:(NSInteger)currCollected
                                  currCoupletID:(NSInteger)currCoupletID
                                     currUserID:(NSInteger)currUserID
                                        success:(void (^)(AFHTTPRequestOperation *operation, BOOL isSuccess))success
@@ -92,7 +117,7 @@
  *  @param currCoupletID 当前对联回复ID
  *  @param currUserID    当前用户ID
  */
-- (NSOperation *)changeCoupletReplySupportRecord:(ZCPCoupletSupportState)currSupported
+- (NSOperation *)changeCoupletReplyCurrSupportState:(ZCPCoupletSupportState)currSupported
                               currCoupletReplyID:(NSInteger)currCoupletReplyID
                                  currUserID:(NSInteger)currUserID
                                     success:(void (^)(AFHTTPRequestOperation *operation, BOOL isSuccess))success

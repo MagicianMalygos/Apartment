@@ -58,6 +58,12 @@
 }
 
 #pragma mark - getter / setter
+- (void)setText:(NSString *)text {
+    [super setText:text];
+    if ([text isEqualToString:@""]) {
+        self.placeholderLabel.alpha = 1.0f;
+    }
+}
 - (void)setFont:(UIFont *)font {
     [super setFont:font];
     // 设置placeholderLabel的font并做自适应frame

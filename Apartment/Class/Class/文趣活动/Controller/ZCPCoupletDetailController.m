@@ -13,18 +13,26 @@
 #import "ZCPCoupletReplyCell.h"
 #import "ZCPCoupletReplyModel.h"
 #import "ZCPSectionCell.h"
+#import "ZCPRequestManager+Couplet.h"
+#import "ZCPCommentView.h"
 
-@interface ZCPCoupletDetailController ()
+#define REPLY_PAGE_COUNT        PAGE_COUNT_DEFAULT
 
+@interface ZCPCoupletDetailController () <ZCPCoupletDetailCellDelegate, ZCPCoupletReplyCellDelegate, ZCPCommentViewDelegate>
+
+@property (nonatomic, strong) ZCPCommentView *commentView;                  // 评论视图
 @property (nonatomic, strong) ZCPCoupletModel *selectedCoupletModel;        // 当前对联模型
 @property (nonatomic, strong) NSMutableArray *coupletReplyModelArr;         // 对联回复模型数组
+@property (assign, nonatomic) int pagination;                               // 页码
 
 @end
 
 @implementation ZCPCoupletDetailController
 
+@synthesize commentView = _commentView;
 @synthesize selectedCoupletModel = _selectedCoupletModel;
 @synthesize coupletReplyModelArr = _coupletReplyModelArr;
+@synthesize pagination = _pagination;
 
 #pragma mark - init
 - (instancetype)initWithParams:(NSDictionary *)params {
@@ -38,20 +46,32 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    // 从网络获取数据
-    self.coupletReplyModelArr = [NSMutableArray array];
-    for (int i = 0; i < 10; i++) {
-        ZCPCoupletReplyModel *model = [ZCPCoupletReplyModel modelFromDictionary:@{@"replyId":[NSNumber numberWithInt:i]
-                                                                        ,@"replyContent":@"asdasdasdasdasdasddddddddddddddddddddddasdddddddddd"
-                                                                        ,@"replySupport":[NSNumber numberWithInt:i]
-                                                                        ,@"replyTime":@"2015-10-20"
-                                                                        ,@"supported":@YES
-                                                                        ,@"user":@{@"userName":@"zcp"}}];
-        [self.coupletReplyModelArr addObject:model];
-    }
+    // 初始化
+    self.pagination = 1;
     
-    [self constructData];
-    [self.tableView reloadData];
+    // 添加CommentView
+    self.commentView = [[ZCPCommentView alloc] initWithTarget:self];
+    self.commentView.delegate = self;
+    [self.view addSubview:self.commentView];
+    
+    // 从网络获取数据
+    WEAK_SELF;
+    [[ZCPRequestManager sharedInstance] getCoupletReplyListWithPageCount:REPLY_PAGE_COUNT currCoupletID:self.selectedCoupletModel.coupletId currUserID:[ZCPUserCenter sharedInstance].currentUserModel.userId success:^(AFHTTPRequestOperation *operation, ZCPListDataModel *coupletReplyListModel) {
+        STRONG_SELF;
+        if ([coupletReplyListModel isKindOfClass:[ZCPListDataModel class]]) {
+            weakSelf.coupletReplyModelArr = [NSMutableArray arrayWithArray:coupletReplyListModel.items];
+            
+            // 重新构造并加载数据
+            [self constructData];
+            [weakSelf.tableView reloadData];
+        }
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        TTDPRINT(@"%@", error);
+    }];
+    
+    // 添加上拉下拉刷新控件
+    self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(headerRefresh)];
+    self.tableView.mj_footer = [MJRefreshBackFooter footerWithRefreshingTarget:self refreshingAction:@selector(footerRefresh)];
 }
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
@@ -72,6 +92,9 @@
     detailItem.userHeadImageURL = self.selectedCoupletModel.user.userFaceURL;
     detailItem.userName = self.selectedCoupletModel.user.userName;
     detailItem.time = self.selectedCoupletModel.coupletTime;
+    detailItem.coupletSupported = self.selectedCoupletModel.supported;
+    detailItem.coupletCollected = self.selectedCoupletModel.collected;
+    detailItem.delegate = self;
     [items addObject:detailItem];
 
     ZCPSectionCellItem * section = [[ZCPSectionCellItem alloc] initWithDefault];
@@ -81,14 +104,225 @@
     
     for (ZCPCoupletReplyModel *model in self.coupletReplyModelArr) {
         ZCPCoupletReplyCellItem * replyItem = [[ZCPCoupletReplyCellItem alloc] initWithDefault];
+        replyItem.replyId = model.replyId;
         replyItem.replyContent = model.replyContent;
         replyItem.userHeadImageURL = model.user.userFaceURL;
         replyItem.userName = model.user.userName;
         replyItem.replyTime = model.replyTime;
+        replyItem.replySupported = model.supported;
+        replyItem.delegate = self;
         [items addObject:replyItem];
     }
     
     self.tableViewAdaptor.items = items;
+}
+
+#pragma mark - ZCPCoupletDetailCellDelegate
+/**
+ *  评论按钮点击事件
+ */
+- (void)coupletDetailCell:(ZCPCoupletDetailCell *)cell commentButtonClick:(UIButton *)button {
+    [self.commentView showCommentView];
+}
+/**
+ *  收藏按钮点击事件
+ */
+- (void)coupletDetailCell:(ZCPCoupletDetailCell *)cell collectButtonClick:(UIButton *)button {
+    
+    [[ZCPRequestManager sharedInstance] changeCoupletCurrCollectionState:self.selectedCoupletModel.collected currCoupletID:self.selectedCoupletModel.coupletId currUserID:[ZCPUserCenter sharedInstance].currentUserModel.userId success:^(AFHTTPRequestOperation *operation, BOOL isSuccess) {
+        if (isSuccess) {
+            if (self.selectedCoupletModel.collected == ZCPCurrUserHaveCollectCouplet) {
+                // 取消收藏成功，取消按钮高亮显示
+                button.selected = NO;
+                // 设置“是否已收藏”属性为“0”——“未收藏”
+                self.selectedCoupletModel.collected = ZCPCurrUserNotCollectCouplet;
+                
+                TTDPRINT(@"取消收藏成功！");
+                [MBProgressHUD showSuccess:@"取消收藏成功！" toView:self.view];
+            }
+            else {
+                // 收藏成功，设置按钮高亮显示
+                button.selected = YES;
+                // 设置“是否已收藏”属性为“1”——“已收藏”
+                self.selectedCoupletModel.collected = ZCPCurrUserHaveCollectCouplet;
+                
+                TTDPRINT(@"收藏成功！");
+                [MBProgressHUD showSuccess:@"收藏成功！" toView:self.view];
+            }
+        }
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        TTDPRINT(@"收藏失败！%@", error);
+        [MBProgressHUD showSuccess:@"收藏失败！网络异常" toView:self.view];
+    }];
+}
+/**
+ *  点赞按钮点击事件
+ */
+- (void)coupletDetailCell:(ZCPCoupletDetailCell *)cell supportButtonClick:(UIButton *)button {
+    [[ZCPRequestManager sharedInstance] changeCoupletCurrSupportState:self.selectedCoupletModel.supported currCoupletID:self.selectedCoupletModel.coupletId currUserID:[ZCPUserCenter sharedInstance].currentUserModel.userId success:^(AFHTTPRequestOperation *operation, BOOL isSuccess) {
+        if (isSuccess) {
+            if (self.selectedCoupletModel.supported == ZCPCurrUserNotSupportCouplet) {
+                button.selected = YES;
+                self.selectedCoupletModel.supported = ZCPCurrUserHaveSupportCouplet;
+                
+                TTDPRINT(@"点赞成功！");
+                [MBProgressHUD showSuccess:@"点赞成功！" toView:self.view];
+            }
+            else if (self.selectedCoupletModel.supported == ZCPCurrUserHaveSupportCouplet) {
+                button.selected = NO;
+                self.selectedCoupletModel.supported = ZCPCurrUserNotSupportCouplet;
+                
+                TTDPRINT(@"取消点赞成功！");
+                [MBProgressHUD showSuccess:@"取消点赞成功！" toView:self.view];
+            }
+        }
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        TTDPRINT(@"点赞失败！%@", error);
+        [MBProgressHUD showSuccess:@"点赞失败！网络异常！" toView:self.view];
+    }];
+}
+
+#pragma mark - ZCPCoupletReplyCellDelegate
+/**
+ *  点赞按钮
+ */
+- (void)coupletReplyCell:(ZCPCoupletReplyCell *)cell supportButtonClick:(UIButton *)button {
+    
+    ZCPCoupletReplyCellItem *replyItem = cell.item;
+    
+    [[ZCPRequestManager sharedInstance] changeCoupletReplyCurrSupportState:replyItem.replySupported currCoupletReplyID:replyItem.replyId currUserID:[ZCPUserCenter sharedInstance].currentUserModel.userId success:^(AFHTTPRequestOperation *operation, BOOL isSuccess) {
+        if (isSuccess) {
+            if (replyItem.replySupported == ZCPCurrUserNotSupportCoupletReply) {
+                button.selected = YES;
+                replyItem.replySupported = ZCPCurrUserHaveSupportCoupletReply;
+                
+                TTDPRINT(@"点赞成功！");
+                [MBProgressHUD showSuccess:@"点赞成功！" toView:self.view];
+            }
+            else if (replyItem.replySupported == ZCPCurrUserHaveSupportCoupletReply) {
+                button.selected = NO;
+                replyItem.replySupported = ZCPCurrUserNotSupportCoupletReply;
+                
+                TTDPRINT(@"取消点赞成功！");
+                [MBProgressHUD showSuccess:@"取消点赞成功！" toView:self.view];
+            }
+        }
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        TTDPRINT(@"点赞失败！%@", error);
+        [MBProgressHUD showSuccess:@"点赞失败！网络异常！" toView:self.view];
+    }];
+}
+
+#pragma mark - ZCPCommentViewDelegate
+/**
+ *  return键响应方法，提交对联回复的方法
+ *
+ *  @param keyboardResponder 文本输入框
+ *
+ *  @return 是否隐藏键盘
+ */
+- (BOOL)textInputShouldReturn:(ZCPTextView *)keyboardResponder {
+    
+    // 获取文本输入框内容并进行非法性判断
+    NSString *coupletReplyContent = keyboardResponder.text;
+    if (![self judgeTextInput:coupletReplyContent]) {
+        return NO;
+    }
+    
+    TTDPRINT(@"准备提交对联回复内容...");
+    [[ZCPRequestManager sharedInstance] addCoupletReplyContent:coupletReplyContent
+                                                 currCoupletID:self.selectedCoupletModel.coupletId
+                                                    currUserID:[ZCPUserCenter sharedInstance].currentUserModel.userId
+                                                       success:^(AFHTTPRequestOperation *operation, BOOL isSuccess) {
+                                                           if (isSuccess) {
+                                                               TTDPRINT(@"提交成功...");
+                                                               [MBProgressHUD showSuccess:@"添加回复成功！" toView:self.view];
+                                                               [self reloadReplyData];
+                                                           }
+                                                           else {
+                                                               TTDPRINT(@"提交失败...");
+                                                               [MBProgressHUD showError:@"添加回复失败！" toView:self.view];
+                                                           }
+                                                       } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                                                           TTDPRINT(@"提交失败...%@", error);
+                                                           [MBProgressHUD showError:@"添加回复失败！网络异常！" toView:self.view];
+                                                       }];
+    // 提交后清除文本输入框内容
+    [self.commentView clearText];
+    
+    return YES;
+}
+/**
+ *  回复提交成功确认后重新加载数据
+ *  代码嵌套代码，太长了 - -！
+ */
+- (void)reloadReplyData {
+    WEAK_SELF;
+    [[ZCPRequestManager sharedInstance] getCoupletReplyListWithPageCount:REPLY_PAGE_COUNT currCoupletID:self.selectedCoupletModel.coupletId currUserID:[ZCPUserCenter sharedInstance].currentUserModel.userId success:^(AFHTTPRequestOperation *operation, ZCPListDataModel *coupletReplyListModel) {
+        STRONG_SELF;
+        if ([coupletReplyListModel isKindOfClass:[ZCPListDataModel class]]) {
+            weakSelf.coupletReplyModelArr = [NSMutableArray arrayWithArray:coupletReplyListModel.items];
+            
+            // 重新构造并加载数据
+            [self constructData];
+            [weakSelf.tableView reloadData];
+        }
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        TTDPRINT(@"%@", error);
+    }];
+    self.pagination = 1;    // 提交回复后初始化页码
+}
+
+#pragma mark - Private Method
+/**
+ *  输入检测
+ */
+- (BOOL)judgeTextInput:(NSString *)text {
+    if (text.length == 0) {
+        [MBProgressHUD showError:@"评论不能为空！" toView:self.view];
+        return NO;
+    }
+    else if (text.length > 50) {
+        [MBProgressHUD showError:@"字数不得超过50字！" toView:self.view];
+        return NO;
+    }
+    return YES;
+}
+- (void)headerRefresh {
+    WEAK_SELF;
+    [[ZCPRequestManager sharedInstance] getCoupletReplyListWithPageCount:REPLY_PAGE_COUNT currCoupletID:self.selectedCoupletModel.coupletId currUserID:[ZCPUserCenter sharedInstance].currentUserModel.userId success:^(AFHTTPRequestOperation *operation, ZCPListDataModel *coupletReplyListModel) {
+        STRONG_SELF;
+        if ([coupletReplyListModel isKindOfClass:[ZCPListDataModel class]]) {
+            weakSelf.coupletReplyModelArr = [NSMutableArray arrayWithArray:coupletReplyListModel.items];
+            
+            // 重新构造并加载数据
+            [self constructData];
+            [weakSelf.tableView reloadData];
+        }
+        [weakSelf.tableView.mj_header endRefreshing];
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        TTDPRINT(@"%@", error);
+        [weakSelf.tableView.mj_header endRefreshing];
+    }];
+    self.pagination = 1;
+}
+- (void)footerRefresh {
+    WEAK_SELF;
+    [[ZCPRequestManager sharedInstance] getCoupletReplyListWithPageCount:((self.pagination + 1) * REPLY_PAGE_COUNT) currCoupletID:self.selectedCoupletModel.coupletId currUserID:[ZCPUserCenter sharedInstance].currentUserModel.userId success:^(AFHTTPRequestOperation *operation, ZCPListDataModel *coupletReplyListModel) {
+        STRONG_SELF;
+        if ([coupletReplyListModel isKindOfClass:[ZCPListDataModel class]]) {
+            weakSelf.coupletReplyModelArr = [NSMutableArray arrayWithArray:coupletReplyListModel.items];
+            
+            // 重新构造并加载数据
+            [self constructData];
+            [weakSelf.tableView reloadData];
+        }
+        [weakSelf.tableView.mj_footer endRefreshing];
+        self.pagination ++;
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        TTDPRINT(@"%@", error);
+        [weakSelf.tableView.mj_footer endRefreshing];
+    }];
 }
 
 @end

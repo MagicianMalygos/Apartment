@@ -91,7 +91,12 @@ do { \
     _Pragma("clang diagnostic pop") \
 } while (0)
 
+
+
 // 默认用户头像
-#define HEAD_DEFAULT    @"head_default"
+#define HEAD_DEFAULT            @"head_default"
+// 默认列表一页数据量
+#define PAGE_COUNT_DEFAULT      10
+
 
 #endif /* ZCPGlobalMacros_h */

@@ -46,8 +46,16 @@ IMP_SINGLETON
 
 - (void)initialize {
     TTDPRINT(@"Load: = = = = api map = = = =");
-    self.urlMaps = @{COUPLET_LIST_BY_TIME: @"/1.0/activity/getCoupletByTime"
-                     , COUPLET_LIST_BY_SUPPORT: @"/1.0/activity/getCoupletBySupport"
+    self.urlMaps = @{
+                     /*文趣活动相关*/
+                     COUPLET_LIST_BY_TIME:              @"/1.0/activity/getCoupletByTime"
+                     , OLD_COUPLET_LIST_BY_TIME:        @"/1.0/activity/getCoupletByTimeAndOldId"
+                     , COUPLET_LIST_BY_SUPPORT:         @"/1.0/activity/getCoupletBySupport"
+                     , ADD_COUPLET:                     @"/1.0/activity/addCouplet"
+                     , COUPLET_REPLY_LIST:              @"/1.0/activity/getCoupletReplyByCoupletId"
+                     , ADD_COUPLET_REPLY:               @"/1.0/activity/addCoupletReply"
+                     , CHANGE_COUPLET_SUPPORT_STATE:    @"/1.0/activity/changeCoupletSupportRecord"
+                     , CHANGE_COUPLET_COLLECTION_STATE: @"/1.0/activity/changeCoupletCollectionRecord"
                      };
 }
 

@@ -45,6 +45,7 @@
 }
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
+    
     // 通过偏移量设置NavTitle
     [self setNavTitleByScrollViewOffset];
 }

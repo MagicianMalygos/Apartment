@@ -8,7 +8,7 @@
 
 #import "ZCPCoupletReplyModel.h"
 
-#import "ZCPRequestResponseTranslator.h"
+#import "ZCPRequestResponseTranslator+Couplet.h"
 
 @implementation ZCPCoupletReplyModel
 

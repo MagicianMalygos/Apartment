@@ -11,8 +11,9 @@
 #import "ZCPSectionCell.h"
 #import "ZCPTextFieldCell.h"
 #import "ZCPButtonCell.h"
+#import "ZCPRequestManager+Couplet.h"
 
-@interface ZCPAddCoupletController ()
+@interface ZCPAddCoupletController () <ZCPButtonCellDelegate>
 
 @end
 
@@ -50,6 +51,7 @@
     // 提交按钮
     ZCPButtonCellItem *determineItem = [[ZCPButtonCellItem alloc] initWithDefault];
     determineItem.buttonTitle = @"提交";
+    determineItem.delegate = self;
     
     
     [items addObject:sectionItem];
@@ -60,4 +62,51 @@
     
     self.tableViewAdaptor.items = items;
 }
+
+#pragma mark - ZCPButtonCellDelegate
+- (void)cell:(UITableViewCell *)cell buttonClicked:(UIButton *)button {
+    
+    ZCPTextFieldCellItem *textItem = [self.tableViewAdaptor.items objectAtIndex:1];
+    NSString *coupletContent = textItem.textFieldInputValue;
+    
+    // 如果未通过输入检测则不进行提交
+    if (![self judgeTextInput:coupletContent]) {
+        return;
+    }
+    
+    TTDPRINT(@"提交对联中...");
+    [[ZCPRequestManager sharedInstance] addCoupletContent:coupletContent currUserID:[ZCPUserCenter sharedInstance].currentUserModel.userId success:^(AFHTTPRequestOperation *operation, BOOL isSuccess) {
+        if (isSuccess) {
+            TTDPRINT(@"提交对联成功！！");
+            [MBProgressHUD showSuccess:@"对联添加成功！" toView:self.view];
+        }
+        else {
+            [MBProgressHUD showError:@"对联添加失败！" toView:self.view];
+        }
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        TTDPRINT(@"提交失败...%@", error);
+        [MBProgressHUD showError:@"对联添加失败！网络异常" toView:self.view];
+    }];
+    
+    // pop
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
+#pragma mark - Private Method
+/**
+ *  输入检测
+ */
+- (BOOL)judgeTextInput:(NSString *)text {
+    if (text.length == 0) {
+        [MBProgressHUD showError:@"评论不能为空！" toView:self.view];
+        return NO;
+    }
+    else if (text.length > 50) {
+        [MBProgressHUD showError:@"字数不得超过50字！" toView:self.view];
+        return NO;
+    }
+    return YES;
+}
+
+
 @end

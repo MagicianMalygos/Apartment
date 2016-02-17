@@ -37,12 +37,7 @@
 // 状态模型转换
 + (ZCPStateModel *)translateResponse_StateModel:(NSDictionary *)dict;
 
-// 对联模型转换
-+ (ZCPCoupletModel *)translateResponse_CoupletModel:(NSDictionary *)dict;
-// 对联回复模型转换
-+ (ZCPCoupletReplyModel *)translateResponse_CoupletReplyModel:(NSDictionary *)dict;
-// 对联列表模型转换
-+ (ZCPListDataModel *)translateResponse_CoupletModel_List:(NSDictionary *)dict;
+
 
 // 辩题模型转换
 + (ZCPThesisModel *)translateResponse_ThesisModel:(NSDictionary *)dict;

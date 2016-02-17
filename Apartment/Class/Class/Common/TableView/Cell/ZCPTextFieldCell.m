@@ -17,6 +17,8 @@
 - (void)setupContentView {
     
     self.textField = [[UITextField alloc] init];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(textDidChange:) name:UITextFieldTextDidChangeNotification object:nil];
+    
     [self.contentView addSubview:self.textField];
 }
 - (void)setObject:(NSObject *)object {
@@ -35,6 +37,15 @@
     ZCPTextFieldCellItem *item = (ZCPTextFieldCellItem *)object;
     return [item.cellHeight floatValue];
 }
+- (void)dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
+#pragma mark - Notification
+- (void)textDidChange:(NSNotification *)notification {
+    self.item.textFieldInputValue = self.textField.text;
+}
+
 
 @end
 

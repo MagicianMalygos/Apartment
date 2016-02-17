@@ -23,6 +23,7 @@ typedef void(^ZCPTextFieldConfigBlock)(UITextField *);
 
 @interface ZCPTextFieldCellItem : ZCPDataModel
 
+@property (nonatomic, copy) NSString *textFieldInputValue;                    // 文本框输入内容
 @property (nonatomic, copy) ZCPTextFieldConfigBlock textFieldConfigBlock;     // 输入框配置块
 
 @end

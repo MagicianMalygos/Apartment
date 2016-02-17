@@ -350,7 +350,7 @@ NSString *fixIconString(NSString *iconString) {
  * @return NSDate
  **/
 - (NSDate *)toDate {
-	return [NSDate dateFromString:self];
+	return [NSDate dateFromYDMHmsString:self];
 }
 
 /**
