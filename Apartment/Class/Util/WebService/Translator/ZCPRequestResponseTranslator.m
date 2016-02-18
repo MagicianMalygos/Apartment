@@ -73,39 +73,6 @@
 }
 
 
-
-
-/**
- *  辩题模型转换
- *
- *  @param responseData 属性字典
- *
- *  @return 辩题模型
- */
-+ (ZCPThesisModel *)translateResponse_ThesisModel:(NSDictionary *)responseData {
-    ZCPThesisModel *model = nil;
-    if ([responseData isKindOfClass:[NSDictionary class]]) {
-        // 在此处写字典转模型代码
-        model = [ZCPThesisModel modelFromDictionary:responseData];
-    }
-    return model;
-}
-/**
- *  论据模型转换
- *
- *  @param responseData 属性字典
- *
- *  @return 论据模型
- */
-+ (ZCPArgumentModel *)translateResponse_ArgumentModel:(NSDictionary *)responseData {
-    ZCPArgumentModel *model = nil;
-    if ([responseData isKindOfClass:[NSDictionary class]]) {
-        // 在此处写字典转模型代码
-        model = [ZCPArgumentModel modelFromDictionary:responseData];
-    }
-    return model;
-}
-
 /**
  *  问题模型转换
  *

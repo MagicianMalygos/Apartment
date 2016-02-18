@@ -151,8 +151,8 @@
             }
         }
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        TTDPRINT(@"收藏失败！%@", error);
-        [MBProgressHUD showSuccess:@"收藏失败！网络异常" toView:self.view];
+        TTDPRINT(@"操作失败！%@", error);
+        [MBProgressHUD showSuccess:@"操作失败！网络异常" toView:self.view];
     }];
 }
 /**
@@ -177,14 +177,14 @@
             }
         }
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        TTDPRINT(@"点赞失败！%@", error);
-        [MBProgressHUD showSuccess:@"点赞失败！网络异常！" toView:self.view];
+        TTDPRINT(@"操作失败！%@", error);
+        [MBProgressHUD showSuccess:@"操作失败！网络异常！" toView:self.view];
     }];
 }
 
 #pragma mark - ZCPCoupletReplyCellDelegate
 /**
- *  点赞按钮
+ *  coupletReply点赞按钮
  */
 - (void)coupletReplyCell:(ZCPCoupletReplyCell *)cell supportButtonClick:(UIButton *)button {
     
@@ -208,8 +208,8 @@
             }
         }
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        TTDPRINT(@"点赞失败！%@", error);
-        [MBProgressHUD showSuccess:@"点赞失败！网络异常！" toView:self.view];
+        TTDPRINT(@"操作失败！%@", error);
+        [MBProgressHUD showSuccess:@"操作失败！网络异常！" toView:self.view];
     }];
 }
 

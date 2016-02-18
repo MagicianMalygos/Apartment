@@ -118,6 +118,7 @@
 		18E727851C706A59005BC5D7 /* ZCPResponseDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 18E727841C706A59005BC5D7 /* ZCPResponseDataModel.m */; };
 		18E727881C706B36005BC5D7 /* ZCPListDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 18E727871C706B36005BC5D7 /* ZCPListDataModel.m */; };
 		18E7278B1C7087DE005BC5D7 /* UIImageView+Category.m in Sources */ = {isa = PBXBuildFile; fileRef = 18E7278A1C7087DE005BC5D7 /* UIImageView+Category.m */; };
+		18E8F64C1C756AF500B47F84 /* ZCPRequestResponseTranslator+Thesis.m in Sources */ = {isa = PBXBuildFile; fileRef = 18E8F64B1C756AF500B47F84 /* ZCPRequestResponseTranslator+Thesis.m */; };
 		18EF89F61C56FF5200924CCF /* ZCPBookPostModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 18EF89F51C56FF5200924CCF /* ZCPBookPostModel.m */; };
 		18EF89F91C57012B00924CCF /* ZCPBookPostCommentModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 18EF89F81C57012B00924CCF /* ZCPBookPostCommentModel.m */; };
 		18EF89FC1C5702E800924CCF /* ZCPBookReplyModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 18EF89FB1C5702E800924CCF /* ZCPBookReplyModel.m */; };
@@ -376,6 +377,8 @@
 		18E727871C706B36005BC5D7 /* ZCPListDataModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZCPListDataModel.m; sourceTree = "<group>"; };
 		18E727891C7087DE005BC5D7 /* UIImageView+Category.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+Category.h"; sourceTree = "<group>"; };
 		18E7278A1C7087DE005BC5D7 /* UIImageView+Category.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+Category.m"; sourceTree = "<group>"; };
+		18E8F64A1C756AF500B47F84 /* ZCPRequestResponseTranslator+Thesis.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ZCPRequestResponseTranslator+Thesis.h"; sourceTree = "<group>"; };
+		18E8F64B1C756AF500B47F84 /* ZCPRequestResponseTranslator+Thesis.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ZCPRequestResponseTranslator+Thesis.m"; sourceTree = "<group>"; };
 		18EF89F41C56FF5200924CCF /* ZCPBookPostModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZCPBookPostModel.h; sourceTree = "<group>"; };
 		18EF89F51C56FF5200924CCF /* ZCPBookPostModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZCPBookPostModel.m; sourceTree = "<group>"; };
 		18EF89F71C57012B00924CCF /* ZCPBookPostCommentModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZCPBookPostCommentModel.h; sourceTree = "<group>"; };
@@ -567,6 +570,8 @@
 				18B0EE0E1C4F537000F078EB /* ZCPRequestResponseTranslator.m */,
 				18A3033C1C741DC0000D9004 /* ZCPRequestResponseTranslator+Couplet.h */,
 				18A3033D1C741DC0000D9004 /* ZCPRequestResponseTranslator+Couplet.m */,
+				18E8F64A1C756AF500B47F84 /* ZCPRequestResponseTranslator+Thesis.h */,
+				18E8F64B1C756AF500B47F84 /* ZCPRequestResponseTranslator+Thesis.m */,
 			);
 			path = Translator;
 			sourceTree = "<group>";
@@ -1284,6 +1289,7 @@
 				18B0EE0F1C4F537000F078EB /* ZCPRequestResponseTranslator.m in Sources */,
 				181F066F1C71C063002E6994 /* ZCPRequestManager+Question.m in Sources */,
 				1896250E1C4CD9EC003733CE /* ZCPUserFocusOnPeopleController.m in Sources */,
+				18E8F64C1C756AF500B47F84 /* ZCPRequestResponseTranslator+Thesis.m in Sources */,
 				18A959E71C74625B00084595 /* MBProgressHUD+Easy.m in Sources */,
 				183F3B211C533AF0007D2F10 /* ZCPCoupletDetailCell.m in Sources */,
 				180700201C48821600F3BE2B /* PATableHeaderDragRefreshView.m in Sources */,

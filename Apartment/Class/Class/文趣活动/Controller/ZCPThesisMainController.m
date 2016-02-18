@@ -13,6 +13,7 @@
 #import "ZCPArgumentModel.h"
 #import "ZCPSectionCell.h"
 #import "ZCPArgumentCell.h"
+#import "ZCPRequestManager+Thesis.h"
 
 #define OptionHeight 50.0f
 
@@ -36,62 +37,15 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    // thesisView
-    ZCPThesisModel *thesisModel = [[ZCPThesisModel alloc] initWithDictionary:@{
-                                                                               @"thesisId":@10
-                                                                               ,@"thesisContent":@"中国能否继续做苹果的避风港？？？？？？？？？？？？？？？？？？？？？？？"
-                                                                               ,@"thesisPros":@"正方：还是可以的。。。。。。。。。。。。。。。。。。。。。"
-                                                                               ,@"thesisProsCount":@5
-                                                                               ,@"thesisProsReplyNumber":@5
-                                                                               ,@"thesisCons":@"反方：不行！！！！！！！！！！！！！！！"
-                                                                               ,@"thesisConsCount":@10
-                                                                               ,@"thesisConsReplyNumber":@10
-                                                                               ,@"thesisCollectNumber":@15
-                                                                               ,@"thesisStartTime":@"2015-1-1"
-                                                                               ,@"thesisEndTime":@"2016-2-1"
-                                                                               ,@"collected":@YES}];
-    self.thesisModel = thesisModel;
-//    self.thesisView = [[ZCPThesisView alloc] initWithFrame:CGRectMake(0, 0, APPLICATIONWIDTH, 200) thesis:thesisModel];
-//    self.thesisView.delegate = self;
-//    [self.view addSubview:self.thesisView];
-    
-    // 初始化正反方论据数组
-    self.prosArgumentArr = [NSMutableArray array];
-    self.consArgumentArr = [NSMutableArray array];
-    for (int i = 0; i < 1; i++) {
-        ZCPArgumentModel *argumentModel = [ZCPArgumentModel modelFromDictionary:@{
-                                                                                  @"argumentId":[NSNumber numberWithInteger:i]
-                                                                                  ,@"argumentContent":@"alnvoawenvoanvlaksdv"
-                                                                                  ,@"argumentSupport":[NSNumber numberWithInteger:i]
-                                                                                  ,@"argumentBelong":@1
-                                                                                  ,@"argumentTime":@"2016-2-3"
-                                                                                  ,@"state":@{
-                                                                                          @"stateId":@1
-                                                                                          ,@"stateName":@"Argument"
-                                                                                          ,@"stateValue":@1
-                                                                                          ,@"stateType":@"Argument"
-                                                                                          ,@"stateTime":@"2014-4-4"}
-                                                                                  ,@"user":@{@"userName":@"zcp"}}];
-        [self.prosArgumentArr addObject:argumentModel];
-    }
-    for (int i = 0; i < 1; i++) {
-        ZCPArgumentModel *argumentModel = [ZCPArgumentModel modelFromDictionary:@{
-                                                                                  @"argumentId":[NSNumber numberWithInteger:i]
-                                                                                  ,@"argumentContent":@"alnvoawenvoanvlaksdv"
-                                                                                  ,@"argumentSupport":[NSNumber numberWithInteger:i]
-                                                                                  ,@"argumentBelong":@0
-                                                                                  ,@"argumentTime":@"2016-2-3"
-                                                                                  ,@"state":@{
-                                                                                          @"stateId":@1
-                                                                                          ,@"stateName":@"Argument"
-                                                                                          ,@"stateValue":@1
-                                                                                          ,@"stateType":@"Argument"
-                                                                                          ,@"stateTime":@"2014-4-4"}
-                                                                                  ,@"user":@{@"userName":@"zcp"}}];
-        [self.consArgumentArr addObject:argumentModel];
-    }
-    [self constructData];
-    [self.tableView reloadData];
+    // 加载辩题和论据
+    [self loadThesisAndArgument];
+    // 初始化下拉刷新控件
+    WEAK_SELF;
+    self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+        STRONG_SELF;
+        [self loadThesisAndArgument];
+        [weakSelf.tableView.mj_header endRefreshing];
+    }];
 }
 - (void)viewWillLayoutSubviews {
     [super viewWillLayoutSubviews];
@@ -173,14 +127,90 @@
 }
 
 #pragma mark - ZCPThesisView Delegate
+/**
+ *  辩题评论按钮点击事件
+ *
+ *  @param thesisView 辩题视图
+ *  @param button     评论按钮
+ */
 - (void)thesisView:(ZCPThesisView *)thesisView didClickedCommentButton:(UIButton *)button {
     [[ZCPNavigator sharedInstance] gotoViewWithIdentifier:APPURL_VIEW_IDENTIFIER_THESIS_ADDARGUMENT paramDictForInit:nil];
 }
+/**
+ *  辩题收藏按钮点击事件
+ *
+ *  @param thesisView 辩题视图
+ *  @param button     收藏按钮
+ */
 - (void)thesisView:(ZCPThesisView *)thesisView didClickedCollectionButton:(UIButton *)button {
-    NSLog(@"收藏");
+    [[ZCPRequestManager sharedInstance] changeThesisCurrCollectionState:self.thesisModel.collected currThesisID:self.thesisModel.thesisId currUserID:[ZCPUserCenter sharedInstance].currentUserModel.userId success:^(AFHTTPRequestOperation *operation, BOOL isSuccess) {
+        if (isSuccess) {
+            if (thesisView.thesisCollected == ZCPCurrUserNotCollectThesis) {
+                button.selected = YES;
+                thesisView.thesisCollected = ZCPCurrUserHaveCollectThesis;
+                thesisView.thesisModel.thesisCollectNumber = thesisView.thesisModel.thesisCollectNumber + 1;
+                thesisView.collectionNumberLabel.text = [NSString stringWithFormat:@"%d 人收藏", self.thesisModel.thesisCollectNumber];
+                
+                TTDPRINT(@"收藏成功！");
+                [MBProgressHUD showSuccess:@"收藏成功！" toView:self.view];
+            }
+            else if (thesisView.thesisCollected == ZCPCurrUserHaveCollectThesis) {
+                button.selected = NO;
+                thesisView.thesisCollected = ZCPCurrUserNotCollectThesis;
+                thesisView.thesisModel.thesisCollectNumber = thesisView.thesisModel.thesisCollectNumber - 1;
+                thesisView.collectionNumberLabel.text = [NSString stringWithFormat:@"%d 人收藏", self.thesisModel.thesisCollectNumber];
+                
+                TTDPRINT(@"取消收藏成功！");
+                [MBProgressHUD showSuccess:@"取消收藏成功！" toView:self.view];
+            }
+        }
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        TTDPRINT(@"操作失败！%@", error);
+        [MBProgressHUD showSuccess:@"操作失败！网络异常！" toView:self.view];
+    }];
 }
+/**
+ *  辩题分享按钮点击事件
+ *
+ *  @param thesisView 辩题视图
+ *  @param button     分享按钮
+ */
 - (void)thesisView:(ZCPThesisView *)thesisView didClickedSharedThesisButton:(UIButton *)button {
     [[ZCPNavigator sharedInstance] gotoViewWithIdentifier:APPURL_VIEW_IDENTIFIER_THESIS_ADDTHESIS paramDictForInit:nil];
+}
+
+#pragma mark - Private Method
+/**
+ *  加载辩题和论据
+ */
+- (void)loadThesisAndArgument {
+    // 从网络获取Thesis数据
+    TTDPRINT(@"开始获取辩题信息！");
+    WEAK_SELF;
+    [[ZCPRequestManager sharedInstance] getCurrThesisWithCurrUserID:[ZCPUserCenter sharedInstance].currentUserModel.userId success:^(AFHTTPRequestOperation *operation, NSDictionary *modelDict) {
+        STRONG_SELF;
+        if (modelDict && [modelDict isKindOfClass:[NSDictionary class]]) {
+            self.thesisModel = [modelDict valueForKey:@"currThesisModel"];
+            
+            self.prosArgumentArr = [NSMutableArray arrayWithCapacity:1];
+            self.consArgumentArr = [NSMutableArray arrayWithCapacity:1];
+            
+            ZCPArgumentModel *prosArgumentModel = [modelDict valueForKey:@"prosArgumentModel"];
+            ZCPArgumentModel *consArgumentModel = [modelDict valueForKey:@"consArgumentModel"];
+            if (prosArgumentModel) {
+                [self.prosArgumentArr addObject:prosArgumentModel];
+            }
+            if (consArgumentModel) {
+                [self.consArgumentArr addObject:consArgumentModel];
+            }
+            
+            [self constructData];
+            [self.tableView reloadData];
+        }
+        TTDPRINT(@"获取辩题成功！");
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        TTDPRINT(@"获取失败！网络异常！%@error", error);
+    }];
 }
 
 @end

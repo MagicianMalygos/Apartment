@@ -15,7 +15,7 @@
 #define kSchemeTypeSecurity                                     @"__scheme_security__"
 
 #pragma mark - - - - - - API PATH KEY - - - - - -
-#pragma mark - - - - - - 文趣活动相关
+#pragma mark - - - - - - 文趣活动相关(Couplet)
 #define COUPLET_LIST_BY_TIME                                    @"COUPLET_LIST_BY_TIME"
 #define OLD_COUPLET_LIST_BY_TIME                                @"OLD_COUPLET_LIST_BY_TIME"
 #define COUPLET_LIST_BY_SUPPORT                                 @"COUPLET_LIST_BY_SUPPORT"
@@ -24,6 +24,10 @@
 #define ADD_COUPLET_REPLY                                       @"ADD_COUPLET_REPLY"
 #define CHANGE_COUPLET_SUPPORT_STATE                            @"CHANGE_COUPLET_SUPPORT_STATE"
 #define CHANGE_COUPLET_COLLECTION_STATE                         @"CHANGE_COUPLET_COLLECTION_STATE"
+#define CHANGE_COUPLET_REPLY_SUPPORT_STATE                      @"CHANGE_COUPLET_REPLY_SUPPORT_STATE"
+#pragma mark - - - - - - 文趣活动相关(Thesis)
+#define CURRENT_THESIS                                          @"CURRENT_THESIS"
+#define CHANGE_THESIS_COLLECTION_STATE                          @"CHANGE_THESIS_COLLECTION_STATE"
 
 // 根据Type获取相应的协议
 NSString *  schemeForType(NSString *type);

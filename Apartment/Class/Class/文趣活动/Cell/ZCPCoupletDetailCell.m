@@ -8,6 +8,8 @@
 
 #import "ZCPCoupletDetailCell.h"
 
+#import "ZCPCoupletModel.h"
+
 @implementation ZCPCoupletDetailCell
 
 @synthesize commentButton = _commentButton;
@@ -101,6 +103,8 @@
         
         // 设置属性
         self.delegate = self.item.delegate;
+        self.supportButton.selected = (self.item.coupletSupported == ZCPCurrUserHaveSupportCouplet)? YES: NO;
+        self.collectionButton.selected = (self.item.coupletCollected == ZCPCurrUserHaveCollectCouplet)? YES: NO;
         self.coupletContentLabel.text = self.item.coupletContent;
         [self.userHeadImgView sd_setImageWithURL:[NSURL URLWithString:self.item.userHeadImageURL] placeholderImage:[UIImage imageNamed:@"head_default"]];
         self.userNameLabel.text = self.item.userName;
@@ -125,6 +129,9 @@
 }
 
 #pragma mark - Button Click
+/**
+ *  按钮响应方法
+ */
 - (void)buttonClick:(UIButton *)button {
     if (self.delegate) {
         if (button == self.supportButton && [self.delegate respondsToSelector:@selector(coupletDetailCell:supportButtonClick:)]) {

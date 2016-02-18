@@ -8,7 +8,7 @@
 
 #import "ZCPArgumentModel.h"
 
-#import "ZCPRequestResponseTranslator.h"
+#import "ZCPRequestResponseTranslator+Thesis.h"
 
 @implementation ZCPArgumentModel
 

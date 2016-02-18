@@ -270,12 +270,19 @@
                                       currUserID:(NSInteger)currUserID
                                          success:(void (^)(AFHTTPRequestOperation *operation, BOOL isSuccess))success
                                          failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure {
-    AFHTTPRequestOperation *operation = [self POST:@""
+    
+    NSString * scheme       = schemeForType(kURLTypeCommon);
+    NSString * host         = hostForType(kURLTypeCommon);
+    NSString * path         = urlForKey(CHANGE_COUPLET_REPLY_SUPPORT_STATE);
+    
+    AFHTTPRequestOperation *operation = [self POST:ZCPMakeURLString(scheme, host, path)
                                         parameters:@{@"currSupported": @(currSupported)
                                                      ,@"currCoupletReplyID": @(currCoupletReplyID)
                                                      ,@"currUserID": @(currUserID)}
                                            success:^(AFHTTPRequestOperation *operation, id responseObject) {
-                                               
+                                               if (success) {
+                                                   success(operation, [responseObject valueForKey:@"result"]);
+                                               }
                                            }
                                            failure:failure];
     TTDPRINT(@"URL=%@  params=%@", operation.request.URL, [[NSString alloc] initWithData:operation.request.HTTPBody encoding:NSUTF8StringEncoding]);

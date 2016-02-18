@@ -8,6 +8,8 @@
 
 #import "ZCPCoupletReplyCell.h"
 
+#import "ZCPCoupletReplyModel.h"
+
 @implementation ZCPCoupletReplyCell
 
 @synthesize userHeadImgView = _userHeadImgView;
@@ -84,7 +86,9 @@
                                                , 20);
         
         // 设置内容
+        self.delegate = self.item.delegate;
         [self.userHeadImgView sd_setImageWithURL:[NSURL URLWithString:self.item.userHeadImageURL] placeholderImage:[UIImage imageNamed:@"head_default"]];
+        self.supportButton.selected = (self.item.replySupported == ZCPCurrUserHaveSupportCoupletReply)? YES: NO;
         self.userNameLabel.text = self.item.userName;
         self.replyContentLabel.text = self.item.replyContent;
         self.replyTimeLabel.text = [self.item.replyTime toString];

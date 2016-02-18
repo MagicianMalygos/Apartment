@@ -39,10 +39,7 @@
 
 
 
-// 辩题模型转换
-+ (ZCPThesisModel *)translateResponse_ThesisModel:(NSDictionary *)dict;
-// 论据模型转换
-+ (ZCPArgumentModel *)translateResponse_ArgumentModel:(NSDictionary *)dict;
+
 
 // 问题模型转换
 + (ZCPQuestionModel *)translateResponse_QuestionModel:(NSDictionary *)dict;

@@ -33,6 +33,7 @@
 @property (nonatomic, strong) UIButton *commentButton;                  // 发表评论按钮
 @property (nonatomic, strong) UIButton *collectionButton;               // 辩题收藏按钮
 @property (nonatomic, strong) UIButton *shareThesisButton;              // 分享辩题按钮
+@property (nonatomic, assign) NSInteger thesisCollected;                // 辩题收藏状态
 
 @property (nonatomic, weak) id<ZCPThesisViewDelegate> delegate;         // 代理
 

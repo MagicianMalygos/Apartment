@@ -18,7 +18,7 @@
  *  @param currUserID 当前用户ID
  */
 - (NSOperation *)getCurrThesisWithCurrUserID:(NSInteger)currUserID
-                                     success:(void(^)(AFHTTPRequestOperation *operation, ZCPDataModel *model))success
+                                     success:(void(^)(AFHTTPRequestOperation *operation, NSDictionary *modelDict))success
                                      failure:(void(^)(AFHTTPRequestOperation *operation, NSError *error))failure;
 
 /**
@@ -45,7 +45,7 @@
  *  @param currThesisID  当前辩题ID
  *  @param currUserID    当前用户ID
  */
-- (NSOperation *)changeThesisCollectionRecord:(NSInteger)currCollected
+- (NSOperation *)changeThesisCurrCollectionState:(NSInteger)currCollected
                                  currThesisID:(NSInteger)currThesisID
                                    currUserID:(NSInteger)currUserID
                                       success:(void (^)(AFHTTPRequestOperation *operation, BOOL isSuccess))success

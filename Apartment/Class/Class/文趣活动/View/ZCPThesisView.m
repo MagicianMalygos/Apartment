@@ -340,9 +340,12 @@
         self.collectionButton .frame = CGRectMake(APPLICATIONWIDTH - HorizontalMargin - UIMargin * 2 - ButtonDefaultWidth * 2, self.consArgumentLabel.bottom + UIMargin, ButtonDefaultWidth, DefaultHeight);
         self.collectionButton .backgroundColor = [UIColor clearColor];
         // 设置图片
-        [self.collectionButton  setImageNameNormal:@"collection_normal" Highlighted:@"collection_selected" Selected:@"collection_normal" Disabled:@"collection_normal"];
+        [self.collectionButton  setImageNameNormal:@"collection_normal" Highlighted:@"collection_selected" Selected:@"collection_selected" Disabled:@"collection_normal"];
         // 设置点击事件
         [self.collectionButton  addTarget:self action:@selector(buttonClick:) forControlEvents:UIControlEventTouchUpInside];
+        // 设置收藏按钮初始状态
+        self.thesisCollected = self.thesisModel.collected;
+        self.collectionButton.selected = (self.thesisCollected == ZCPCurrUserHaveCollectThesis)? YES: NO;
     }
 
     return self.collectionButton ;
