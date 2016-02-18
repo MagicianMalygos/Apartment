@@ -39,6 +39,71 @@
 }
 
 /**
+ *  获取当前辩题的论据列表
+ *
+ *  @param belong     所属正反方
+ *  @param currUserID 当前用户ID
+ *  @param pageCount  一页个数
+ */
+- (NSOperation *)getArgumentListWithBelong:(ZCPArgumentBelong)belong
+                                currUserID:(NSInteger)currUserID
+                                 pageCount:(NSInteger)pageCount
+                                   success:(void(^)(AFHTTPRequestOperation *operation, ZCPListDataModel *argumentListModel))success
+                                   failure:(void(^)(AFHTTPRequestOperation *operation, NSError *error))failure {
+    
+    NSString * scheme       = schemeForType(kURLTypeCommon);
+    NSString * host         = hostForType(kURLTypeCommon);
+    NSString * path         = urlForKey(ARGUMENT_LIST_BY_BELONG);
+    
+    AFHTTPRequestOperation *operation = [self POST:ZCPMakeURLString(scheme, host, path)
+                                        parameters:@{@"belong": @(belong)
+                                                     , @"currUserID": @(currUserID)
+                                                     , @"pageCount": @(pageCount)}
+                                           success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                                               if (success) {
+                                                   ZCPListDataModel *model = [ZCPRequestResponseTranslator translateResponse_ArgumentModel_List:[responseObject objectForKey:@"data"]];
+                                                   success(operation, model);
+                                               }
+                                           }
+                                           failure:failure];
+    TTDPRINT(@"URL=%@  params=%@", operation.request.URL, [[NSString alloc] initWithData:operation.request.HTTPBody encoding:NSUTF8StringEncoding]);
+    return operation;
+}
+/**
+ *  得到按时间排序，在oldArgumentID对应对联之后的对联列表
+ *
+ *  @param belong        论据所属正反方
+ *  @param pageCount     一页数量
+ *  @param oldArgumentID 下拉刷新最后一个对联信息
+ *  @param currUserID    当前用户ID
+ */
+- (NSOperation *)getOldArgumentListWithBelong:(ZCPArgumentBelong)belong
+                                oldArgumentID:(NSInteger)oldArgumentID
+                                   currUserID:(NSInteger)currUserID
+                                    pageCount:(NSInteger)pageCount
+                                      success:(void (^)(AFHTTPRequestOperation *operation, ZCPListDataModel *argumentListModel))success
+                                      failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure {
+    NSString * scheme       = schemeForType(kURLTypeCommon);
+    NSString * host         = hostForType(kURLTypeCommon);
+    NSString * path         = urlForKey(OLD_ARGUMENT_LIST);
+    
+    AFHTTPRequestOperation *operation = [self POST:ZCPMakeURLString(scheme, host, path)
+                                        parameters:@{@"belong": @(belong)
+                                                     , @"oldArgumentID": @(oldArgumentID)
+                                                     , @"currUserID": @(currUserID)
+                                                     , @"pageCount": @(pageCount)}
+                                           success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                                               if (success) {
+                                                   ZCPListDataModel *model = [ZCPRequestResponseTranslator translateResponse_ArgumentModel_List:[responseObject objectForKey:@"data"]];
+                                                   success(operation, model);
+                                               }
+                                           }
+                                           failure:failure];
+    TTDPRINT(@"URL=%@  params=%@", operation.request.URL, [[NSString alloc] initWithData:operation.request.HTTPBody encoding:NSUTF8StringEncoding]);
+    return operation;
+}
+
+/**
  *  添加辩题
  *
  *  @param thesisContent   辩题内容
@@ -54,11 +119,24 @@
                        currUserID:(NSInteger)currUserID
                           success:(void (^)(AFHTTPRequestOperation *operation, BOOL isSuccess))success
                           failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure {
+    
     NSString * scheme       = schemeForType(kURLTypeCommon);
     NSString * host         = hostForType(kURLTypeCommon);
-    NSString * path         = urlForKey(CURRENT_THESIS);
+    NSString * path         = urlForKey(ADD_THESIS);
     
-    AFHTTPRequestOperation *operation = nil;
+    AFHTTPRequestOperation *operation = [self POST:ZCPMakeURLString(scheme, host, path)
+                                        parameters:@{@"thesisContent": thesisContent
+                                                     , @"thesisPros": thesisPros
+                                                     , @"thesisCons": thesisCons
+                                                     , @"thesisAddReason": thesisAddReason
+                                                     , @"currUserID": @(currUserID)}
+                                           success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                                               if (success) {
+                                                   NSDictionary *modelDict = [ZCPRequestResponseTranslator translateResponse_CurrThesisAndArgument:[responseObject valueForKey:@"data"]];
+                                                   success(operation, modelDict);
+                                               }
+                                           }
+                                           failure:failure];
     TTDPRINT(@"URL=%@  params=%@", operation.request.URL, [[NSString alloc] initWithData:operation.request.HTTPBody encoding:NSUTF8StringEncoding]);
     return operation;
 }
@@ -95,27 +173,6 @@
 }
 
 /**
- *  获取当前辩题的论据列表
- *
- *  @param belong     所属正反方
- *  @param currUserID 当前用户ID
- *  @param pageCount  一页个数
- */
-- (NSOperation *)getArgumentListWithBelong:(ZCPArgumentBelong)belong
-                                currUserID:(NSInteger)currUserID
-                                 pageCount:(NSInteger)pageCount
-                                   success:(void(^)(AFHTTPRequestOperation *operation, ZCPDataModel *model))success
-                                   failure:(void(^)(AFHTTPRequestOperation *operation, NSError *error))failure {
-    NSString * scheme       = schemeForType(kURLTypeCommon);
-    NSString * host         = hostForType(kURLTypeCommon);
-    NSString * path         = urlForKey(CURRENT_THESIS);
-    
-    AFHTTPRequestOperation *operation = nil;
-    TTDPRINT(@"URL=%@  params=%@", operation.request.URL, [[NSString alloc] initWithData:operation.request.HTTPBody encoding:NSUTF8StringEncoding]);
-    return operation;
-}
-
-/**
  *  添加论据
  *
  *  @param argumentContent 论据内容
@@ -131,11 +188,24 @@
                          currUserID:(NSInteger)currUserID
                             success:(void (^)(AFHTTPRequestOperation *operation, BOOL isSuccess))success
                             failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure {
+    
     NSString * scheme       = schemeForType(kURLTypeCommon);
     NSString * host         = hostForType(kURLTypeCommon);
-    NSString * path         = urlForKey(CURRENT_THESIS);
+    NSString * path         = urlForKey(ADD_ARGUMENT);
     
-    AFHTTPRequestOperation *operation = nil;
+    AFHTTPRequestOperation *operation = [self POST:ZCPMakeURLString(scheme, host, path)
+                                        parameters:@{@"argumentContent": argumentContent
+                                                     , @"argumentBelong": @(argumentBelong)
+                                                     , @"isAnonymous": @(isAnonymous)
+                                                     , @"currThesisID": @(currThesisID)
+                                                     , @"currUserID": @(currUserID)}
+                                           success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                                               if (success) {
+                                                   success(operation, [responseObject valueForKey:@"result"]);
+                                               }
+                                           }
+                                           failure:failure];
+    
     TTDPRINT(@"URL=%@  params=%@", operation.request.URL, [[NSString alloc] initWithData:operation.request.HTTPBody encoding:NSUTF8StringEncoding]);
     return operation;
 }
@@ -147,14 +217,14 @@
  *  @param currArgumentID 当前论据ID
  *  @param currUserID     当前用户ID
  */
-- (NSOperation *)changeArgumentSupportRecord:(NSInteger)currSupported
+- (NSOperation *)changeArgumentCurrSupportedState:(NSInteger)currSupported
                               currArgumentID:(NSInteger)currArgumentID
                                   currUserID:(NSInteger)currUserID
                                      success:(void (^)(AFHTTPRequestOperation *operation, BOOL isSuccess))success
                                      failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure {
     NSString * scheme       = schemeForType(kURLTypeCommon);
     NSString * host         = hostForType(kURLTypeCommon);
-    NSString * path         = urlForKey(CHANGE_THESIS_COLLECTION_STATE);
+    NSString * path         = urlForKey(CHANGE_ARGUMENT_SUPPORT_STATE);
     
     AFHTTPRequestOperation *operation = [self POST:ZCPMakeURLString(scheme, host, path)
                                         parameters:@{@"currSupported": @(currSupported)

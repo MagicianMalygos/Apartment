@@ -15,6 +15,8 @@
 
 @interface ZCPAddCoupletController () <ZCPButtonCellDelegate>
 
+
+
 @end
 
 @implementation ZCPAddCoupletController
@@ -67,7 +69,7 @@
 - (void)cell:(UITableViewCell *)cell buttonClicked:(UIButton *)button {
     
     ZCPTextFieldCellItem *textItem = [self.tableViewAdaptor.items objectAtIndex:1];
-    NSString *coupletContent = textItem.textFieldInputValue;
+    NSString *coupletContent = textItem.textInputValue;
     
     // 如果未通过输入检测则不进行提交
     if (![self judgeTextInput:coupletContent]) {
@@ -78,14 +80,15 @@
     [[ZCPRequestManager sharedInstance] addCoupletContent:coupletContent currUserID:[ZCPUserCenter sharedInstance].currentUserModel.userId success:^(AFHTTPRequestOperation *operation, BOOL isSuccess) {
         if (isSuccess) {
             TTDPRINT(@"提交对联成功！！");
-            [MBProgressHUD showSuccess:@"对联添加成功！" toView:self.view];
+            [MBProgressHUD showSuccess:@"对联添加成功！" toView:[[UIApplication sharedApplication].delegate window]];
         }
         else {
-            [MBProgressHUD showError:@"对联添加失败！" toView:self.view];
+            TTDPRINT(@"提交对联失败！！");
+            [MBProgressHUD showError:@"对联添加失败！" toView:[[UIApplication sharedApplication].delegate window]];
         }
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        TTDPRINT(@"提交失败...%@", error);
-        [MBProgressHUD showError:@"对联添加失败！网络异常" toView:self.view];
+        TTDPRINT(@"提交失败！%@", error);
+        [MBProgressHUD showError:@"对联添加失败！网络异常！" toView:[[UIApplication sharedApplication].delegate window]];
     }];
     
     // pop

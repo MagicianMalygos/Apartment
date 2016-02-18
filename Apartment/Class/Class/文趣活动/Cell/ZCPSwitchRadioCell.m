@@ -22,23 +22,29 @@
     
     // 开关
     self.switchView = [[UISwitch alloc] init];
+    [self.switchView addTarget:self action:@selector(switchValueChanged:) forControlEvents:UIControlEventValueChanged];
     self.switchLabel = [[UILabel alloc] init];
     self.switchLabel.textAlignment = NSTextAlignmentLeft;
     self.switchLabel.font = [UIFont defaultFontWithSize:15.0f];
     // 按钮一
     self.radioButtonOne = [UIButton buttonWithType:UIButtonTypeCustom];
+    self.radioButtonOne.selected = YES;  // 按钮一默认被选中
+    [self.radioButtonOne addTarget:self action:@selector(buttonClicked:) forControlEvents:UIControlEventTouchUpInside];
     // 标签一
     self.radioLabelOne = [[UILabel alloc] init];
     self.radioLabelOne.textAlignment = NSTextAlignmentLeft;
     self.radioLabelOne.font = [UIFont defaultFontWithSize:15.0f];
     // 按钮二
     self.radioButtonTwo = [UIButton buttonWithType:UIButtonTypeCustom];
+    [self.radioButtonTwo addTarget:self action:@selector(buttonClicked:) forControlEvents:UIControlEventTouchUpInside];
     // 标签二
     self.radioLabelTwo = [[UILabel alloc] init];
     self.radioLabelTwo.textAlignment = NSTextAlignmentLeft;
     self.radioLabelTwo.font = [UIFont defaultFontWithSize:15.0f];
     
     // 设置背景颜色
+    self.radioLabelOne.backgroundColor = [UIColor clearColor];
+    self.radioLabelTwo.backgroundColor = [UIColor clearColor];
     self.radioButtonOne.backgroundColor = [UIColor clearColor];
     self.radioButtonTwo.backgroundColor = [UIColor clearColor];
     
@@ -93,12 +99,33 @@
             self.item.radioButtonTwoConfigBlock(self.radioButtonTwo);
         }
         
+        // 设置item
+        self.item.selectedRadioTipIndex = 0;
+        self.item.switchValue = self.item.switchInitialValue;
     }
 }
 + (CGFloat)tableView:(UITableView *)tableView rowHeightForObject:(id)object {
     ZCPSwitchRadioCellItem *item = (ZCPSwitchRadioCellItem *)object;
     return [item.cellHeight floatValue];
 }
+
+#pragma mark - Private Method
+- (void)buttonClicked:(UIButton *)button {
+    if (button == self.radioButtonOne) {
+        self.radioButtonOne.selected = YES;
+        self.radioButtonTwo.selected = NO;
+        self.item.selectedRadioTipIndex = 0;
+    }
+    else if(button == self.radioButtonTwo) {
+        self.radioButtonOne.selected = NO;
+        self.radioButtonTwo.selected = YES;
+        self.item.selectedRadioTipIndex = 1;
+    }
+}
+- (void)switchValueChanged:(UISwitch *)switchView {
+    self.item.switchValue = switchView.on;
+}
+
 
 @end
 

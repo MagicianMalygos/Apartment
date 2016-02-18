@@ -296,8 +296,7 @@
         self.replyNumberLabel.font = [UIFont defaultFontWithSize:13.0f];
     }
     // 每次设置thesisModel需更新部分
-    
-    self.replyNumberLabel.text = [NSString stringWithFormat:@"%d 人回复", self.thesisModel.thesisProsReplyNumber];
+    self.replyNumberLabel.text = [NSString stringWithFormat:@"%d 人回复", self.thesisModel.thesisProsReplyNumber + self.thesisModel.thesisConsReplyNumber];
     return self.replyNumberLabel;
 }
 /**
@@ -327,7 +326,7 @@
         // 设置图片
         [self.commentButton setOnlyImageName:@"comment_normal"];
         // 设置点击事件
-        [self.commentButton addTarget:self action:@selector(buttonClick:) forControlEvents:UIControlEventTouchUpInside];
+        [self.commentButton addTarget:self action:@selector(buttonClicked:) forControlEvents:UIControlEventTouchUpInside];
     }
     return self.commentButton;
 }
@@ -342,7 +341,7 @@
         // 设置图片
         [self.collectionButton  setImageNameNormal:@"collection_normal" Highlighted:@"collection_selected" Selected:@"collection_selected" Disabled:@"collection_normal"];
         // 设置点击事件
-        [self.collectionButton  addTarget:self action:@selector(buttonClick:) forControlEvents:UIControlEventTouchUpInside];
+        [self.collectionButton  addTarget:self action:@selector(buttonClicked:) forControlEvents:UIControlEventTouchUpInside];
         // 设置收藏按钮初始状态
         self.thesisCollected = self.thesisModel.collected;
         self.collectionButton.selected = (self.thesisCollected == ZCPCurrUserHaveCollectThesis)? YES: NO;
@@ -361,7 +360,7 @@
         // 设置图片
         [self.shareThesisButton setOnlyImageName:@"share_normal"];
         // 设置点击事件
-        [self.shareThesisButton addTarget:self action:@selector(buttonClick:) forControlEvents:UIControlEventTouchUpInside];
+        [self.shareThesisButton addTarget:self action:@selector(buttonClicked:) forControlEvents:UIControlEventTouchUpInside];
     }
     return self.shareThesisButton;
 }
@@ -370,7 +369,7 @@
 /**
  *  按钮点击事件响应方法
  */
-- (void)buttonClick:(UIButton *)button {
+- (void)buttonClicked:(UIButton *)button {
     if (!self.delegate) {
         return;
     }

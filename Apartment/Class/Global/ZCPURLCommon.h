@@ -27,7 +27,12 @@
 #define CHANGE_COUPLET_REPLY_SUPPORT_STATE                      @"CHANGE_COUPLET_REPLY_SUPPORT_STATE"
 #pragma mark - - - - - - 文趣活动相关(Thesis)
 #define CURRENT_THESIS                                          @"CURRENT_THESIS"
+#define ARGUMENT_LIST_BY_BELONG                                 @"ARGUMENT_LIST_BY_BELONG"
+#define OLD_ARGUMENT_LIST                                       @"OLD_ARGUMENT_LIST"
+#define ADD_THESIS                                              @"ADD_THESIS"
+#define ADD_ARGUMENT                                            @"ADD_ARGUMENT"
 #define CHANGE_THESIS_COLLECTION_STATE                          @"CHANGE_THESIS_COLLECTION_STATE"
+#define CHANGE_ARGUMENT_SUPPORT_STATE                           @"CHANGE_ARGUMENT_SUPPORT_STATE"
 
 // 根据Type获取相应的协议
 NSString *  schemeForType(NSString *type);

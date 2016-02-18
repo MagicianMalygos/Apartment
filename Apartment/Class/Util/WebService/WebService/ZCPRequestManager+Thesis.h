@@ -22,6 +22,35 @@
                                      failure:(void(^)(AFHTTPRequestOperation *operation, NSError *error))failure;
 
 /**
+ *  获取当前辩题的论据列表
+ *
+ *  @param belong     所属正反方
+ *  @param currUserID 当前用户ID
+ *  @param pageCount  一页个数
+ */
+- (NSOperation *)getArgumentListWithBelong:(ZCPArgumentBelong)belong
+                                currUserID:(NSInteger)currUserID
+                                 pageCount:(NSInteger)pageCount
+                                   success:(void(^)(AFHTTPRequestOperation *operation, ZCPListDataModel *argumentListModel))success
+                                   failure:(void(^)(AFHTTPRequestOperation *operation, NSError *error))failure;
+
+
+/**
+ *  得到按时间排序，在oldArgumentID对应对联之后的对联列表
+ *
+ *  @param belong        论据所属正反方
+ *  @param pageCount     一页数量
+ *  @param oldArgumentID 下拉刷新最后一个对联信息
+ *  @param currUserID    当前用户ID
+ */
+- (NSOperation *)getOldArgumentListWithBelong:(ZCPArgumentBelong)belong
+                                oldArgumentID:(NSInteger)oldArgumentID
+                                currUserID:(NSInteger)currUserID
+                                 pageCount:(NSInteger)pageCount
+                                   success:(void (^)(AFHTTPRequestOperation *operation, ZCPListDataModel *argumentListModel))success
+                                   failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure;
+
+/**
  *  添加辩题
  *
  *  @param thesisContent   辩题内容
@@ -52,19 +81,6 @@
                                       failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure;
 
 /**
- *  获取当前辩题的论据列表
- *
- *  @param belong     所属正反方
- *  @param currUserID 当前用户ID
- *  @param pageCount  一页个数
- */
-- (NSOperation *)getArgumentListWithBelong:(ZCPArgumentBelong)belong
-                                currUserID:(NSInteger)currUserID
-                                 pageCount:(NSInteger)pageCount
-                                   success:(void(^)(AFHTTPRequestOperation *operation, ZCPDataModel *model))success
-                                   failure:(void(^)(AFHTTPRequestOperation *operation, NSError *error))failure;
-
-/**
  *  添加论据
  *
  *  @param argumentContent 论据内容
@@ -88,7 +104,7 @@
  *  @param currArgumentID 当前论据ID
  *  @param currUserID     当前用户ID
  */
-- (NSOperation *)changeArgumentSupportRecord:(NSInteger)currSupported
+- (NSOperation *)changeArgumentCurrSupportedState:(NSInteger)currSupported
                                  currArgumentID:(NSInteger)currArgumentID
                                    currUserID:(NSInteger)currUserID
                                       success:(void (^)(AFHTTPRequestOperation *operation, BOOL isSuccess))success

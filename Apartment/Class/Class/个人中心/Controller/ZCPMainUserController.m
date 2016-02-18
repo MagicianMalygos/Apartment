@@ -228,11 +228,12 @@
 
 #pragma mark - ZCPImageTextSwitchCellItemDelegate
 /**
- *  监听夜间模式开关值改变
+ *  夜间模式开关值改变响应事件
  *
+ *  @param cell       cell
  *  @param switchView 夜间模式开关
  */
-- (void)switchValueChange:(UISwitch *)switchView {
+- (void)cell:(ZCPImageTextSwitchCell *)cell switchValueChanged:(UISwitch *)switchView {
     if (!switchView.on) {
         [[ZCPControlingCenter sharedInstance] setAppTheme:LightTheme];
     }

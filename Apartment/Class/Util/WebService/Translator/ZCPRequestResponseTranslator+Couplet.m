@@ -44,7 +44,7 @@
 /**
  *  对联列表模型转换
  *
- *  @param responseData 属性字典
+ *  @param responseData 列表字典
  *
  *  @return 对联列表模型
  */
@@ -65,7 +65,7 @@
 /**
  *  对联回复列表模型转换
  *
- *  @param responseData 属性字典
+ *  @param responseData 列表字典
  *
  *  @return 对联回复列表模型
  */

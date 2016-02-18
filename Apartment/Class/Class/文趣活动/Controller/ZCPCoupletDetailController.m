@@ -58,7 +58,7 @@
     WEAK_SELF;
     [[ZCPRequestManager sharedInstance] getCoupletReplyListWithPageCount:REPLY_PAGE_COUNT currCoupletID:self.selectedCoupletModel.coupletId currUserID:[ZCPUserCenter sharedInstance].currentUserModel.userId success:^(AFHTTPRequestOperation *operation, ZCPListDataModel *coupletReplyListModel) {
         STRONG_SELF;
-        if ([coupletReplyListModel isKindOfClass:[ZCPListDataModel class]]) {
+        if ([coupletReplyListModel isKindOfClass:[ZCPListDataModel class]] && coupletReplyListModel.items) {
             weakSelf.coupletReplyModelArr = [NSMutableArray arrayWithArray:coupletReplyListModel.items];
             
             // 重新构造并加载数据
@@ -121,13 +121,13 @@
 /**
  *  评论按钮点击事件
  */
-- (void)coupletDetailCell:(ZCPCoupletDetailCell *)cell commentButtonClick:(UIButton *)button {
+- (void)coupletDetailCell:(ZCPCoupletDetailCell *)cell commentButtonClicked:(UIButton *)button {
     [self.commentView showCommentView];
 }
 /**
  *  收藏按钮点击事件
  */
-- (void)coupletDetailCell:(ZCPCoupletDetailCell *)cell collectButtonClick:(UIButton *)button {
+- (void)coupletDetailCell:(ZCPCoupletDetailCell *)cell collectButtonClicked:(UIButton *)button {
     
     [[ZCPRequestManager sharedInstance] changeCoupletCurrCollectionState:self.selectedCoupletModel.collected currCoupletID:self.selectedCoupletModel.coupletId currUserID:[ZCPUserCenter sharedInstance].currentUserModel.userId success:^(AFHTTPRequestOperation *operation, BOOL isSuccess) {
         if (isSuccess) {
@@ -158,7 +158,7 @@
 /**
  *  点赞按钮点击事件
  */
-- (void)coupletDetailCell:(ZCPCoupletDetailCell *)cell supportButtonClick:(UIButton *)button {
+- (void)coupletDetailCell:(ZCPCoupletDetailCell *)cell supportButtonClicked:(UIButton *)button {
     [[ZCPRequestManager sharedInstance] changeCoupletCurrSupportState:self.selectedCoupletModel.supported currCoupletID:self.selectedCoupletModel.coupletId currUserID:[ZCPUserCenter sharedInstance].currentUserModel.userId success:^(AFHTTPRequestOperation *operation, BOOL isSuccess) {
         if (isSuccess) {
             if (self.selectedCoupletModel.supported == ZCPCurrUserNotSupportCouplet) {
@@ -186,7 +186,7 @@
 /**
  *  coupletReply点赞按钮
  */
-- (void)coupletReplyCell:(ZCPCoupletReplyCell *)cell supportButtonClick:(UIButton *)button {
+- (void)coupletReplyCell:(ZCPCoupletReplyCell *)cell supportButtonClicked:(UIButton *)button {
     
     ZCPCoupletReplyCellItem *replyItem = cell.item;
     

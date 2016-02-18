@@ -8,6 +8,8 @@
 
 #import "ZCPTableViewWithLineCell.h"
 
+#import "ZCPCoupletModel.h"
+
 @class ZCPCoupletDetailCellItem;
 @protocol ZCPCoupletDetailCellDelegate;
 
@@ -30,8 +32,8 @@
 @interface ZCPCoupletDetailCellItem : ZCPDataModel
 
 @property (nonatomic, copy) NSString *coupletContent;                       // 对联内容
-@property (nonatomic, assign) NSInteger coupletSupported;                   // 对联点赞状态
-@property (nonatomic, assign) NSInteger coupletCollected;                   // 对联收藏状态
+@property (nonatomic, assign) ZCPCoupletSupportState coupletSupported;      // 对联点赞状态
+@property (nonatomic, assign) ZCPCoupletCollectState coupletCollected;      // 对联收藏状态
 @property (nonatomic, copy) NSString *userHeadImageURL;                     // 用户头像URL
 @property (nonatomic, copy) NSString *userName;                             // 用户名
 @property (nonatomic, strong) NSDate *time;                                 // 发布时间
@@ -43,10 +45,10 @@
 @protocol ZCPCoupletDetailCellDelegate <NSObject>
 
 // 评论按钮点击响应事件
-- (void)coupletDetailCell:(ZCPCoupletDetailCell *)cell commentButtonClick:(UIButton *)button;
+- (void)coupletDetailCell:(ZCPCoupletDetailCell *)cell commentButtonClicked:(UIButton *)button;
 // 收藏按钮点击响应事件
-- (void)coupletDetailCell:(ZCPCoupletDetailCell *)cell collectButtonClick:(UIButton *)button;
+- (void)coupletDetailCell:(ZCPCoupletDetailCell *)cell collectButtonClicked:(UIButton *)button;
 // 点赞按钮点击响应事件
-- (void)coupletDetailCell:(ZCPCoupletDetailCell *)cell supportButtonClick:(UIButton *)button;
+- (void)coupletDetailCell:(ZCPCoupletDetailCell *)cell supportButtonClicked:(UIButton *)button;
 
 @end

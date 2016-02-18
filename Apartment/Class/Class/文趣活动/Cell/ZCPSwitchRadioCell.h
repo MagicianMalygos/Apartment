@@ -37,6 +37,9 @@ typedef void(^ZCPButtonConfigBlock)(UIButton *);        // button配置块
 @property (nonatomic, copy) ZCPButtonConfigBlock radioButtonOneConfigBlock;        // buttonOne配置块
 @property (nonatomic, copy) ZCPButtonConfigBlock radioButtonTwoConfigBlock;        // buttonTwo配置块
 
+@property (nonatomic, assign) BOOL switchValue;                                    // 开关的当前状态
+@property (nonatomic, assign) NSInteger selectedRadioTipIndex;                     // 当前被选择的单选框下标
+
 @end
 
 

@@ -8,8 +8,6 @@
 
 #import "ZCPCoupletDetailCell.h"
 
-#import "ZCPCoupletModel.h"
-
 @implementation ZCPCoupletDetailCell
 
 @synthesize commentButton = _commentButton;
@@ -28,15 +26,15 @@
     self.supportButton = [UIButton buttonWithType:UIButtonTypeCustom];
     self.supportButton.frame = CGRectMake(CELLWIDTH_DEFAULT - HorizontalMargin - 20, VerticalMargin, 20, 20);
     [self.supportButton setImageNameNormal:@"support_normal" Highlighted:@"support_selected" Selected:@"support_selected" Disabled:@"support_normal"];
-    [self.supportButton addTarget:self action:@selector(buttonClick:) forControlEvents:UIControlEventTouchUpInside];
+    [self.supportButton addTarget:self action:@selector(buttonClicked:) forControlEvents:UIControlEventTouchUpInside];
     self.collectionButton = [UIButton buttonWithType:UIButtonTypeCustom];
     self.collectionButton.frame = CGRectMake(self.supportButton.left - UIMargin * 2 - 20, VerticalMargin, 20, 20);
     [self.collectionButton setImageNameNormal:@"collection_normal" Highlighted:@"collection_selected" Selected:@"collection_selected" Disabled:@"collection_normal"];
-    [self.collectionButton addTarget:self action:@selector(buttonClick:) forControlEvents:UIControlEventTouchUpInside];
+    [self.collectionButton addTarget:self action:@selector(buttonClicked:) forControlEvents:UIControlEventTouchUpInside];
     self.commentButton = [UIButton buttonWithType:UIButtonTypeCustom];
     self.commentButton.frame = CGRectMake(self.collectionButton.left - UIMargin * 2 - 20, VerticalMargin, 20, 20);
     [self.commentButton setOnlyImageName:@"comment_normal"];
-    [self.commentButton addTarget:self action:@selector(buttonClick:) forControlEvents:UIControlEventTouchUpInside];
+    [self.commentButton addTarget:self action:@selector(buttonClicked:) forControlEvents:UIControlEventTouchUpInside];
     
     // 第二行
     self.coupletContentLabel = [[UILabel alloc] init];
@@ -132,16 +130,16 @@
 /**
  *  按钮响应方法
  */
-- (void)buttonClick:(UIButton *)button {
+- (void)buttonClicked:(UIButton *)button {
     if (self.delegate) {
-        if (button == self.supportButton && [self.delegate respondsToSelector:@selector(coupletDetailCell:supportButtonClick:)]) {
-            [self.delegate coupletDetailCell:self supportButtonClick:button];
+        if (button == self.supportButton && [self.delegate respondsToSelector:@selector(coupletDetailCell:supportButtonClicked:)]) {
+            [self.delegate coupletDetailCell:self supportButtonClicked:button];
         }
-        else if (button == self.collectionButton && [self.delegate respondsToSelector:@selector(coupletDetailCell:collectButtonClick:)]) {
-            [self.delegate coupletDetailCell:self collectButtonClick:button];
+        else if (button == self.collectionButton && [self.delegate respondsToSelector:@selector(coupletDetailCell:collectButtonClicked:)]) {
+            [self.delegate coupletDetailCell:self collectButtonClicked:button];
         }
-        else if (button == self.commentButton && [self.delegate respondsToSelector:@selector(coupletDetailCell:commentButtonClick:)]) {
-            [self.delegate coupletDetailCell:self commentButtonClick:button];
+        else if (button == self.commentButton && [self.delegate respondsToSelector:@selector(coupletDetailCell:commentButtonClicked:)]) {
+            [self.delegate coupletDetailCell:self commentButtonClicked:button];
         }
     }
 }

@@ -11,8 +11,9 @@
 #import "ZCPSectionCell.h"
 #import "ZCPTextViewCell.h"
 #import "ZCPButtonCell.h"
+#import "ZCPRequestManager+Thesis.h"
 
-@interface ZCPAddThesisController ()
+@interface ZCPAddThesisController () <ZCPButtonCellDelegate>
 
 @end
 
@@ -66,6 +67,7 @@
     // 提交按钮
     ZCPButtonCellItem *determineItem = [[ZCPButtonCellItem alloc] initWithDefault];
     determineItem.buttonTitle = @"提交";
+    determineItem.delegate = self;
     
     
     [items addObject:sectionItem1];
@@ -85,5 +87,71 @@
     self.tableViewAdaptor.items = items;
 }
 
+
+#pragma mark - ZCPButtonCellDelegate
+- (void)cell:(UITableViewCell *)cell buttonClicked:(UIButton *)button {
+    
+    ZCPTextViewCellItem *hopeThesisItem = [self.tableViewAdaptor.items objectAtIndex:1];
+    ZCPTextViewCellItem *prosArgumentItem = [self.tableViewAdaptor.items objectAtIndex:3];
+    ZCPTextViewCellItem *consArgumentItem = [self.tableViewAdaptor.items objectAtIndex:5];
+    ZCPTextViewCellItem *reasonItem = [self.tableViewAdaptor.items objectAtIndex:7];
+    
+    NSString *thesisContent = hopeThesisItem.textInputValue;
+    NSString *thesisPros = prosArgumentItem.textInputValue;
+    NSString *thesisCons = consArgumentItem.textInputValue;
+    NSString *thesisAddReason = reasonItem.textInputValue;
+    
+    // 如果未通过输入检测则不进行提交
+    if (![self judgeTextInput:thesisContent pros:thesisPros cons:thesisCons reason:thesisAddReason]) {
+        return;
+    }
+    
+    TTDPRINT(@"提交辩题中...");
+    [[ZCPRequestManager sharedInstance] addThesisContent:thesisContent thesisPros:thesisPros thesisCons:thesisCons thesisAddReason:thesisAddReason currUserID:[ZCPUserCenter sharedInstance].currentUserModel.userId success:^(AFHTTPRequestOperation *operation, BOOL isSuccess) {
+        if (isSuccess) {
+            TTDPRINT(@"提交辩题成功！正在审核中！");
+            [MBProgressHUD showSuccess:@"提交辩题成功！正在审核中！" toView:[[UIApplication sharedApplication].delegate window]];
+        }
+        else {
+            TTDPRINT(@"提交辩题失败！");
+            [MBProgressHUD showError:@"提交辩题失败！" toView:[[UIApplication sharedApplication].delegate window]];
+        }
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        TTDPRINT(@"提交失败！%@", error);
+        [MBProgressHUD showError:@"提交辩题失败！网络异常！" toView:[[UIApplication sharedApplication].delegate window]];
+    }];
+    
+    // pop
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
+#pragma mark - Private Method
+/**
+ *  进行输入检测
+ */
+- (BOOL)judgeTextInput:(NSString *)thesisContent pros:(NSString *)thesisPros cons:(NSString *)thesisCons reason:(NSString *)thesisAddReason {
+    if (thesisContent.length == 0) {
+        [MBProgressHUD showError:@"辩题内容不能为空！" toView:self.view];
+        return NO;
+    }
+    if ([thesisPros isEqualToString:@""] || [thesisCons isEqualToString:@""]) {
+        [MBProgressHUD showError:@"论点不能为空！" toView:self.view];
+        return NO;
+    }
+    if (thesisContent.length > 50) {
+        [MBProgressHUD showError:@"辩题内容不得超过50字！" toView:self.view];
+        return NO;
+    }
+    if ((thesisPros.length > 50)
+        || (thesisCons.length > 50)) {
+        [MBProgressHUD showError:@"论点内容不得超过50字！" toView:self.view];
+        return NO;
+    }
+    if (thesisAddReason.length > 1000) {
+        [MBProgressHUD showError:@"原因不能超过1000字！" toView:self.view];
+        return NO;
+    }
+    return YES;
+}
 
 @end

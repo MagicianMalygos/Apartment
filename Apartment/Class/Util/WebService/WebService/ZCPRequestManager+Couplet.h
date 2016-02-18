@@ -117,7 +117,7 @@
  *  @param currCoupletID 当前对联回复ID
  *  @param currUserID    当前用户ID
  */
-- (NSOperation *)changeCoupletReplyCurrSupportState:(ZCPCoupletSupportState)currSupported
+- (NSOperation *)changeCoupletReplyCurrSupportState:(ZCPCoupletReplySupportState)currSupported
                               currCoupletReplyID:(NSInteger)currCoupletReplyID
                                  currUserID:(NSInteger)currUserID
                                     success:(void (^)(AFHTTPRequestOperation *operation, BOOL isSuccess))success

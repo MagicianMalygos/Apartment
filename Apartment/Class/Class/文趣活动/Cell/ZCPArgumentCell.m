@@ -39,6 +39,7 @@
     self.supportButton = [UIButton buttonWithType:UIButtonTypeCustom];
     self.supportButton.frame = CGRectMake(CELLWIDTH_DEFAULT - HorizontalMargin - BUTTON_WIDTH, VerticalMargin + 5, BUTTON_WIDTH, BUTTON_HEIGHT);
     [self.supportButton setImageNameNormal:@"support_normal" Highlighted:@"support_selected" Selected:@"support_selected" Disabled:@"support_normal"];
+    [self.supportButton addTarget:self action:@selector(buttonClicked:) forControlEvents:UIControlEventTouchUpInside];
     
     self.userNameLabel = [[UILabel alloc] initWithFrame:CGRectMake(self.userHeadImgView.right + UIMargin, VerticalMargin, CELLWIDTH_DEFAULT - HorizontalMargin * 2 - UIMargin * 3 - IMG_WIDTH - BUTTON_WIDTH - SUPPORTLABEL_WIDTH, NAMELABEL_HEIGHT)];
     self.userNameLabel.textAlignment = NSTextAlignmentLeft;
@@ -83,6 +84,8 @@
         self.timeLabel.frame = CGRectMake(HorizontalMargin, self.argumentContentLabel.bottom + UIMargin, CELLWIDTH_DEFAULT - HorizontalMargin * 2, 20);
         
         // 设置内容
+        self.delegate = self.item.delegate;
+        self.supportButton.selected = (self.item.argumentSupported == ZCPCurrUserHaveSupportArgument)? YES: NO;
         [self.userHeadImgView sd_setImageWithURL:[NSURL URLWithString:self.item.userHeadImgURL] placeholderImage:[UIImage imageNamed:@"head_default"]];
         self.userNameLabel.text = self.item.userName;
         self.supportNumberLabel.text = [NSString stringWithFormat:@"%lu 人点赞", self.item.supportNumber];
@@ -102,6 +105,13 @@
                                                                  attributes:@{NSFontAttributeName: [UIFont systemFontOfSize:17.0f weight:10.0f]}
                                                                     context:nil].size.height;
     return 25.0f + contentHeight + 20.0f + UIMargin * 2 + VerticalMargin * 2;
+}
+
+#pragma mark - Button Click
+- (void)buttonClicked:(UIButton *)button {
+    if (self.delegate && [self.delegate respondsToSelector:@selector(argumentCell:supportButtonClicked:)]) {
+        [self.delegate argumentCell:self supportButtonClicked:button];
+    }
 }
 
 @end

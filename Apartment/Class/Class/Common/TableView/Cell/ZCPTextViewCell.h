@@ -8,12 +8,14 @@
 
 #import "ZCPTableViewWithLineCell.h"
 
+#import "ZCPTextView.h"
+
 @class ZCPTextViewCellItem;
 
 // 只有一个TextView的Cell
 @interface ZCPTextViewCell : ZCPTableViewWithLineCell
 
-@property (nonatomic, strong) UITextView *textView;             // 文本输入框
+@property (nonatomic, strong) ZCPTextView *textView;            // 文本输入框
 @property (nonatomic, strong) ZCPTextViewCellItem *item;        // item
 
 @end
@@ -24,5 +26,6 @@
 
 @property (nonatomic, copy) NSString *placeholder;              // 提示文字
 @property (nonatomic, assign) UIEdgeInsets textEdgeInset;       // 输入框外边距
+@property (nonatomic, copy) NSString *textInputValue;           // 文本输入内容
 
 @end

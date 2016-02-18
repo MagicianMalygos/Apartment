@@ -181,7 +181,7 @@
         
         [self.imgIcon setImage:[UIImage imageNamed:item.imageURL]];
         [self.textLabel setAttributedText:item.text];
-        [self.switchView addTarget:item.switchResponser action:@selector(switchValueChange:) forControlEvents:UIControlEventValueChanged];
+        [self.switchView addTarget:item.switchResponser action:@selector(switchValueChanged:) forControlEvents:UIControlEventValueChanged];
         [self.switchView setOn:([[ZCPControlingCenter sharedInstance] appTheme] == LightTheme)?NO:YES];
     }
 }
@@ -191,6 +191,14 @@
 + (CGFloat)tableView:(UITableView *)tableView rowHeightForObject:(id)object {
     ZCPImageTextSwitchCellItem *item = (ZCPImageTextSwitchCellItem *)object;
     return [item.cellHeight floatValue];
+}
+
+#pragma mark - Private Method
+- (void)switchValueChanged:(UISwitch *)switchView {
+    ZCPImageTextSwitchCellItem *item = (ZCPImageTextSwitchCellItem *)self.item;
+    if (item.switchResponser && [item.switchResponser respondsToSelector:@selector(cell:switchValueChanged:)]) {
+        [item.switchResponser cell:self switchValueChanged:switchView];
+    }
 }
 
 @end

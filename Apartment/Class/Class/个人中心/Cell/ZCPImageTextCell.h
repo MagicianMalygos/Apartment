@@ -59,6 +59,6 @@
 
 @protocol ZCPImageTextSwitchCellItemDelegate <NSObject>
 // 按钮开关事件响应方法
-- (void)switchValueChange:(UISwitch *)switchView;
+- (void)cell:(ZCPImageTextSwitchCell *)cell switchValueChanged:(UISwitch *)switchView;
 @end
 

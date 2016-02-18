@@ -43,7 +43,7 @@
 
 #pragma mark - Notification
 - (void)textDidChange:(NSNotification *)notification {
-    self.item.textFieldInputValue = self.textField.text;
+    self.item.textInputValue = self.textField.text;
 }
 
 

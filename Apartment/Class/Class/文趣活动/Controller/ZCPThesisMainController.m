@@ -17,7 +17,7 @@
 
 #define OptionHeight 50.0f
 
-@interface ZCPThesisMainController () <ZCPListTableViewAdaptorDelegate, ZCPThesisViewDelegate>
+@interface ZCPThesisMainController () <ZCPListTableViewAdaptorDelegate, ZCPThesisViewDelegate, ZCPArgumentCellDelegate>
 
 @property (nonatomic, strong) ZCPThesisView *thesisView;        // 论题视图
 @property (nonatomic, strong) ZCPThesisModel *thesisModel;      // 论题模型
@@ -75,10 +75,15 @@
     
     for (ZCPArgumentModel *model in self.prosArgumentArr) {
         ZCPArgumentCellItem *argumentItem = [[ZCPArgumentCellItem alloc] initWithDefault];
+        argumentItem.argumentID = model.argumentId;
+        argumentItem.argumentBelong = model.argumentBelong;
         argumentItem.userHeadImgURL = model.user.userFaceURL;
         argumentItem.userName = model.user.userName;
         argumentItem.argumentContent = model.argumentContent;
         argumentItem.time = model.argumentTime;
+        argumentItem.supportNumber = model.argumentSupport;
+        argumentItem.argumentSupported = model.supported;
+        argumentItem.delegate = self;
         [items addObject:argumentItem];
     }
     
@@ -92,10 +97,15 @@
     
     for (ZCPArgumentModel *model in self.consArgumentArr) {
         ZCPArgumentCellItem *argumentItem = [[ZCPArgumentCellItem alloc] initWithDefault];
+        argumentItem.argumentID = model.argumentId;
+        argumentItem.argumentBelong = model.argumentBelong;
         argumentItem.userHeadImgURL = model.user.userFaceURL;
         argumentItem.userName = model.user.userName;
         argumentItem.argumentContent = model.argumentContent;
         argumentItem.time = model.argumentTime;
+        argumentItem.supportNumber = model.argumentSupport;
+        argumentItem.argumentSupported = model.supported;
+        argumentItem.delegate = self;
         [items addObject:argumentItem];
     }
     
@@ -113,16 +123,8 @@
 - (void)tableView:(UITableView *)tableView didSelectObject:(id<ZCPTableViewCellItemBasicProtocol>)object rowAtIndexPath:(NSIndexPath *)indexPath {
     // 过滤掉点击Section的事件
     if ([object isKindOfClass:[ZCPArgumentCellItem class]]) {
-        BOOL argumentBelong = ZCPProsArgument;
-        // 如果点击的是正方的cell
-        if (indexPath.row > 0 && indexPath.row <= self.prosArgumentArr.count) {
-            argumentBelong = ZCPProsArgument;
-        }
-        // 如果点击的是反方的cell
-        else if (indexPath.row > self.prosArgumentArr.count + 1 && indexPath.row <= self.prosArgumentArr.count + self.consArgumentArr.count + 1) {
-            argumentBelong = ZCPConsArgument;
-        }
-        [[ZCPNavigator sharedInstance] gotoViewWithIdentifier:APPURL_VIEW_IDENTIFIER_THESIS_ARGUMENTLIST paramDictForInit:@{@"_argumentBelong": [NSNumber numberWithBool:argumentBelong]}];
+        ZCPArgumentCellItem *argumentItem = (ZCPArgumentCellItem *)object;
+        [[ZCPNavigator sharedInstance] gotoViewWithIdentifier:APPURL_VIEW_IDENTIFIER_THESIS_ARGUMENTLIST paramDictForInit:@{@"_argumentBelong": @(argumentItem.argumentBelong)}];
     }
 }
 
@@ -134,7 +136,7 @@
  *  @param button     评论按钮
  */
 - (void)thesisView:(ZCPThesisView *)thesisView didClickedCommentButton:(UIButton *)button {
-    [[ZCPNavigator sharedInstance] gotoViewWithIdentifier:APPURL_VIEW_IDENTIFIER_THESIS_ADDARGUMENT paramDictForInit:nil];
+    [[ZCPNavigator sharedInstance] gotoViewWithIdentifier:APPURL_VIEW_IDENTIFIER_THESIS_ADDARGUMENT paramDictForInit:@{@"_currThesisID": @(self.thesisModel.thesisId)}];
 }
 /**
  *  辩题收藏按钮点击事件
@@ -210,6 +212,37 @@
         TTDPRINT(@"获取辩题成功！");
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         TTDPRINT(@"获取失败！网络异常！%@error", error);
+    }];
+}
+
+
+#pragma mark - ZCPArgumentCellDelegate
+- (void)argumentCell:(ZCPArgumentCell *)cell supportButtonClicked:(UIButton *)button {
+    
+    [[ZCPRequestManager sharedInstance] changeArgumentCurrSupportedState:cell.item.argumentSupported currArgumentID:cell.item.argumentID currUserID:[ZCPUserCenter sharedInstance].currentUserModel.userId success:^(AFHTTPRequestOperation *operation, BOOL isSuccess) {
+        if (isSuccess) {
+            if (cell.item.argumentSupported == ZCPCurrUserNotSupportArgument) {
+                button.selected = YES;
+                cell.item.argumentSupported = ZCPCurrUserHaveSupportArgument;
+                cell.item.supportNumber = cell.item.supportNumber + 1;
+                cell.supportNumberLabel.text = [NSString stringWithFormat:@"%lu 人点赞", cell.item.supportNumber];
+                
+                TTDPRINT(@"点赞成功！");
+                [MBProgressHUD showSuccess:@"点赞成功！" toView:self.view];
+            }
+            else if (cell.item.argumentSupported == ZCPCurrUserHaveSupportArgument) {
+                button.selected = NO;
+                cell.item.argumentSupported = ZCPCurrUserNotSupportArgument;
+                cell.item.supportNumber = cell.item.supportNumber - 1;
+                cell.supportNumberLabel.text = [NSString stringWithFormat:@"%lu 人点赞", cell.item.supportNumber];
+                
+                TTDPRINT(@"取消点赞成功！");
+                [MBProgressHUD showSuccess:@"取消点赞成功！" toView:self.view];
+            }
+        }
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        TTDPRINT(@"操作失败！%@", error);
+        [MBProgressHUD showSuccess:@"操作失败！网络异常！" toView:self.view];
     }];
 }
 

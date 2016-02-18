@@ -8,8 +8,6 @@
 
 #import "ZCPCoupletReplyCell.h"
 
-#import "ZCPCoupletReplyModel.h"
-
 @implementation ZCPCoupletReplyCell
 
 @synthesize userHeadImgView = _userHeadImgView;
@@ -33,7 +31,7 @@
                                           , 20
                                           , 20);
     [self.supportButton setImageNameNormal:@"support_normal" Highlighted:@"support_selected" Selected:@"support_selected" Disabled:@"support_normal"];
-    [self.supportButton addTarget:self action:@selector(buttonClick:) forControlEvents:UIControlEventTouchUpInside];
+    [self.supportButton addTarget:self action:@selector(buttonClicked:) forControlEvents:UIControlEventTouchUpInside];
     self.userNameLabel = [[UILabel alloc] initWithFrame:CGRectMake(self.userHeadImgView.right + UIMargin
                                                                    , VerticalMargin
                                                                    , CELLWIDTH_DEFAULT - HorizontalMargin * 2 - UIMargin * 2 - self.userHeadImgView.width - self.supportButton.width
@@ -109,12 +107,12 @@
     return 25.0f + contentHeight + 20.0f + UIMargin * 2 + VerticalMargin * 2;
 }
 
-#pragma mark - buttonClick
-- (void)buttonClick:(UIButton *)button {
+#pragma mark - Button Click
+- (void)buttonClicked:(UIButton *)button {
     if (self.delegate
         && button == self.supportButton
-        && [self.delegate respondsToSelector:@selector(coupletReplyCell:supportButtonClick:)]) {
-            [self.delegate coupletReplyCell:self supportButtonClick:button];
+        && [self.delegate respondsToSelector:@selector(coupletReplyCell:supportButtonClicked:)]) {
+            [self.delegate coupletReplyCell:self supportButtonClicked:button];
     }
 }
 

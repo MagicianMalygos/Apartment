@@ -16,27 +16,39 @@
 #pragma mark - Setup Cell
 - (void)setupContentView {
     
-    self.textView = [[UITextView alloc] init];
+    self.textView = [[ZCPTextView alloc] init];
     self.textView.backgroundColor = [UIColor whiteColor];
     self.textView.font = [UIFont fontWithName:@"Helvetica-Bold" size:15.0f];
     [self.contentView addSubview:self.textView];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(textDidChange:) name:UITextViewTextDidChangeNotification object:nil];
 }
 - (void)setObject:(NSObject *)object {
     if ([object isKindOfClass:[ZCPTextViewCellItem class]] && self.item != object) {
         self.item = (ZCPTextViewCellItem *)object;
         
+        // 设置frame
         [self.textView setHeight:[self.item.cellHeight floatValue]];
         self.textView.frame = CGRectMake(self.item.textEdgeInset.left
                                          , self.item.textEdgeInset.top
                                          , CELLWIDTH_DEFAULT - self.item.textEdgeInset.left - self.item.textEdgeInset.right
                                          , [self.item.cellHeight floatValue] - self.item.textEdgeInset.top - self.item.textEdgeInset.bottom);
+        
+        // 设置属性
+        self.textView.placeholder = self.item.placeholder;
     }
 }
 + (CGFloat)tableView:(UITableView *)tableView rowHeightForObject:(id)object {
     ZCPTextViewCellItem *item = (ZCPTextViewCellItem *)object;
     return [item.cellHeight floatValue];
 }
-
+- (void)dealloc {
+    [[NSNotificationCenter defaultCenter]  removeObserver:self];
+}
+#pragma mark - Notification
+- (void)textDidChange:(NSNotification *)notification {
+    self.item.textInputValue = self.textView.text;
+}
 @end
 
 @implementation ZCPTextViewCellItem

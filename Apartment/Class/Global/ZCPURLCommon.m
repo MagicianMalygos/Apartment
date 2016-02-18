@@ -59,8 +59,14 @@ IMP_SINGLETON
                      , CHANGE_COUPLET_REPLY_SUPPORT_STATE:  @"/1.0/activity/changeCoupletReplySupportRecord"
                      /* - 文趣活动相关(Thesis) - */
                      , CURRENT_THESIS:                      @"/1.0/activity/getCurrThesis"
+                     , ARGUMENT_LIST_BY_BELONG:             @"/1.0/activity/getArgumentByBelong"
+                     , OLD_ARGUMENT_LIST:                   @"/1.0/activity/getArgumentByOldId"
+                     , ADD_THESIS:                          @"/1.0/activity/addThesis"
+                     , ADD_ARGUMENT:                        @"/1.0/activity/addArgument"
                      , CHANGE_THESIS_COLLECTION_STATE:      @"/1.0/activity/changeThesisCollectionRecord"
+                     , CHANGE_ARGUMENT_SUPPORT_STATE:       @"/1.0/activity/changeArgumentSupportRecord"
                      };
+
 }
 
 @end

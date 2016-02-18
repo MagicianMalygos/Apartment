@@ -43,7 +43,7 @@
     WEAK_SELF;
     [[ZCPRequestManager sharedInstance] getCoupletListByTimeWithPageCount:COUPLET_LIST_PAGE_COUNT currUserID:[ZCPUserCenter sharedInstance].currentUserModel.userId success:^(AFHTTPRequestOperation *operation, ZCPListDataModel *coupletListModel) {
         STRONG_SELF;
-        if ([coupletListModel isKindOfClass:[ZCPListDataModel class]]) {
+        if ([coupletListModel isKindOfClass:[ZCPListDataModel class]] && coupletListModel.items) {
             weakSelf.coupletModelArr = [NSMutableArray arrayWithArray:coupletListModel.items];
             
             // 重新构造并加载数据

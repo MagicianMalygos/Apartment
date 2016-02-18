@@ -59,5 +59,27 @@
              ,@"consArgumentModel": consArgumentModel};
 }
 
+/**
+ *  论据列表模型转换
+ *
+ *  @param dict 列表字典
+ *
+ *  @return 论据模型列表
+ */
++ (ZCPListDataModel *)translateResponse_ArgumentModel_List:(NSDictionary *)responseData {
+    ZCPListDataModel *listModel = nil;
+    if ([responseData isKindOfClass:[NSDictionary class]]) {
+        listModel = [[ZCPListDataModel alloc] init];
+        NSArray *argumentList = [responseData valueForKey:@"aList"];
+        if (![argumentList isNilOrNull]) {
+            for (NSDictionary *argumentDict in argumentList) {
+                ZCPArgumentModel *model = [ZCPRequestResponseTranslator translateResponse_ArgumentModel:argumentDict];
+                [listModel.items addObject:model];
+            }
+        }
+    }
+    return listModel;
+}
+
 
 @end

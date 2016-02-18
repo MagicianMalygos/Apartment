@@ -12,12 +12,26 @@
 #import "ZCPTextViewCell.h"
 #import "ZCPSwitchRadioCell.h"
 #import "ZCPButtonCell.h"
+#import "ZCPArgumentModel.h"
+#import "ZCPRequestManager+Thesis.h"
 
-@interface ZCPAddArgumentController ()
+@interface ZCPAddArgumentController () <ZCPButtonCellDelegate>
+
+@property (nonatomic, assign) NSInteger currThesisID;       // 当前显示辩题ID
 
 @end
 
 @implementation ZCPAddArgumentController
+
+@synthesize currThesisID = _currThesisID;
+
+#pragma mark - init
+- (instancetype)initWithParams:(NSDictionary *)params {
+    if (self = [super init]) {
+        _currThesisID = [(NSNumber *)[params objectForKey:@"_currThesisID"] boolValue];
+    }
+    return self;
+}
 
 #pragma mark - life circle
 - (void)viewWillAppear:(BOOL)animated {
@@ -57,7 +71,7 @@
     // 提交按钮
     ZCPButtonCellItem *determineItem = [[ZCPButtonCellItem alloc] initWithDefault];
     determineItem.buttonTitle = @"提交";
-    
+    determineItem.delegate = self;
     
     [items addObject:sectionItem];
     [items addObject:argumentItem];
@@ -66,6 +80,62 @@
     [items addObject:blankItem];
     [items addObject:determineItem];
     self.tableViewAdaptor.items = items;
+}
+
+#pragma mark - ZCPButtonCellDelegate
+/**
+ *  提交按钮响应事件
+ *
+ *  @param cell   buttonCell
+ *  @param button 提交按钮
+ */
+- (void)cell:(UITableViewCell *)cell buttonClicked:(UIButton *)button {
+    
+    ZCPTextViewCellItem *textViewItem = [self.tableViewAdaptor.items objectAtIndex:1];
+    ZCPSwitchRadioCellItem *switchRadioItem = [self.tableViewAdaptor.items objectAtIndex:2];
+    
+    NSString *argumentContent = textViewItem.textInputValue;
+    NSInteger argumentBelong = (switchRadioItem.selectedRadioTipIndex == 0)? ZCPProsArgument: ZCPConsArgument;
+    BOOL isAnonymous = switchRadioItem.switchValue;
+    
+    // 如果未通过输入检测则不进行提交
+    if (![self judgeTextInput:argumentContent]) {
+        return;
+    }
+    
+    TTDPRINT(@"发表观点中...");
+    [[ZCPRequestManager sharedInstance] addArgumentContent:argumentContent argumentBelong:argumentBelong isAnonymous:isAnonymous currThesisID:self.currThesisID currUserID:[ZCPUserCenter sharedInstance].currentUserModel.userId success:^(AFHTTPRequestOperation *operation, BOOL isSuccess) {
+        if (isSuccess) {
+            TTDPRINT(@"提交成功！！");
+            [MBProgressHUD showSuccess:@"观点发表成功！" toView:[[UIApplication sharedApplication].delegate window]];
+        }
+        else {
+            TTDPRINT(@"提交失败！！");
+            [MBProgressHUD showError:@"观点发表失败！" toView:[[UIApplication sharedApplication].delegate window]];
+        }
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        TTDPRINT(@"提交失败！网络异常！%@", error);
+        [MBProgressHUD showError:@"观点发表失败！网络异常！" toView:[[UIApplication sharedApplication].delegate window]];
+    }];
+    
+    // pop
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
+#pragma mark - Private Method
+/**
+ *  输入检测
+ */
+- (BOOL)judgeTextInput:(NSString *)text {
+    if (text.length == 0) {
+        [MBProgressHUD showError:@"评论不能为空！" toView:self.view];
+        return NO;
+    }
+    else if (text.length > 50) {
+        [MBProgressHUD showError:@"字数不得超过50字！" toView:self.view];
+        return NO;
+    }
+    return YES;
 }
 
 @end
