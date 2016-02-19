@@ -26,6 +26,9 @@
 @implementation ZCPMainUserController
 
 #pragma mark - life circle
+- (void)viewDidLoad {
+    [super viewDidLoad];
+}
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     
@@ -49,15 +52,17 @@
 #pragma mark - constructData
 - (void)constructData {
     
+    ZCPUserModel *currUserModel = [ZCPUserCenter sharedInstance].currentUserModel;
+    
     // 文字主题颜色
     UIColor *textColor = (self.appTheme == LightTheme)?[UIColor blackColor]:[UIColor whiteColor];
     
     // userImage
     ZCPUserImageCellItem *userImageItem = [[ZCPUserImageCellItem alloc] initWithDefault];
     userImageItem.cellHeight = @200;
-    userImageItem.bgImageURL = @"http://";
-    userImageItem.userHeadURL = @"http://";
-    userImageItem.userName = @"王小二";
+    userImageItem.bgImageURL = currUserModel.userFaceURL;
+    userImageItem.userHeadURL = currUserModel.userFaceURL;
+    userImageItem.userName = currUserModel.userName;
     
     // BasicInfo Section
     ZCPSectionCellItem *sectionItem1 = [[ZCPSectionCellItem alloc] initWithDefault];
@@ -70,27 +75,27 @@
     ZCPImageTextCellItem *ageItem = [[ZCPImageTextCellItem alloc] initWithDefault];
     ageItem.accessoryType = UITableViewCellAccessoryNone;
     ageItem.cellHeight = @50;
-    ageItem.imageURL = @"http://";
-    ageItem.text = [[NSMutableAttributedString alloc] initWithString:@"年龄：10" attributes:@{NSForegroundColorAttributeName: textColor}];
+    ageItem.imageName = @"http://";
+    ageItem.text = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"年龄：%lu", currUserModel.userAge] attributes:@{NSForegroundColorAttributeName: textColor}];
     // 文采值cell
     ZCPImageTextCellItem *expItem = [[ZCPImageTextCellItem alloc] initWithDefault];
     expItem.accessoryType = UITableViewCellAccessoryNone;
     expItem.cellHeight = @50;
-    expItem.imageURL = @"http://";
-    expItem.text = [[NSMutableAttributedString alloc] initWithString:@"文采值：230" attributes:@{NSForegroundColorAttributeName: textColor}];
+    expItem.imageName = @"";
+    expItem.text = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"文采值：%lu", currUserModel.userEXP] attributes:@{NSForegroundColorAttributeName: textColor}];
     // 称号cell
     ZCPImageTextCellItem *appellationItem = [[ZCPImageTextCellItem alloc] initWithDefault];
     appellationItem.accessoryType = UITableViewCellAccessoryNone;
     appellationItem.cellHeight = @50;
-    appellationItem.imageURL = @"http://";
-    appellationItem.text = [[NSMutableAttributedString alloc] initWithString:@"称号：白衣居士" attributes:@{NSForegroundColorAttributeName: textColor}];
+    appellationItem.imageName = @"";
+    appellationItem.text = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"称号：%@", currUserModel.userLevel] attributes:@{NSForegroundColorAttributeName: textColor}];
     
     // 成绩cell
     ZCPImageTextCellItem *scoreItem = [[ZCPImageTextCellItem alloc] initWithDefault];
     scoreItem.accessoryType = UITableViewCellAccessoryNone;
     scoreItem.cellHeight = @50;
-    scoreItem.imageURL = @"http://";
-    scoreItem.text = [[NSMutableAttributedString alloc]initWithString:@"成绩：80" attributes:@{NSForegroundColorAttributeName: textColor}];
+    scoreItem.imageName = @"";
+    scoreItem.text = [[NSMutableAttributedString alloc]initWithString:[NSString stringWithFormat:@"成绩：%lu", currUserModel.userScore] attributes:@{NSForegroundColorAttributeName: textColor}];
     
     // CommunityInfo Section
     ZCPSectionCellItem *sectionItem2 = [[ZCPSectionCellItem alloc] initWithDefault];
@@ -103,15 +108,20 @@
     ZCPImageTextCellItem *fieldItem = [[ZCPImageTextCellItem alloc] initWithDefault];
     fieldItem.accessoryType = UITableViewCellAccessoryNone;
     fieldItem.cellHeight = @50;
-    fieldItem.imageURL = @"http://";
-    fieldItem.text = [[NSMutableAttributedString alloc] initWithString:@"关注领域" attributes:@{NSForegroundColorAttributeName: textColor}];
+    fieldItem.imageName = @"";
+    NSString *fields = @"";
+    for (NSString *field in currUserModel.foucusFieldsArr) {
+        fields = [fields stringByAppendingString:field];
+        fields = [field stringByAppendingString:@" "];
+    }
+    fieldItem.text = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"关注领域 %@", fields] attributes:@{NSForegroundColorAttributeName: textColor}];
     
     // 所关注人cell
     ZCPImageTextCellItem *peopleItem = [[ZCPImageTextCellItem alloc] initWithDefault];
     peopleItem.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     peopleItem.cellTag = ZCPUserFocusOnPeopleCellTag;
     peopleItem.cellHeight = @50;
-    peopleItem.imageURL = @"http://";
+    peopleItem.imageName = @"";
     peopleItem.text = [[NSMutableAttributedString alloc] initWithString:@"所关注人" attributes:@{NSForegroundColorAttributeName: textColor}];
     
     // 个人成就
@@ -119,7 +129,7 @@
     achievementItem.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     achievementItem.cellTag = ZCPUserAchievementCellTag;
     achievementItem.cellHeight = @50;
-    achievementItem.imageURL = @"";
+    achievementItem.imageName = @"";
     achievementItem.text = [[NSMutableAttributedString alloc] initWithString:@"个人成就" attributes:@{NSForegroundColorAttributeName: textColor}];
     
     // 我的收藏
@@ -127,7 +137,7 @@
     collectionItem.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     collectionItem.cellTag = ZCPUserCollectionCellTag;
     collectionItem.cellHeight = @50;
-    collectionItem.imageURL = @"http://";
+    collectionItem.imageName = @"";
     collectionItem.text = [[NSMutableAttributedString alloc] initWithString:@"我的收藏" attributes:@{NSForegroundColorAttributeName: textColor}];
     
     // Setting Section
@@ -141,7 +151,7 @@
     ZCPImageTextSwitchCellItem *themeItem = [[ZCPImageTextSwitchCellItem alloc] initWithDefault];
     themeItem.accessoryType = UITableViewCellAccessoryNone;
     themeItem.cellHeight = @50;
-    themeItem.imageURL = @"http://";
+    themeItem.imageName = @"";
     themeItem.text = [[NSMutableAttributedString alloc] initWithString:@"夜间模式" attributes:@{NSForegroundColorAttributeName: textColor}];
     themeItem.switchResponser = self;
     
@@ -150,7 +160,7 @@
     settingItem.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     settingItem.cellTag = ZCPUserSettingCellTag;
     settingItem.cellHeight = @50;
-    settingItem.imageURL = @"http://";
+    settingItem.imageName = @"";
     settingItem.text = [[NSMutableAttributedString alloc] initWithString:@"个人设置" attributes:@{NSForegroundColorAttributeName: textColor}];
     
     // About Section

@@ -86,8 +86,8 @@
     self.imgIcon = [[UIImageView alloc] init];
     self.textLabel = [[UILabel alloc] init];
     
-    self.imgIcon.backgroundColor = [UIColor redColor];
-    //    self.textLabel.backgroundColor = [UIColor yellowColor];
+    self.imgIcon.backgroundColor = [UIColor clearColor];
+    self.textLabel.backgroundColor = [UIColor clearColor];
     
     [self.contentView addSubview:self.imgIcon];
     [self.contentView addSubview:self.textLabel];
@@ -105,7 +105,7 @@
         
         self.imgIcon.frame = CGRectMake(MARGIN_DEFAULT, MARGIN_DEFAULT, cellHeight - MARGIN_DEFAULT * 2, cellHeight - MARGIN_DEFAULT * 2);
         self.textLabel.frame = CGRectMake(self.imgIcon.x + self.imgIcon.width + MARGIN_IMG_TEXT, MARGIN_DEFAULT, CELLWIDTH_DEFAULT - self.imgIcon.width - MARGIN_IMG_TEXT - MARGIN_DEFAULT * 2 - RIGHT_WIDTH, cellHeight - MARGIN_DEFAULT * 2);
-        [self.imgIcon setImage:[UIImage imageNamed:item.imageURL]];
+        [self.imgIcon setImage:[UIImage imageNamed:item.imageName]];
         [self.textLabel setAttributedText:item.text];
     }
 }
@@ -120,7 +120,7 @@
 @end
 @implementation ZCPImageTextCellItem
 
-@synthesize imageURL = _imageURL;
+@synthesize imageName = _imageName;
 
 #pragma mark - instancetype
 - (instancetype)init {
@@ -175,11 +175,13 @@
         ZCPImageTextSwitchCellItem *item = (ZCPImageTextSwitchCellItem *)self.item;
         CGFloat cellHeight = [self.item.cellHeight floatValue];
         
+        // 设置frame
         self.imgIcon.frame = CGRectMake(MARGIN_DEFAULT, VerticalMargin, cellHeight - MARGIN_DEFAULT * 2, cellHeight - MARGIN_DEFAULT * 2);
         self.textLabel.frame = CGRectMake(self.imgIcon.x + self.imgIcon.width + MARGIN_IMG_TEXT, VerticalMargin, CELLWIDTH_DEFAULT - self.imgIcon.width - MARGIN_IMG_TEXT - MARGIN_DEFAULT * 2 - RIGHT_WIDTH, cellHeight - MARGIN_DEFAULT * 2);
         self.switchView.frame = CGRectMake(CELLWIDTH_DEFAULT - MARGIN_DEFAULT - self.switchView.width, VerticalMargin, self.switchView.width, self.switchView.height);
         
-        [self.imgIcon setImage:[UIImage imageNamed:item.imageURL]];
+        // 设置属性
+        [self.imgIcon setImage:[UIImage imageNamed:item.imageName]];
         [self.textLabel setAttributedText:item.text];
         [self.switchView addTarget:self action:@selector(switchValueChanged:) forControlEvents:UIControlEventValueChanged];
         [self.switchView setOn:([[ZCPControlingCenter sharedInstance] appTheme] == LightTheme)?NO:YES];

@@ -40,7 +40,7 @@
 @end
 
 @interface ZCPImageTextCellItem : ZCPTextCellItem
-@property (nonatomic, copy) NSString *imageURL;
+@property (nonatomic, copy) NSString *imageName;
 @end
 
 

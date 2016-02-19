@@ -59,9 +59,9 @@ IMP_SINGLETON
     UINavigationBar *navigationBar = navigationController.navigationBar;
     UIColor *color = [UIColor grayColor];
     [[UINavigationBar appearance] setTintColor:color];
-    navigationBar.tintColor = color;                    // 左右按钮文字颜色
-    navigationBar.barTintColor = [UIColor greenColor];  // navigationBar背景颜色
-    navigationBar.translucent = NO;                     // 取消半透明效果，解决界面跳转的时候能看到导航栏的颜色发生变化
+    navigationBar.tintColor = color;                            // 左右按钮文字颜色
+    navigationBar.barTintColor = [UIColor PALightGrayColor];    // navigationBar背景颜色
+    navigationBar.translucent = NO;                             // 取消半透明效果，解决界面跳转的时候能看到导航栏的颜色发生变化
     NSDictionary *navTitleDict = [NSDictionary dictionaryWithObjectsAndKeys:[UIFont defaultFontWithSize:18.0f], NSFontAttributeName, [UIColor whiteColor], NSForegroundColorAttributeName, nil];
     [navigationBar setTitleTextAttributes:navTitleDict];
     
@@ -99,6 +99,23 @@ IMP_SINGLETON
     activityVC.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"文趣活动" image:nil tag:2];
     libraryVC.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"图书馆" image:nil tag:3];
     userVC.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"个人中心" image:nil tag:4];
+    
+    /*
+        iOS 7 设置UIImage的渲染模式：UIImageRenderingMode
+        UIImageRenderingModeAutomatic           // 根据图片的使用环境和所处的绘图上下文自动调整渲染模式。
+        UIImageRenderingModeAlwaysOriginal      // 始终绘制图片原始状态，不使用Tint Color。
+        UIImageRenderingModeAlwaysTemplate      // 始终根据Tint Color绘制图片，忽略图片的颜色信息
+     */
+    hotTrendVC.tabBarItem.image = [[UIImage imageNamed:@"HotTrendNormal"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    hotTrendVC.tabBarItem.selectedImage = [[UIImage imageNamed:@"HotTrendHighlight"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    communionVC.tabBarItem.image = [[UIImage imageNamed:@"CommunionNormal"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    communionVC.tabBarItem.selectedImage = [[UIImage imageNamed:@"CommunionHighlight"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    activityVC.tabBarItem.image = [[UIImage imageNamed:@"ActivityNormal"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    activityVC.tabBarItem.selectedImage = [[UIImage imageNamed:@"ActivityHighlight"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    libraryVC.tabBarItem.image = [[UIImage imageNamed:@"LibraryNormal"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    libraryVC.tabBarItem.selectedImage = [[UIImage imageNamed:@"LibraryHighlight"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    userVC.tabBarItem.image = [[UIImage imageNamed:@"UserNormal"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    userVC.tabBarItem.selectedImage = [[UIImage imageNamed:@"UserHighlight"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     
     return @[hotTrendVC, communionVC, activityVC, libraryVC, userVC];
 }
