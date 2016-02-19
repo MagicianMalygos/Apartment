@@ -10,6 +10,7 @@
 
 @implementation ZCPResponseDataModel
 
+#pragma mark - synthesize
 @synthesize responseData = _responseData;
 @synthesize responseString = _responseString;
 @synthesize allHeadFields = _allHeadFields;

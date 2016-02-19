@@ -12,6 +12,19 @@
 
 @implementation ZCPBookPostCommentModel
 
+#pragma mark - synthesize
+@synthesize commentId = _commentId;
+@synthesize commentContent = _commentContent;
+@synthesize commentPosition = _commentPosition;
+@synthesize commentSupport = _commentSupport;
+@synthesize commentTime = _commentTime;
+@synthesize user = _user;
+@synthesize bookpost = _bookpost;
+@synthesize commentReplyNumber = _commentReplyNumber;
+@synthesize supported = _supported;
+@synthesize collected = _collected;
+
+#pragma mark - kvc
 - (void)setValue:(id)value forKey:(NSString *)key {
     if ([key isEqualToString:@"commentTime"]) {
         value = [value toDate];

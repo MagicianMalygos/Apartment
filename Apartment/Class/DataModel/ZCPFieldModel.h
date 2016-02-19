@@ -10,7 +10,7 @@
 
 @interface ZCPFieldModel : ZCPDataModel
 
-@property (nonatomic, assign) int fieldId;        // 领域表编号
+@property (nonatomic, assign) NSInteger fieldId;  // 领域表编号
 @property (nonatomic, copy) NSString *fieldName;  // 领域名称
 
 @end

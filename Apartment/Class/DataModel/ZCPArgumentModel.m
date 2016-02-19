@@ -12,6 +12,18 @@
 
 @implementation ZCPArgumentModel
 
+#pragma mark - synthesize
+@synthesize argumentId = _argumentId;
+@synthesize argumentContent = _argumentContent;
+@synthesize argumentSupport = _argumentSupport;
+@synthesize argumentBelong = _argumentBelong;
+@synthesize argumentTime = _argumentTime;
+@synthesize thesis = _thesis;
+@synthesize user = _user;
+@synthesize state = _state;
+@synthesize supported = _supported;
+
+#pragma mark - kvc
 - (void)setValue:(id)value forKey:(NSString *)key {
     if ([key isEqualToString:@"argumentTime"]) {
         value = [value toDate];

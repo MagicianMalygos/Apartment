@@ -25,18 +25,18 @@ typedef NS_ENUM(NSInteger, ZCPBookpostCollectState){
 
 @interface ZCPBookPostModel : ZCPDataModel
 
-@property (nonatomic, assign) int bookpostId;                       // 图书贴表编号
+@property (nonatomic, assign) NSInteger bookpostId;                 // 图书贴表编号
 @property (nonatomic, copy) NSString *bookpostTitle;                // 帖子标题
 @property (nonatomic, copy) NSString *bookpostContent;              // 帖子内容
 @property (nonatomic, copy) NSString *bookpostPosition;             // 发帖人定位位置(发帖人发帖时所在的GPS定位位置)
-@property (nonatomic, assign) int bookpostSupport;                  // 帖子点赞量
+@property (nonatomic, assign) NSInteger bookpostSupport;            // 帖子点赞量
 @property (nonatomic, strong) NSDate *bookpostTime;                 // 发帖时间
 @property (nonatomic, strong) ZCPUserModel *user;                   // 发帖人
 @property (nonatomic, strong) ZCPFieldModel *field;                 // 帖子所属领域
 @property (nonatomic, strong) ZCPBookModel *book;                   // 帖子所关联书籍
-@property (nonatomic, assign) int bookpostReplyNumber;              // 帖子回复数量
-@property (nonatomic, assign) int bookpostCollectNumber;            // 收藏人数
-@property (nonatomic, assign) ZCPBookpostSupportState supported;      // 当前用户是否已点过赞
-@property (nonatomic, assign) ZCPBookpostCollectState collected;      // 当前用户是否已收藏
+@property (nonatomic, assign) NSInteger bookpostReplyNumber;        // 帖子回复数量
+@property (nonatomic, assign) NSInteger bookpostCollectNumber;      // 收藏人数
+@property (nonatomic, assign) ZCPBookpostSupportState supported;    // 当前用户是否已点过赞
+@property (nonatomic, assign) ZCPBookpostCollectState collected;    // 当前用户是否已收藏
 
 @end

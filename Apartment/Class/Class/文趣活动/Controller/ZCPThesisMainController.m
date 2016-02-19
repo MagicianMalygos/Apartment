@@ -151,7 +151,7 @@
                 button.selected = YES;
                 thesisView.thesisCollected = ZCPCurrUserHaveCollectThesis;
                 thesisView.thesisModel.thesisCollectNumber = thesisView.thesisModel.thesisCollectNumber + 1;
-                thesisView.collectionNumberLabel.text = [NSString stringWithFormat:@"%d 人收藏", self.thesisModel.thesisCollectNumber];
+                thesisView.collectionNumberLabel.text = [NSString stringWithFormat:@"%lu 人收藏", self.thesisModel.thesisCollectNumber];
                 
                 TTDPRINT(@"收藏成功！");
                 [MBProgressHUD showSuccess:@"收藏成功！" toView:self.view];
@@ -160,7 +160,7 @@
                 button.selected = NO;
                 thesisView.thesisCollected = ZCPCurrUserNotCollectThesis;
                 thesisView.thesisModel.thesisCollectNumber = thesisView.thesisModel.thesisCollectNumber - 1;
-                thesisView.collectionNumberLabel.text = [NSString stringWithFormat:@"%d 人收藏", self.thesisModel.thesisCollectNumber];
+                thesisView.collectionNumberLabel.text = [NSString stringWithFormat:@"%lu 人收藏", self.thesisModel.thesisCollectNumber];
                 
                 TTDPRINT(@"取消收藏成功！");
                 [MBProgressHUD showSuccess:@"取消收藏成功！" toView:self.view];

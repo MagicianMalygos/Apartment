@@ -12,6 +12,21 @@
 
 @implementation ZCPBookModel
 
+#pragma mark - synthesize
+@synthesize bookId = _bookId;
+@synthesize bookName = _bookName;
+@synthesize bookAuthor = _bookAuthor;
+@synthesize bookPublishTime = _bookPublishTime;
+@synthesize bookCoverURL = _bookCoverURL;
+@synthesize bookPublisher = _bookPublisher;
+@synthesize bookSummary = _bookSummary;
+@synthesize bookCommentCount = _bookCommentCount;
+@synthesize bookCollectNumber = _bookCollectNumber;
+@synthesize bookTime = _bookTime;
+@synthesize field = _field;
+@synthesize contributor = _contributor;
+
+#pragma mark - kvc
 - (void)setValue:(id)value forKey:(NSString *)key {
     if ([key isEqualToString:@"bookPublishTime"]
         || [key isEqualToString:@"bookTime"]) {

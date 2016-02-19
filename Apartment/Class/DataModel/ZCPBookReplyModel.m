@@ -8,10 +8,19 @@
 
 #import "ZCPBookReplyModel.h"
 
-#import "ZCPRequestResponseTranslator.h"
+#import "ZCPRequestResponseTranslator+Library.h"
 
 @implementation ZCPBookReplyModel
 
+#pragma mark - synthesize
+@synthesize bookreplyId = _bookreplyId;
+@synthesize bookreplyContent = _bookreplyContent;
+@synthesize bookreplySupport = _bookreplySupport;
+@synthesize bookreplyTime = _bookreplyTime;
+@synthesize user = _user;
+@synthesize book = _book;
+
+#pragma mark - kvc
 - (void)setValue:(id)value forKey:(NSString *)key {
     if ([key isEqualToString:@"bookreplyTime"]) {
         value = [value toDate];

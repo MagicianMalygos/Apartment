@@ -74,22 +74,6 @@
 
 
 /**
- *  问题模型转换
- *
- *  @param responseData 属性字典
- *
- *  @return 问题模型
- */
-+ (ZCPQuestionModel *)translateResponse_QuestionModel:(NSDictionary *)responseData {
-    ZCPQuestionModel *model = nil;
-    if ([responseData isKindOfClass:[NSDictionary class]]) {
-        // 在此处写字典转模型代码
-        model = [ZCPQuestionModel modelFromDictionary:responseData];
-    }
-    return model;
-}
-
-/**
  *  图书贴模型转换
  *
  *  @param responseData 属性字典
@@ -135,35 +119,6 @@
     return model;
 }
 
-/**
- *  图书模型转换
- *
- *  @param responseData 属性字典
- *
- *  @return 图书模型
- */
-+ (ZCPBookModel *)translateResponse_BookModel:(NSDictionary *)responseData {
-    ZCPBookModel *model = nil;
-    if ([responseData isKindOfClass:[NSDictionary class]]) {
-        // 在此处写字典转模型代码
-        model = [ZCPBookModel modelFromDictionary:responseData];
-    }
-    return model;
-}
-/**
- *  图书回复模型转换
- *
- *  @param responseData 属性字典
- *
- *  @return 图书回复模型
- */
-+ (ZCPBookReplyModel *)translateResponse_BookReplyModel:(NSDictionary *)responseData {
-    ZCPBookReplyModel *model = nil;
-    if ([responseData isKindOfClass:[NSDictionary class]]) {
-        // 在此处写字典转模型代码
-        model = [ZCPBookReplyModel modelFromDictionary:responseData];
-    }
-    return model;
-}
+
 
 @end

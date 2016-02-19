@@ -10,6 +10,7 @@
 
 @implementation ZCPListDataModel
 
+#pragma mark - synthesize
 @synthesize items = _items;
 @synthesize page = _page;
 @synthesize rows = _rows;

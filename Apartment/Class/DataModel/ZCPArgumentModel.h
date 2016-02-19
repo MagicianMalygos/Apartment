@@ -30,15 +30,14 @@ typedef NS_ENUM(NSInteger, ZCPArgumentAnonymousState) {
 
 @interface ZCPArgumentModel : ZCPDataModel
 
-@property (nonatomic, assign) int argumentId;                       // 论据表编号
+@property (nonatomic, assign) NSInteger argumentId;                 // 论据表编号
 @property (nonatomic, copy) NSString *argumentContent;              // 论据内容
-@property (nonatomic, assign) int argumentSupport;                  // 点赞量
-@property (nonatomic, assign) int argumentBelong;                   // 所属正反方
+@property (nonatomic, assign) NSInteger argumentSupport;            // 点赞量
+@property (nonatomic, assign) NSInteger argumentBelong;             // 所属正反方
 @property (nonatomic, strong) NSDate *argumentTime;                 // 记录添加时间
 @property (nonatomic, strong) ZCPThesisModel *thesis;               // 所属辩题
 @property (nonatomic, strong) ZCPUserModel *user;                   // 辩题人
 @property (nonatomic, strong) ZCPStateModel *state;                 // 匿名状态
-
 @property (nonatomic, assign) ZCPArgumentSupportState supported;    // 当前用户是否已经点过赞
 
 @end

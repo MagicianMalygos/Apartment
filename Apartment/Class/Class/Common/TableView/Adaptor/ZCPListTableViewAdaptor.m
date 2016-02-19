@@ -10,7 +10,7 @@
 
 #define LOADMORE_HEIGHT 44.0
 
-@interface ZCPListTableViewAdaptor () <PARefreshTableHeaderDelegate>
+@interface ZCPListTableViewAdaptor ()
 
 @end
 
@@ -162,54 +162,6 @@
     return _items;
 }
 
-- (PATableHeaderDragRefreshView *)headerRefreshView
-{
-    if (_headerRefreshView == nil) {
-        // Add our refresh header
-        _headerRefreshView = [[PATableHeaderDragRefreshView alloc]
-                              initWithFrame:CGRectMake(0,
-                                                       -CGRectGetHeight(self.tableView.bounds),
-                                                       CGRectGetWidth(self.tableView.bounds),
-                                                       CGRectGetHeight(self.tableView.bounds))];
-        _headerRefreshView.autoresizingMask = UIViewAutoresizingFlexibleWidth;
-        _headerRefreshView.backgroundColor = [UIColor clearColor];
-        _headerRefreshView.delegate = self;
-    }
-    return _headerRefreshView;
-}
-
-- (PALoadFooterView *)loadMoreView
-{
-    if (_loadMoreView == nil) {
-        _loadMoreView = [[PALoadFooterView alloc] initWithFrame:CGRectMake(0.0, 0.0, CGRectGetWidth(self.tableView.bounds), LOADMORE_HEIGHT)];
-        _loadMoreView.autoresizingMask = UIViewAutoresizingFlexibleWidth;
-        _loadMoreView.backgroundColor = [UIColor whiteColor];
-    }
-    return _loadMoreView;
-}
-
-- (void)setDragRefreshEnable:(BOOL)dragRefreshEnable
-{
-    _dragRefreshEnable = dragRefreshEnable;
-    if (_dragRefreshEnable) {
-        [self.tableView addSubview:self.headerRefreshView];
-    } else {
-        [self.headerRefreshView removeFromSuperview];
-    }
-}
-
-- (void)setLoadMoreEnable:(BOOL)loadMoreEnable
-{
-    _loadMoreEnable = loadMoreEnable;
-    if (_loadMoreEnable) {
-        self.tableView.tableFooterView = self.loadMoreView;
-        [self.loadMoreView startAnimation];
-    } else {
-        self.tableView.tableFooterView = nil;
-        [self.loadMoreView stopAnimation];
-    }
-}
-
 - (NSMutableDictionary *)cellActionDictionary{
     if (_cellActionDictionary == nil) {
         _cellActionDictionary   = [NSMutableDictionary dictionary];
@@ -225,19 +177,6 @@
     }
     
     return _cellTargetDictionary;
-}
-
-- (BOOL)dataIsLoading
-{
-    return [self.delegate respondsToSelector:@selector(tableViewDataIsLoading:)] &&
-    [self.delegate tableViewDataIsLoading:self.tableView];
-}
-
-- (void)finishLoadingDataWithResult:(BOOL)result
-{
-    if (self.dragRefreshEnable) {
-        [self.headerRefreshView paRefreshScrollViewDataSourceDidFinishedLoading:self.tableView];
-    }
 }
 
 #pragma mark - UITableViewDataSource
@@ -276,25 +215,6 @@
     
     return cell;
 }
-
-#pragma mark - PARefreshTableHeaderDelegate
-
-- (BOOL)paRefreshTableHeaderDataSourceIsLoading:(PATableHeaderDragRefreshView *)view
-{
-    if ([self.delegate respondsToSelector:@selector(tableViewDataIsLoading:)]) {
-        return [self.delegate tableViewDataIsLoading:self.tableView];
-    } else {
-        return YES;
-    }
-}
-
-- (void)paRefreshTableHeaderDidTriggerRefresh:(PATableHeaderDragRefreshView *)view
-{
-    if ([self.delegate respondsToSelector:@selector(tableViewTriggerRefresh:)]) {
-        return [self.delegate tableViewTriggerRefresh:self.tableView];
-    }
-}
-
 
 #pragma mark - UITableViewDelegate
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -358,47 +278,6 @@
         return [self.delegate tableView:self.tableView canEditRowAtIndexPath:indexPath];
     }
     return NO;
-}
-
-#pragma mark - UIScrollViewDelegate
-
-- (void)scrollViewDidScroll:(UIScrollView*)scrollView {
-    if ([self.delegate respondsToSelector:@selector(scrollViewDidScroll:)]) {
-        [self.delegate performSelector:@selector(scrollViewDidScroll:) withObject:scrollView];
-    }
-    
-    //NSLog(@"%f", self.tableView.contentOffset.y);
-    
-    if (self.dragRefreshEnable &&
-        self.tableView.contentOffset.y < 0.0) {
-        [self.headerRefreshView paRefreshScrollViewDidScroll:scrollView];
-    }
-    
-    if ([scrollView reachToEnd]) {
-        if ([self.delegate respondsToSelector:@selector(tableViewReachToEnd:)]) {
-            [self.delegate tableViewReachToEnd:self.tableView];
-        }
-    }
-    
-    //    //2. add hasNoMore condition for _infiniteScroll
-    //    if (_loadMoreEnable && ![self dataIsLoading]) {
-    //
-    //    }
-}
-
-- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView {
-    if ([self.delegate respondsToSelector:@selector(scrollViewWillBeginDragging:)]) {
-        [self.delegate performSelector:@selector(scrollViewWillBeginDragging:) withObject:scrollView];
-    }
-}
-
-- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate {
-    if ([self.delegate respondsToSelector:@selector(scrollViewDidEndDragging:willDecelerate:)]) {
-        [self.delegate performSelector:@selector(scrollViewDidEndDragging:willDecelerate:) withObject:scrollView withObject:[NSNumber numberWithBool:decelerate]];
-    }
-    if (self.dragRefreshEnable) {
-        [self.headerRefreshView paRefreshScrollViewDidEndDragging:scrollView];
-    }
 }
 
 @end

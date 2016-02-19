@@ -22,26 +22,18 @@
 @property (nonatomic, weak) UITableView *tableView;
 
 // cell显示所需数据数组，每一个数据模型都要实现PATableViewCellItemBasicProtocol协议
-@property (nonatomic, strong) NSMutableArray *items;
-
-// 下拉刷新控制
-@property (nonatomic, assign) BOOL dragRefreshEnable;
-// 上拉刷新控制
-@property (nonatomic, assign) BOOL loadMoreEnable;
-@property (nonatomic, strong) PATableHeaderDragRefreshView *headerRefreshView;
-@property (nonatomic, strong) PALoadFooterView *loadMoreView;
+@property (nonatomic, strong, nullable) NSMutableArray *items;
 
 // cell点击事件对应的action，使用celltype进行索引
-@property (nonatomic, strong) NSMutableDictionary *cellActionDictionary;
+@property (nonatomic, strong, nullable) NSMutableDictionary *cellActionDictionary;
 // cell执行点击事件的对象存放的字典，使用celltype进行索引
-@property (nonatomic, strong)NSMutableDictionary *cellTargetDictionary;
+@property (nonatomic, strong, nullable)NSMutableDictionary *cellTargetDictionary;
 
 @property (nonatomic, weak) id<ZCPListTableViewAdaptorDelegate> delegate;
 
 #pragma mark - method
 - (nonnull ZCPTableViewCell *)generateCellForObject:(nonnull id<ZCPTableViewCellItemBasicProtocol>)object indexPath:(nonnull NSIndexPath *)indexPath identifier:(nonnull NSString *)identifier;
 - (CGFloat)heightForRowAtIndexPath:(nonnull NSIndexPath *)indexPath;
-- (void)finishLoadingDataWithResult:(BOOL)result;
 
 @end
 
@@ -59,11 +51,6 @@
 - (UITableViewCellEditingStyle)tableView:(nonnull UITableView *)tableView editingStyleForRowAtIndexPath:(nonnull NSIndexPath *)indexPath;
 - (void)tableView:(nonnull UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(nonnull NSIndexPath *)indexPath;
 - (nullable NSString *)tableView:(nonnull UITableView *)tableView titleForDeleteConfirmationButtonForRowAtIndexPath:(nonnull NSIndexPath *)indexPath;
-
-- (BOOL)tableViewDataIsLoading:(nonnull UITableView *)tableView;
-- (void)tableViewTriggerRefresh:(nonnull UITableView *)tableView;
-// 拉到底部判断是否需要加载
-- (void)tableViewReachToEnd:(nonnull UITableView *)tableView;
 
 - (BOOL)tableView:(nonnull UITableView *)tableView canEditRowAtIndexPath:(nonnull NSIndexPath *)indexPath;
 

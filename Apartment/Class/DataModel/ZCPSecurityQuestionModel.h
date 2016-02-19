@@ -12,7 +12,7 @@
 
 @interface ZCPSecurityQuestionModel : ZCPDataModel
 
-@property (nonatomic, assign) int securityQuestionId;         // 密保问题表编号
+@property (nonatomic, assign) NSInteger securityQuestionId;   // 密保问题表编号
 @property (nonatomic, copy) NSString *securityQuestionOne;    // 密保问题一
 @property (nonatomic, copy) NSString *securityQuestionTwo;    // 密保问题二
 @property (nonatomic, copy) NSString *securityQuestionThree;  // 密保问题三
@@ -20,6 +20,6 @@
 @property (nonatomic, copy) NSString *securityAnswerTwo;      // 密保答案二
 @property (nonatomic, copy) NSString *securityAnswerThree;    // 密保答案三
 @property (nonatomic, strong) NSDate *secutityTime;           // 记录添加时间
-@property (nonatomic, strong) ZCPUserModel *user;                     // 关联用户
+@property (nonatomic, strong) ZCPUserModel *user;             // 关联用户
 
 @end

@@ -13,11 +13,11 @@
 
 @interface ZCPBookReplyModel : ZCPDataModel
 
-@property (nonatomic, assign) int bookreplyId;           // 图书评论表编号
-@property (nonatomic, copy) NSString *bookreplyContent;  // 评论内容
-@property (nonatomic, assign) int bookreplySupport;      // 评论点赞量
-@property (nonatomic, strong) NSDate *bookreplyTime;     // 评论时间
-@property (nonatomic, strong) ZCPUserModel *user;        // 评论人
-@property (nonatomic, strong) ZCPBookModel *book;        // 所评论的图书
+@property (nonatomic, assign) NSInteger bookreplyId;        // 图书评论表编号
+@property (nonatomic, copy) NSString *bookreplyContent;     // 评论内容
+@property (nonatomic, assign) NSInteger bookreplySupport;   // 评论点赞量
+@property (nonatomic, strong) NSDate *bookreplyTime;        // 评论时间
+@property (nonatomic, strong) ZCPUserModel *user;           // 评论人
+@property (nonatomic, strong) ZCPBookModel *book;           // 所评论的图书
 
 @end

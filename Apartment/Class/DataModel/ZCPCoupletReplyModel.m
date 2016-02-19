@@ -12,6 +12,15 @@
 
 @implementation ZCPCoupletReplyModel
 
+#pragma mark - synthesize
+@synthesize replyId = _replyId;
+@synthesize replyContent = _replyContent;
+@synthesize replySupport = _replySupport;
+@synthesize replyTime = _replyTime;
+@synthesize couplet = _couplet;
+@synthesize user = _user;
+
+#pragma mark - kvc
 - (void)setValue:(id)value forKey:(NSString *)key {
     if ([key isEqualToString:@"replyTime"]) {
         value = [value toDate];

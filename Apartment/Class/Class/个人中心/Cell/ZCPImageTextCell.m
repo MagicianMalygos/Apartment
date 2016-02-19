@@ -181,7 +181,7 @@
         
         [self.imgIcon setImage:[UIImage imageNamed:item.imageURL]];
         [self.textLabel setAttributedText:item.text];
-        [self.switchView addTarget:item.switchResponser action:@selector(switchValueChanged:) forControlEvents:UIControlEventValueChanged];
+        [self.switchView addTarget:self action:@selector(switchValueChanged:) forControlEvents:UIControlEventValueChanged];
         [self.switchView setOn:([[ZCPControlingCenter sharedInstance] appTheme] == LightTheme)?NO:YES];
     }
 }

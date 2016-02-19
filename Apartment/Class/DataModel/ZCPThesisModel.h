@@ -17,20 +17,19 @@ typedef NS_ENUM(NSInteger, ZCPThesisCollectState) {
 
 @interface ZCPThesisModel : ZCPDataModel
 
-@property (nonatomic, assign) int thesisId;                         // 辩题表编号
+@property (nonatomic, assign) NSInteger thesisId;                   // 辩题表编号
 @property (nonatomic, copy) NSString *thesisContent;                // 辩题内容
 @property (nonatomic, copy) NSString *thesisPros;                   // 正方论点
-@property (nonatomic, assign) int thesisProsCount;                  // 正方支持人数
-@property (nonatomic, assign) int thesisProsReplyNumber;            // 正方回复人数
+@property (nonatomic, assign) NSInteger thesisProsCount;            // 正方支持人数
+@property (nonatomic, assign) NSInteger thesisProsReplyNumber;      // 正方回复人数
 @property (nonatomic, copy) NSString *thesisCons;                   // 反方论点
-@property (nonatomic, assign) int thesisConsCount;                  // 反方支持人数
-@property (nonatomic, assign) int thesisConsReplyNumber;            // 反方回复人数
-@property (nonatomic, assign) int thesisCollectNumber;              // 收藏辩题人数
+@property (nonatomic, assign) NSInteger thesisConsCount;            // 反方支持人数
+@property (nonatomic, assign) NSInteger thesisConsReplyNumber;      // 反方回复人数
+@property (nonatomic, assign) NSInteger thesisCollectNumber;        // 收藏辩题人数
 @property (nonatomic, strong) NSDate *thesisStartTime;              // 辩题开始时间
 @property (nonatomic, strong) NSDate *thesisEndTime;                // 辩题结束时间
 @property (nonatomic, strong) NSDate *thesisTime;                   // 记录添加时间
 @property (nonatomic, strong) ZCPStateModel *state;                 // 辩题状态
-
 @property (nonatomic, assign) ZCPThesisCollectState collected;      // 当前用户是否已经收藏该辩题
 
 @end

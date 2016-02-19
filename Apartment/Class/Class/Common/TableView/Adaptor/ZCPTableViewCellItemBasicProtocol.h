@@ -29,7 +29,7 @@ typedef void(^ZCPEventBlock)(id object);
 // cell Height
 @property (nonatomic, strong) NSNumber *cellHeight;
 // cell响应对象
-@property (nonatomic, assign) id cellSelResponse;
+@property (nonatomic, weak) id cellSelResponse;
 // cell数据源tag标识
 @property (nonatomic, assign) int cellTag;
 // cell的位置

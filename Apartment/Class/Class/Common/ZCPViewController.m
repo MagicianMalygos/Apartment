@@ -36,12 +36,12 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    //
+    // 键盘点击隐藏事件
     self.needsTapToDismissKeyboard = @YES;
     if ([self isHideLeftBarButton] == NO) {
         [self setBackBarButton];
     }
-    self.view.backgroundColor = [UIColor whiteColor];
+    self.view.backgroundColor = [UIColor clearColor];
     
     // 添加键盘响应事件
     [self registerKeyboardNotification];

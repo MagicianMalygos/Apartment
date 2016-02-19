@@ -41,8 +41,7 @@
 
 
 
-// 问题模型转换
-+ (ZCPQuestionModel *)translateResponse_QuestionModel:(NSDictionary *)dict;
+
 
 // 图书贴模型转换
 + (ZCPBookPostModel *)translateResponse_BookPostModel:(NSDictionary *)dict;
@@ -51,10 +50,7 @@
 // 图书贴评论回复模型转换
 + (ZCPBookPostCommentReplyModel *)translateResponse_BookPostCommentReplyModel:(NSDictionary *)dict;
 
-// 图书模型转换
-+ (ZCPBookModel *)translateResponse_BookModel:(NSDictionary *)dict;
-// 图书回复模型转换
-+ (ZCPBookReplyModel *)translateResponse_BookReplyModel:(NSDictionary *)dict;
+
 
 
 @end

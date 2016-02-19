@@ -12,6 +12,18 @@
 
 @implementation ZCPBookPostCommentReplyModel
 
+#pragma mark - synthesize
+@synthesize replyId = _replyId;
+@synthesize replyContent = _replyContent;
+@synthesize replySupport = _replySupport;
+@synthesize replyTime = _replyTime;
+@synthesize user = _user;
+@synthesize receiver = _receiver;
+@synthesize comment = _comment;
+@synthesize supported = _supported;
+@synthesize collected = _collected;
+
+#pragma mark - kvc
 - (void)setValue:(id)value forKey:(NSString *)key {
     if ([key isEqualToString:@"replyTime"]) {
         value = [value toDate];

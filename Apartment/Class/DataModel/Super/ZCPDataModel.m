@@ -10,9 +10,9 @@
 
 @implementation ZCPDataModel
 
+#pragma mark - synthesize
 @synthesize idString = _idString;
-
-#pragma mark - protocol synthesize
+// protocol synthesize
 @synthesize eventBlock = _eventBlock;
 @synthesize cellClass = _cellClass;
 @synthesize cellType = _cellType;

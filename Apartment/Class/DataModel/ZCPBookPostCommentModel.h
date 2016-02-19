@@ -24,15 +24,14 @@ typedef NS_ENUM(NSInteger, BPCommentCollectState){
 
 @interface ZCPBookPostCommentModel : ZCPDataModel
 
-@property (nonatomic, assign) int commentId;                    // 图书贴评论表编号
+@property (nonatomic, assign) NSInteger commentId;              // 图书贴评论表编号
 @property (nonatomic, copy) NSString *commentContent;           // 评论内容
 @property (nonatomic, copy) NSString *commentPosition;          // 评论人定位位置(评论人评论时所在的GPS定位位置)
-@property (nonatomic, assign) int commentSupport;               // 评论点赞量
+@property (nonatomic, assign) NSInteger commentSupport;         // 评论点赞量
 @property (nonatomic, strong) NSDate *commentTime;              // 评论时间
 @property (nonatomic, strong) ZCPUserModel *user;               // 评论人
 @property (nonatomic, strong) ZCPBookPostModel *bookpost;       // 所评论的帖子
-@property (nonatomic ,assign) int commentReplyNumber;           // 回复数量
-
+@property (nonatomic ,assign) NSInteger commentReplyNumber;     // 回复数量
 @property(nonatomic,assign) BPCommentSupportState supported;    // 当前用户是否已经点过赞
 @property(nonatomic,assign) BPCommentCollectState collected;    // 当前用户是否已经收藏
 

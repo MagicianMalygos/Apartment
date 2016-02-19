@@ -10,4 +10,12 @@
 
 @implementation ZCPViewDataModel
 
+#pragma mark - synthesize
+@synthesize vcClass = _vcClass;
+@synthesize vcInitMethod = _vcInitMethod;
+@synthesize vcInstanceMethod = _vcInstanceMethod;
+@synthesize paramDictForInit = _paramDictForInit;
+@synthesize paramDictForInstance = _paramDictForInstance;
+@synthesize identifier = _identifier;
+
 @end
