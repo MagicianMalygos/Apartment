@@ -37,20 +37,4 @@
 // 状态模型转换
 + (ZCPStateModel *)translateResponse_StateModel:(NSDictionary *)dict;
 
-
-
-
-
-
-
-// 图书贴模型转换
-+ (ZCPBookPostModel *)translateResponse_BookPostModel:(NSDictionary *)dict;
-// 图书贴评论模型转换
-+ (ZCPBookPostCommentModel *)translateResponse_BookPostCommentModel:(NSDictionary *)dict;
-// 图书贴评论回复模型转换
-+ (ZCPBookPostCommentReplyModel *)translateResponse_BookPostCommentReplyModel:(NSDictionary *)dict;
-
-
-
-
 @end

@@ -25,10 +25,10 @@
 
 #pragma mark - facilities
 - (ZCPTableViewCell *)generateCellForObject:(id<ZCPTableViewCellItemBasicProtocol>)object indexPath:(NSIndexPath *)indexPath identifier:(NSString *)identifier{
-    ZCPTableViewCell * cell                  = nil;
+    ZCPTableViewCell * cell     = nil;
     
     if (object) {
-        Class   cellClass                       = [self cellClassForObject:object];
+        Class   cellClass       = [self cellClassForObject:object];
         
         if (object.useNib == YES) {
             UINib *nib = [UINib nibWithNibName:NSStringFromClass(cellClass) bundle:nil];
@@ -37,7 +37,6 @@
             cell = [[cellClass alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
         }
     }
-    
     return cell;
 }
 
@@ -95,21 +94,18 @@
 }
 
 - (NSString *)cellTypeAtIndexPath:(NSIndexPath *)indexPath{
-    NSString * cellType                         = nil;
+    NSString * cellType     = nil;
     
     id<ZCPTableViewCellItemBasicProtocol> object = [self objectForRowAtIndexPath:indexPath];
     if (object) {
-        cellType                                = [object cellType];
+        cellType            = [object cellType];
     }
-    
     return cellType;
 }
 
 - (NSString *)identifierForCellAtIndexPath:(NSIndexPath *)indexPath{
-    NSString * identifier                       = nil;
-    
-    identifier                                  = [self cellTypeAtIndexPath:indexPath];
-    
+    NSString * identifier       = nil;
+    identifier                  = [self cellTypeAtIndexPath:indexPath];
     return identifier;
 }
 

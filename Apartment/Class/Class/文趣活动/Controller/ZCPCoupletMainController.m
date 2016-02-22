@@ -165,7 +165,7 @@
     }
 }
 
-#pragma mark - Private Method
+#pragma mark - Refresh Method
 - (void)headerRefresh {
     WEAK_SELF;
     if (self.sortMethodFlag == ZCPCoupletSortByTime) {

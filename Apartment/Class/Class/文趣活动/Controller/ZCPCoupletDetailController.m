@@ -288,6 +288,8 @@
     }
     return YES;
 }
+
+#pragma mark - Refresh Method
 - (void)headerRefresh {
     WEAK_SELF;
     [[ZCPRequestManager sharedInstance] getCoupletReplyListWithPageCount:REPLY_PAGE_COUNT currCoupletID:self.selectedCoupletModel.coupletId currUserID:[ZCPUserCenter sharedInstance].currentUserModel.userId success:^(AFHTTPRequestOperation *operation, ZCPListDataModel *coupletReplyListModel) {

@@ -45,7 +45,7 @@
     self.bpTitleLabel.numberOfLines = 0;
     // 第三行
     self.bpContentLabel = [[UILabel alloc] init];
-    self.bpContentLabel.font = [UIFont defaultFontWithSize:17.0f];
+    self.bpContentLabel.font = [UIFont defaultFontWithSize:16.0f];
     self.bpContentLabel.numberOfLines = 0;
     
     // 第四行
@@ -65,15 +65,15 @@
     self.bpTimeLabel.font = [UIFont defaultFontWithSize:15.0f];
     self.bpTimeLabel.alpha = 0.6f;
     
-//    self.bpTitleLabel.backgroundColor = [UIColor redColor];
-//    self.bpContentLabel.backgroundColor = [UIColor redColor];
-//    self.bpTimeLabel.backgroundColor = [UIColor redColor];
-//    self.uploaderLabel.backgroundColor = [UIColor redColor];
-//    self.fieldLabel.backgroundColor = [UIColor redColor];
-//    self.bookNameLabel.backgroundColor = [UIColor redColor];
-//    self.supportNumberLabel.backgroundColor = [UIColor redColor];
-//    self.collectionNumberLabel.backgroundColor = [UIColor redColor];
-//    self.replyNumberLabel.backgroundColor = [UIColor redColor];
+    self.bpTitleLabel.backgroundColor = [UIColor clearColor];
+    self.bpContentLabel.backgroundColor = [UIColor clearColor];
+    self.bpTimeLabel.backgroundColor = [UIColor clearColor];
+    self.uploaderLabel.backgroundColor = [UIColor clearColor];
+    self.fieldLabel.backgroundColor = [UIColor clearColor];
+    self.bookNameLabel.backgroundColor = [UIColor clearColor];
+    self.supportNumberLabel.backgroundColor = [UIColor clearColor];
+    self.collectionNumberLabel.backgroundColor = [UIColor clearColor];
+    self.replyNumberLabel.backgroundColor = [UIColor clearColor];
     
     [self.contentView addSubview:self.bpTitleLabel];
     [self.contentView addSubview:self.bpContentLabel];
@@ -120,7 +120,7 @@
                                              , CELLWIDTH_DEFAULT - HorizontalMargin * 2
                                              , bpTitleLabelHeight);
         
-        CGFloat bpContentLabelHeight = [self.item.bpContent boundingRectWithSize:CGSizeMake(CELLWIDTH_DEFAULT - HorizontalMargin
+        CGFloat bpContentLabelHeight = [self.item.bpContent boundingRectWithSize:CGSizeMake(CELLWIDTH_DEFAULT - HorizontalMargin * 2
                                                                                             , CGFLOAT_MAX)
                                                                          options:NSStringDrawingUsesFontLeading| NSStringDrawingUsesLineFragmentOrigin
                                                                       attributes:@{NSFontAttributeName: [UIFont defaultFontWithSize:16.0f]}
@@ -151,8 +151,6 @@
                                                       , self.uploaderLabel.bottom + UIMargin
                                                       , NumberLabelWidth
                                                       , NumberLabelHeight);
-        
-
         
         self.item.cellHeight = [NSNumber numberWithFloat:self.supportNumberLabel.bottom + VerticalMargin];
     }

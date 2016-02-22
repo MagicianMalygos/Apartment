@@ -119,7 +119,7 @@
     }];
 }
 
-#pragma mark - Private Method
+#pragma mark - Refresh Method
 /**
  *  下拉刷新
  */

@@ -8,7 +8,7 @@
 
 #import "ZCPBookPostCommentReplyModel.h"
 
-#import "ZCPRequestResponseTranslator.h"
+#import "ZCPRequestResponseTranslator+Communion.h"
 
 @implementation ZCPBookPostCommentReplyModel
 

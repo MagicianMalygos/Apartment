@@ -15,6 +15,13 @@
 #define kSchemeTypeSecurity                                     @"__scheme_security__"
 
 #pragma mark - - - - - - API PATH KEY - - - - - -
+#pragma mark - - - - - - 热门动态相关
+
+#pragma mark - - - - - - 观点交流相关
+#define BOOKPOST_LIST_BY_SORTMETHOD_FIELD                       @"BOOKPOST_LIST_BY_SORTMETHOD_FIELD"
+#define OLD_BOOKPOST_LIST_BY_SORTMETHOD_FIELD                   @"OLD_BOOKPOST_LIST_BY_SORTMETHOD_FIELD"
+#define BOOKPOST_LIST_BY_SEARCHTEXT                             @"BOOKPOST_LIST_BY_SEARCHTEXT"
+
 #pragma mark - - - - - - 文趣活动相关(Couplet)
 #define COUPLET_LIST_BY_TIME                                    @"COUPLET_LIST_BY_TIME"
 #define OLD_COUPLET_LIST_BY_TIME                                @"OLD_COUPLET_LIST_BY_TIME"
@@ -33,6 +40,9 @@
 #define ADD_ARGUMENT                                            @"ADD_ARGUMENT"
 #define CHANGE_THESIS_COLLECTION_STATE                          @"CHANGE_THESIS_COLLECTION_STATE"
 #define CHANGE_ARGUMENT_SUPPORT_STATE                           @"CHANGE_ARGUMENT_SUPPORT_STATE"
+
+#pragma mark - - - - - - 图书馆相关
+#pragma mark - - - - - - 个人中心相关
 
 // 根据Type获取相应的协议
 NSString *  schemeForType(NSString *type);
