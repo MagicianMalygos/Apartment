@@ -16,7 +16,8 @@
 + (ZCPBookPostCommentModel *)translateResponse_BookPostCommentModel:(NSDictionary *)dict;
 // 图书贴评论回复模型转换
 + (ZCPBookPostCommentReplyModel *)translateResponse_BookPostCommentReplyModel:(NSDictionary *)dict;
+
 // 图书贴列表模型转换
-+ (ZCPListDataModel *)translateResponse_BookPostModel_List:(NSDictionary *)dict;
++ (ZCPListDataModel *)translateResponse_BookPostListModel:(NSDictionary *)dict;
 
 @end

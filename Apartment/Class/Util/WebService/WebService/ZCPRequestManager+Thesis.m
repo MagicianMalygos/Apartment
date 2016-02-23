@@ -61,7 +61,7 @@
                                                      , @"pageCount": @(pageCount)}
                                            success:^(AFHTTPRequestOperation *operation, id responseObject) {
                                                if (success) {
-                                                   ZCPListDataModel *model = [ZCPRequestResponseTranslator translateResponse_ArgumentModel_List:[responseObject objectForKey:@"data"]];
+                                                   ZCPListDataModel *model = [ZCPRequestResponseTranslator translateResponse_ArgumentListModel:[responseObject objectForKey:@"data"]];
                                                    success(operation, model);
                                                }
                                            }
@@ -94,7 +94,7 @@
                                                      , @"pageCount": @(pageCount)}
                                            success:^(AFHTTPRequestOperation *operation, id responseObject) {
                                                if (success) {
-                                                   ZCPListDataModel *model = [ZCPRequestResponseTranslator translateResponse_ArgumentModel_List:[responseObject objectForKey:@"data"]];
+                                                   ZCPListDataModel *model = [ZCPRequestResponseTranslator translateResponse_ArgumentListModel:[responseObject objectForKey:@"data"]];
                                                    success(operation, model);
                                                }
                                            }

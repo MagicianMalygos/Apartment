@@ -72,4 +72,26 @@
     return model;
 }
 
+/**
+ *  领域列表模型转换
+ *
+ *  @param responseData 数据字典
+ *
+ *  @return 领域列表模型
+ */
++ (ZCPListDataModel *)translateResponse_FieldListModel:(NSDictionary *)responseData {
+    ZCPListDataModel *listModel = nil;
+    if ([responseData isKindOfClass:[NSDictionary class]]) {
+        listModel = [[ZCPListDataModel alloc] init];
+        NSArray *fieldList = [responseData valueForKey:@"aList"];
+        if (![fieldList isNilOrNull]) {
+            for (NSDictionary *fieldDict in fieldList) {
+                ZCPFieldModel *model = [ZCPRequestResponseTranslator translateResponse_FieldModel:fieldDict];
+                [listModel.items addObject:model];
+            }
+        }
+    }
+    return listModel;
+}
+
 @end

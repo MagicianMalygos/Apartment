@@ -17,6 +17,6 @@
 // 当前辩题模型转换
 + (NSDictionary *)translateResponse_CurrThesisAndArgument:(NSDictionary *)dict;
 // 论据列表模型转换
-+ (ZCPListDataModel *)translateResponse_ArgumentModel_List:(NSDictionary *)responseData;
++ (ZCPListDataModel *)translateResponse_ArgumentListModel:(NSDictionary *)responseData;
 
 @end

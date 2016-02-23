@@ -52,6 +52,10 @@
  *  @param thesisModel 辩题模型
  */
 - (void)setThesisModel:(ZCPThesisModel *)thesisModel;
+/**
+ *  获取视图高度
+ */
++ (CGFloat)viewHeightWithThesisModel:(ZCPThesisModel *)thesisModel;
 
 @end
 

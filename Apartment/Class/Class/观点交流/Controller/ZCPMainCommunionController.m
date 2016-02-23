@@ -9,23 +9,27 @@
 #import "ZCPMainCommunionController.h"
 
 #import "ZCPOptionView.h"
+#import "ZCPSelectFieldController.h"
 #import "ZCPBookPostCell.h"
 #import "ZCPBookPostModel.h"
 #import "ZCPRequestManager+Communion.h"
 
-#define BOOKPOST_LIST_PAGE_COUNT    1
-#define SearchBarHeight             44.0f  // 搜索栏视图高度
-#define OptionHeight                35.0f  // 选项视图高度
+#define BOOKPOST_LIST_PAGE_COUNT    10
+#define SearchBarHeight             44.0f   // 搜索栏视图高度
+#define OptionHeight                35.0f   // 选项视图高度
+#define SelecteFieldWitdth          50.0f   // 选择领域视图宽度
+#define SelecteFieldHeight          300.0f  // 选择领域视图高度
 
-@interface ZCPMainCommunionController () <ZCPOptionViewDelegate, UISearchBarDelegate, UISearchResultsUpdating>
+@interface ZCPMainCommunionController () <ZCPOptionViewDelegate, UISearchBarDelegate, ZCPSelectFieldDelegate>
 
-@property (nonatomic, strong) UISearchController *searchController;     // 搜索控制器
-@property (nonatomic, strong) ZCPOptionView *optionView;                // 选项视图
+@property (nonatomic, strong) UISearchBar *searchBar;                           // 搜索视图
+@property (nonatomic, strong) ZCPOptionView *optionView;                        // 选项视图
+@property (nonatomic, strong) ZCPSelectFieldController *selectFieldControl;     // 选择领域控制器
 
-@property (nonatomic, strong) NSMutableArray *bookpostArr;              // 图书贴数组
-@property (nonatomic, assign) NSInteger fieldIndex;                     // 领域索引值
-@property (nonatomic, assign) ZCPBookpostSortMethod sortMethod;         // 排序方式
-@property (nonatomic, assign)  int pagination;                          // 页码
+@property (nonatomic, strong) NSMutableArray *bookpostArr;                      // 图书贴数组
+@property (nonatomic, assign) NSInteger fieldIndex;                             // 领域索引值
+@property (nonatomic, assign) ZCPBookpostSortMethod sortMethod;                 // 排序方式
+@property (nonatomic, assign)  int pagination;                                  // 页码
 
 @end
 
@@ -37,11 +41,12 @@
     
     // 初始化
     self.fieldIndex = 0;
-    self.sortMethod = ZCPBookpostSortByTime;
     self.pagination = 1;
+    self.sortMethod = ZCPBookpostSortByTime;
     
-    [self.view addSubview:self.searchController.searchBar];
+    [self.view addSubview:self.searchBar];
     [self.view addSubview:self.optionView];
+    [self.view addSubview:self.selectFieldControl.view];
     
     self.bookpostArr = [NSMutableArray array];
     WEAK_SELF;
@@ -62,11 +67,6 @@
     self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(headerRefresh)];
     self.tableView.mj_footer = [MJRefreshBackFooter footerWithRefreshingTarget:self refreshingAction:@selector(footerRefresh)];
     
-    [[ZCPRequestManager sharedInstance] getBookpostWithSearchText:@"" sortMethod:self.sortMethod fieldID:self.fieldIndex currUserID:[ZCPUserCenter sharedInstance].currentUserModel.userId pageCount:BOOKPOST_LIST_PAGE_COUNT success:^(AFHTTPRequestOperation *operation, ZCPListDataModel *bookpostListModel) {
-        NSLog(@"\n\n\n%@\n\n\n", bookpostListModel.items);
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        TTDPRINT(@"%@", error);
-    }];
 }
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
@@ -79,21 +79,16 @@
 }
 
 #pragma mark - getter / setter
-- (UISearchController *)searchController {
-    if (_searchController == nil) {
-        _searchController = [[UISearchController alloc] initWithSearchResultsController:nil];
-        _searchController.searchResultsUpdater = self;
-        _searchController.dimsBackgroundDuringPresentation = NO;        // 搜索期间视图变暗
-        _searchController.hidesNavigationBarDuringPresentation = NO;    // 搜索期间隐藏NavigationBar
-        _searchController.searchBar.placeholder = @"请输入作者名、书籍名、观点标题等关键词";
-        _searchController.searchBar.frame = CGRectMake(self.searchController.searchBar.frame.origin.x, self.searchController.searchBar.frame.origin.y, self.searchController.searchBar.frame.size.width, SearchBarHeight);
+- (UISearchBar *)searchBar {
+    if (_searchBar == nil) {
+        _searchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(0, 0, APPLICATIONWIDTH, SearchBarHeight)];
+        _searchBar.placeholder = @"请输入作者名、书籍名、观点标题等关键词";
+        _searchBar.delegate = self;
     }
-    return _searchController;
+    return _searchBar;
 }
 /**
  *  懒加载选项视图
- *
- *  @return 选项视图
  */
 - (ZCPOptionView *)optionView {
     if (_optionView == nil) {
@@ -112,6 +107,19 @@
         [_optionView hideMarkView];
     }
     return _optionView;
+}
+/**
+ *  懒加载选择领域视图控制器
+ */
+- (ZCPSelectFieldController *)selectFieldControl {
+    if (_selectFieldControl == nil) {
+        _selectFieldControl = [ZCPSelectFieldController new];
+        _selectFieldControl.view.frame = CGRectMake(APPLICATIONWIDTH * 5 / 6 - SelecteFieldWitdth / 2, self.optionView.bottom, SelecteFieldWitdth, SelecteFieldHeight);
+        _selectFieldControl.delegate = self;
+        _selectFieldControl.view.backgroundColor = [UIColor PALightGrayColor];
+        _selectFieldControl.view.alpha = 0.0f;
+    }
+    return _selectFieldControl;
 }
 
 #pragma mark - Construct Data
@@ -136,9 +144,23 @@
     self.tableViewAdaptor.items = items;
 }
 
-#pragma mark - UISearchResultsUpdating
-- (void)updateSearchResultsForSearchController:(UISearchController *)searchController {
-    NSLog(@"asd");
+#pragma mark - UISearchBarDelegate
+- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar {
+    // 按搜索条件获取图书贴列表
+    WEAK_SELF;
+    [[ZCPRequestManager sharedInstance] getBookpostWithSearchText:searchBar.text sortMethod:self.sortMethod fieldID:self.fieldIndex currUserID:[ZCPUserCenter sharedInstance].currentUserModel.userId pageCount:BOOKPOST_LIST_PAGE_COUNT success:^(AFHTTPRequestOperation *operation, ZCPListDataModel *bookpostListModel) {
+        STRONG_SELF;
+        if ([bookpostListModel isKindOfClass:[ZCPListDataModel class]] && bookpostListModel.items) {
+            weakSelf.bookpostArr = [NSMutableArray arrayWithArray:bookpostListModel.items];
+            
+            // 重新构造并加载数据
+            [self constructData];
+            [weakSelf.tableView reloadData];
+        }
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        TTDPRINT(@"%@", error);
+    }];
+    self.pagination = 1;
 }
 
 #pragma mark - ZCPOptionViewDelegate
@@ -183,12 +205,23 @@
             break;
         }
         case 2: {
-            // 显示分类
+            // 显示或隐藏选择领域视图
+            if (self.selectFieldControl.view.alpha == 1.0f) {
+                [self.selectFieldControl hideView];
+            }
+            else if (self.selectFieldControl.view.alpha == 0.0f) {
+                [self.selectFieldControl showView];
+            }
             break;
         }
         default:
             break;
     }
+}
+
+#pragma mark - ZCPSelectFieldDelegate
+- (void)selectedCellIndex:(NSInteger)cellIndex fieldName:(NSString *)fieldName {
+    self.fieldIndex = cellIndex;
 }
 
 #pragma mark - Refresh Method
@@ -203,10 +236,10 @@
             [self constructData];
             [weakSelf.tableView reloadData];
         }
-        [self.tableView.mj_header endRefreshing];
+        [weakSelf.tableView.mj_header endRefreshing];
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         TTDPRINT(@"%@", error);
-        [self.tableView.mj_header endRefreshing];
+        [weakSelf.tableView.mj_header endRefreshing];
     }];
     self.pagination = 1;
 }
@@ -229,11 +262,11 @@
             [self constructData];
             [weakSelf.tableView reloadData];
         }
-        [self.tableView.mj_footer endRefreshing];
-        self.pagination ++;
+        [weakSelf.tableView.mj_footer endRefreshing];
+        weakSelf.pagination ++;
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         TTDPRINT(@"%@", error);
-        [self.tableView.mj_footer endRefreshing];
+        [weakSelf.tableView.mj_footer endRefreshing];
     }];
 }
 

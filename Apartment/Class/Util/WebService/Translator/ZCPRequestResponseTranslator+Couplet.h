@@ -15,8 +15,8 @@
 // 对联回复模型转换
 + (ZCPCoupletReplyModel *)translateResponse_CoupletReplyModel:(NSDictionary *)dict;
 // 对联列表模型转换
-+ (ZCPListDataModel *)translateResponse_CoupletModel_List:(NSDictionary *)dict;
++ (ZCPListDataModel *)translateResponse_CoupletListModel:(NSDictionary *)dict;
 // 对联回复列表模型转换
-+ (ZCPListDataModel *)translateResponse_CoupletReplyModel_List:(NSDictionary *)responseData;
++ (ZCPListDataModel *)translateResponse_CoupletReplyListModel:(NSDictionary *)responseData;
 
 @end

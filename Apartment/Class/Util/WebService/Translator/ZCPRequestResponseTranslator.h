@@ -37,4 +37,7 @@
 // 状态模型转换
 + (ZCPStateModel *)translateResponse_StateModel:(NSDictionary *)dict;
 
+// 领域模型转换
++ (ZCPListDataModel *)translateResponse_FieldListModel:(NSDictionary *)responseData;
+
 @end

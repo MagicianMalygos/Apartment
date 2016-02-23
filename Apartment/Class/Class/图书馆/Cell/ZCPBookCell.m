@@ -14,7 +14,8 @@
 #define LABEL_HEIGHT            20.0f                                       // 标签高度
 #define TIMELABEL_WIDTH         160.0f                                      // 时间标签宽度
 #define NUMBERLABEL_WIDTH       80.0f                                       // 计数标签宽度
-#define CELL_HEIGHT             (COVER_HEIGHT + UIMargin + LABEL_HEIGHT)    // 高度
+
+#define CELL_HEIGHT             (COVER_HEIGHT + UIMargin + LABEL_HEIGHT + VerticalMargin * 2)    // cell高度
 
 #pragma mark - ZCPBookCell
 @implementation ZCPBookCell
@@ -126,19 +127,22 @@
     
         // 设置属性
         self.coverImageView.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:self.item.bookCoverURL]]];
+        [self.coverImageView sd_setImageWithURL:[NSURL URLWithString:coverImageGetURL(self.item.bookCoverURL)] placeholderImage:[UIImage imageNamed:@""]];
+        
         self.nameLabel.text = self.item.bookName;
         self.authorLabel.text = self.item.bookAuthor;
         self.publisherLabel.text = self.item.bookPublisher;
         
+        NSString *fieldStr = @"";
         for (NSString *f in self.item.field) {
-            self.fieldLabel.text = [self.fieldLabel.text stringByAppendingString:f];
+            fieldStr = [fieldStr stringByAppendingString:f];
         }
+        self.fieldLabel.text = fieldStr;
         self.publishTimeLabel.text = [NSString stringWithFormat:@"出版日期：%@", [self.item.bookPublishTime toString]];
         self.contributorLabel.text = [NSString stringWithFormat:@"贡献者：%@", self.item.contributor];
         self.collectNumberLabel.text = [NSString stringWithFormat:@"%lu 人点赞", self.item.bookCollectNumber];
         self.commentCountLabel.text = [NSString stringWithFormat:@"%lu 人评论", self.item.bookCommentCount];
         
-        self.item.cellHeight = [NSNumber numberWithFloat:self.contributorLabel.bottom + VerticalMargin];
     }
 }
 + (CGFloat)tableView:(UITableView *)tableView rowHeightForObject:(id)object {
@@ -227,7 +231,6 @@
     return [item.cellHeight floatValue];
 }
 
-
 @end
 
 @implementation ZCPBookDetailCellItem
@@ -244,7 +247,7 @@
     if (self = [super initWithDefault]) {
         self.cellClass = [ZCPBookDetailCell class];
         self.cellType = [ZCPBookDetailCell cellIdentifier];
-        self.cellHeight = @178;
+        self.cellHeight = @(CELL_HEIGHT + 20 + UIMargin);
     }
     return self;
 }

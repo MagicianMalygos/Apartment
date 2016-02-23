@@ -18,4 +18,11 @@ typedef void(^requestFailHandler)(AFHTTPRequestOperation *operation, NSError *er
 
 + (instancetype)sharedInstance;
 
+
+/**
+ *  得到领域列表
+ */
+- (NSOperation *)getFieldListSuccess:(void(^)(AFHTTPRequestOperation *operation, ZCPListDataModel *fieldListModel))success
+                                           failure:(void(^)(AFHTTPRequestOperation *operation, NSError *error))failure;
+
 @end

@@ -99,12 +99,20 @@
 }
 + (CGFloat)tableView:(UITableView *)tableView rowHeightForObject:(id)object {
     ZCPCoupletReplyCellItem *item = (ZCPCoupletReplyCellItem *)object;
-    // 计算高度
-    CGFloat contentHeight = [item.replyContent boundingRectWithSize:CGSizeMake(CELLWIDTH_DEFAULT - HorizontalMargin * 2, CGFLOAT_MAX)
-                                                            options:NSStringDrawingUsesFontLeading| NSStringDrawingUsesLineFragmentOrigin
-                                                         attributes:@{NSFontAttributeName: [UIFont defaultBoldFontWithSize:18.0f]}
-                                                            context:nil].size.height;
-    return 25.0f + contentHeight + 20.0f + UIMargin * 2 + VerticalMargin * 2;
+    
+    // 第一行
+    CGFloat rowHeight1 = 25.0f;
+    // 第二行
+    CGFloat rowHeight2 = [item.replyContent boundingRectWithSize:CGSizeMake(CELLWIDTH_DEFAULT - HorizontalMargin * 2, CGFLOAT_MAX)
+                                                         options:NSStringDrawingUsesFontLeading| NSStringDrawingUsesLineFragmentOrigin
+                                                      attributes:@{NSFontAttributeName: [UIFont defaultBoldFontWithSize:18.0f]}
+                                                         context:nil].size.height;
+    // 第三行
+    CGFloat rowHeight3 = 20.0f;
+    // cell高度
+    CGFloat cellHeight = rowHeight1 + rowHeight2 + rowHeight3 + VerticalMargin * 2 + UIMargin * 2;
+    
+    return cellHeight;
 }
 
 #pragma mark - Button Click

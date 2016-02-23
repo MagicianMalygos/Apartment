@@ -63,7 +63,7 @@
  *
  *  @return 图书贴列表模型
  */
-+ (ZCPListDataModel *)translateResponse_BookPostModel_List:(NSDictionary *)responseData {
++ (ZCPListDataModel *)translateResponse_BookPostListModel:(NSDictionary *)responseData {
     ZCPListDataModel *listModel = nil;
     if ([responseData isKindOfClass:[NSDictionary class]]) {
         listModel = [[ZCPListDataModel alloc] init];

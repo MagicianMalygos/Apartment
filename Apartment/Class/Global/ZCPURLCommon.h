@@ -15,6 +15,8 @@
 #define kSchemeTypeSecurity                                     @"__scheme_security__"
 
 #pragma mark - - - - - - API PATH KEY - - - - - -
+#define FIELD_LIST                                              @"FIELD_LIST"
+
 #pragma mark - - - - - - 热门动态相关
 
 #pragma mark - - - - - - 观点交流相关
@@ -44,12 +46,21 @@
 #pragma mark - - - - - - 图书馆相关
 #pragma mark - - - - - - 个人中心相关
 
+// 协议 + host + path
+NSString *  ZCPMakeURLString(NSString *scheme, NSString *host, NSString *path);
 // 根据Type获取相应的协议
 NSString *  schemeForType(NSString *type);
 // 根据Type获取相应的host
 NSString *  hostForType(NSString *type);
 // 根据key获取相应的path
 NSString *  urlForKey(NSString *urlKey);
+
+// 获取图片地址
+NSString * imageGetURL(NSString * key,NSString * imageName);
+// 获取封面图片地址
+NSString * coverImageGetURL(NSString * imageName);
+// 获取头像图片地址
+NSString * headImageGetURL(NSString * imageName);
 
 
 @interface ZCPURLCommon : NSObject

@@ -26,7 +26,8 @@
 }
 + (CGFloat)tableView:(UITableView *)tableView rowHeightForObject:(id)object {
     ZCPThesisCellItem *item = (ZCPThesisCellItem *)object;
-    return [item.cellHeight floatValue];
+    CGFloat cellHeight = [ZCPThesisView viewHeightWithThesisModel:item.thesisModel];
+    return cellHeight;
 }
 
 @end

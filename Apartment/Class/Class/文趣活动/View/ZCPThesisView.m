@@ -95,7 +95,7 @@
         self.thesisContentLabel.font = [UIFont defaultBoldFontWithSize:18.0f];
     }
     // 每次设置thesisModel需更新部分
-    CGFloat height = [self.thesisModel.thesisContent boundingRectWithSize:CGSizeMake(self.width - HorizontalMargin * 2, CGFLOAT_MAX)
+    CGFloat height = [self.thesisModel.thesisContent boundingRectWithSize:CGSizeMake(APPLICATIONWIDTH - HorizontalMargin * 2, CGFLOAT_MAX)
                                                                   options:NSStringDrawingUsesFontLeading| NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName: [UIFont defaultBoldFontWithSize:18.0f]}
                                                                   context:nil].size.height;
     self.thesisContentLabel.frame = CGRectMake(HorizontalMargin, VerticalMargin, self.width - HorizontalMargin * 2, height);
@@ -384,6 +384,37 @@
     }
 }
 
+#pragma mark - Public Method
+/**
+ *  获取视图高度
+ */
++ (CGFloat)viewHeightWithThesisModel:(ZCPThesisModel *)thesisModel {
+    // 第一行
+    CGFloat rowHeight1 = [thesisModel.thesisContent boundingRectWithSize:CGSizeMake(APPLICATIONWIDTH - HorizontalMargin * 2, CGFLOAT_MAX)
+                                                                      options:NSStringDrawingUsesFontLeading| NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName: [UIFont defaultBoldFontWithSize:18.0f]}
+                                                                      context:nil].size.height;
+    // 第二行
+    CGFloat rowHeight2 = DefaultHeight;
+    // 第三行
+    CGFloat rowHeight3 = StaffHeight;
+    // 第四行
+    CGFloat rowHeight4 = DefaultHeight;
+    // 第五行
+    CGFloat rowHeight5 = [thesisModel.thesisPros boundingRectWithSize:CGSizeMake(APPLICATIONWIDTH - HorizontalMargin * 2, CGFLOAT_MAX)
+                                                                   options:NSStringDrawingUsesFontLeading| NSStringDrawingUsesLineFragmentOrigin
+                                                                attributes:@{NSFontAttributeName: [UIFont defaultBoldFontWithSize:15.0f]}
+                                                                   context:nil].size.height;
+    // 第六行
+    CGFloat rowHeight6 = [thesisModel.thesisCons boundingRectWithSize:CGSizeMake(APPLICATIONWIDTH - HorizontalMargin * 2, CGFLOAT_MAX)
+                                                                   options:NSStringDrawingUsesFontLeading| NSStringDrawingUsesLineFragmentOrigin
+                                                                attributes:@{NSFontAttributeName: [UIFont defaultBoldFontWithSize:15.0f]}
+                                                                   context:nil].size.height;
+    // 第七行
+    CGFloat rowHeight7 = DefaultHeight;
+    // view高度
+    CGFloat viewHeight = rowHeight1 + rowHeight2 + rowHeight3 + rowHeight4 + rowHeight5 + rowHeight6 + rowHeight7 + VerticalMargin * 2 + UIMargin * 6;
+    return viewHeight;
+}
 
 #pragma mark - Private Method
 /**
@@ -403,6 +434,5 @@
     }
     return prosRate;
 }
-
 
 @end

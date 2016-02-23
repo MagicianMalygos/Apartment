@@ -33,13 +33,13 @@
     ZCPBookModel *model = [ZCPBookModel modelFromDictionary:@{@"bookId":@1
                                                               ,@"bookName":@"《像恋爱一样去工作》- 爱上邓丽君阿里的卡上了肯德基"
                                                               ,@"bookAuthor":@"茅侃侃"
-                                                              ,@"bookPublishTime":@"2013-12-14"
+                                                              ,@"bookPublishTime":@"2013-12-14 23:21:12"
                                                               ,@"bookCoverURL":@"http://"
                                                               ,@"bookPublisher":@"xxx出版社"
-                                                              ,@"bookSummary":@"拉萨的骄傲了斯柯达"
+                                                              ,@"bookSummary":@"像恋爱一样去工作 - xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
                                                               ,@"bookCommentCount":@20
                                                               ,@"bookCollectNumber":@100
-                                                              ,@"bookTime":@"2015-2-12"
+                                                              ,@"bookTime":@"2015-2-12 11:02:06"
                                                               ,@"field":@{@"fieldId":@4, @"fieldName":@"工作"}
                                                               ,@"contributor":@{@"userName":@"ZCP"}}];
     [self.bookArr addObject:model];
@@ -115,10 +115,10 @@
  */
 - (void)tableView:(UITableView *)tableView didSelectObject:(id<ZCPTableViewCellItemBasicProtocol>)object rowAtIndexPath:(NSIndexPath *)indexPath {
     // 跳转到图书详情界面，判断如果图书模型为nil，则向字典中传入[NSNull null]
-//    ZCPBookModel *currentBookModel = [self.bookArr objectAtIndex:indexPath.row];
-//    [[ZCPNavigator sharedInstance] gotoViewWithIdentifier:APPURL_VIEW_IDENTIFIER_LIBRARY_BOOKDETAIL paramDictForInit:@{@"_currentBookModel": (currentBookModel != nil)? currentBookModel: [NSNull null]}];
+    ZCPBookModel *currentBookModel = [self.bookArr objectAtIndex:indexPath.row];
+    [[ZCPNavigator sharedInstance] gotoViewWithIdentifier:APPURL_VIEW_IDENTIFIER_LIBRARY_BOOKDETAIL paramDictForInit:@{@"_currentBookModel": (currentBookModel != nil)? currentBookModel: [NSNull null]}];
     
-    [[ZCPNavigator sharedInstance] gotoViewWithIdentifier:APPURL_VIEW_IDENTIFIER_LIBRARY_ADDBOOK paramDictForInit:nil];
+//    [[ZCPNavigator sharedInstance] gotoViewWithIdentifier:APPURL_VIEW_IDENTIFIER_LIBRARY_ADDBOOK paramDictForInit:nil];
 }
 
 @end

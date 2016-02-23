@@ -83,9 +83,6 @@
     ZCPButtonCellItem *item = (ZCPButtonCellItem *)object;
     return [item.cellHeight floatValue];
 }
-+ (NSNumber *)cellHeight {
-    return @45.0f;
-}
 
 #pragma mark - Btn Click
 - (void)buttonClicked:(UIButton *)button {
@@ -124,7 +121,7 @@
 - (instancetype)init {
     if (self = [super init]) {
         self.cellClass = [ZCPButtonCell class];
-        self.cellHeight = [ZCPButtonCell cellHeight];
+        self.cellHeight = @45.0f;
         self.cellType = [ZCPButtonCell cellIdentifier];
         self.state = ZCPButtonInitStateNormal;
     }
@@ -133,7 +130,7 @@
 - (instancetype)initWithDefault {
     if (self = [super initWithDefault]) {
         self.cellClass = [ZCPButtonCell class];
-        self.cellHeight = [ZCPButtonCell cellHeight];
+        self.cellHeight = @45.0f;
         self.cellType = [ZCPButtonCell cellIdentifier];
         
         self.titleColorNormal = [UIColor blackColor];

@@ -42,7 +42,7 @@
     for (int i = 0; i < 10; i++) {
         ZCPBookReplyModel *model = [ZCPBookReplyModel modelFromDictionary:@{@"bookreplyContent":@"asdasd"
                                                                             ,@"bookreplySupport":@50
-                                                                            ,@"bookreplyTime":@"2016-1-1"
+                                                                            ,@"bookreplyTime":@"2016-1-1 10:01:02"
                                                                             ,@"user":@{@"userName":@"zcp"
                                                                                        , @"userFaceURL":@"xx://xx"}}];
         [self.bookreplyArr addObject:model];
@@ -67,30 +67,35 @@
     NSMutableArray *items = [NSMutableArray array];
     
     // book info item
-    ZCPBookDetailCellItem* bookItem = [[ZCPBookDetailCellItem alloc] initWithDefault];
-    bookItem.bookCoverURL = self.currentBookModel.bookCoverURL;
-    bookItem.bookName = self.currentBookModel.bookName;
-    bookItem.bookAuthor = self.currentBookModel.bookAuthor;
-    bookItem.bookPublisher = self.currentBookModel.bookPublisher;
-    bookItem.field = @[self.currentBookModel.field.fieldName];
-    bookItem.bookPublishTime = self.currentBookModel.bookPublishTime;
-    bookItem.contributor = self.currentBookModel.contributor.userName;
-    bookItem.bookCommentCount = self.currentBookModel.bookCommentCount;
-    bookItem.bookCollectNumber = self.currentBookModel.bookCollectNumber;
-    bookItem.bookpostSearchButtonTitle = @"搜索图书贴相关内容";
-    bookItem.webSearchButtonTitle = @"搜索网络相关内容";
+    ZCPBookDetailCellItem* bookDetailItem = [[ZCPBookDetailCellItem alloc] initWithDefault];
+    bookDetailItem.bookCoverURL = self.currentBookModel.bookCoverURL;
+    bookDetailItem.bookName = self.currentBookModel.bookName;
+    bookDetailItem.bookAuthor = self.currentBookModel.bookAuthor;
+    bookDetailItem.bookPublisher = self.currentBookModel.bookPublisher;
+    bookDetailItem.field = @[self.currentBookModel.field.fieldName];
+    bookDetailItem.bookPublishTime = self.currentBookModel.bookPublishTime;
+    bookDetailItem.contributor = self.currentBookModel.contributor.userName;
+    bookDetailItem.bookCommentCount = self.currentBookModel.bookCommentCount;
+    bookDetailItem.bookCollectNumber = self.currentBookModel.bookCollectNumber;
+    bookDetailItem.bookpostSearchButtonTitle = @"搜索图书贴相关内容";
+    bookDetailItem.webSearchButtonTitle = @"搜索网络相关内容";
     
-    // sectionItem
-    ZCPSectionCellItem *sectionItem = [[ZCPSectionCellItem alloc] initWithDefault];
-    sectionItem.sectionTitle = @"简介";
+    // sectionItem1
+    ZCPSectionCellItem *sectionItem1 = [[ZCPSectionCellItem alloc] initWithDefault];
+    sectionItem1.sectionTitle = @"简介";
     
     // introductionItem
     ZCPIntroductionCellItem *introductionItem = [[ZCPIntroductionCellItem alloc] initWithDefault];
     introductionItem.introductionString = self.currentBookModel.bookSummary;
     
-    [items addObject:bookItem];
-    [items addObject:sectionItem];
+    // sectionItem2
+    ZCPSectionCellItem *sectionItem2 = [[ZCPSectionCellItem alloc] initWithDefault];
+    sectionItem2.sectionTitle = @"相关评论";
+    
+    [items addObject:bookDetailItem];
+    [items addObject:sectionItem1];
     [items addObject:introductionItem];
+    [items addObject:sectionItem2];
     
     // bookreply
     for (ZCPBookReplyModel *model in self.bookreplyArr) {

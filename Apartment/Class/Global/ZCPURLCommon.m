@@ -8,6 +8,12 @@
 
 #import "ZCPURLCommon.h"
 
+// 协议 + host + path
+NSString *ZCPMakeURLString(NSString *scheme, NSString *host, NSString *path) {
+    scheme = scheme ? scheme : @"http";
+    return [NSString stringWithFormat:@"%@://%@%@",scheme, host, path];
+}
+
 // 根据Type获取相应的协议
 NSString *  schemeForType(NSString *type) {
     NSString * scheme = nil;
@@ -38,6 +44,27 @@ NSString *  urlForKey(NSString *urlKey) {
     return url;
 }
 
+// 获取图片
+#define URL_IMAGE_PATH(key, imageName)       [NSString stringWithFormat:@"/1.0/Application/Home/Images/%@/%@", key, imageName]
+// 获取图片地址
+NSString * imageGetURL(NSString * key,NSString * imageName) {
+    
+    NSString * scheme       = schemeForType(kURLTypeCommon);
+    NSString * host         = hostForType(kURLTypeCommon);
+    NSString * path         = URL_IMAGE_PATH(key, imageName);
+    
+    return ZCPMakeURLString(scheme, host, path);
+}
+// 获取封面图片地址
+NSString * coverImageGetURL(NSString * imageName) {
+    return imageGetURL(@"Cover", imageName);
+}
+// 获取头像图片地址
+NSString * headImageGetURL(NSString * imageName) {
+    return imageGetURL(@"Head", imageName);
+}
+
+
 @implementation ZCPURLCommon
 
 @synthesize urlMaps = _urlMaps;
@@ -47,9 +74,10 @@ IMP_SINGLETON
 - (void)initialize {
     TTDPRINT(@"Load: = = = = api map = = = =");
     self.urlMaps = @{
+                     FIELD_LIST:                                @"/1.0/common/getField"
                      /* - 热门动态相关 - */
                      /* - 观点交流相关 - */
-                     BOOKPOST_LIST_BY_SORTMETHOD_FIELD:         @"/1.0/communion/getBookpostBySortMethodFieldId"
+                     , BOOKPOST_LIST_BY_SORTMETHOD_FIELD:       @"/1.0/communion/getBookpostBySortMethodFieldId"
                      , OLD_BOOKPOST_LIST_BY_SORTMETHOD_FIELD:   @"/1.0/communion/getBookpostByOldId"
                      , BOOKPOST_LIST_BY_SEARCHTEXT:             @"/1.0/communion/getBookpostBySearchText"
                      /* - 文趣活动相关(Couplet) - */

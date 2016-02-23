@@ -48,7 +48,7 @@
  *
  *  @return 对联列表模型
  */
-+ (ZCPListDataModel *)translateResponse_CoupletModel_List:(NSDictionary *)responseData {
++ (ZCPListDataModel *)translateResponse_CoupletListModel:(NSDictionary *)responseData {
     ZCPListDataModel *listModel = nil;
     if ([responseData isKindOfClass:[NSDictionary class]]) {
         listModel = [[ZCPListDataModel alloc] init];
@@ -69,7 +69,7 @@
  *
  *  @return 对联回复列表模型
  */
-+ (ZCPListDataModel *)translateResponse_CoupletReplyModel_List:(NSDictionary *)responseData {
++ (ZCPListDataModel *)translateResponse_CoupletReplyListModel:(NSDictionary *)responseData {
     ZCPListDataModel *listModel = nil;
     if ([responseData isKindOfClass:[NSDictionary class]]) {
         listModel = [[ZCPListDataModel alloc] init];

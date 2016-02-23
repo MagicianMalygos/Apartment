@@ -32,12 +32,12 @@
 - (void)setupContentView {
     
     // 第一行
-    self.bookNameLabel = [[UILabel alloc] init];
-    self.bookNameLabel.font = [UIFont defaultFontWithSize:15.0f];
-    self.bookNameLabel.numberOfLines = 0;
     self.fieldLabel = [[UILabel alloc] init];
     self.fieldLabel.font = [UIFont defaultFontWithSize:15.0f];
     self.fieldLabel.alpha = 0.6f;
+    self.bookNameLabel = [[UILabel alloc] init];
+    self.bookNameLabel.font = [UIFont defaultFontWithSize:15.0f];
+    self.bookNameLabel.numberOfLines = 0;
     
     // 第二行
     self.bpTitleLabel = [[UILabel alloc] init];
@@ -103,12 +103,12 @@
         self.collectionNumberLabel.text = [NSString stringWithFormat:@"%lu 人收藏", self.item.collectionNumber];
         
         // 设置frame
+        self.fieldLabel.frame = CGRectMake(HorizontalMargin, VerticalMargin, FieldLabelWidth, LabelHeight);
         [self.bookNameLabel sizeToFit];
-        self.bookNameLabel.frame = CGRectMake(HorizontalMargin
+        self.bookNameLabel.frame = CGRectMake(self.fieldLabel.right + UIMargin
                                               , VerticalMargin
                                               , self.bookNameLabel.width
                                               , LabelHeight);
-        self.fieldLabel.frame = CGRectMake(self.bookNameLabel.right + UIMargin, VerticalMargin, FieldLabelWidth, LabelHeight);
         
         CGFloat bpTitleLabelHeight = [self.item.bpTitle boundingRectWithSize:CGSizeMake(CELLWIDTH_DEFAULT - HorizontalMargin * 2
                                                                                         , CGFLOAT_MAX)
@@ -138,7 +138,6 @@
                                             , TimeLabelWidth
                                             , LabelHeight);
         
-        
         self.supportNumberLabel.frame = CGRectMake(HorizontalMargin
                                                    , self.uploaderLabel.bottom + UIMargin
                                                    , NumberLabelWidth
@@ -157,7 +156,29 @@
 }
 + (CGFloat)tableView:(UITableView *)tableView rowHeightForObject:(id)object {
     ZCPBookPostCellItem *item = (ZCPBookPostCellItem *)object;
-    return [item.cellHeight floatValue];
+    
+    // 第一行
+    CGFloat rowHeight1 = LabelHeight;
+    // 第二行
+    CGFloat rowHeight2 = [item.bpTitle boundingRectWithSize:CGSizeMake(CELLWIDTH_DEFAULT - HorizontalMargin * 2
+                                                                       , CGFLOAT_MAX)
+                                                    options:NSStringDrawingUsesFontLeading| NSStringDrawingUsesLineFragmentOrigin
+                                                 attributes:@{NSFontAttributeName: [UIFont defaultBoldFontWithSize:18.0f]}
+                                                    context:nil].size.height;
+    // 第三行
+    CGFloat rowHeight3 = [item.bpContent boundingRectWithSize:CGSizeMake(CELLWIDTH_DEFAULT - HorizontalMargin * 2
+                                                                              , CGFLOAT_MAX)
+                                                           options:NSStringDrawingUsesFontLeading| NSStringDrawingUsesLineFragmentOrigin
+                                                        attributes:@{NSFontAttributeName: [UIFont defaultFontWithSize:16.0f]}
+                                                           context:nil].size.height;
+    // 第四行
+    CGFloat rowHeight4 = LabelHeight;
+    // 第五行
+    CGFloat rowHeight5 = NumberLabelHeight;
+    // cell高度
+    CGFloat cellHeight = rowHeight1 + rowHeight2 + rowHeight3 + rowHeight4 + rowHeight5 + VerticalMargin * 2 + UIMargin * 5;
+    
+    return cellHeight;
 }
 
 @end

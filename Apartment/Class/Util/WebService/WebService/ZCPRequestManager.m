@@ -9,12 +9,7 @@
 #import "ZCPRequestManager.h"
 
 #import <AFNetworkActivityIndicatorManager.h>
-
-NSString *ZCPMakeURLString(NSString *scheme, NSString *host, NSString *path) {
-    scheme = scheme ? scheme : @"http";
-    return [NSString stringWithFormat:@"%@://%@%@",scheme, host, path];
-}
-
+#import "ZCPRequestResponseTranslator.h"
 
 @implementation ZCPRequestManager
 
@@ -42,6 +37,31 @@ NSString *ZCPMakeURLString(NSString *scheme, NSString *host, NSString *path) {
         [AFNetworkActivityIndicatorManager sharedManager].enabled = YES;
     }
     return self;
+}
+
+
+/**
+ *  得到领域列表
+ */
+- (NSOperation *)getFieldListSuccess:(void(^)(AFHTTPRequestOperation *operation, ZCPListDataModel *fieldListModel))success
+                             failure:(void(^)(AFHTTPRequestOperation *operation, NSError *error))failure {
+    
+    NSString * scheme       = schemeForType(kURLTypeCommon);
+    NSString * host         = hostForType(kURLTypeCommon);
+    NSString * path         = urlForKey(FIELD_LIST);
+    
+    AFHTTPRequestOperation *operation = [self POST:ZCPMakeURLString(scheme, host, path)
+                                        parameters:nil
+                                           success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                                               if (success) {
+                                                   ZCPListDataModel *model = [ZCPRequestResponseTranslator translateResponse_FieldListModel:[responseObject valueForKey:@"data"]];
+                                                   success(operation, model);
+                                               }
+                                           }
+                                           failure:failure];
+    
+    TTDPRINT(@"URL=%@  params=%@", operation.request.URL, [[NSString alloc] initWithData:operation.request.HTTPBody encoding:NSUTF8StringEncoding]);
+    return operation;
 }
 
 @end

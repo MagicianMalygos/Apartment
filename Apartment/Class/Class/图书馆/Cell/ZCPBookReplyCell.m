@@ -100,7 +100,20 @@
 }
 + (CGFloat)tableView:(UITableView *)tableView rowHeightForObject:(id)object {
     ZCPBookReplyCellItem *item = (ZCPBookReplyCellItem *)object;
-    return [item.cellHeight floatValue];
+    
+    // 第一行
+    CGFloat rowHeight1 = 20;
+    // 第二行
+    CGFloat rowHeight2 = [item.bookreplyContent boundingRectWithSize:CGSizeMake(APPLICATIONWIDTH - HorizontalMargin, CGFLOAT_MAX)
+                                                                  options:NSStringDrawingUsesFontLeading| NSStringDrawingUsesLineFragmentOrigin
+                                                               attributes:@{NSFontAttributeName: [UIFont defaultFontWithSize:15.0f]}
+                                                                  context:nil].size.height;
+    // 第三行
+    CGFloat rowHeight3 = ButtonHeight;
+    // cell高度
+    CGFloat cellHeight = rowHeight1 + rowHeight2 + rowHeight3 + VerticalMargin * 2 + UIMargin * 2;
+    
+    return cellHeight;
 }
 
 @end

@@ -55,5 +55,4 @@
     self.selectedBackgroundView.frame = self.bounds;
 }
 
-
 @end

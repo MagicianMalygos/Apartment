@@ -32,7 +32,7 @@
                                                      , @"currUserID":@(currUserID)}
                                            success:^(AFHTTPRequestOperation *operation, id responseObject) {
                                                if (success) {
-                                                   ZCPListDataModel *model = [ZCPRequestResponseTranslator translateResponse_CoupletModel_List:[responseObject objectForKey:@"data"]];
+                                                   ZCPListDataModel *model = [ZCPRequestResponseTranslator translateResponse_CoupletListModel:[responseObject objectForKey:@"data"]];
                                                    success(operation, model);
                                                }
                                            } failure:failure];
@@ -64,7 +64,7 @@
                                                      , @"currUserID":@(currUserID)}
                                            success:^(AFHTTPRequestOperation *operation, id responseObject) {
                                                if (success) {
-                                                   ZCPListDataModel *model = [ZCPRequestResponseTranslator translateResponse_CoupletModel_List:[responseObject objectForKey:@"data"]];
+                                                   ZCPListDataModel *model = [ZCPRequestResponseTranslator translateResponse_CoupletListModel:[responseObject objectForKey:@"data"]];
                                                    success(operation, model);
                                                }
                                            } failure:failure];
@@ -93,7 +93,7 @@
                                                      ,@"currUserID": @(currUserID)}
                                            success:^(AFHTTPRequestOperation *operation, id responseObject) {
                                                if (success) {
-                                                   ZCPListDataModel *model = [ZCPRequestResponseTranslator translateResponse_CoupletModel_List:[responseObject objectForKey:@"data"]];
+                                                   ZCPListDataModel *model = [ZCPRequestResponseTranslator translateResponse_CoupletListModel:[responseObject objectForKey:@"data"]];
                                                    success(operation, model);
                                                }
                                            }
@@ -125,7 +125,7 @@
                                                      , @"currUserID": @(currUserID)}
                                            success:^(AFHTTPRequestOperation *operation, id responseObject) {
                                                if (success) {
-                                                   ZCPListDataModel *model = [ZCPRequestResponseTranslator translateResponse_CoupletReplyModel_List:[responseObject objectForKey:@"data"]];
+                                                   ZCPListDataModel *model = [ZCPRequestResponseTranslator translateResponse_CoupletReplyListModel:[responseObject objectForKey:@"data"]];
                                                    success(operation, model);
                                                }
                                            }
