@@ -99,6 +99,7 @@ IMP_SINGLETON
                      , CHANGE_THESIS_COLLECTION_STATE:          @"/1.0/activity/changeThesisCollectionRecord"
                      , CHANGE_ARGUMENT_SUPPORT_STATE:           @"/1.0/activity/changeArgumentSupportRecord"
                      /* - 图书馆相关 - */
+                     , BOOK_LIST:                               @"/1.0/library/getBookBySearchTextSortMethodFieldId"
                      /* - 个人中心相关 - */
                      };
 

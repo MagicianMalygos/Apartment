@@ -44,6 +44,8 @@
 #define CHANGE_ARGUMENT_SUPPORT_STATE                           @"CHANGE_ARGUMENT_SUPPORT_STATE"
 
 #pragma mark - - - - - - 图书馆相关
+#define BOOK_LIST                                               @"BOOK_LIST"
+
 #pragma mark - - - - - - 个人中心相关
 
 // 协议 + host + path

@@ -25,11 +25,11 @@ typedef NS_ENUM(NSInteger, ZCPBookpostSortMethod){
 *  @param pageCount     一页数量
 */
 - (NSOperation *)getBookpostListWithSortMethod:(ZCPBookpostSortMethod) sortMethod
-                                fieldID:(NSInteger) fieldID
-                                   currUserID:(NSInteger) currUserID
-                                    pageCount:(NSInteger) pageCount
-                                      success:(void (^)(AFHTTPRequestOperation *operation, ZCPListDataModel *bookpostListModel))success
-                                      failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure;
+                                       fieldID:(NSInteger)fieldID
+                                    currUserID:(NSInteger) currUserID
+                                     pageCount:(NSInteger) pageCount
+                                       success:(void (^)(AFHTTPRequestOperation *operation, ZCPListDataModel *bookpostListModel))success
+                                       failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure;
 
 /**
  *  得到根据oldBookpostID和fieldID查询出的图书贴列表
@@ -42,11 +42,11 @@ typedef NS_ENUM(NSInteger, ZCPBookpostSortMethod){
  */
 - (NSOperation *)getOldBookpostListWithSortMethod:(ZCPBookpostSortMethod)sortMethod
                                     oldBookpostID:(NSInteger) oldBookpostID
-                                       fieldID:(NSInteger) fieldID
-                                    currUserID:(NSInteger) currUserID
-                                     pageCount:(NSInteger) pageCount
-                                       success:(void (^)(AFHTTPRequestOperation *operation, ZCPListDataModel *bookpostListModel))success
-                                       failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure;
+                                          fieldID:(NSInteger) fieldID
+                                       currUserID:(NSInteger) currUserID
+                                        pageCount:(NSInteger) pageCount
+                                          success:(void (^)(AFHTTPRequestOperation *operation, ZCPListDataModel *bookpostListModel))success
+                                          failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure;
 
 
 /**
@@ -59,11 +59,11 @@ typedef NS_ENUM(NSInteger, ZCPBookpostSortMethod){
  *  @param pageCount  一页数量
  */
 - (NSOperation *)getBookpostWithSearchText:(NSString *) searchText
-                                    sortMethod:(ZCPBookpostSortMethod) sortMethod
-                                          fieldID:(NSInteger) fieldID
-                                       currUserID:(NSInteger) currUserID
-                                        pageCount:(NSInteger) pageCount
-                                          success:(void (^)(AFHTTPRequestOperation *operation, ZCPListDataModel *bookpostListModel))success
-                                          failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure;
+                                sortMethod:(ZCPBookpostSortMethod) sortMethod
+                                   fieldID:(NSInteger) fieldID
+                                currUserID:(NSInteger) currUserID
+                                 pageCount:(NSInteger) pageCount
+                                   success:(void (^)(AFHTTPRequestOperation *operation, ZCPListDataModel *bookpostListModel))success
+                                   failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure;
 
 @end

@@ -17,8 +17,8 @@
 #define BOOKPOST_LIST_PAGE_COUNT    10
 #define SearchBarHeight             44.0f   // 搜索栏视图高度
 #define OptionHeight                35.0f   // 选项视图高度
-#define SelecteFieldWitdth          50.0f   // 选择领域视图宽度
-#define SelecteFieldHeight          300.0f  // 选择领域视图高度
+#define SelectFieldWitdth          50.0f   // 选择领域视图宽度
+#define SelectFieldHeight          300.0f  // 选择领域视图高度
 
 @interface ZCPMainCommunionController () <ZCPOptionViewDelegate, UISearchBarDelegate, ZCPSelectFieldDelegate>
 
@@ -114,7 +114,7 @@
 - (ZCPSelectFieldController *)selectFieldControl {
     if (_selectFieldControl == nil) {
         _selectFieldControl = [ZCPSelectFieldController new];
-        _selectFieldControl.view.frame = CGRectMake(APPLICATIONWIDTH * 5 / 6 - SelecteFieldWitdth / 2, self.optionView.bottom, SelecteFieldWitdth, SelecteFieldHeight);
+        _selectFieldControl.view.frame = CGRectMake(APPLICATIONWIDTH * 5 / 6 - SelectFieldWitdth / 2, self.optionView.bottom, SelectFieldWitdth, SelectFieldHeight);
         _selectFieldControl.delegate = self;
         _selectFieldControl.view.backgroundColor = [UIColor PALightGrayColor];
         _selectFieldControl.view.alpha = 0.0f;

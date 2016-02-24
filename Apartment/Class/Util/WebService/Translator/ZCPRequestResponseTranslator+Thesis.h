@@ -14,6 +14,7 @@
 + (ZCPThesisModel *)translateResponse_ThesisModel:(NSDictionary *)dict;
 // 论据模型转换
 + (ZCPArgumentModel *)translateResponse_ArgumentModel:(NSDictionary *)dict;
+
 // 当前辩题模型转换
 + (NSDictionary *)translateResponse_CurrThesisAndArgument:(NSDictionary *)dict;
 // 论据列表模型转换
