@@ -31,7 +31,6 @@
 		181F06781C71DB38002E6994 /* ZCPTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 181F06771C71DB38002E6994 /* ZCPTextView.m */; };
 		182400911C5B0280001D5147 /* ZCPOptionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 182400901C5B0280001D5147 /* ZCPOptionView.m */; };
 		182400941C5B028A001D5147 /* ZCPOptionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 182400931C5B028A001D5147 /* ZCPOptionCell.m */; };
-		182F79D11C4DC94800D5B079 /* UIButton+Style.m in Sources */ = {isa = PBXBuildFile; fileRef = 182F79D01C4DC94800D5B079 /* UIButton+Style.m */; };
 		182F79D41C4DCF0300D5B079 /* UIImage+Category.m in Sources */ = {isa = PBXBuildFile; fileRef = 182F79D31C4DCF0300D5B079 /* UIImage+Category.m */; };
 		1836F2471C47A145000FCB36 /* ZCPTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1836F2461C47A145000FCB36 /* ZCPTableViewCell.m */; };
 		1836F24A1C47A16C000FCB36 /* ZCPSectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1836F2491C47A16C000FCB36 /* ZCPSectionCell.m */; };
@@ -205,8 +204,6 @@
 		182400901C5B0280001D5147 /* ZCPOptionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZCPOptionView.m; sourceTree = "<group>"; };
 		182400921C5B028A001D5147 /* ZCPOptionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZCPOptionCell.h; sourceTree = "<group>"; };
 		182400931C5B028A001D5147 /* ZCPOptionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZCPOptionCell.m; sourceTree = "<group>"; };
-		182F79CF1C4DC94800D5B079 /* UIButton+Style.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+Style.h"; sourceTree = "<group>"; };
-		182F79D01C4DC94800D5B079 /* UIButton+Style.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+Style.m"; sourceTree = "<group>"; };
 		182F79D21C4DCF0300D5B079 /* UIImage+Category.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Category.h"; sourceTree = "<group>"; };
 		182F79D31C4DCF0300D5B079 /* UIImage+Category.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Category.m"; sourceTree = "<group>"; };
 		1836F2451C47A145000FCB36 /* ZCPTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZCPTableViewCell.h; sourceTree = "<group>"; };
@@ -895,8 +892,6 @@
 				183F3B1D1C5330A1007D2F10 /* NSObject+Category.m */,
 				182F79D21C4DCF0300D5B079 /* UIImage+Category.h */,
 				182F79D31C4DCF0300D5B079 /* UIImage+Category.m */,
-				182F79CF1C4DC94800D5B079 /* UIButton+Style.h */,
-				182F79D01C4DC94800D5B079 /* UIButton+Style.m */,
 				1807003B1C48D14600F3BE2B /* UILabel+Category.h */,
 				1807003C1C48D14600F3BE2B /* UILabel+Category.m */,
 				180700241C48850700F3BE2B /* UIColor+Category.h */,
@@ -1394,7 +1389,6 @@
 				188A2FB61C75EC480044AA4E /* ZCPRequestResponseTranslator+Question.m in Sources */,
 				1807003A1C48D01100F3BE2B /* ZCPTableViewWithLineCell.m in Sources */,
 				1896982D1C3229960018BA3F /* ZCPBasicDataConstructor.m in Sources */,
-				182F79D11C4DC94800D5B079 /* UIButton+Style.m in Sources */,
 				1807003D1C48D14600F3BE2B /* UILabel+Category.m in Sources */,
 				180700261C48850700F3BE2B /* UIColor+Category.m in Sources */,
 				18B0EE1F1C4F575100F078EB /* ZCPUserModel.m in Sources */,

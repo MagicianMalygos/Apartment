@@ -13,6 +13,8 @@
 // 系统的Nav颜色
 + (UIColor *)systemNavigationColor;
 
+// button默认颜色
++ (UIColor *)buttonDefaultColor;
 
 // - - - - - - - - - - - - - - - - - - - - - - - -
 + (UIColor *)PADefaultBackgroundColor;

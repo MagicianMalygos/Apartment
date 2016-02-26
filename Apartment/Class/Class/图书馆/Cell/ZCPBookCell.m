@@ -82,7 +82,7 @@
     // 贡献者，计数
     self.contributorLabel = [[UILabel alloc] initWithFrame:CGRectMake(HorizontalMargin
                                                                 , self.coverImageView.bottom + UIMargin
-                                                                , CELLWIDTH_DEFAULT - HorizontalMargin * 2 - UIMargin * 3 - self.coverImageView.width - NUMBERLABEL_WIDTH * 2
+                                                                , CELLWIDTH_DEFAULT - HorizontalMargin * 2 - UIMargin * 2 - NUMBERLABEL_WIDTH * 2
                                                                 , LABEL_HEIGHT)];
     self.contributorLabel.textAlignment = NSTextAlignmentLeft;
     self.contributorLabel.font = [UIFont defaultFontWithSize:13.0f];
@@ -101,15 +101,15 @@
     self.commentCountLabel.textAlignment = NSTextAlignmentRight;
     self.commentCountLabel.font = [UIFont defaultFontWithSize:13.0f];
     
-    self.coverImageView.backgroundColor = [UIColor redColor];
-    self.nameLabel.backgroundColor = [UIColor redColor];
-    self.authorLabel.backgroundColor = [UIColor redColor];
-    self.publisherLabel.backgroundColor = [UIColor redColor];
-    self.publishTimeLabel.backgroundColor = [UIColor redColor];
-    self.fieldLabel.backgroundColor = [UIColor redColor];
-    self.contributorLabel.backgroundColor = [UIColor redColor];
-    self.collectNumberLabel.backgroundColor = [UIColor redColor];
-    self.commentCountLabel.backgroundColor = [UIColor redColor];
+    self.coverImageView.backgroundColor = [UIColor clearColor];
+    self.nameLabel.backgroundColor = [UIColor clearColor];
+    self.authorLabel.backgroundColor = [UIColor clearColor];
+    self.publisherLabel.backgroundColor = [UIColor clearColor];
+    self.publishTimeLabel.backgroundColor = [UIColor clearColor];
+    self.fieldLabel.backgroundColor = [UIColor clearColor];
+    self.contributorLabel.backgroundColor = [UIColor clearColor];
+    self.collectNumberLabel.backgroundColor = [UIColor clearColor];
+    self.commentCountLabel.backgroundColor = [UIColor clearColor];
     
     [self.contentView addSubview:self.coverImageView];
     [self.contentView addSubview:self.nameLabel];
@@ -127,7 +127,7 @@
     
         // 设置属性
         self.coverImageView.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:self.item.bookCoverURL]]];
-        [self.coverImageView sd_setImageWithURL:[NSURL URLWithString:coverImageGetURL(self.item.bookCoverURL)] placeholderImage:[UIImage imageNamed:@""]];
+        [self.coverImageView sd_setImageWithURL:[NSURL URLWithString:coverImageGetURL(self.item.bookCoverURL)] placeholderImage:[UIImage imageNamed:@"cover_default"]];
         
         self.nameLabel.text = self.item.bookName;
         self.authorLabel.text = self.item.bookAuthor;
@@ -140,7 +140,7 @@
         self.fieldLabel.text = fieldStr;
         self.publishTimeLabel.text = [NSString stringWithFormat:@"出版日期：%@", [self.item.bookPublishTime toString]];
         self.contributorLabel.text = [NSString stringWithFormat:@"贡献者：%@", self.item.contributor];
-        self.collectNumberLabel.text = [NSString stringWithFormat:@"%lu 人点赞", self.item.bookCollectNumber];
+        self.collectNumberLabel.text = [NSString stringWithFormat:@"%lu 人收藏", self.item.bookCollectNumber];
         self.commentCountLabel.text = [NSString stringWithFormat:@"%lu 人评论", self.item.bookCommentCount];
         
     }
@@ -193,24 +193,48 @@
 - (void)setupContentView {
     [super setupContentView];
     
-    self.supportButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    self.supportButton.frame = CGRectMake(HorizontalMargin, self.coverImageView.bottom + UIMargin, 20, 20);
-    
-    self.collectionButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    self.collectionButton.frame = CGRectMake(self.supportButton.right + UIMargin, self.coverImageView.bottom + UIMargin, 20, 20);
-    
     self.bookpostSearchButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    self.bookpostSearchButton.frame = CGRectMake(CELLWIDTH_DEFAULT - HorizontalMargin - UIMargin - NUMBERLABEL_WIDTH * 2, self.coverImageView.bottom + UIMargin, NUMBERLABEL_WIDTH, 20);
+    self.bookpostSearchButton.frame = CGRectMake(HorizontalMargin
+                                                 , self.contributorLabel.bottom + UIMargin
+                                                 , NUMBERLABEL_WIDTH
+                                                 , 20);
+    [self.bookpostSearchButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    self.bookpostSearchButton.titleLabel.font = [UIFont defaultFontWithSize:13.0f];
+    [self.bookpostSearchButton changeToRound];
+    [self.bookpostSearchButton addTarget:self action:@selector(buttonClicked:) forControlEvents:UIControlEventTouchUpInside];
     
     self.webSearchButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    self.webSearchButton.frame = CGRectMake(CELLWIDTH_DEFAULT - HorizontalMargin - NUMBERLABEL_WIDTH, self.coverImageView.bottom + UIMargin, NUMBERLABEL_WIDTH, 20);
+    self.webSearchButton.frame = CGRectMake(self.bookpostSearchButton.right + UIMargin
+                                            , self.contributorLabel.bottom + UIMargin
+                                            , NUMBERLABEL_WIDTH
+                                            , 20);
+    [self.webSearchButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    self.webSearchButton.titleLabel.font = [UIFont defaultFontWithSize:13.0f];
+    [self.webSearchButton changeToRound];
+    [self.webSearchButton addTarget:self action:@selector(buttonClicked:) forControlEvents:UIControlEventTouchUpInside];
     
-    self.supportButton.backgroundColor  = [UIColor redColor];
-    self.collectionButton.backgroundColor = [UIColor redColor];
-    self.bookpostSearchButton.backgroundColor = [UIColor redColor];
-    self.webSearchButton.backgroundColor = [UIColor redColor];
+    self.collectionButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    self.collectionButton.frame = CGRectMake(APPLICATIONWIDTH - HorizontalMargin - UIMargin * 2 - 20 * 2
+                                             , self.contributorLabel.bottom + UIMargin
+                                             , 20
+                                             , 20);
+    [self.collectionButton setImageNameNormal:@"collection_normal" Highlighted:@"collection_selected" Selected:@"collection_selected" Disabled:@"collection_normal"];
+    [self.collectionButton addTarget:self action:@selector(buttonClicked:) forControlEvents:UIControlEventTouchUpInside];
     
-    [self.contentView addSubview:self.supportButton];
+    self.commentButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    self.commentButton.frame = CGRectMake(APPLICATIONWIDTH - HorizontalMargin - 20
+                                          , self.contributorLabel.bottom + UIMargin
+                                          , 20
+                                          , 20);
+    [self.commentButton setOnlyImageName:@"comment_normal"];
+    [self.commentButton addTarget:self action:@selector(buttonClicked:) forControlEvents:UIControlEventTouchUpInside];
+    
+    self.bookpostSearchButton.backgroundColor = [UIColor buttonDefaultColor];
+    self.webSearchButton.backgroundColor = [UIColor buttonDefaultColor];
+    self.commentButton.backgroundColor  = [UIColor clearColor];
+    self.collectionButton.backgroundColor = [UIColor clearColor];
+    
+    [self.contentView addSubview:self.commentButton];
     [self.contentView addSubview:self.collectionButton];
     [self.contentView addSubview:self.bookpostSearchButton];
     [self.contentView addSubview:self.webSearchButton];
@@ -222,13 +246,35 @@
         self.item = (ZCPBookDetailCellItem *)object;
         ZCPBookDetailCellItem *item = (ZCPBookDetailCellItem *)object;
         
-        self.bookpostSearchButton.titleLabel.text = item.bookpostSearchButtonTitle;
-        self.webSearchButton.titleLabel.text = item.webSearchButtonTitle;
+        self.delegate = item.delegate;
+        [self.bookpostSearchButton setTitle:item.bookpostSearchButtonTitle forState:UIControlStateNormal];
+        [self.webSearchButton setTitle:item.webSearchButtonTitle forState:UIControlStateNormal];
     }
 }
 + (CGFloat)tableView:(UITableView *)tableView rowHeightForObject:(id)object {
     ZCPBookDetailCellItem *item = (ZCPBookDetailCellItem *)object;
     return [item.cellHeight floatValue];
+}
+
+#pragma mark - Button Click
+/**
+ *  按钮响应方法
+ */
+- (void)buttonClicked:(UIButton *)button {
+    if (self.delegate) {
+        if (button == self.bookpostSearchButton && [self.delegate respondsToSelector:@selector(bookDetailCell:bookpostSearchButtonClick:)]) {
+            [self.delegate bookDetailCell:self bookpostSearchButtonClick:button];
+        }
+        else if (button == self.webSearchButton && [self.delegate respondsToSelector:@selector(bookDetailCell:webSearchButtonClick:)]) {
+            [self.delegate bookDetailCell:self webSearchButtonClick:button];
+        }
+        else if (button == self.collectionButton && [self.delegate respondsToSelector:@selector(bookDetailCell:collectionButtonClick:)]) {
+            [self.delegate bookDetailCell:self collectionButtonClick:button];
+        }
+        else if (button == self.commentButton && [self.delegate respondsToSelector:@selector(bookDetailCell:commentButtonClick:)]) {
+            [self.delegate bookDetailCell:self commentButtonClick:button];
+        }
+    }
 }
 
 @end

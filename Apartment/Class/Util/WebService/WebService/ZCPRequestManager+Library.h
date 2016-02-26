@@ -28,5 +28,20 @@
                                  success:(void(^)(AFHTTPRequestOperation *operation, ZCPListDataModel *bookListModel))success
                                  failure:(void(^)(AFHTTPRequestOperation *operation, NSError *error))failure;
 
+/**
+ *  改变图书收藏状态
+ *
+ *  @param currCollected 当前收藏状态
+ *  @param currBookID    当前图书ID
+ *  @param currUserID    当前用户ID
+ */
+- (NSOperation *)changeBookCurrCollectionState:(NSInteger)currCollected
+                                    currCoupletID:(NSInteger)currBookID
+                                       currUserID:(NSInteger)currUserID
+                                          success:(void (^)(AFHTTPRequestOperation *operation, BOOL isSuccess))success
+                                          failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure;
+
+
+
 
 @end

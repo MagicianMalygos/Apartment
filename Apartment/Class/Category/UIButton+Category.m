@@ -10,8 +10,14 @@
 
 @implementation UIButton (Category)
 
+// 变圆
+- (void)changeToRound {
+    self.layer.masksToBounds = YES;
+    self.layer.cornerRadius = 5.0;
+}
+
 /**
- *  设置button的全状态image
+ *  使用String设置
  */
 - (void)setImageNameNormal:(NSString *)normalName Highlighted:(NSString *)highlightedName Selected:(NSString *)selectedName Disabled:(NSString *)disabledName {
     [self setImage:[UIImage imageNamed:normalName] forState:UIControlStateNormal];

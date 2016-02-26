@@ -23,6 +23,7 @@
 #define BOOKPOST_LIST_BY_SORTMETHOD_FIELD                       @"BOOKPOST_LIST_BY_SORTMETHOD_FIELD"
 #define OLD_BOOKPOST_LIST_BY_SORTMETHOD_FIELD                   @"OLD_BOOKPOST_LIST_BY_SORTMETHOD_FIELD"
 #define BOOKPOST_LIST_BY_SEARCHTEXT                             @"BOOKPOST_LIST_BY_SEARCHTEXT"
+#define CHANGE_BOOKPOST_COLLECTION_STATE                        @"CHANGE_BOOKPOST_COLLECTION_STATE"
 
 #pragma mark - - - - - - 文趣活动相关(Couplet)
 #define COUPLET_LIST_BY_TIME                                    @"COUPLET_LIST_BY_TIME"
@@ -45,6 +46,7 @@
 
 #pragma mark - - - - - - 图书馆相关
 #define BOOK_LIST                                               @"BOOK_LIST"
+#define CHANGE_BOOK_COLLECTION_STATE                            @"CHANGE_BOOK_COLLECTION_STATE"
 
 #pragma mark - - - - - - 个人中心相关
 

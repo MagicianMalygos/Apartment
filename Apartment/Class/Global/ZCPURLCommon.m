@@ -80,6 +80,7 @@ IMP_SINGLETON
                      , BOOKPOST_LIST_BY_SORTMETHOD_FIELD:       @"/1.0/communion/getBookpostBySortMethodFieldId"
                      , OLD_BOOKPOST_LIST_BY_SORTMETHOD_FIELD:   @"/1.0/communion/getBookpostByOldId"
                      , BOOKPOST_LIST_BY_SEARCHTEXT:             @"/1.0/communion/getBookpostBySearchText"
+                     , CHANGE_BOOKPOST_COLLECTION_STATE:        @"/1.0/communion/changeBookpostCollectionRecord"
                      /* - 文趣活动相关(Couplet) - */
                      , COUPLET_LIST_BY_TIME:                    @"/1.0/activity/getCoupletByTime"
                      , OLD_COUPLET_LIST_BY_TIME:                @"/1.0/activity/getCoupletByTimeAndOldId"
@@ -100,6 +101,7 @@ IMP_SINGLETON
                      , CHANGE_ARGUMENT_SUPPORT_STATE:           @"/1.0/activity/changeArgumentSupportRecord"
                      /* - 图书馆相关 - */
                      , BOOK_LIST:                               @"/1.0/library/getBookBySearchTextSortMethodFieldId"
+                     , CHANGE_BOOK_COLLECTION_STATE:            @"/1.0/library/changeBookCollectionRecord"
                      /* - 个人中心相关 - */
                      };
 

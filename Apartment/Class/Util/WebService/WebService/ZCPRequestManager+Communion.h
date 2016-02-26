@@ -66,4 +66,18 @@ typedef NS_ENUM(NSInteger, ZCPBookpostSortMethod){
                                    success:(void (^)(AFHTTPRequestOperation *operation, ZCPListDataModel *bookpostListModel))success
                                    failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure;
 
+/**
+ *  改变图书贴收藏状态
+ *
+ *  @param currCollected    当前收藏状态
+ *  @param currBookpostID   当前图书贴ID
+ *  @param currUserID       当前用户ID
+ */
+- (NSOperation *)changeBookpostCurrCollectionState:(NSInteger)currCollected
+                                 currCoupletID:(NSInteger)currBookpostID
+                                    currUserID:(NSInteger)currUserID
+                                       success:(void (^)(AFHTTPRequestOperation *operation, BOOL isSuccess))success
+                                       failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure;
+
+
 @end

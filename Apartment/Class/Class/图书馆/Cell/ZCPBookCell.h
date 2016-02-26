@@ -10,6 +10,7 @@
 
 @class ZCPBookCellItem;
 @class ZCPBookDetailCellItem;
+@protocol ZCPBookDetailCellDelegate;
 
 // 图书cell
 @interface ZCPBookCell : ZCPTableViewWithLineCell
@@ -47,10 +48,11 @@
 // 图书详情cell
 @interface ZCPBookDetailCell : ZCPBookCell
 
-@property (nonatomic, strong) UIButton *supportButton;              // 点赞按钮
 @property (nonatomic, strong) UIButton *collectionButton;           // 收藏按钮
+@property (nonatomic, strong) UIButton *commentButton;              // 评论按钮
 @property (nonatomic, strong) UIButton *bookpostSearchButton;       // 相关图书贴搜索按钮
 @property (nonatomic, strong) UIButton *webSearchButton;            // 网上搜索按钮
+@property (nonatomic, weak) id<ZCPBookDetailCellDelegate> delegate; // delegate
 
 @end
 
@@ -58,5 +60,19 @@
 
 @property (nonatomic, copy) NSString *bookpostSearchButtonTitle;    // 相关图书帖搜索按钮标题
 @property (nonatomic, copy) NSString *webSearchButtonTitle;         // 网上搜索按钮标题
+@property (nonatomic, weak) id<ZCPBookDetailCellDelegate> delegate; // delegate
+
+@end
+
+@protocol ZCPBookDetailCellDelegate <NSObject>
+
+// 收藏按钮点击事件
+- (void)bookDetailCell:(ZCPBookDetailCell *)cell collectionButtonClick:(UIButton *)button;
+// 评论按钮点击事件
+- (void)bookDetailCell:(ZCPBookDetailCell *)cell commentButtonClick:(UIButton *)button;
+// 图书贴搜索按钮点击事件
+- (void)bookDetailCell:(ZCPBookDetailCell *)cell bookpostSearchButtonClick:(UIButton *)button;
+// 网上搜索按钮点击事件
+- (void)bookDetailCell:(ZCPBookDetailCell *)cell webSearchButtonClick:(UIButton *)button;
 
 @end

@@ -10,6 +10,9 @@
 
 @interface UIButton (Category)
 
+// 设置圆角
+- (void)changeToRound;
+
 /**
  *  设置button的全状态image
  */

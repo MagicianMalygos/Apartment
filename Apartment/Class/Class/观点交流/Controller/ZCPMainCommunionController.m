@@ -144,6 +144,19 @@
     self.tableViewAdaptor.items = items;
 }
 
+#pragma mark - ZCPListTableViewAdaptor Delegate
+/**
+ *  Cell点击事件
+ *
+ *  @param tableView cell所属Tableview
+ *  @param object    cellItem
+ *  @param indexPath cell索引
+ */
+- (void)tableView:(UITableView *)tableView didSelectObject:(id<ZCPTableViewCellItemBasicProtocol>)object rowAtIndexPath:(NSIndexPath *)indexPath {
+    // 隐藏选择视图
+    [self.selectFieldControl hideView];
+}
+
 #pragma mark - UISearchBarDelegate
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar {
     // 按搜索条件获取图书贴列表
@@ -222,10 +235,13 @@
 #pragma mark - ZCPSelectFieldDelegate
 - (void)selectedCellIndex:(NSInteger)cellIndex fieldName:(NSString *)fieldName {
     self.fieldIndex = cellIndex;
+    self.pagination = 1;
 }
 
 #pragma mark - Refresh Method
 - (void)headerRefresh {
+    self.pagination = 1;
+    
     WEAK_SELF;
     [[ZCPRequestManager sharedInstance] getBookpostListWithSortMethod:self.sortMethod fieldID:self.fieldIndex currUserID:[ZCPUserCenter sharedInstance].currentUserModel.userId pageCount:BOOKPOST_LIST_PAGE_COUNT success:^(AFHTTPRequestOperation *operation, ZCPListDataModel *bookpostListModel) {
         STRONG_SELF;
@@ -241,7 +257,6 @@
         TTDPRINT(@"%@", error);
         [weakSelf.tableView.mj_header endRefreshing];
     }];
-    self.pagination = 1;
 }
 - (void)footerRefresh {
     
@@ -268,6 +283,26 @@
         TTDPRINT(@"%@", error);
         [weakSelf.tableView.mj_footer endRefreshing];
     }];
+}
+
+#pragma mark - Public Method
+- (void)librarySearchBookName:(NSString *)bookName {
+    self.searchBar.text = bookName;
+    // 按搜索条件获取图书贴列表
+    WEAK_SELF;
+    [[ZCPRequestManager sharedInstance] getBookpostWithSearchText:self.searchBar.text sortMethod:self.sortMethod fieldID:self.fieldIndex currUserID:[ZCPUserCenter sharedInstance].currentUserModel.userId pageCount:BOOKPOST_LIST_PAGE_COUNT success:^(AFHTTPRequestOperation *operation, ZCPListDataModel *bookpostListModel) {
+        STRONG_SELF;
+        if ([bookpostListModel isKindOfClass:[ZCPListDataModel class]] && bookpostListModel.items) {
+            weakSelf.bookpostArr = [NSMutableArray arrayWithArray:bookpostListModel.items];
+            
+            // 重新构造并加载数据
+            [self constructData];
+            [weakSelf.tableView reloadData];
+        }
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        TTDPRINT(@"%@", error);
+    }];
+    self.pagination = 1;
 }
 
 @end

@@ -104,10 +104,9 @@
         
         // 设置frame
         self.fieldLabel.frame = CGRectMake(HorizontalMargin, VerticalMargin, FieldLabelWidth, LabelHeight);
-        [self.bookNameLabel sizeToFit];
         self.bookNameLabel.frame = CGRectMake(self.fieldLabel.right + UIMargin
                                               , VerticalMargin
-                                              , self.bookNameLabel.width
+                                              , CELLWIDTH_DEFAULT - HorizontalMargin * 2 - UIMargin - FieldLabelWidth
                                               , LabelHeight);
         
         CGFloat bpTitleLabelHeight = [self.item.bpTitle boundingRectWithSize:CGSizeMake(CELLWIDTH_DEFAULT - HorizontalMargin * 2

@@ -125,4 +125,36 @@
 }
 
 
+/**
+ *  改变图书贴收藏状态
+ *
+ *  @param currCollected    当前收藏状态
+ *  @param currBookpostID   当前图书贴ID
+ *  @param currUserID       当前用户ID
+ */
+- (NSOperation *)changeBookpostCurrCollectionState:(NSInteger)currCollected
+                                     currCoupletID:(NSInteger)currBookpostID
+                                        currUserID:(NSInteger)currUserID
+                                           success:(void (^)(AFHTTPRequestOperation *operation, BOOL isSuccess))success
+                                           failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure {
+    
+    NSString * scheme       = schemeForType(kURLTypeCommon);
+    NSString * host         = hostForType(kURLTypeCommon);
+    NSString * path         = urlForKey(CHANGE_BOOKPOST_COLLECTION_STATE);
+    
+    AFHTTPRequestOperation *operation = [self POST:ZCPMakeURLString(scheme, host, path)
+                                        parameters:@{@"currCollected": @(currCollected)
+                                                     , @"currBookpostID": @(currBookpostID)
+                                                     , @"currUserID": @(currUserID)}
+                                           success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                                               if (success) {
+                                                   success(operation, [responseObject valueForKey:@"result"]);
+                                               }
+                                           }
+                                           failure:failure];
+    
+    TTDPRINT(@"URL=%@  params=%@", operation.request.URL, [[NSString alloc] initWithData:operation.request.HTTPBody encoding:NSUTF8StringEncoding]);
+    return operation;
+}
+
 @end

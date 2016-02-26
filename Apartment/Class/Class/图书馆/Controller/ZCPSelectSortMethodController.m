@@ -42,7 +42,7 @@
 #pragma mark - getter / setter
 - (NSMutableArray *)sortMethodNameArr {
     if (_sortMethodNameArr == nil) {
-        _sortMethodNameArr = [NSMutableArray arrayWithObjects:@"按时间", @"按点赞量", @"按评论量", nil];
+        _sortMethodNameArr = [NSMutableArray arrayWithObjects:@"按时间", @"按收藏量", @"按评论量", nil];
     }
     return _sortMethodNameArr;
 }

@@ -20,7 +20,6 @@
 // TabBarController
 @property (nonatomic, strong) UITabBarController *tabBarController;
 
-
 @end
 
 @implementation ZCPControlingCenter

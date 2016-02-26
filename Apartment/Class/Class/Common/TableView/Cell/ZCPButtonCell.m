@@ -69,8 +69,9 @@
             self.button.enabled = NO;
         }
         else if(item.state == ZCPButtonInitStateNormal) {
-            // 设置圆角与默认的颜色
-            [self.button configureDefault];
+            // 设置圆角
+            [self.button changeToRound];
+            self.button.backgroundColor = [UIColor buttonDefaultColor];
             self.button.enabled = YES;
         }
         [self.button setTitle:item.buttonTitle forState:UIControlStateNormal];

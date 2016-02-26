@@ -17,17 +17,21 @@
 
 #define OptionViewHight           35.0f     // 选项视图高度
 #define SelectSortMethodWidth     80.0f     // 选择排序方式视图宽度
-#define SelectSortMethodHeight    180.0f    // 选择排序方式视图高度
+#define SelectSortMethodHeight    160.0f    // 选择排序方式视图高度
 #define SelectFieldWidth          50.0f     // 选择领域视图宽度
 #define SelectFieldHeight         300.0f    // 选择领域视图高度
+#define BOOK_LIST_PAGE_COUNT      PAGE_COUNT_DEFAULT
 
-@interface ZCPMainLibraryController () <ZCPListTableViewAdaptorDelegate, ZCPOptionViewDelegate, ZCPSelectSortMethodDelegate, ZCPSelectFieldDelegate>
+@interface ZCPMainLibraryController () <ZCPListTableViewAdaptorDelegate, ZCPOptionViewDelegate, ZCPSelectSortMethodDelegate, ZCPSelectFieldDelegate, UISearchBarDelegate>
 
-@property (nonatomic, strong) ZCPOptionView *optionView;            // 选项视图
+
 @property (nonatomic, strong) NSMutableArray *bookArr;              // 图书模型数组
 @property (nonatomic, assign) NSInteger fieldIndex;                 // 领域索引
 @property (nonatomic, assign) ZCPLibrarySortMethod sortMethod;      // 排序方法
+@property (nonatomic, assign) NSInteger pagination;                 // 页码
 
+@property (nonatomic, strong) ZCPOptionView *optionView;            // 选项视图
+@property (nonatomic, strong) UISearchBar *searchBar;               // 搜索视图
 @property (nonatomic, strong) ZCPSelectSortMethodController *selectSortMehtodControl;       // 选择排序方式视图控制器
 @property (nonatomic, strong) ZCPSelectFieldController *selectFieldControl;                 // 选择领域视图控制器
 
@@ -38,30 +42,33 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    // 初始化
+    self.sortMethod = ZCPLibrarySortByTime;
+    self.fieldIndex = 0;
+    self.pagination = 1;
+    
     // 添加选项视图
     [self.view addSubview:self.optionView];
     [self.view addSubview:self.selectSortMehtodControl.view];
     [self.view addSubview:self.selectFieldControl.view];
     
     // 获取图书数据
-    [ZCPRequestManager sharedInstance];
+    WEAK_SELF;
+    [[ZCPRequestManager sharedInstance] getBookListBySearchText:self.searchBar.text SortMethod:self.sortMethod fieldID:self.fieldIndex currUserID:[ZCPUserCenter sharedInstance].currentUserModel.userId pagination:self.pagination pageCount:BOOK_LIST_PAGE_COUNT success:^(AFHTTPRequestOperation *operation, ZCPListDataModel *bookListModel) {
+        STRONG_SELF;
+        if ([bookListModel isKindOfClass:[ZCPListDataModel class]] && bookListModel.items) {
+            weakSelf.bookArr = [NSMutableArray arrayWithArray:bookListModel.items];
+            
+            // 重新构造并加载数据
+            [self constructData];
+            [weakSelf.tableView reloadData];
+        }
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        TTDPRINT(@"%@", error);
+    }];
     
-    self.bookArr = [NSMutableArray array];
-    ZCPBookModel *model = [ZCPBookModel modelFromDictionary:@{@"bookId":@1
-                                                              ,@"bookName":@"《像恋爱一样去工作》- 爱上邓丽君阿里的卡上了肯德基"
-                                                              ,@"bookAuthor":@"茅侃侃"
-                                                              ,@"bookPublishTime":@"2013-12-14 23:21:12"
-                                                              ,@"bookCoverURL":@"http://"
-                                                              ,@"bookPublisher":@"xxx出版社"
-                                                              ,@"bookSummary":@"像恋爱一样去工作 - xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
-                                                              ,@"bookCommentCount":@20
-                                                              ,@"bookCollectNumber":@100
-                                                              ,@"bookTime":@"2015-2-12 11:02:06"
-                                                              ,@"field":@{@"fieldId":@4, @"fieldName":@"工作"}
-                                                              ,@"contributor":@{@"userName":@"ZCP"}}];
-    [self.bookArr addObject:model];
-    [self constructData];
-    [self.tableView reloadData];
+    self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(headerRefresh)];
+    self.tableView.mj_footer = [MJRefreshBackFooter footerWithRefreshingTarget:self refreshingAction:@selector(footerRefresh)];
 }
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
@@ -74,6 +81,14 @@
 }
 
 #pragma mark - getter / setter
+- (UISearchBar *)searchBar {
+    if (_searchBar == nil) {
+        _searchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(0, 0, APPLICATIONWIDTH, 44.0f)];
+        _searchBar.placeholder = @"请输入书籍名、作者名、出版社等关键词";
+        _searchBar.delegate = self;
+    }
+    return _searchBar;
+}
 /**
  *  懒加载选项视图
  *
@@ -97,7 +112,6 @@
     }
     return _optionView;
 }
-
 - (ZCPSelectSortMethodController *)selectSortMehtodControl {
     if (_selectSortMehtodControl == nil) {
         _selectSortMehtodControl = [ZCPSelectSortMethodController new];
@@ -168,7 +182,8 @@
             break;
         }
         case 2: {
-            
+            // 跳转到上传图书界面
+            [[ZCPNavigator sharedInstance] gotoViewWithIdentifier:APPURL_VIEW_IDENTIFIER_LIBRARY_ADDBOOK paramDictForInit:nil];
             break;
         }
         default:
@@ -185,20 +200,82 @@
  *  @param indexPath cell索引
  */
 - (void)tableView:(UITableView *)tableView didSelectObject:(id<ZCPTableViewCellItemBasicProtocol>)object rowAtIndexPath:(NSIndexPath *)indexPath {
+    // 隐藏选择视图
+    [self.selectSortMehtodControl hideView];
+    [self.selectFieldControl hideView];
+    
     // 跳转到图书详情界面，判断如果图书模型为nil，则向字典中传入[NSNull null]
     ZCPBookModel *currentBookModel = [self.bookArr objectAtIndex:indexPath.row];
     [[ZCPNavigator sharedInstance] gotoViewWithIdentifier:APPURL_VIEW_IDENTIFIER_LIBRARY_BOOKDETAIL paramDictForInit:@{@"_currentBookModel": (currentBookModel != nil)? currentBookModel: [NSNull null]}];
+}
+
+#pragma mark - UISearchBarDelegate
+- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar {
+    self.pagination = 1;
     
-//    [[ZCPNavigator sharedInstance] gotoViewWithIdentifier:APPURL_VIEW_IDENTIFIER_LIBRARY_ADDBOOK paramDictForInit:nil];
+    WEAK_SELF;
+    [[ZCPRequestManager sharedInstance] getBookListBySearchText:self.searchBar.text SortMethod:self.sortMethod fieldID:self.fieldIndex currUserID:[ZCPUserCenter sharedInstance].currentUserModel.userId pagination:self.pagination pageCount:BOOK_LIST_PAGE_COUNT success:^(AFHTTPRequestOperation *operation, ZCPListDataModel *bookListModel) {
+        STRONG_SELF;
+        if ([bookListModel isKindOfClass:[ZCPListDataModel class]] && bookListModel.items) {
+            weakSelf.bookArr = [NSMutableArray arrayWithArray:bookListModel.items];
+            
+            // 重新构造并加载数据
+            [self constructData];
+            [weakSelf.tableView reloadData];
+        }
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        TTDPRINT(@"%@", error);
+    }];
 }
 
 #pragma mark - ZCPSelectSortMethodDelegate
 - (void)selectedCellIndex:(NSInteger)cellIndex sortMethodName:(NSString *)sortMethodName {
     self.sortMethod = cellIndex;
+    self.pagination = 1;
 }
 #pragma mark - ZCPSelectFieldDelegate
 - (void)selectedCellIndex:(NSInteger)cellIndex fieldName:(NSString *)fieldName {
     self.fieldIndex = cellIndex;
+    self.pagination = 1;
+}
+
+#pragma mark - Refresh
+- (void)headerRefresh {
+    self.pagination = 1;
+    
+    WEAK_SELF;
+    [[ZCPRequestManager sharedInstance] getBookListBySearchText:self.searchBar.text SortMethod:self.sortMethod fieldID:self.fieldIndex currUserID:[ZCPUserCenter sharedInstance].currentUserModel.userId pagination:self.pagination pageCount:BOOK_LIST_PAGE_COUNT success:^(AFHTTPRequestOperation *operation, ZCPListDataModel *bookListModel) {
+        STRONG_SELF;
+        if ([bookListModel isKindOfClass:[ZCPListDataModel class]] && bookListModel.items) {
+            weakSelf.bookArr = [NSMutableArray arrayWithArray:bookListModel.items];
+            
+            // 重新构造并加载数据
+            [self constructData];
+            [weakSelf.tableView reloadData];
+        }
+        [weakSelf.tableView.mj_header endRefreshing];
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        TTDPRINT(@"%@", error);
+        [weakSelf.tableView.mj_header endRefreshing];
+    }];
+}
+- (void)footerRefresh {
+    WEAK_SELF;
+    [[ZCPRequestManager sharedInstance] getBookListBySearchText:self.searchBar.text SortMethod:self.sortMethod fieldID:self.fieldIndex currUserID:[ZCPUserCenter sharedInstance].currentUserModel.userId pagination:self.pagination + 1 pageCount:BOOK_LIST_PAGE_COUNT success:^(AFHTTPRequestOperation *operation, ZCPListDataModel *bookListModel) {
+        STRONG_SELF;
+        if ([bookListModel isKindOfClass:[ZCPListDataModel class]] && bookListModel.items) {
+            [weakSelf.bookArr addObjectsFromArray:bookListModel.items];
+            
+            // 重新构造并加载数据
+            [self constructData];
+            [weakSelf.tableView reloadData];
+        }
+        self.pagination ++;
+        [weakSelf.tableView.mj_footer endRefreshing];
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        TTDPRINT(@"%@", error);
+        [weakSelf.tableView.mj_footer endRefreshing];
+    }];
 }
 
 @end

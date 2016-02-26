@@ -25,6 +25,7 @@
 @synthesize bookTime = _bookTime;
 @synthesize field = _field;
 @synthesize contributor = _contributor;
+@synthesize collected = _collected;
 
 #pragma mark - kvc
 - (void)setValue:(id)value forKey:(NSString *)key {

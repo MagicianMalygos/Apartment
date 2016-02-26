@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-
-
 @interface ZCPMainCommunionController : ZCPTableViewController
+
+#pragma mark - Public Method
+- (void)librarySearchBookName:(NSString *)bookName;
 
 @end
