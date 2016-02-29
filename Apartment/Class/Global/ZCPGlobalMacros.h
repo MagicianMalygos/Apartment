@@ -20,6 +20,7 @@
 #define OnePoint (1/[UIScreen mainScreen].scale)
 
 // TODO: 时间性能测量用
+// 结束时间除以CLOCKS_PER_SEC得到耗时秒数
 #define START_COUNT_TIME(start) clock_t start = clock()
 #define END_COUNT_TIME(start) (clock() - start)
 
