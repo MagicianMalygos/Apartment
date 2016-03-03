@@ -18,6 +18,9 @@
 
 @implementation ZCPSelectFieldController
 
+@synthesize fieldArr = _fieldArr;
+@synthesize delegate = _delegate;
+
 #pragma mark - life circle
 - (void)viewDidLoad {
     [super viewDidLoad];

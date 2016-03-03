@@ -39,6 +39,4 @@
 // 统一初始化，清除导航栏方法
 - (void)initNavigationBar;
 
-
-
 @end

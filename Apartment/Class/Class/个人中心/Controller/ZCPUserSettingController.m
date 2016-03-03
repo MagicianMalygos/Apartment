@@ -15,7 +15,14 @@
 #import "ZCPUserCenter.h"
 #import "ZCPRequestManager+User.h"
 
-@interface ZCPUserSettingController() <ZCPButtonCellDelegate, ZCPHeadImageCellDelegate, UIActionSheetDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate>
+// 获取设备功能
+static BOOL photoLibraryAvailable;
+static BOOL cameraAvailable;
+
+@interface ZCPUserSettingController() <ZCPButtonCellDelegate, ZCPHeadImageCellDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate>
+
+@property (nonatomic, strong) UIAlertController *actionSheet;
+@property (nonatomic, strong) UIImagePickerController *imagePicker;
 
 @end
 
@@ -24,6 +31,11 @@
 #pragma mark - life circle
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    // 获取设备功能
+    photoLibraryAvailable = [UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypePhotoLibrary];
+    cameraAvailable = [UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera];
+    
     [self constructData];
     [self.tableView reloadData];
 }
@@ -103,6 +115,51 @@
     [items addObject:logoutItem];
     self.tableViewAdaptor.items = items;
 }
+#pragma mark - getter / setter
+- (UIAlertController *)actionSheet {
+    if (_actionSheet == nil) {
+        _actionSheet = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleActionSheet];
+        // 初始化Action
+        if (cameraAvailable) {
+            WEAK_SELF;
+            UIAlertAction * takePhotoAction = [UIAlertAction actionWithTitle:@"拍照" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                STRONG_SELF;
+                // 资源类型为照相机
+                weakSelf.imagePicker.sourceType = UIImagePickerControllerSourceTypeCamera;
+                // 跳转到相机视图控制器
+                [self presentViewController:weakSelf.imagePicker animated:YES completion:nil];
+                TTDPRINT(@"打开相机");
+            }];
+            [_actionSheet addAction:takePhotoAction];
+        } else if (photoLibraryAvailable) {
+            WEAK_SELF;
+            UIAlertAction *openAlbumAction = [UIAlertAction actionWithTitle:@"打开相册" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                STRONG_SELF;
+                // 资源类型为图片库
+                weakSelf.imagePicker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+                // 跳转到相册视图控制器
+                [self presentViewController:weakSelf.imagePicker animated:YES completion:nil];
+                TTDPRINT(@"打开相册");
+            }];
+            [_actionSheet addAction:openAlbumAction];
+        }
+        // 取消按钮
+        UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil];
+        [_actionSheet addAction:cancelAction];
+    }
+    return _actionSheet;
+}
+- (UIImagePickerController *)imagePicker {
+    if (_imagePicker == nil) {
+        _imagePicker = [[UIImagePickerController alloc] init];
+        _imagePicker.delegate = self;
+        _imagePicker.navigationBar.barTintColor = [UIColor lightGrayColor];
+        _imagePicker.navigationBar.tintColor = [UIColor blueColor];
+        
+        
+    }
+    return _imagePicker;
+}
 
 #pragma mark - ZCPListTableViewAdaptorDelegate
 /**
@@ -140,27 +197,9 @@
  */
 - (void)cell:(UITableViewCell *)cell headImageButtonClicked:(UIButton *)button {
     TTDPRINT(@"显示菜单");
-    // 菜单视图
-    UIActionSheet *sheet = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:nil otherButtonTitles:@"打开相册", nil];
-    [sheet showInView:self.tableView];
-}
-#pragma mark - UIActionSheetDelegate
-/**
- *  菜单视图选项按钮点击响应方法
- */
-- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
-    if (buttonIndex == 0) {
-        TTDPRINT(@"打开相册");
-        // 相册视图控制器
-        UIImagePickerController *picker = [[UIImagePickerController alloc] init];
-        picker.delegate = self;
-        picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;      // 资源类型为图片库
-        
-        // 跳转到相册视图控制器
-        // 此处不能使用navigationController的push方法进行跳转，否则会crash
-//        [self.navigationController pushViewController:picker animated:YES];
-        [self presentViewController:picker animated:YES completion:nil];
-    }
+    
+    // 显示ActionSheet
+    [self presentViewController:self.actionSheet animated:YES completion:nil];
 }
 #pragma mark - UIImagePickerControllerDelegate
 /**
@@ -194,12 +233,6 @@
                                                         }];
         [picker dismissViewControllerAnimated:YES completion:nil];
     }
-}
-/**
- *  点击取消按钮
- */
-- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
-    [picker dismissViewControllerAnimated:YES completion:nil];
 }
 
 #pragma mark - UIViewController Category

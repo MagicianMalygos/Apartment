@@ -15,6 +15,7 @@
 @implementation ZCPViewController
 
 #pragma mark - synthesize
+@synthesize appTheme = _appTheme;
 @synthesize tap = _tap;
 @synthesize needsTapToDismissKeyboard = _needsTapToDismissKeyboard;
 

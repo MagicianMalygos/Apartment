@@ -145,7 +145,7 @@
 }
 - (void)bookDetailCell:(ZCPBookDetailCell *)cell collectionButtonClick:(UIButton *)button {
     // 收藏图书
-    [[ZCPRequestManager sharedInstance] ];
+//    [[ZCPRequestManager sharedInstance] ];
 }
 - (void)bookDetailCell:(ZCPBookDetailCell *)cell commentButtonClick:(UIButton *)button {
     // 弹出评论视图
