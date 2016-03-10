@@ -67,7 +67,7 @@
 green:((float)((rgbValue & 0xFF00) >> 8))/255.0 \
 blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
 // RGB色值
-#define RGB(r,g,b)                      [UIColor colorWithRed:r/255.0 green:g/255.0 blue:b/255.0 alpha:1.0]
+#define RGB(r,g,b)                          [UIColor colorWithRed:r/255.0 green:g/255.0 blue:b/255.0 alpha:1.0]
 
 // 颜色
 #define COLOR_FONT_GREEN                    [UIColor colorWithRed:46.0f/255.0f green:175.0f/255.0f blue:1.0f/255.0f alpha:1.0f]
