@@ -35,7 +35,7 @@
 @synthesize thesisController = _thesisController;
 @synthesize questionController = _questionController;
 
-#pragma mark - life circle
+#pragma mark - life cycle
 - (void)viewDidLoad {
     [super viewDidLoad];
     

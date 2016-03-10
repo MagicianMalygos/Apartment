@@ -18,7 +18,7 @@
 
 @implementation ZCPSettingUserInfoController
 
-#pragma mark - life circle
+#pragma mark - life cycle
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     self.title = @"修改个人信息";

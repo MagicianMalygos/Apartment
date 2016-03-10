@@ -14,7 +14,7 @@
 
 @implementation ZCPUserFocusOnPeopleController
 
-#pragma mark - life circle
+#pragma mark - life cycle
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     self.title = @"所关注人";

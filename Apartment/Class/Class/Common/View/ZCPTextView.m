@@ -50,7 +50,7 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(textDidChange:) name:UITextViewTextDidChangeNotification object:nil];
 }
 
-#pragma mark - life circle
+#pragma mark - life cycle
 - (void)dealloc {
     // 移除text监听
 //    [self removeObserver:self forKeyPath:@"text"];

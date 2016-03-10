@@ -33,7 +33,7 @@
 @synthesize prosArgumentArr = _prosArgumentArr;
 @synthesize consArgumentArr = _consArgumentArr;
 
-#pragma mark - life circle
+#pragma mark - life cycle
 - (void)viewDidLoad {
     [super viewDidLoad];
     

@@ -30,7 +30,7 @@
     [self breakdown];
 }
 
-#pragma mark - life circle
+#pragma mark - life cycle
 - (void)loadView {
     [super loadView];
 }

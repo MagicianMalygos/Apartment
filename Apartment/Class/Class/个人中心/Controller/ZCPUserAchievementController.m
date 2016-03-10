@@ -14,7 +14,7 @@
 
 @implementation ZCPUserAchievementController
 
-#pragma mark - life circle
+#pragma mark - life cycle
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     self.title = @"个人成就";

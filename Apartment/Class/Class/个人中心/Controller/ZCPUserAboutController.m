@@ -14,7 +14,7 @@
 
 @implementation ZCPUserAboutController
 
-#pragma mark - life circle
+#pragma mark - life cycle
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     self.title = @"关于";

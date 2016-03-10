@@ -30,7 +30,7 @@
     return self;
 }
 
-#pragma mark - life circle
+#pragma mark - life cycle
 - (void)viewDidLoad {
     [super viewDidLoad];
 }

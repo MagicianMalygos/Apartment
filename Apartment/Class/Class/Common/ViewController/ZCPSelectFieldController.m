@@ -21,7 +21,7 @@
 @synthesize fieldArr = _fieldArr;
 @synthesize delegate = _delegate;
 
-#pragma mark - life circle
+#pragma mark - life cycle
 - (void)viewDidLoad {
     [super viewDidLoad];
     

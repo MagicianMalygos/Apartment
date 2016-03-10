@@ -14,7 +14,7 @@
 
 @implementation ZCPUserCollectionController
 
-#pragma mark - life circle
+#pragma mark - life cycle
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     self.title = @"我的收藏";

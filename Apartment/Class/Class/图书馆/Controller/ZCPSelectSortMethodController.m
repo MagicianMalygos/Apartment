@@ -18,7 +18,7 @@
 
 @implementation ZCPSelectSortMethodController
 
-#pragma mark - life circle
+#pragma mark - life cycle
 - (void)viewWillLayoutSubviews {
     [super viewWillLayoutSubviews];
     self.tableView.frame = CGRectMake(0, 0, self.view.width, self.view.height);

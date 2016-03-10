@@ -28,7 +28,7 @@ static BOOL cameraAvailable;
 
 @implementation ZCPUserSettingController
 
-#pragma mark - life circle
+#pragma mark - life cycle
 - (void)viewDidLoad {
     [super viewDidLoad];
     

@@ -16,7 +16,7 @@
 @synthesize item = _item;
 @synthesize delegate = _delegate;
 
-#pragma mark - life circle
+#pragma mark - life cycle
 - (void)layoutSubviews {
     [super layoutSubviews];
     _button.frame = CGRectMake(HorizontalMargin, 0, CELLWIDTH_DEFAULT - HorizontalMargin * 2, self.height);

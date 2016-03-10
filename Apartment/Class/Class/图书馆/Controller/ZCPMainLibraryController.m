@@ -38,7 +38,7 @@
 @end
 
 @implementation ZCPMainLibraryController
-#pragma mark - life circle
+#pragma mark - life cycle
 - (void)viewDidLoad {
     [super viewDidLoad];
     
