@@ -14,11 +14,11 @@
 #import "ZCPBookPostModel.h"
 #import "ZCPRequestManager+Communion.h"
 
-#define BOOKPOST_LIST_PAGE_COUNT    10
+#define BOOKPOST_LIST_PAGE_COUNT    PAGE_COUNT_DEFAULT
 #define SearchBarHeight             44.0f   // 搜索栏视图高度
 #define OptionHeight                35.0f   // 选项视图高度
-#define SelectFieldWitdth          50.0f   // 选择领域视图宽度
-#define SelectFieldHeight          300.0f  // 选择领域视图高度
+#define SelectFieldWitdth           50.0f   // 选择领域视图宽度
+#define SelectFieldHeight           300.0f  // 选择领域视图高度
 
 @interface ZCPMainCommunionController () <ZCPOptionViewDelegate, UISearchBarDelegate, ZCPSelectFieldDelegate>
 
@@ -49,24 +49,12 @@
     [self.view addSubview:self.selectFieldControl.view];
     
     self.bookpostArr = [NSMutableArray array];
-    WEAK_SELF;
-    [[ZCPRequestManager sharedInstance] getBookpostListWithSortMethod:ZCPBookpostSortByTime fieldID:self.fieldIndex currUserID:[ZCPUserCenter sharedInstance].currentUserModel.userId pageCount:BOOKPOST_LIST_PAGE_COUNT success:^(AFHTTPRequestOperation *operation, ZCPListDataModel *bookpostListModel) {
-        STRONG_SELF;
-        if ([bookpostListModel isKindOfClass:[ZCPListDataModel class]] && bookpostListModel.items) {
-            weakSelf.bookpostArr = [NSMutableArray arrayWithArray:bookpostListModel.items];
-            
-            // 重新构造并加载数据
-            [self constructData];
-            [weakSelf.tableView reloadData];
-        }
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        TTDPRINT(@"%@", error);
-    }];
+    // 加载数据
+    [self loadData];
     
     // 初始化上拉下拉刷新控件
     self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(headerRefresh)];
     self.tableView.mj_footer = [MJRefreshBackFooter footerWithRefreshingTarget:self refreshingAction:@selector(footerRefresh)];
-    
 }
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
@@ -159,62 +147,25 @@
 
 #pragma mark - UISearchBarDelegate
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar {
-    // 按搜索条件获取图书贴列表
-    WEAK_SELF;
-    [[ZCPRequestManager sharedInstance] getBookpostWithSearchText:searchBar.text sortMethod:self.sortMethod fieldID:self.fieldIndex currUserID:[ZCPUserCenter sharedInstance].currentUserModel.userId pageCount:BOOKPOST_LIST_PAGE_COUNT success:^(AFHTTPRequestOperation *operation, ZCPListDataModel *bookpostListModel) {
-        STRONG_SELF;
-        if ([bookpostListModel isKindOfClass:[ZCPListDataModel class]] && bookpostListModel.items) {
-            weakSelf.bookpostArr = [NSMutableArray arrayWithArray:bookpostListModel.items];
-            
-            // 重新构造并加载数据
-            [self constructData];
-            [weakSelf.tableView reloadData];
-        }
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        TTDPRINT(@"%@", error);
-    }];
     self.pagination = 1;
+    [self loadData];
 }
 
 #pragma mark - ZCPOptionViewDelegate
 - (void)label:(UILabel *)label didSelectedAtIndex:(NSInteger)index {
     switch (index) {
-        case 0: {
-            self.sortMethod = ZCPBookpostSortByTime;
-            // 获取按时间排序的图书帖列表
-            WEAK_SELF;
-            [[ZCPRequestManager sharedInstance] getBookpostListWithSortMethod:ZCPBookpostSortByTime fieldID:self.fieldIndex currUserID:[ZCPUserCenter sharedInstance].currentUserModel.userId pageCount:BOOKPOST_LIST_PAGE_COUNT success:^(AFHTTPRequestOperation *operation, ZCPListDataModel *bookpostListModel) {
-                STRONG_SELF;
-                if ([bookpostListModel isKindOfClass:[ZCPListDataModel class]] && bookpostListModel.items) {
-                    weakSelf.bookpostArr = [NSMutableArray arrayWithArray:bookpostListModel.items];
-                    
-                    // 重新构造并加载数据
-                    [self constructData];
-                    [weakSelf.tableView reloadData];
-                }
-            } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-                TTDPRINT(@"%@", error);
-            }];
-            self.pagination = 1;
-            break;
-        }
+        case 0:
         case 1: {
-            self.sortMethod = ZCPBookpostSortBySupport;
-            // 获取按点赞量排序的图书帖列表
-            WEAK_SELF;
-            [[ZCPRequestManager sharedInstance] getBookpostListWithSortMethod:ZCPBookpostSortBySupport fieldID:self.fieldIndex currUserID:[ZCPUserCenter sharedInstance].currentUserModel.userId pageCount:BOOKPOST_LIST_PAGE_COUNT success:^(AFHTTPRequestOperation *operation, ZCPListDataModel *bookpostListModel) {
-                STRONG_SELF;
-                if ([bookpostListModel isKindOfClass:[ZCPListDataModel class]] && bookpostListModel.items) {
-                    weakSelf.bookpostArr = [NSMutableArray arrayWithArray:bookpostListModel.items];
-                    
-                    // 重新构造并加载数据
-                    [self constructData];
-                    [weakSelf.tableView reloadData];
-                }
-            } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-                TTDPRINT(@"%@", error);
-            }];
-            self.pagination = 1;
+            if (index == 0) {
+                self.pagination = 1;
+                self.sortMethod = ZCPBookpostSortByTime;
+            } else if (index == 1){
+                self.pagination = 1;
+                self.sortMethod = ZCPBookpostSortBySupport;
+            }
+            
+            // 加载数据
+            [self loadData];
             break;
         }
         case 2: {
@@ -236,14 +187,21 @@
 - (void)selectedCellIndex:(NSInteger)cellIndex fieldName:(NSString *)fieldName {
     self.fieldIndex = cellIndex;
     self.pagination = 1;
+    
+    // 加载数据
+    [self loadData];
 }
 
-#pragma mark - Refresh Method
+#pragma mark - Load Data
+/**
+ *  下拉刷新
+ */
 - (void)headerRefresh {
     self.pagination = 1;
     
+    // 获取数据
     WEAK_SELF;
-    [[ZCPRequestManager sharedInstance] getBookpostListWithSortMethod:self.sortMethod fieldID:self.fieldIndex currUserID:[ZCPUserCenter sharedInstance].currentUserModel.userId pageCount:BOOKPOST_LIST_PAGE_COUNT success:^(AFHTTPRequestOperation *operation, ZCPListDataModel *bookpostListModel) {
+    [[ZCPRequestManager sharedInstance] getBookpostListWithSearchText:self.searchBar.text sortMethod:self.sortMethod fieldID:self.fieldIndex currUserID:[ZCPUserCenter sharedInstance].currentUserModel.userId pagination:self.pagination pageCount:BOOKPOST_LIST_PAGE_COUNT success:^(AFHTTPRequestOperation *operation, ZCPListDataModel *bookpostListModel) {
         STRONG_SELF;
         if ([bookpostListModel isKindOfClass:[ZCPListDataModel class]] && bookpostListModel.items) {
             weakSelf.bookpostArr = [NSMutableArray arrayWithArray:bookpostListModel.items];
@@ -258,51 +216,63 @@
         [weakSelf.tableView.mj_header endRefreshing];
     }];
 }
+/**
+ *  上拉刷新
+ */
 - (void)footerRefresh {
-    
-    NSInteger pageCount = (self.sortMethod == ZCPBookpostSortByTime)? BOOKPOST_LIST_PAGE_COUNT: ((self.pagination + 1) * BOOKPOST_LIST_PAGE_COUNT);
-    
+    // 获取数据
     WEAK_SELF;
-    [[ZCPRequestManager sharedInstance] getOldBookpostListWithSortMethod:self.sortMethod oldBookpostID:((ZCPBookPostModel *)[self.bookpostArr lastObject]).bookpostId fieldID:self.fieldIndex currUserID:[ZCPUserCenter sharedInstance].currentUserModel.userId pageCount:pageCount success:^(AFHTTPRequestOperation *operation, ZCPListDataModel *bookpostListModel) {
+    [[ZCPRequestManager sharedInstance] getBookpostListWithSearchText:self.searchBar.text sortMethod:self.sortMethod fieldID:self.fieldIndex currUserID:[ZCPUserCenter sharedInstance].currentUserModel.userId pagination:self.pagination + 1 pageCount:BOOKPOST_LIST_PAGE_COUNT success:^(AFHTTPRequestOperation *operation, ZCPListDataModel *bookpostListModel) {
         STRONG_SELF;
         if ([bookpostListModel isKindOfClass:[ZCPListDataModel class]] && bookpostListModel.items) {
-            if (self.sortMethod == ZCPBookpostSortByTime) {
-                [weakSelf.bookpostArr addObjectsFromArray:bookpostListModel.items];
+            [weakSelf.bookpostArr addObjectsFromArray:bookpostListModel.items];
+            
+            // 重新构造并加载数据
+            [self constructData];
+            [weakSelf.tableView reloadData];
+            // 如果获取到数据了，那么页数+1
+            if (bookpostListModel.items.count > 0) {
+                self.pagination ++;
             }
-            else {
-                weakSelf.bookpostArr = [NSMutableArray arrayWithArray:bookpostListModel.items];
-            }
+        }
+        [weakSelf.tableView.mj_footer endRefreshing];
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        TTDPRINT(@"%@", error);
+        [weakSelf.tableView.mj_footer endRefreshing];
+    }];
+}
+
+/**
+ *  加载数据
+ */
+- (void)loadData {
+    WEAK_SELF;
+    [[ZCPRequestManager sharedInstance] getBookpostListWithSearchText:self.searchBar.text sortMethod:self.sortMethod fieldID:self.fieldIndex currUserID:[ZCPUserCenter sharedInstance].currentUserModel.userId pagination:self.pagination pageCount:BOOKPOST_LIST_PAGE_COUNT success:^(AFHTTPRequestOperation *operation, ZCPListDataModel *bookpostListModel) {
+        STRONG_SELF;
+        if ([bookpostListModel isKindOfClass:[ZCPListDataModel class]] && bookpostListModel.items) {
+            weakSelf.bookpostArr = [NSMutableArray arrayWithArray:bookpostListModel.items];
             
             // 重新构造并加载数据
             [self constructData];
             [weakSelf.tableView reloadData];
         }
-        [weakSelf.tableView.mj_footer endRefreshing];
-        weakSelf.pagination ++;
+        [weakSelf.tableView.mj_header endRefreshing];
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         TTDPRINT(@"%@", error);
-        [weakSelf.tableView.mj_footer endRefreshing];
+        [weakSelf.tableView.mj_header endRefreshing];
     }];
 }
 
 #pragma mark - Public Method
 - (void)librarySearchBookName:(NSString *)bookName {
-    self.searchBar.text = bookName;
-    // 按搜索条件获取图书贴列表
-    WEAK_SELF;
-    [[ZCPRequestManager sharedInstance] getBookpostWithSearchText:self.searchBar.text sortMethod:self.sortMethod fieldID:self.fieldIndex currUserID:[ZCPUserCenter sharedInstance].currentUserModel.userId pageCount:BOOKPOST_LIST_PAGE_COUNT success:^(AFHTTPRequestOperation *operation, ZCPListDataModel *bookpostListModel) {
-        STRONG_SELF;
-        if ([bookpostListModel isKindOfClass:[ZCPListDataModel class]] && bookpostListModel.items) {
-            weakSelf.bookpostArr = [NSMutableArray arrayWithArray:bookpostListModel.items];
-            
-            // 重新构造并加载数据
-            [self constructData];
-            [weakSelf.tableView reloadData];
-        }
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        TTDPRINT(@"%@", error);
-    }];
     self.pagination = 1;
+    self.sortMethod = ZCPBookpostSortByTime;
+    self.searchBar.text = bookName;
+    
+    // 加载数据
+    [self loadData];
 }
+
+
 
 @end

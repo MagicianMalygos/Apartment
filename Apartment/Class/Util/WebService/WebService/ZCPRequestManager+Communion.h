@@ -16,55 +16,25 @@ typedef NS_ENUM(NSInteger, ZCPBookpostSortMethod){
 
 @interface ZCPRequestManager (Communion)
 
-/**
-*  得到根据fieldID查询出的图书贴列表
-*
-*  @param fieldID       领域ID
-*  @param sortMethod    搜索方式
-*  @param currUserID    当前用户ID
-*  @param pageCount     一页数量
-*/
-- (NSOperation *)getBookpostListWithSortMethod:(ZCPBookpostSortMethod) sortMethod
-                                       fieldID:(NSInteger)fieldID
-                                    currUserID:(NSInteger) currUserID
-                                     pageCount:(NSInteger) pageCount
-                                       success:(void (^)(AFHTTPRequestOperation *operation, ZCPListDataModel *bookpostListModel))success
-                                       failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure;
 
 /**
- *  得到根据oldBookpostID和fieldID查询出的图书贴列表
- *
- *  @param sortMethod    搜索方式
- *  @param oldBookpostID 当前用户ID
- *  @param fieldID       领域ID
- *  @param currUserID    当前用户ID
- *  @param pageCount     一页数量
- */
-- (NSOperation *)getOldBookpostListWithSortMethod:(ZCPBookpostSortMethod)sortMethod
-                                    oldBookpostID:(NSInteger) oldBookpostID
-                                          fieldID:(NSInteger) fieldID
-                                       currUserID:(NSInteger) currUserID
-                                        pageCount:(NSInteger) pageCount
-                                          success:(void (^)(AFHTTPRequestOperation *operation, ZCPListDataModel *bookpostListModel))success
-                                          failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure;
-
-
-/**
- *  得到根据SearchText查询出的图书贴列表
+ *  得到根据关键字、排序方式、领域ID获取的图书贴列表
  *
  *  @param searchText 搜索条件
  *  @param sortMethod 搜索方式
  *  @param fieldID    领域ID
  *  @param currUserID 当前用户ID
+ *  @param pagination 页码
  *  @param pageCount  一页数量
  */
-- (NSOperation *)getBookpostWithSearchText:(NSString *) searchText
-                                sortMethod:(ZCPBookpostSortMethod) sortMethod
-                                   fieldID:(NSInteger) fieldID
-                                currUserID:(NSInteger) currUserID
-                                 pageCount:(NSInteger) pageCount
-                                   success:(void (^)(AFHTTPRequestOperation *operation, ZCPListDataModel *bookpostListModel))success
-                                   failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure;
+- (NSOperation *)getBookpostListWithSearchText:(NSString *) searchText
+                                    sortMethod:(ZCPBookpostSortMethod) sortMethod
+                                       fieldID:(NSInteger) fieldID
+                                    currUserID:(NSInteger) currUserID
+                                    pagination:(NSInteger) pagination
+                                     pageCount:(NSInteger) pageCount
+                                       success:(void (^)(AFHTTPRequestOperation *operation, ZCPListDataModel *bookpostListModel))success
+                                       failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure;
 
 /**
  *  改变图书贴收藏状态

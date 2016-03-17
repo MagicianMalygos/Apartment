@@ -43,10 +43,12 @@
  *
  *  @param belong     所属正反方
  *  @param currUserID 当前用户ID
+ *  @param pagination 页码
  *  @param pageCount  一页个数
  */
 - (NSOperation *)getArgumentListWithBelong:(ZCPArgumentBelong)belong
                                 currUserID:(NSInteger)currUserID
+                                pagination:(NSInteger)pagination
                                  pageCount:(NSInteger)pageCount
                                    success:(void(^)(AFHTTPRequestOperation *operation, ZCPListDataModel *argumentListModel))success
                                    failure:(void(^)(AFHTTPRequestOperation *operation, NSError *error))failure {
@@ -58,39 +60,7 @@
     AFHTTPRequestOperation *operation = [self POST:ZCPMakeURLString(scheme, host, path)
                                         parameters:@{@"belong": @(belong)
                                                      , @"currUserID": @(currUserID)
-                                                     , @"pageCount": @(pageCount)}
-                                           success:^(AFHTTPRequestOperation *operation, id responseObject) {
-                                               if (success) {
-                                                   ZCPListDataModel *model = [ZCPRequestResponseTranslator translateResponse_ArgumentListModel:[responseObject objectForKey:@"data"]];
-                                                   success(operation, model);
-                                               }
-                                           }
-                                           failure:failure];
-    TTDPRINT(@"URL=%@  params=%@", operation.request.URL, [[NSString alloc] initWithData:operation.request.HTTPBody encoding:NSUTF8StringEncoding]);
-    return operation;
-}
-/**
- *  得到按时间排序，在oldArgumentID对应对联之后的对联列表
- *
- *  @param belong        论据所属正反方
- *  @param pageCount     一页数量
- *  @param oldArgumentID 下拉刷新最后一个对联信息
- *  @param currUserID    当前用户ID
- */
-- (NSOperation *)getOldArgumentListWithBelong:(ZCPArgumentBelong)belong
-                                oldArgumentID:(NSInteger)oldArgumentID
-                                   currUserID:(NSInteger)currUserID
-                                    pageCount:(NSInteger)pageCount
-                                      success:(void (^)(AFHTTPRequestOperation *operation, ZCPListDataModel *argumentListModel))success
-                                      failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure {
-    NSString * scheme       = schemeForType(kURLTypeCommon);
-    NSString * host         = hostForType(kURLTypeCommon);
-    NSString * path         = urlForKey(OLD_ARGUMENT_LIST);
-    
-    AFHTTPRequestOperation *operation = [self POST:ZCPMakeURLString(scheme, host, path)
-                                        parameters:@{@"belong": @(belong)
-                                                     , @"oldArgumentID": @(oldArgumentID)
-                                                     , @"currUserID": @(currUserID)
+                                                     , @"pagination": @(pagination)
                                                      , @"pageCount": @(pageCount)}
                                            success:^(AFHTTPRequestOperation *operation, id responseObject) {
                                                if (success) {

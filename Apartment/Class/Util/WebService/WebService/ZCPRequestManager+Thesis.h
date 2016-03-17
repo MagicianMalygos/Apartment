@@ -26,29 +26,15 @@
  *
  *  @param belong     所属正反方
  *  @param currUserID 当前用户ID
+ *  @param pagination 页码
  *  @param pageCount  一页个数
  */
 - (NSOperation *)getArgumentListWithBelong:(ZCPArgumentBelong)belong
                                 currUserID:(NSInteger)currUserID
+                                pagination:(NSInteger)pagination
                                  pageCount:(NSInteger)pageCount
                                    success:(void(^)(AFHTTPRequestOperation *operation, ZCPListDataModel *argumentListModel))success
                                    failure:(void(^)(AFHTTPRequestOperation *operation, NSError *error))failure;
-
-
-/**
- *  得到按时间排序，在oldArgumentID对应对联之后的对联列表
- *
- *  @param belong        论据所属正反方
- *  @param pageCount     一页数量
- *  @param oldArgumentID 下拉刷新最后一个对联信息
- *  @param currUserID    当前用户ID
- */
-- (NSOperation *)getOldArgumentListWithBelong:(ZCPArgumentBelong)belong
-                                oldArgumentID:(NSInteger)oldArgumentID
-                                currUserID:(NSInteger)currUserID
-                                 pageCount:(NSInteger)pageCount
-                                   success:(void (^)(AFHTTPRequestOperation *operation, ZCPListDataModel *argumentListModel))success
-                                   failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure;
 
 /**
  *  添加辩题

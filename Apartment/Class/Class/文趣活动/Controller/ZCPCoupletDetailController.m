@@ -16,7 +16,7 @@
 #import "ZCPRequestManager+Couplet.h"
 #import "ZCPCommentView.h"
 
-#define REPLY_PAGE_COUNT        PAGE_COUNT_DEFAULT
+#define COUPLET_REPLY_PAGE_COUNT        PAGE_COUNT_DEFAULT
 
 @interface ZCPCoupletDetailController () <ZCPCoupletDetailCellDelegate, ZCPCoupletReplyCellDelegate, ZCPCommentViewDelegate>
 
@@ -54,20 +54,8 @@
     self.commentView.delegate = self;
     [self.view addSubview:self.commentView];
     
-    // 从网络获取数据
-    WEAK_SELF;
-    [[ZCPRequestManager sharedInstance] getCoupletReplyListWithPageCount:REPLY_PAGE_COUNT currCoupletID:self.selectedCoupletModel.coupletId currUserID:[ZCPUserCenter sharedInstance].currentUserModel.userId success:^(AFHTTPRequestOperation *operation, ZCPListDataModel *coupletReplyListModel) {
-        STRONG_SELF;
-        if ([coupletReplyListModel isKindOfClass:[ZCPListDataModel class]] && coupletReplyListModel.items) {
-            weakSelf.coupletReplyModelArr = [NSMutableArray arrayWithArray:coupletReplyListModel.items];
-            
-            // 重新构造并加载数据
-            [self constructData];
-            [weakSelf.tableView reloadData];
-        }
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        TTDPRINT(@"%@", error);
-    }];
+    // 加载数据
+    [self loadData];
     
     // 添加上拉下拉刷新控件
     self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(headerRefresh)];
@@ -83,6 +71,7 @@
 }
 
 #pragma mark - Construct Data
+// 构造cellitem
 - (void)constructData {
     NSMutableArray *items = [NSMutableArray array];
     
@@ -237,7 +226,9 @@
                                                            if (isSuccess) {
                                                                TTDPRINT(@"提交成功...");
                                                                [MBProgressHUD showSuccess:@"添加回复成功！" toView:self.view];
-                                                               [self reloadReplyData];
+                                                               
+                                                               // 重新加载数据
+                                                               [self loadData];
                                                            }
                                                            else {
                                                                TTDPRINT(@"提交失败...");
@@ -251,26 +242,6 @@
     [self.commentView clearText];
     
     return YES;
-}
-/**
- *  回复提交成功确认后重新加载数据
- *  代码嵌套代码，太长了 - -！
- */
-- (void)reloadReplyData {
-    WEAK_SELF;
-    [[ZCPRequestManager sharedInstance] getCoupletReplyListWithPageCount:REPLY_PAGE_COUNT currCoupletID:self.selectedCoupletModel.coupletId currUserID:[ZCPUserCenter sharedInstance].currentUserModel.userId success:^(AFHTTPRequestOperation *operation, ZCPListDataModel *coupletReplyListModel) {
-        STRONG_SELF;
-        if ([coupletReplyListModel isKindOfClass:[ZCPListDataModel class]]) {
-            weakSelf.coupletReplyModelArr = [NSMutableArray arrayWithArray:coupletReplyListModel.items];
-            
-            // 重新构造并加载数据
-            [self constructData];
-            [weakSelf.tableView reloadData];
-        }
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        TTDPRINT(@"%@", error);
-    }];
-    self.pagination = 1;    // 提交回复后初始化页码
 }
 
 #pragma mark - Private Method
@@ -289,12 +260,17 @@
     return YES;
 }
 
-#pragma mark - Refresh Method
+#pragma mark - Load Data
+/**
+ *  上拉刷新
+ */
 - (void)headerRefresh {
+    self.pagination = 1;
+    
     WEAK_SELF;
-    [[ZCPRequestManager sharedInstance] getCoupletReplyListWithPageCount:REPLY_PAGE_COUNT currCoupletID:self.selectedCoupletModel.coupletId currUserID:[ZCPUserCenter sharedInstance].currentUserModel.userId success:^(AFHTTPRequestOperation *operation, ZCPListDataModel *coupletReplyListModel) {
+    [[ZCPRequestManager sharedInstance] getCoupletReplyListWithCurrCoupletID:self.selectedCoupletModel.coupletId currUserID:[ZCPUserCenter sharedInstance].currentUserModel.userId pagination:1 pageCount:COUPLET_REPLY_PAGE_COUNT success:^(AFHTTPRequestOperation *operation, ZCPListDataModel *coupletReplyListModel) {
         STRONG_SELF;
-        if ([coupletReplyListModel isKindOfClass:[ZCPListDataModel class]]) {
+        if ([coupletReplyListModel isKindOfClass:[ZCPListDataModel class]] && coupletReplyListModel.items) {
             weakSelf.coupletReplyModelArr = [NSMutableArray arrayWithArray:coupletReplyListModel.items];
             
             // 重新构造并加载数据
@@ -306,24 +282,47 @@
         TTDPRINT(@"%@", error);
         [weakSelf.tableView.mj_header endRefreshing];
     }];
-    self.pagination = 1;
 }
+/**
+ *  下拉刷新
+ */
 - (void)footerRefresh {
     WEAK_SELF;
-    [[ZCPRequestManager sharedInstance] getCoupletReplyListWithPageCount:((self.pagination + 1) * REPLY_PAGE_COUNT) currCoupletID:self.selectedCoupletModel.coupletId currUserID:[ZCPUserCenter sharedInstance].currentUserModel.userId success:^(AFHTTPRequestOperation *operation, ZCPListDataModel *coupletReplyListModel) {
+    [[ZCPRequestManager sharedInstance] getCoupletReplyListWithCurrCoupletID:self.selectedCoupletModel.coupletId currUserID:[ZCPUserCenter sharedInstance].currentUserModel.userId pagination:self.pagination + 1 pageCount:COUPLET_REPLY_PAGE_COUNT success:^(AFHTTPRequestOperation *operation, ZCPListDataModel *coupletReplyListModel) {
         STRONG_SELF;
-        if ([coupletReplyListModel isKindOfClass:[ZCPListDataModel class]]) {
+        if ([coupletReplyListModel isKindOfClass:[ZCPListDataModel class]] && coupletReplyListModel.items) {
+            [weakSelf.coupletReplyModelArr addObjectsFromArray:coupletReplyListModel.items];
+            
+            // 重新构造并加载数据
+            [self constructData];
+            [weakSelf.tableView reloadData];
+            // 如果获取到数据了，那么页数+1
+            if (coupletReplyListModel.items.count > 0) {
+                self.pagination ++;
+            }
+        }
+        [weakSelf.tableView.mj_footer endRefreshing];
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        TTDPRINT(@"%@", error);
+        [weakSelf.tableView.mj_footer endRefreshing];
+    }];
+}
+/**
+ *  加载数据
+ */
+- (void)loadData {
+    WEAK_SELF;
+    [[ZCPRequestManager sharedInstance] getCoupletReplyListWithCurrCoupletID:self.selectedCoupletModel.coupletId currUserID:[ZCPUserCenter sharedInstance].currentUserModel.userId pagination:1 pageCount:COUPLET_REPLY_PAGE_COUNT success:^(AFHTTPRequestOperation *operation, ZCPListDataModel *coupletReplyListModel) {
+        STRONG_SELF;
+        if ([coupletReplyListModel isKindOfClass:[ZCPListDataModel class]] && coupletReplyListModel.items) {
             weakSelf.coupletReplyModelArr = [NSMutableArray arrayWithArray:coupletReplyListModel.items];
             
             // 重新构造并加载数据
             [self constructData];
             [weakSelf.tableView reloadData];
         }
-        [weakSelf.tableView.mj_footer endRefreshing];
-        self.pagination ++;
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         TTDPRINT(@"%@", error);
-        [weakSelf.tableView.mj_footer endRefreshing];
     }];
 }
 

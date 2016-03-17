@@ -18,6 +18,7 @@
 
 @property (nonatomic, assign) ZCPArgumentBelong argumentBelong;     // 正反方
 @property (nonatomic, strong) NSMutableArray *argumentArr;          // 论据数组
+@property (assign, nonatomic) int pagination;                       // 页码
 
 @end
 
@@ -38,20 +39,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    // 从网络获取数据
-    WEAK_SELF;
-    [[ZCPRequestManager sharedInstance] getArgumentListWithBelong:self.argumentBelong currUserID:[ZCPUserCenter sharedInstance].currentUserModel.userId pageCount:ARGUMENT_PAGE_COUNT success:^(AFHTTPRequestOperation *operation, ZCPListDataModel *argumentListModel) {
-        STRONG_SELF;
-        if ([argumentListModel isKindOfClass:[ZCPListDataModel class]] && argumentListModel.items) {
-            weakSelf.argumentArr = [NSMutableArray arrayWithArray:argumentListModel.items];
-            
-            // 重新构造并加载数据
-            [self constructData];
-            [weakSelf.tableView reloadData];
-        }
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        TTDPRINT(@"%@", error);
-    }];
+    // 初始化
+    self.pagination = 1;
+    
+    // 加载数据
+    [self loadData];
     
     // 初始化上拉下拉刷新控件
     self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(headerRefresh)];
@@ -119,13 +111,13 @@
     }];
 }
 
-#pragma mark - Refresh Method
+#pragma mark - Load Data
 /**
  *  下拉刷新
  */
 - (void)headerRefresh {
     WEAK_SELF;
-    [[ZCPRequestManager sharedInstance] getArgumentListWithBelong:self.argumentBelong currUserID:[ZCPUserCenter sharedInstance].currentUserModel.userId pageCount:ARGUMENT_PAGE_COUNT success:^(AFHTTPRequestOperation *operation, ZCPListDataModel *argumentListModel) {
+    [[ZCPRequestManager sharedInstance] getArgumentListWithBelong:self.argumentBelong currUserID:[ZCPUserCenter sharedInstance].currentUserModel.userId pagination:1 pageCount:ARGUMENT_PAGE_COUNT success:^(AFHTTPRequestOperation *operation, ZCPListDataModel *argumentListModel) {
         STRONG_SELF;
         if ([argumentListModel isKindOfClass:[ZCPListDataModel class]] && argumentListModel.items) {
             weakSelf.argumentArr = [NSMutableArray arrayWithArray:argumentListModel.items];
@@ -145,7 +137,7 @@
  */
 - (void)footerRefresh {
     WEAK_SELF;
-    [[ZCPRequestManager sharedInstance] getOldArgumentListWithBelong:self.argumentBelong oldArgumentID:((ZCPArgumentModel *)[self.argumentArr lastObject]).argumentId currUserID:[ZCPUserCenter sharedInstance].currentUserModel.userId pageCount:ARGUMENT_PAGE_COUNT success:^(AFHTTPRequestOperation *operation, ZCPListDataModel *argumentListModel) {
+    [[ZCPRequestManager sharedInstance] getArgumentListWithBelong:self.argumentBelong currUserID:[ZCPUserCenter sharedInstance].currentUserModel.userId pagination:self.pagination + 1 pageCount:ARGUMENT_PAGE_COUNT success:^(AFHTTPRequestOperation *operation, ZCPListDataModel *argumentListModel) {
         STRONG_SELF;
         if ([argumentListModel isKindOfClass:[ZCPListDataModel class]] && argumentListModel.items) {
             [weakSelf.argumentArr addObjectsFromArray:argumentListModel.items];
@@ -153,11 +145,34 @@
             // 重新构造并加载数据
             [self constructData];
             [weakSelf.tableView reloadData];
+            // 如果获取到数据了，那么页数+1
+            if (argumentListModel.items.count > 0) {
+                self.pagination ++;
+            }
         }
         [weakSelf.tableView.mj_footer endRefreshing];
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         TTDPRINT(@"%@", error);
         [weakSelf.tableView.mj_footer endRefreshing];
+    }];
+}
+
+/**
+ *  加载数据
+ */
+- (void)loadData {
+    WEAK_SELF;
+    [[ZCPRequestManager sharedInstance] getArgumentListWithBelong:self.argumentBelong currUserID:[ZCPUserCenter sharedInstance].currentUserModel.userId pagination:1 pageCount:ARGUMENT_PAGE_COUNT success:^(AFHTTPRequestOperation *operation, ZCPListDataModel *argumentListModel) {
+        STRONG_SELF;
+        if ([argumentListModel isKindOfClass:[ZCPListDataModel class]] && argumentListModel.items) {
+            weakSelf.argumentArr = [NSMutableArray arrayWithArray:argumentListModel.items];
+            
+            // 重新构造并加载数据
+            [self constructData];
+            [weakSelf.tableView reloadData];
+        }
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        TTDPRINT(@"%@", error);
     }];
 }
 

@@ -39,21 +39,8 @@
     self.sortMethodFlag = ZCPCoupletSortByTime;
     self.pagination = 1;
     
-    // 从网络获取数据
-    WEAK_SELF;
-    [[ZCPRequestManager sharedInstance] getCoupletListByTimeWithPageCount:COUPLET_LIST_PAGE_COUNT currUserID:[ZCPUserCenter sharedInstance].currentUserModel.userId success:^(AFHTTPRequestOperation *operation, ZCPListDataModel *coupletListModel) {
-        STRONG_SELF;
-        if ([coupletListModel isKindOfClass:[ZCPListDataModel class]] && coupletListModel.items) {
-            weakSelf.coupletModelArr = [NSMutableArray arrayWithArray:coupletListModel.items];
-            
-            // 重新构造并加载数据
-            [self constructData];
-            [weakSelf.tableView reloadData];
-        }
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        TTDPRINT(@"%@", error);
-    }];
-    
+    // 加载数据
+    [self loadData];
     
     // 初始化上拉下拉刷新控件
     self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(headerRefresh)];
@@ -121,39 +108,21 @@
     
     switch (index) {
         case 0: {
+            // 初始化
             self.sortMethodFlag = ZCPCoupletSortByTime;
-            // 获取按时间排序的对联数组
-            WEAK_SELF;
-            [[ZCPRequestManager sharedInstance] getCoupletListByTimeWithPageCount:COUPLET_LIST_PAGE_COUNT currUserID:[ZCPUserCenter sharedInstance].currentUserModel.userId success:^(AFHTTPRequestOperation *operation, ZCPListDataModel *coupletListModel) {
-                STRONG_SELF;
-                if ([coupletListModel isKindOfClass:[ZCPListDataModel class]]) {
-                    weakSelf.coupletModelArr = [NSMutableArray arrayWithArray:coupletListModel.items];
-                    
-                    // 重新构造并加载数据
-                    [self constructData];
-                    [weakSelf.tableView reloadData];
-                }
-            } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-                TTDPRINT(@"%@", error);
-            }];
+            self.pagination = 1;
+            
+            // 加载数据
+            [self loadData];
             break;
         }
         case 1: {
+            // 初始化
             self.sortMethodFlag = ZCPCoupletSortBySupport;
-            // 获取按点赞量排序的对联数组
-            WEAK_SELF;
-            [[ZCPRequestManager sharedInstance] getCoupletListBySupportWithPageCount:COUPLET_LIST_PAGE_COUNT currUserID:[ZCPUserCenter sharedInstance].currentUserModel.userId success:^(AFHTTPRequestOperation *operation, ZCPListDataModel *coupletListModel) {
-                STRONG_SELF;
-                if ([coupletListModel isKindOfClass:[ZCPListDataModel class]]) {
-                    weakSelf.coupletModelArr = [NSMutableArray arrayWithArray:coupletListModel.items];
-                    
-                    // 重新构造并加载数据
-                    [self constructData];
-                    [weakSelf.tableView reloadData];
-                }
-            } failure:^(AFHTTPRequestOperation *operation, NSError *error  ) {
-                TTDPRINT(@"%@", error);
-            }];
+            self.pagination = 1;
+            
+            // 加载数据
+            [self loadData];
             break;
         }
         case 2:
@@ -165,81 +134,66 @@
     }
 }
 
-#pragma mark - Refresh Method
+#pragma mark - Load Data
 - (void)headerRefresh {
+    // 下拉刷新时初始化页码
+    self.pagination = 1;
+    
+    // 开始加载数据
     WEAK_SELF;
-    if (self.sortMethodFlag == ZCPCoupletSortByTime) {
-        [[ZCPRequestManager sharedInstance] getCoupletListByTimeWithPageCount:COUPLET_LIST_PAGE_COUNT
-                                                                   currUserID:[ZCPUserCenter sharedInstance].currentUserModel.userId
-                                                                      success:^(AFHTTPRequestOperation *operation, ZCPListDataModel *coupletListModel) {
-                                                                          STRONG_SELF;
-                                                                          if ([coupletListModel isKindOfClass:[ZCPListDataModel class]]) {
-                                                                              weakSelf.coupletModelArr = [NSMutableArray arrayWithArray:coupletListModel.items];
-                                                                              
-                                                                              // 重新构造并加载数据
-                                                                              [self constructData];
-                                                                              [weakSelf.tableView reloadData];
-                                                                          }
-                                                                          [weakSelf.tableView.mj_header endRefreshing];
-                                                                      } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-                                                                          TTDPRINT(@"%@", error);
-                                                                          [weakSelf.tableView.mj_header endRefreshing];
-                                                                      }];
-    }
-    else if (self.sortMethodFlag == ZCPCoupletSortBySupport){
-        [[ZCPRequestManager sharedInstance] getCoupletListBySupportWithPageCount:COUPLET_LIST_PAGE_COUNT currUserID:[ZCPUserCenter sharedInstance].currentUserModel.userId success:^(AFHTTPRequestOperation *operation, ZCPListDataModel *coupletListModel) {
-            STRONG_SELF;
-            if ([coupletListModel isKindOfClass:[ZCPListDataModel class]]) {
-                weakSelf.coupletModelArr = [NSMutableArray arrayWithArray:coupletListModel.items];
-
-                // 重新构造并加载数据
-                [self constructData];
-                [weakSelf.tableView reloadData];
-            }
-            [weakSelf.tableView.mj_header endRefreshing];
-        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-            TTDPRINT(@"%@", error);
-            [weakSelf.tableView.mj_header endRefreshing];
-        }];
-    }
-    self.pagination = 1;    // 下拉刷新初始化页码
+    [[ZCPRequestManager sharedInstance] getCoupletListWithSortMethod:self.sortMethodFlag currUserID:[ZCPUserCenter sharedInstance].currentUserModel.userId pagination:self.pagination pageCount:COUPLET_LIST_PAGE_COUNT success:^(AFHTTPRequestOperation *operation, ZCPListDataModel *coupletListModel) {
+        STRONG_SELF;
+        if ([coupletListModel isKindOfClass:[ZCPListDataModel class]]) {
+            weakSelf.coupletModelArr = [NSMutableArray arrayWithArray:coupletListModel.items];
+            
+            // 重新构造并加载数据
+            [self constructData];
+            [weakSelf.tableView reloadData];
+        }
+        [weakSelf.tableView.mj_header endRefreshing];
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        TTDPRINT(@"%@", error);
+        [weakSelf.tableView.mj_header endRefreshing];
+    }];
 }
 - (void)footerRefresh {
+    // 开始加载数据
     WEAK_SELF;
-    if (self.sortMethodFlag == ZCPCoupletSortByTime) {
-        [[ZCPRequestManager sharedInstance] getOldCoupletListByTimeWithPageCount:COUPLET_LIST_PAGE_COUNT oldCoupletID:((ZCPCoupletModel *)[self.coupletModelArr lastObject]).coupletId currUserID:[ZCPUserCenter sharedInstance].currentUserModel.userId success:^(AFHTTPRequestOperation *operation, ZCPListDataModel *coupletListModel) {
-            STRONG_SELF;
-            if ([coupletListModel isKindOfClass:[ZCPListDataModel class]]) {
-                [weakSelf.coupletModelArr addObjectsFromArray:coupletListModel.items];
-                
-                // 重新构造并加载数据
-                [self constructData];
-                [weakSelf.tableView reloadData];
+    [[ZCPRequestManager sharedInstance] getCoupletListWithSortMethod:self.sortMethodFlag currUserID:[ZCPUserCenter sharedInstance].currentUserModel.userId pagination:self.pagination + 1 pageCount:COUPLET_LIST_PAGE_COUNT success:^(AFHTTPRequestOperation *operation, ZCPListDataModel *coupletListModel) {
+        STRONG_SELF;
+        if ([coupletListModel isKindOfClass:[ZCPListDataModel class]]) {
+            [weakSelf.coupletModelArr addObjectsFromArray:coupletListModel.items];
+            
+            // 重新构造并加载数据
+            [self constructData];
+            [weakSelf.tableView reloadData];
+            // 如果获取到数据了，那么页数+1
+            if (coupletListModel.items.count > 0) {
+                self.pagination ++;
             }
-            [weakSelf.tableView.mj_footer endRefreshing];
-            weakSelf.pagination ++;
-        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-            TTDPRINT(@"%@", error);
-            [weakSelf.tableView.mj_footer endRefreshing];
-        }];
-    }
-    else if (self.sortMethodFlag == ZCPCoupletSortBySupport){
-        [[ZCPRequestManager sharedInstance] getCoupletListBySupportWithPageCount:((self.pagination + 1) * COUPLET_LIST_PAGE_COUNT) currUserID:[ZCPUserCenter sharedInstance].currentUserModel.userId success:^(AFHTTPRequestOperation *operation, ZCPListDataModel *coupletListModel) {
-            STRONG_SELF;
-            if ([coupletListModel isKindOfClass:[ZCPListDataModel class]]) {
-                weakSelf.coupletModelArr = [NSMutableArray arrayWithArray:coupletListModel.items];
-                
-                // 重新构造并加载数据
-                [self constructData];
-                [weakSelf.tableView reloadData];
-            }
-            [weakSelf.tableView.mj_footer endRefreshing];
-            weakSelf.pagination ++;
-        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-            TTDPRINT(@"%@", error);
-            [weakSelf.tableView.mj_footer endRefreshing];
-        }];
-    }
+        }
+        [weakSelf.tableView.mj_footer endRefreshing];
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        TTDPRINT(@"%@", error);
+        [weakSelf.tableView.mj_header endRefreshing];
+    }];
+}
+
+// 加载数据
+- (void)loadData {
+    WEAK_SELF;
+    [[ZCPRequestManager sharedInstance] getCoupletListWithSortMethod:self.sortMethodFlag currUserID:[ZCPUserCenter sharedInstance].currentUserModel.userId pagination:self.pagination pageCount:COUPLET_LIST_PAGE_COUNT success:^(AFHTTPRequestOperation *operation, ZCPListDataModel *coupletListModel) {
+        STRONG_SELF;
+        if ([coupletListModel isKindOfClass:[ZCPListDataModel class]] && coupletListModel.items) {
+            weakSelf.coupletModelArr = [NSMutableArray arrayWithArray:coupletListModel.items];
+            
+            // 重新构造并加载数据
+            [self constructData];
+            [weakSelf.tableView reloadData];
+        }
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        TTDPRINT(@"%@", error);
+    }];
 }
 
 @end

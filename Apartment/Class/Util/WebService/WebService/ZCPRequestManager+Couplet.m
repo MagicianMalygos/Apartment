@@ -13,23 +13,28 @@
 @implementation ZCPRequestManager (Couplet)
 
 /**
- *  得到按时间排序的对联列表
+ *  得到根据排序方式获取的对联列表
  *
+ *  @param sortMethod 排序方式
+ *  @param currUserID 当前用户ID
+ *  @param pagination 页码
  *  @param pageCount  一页数量
- *  @param currUserId 当前用户ID
  */
-- (NSOperation *)getCoupletListByTimeWithPageCount:(NSInteger)pageCount
-                                        currUserID:(NSInteger)currUserID
-                                           success:(void (^)(AFHTTPRequestOperation *operation, ZCPListDataModel *coupletListModel))success
-                                           failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure {
-    
+- (NSOperation *)getCoupletListWithSortMethod:(NSInteger)sortMethod
+                                   currUserID:(NSInteger)currUserID
+                                   pagination:(NSInteger)pagination
+                                    pageCount:(NSInteger)pageCount
+                                      success:(void(^)(AFHTTPRequestOperation *operation, ZCPListDataModel *coupletListModel))success
+                                      failure:(void(^)(AFHTTPRequestOperation *operation, NSError *error))failure {
     NSString * scheme       = schemeForType(kURLTypeCommon);
     NSString * host         = hostForType(kURLTypeCommon);
-    NSString * path         = urlForKey(COUPLET_LIST_BY_TIME);
+    NSString * path         = urlForKey(COUPLET_LIST_BY_MULTI_CONDITION);
     
     AFHTTPRequestOperation *operation = [self POST:ZCPMakeURLString(scheme, host, path)
-                                        parameters:@{@"pageCount":@(pageCount)
-                                                     , @"currUserID":@(currUserID)}
+                                        parameters:@{@"sortMethod": @(sortMethod)
+                                                     , @"currUserID": @(currUserID)
+                                                     , @"pagination": @(pagination)
+                                                     , @"pageCount": @(pageCount)}
                                            success:^(AFHTTPRequestOperation *operation, id responseObject) {
                                                if (success) {
                                                    ZCPListDataModel *model = [ZCPRequestResponseTranslator translateResponse_CoupletListModel:[responseObject objectForKey:@"data"]];
@@ -41,88 +46,30 @@
     return operation;
 }
 
-/**
- *  得到按时间排序，在oldCoupletID对应对联之后的对联列表
- *
- *  @param pageCount    一页数量
- *  @param oldCoupletID 下拉刷新最后一个对联信息
- *  @param currUserID   当前用户ID
- */
-- (NSOperation *)getOldCoupletListByTimeWithPageCount:(NSInteger)pageCount
-                                         oldCoupletID:(NSInteger)oldCoupletID
-                                        currUserID:(NSInteger)currUserID
-                                           success:(void (^)(AFHTTPRequestOperation *operation, ZCPListDataModel *coupletListModel))success
-                                           failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure {
-    
-    NSString * scheme       = schemeForType(kURLTypeCommon);
-    NSString * host         = hostForType(kURLTypeCommon);
-    NSString * path         = urlForKey(OLD_COUPLET_LIST_BY_TIME);
-    
-    AFHTTPRequestOperation *operation = [self POST:ZCPMakeURLString(scheme, host, path)
-                                        parameters:@{@"pageCount":@(pageCount)
-                                                     , @"oldCoupletID": @(oldCoupletID)
-                                                     , @"currUserID":@(currUserID)}
-                                           success:^(AFHTTPRequestOperation *operation, id responseObject) {
-                                               if (success) {
-                                                   ZCPListDataModel *model = [ZCPRequestResponseTranslator translateResponse_CoupletListModel:[responseObject objectForKey:@"data"]];
-                                                   success(operation, model);
-                                               }
-                                           } failure:failure];
-    
-    TTDPRINT(@"URL=%@  params=%@", operation.request.URL, [[NSString alloc] initWithData:operation.request.HTTPBody encoding:NSUTF8StringEncoding]);
-    return operation;
-}
-
-/**
- *  得到按点赞量排序的对联列表
- *
- *  @param pageCount  一页数量
- *  @param currUserId 当前用户ID
- */
-- (NSOperation *)getCoupletListBySupportWithPageCount:(NSInteger)pageCount
-                                           currUserID:(NSInteger)currUserID
-                                              success:(void (^)(AFHTTPRequestOperation *operation, ZCPListDataModel *coupletListModel))success
-                                              failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure {
-    
-    NSString * scheme       = schemeForType(kURLTypeCommon);
-    NSString * host         = hostForType(kURLTypeCommon);
-    NSString * path         = urlForKey(COUPLET_LIST_BY_SUPPORT);
-    
-    AFHTTPRequestOperation *operation = [self POST:ZCPMakeURLString(scheme, host, path)
-                                        parameters:@{@"pageCount": @(pageCount)
-                                                     ,@"currUserID": @(currUserID)}
-                                           success:^(AFHTTPRequestOperation *operation, id responseObject) {
-                                               if (success) {
-                                                   ZCPListDataModel *model = [ZCPRequestResponseTranslator translateResponse_CoupletListModel:[responseObject objectForKey:@"data"]];
-                                                   success(operation, model);
-                                               }
-                                           }
-                                           failure:failure];
-    
-    TTDPRINT(@"URL=%@  params=%@", operation.request.URL, [[NSString alloc] initWithData:operation.request.HTTPBody encoding:NSUTF8StringEncoding]);
-    return operation;
-}
 
 /**
  *  得到按时间排序的对联回复列表
  *
- *  @param pageCount  一页数量
- *  @param currUserId 当前用户ID
+ *  @param currCoupletID 当前对联ID
+ *  @param currUserID    当前用户ID
+ *  @param pagination    页码
+ *  @param pageCount     一页数量
  */
-- (NSOperation *)getCoupletReplyListWithPageCount:(NSInteger)pageCount
-                                    currCoupletID:(NSInteger)currCoupletID
-                                        currUserID:(NSInteger)currUserID
-                                            success:(void (^)(AFHTTPRequestOperation *operation, ZCPListDataModel *coupletReplyListModel))success
-                                            failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure {
-    
+- (NSOperation *)getCoupletReplyListWithCurrCoupletID:(NSInteger)currCoupletID
+                                           currUserID:(NSInteger)currUserID
+                                           pagination:(NSInteger)pagination
+                                            pageCount:(NSInteger)pageCount
+                                              success:(void (^)(AFHTTPRequestOperation *operation, ZCPListDataModel *coupletReplyListModel))success
+                                              failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure {
     NSString * scheme       = schemeForType(kURLTypeCommon);
     NSString * host         = hostForType(kURLTypeCommon);
     NSString * path         = urlForKey(COUPLET_REPLY_LIST);
     
     AFHTTPRequestOperation *operation = [self POST:ZCPMakeURLString(scheme, host, path)
-                                        parameters:@{@"pageCount": @(pageCount)
-                                                     , @"currCoupletID": @(currCoupletID)
-                                                     , @"currUserID": @(currUserID)}
+                                        parameters:@{@"currCoupletID": @(currCoupletID)
+                                                     , @"currUserID": @(currUserID)
+                                                     , @"pagination": @(pagination)
+                                                     , @"pageCount": @(pageCount)}
                                            success:^(AFHTTPRequestOperation *operation, id responseObject) {
                                                if (success) {
                                                    ZCPListDataModel *model = [ZCPRequestResponseTranslator translateResponse_CoupletReplyListModel:[responseObject objectForKey:@"data"]];

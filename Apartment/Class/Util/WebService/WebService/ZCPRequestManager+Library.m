@@ -21,7 +21,7 @@
  *  @param currUserID 当前用户ID
  *  @param pageCount  一页数量
  */
-- (NSOperation *)getBookListBySearchText:(NSString *)searchText
+- (NSOperation *)getBookListWithSearchText:(NSString *)searchText
                               SortMethod:(NSInteger)sortMethod
                                  fieldID:(NSInteger)fieldID
                               currUserID:(NSInteger)currUserID

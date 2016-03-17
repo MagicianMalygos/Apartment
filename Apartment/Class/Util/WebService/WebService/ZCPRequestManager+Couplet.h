@@ -14,51 +14,34 @@
 @interface ZCPRequestManager (Couplet)
 
 /**
- *  得到按时间排序的对联列表
- *
- *  @param pageCount  一页数量
- *  @param currUserId 当前用户ID
- */
-- (NSOperation *)getCoupletListByTimeWithPageCount:(NSInteger)pageCount
-                                        currUserID:(NSInteger)currUserID
-                                           success:(void(^)(AFHTTPRequestOperation *operation, ZCPListDataModel *coupletListModel))success
-                                           failure:(void(^)(AFHTTPRequestOperation *operation, NSError *error))failure;
-
-/**
- *  得到按时间排序，在oldCoupletID对应对联之后的对联列表
- *
- *  @param pageCount    一页数量
- *  @param oldCoupletID 下拉刷新最后一个对联信息
- *  @param currUserID   当前用户ID
- */
-- (NSOperation *)getOldCoupletListByTimeWithPageCount:(NSInteger)pageCount
-                                         oldCoupletID:(NSInteger)oldCoupletID
-                                           currUserID:(NSInteger)currUserID
-                                              success:(void (^)(AFHTTPRequestOperation *operation, ZCPListDataModel *coupletListModel))success
-                                              failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure;
-
-/**
- *  得到按点赞量排序的对联列表
- *
- *  @param pageCount  一页数量
- *  @param currUserId 当前用户ID
- */
-- (NSOperation *)getCoupletListBySupportWithPageCount:(NSInteger)pageCount
-                                        currUserID:(NSInteger)currUserID
-                                           success:(void(^)(AFHTTPRequestOperation *operation, ZCPListDataModel *coupletListModel))success
-                                           failure:(void(^)(AFHTTPRequestOperation *operation, NSError *error))failure;
+*  得到根据排序方式获取的对联列表
+*
+*  @param sortMethod 排序方式
+*  @param currUserID 当前用户ID
+*  @param pagination 页码
+*  @param pageCount  一页数量
+*/
+- (NSOperation *)getCoupletListWithSortMethod:(NSInteger)sortMethod
+                                   currUserID:(NSInteger)currUserID
+                                   pagination:(NSInteger)pagination
+                                    pageCount:(NSInteger)pageCount
+                                      success:(void(^)(AFHTTPRequestOperation *operation, ZCPListDataModel *coupletListModel))success
+                                      failure:(void(^)(AFHTTPRequestOperation *operation, NSError *error))failure;
 
 /**
  *  得到按时间排序的对联回复列表
  *
- *  @param pageCount  一页数量
- *  @param currUserId 当前用户ID
+ *  @param currCoupletID 当前对联ID
+ *  @param currUserID    当前用户ID
+ *  @param pagination    页码
+ *  @param pageCount     一页数量
  */
-- (NSOperation *)getCoupletReplyListWithPageCount:(NSInteger)pageCount
-                                    currCoupletID:(NSInteger)currCoupletID
-                                       currUserID:(NSInteger)currUserID
-                                          success:(void (^)(AFHTTPRequestOperation *operation, ZCPListDataModel *coupletReplyListModel))success
-                                          failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure;
+- (NSOperation *)getCoupletReplyListWithCurrCoupletID:(NSInteger)currCoupletID
+                                           currUserID:(NSInteger)currUserID
+                                           pagination:(NSInteger)pagination
+                                            pageCount:(NSInteger)pageCount
+                                              success:(void (^)(AFHTTPRequestOperation *operation, ZCPListDataModel *coupletReplyListModel))success
+                                              failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure;
 
 /**
  *  添加对联
