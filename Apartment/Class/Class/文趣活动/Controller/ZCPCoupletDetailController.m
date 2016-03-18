@@ -98,6 +98,7 @@
         replyItem.userHeadImageURL = model.user.userFaceURL;
         replyItem.userName = model.user.userName;
         replyItem.replyTime = model.replyTime;
+        replyItem.replySupportNumber = model.replySupport;
         replyItem.replySupported = model.supported;
         replyItem.delegate = self;
         [items addObject:replyItem];
@@ -184,6 +185,8 @@
             if (replyItem.replySupported == ZCPCurrUserNotSupportCoupletReply) {
                 button.selected = YES;
                 replyItem.replySupported = ZCPCurrUserHaveSupportCoupletReply;
+                cell.item.replySupportNumber = cell.item.replySupportNumber + 1;
+                cell.replySupportLabel.text = [NSString stringWithFormat:@"%li", cell.item.replySupportNumber];
                 
                 TTDPRINT(@"点赞成功！");
                 [MBProgressHUD showSuccess:@"点赞成功！" toView:self.view];
@@ -191,6 +194,8 @@
             else if (replyItem.replySupported == ZCPCurrUserHaveSupportCoupletReply) {
                 button.selected = NO;
                 replyItem.replySupported = ZCPCurrUserNotSupportCoupletReply;
+                cell.item.replySupportNumber = cell.item.replySupportNumber - 1;
+                cell.replySupportLabel.text = [NSString stringWithFormat:@"%li", cell.item.replySupportNumber];
                 
                 TTDPRINT(@"取消点赞成功！");
                 [MBProgressHUD showSuccess:@"取消点赞成功！" toView:self.view];
@@ -219,25 +224,22 @@
     }
     
     TTDPRINT(@"准备提交对联回复内容...");
-    [[ZCPRequestManager sharedInstance] addCoupletReplyContent:coupletReplyContent
-                                                 currCoupletID:self.selectedCoupletModel.coupletId
-                                                    currUserID:[ZCPUserCenter sharedInstance].currentUserModel.userId
-                                                       success:^(AFHTTPRequestOperation *operation, BOOL isSuccess) {
-                                                           if (isSuccess) {
-                                                               TTDPRINT(@"提交成功...");
-                                                               [MBProgressHUD showSuccess:@"添加回复成功！" toView:self.view];
-                                                               
-                                                               // 重新加载数据
-                                                               [self loadData];
-                                                           }
-                                                           else {
-                                                               TTDPRINT(@"提交失败...");
-                                                               [MBProgressHUD showError:@"添加回复失败！" toView:self.view];
-                                                           }
-                                                       } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-                                                           TTDPRINT(@"提交失败...%@", error);
-                                                           [MBProgressHUD showError:@"添加回复失败！网络异常！" toView:self.view];
-                                                       }];
+    [[ZCPRequestManager sharedInstance] addCoupletReplyContent:coupletReplyContent currCoupletID:self.selectedCoupletModel.coupletId currUserID:[ZCPUserCenter sharedInstance].currentUserModel.userId success:^(AFHTTPRequestOperation *operation, BOOL isSuccess) {
+       if (isSuccess) {
+           TTDPRINT(@"提交成功...");
+           [MBProgressHUD showSuccess:@"添加回复成功！" toView:self.view];
+           
+           // 重新加载数据
+           [self loadData];
+       }
+       else {
+           TTDPRINT(@"提交失败...");
+           [MBProgressHUD showError:@"添加回复失败！" toView:self.view];
+       }
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        TTDPRINT(@"提交失败...%@", error);
+        [MBProgressHUD showError:@"添加回复失败！网络异常！" toView:self.view];
+    }];
     // 提交后清除文本输入框内容
     [self.commentView clearText];
     

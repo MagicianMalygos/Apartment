@@ -63,4 +63,26 @@
     return listModel;
 }
 
+/**
+ *  图书回复列表模型转换
+ *
+ *  @param responseData 列表字典
+ *
+ *  @return 图书回复列表模型
+ */
++ (ZCPListDataModel *)translateResponse_BookReplyListModel:(NSDictionary *)responseData {
+    ZCPListDataModel *listModel = [[ZCPListDataModel alloc] init];
+    if ([responseData isKindOfClass:[NSDictionary class]]) {
+        listModel = [[ZCPListDataModel alloc] init];
+        NSArray *bookreplyList = [responseData valueForKey:@"aList"];
+        if (![bookreplyList isNilOrNull]) {
+            for (NSDictionary *booreplyDict in bookreplyList) {
+                ZCPBookReplyModel *model = [ZCPRequestResponseTranslator translateResponse_BookReplyModel:booreplyDict];
+                [listModel.items addObject:model];
+            }
+        }
+    }
+    return listModel;
+}
+
 @end

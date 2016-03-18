@@ -41,7 +41,11 @@
 
 #pragma mark - - - - - - 图书馆相关
 #define BOOK_LIST                                               @"BOOK_LIST"
+#define BOOK_REPLY_LIST                                         @"BOOK_REPLY_LIST"
+#define ADD_BOOK                                                @"ADD_BOOK"
+#define ADD_BOOK_REPLY                                          @"ADD_BOOK_REPLY"
 #define CHANGE_BOOK_COLLECTION_STATE                            @"CHANGE_BOOK_COLLECTION_STATE"
+#define CHANGE_BOOK_REPLY_SUPPORT_STATE                         @"CHANGE_BOOK_REPLY_SUPPORT_STATE"
 
 #pragma mark - - - - - - 个人中心相关
 

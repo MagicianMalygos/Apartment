@@ -25,6 +25,7 @@
                                                                          , VerticalMargin
                                                                          , 25
                                                                          , 25)];
+    
     self.supportButton = [UIButton buttonWithType:UIButtonTypeCustom];
     self.supportButton.frame = CGRectMake(CELLWIDTH_DEFAULT - HorizontalMargin - 20
                                           , VerticalMargin + 5
@@ -32,9 +33,17 @@
                                           , 20);
     [self.supportButton setImageNameNormal:@"support_normal" Highlighted:@"support_selected" Selected:@"support_selected" Disabled:@"support_normal"];
     [self.supportButton addTarget:self action:@selector(buttonClicked:) forControlEvents:UIControlEventTouchUpInside];
+    
+    self.replySupportLabel = [[UILabel alloc] initWithFrame:CGRectMake(self.supportButton.left - UIMargin - 80
+                                                                       , VerticalMargin + 5
+                                                                       , 80
+                                                                       , 20)];
+    self.replySupportLabel.textAlignment = NSTextAlignmentRight;
+    self.replySupportLabel.font = [UIFont defaultFontWithSize:13.0f];
+    
     self.userNameLabel = [[UILabel alloc] initWithFrame:CGRectMake(self.userHeadImgView.right + UIMargin
                                                                    , VerticalMargin
-                                                                   , CELLWIDTH_DEFAULT - HorizontalMargin * 2 - UIMargin * 2 - self.userHeadImgView.width - self.supportButton.width
+                                                                   , self.replySupportLabel.left - UIMargin * 2 - HorizontalMargin - 25
                                                                    , 25)];
     self.userNameLabel.textAlignment = NSTextAlignmentLeft;
     self.userNameLabel.font = [UIFont defaultFontWithSize:14.0f];
@@ -52,12 +61,14 @@
     
     self.userHeadImgView.backgroundColor = [UIColor clearColor];
     self.userNameLabel.backgroundColor = [UIColor clearColor];
+    self.replySupportLabel.backgroundColor = [UIColor clearColor];
     self.supportButton.backgroundColor = [UIColor clearColor];
     self.replyContentLabel.backgroundColor = [UIColor clearColor];
     self.replyTimeLabel.backgroundColor = [UIColor clearColor];
     
     [self.contentView addSubview:self.userHeadImgView];
     [self.contentView addSubview:self.userNameLabel];
+    [self.contentView addSubview:self.replySupportLabel];
     [self.contentView addSubview:self.supportButton];
     [self.contentView addSubview:self.replyContentLabel];
     [self.contentView addSubview:self.replyTimeLabel];
@@ -85,7 +96,8 @@
         
         // 设置内容
         self.delegate = self.item.delegate;
-        [self.userHeadImgView sd_setImageWithURL:[NSURL URLWithString:self.item.userHeadImageURL] placeholderImage:[UIImage imageNamed:@"head_default"]];
+        [self.userHeadImgView sd_setImageWithURL:[NSURL URLWithString:self.item.userHeadImageURL] placeholderImage:[UIImage imageNamed:HEAD_IMAGE_NAME_DEFAULT]];
+        self.replySupportLabel.text = [NSString stringWithFormat:@"%li", self.item.replySupportNumber];
         self.supportButton.selected = (self.item.replySupported == ZCPCurrUserHaveSupportCoupletReply)? YES: NO;
         self.userNameLabel.text = self.item.userName;
         self.replyContentLabel.text = self.item.replyContent;
@@ -128,10 +140,15 @@
 
 @implementation ZCPCoupletReplyCellItem
 
-@synthesize replyContent = _replyContent;
-@synthesize userHeadImageURL = _userHeadImageURL;
-@synthesize userName = _userName;
-@synthesize replyTime = _replyTime;
+#pragma mark - synthesize
+@synthesize replyId             = _replyId;
+@synthesize replyContent        = _replyContent;
+@synthesize userHeadImageURL    = _userHeadImageURL;
+@synthesize userName            = _userName;
+@synthesize replyTime           = _replyTime;
+@synthesize replySupportNumber  = _replySupportNumber;
+@synthesize replySupported      = _replySupported;
+@synthesize delegate            = _delegate;
 
 #pragma mark - instancetype
 - (instancetype)init {

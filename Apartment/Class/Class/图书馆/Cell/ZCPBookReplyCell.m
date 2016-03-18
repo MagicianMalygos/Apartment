@@ -28,6 +28,7 @@
     
     // 第一行
     self.userHeadImageView = [[UIImageView alloc] initWithFrame:CGRectMake(HorizontalMargin, VerticalMargin, 20, 20)];
+    [self.userHeadImageView changeToRound];  // 头像显示圆形
     self.userNameLabel = [[UILabel alloc] initWithFrame:CGRectMake(self.userHeadImageView.right + UIMargin, VerticalMargin, APPLICATIONWIDTH - self.userHeadImageView.right - HorizontalMargin - UIMargin, 20)];
     self.userNameLabel.textAlignment = NSTextAlignmentLeft;
     self.userNameLabel.font =[UIFont defaultFontWithSize:15.0f];
@@ -36,6 +37,7 @@
     self.bookreplyContentLabel = [[UILabel alloc] init];
     self.bookreplyContentLabel.textAlignment = NSTextAlignmentLeft;
     self.bookreplyContentLabel.font = [UIFont defaultFontWithSize:15.0f];
+    self.bookreplyContentLabel.numberOfLines = 0;
     
     // 第三行
     self.bookreplyTiemLabel = [[UILabel alloc] init];
@@ -43,17 +45,22 @@
     self.bookreplyTiemLabel.font = [UIFont defaultFontWithSize:13.0f];
     
     self.bookreplySupportLabel = [[UILabel alloc] init];
-    self.bookreplySupportLabel.textAlignment = NSTextAlignmentLeft;
+    self.bookreplySupportLabel.textAlignment = NSTextAlignmentRight;
     self.bookreplySupportLabel.font = [UIFont defaultFontWithSize:13.0f];
     
     self.supportButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    [self.supportButton setImageNameNormal:@"support_normal"
+                               Highlighted:@"support_selected"
+                                  Selected:@"support_selected"
+                                  Disabled:@"support_normal"];
+    [self.supportButton addTarget:self action:@selector(buttonClicked:) forControlEvents:UIControlEventTouchUpInside];
     
-    self.userHeadImageView.backgroundColor = [UIColor redColor];
-    self.userNameLabel.backgroundColor = [UIColor redColor];
-    self.bookreplyContentLabel.backgroundColor = [UIColor redColor];
-    self.bookreplyTiemLabel.backgroundColor = [UIColor redColor];
-    self.bookreplySupportLabel.backgroundColor = [UIColor redColor];
-    self.supportButton.backgroundColor = [UIColor redColor];
+    self.userHeadImageView.backgroundColor = [UIColor clearColor];
+    self.userNameLabel.backgroundColor = [UIColor clearColor];
+    self.bookreplyContentLabel.backgroundColor = [UIColor clearColor];
+    self.bookreplyTiemLabel.backgroundColor = [UIColor clearColor];
+    self.bookreplySupportLabel.backgroundColor = [UIColor clearColor];
+    self.supportButton.backgroundColor = [UIColor clearColor];
     
     [self.contentView addSubview:self.userHeadImageView];
     [self.contentView addSubview:self.userNameLabel];
@@ -91,11 +98,13 @@
                                               , ButtonHeight);
         
         // 设置内容
-        self.userHeadImageView.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:self.item.userHeadImageURL]]];
+        self.delegate = self.item.delegate;
+        self.supportButton.selected = (self.item.bookreplySupported == ZCPCurrUserHaveSupportBookReply)? YES: NO;
+        [self.userHeadImageView sd_setImageWithURL:[NSURL URLWithString:self.item.userHeadImageURL] placeholderImage:[UIImage imageNamed:HEAD_IMAGE_NAME_DEFAULT]];
         self.userNameLabel.text = self.item.userName;
         self.bookreplyContentLabel.text = self.item.bookreplyContent;
         self.bookreplyTiemLabel.text = [self.item.bookreplyTime toString];
-        self.bookreplySupportLabel.text = [NSString stringWithFormat:@"%lu 人点赞", self.item.bookreplySupportNumber];
+        self.bookreplySupportLabel.text = [NSString stringWithFormat:@"%li", self.item.bookreplySupportNumber];
     }
 }
 + (CGFloat)tableView:(UITableView *)tableView rowHeightForObject:(id)object {
@@ -114,6 +123,16 @@
     CGFloat cellHeight = rowHeight1 + rowHeight2 + rowHeight3 + VerticalMargin * 2 + UIMargin * 2;
     
     return cellHeight;
+}
+
+#pragma mark - Button Click
+/**
+ *  按钮响应方法
+ */
+- (void)buttonClicked:(UIButton *)button {
+    if (self.delegate && [self.delegate respondsToSelector:@selector(bookReplyCell:supportButtonClick:)]) {
+        [self.delegate bookReplyCell:self supportButtonClick:button];
+    }
 }
 
 @end

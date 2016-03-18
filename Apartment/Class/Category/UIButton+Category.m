@@ -46,14 +46,14 @@
     
     for (int i = 0; i < array.count; i++) {
         WEAK_SELF;
-        [[UIImageView new] sd_setImageWithURL:array[i][@"url"] placeholderImage:[UIImage imageNamed:HEAD_DEFAULT] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+        [[UIImageView new] sd_setImageWithURL:array[i][@"url"] placeholderImage:[UIImage imageNamed:HEAD_IMAGE_NAME_DEFAULT] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
             STRONG_SELF;
             UIImage *loadImage = nil;
             if (image != nil) {
                 loadImage = image;
             }
             else {
-                loadImage = [UIImage imageNamed:HEAD_DEFAULT];
+                loadImage = [UIImage imageNamed:HEAD_IMAGE_NAME_DEFAULT];
             }
             
             [self setImage:loadImage forState:[array[i][@"state"] unsignedIntegerValue]];
@@ -62,14 +62,14 @@
 }
 - (void)setOnlyImageURL:(NSURL *)imageURL {
     WEAK_SELF;
-    [[UIImageView new] sd_setImageWithURL:imageURL placeholderImage:[UIImage imageNamed:HEAD_DEFAULT] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+    [[UIImageView new] sd_setImageWithURL:imageURL placeholderImage:[UIImage imageNamed:HEAD_IMAGE_NAME_DEFAULT] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
         STRONG_SELF;
         UIImage *loadImage = nil;
         if (image != nil) {
             loadImage = image;
         }
         else {
-            loadImage = [UIImage imageNamed:HEAD_DEFAULT];
+            loadImage = [UIImage imageNamed:HEAD_IMAGE_NAME_DEFAULT];
         }
         
         [self setImage:loadImage forState:UIControlStateNormal];

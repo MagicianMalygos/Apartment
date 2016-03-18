@@ -62,7 +62,7 @@
         
         // 设置图片
         WEAK_SELF;
-        [self.bgImageView sd_setImageWithURL:[NSURL URLWithString:self.item.headImageURL] placeholderImage:[UIImage imageNamed:HEAD_DEFAULT] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+        [self.bgImageView sd_setImageWithURL:[NSURL URLWithString:self.item.headImageURL] placeholderImage:[UIImage imageNamed:HEAD_IMAGE_NAME_DEFAULT] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
             // 设置大中小头像
             [weakSelf.bigButton setOnlyImage:weakSelf.bgImageView.image];
             [weakSelf.middleButton setOnlyImage:weakSelf.bgImageView.image];

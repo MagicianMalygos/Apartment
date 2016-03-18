@@ -29,7 +29,7 @@
                                       failure:(void(^)(AFHTTPRequestOperation *operation, NSError *error))failure;
 
 /**
- *  得到按时间排序的对联回复列表
+ *  得到对联回复列表
  *
  *  @param currCoupletID 当前对联ID
  *  @param currUserID    当前用户ID

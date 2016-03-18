@@ -142,10 +142,10 @@
         self.contributorLabel.text = [NSString stringWithFormat:@"贡献者：%@", self.item.contributor];
         self.collectNumberLabel.text = [NSString stringWithFormat:@"%lu 人收藏", self.item.bookCollectNumber];
         self.commentCountLabel.text = [NSString stringWithFormat:@"%lu 人评论", self.item.bookCommentCount];
-        
     }
 }
 + (CGFloat)tableView:(UITableView *)tableView rowHeightForObject:(id)object {
+    // 此处的cellHeight已经过计算，cell高度为定值
     ZCPBookCellItem *item = (ZCPBookCellItem *)object;
     return [item.cellHeight floatValue];
 }
@@ -246,12 +246,15 @@
         self.item = (ZCPBookDetailCellItem *)object;
         ZCPBookDetailCellItem *item = (ZCPBookDetailCellItem *)object;
         
+        // 设置属性
         self.delegate = item.delegate;
+        self.collectionButton.selected = (item.bookCollected == ZCPCurrUserHaveCollectBook)? YES: NO;
         [self.bookpostSearchButton setTitle:item.bookpostSearchButtonTitle forState:UIControlStateNormal];
         [self.webSearchButton setTitle:item.webSearchButtonTitle forState:UIControlStateNormal];
     }
 }
 + (CGFloat)tableView:(UITableView *)tableView rowHeightForObject:(id)object {
+    // 此处的cellHeight已经过计算，cell高度为定值
     ZCPBookDetailCellItem *item = (ZCPBookDetailCellItem *)object;
     return [item.cellHeight floatValue];
 }

@@ -11,11 +11,11 @@
 @implementation ZCPStateModel
 
 #pragma mark - synthesize
-@synthesize stateId = _stateId;
-@synthesize stateName = _stateName;
-@synthesize stateValue = _stateValue;
-@synthesize stateType = _stateType;
-@synthesize stateTime = _stateTime;
+@synthesize stateId     = _stateId;
+@synthesize stateName   = _stateName;
+@synthesize stateValue  = _stateValue;
+@synthesize stateType   = _stateType;
+@synthesize stateTime   = _stateTime;
 
 #pragma mark - kvc
 - (void)setValue:(id)value forKey:(NSString *)key {

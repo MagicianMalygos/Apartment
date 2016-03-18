@@ -104,7 +104,7 @@
         self.supportButton.selected = (self.item.coupletSupported == ZCPCurrUserHaveSupportCouplet)? YES: NO;
         self.collectionButton.selected = (self.item.coupletCollected == ZCPCurrUserHaveCollectCouplet)? YES: NO;
         self.coupletContentLabel.text = self.item.coupletContent;
-        [self.userHeadImgView sd_setImageWithURL:[NSURL URLWithString:self.item.userHeadImageURL] placeholderImage:[UIImage imageNamed:@"head_default"]];
+        [self.userHeadImgView sd_setImageWithURL:[NSURL URLWithString:self.item.userHeadImageURL] placeholderImage:[UIImage imageNamed:HEAD_IMAGE_NAME_DEFAULT]];
         self.userNameLabel.text = self.item.userName;
         self.timeLabel.text = [self.item.time toString];
         

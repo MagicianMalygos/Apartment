@@ -18,6 +18,7 @@
 
 @property (nonatomic, strong) UIImageView *userHeadImgView;             // 用户头像
 @property (nonatomic, strong) UILabel *userNameLabel;                   // 用户名
+@property (nonatomic, strong) UILabel *replySupportLabel;               // 点赞量标签
 @property (nonatomic, strong) UIButton *supportButton;                  // 点赞按钮
 @property (nonatomic, strong) UILabel *replyContentLabel;               // 回复内容
 @property (nonatomic, strong) UILabel *replyTimeLabel;                  // 回复时间
@@ -34,7 +35,8 @@
 @property (nonatomic, copy) NSString *userHeadImageURL;                     // 用户头像URL
 @property (nonatomic, copy) NSString *userName;                             // 用户名
 @property (nonatomic, strong) NSDate *replyTime;                            // 回复时间
-@property (nonatomic, assign) ZCPCoupletReplySupportState replySupported;   // 回复点赞状态
+@property (nonatomic, assign) NSInteger replySupportNumber;                 // 点赞量
+@property (nonatomic, assign) ZCPCoupletReplySupportState replySupported;   // 对联回复点赞状态
 @property (nonatomic, weak) id<ZCPCoupletReplyCellDelegate> delegate;       // delegate
 
 @end

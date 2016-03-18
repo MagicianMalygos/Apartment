@@ -7,6 +7,7 @@
 //
 
 #import "ZCPTableViewWithLineCell.h"
+#import "ZCPBookModel.h"
 
 @class ZCPBookCellItem;
 @class ZCPBookDetailCellItem;
@@ -48,19 +49,20 @@
 // 图书详情cell
 @interface ZCPBookDetailCell : ZCPBookCell
 
-@property (nonatomic, strong) UIButton *collectionButton;           // 收藏按钮
-@property (nonatomic, strong) UIButton *commentButton;              // 评论按钮
-@property (nonatomic, strong) UIButton *bookpostSearchButton;       // 相关图书贴搜索按钮
-@property (nonatomic, strong) UIButton *webSearchButton;            // 网上搜索按钮
-@property (nonatomic, weak) id<ZCPBookDetailCellDelegate> delegate; // delegate
+@property (nonatomic, strong) UIButton *collectionButton;               // 收藏按钮
+@property (nonatomic, strong) UIButton *commentButton;                  // 评论按钮
+@property (nonatomic, strong) UIButton *bookpostSearchButton;           // 相关图书贴搜索按钮
+@property (nonatomic, strong) UIButton *webSearchButton;                // 网上搜索按钮
+@property (nonatomic, weak) id<ZCPBookDetailCellDelegate> delegate;     // delegate
 
 @end
 
 @interface ZCPBookDetailCellItem : ZCPBookCellItem
 
-@property (nonatomic, copy) NSString *bookpostSearchButtonTitle;    // 相关图书帖搜索按钮标题
-@property (nonatomic, copy) NSString *webSearchButtonTitle;         // 网上搜索按钮标题
-@property (nonatomic, weak) id<ZCPBookDetailCellDelegate> delegate; // delegate
+@property (nonatomic, copy) NSString *bookpostSearchButtonTitle;        // 相关图书帖搜索按钮标题
+@property (nonatomic, copy) NSString *webSearchButtonTitle;             // 网上搜索按钮标题
+@property (nonatomic, assign) ZCPBookCollectState bookCollected;        // 图书收藏状态
+@property (nonatomic, weak) id<ZCPBookDetailCellDelegate> delegate;     // delegate
 
 @end
 

@@ -96,7 +96,11 @@ IMP_SINGLETON
                      , CHANGE_ARGUMENT_SUPPORT_STATE:           @"/1.0/activity/changeArgumentSupportRecord"
                      /* - 图书馆相关 - */
                      , BOOK_LIST:                               @"/1.0/library/getBookBySearchTextSortMethodFieldID"
+                     , BOOK_REPLY_LIST:                         @"/1.0/library/getBookReplyByBookID"
+                     , ADD_BOOK:                                @"/1.0/library/addBook"
+                     , ADD_BOOK_REPLY:                          @"/1.0/library/addBookReply"
                      , CHANGE_BOOK_COLLECTION_STATE:            @"/1.0/library/changeBookCollectionRecord"
+                     , CHANGE_BOOK_REPLY_SUPPORT_STATE:         @"/1.0/library/changeBookReplySupportRecord"
                      /* - 个人中心相关 - */
                      };
 

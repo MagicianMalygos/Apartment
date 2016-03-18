@@ -86,9 +86,9 @@
         // 设置内容
         self.delegate = self.item.delegate;
         self.supportButton.selected = (self.item.argumentSupported == ZCPCurrUserHaveSupportArgument)? YES: NO;
-        [self.userHeadImgView sd_setImageWithURL:[NSURL URLWithString:self.item.userHeadImgURL] placeholderImage:[UIImage imageNamed:@"head_default"]];
+        [self.userHeadImgView sd_setImageWithURL:[NSURL URLWithString:self.item.userHeadImgURL] placeholderImage:[UIImage imageNamed:HEAD_IMAGE_NAME_DEFAULT]];
         self.userNameLabel.text = self.item.userName;
-        self.supportNumberLabel.text = [NSString stringWithFormat:@"%lu 人点赞", self.item.supportNumber];
+        self.supportNumberLabel.text = [NSString stringWithFormat:@"%li", self.item.supportNumber];
         self.argumentContentLabel.text = self.item.argumentContent;
         self.timeLabel.text = [self.item.time toString];
         

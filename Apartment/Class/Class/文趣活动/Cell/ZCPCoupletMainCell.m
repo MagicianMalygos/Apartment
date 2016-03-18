@@ -74,11 +74,11 @@
         self.supportLabel.frame = CGRectMake(self.replyNumLabel.left - UIMargin - 80, self.timeLabel.y, 80, 20);
         
         // 设置内容
-        [self.userHeadImgView sd_setImageWithURL:[NSURL URLWithString:self.item.userHeadImageURL] placeholderImage:[UIImage imageNamed:@"head_default"]];
+        [self.userHeadImgView sd_setImageWithURL:[NSURL URLWithString:self.item.userHeadImageURL] placeholderImage:[UIImage imageNamed:HEAD_IMAGE_NAME_DEFAULT]];
         self.userNameLabel.text = self.item.userName;
         [self.coupletContentLabel setText:self.item.coupletContent];
-        self.supportLabel.text = [NSString stringWithFormat:@"%lu 人点赞", self.item.supportNumber];
-        self.replyNumLabel.text = [NSString stringWithFormat:@"%lu 人回复", self.item.replyNumber];
+        self.supportLabel.text = [NSString stringWithFormat:@"%li 人点赞", self.item.supportNumber];
+        self.replyNumLabel.text = [NSString stringWithFormat:@"%li 人回复", self.item.replyNumber];
         self.timeLabel.text = [self.item.time toString];
         
         // 设置cell高度

@@ -13,12 +13,13 @@
 @implementation ZCPBookReplyModel
 
 #pragma mark - synthesize
-@synthesize bookreplyId = _bookreplyId;
-@synthesize bookreplyContent = _bookreplyContent;
-@synthesize bookreplySupport = _bookreplySupport;
-@synthesize bookreplyTime = _bookreplyTime;
-@synthesize user = _user;
-@synthesize book = _book;
+@synthesize bookreplyId         = _bookreplyId;
+@synthesize bookreplyContent    = _bookreplyContent;
+@synthesize bookreplySupport    = _bookreplySupport;
+@synthesize bookreplyTime       = _bookreplyTime;
+@synthesize user                = _user;
+@synthesize book                = _book;
+@synthesize supported           = _supported;
 
 #pragma mark - kvc
 - (void)setValue:(id)value forKey:(NSString *)key {

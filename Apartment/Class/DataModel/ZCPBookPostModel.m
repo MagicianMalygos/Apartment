@@ -13,19 +13,19 @@
 @implementation ZCPBookPostModel
 
 #pragma mark - synthesize
-@synthesize bookpostId = _bookpostId;
-@synthesize bookpostTitle = _bookpostTitle;
-@synthesize bookpostContent = _bookpostContent;
-@synthesize bookpostPosition = _bookpostPosition;
-@synthesize bookpostSupport = _bookpostSupport;
-@synthesize bookpostTime = _bookpostTime;
-@synthesize user = _user;
-@synthesize field = _field;
-@synthesize book = _book;
-@synthesize bookpostReplyNumber = _bookpostReplyNumber;
-@synthesize bookpostCollectNumber = _bookpostCollectNumber;
-@synthesize supported = _supported;
-@synthesize collected = _collected;
+@synthesize bookpostId              = _bookpostId;
+@synthesize bookpostTitle           = _bookpostTitle;
+@synthesize bookpostContent         = _bookpostContent;
+@synthesize bookpostPosition        = _bookpostPosition;
+@synthesize bookpostSupport         = _bookpostSupport;
+@synthesize bookpostTime            = _bookpostTime;
+@synthesize user                    = _user;
+@synthesize field                   = _field;
+@synthesize book                    = _book;
+@synthesize bookpostReplyNumber     = _bookpostReplyNumber;
+@synthesize bookpostCollectNumber   = _bookpostCollectNumber;
+@synthesize supported               = _supported;
+@synthesize collected               = _collected;
 
 #pragma mark - kvc
 - (void)setValue:(id)value forKey:(NSString *)key {

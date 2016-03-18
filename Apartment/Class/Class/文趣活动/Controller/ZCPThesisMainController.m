@@ -225,7 +225,7 @@
                 button.selected = YES;
                 cell.item.argumentSupported = ZCPCurrUserHaveSupportArgument;
                 cell.item.supportNumber = cell.item.supportNumber + 1;
-                cell.supportNumberLabel.text = [NSString stringWithFormat:@"%lu 人点赞", cell.item.supportNumber];
+                cell.supportNumberLabel.text = [NSString stringWithFormat:@"%li", cell.item.supportNumber];
                 
                 TTDPRINT(@"点赞成功！");
                 [MBProgressHUD showSuccess:@"点赞成功！" toView:self.view];
@@ -234,7 +234,7 @@
                 button.selected = NO;
                 cell.item.argumentSupported = ZCPCurrUserNotSupportArgument;
                 cell.item.supportNumber = cell.item.supportNumber - 1;
-                cell.supportNumberLabel.text = [NSString stringWithFormat:@"%lu 人点赞", cell.item.supportNumber];
+                cell.supportNumberLabel.text = [NSString stringWithFormat:@"%li", cell.item.supportNumber];
                 
                 TTDPRINT(@"取消点赞成功！");
                 [MBProgressHUD showSuccess:@"取消点赞成功！" toView:self.view];

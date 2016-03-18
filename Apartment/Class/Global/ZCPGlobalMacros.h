@@ -95,7 +95,7 @@ do { \
 
 
 // 默认用户头像
-#define HEAD_DEFAULT            @"head_default"
+#define HEAD_IMAGE_NAME_DEFAULT            @"head_default"
 // 默认列表一页数据量
 #define PAGE_COUNT_DEFAULT      10
 

@@ -11,7 +11,7 @@
 @implementation ZCPFieldModel
 
 #pragma mark - synthesize
-@synthesize fieldId = _fieldId;
-@synthesize fieldName = _fieldName;
+@synthesize fieldId     = _fieldId;
+@synthesize fieldName   = _fieldName;
 
 @end

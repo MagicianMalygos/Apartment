@@ -98,9 +98,9 @@
         self.bookNameLabel.text = self.item.bookName;
         self.bpTimeLabel.text = [NSString stringWithFormat:@"发表于 %@", [self.item.bpTime toString]];
         
-        self.supportNumberLabel.text = [NSString stringWithFormat:@"%lu 人点赞", self.item.supportNumber];
-        self.replyNumberLabel.text = [NSString stringWithFormat:@"%lu 人回复", self.item.replyNumber];
-        self.collectionNumberLabel.text = [NSString stringWithFormat:@"%lu 人收藏", self.item.collectionNumber];
+        self.supportNumberLabel.text = [NSString stringWithFormat:@"%li 人点赞", self.item.supportNumber];
+        self.replyNumberLabel.text = [NSString stringWithFormat:@"%li 人回复", self.item.replyNumber];
+        self.collectionNumberLabel.text = [NSString stringWithFormat:@"%li 人收藏", self.item.collectionNumber];
         
         // 设置frame
         self.fieldLabel.frame = CGRectMake(HorizontalMargin, VerticalMargin, FieldLabelWidth, LabelHeight);
