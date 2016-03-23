@@ -69,11 +69,11 @@
             self.button.enabled = NO;
         }
         else if(item.state == ZCPButtonInitStateNormal) {
-            // 设置圆角
-            [self.button changeToRound];
-            self.button.backgroundColor = [UIColor buttonDefaultColor];
             self.button.enabled = YES;
         }
+        // 设置圆角
+        [self.button changeToRound];
+        
         [self.button setTitle:item.buttonTitle forState:UIControlStateNormal];
         if (item.buttonConfigBlock) {
             self.item.buttonConfigBlock(self.button);
@@ -97,17 +97,17 @@
 
 @implementation ZCPButtonCellItem
 
-@synthesize buttonTitle = _buttonTitle;
-@synthesize titleColorNormal = _titleColorNormal;
-@synthesize titleColorHighlighted = _titleColorHighlighted;
-@synthesize titleFontNormal = _titleFontNormal;
-@synthesize buttonBackgroundColor = _buttonBackgroundColor;
-@synthesize buttonBackgroundImageNormal = _buttonBackgroundImageNormal;
-@synthesize buttonBackgroundImageHighlighted = _buttonBackgroundImageHighlighted;
-@synthesize buttonBackgroundImageDisabled = _buttonBackgroundImageDisabled;
-@synthesize tag = _tag;
-@synthesize state = _state;
-@synthesize delegate = _delegate;
+@synthesize buttonTitle                         = _buttonTitle;
+@synthesize titleColorNormal                    = _titleColorNormal;
+@synthesize titleColorHighlighted               = _titleColorHighlighted;
+@synthesize titleFontNormal                     = _titleFontNormal;
+@synthesize buttonBackgroundColor               = _buttonBackgroundColor;
+@synthesize buttonBackgroundImageNormal         = _buttonBackgroundImageNormal;
+@synthesize buttonBackgroundImageHighlighted    = _buttonBackgroundImageHighlighted;
+@synthesize buttonBackgroundImageDisabled       = _buttonBackgroundImageDisabled;
+@synthesize tag                                 = _tag;
+@synthesize state                               = _state;
+@synthesize delegate                            = _delegate;
 
 #pragma mark - instancetype
 + (instancetype)buttonCellItem {
@@ -133,6 +133,7 @@
         self.cellClass = [ZCPButtonCell class];
         self.cellHeight = @45.0f;
         self.cellType = [ZCPButtonCell cellIdentifier];
+        self.buttonBackgroundColor = [UIColor buttonDefaultColor];
         
         self.titleColorNormal = [UIColor blackColor];
         self.state = ZCPButtonInitStateNormal;

@@ -15,13 +15,14 @@
  */
 - (void)didMoveToSuperview {
     [super didMoveToSuperview];
-    if (self.superview == nil) {
-        return;
-    }
-    if (self.date == nil
-        || [[self.date toString] isEqualToString:[[NSDate date] toString]]) {
-        [self sendActionsForControlEvents:UIControlEventValueChanged];
-    }
+    
+    self.bindingTextField.text = [self.date toString];
+    
+    [self addTarget:self action:@selector(valueChanged) forControlEvents:UIControlEventValueChanged];
+}
+
+- (void)valueChanged {
+    self.bindingTextField.text = [self.date toString];
 }
 
 @end

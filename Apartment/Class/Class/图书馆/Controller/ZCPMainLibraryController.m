@@ -11,10 +11,10 @@
 #import "ZCPOptionView.h"
 #import "ZCPBookCell.h"
 #import "ZCPBookModel.h"
-#import "ZCPSelectSortMethodController.h"
-#import "ZCPSelectFieldController.h"
+#import "ZCPSelectMenuController.h"
 #import "ZCPRequestManager+Library.h"
 
+#define SearchBarHeight           44.0f     // 搜索栏视图高度
 #define OptionViewHight           35.0f     // 选项视图高度
 #define SelectSortMethodWidth     80.0f     // 选择排序方式视图宽度
 #define SelectSortMethodHeight    160.0f    // 选择排序方式视图高度
@@ -22,7 +22,7 @@
 #define SelectFieldHeight         300.0f    // 选择领域视图高度
 #define BOOK_LIST_PAGE_COUNT      PAGE_COUNT_DEFAULT
 
-@interface ZCPMainLibraryController () <ZCPListTableViewAdaptorDelegate, ZCPOptionViewDelegate, ZCPSelectSortMethodDelegate, ZCPSelectFieldDelegate, UISearchBarDelegate>
+@interface ZCPMainLibraryController () <ZCPListTableViewAdaptorDelegate, ZCPOptionViewDelegate, UISearchBarDelegate, ZCPSelectMenuDelegate>
 
 
 @property (nonatomic, strong) NSMutableArray *bookArr;              // 图书模型数组
@@ -30,14 +30,15 @@
 @property (nonatomic, assign) ZCPLibrarySortMethod sortMethod;      // 排序方法
 @property (nonatomic, assign) NSInteger pagination;                 // 页码
 
-@property (nonatomic, strong) ZCPOptionView *optionView;            // 选项视图
 @property (nonatomic, strong) UISearchBar *searchBar;               // 搜索视图
-@property (nonatomic, strong) ZCPSelectSortMethodController *selectSortMehtodControl;       // 选择排序方式视图控制器
-@property (nonatomic, strong) ZCPSelectFieldController *selectFieldControl;                 // 选择领域视图控制器
+@property (nonatomic, strong) ZCPOptionView *optionView;            // 选项视图
+@property (nonatomic, strong) ZCPSelectMenuController *selectSortMethodControl; // 选择排序方式视图控制器
+@property (nonatomic, strong) ZCPSelectMenuController *selectFieldControl;      // 选择领域视图控制器
 
 @end
 
 @implementation ZCPMainLibraryController
+
 #pragma mark - life cycle
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -47,7 +48,8 @@
     self.fieldIndex = 0;
     self.pagination = 1;
     
-    // 添加选项视图
+    // 添加各子视图
+    [self.view addSubview:self.searchBar];
     [self.view addSubview:self.optionView];
     [self.view addSubview:self.selectSortMehtodControl.view];
     [self.view addSubview:self.selectFieldControl.view];
@@ -65,10 +67,13 @@
 }
 - (void)viewWillLayoutSubviews {
     [super viewWillLayoutSubviews];
-    self.tableView.frame = CGRectMake(0, self.optionView.bottom, APPLICATIONWIDTH, APPLICATIONHEIGHT - Height_NavigationBar - Height_TABBAR - OptionViewHight);
+    self.tableView.frame = CGRectMake(0, self.optionView.bottom, APPLICATIONWIDTH, APPLICATIONHEIGHT - Height_NavigationBar - Height_TABBAR - SearchBarHeight - OptionViewHight);
 }
 
 #pragma mark - getter / setter
+/**
+ *  懒加载搜索栏
+ */
 - (UISearchBar *)searchBar {
     if (_searchBar == nil) {
         _searchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(0, 0, APPLICATIONWIDTH, 44.0f)];
@@ -90,33 +95,46 @@
                                                                     attributes:@{NSFontAttributeName: [UIFont defaultFontWithSize:13.0f]}]
                                    ,[[NSAttributedString alloc] initWithString:@"上传"
                                                                     attributes:@{NSFontAttributeName: [UIFont defaultFontWithSize:13.0f]}]];
-        _optionView = [[ZCPOptionView alloc] initWithFrame:CGRectMake(0
-                                                                      , 0
-                                                                      , self.view.width
-                                                                      , OptionViewHight)
-                                        attributeStringArr:attrStringArr];
+        _optionView = [[ZCPOptionView alloc] initWithFrame:({
+            CGRectMake(0, SearchBarHeight, self.view.width, OptionViewHight);
+        }) attributeStringArr:attrStringArr];
         _optionView.delegate = self;
         [_optionView hideMarkView];
     }
     return _optionView;
 }
-- (ZCPSelectSortMethodController *)selectSortMehtodControl {
-    if (_selectSortMehtodControl == nil) {
-        _selectSortMehtodControl = [ZCPSelectSortMethodController new];
-        _selectSortMehtodControl.view.frame = CGRectMake(APPLICATIONWIDTH / 6 - SelectSortMethodWidth / 2, self.optionView.bottom, SelectSortMethodWidth, SelectSortMethodHeight);
-        _selectSortMehtodControl.delegate = self;
-        _selectSortMehtodControl.view.backgroundColor = [UIColor PALightGrayColor];
-        _selectSortMehtodControl.view.alpha = 0.0f;
+/**
+ *  选择排序方式视图控制器
+ */
+- (ZCPSelectMenuController *)selectSortMehtodControl {
+    if (_selectSortMethodControl == nil) {
+        _selectSortMethodControl = [ZCPSelectMenuController new];
+        _selectSortMethodControl.view.frame = CGRectMake(APPLICATIONWIDTH / 6 - SelectSortMethodWidth / 2, self.optionView.bottom, SelectSortMethodWidth, SelectSortMethodHeight);
+        _selectSortMethodControl.delegate = self;
+        _selectSortMethodControl.itemArray = @[@"时间", @"点赞量", @"评论量"];
     }
-    return _selectSortMehtodControl;
+    return _selectSortMethodControl;
 }
-- (ZCPSelectFieldController *)selectFieldControl {
+/**
+ *  选择领域视图控制器
+ */
+- (ZCPSelectMenuController *)selectFieldControl {
     if (_selectFieldControl == nil) {
-        _selectFieldControl = [ZCPSelectFieldController new];
+        _selectFieldControl = [ZCPSelectMenuController new];
         _selectFieldControl.view.frame = CGRectMake(APPLICATIONWIDTH / 2 - SelectFieldWidth / 2, self.optionView.bottom, SelectFieldWidth, SelectFieldHeight);
         _selectFieldControl.delegate = self;
-        _selectFieldControl.view.backgroundColor = [UIColor PALightGrayColor];
-        _selectFieldControl.view.alpha = 0.0f;
+        
+        [[ZCPRequestManager sharedInstance] getFieldListSuccess:^(AFHTTPRequestOperation *operation, ZCPListDataModel *fieldListModel) {
+            if ([fieldListModel isKindOfClass:[ZCPListDataModel class]] && fieldListModel.items) {
+                NSMutableArray *itemTempArray = [NSMutableArray arrayWithObjects:@"全部", nil];
+                for (ZCPFieldModel *model in fieldListModel.items) {
+                    [itemTempArray addObject:model.fieldName];
+                }
+                _selectFieldControl.itemArray = itemTempArray;
+            }
+        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+            TTDPRINT(@"%@", error);
+        }];
     }
     return _selectFieldControl;
 }
@@ -149,29 +167,33 @@
     switch (index) {
         case 0: {
             // 显示或隐藏选择排序方式视图
-            if (self.selectSortMehtodControl.view.alpha == 1.0f) {
-                [self.selectSortMehtodControl hideView];
-            }
-            else if (self.selectSortMehtodControl.view.alpha == 0.0f) {
+            if (self.selectSortMehtodControl.isViewHidden) {
                 [self.selectSortMehtodControl showView];
                 [self.selectFieldControl hideView];
+            } else {
+                [self.selectSortMehtodControl hideView];
             }
             break;
         }
         case 1: {
             // 显示或隐藏选择领域视图
-            if (self.selectFieldControl.view.alpha == 1.0f) {
-                [self.selectFieldControl hideView];
-            }
-            else if (self.selectFieldControl.view.alpha == 0.0f) {
+            if (self.selectFieldControl.isViewHidden) {
                 [self.selectFieldControl showView];
                 [self.selectSortMehtodControl hideView];
+            } else {
+                [self.selectFieldControl hideView];
             }
             break;
         }
         case 2: {
+            // 隐藏选项视图
+            [self.selectSortMehtodControl hideView];
+            [self.selectFieldControl hideView];
+            NSMutableArray *fieldArray = [NSMutableArray arrayWithArray:self.selectFieldControl.itemArray];
+            [fieldArray removeObject:@"全部"];
             // 跳转到上传图书界面
-            [[ZCPNavigator sharedInstance] gotoViewWithIdentifier:APPURL_VIEW_IDENTIFIER_LIBRARY_ADDBOOK paramDictForInit:nil];
+            [[ZCPNavigator sharedInstance] gotoViewWithIdentifier:APPURL_VIEW_IDENTIFIER_LIBRARY_ADDBOOK
+                                                 paramDictForInit:@{@"_fieldArray": fieldArray}];
             break;
         }
         default:
@@ -182,10 +204,6 @@
 #pragma mark - ZCPListTableViewAdaptor Delegate
 /**
  *  Cell点击事件
- *
- *  @param tableView cell所属Tableview
- *  @param object    cellItem
- *  @param indexPath cell索引
  */
 - (void)tableView:(UITableView *)tableView didSelectObject:(id<ZCPTableViewCellItemBasicProtocol>)object rowAtIndexPath:(NSIndexPath *)indexPath {
     // 隐藏选择视图
@@ -194,10 +212,14 @@
     
     // 跳转到图书详情界面，判断如果图书模型为nil，则向字典中传入[NSNull null]
     ZCPBookModel *currentBookModel = [self.bookArr objectAtIndex:indexPath.row];
-    [[ZCPNavigator sharedInstance] gotoViewWithIdentifier:APPURL_VIEW_IDENTIFIER_LIBRARY_BOOKDETAIL paramDictForInit:@{@"_currentBookModel": (currentBookModel != nil)? currentBookModel: [NSNull null]}];
+    [[ZCPNavigator sharedInstance] gotoViewWithIdentifier:APPURL_VIEW_IDENTIFIER_LIBRARY_BOOKDETAIL
+                                         paramDictForInit:@{@"_currentBookModel": (currentBookModel != nil)? currentBookModel: [NSNull null]}];
 }
 
 #pragma mark - UISearchBarDelegate
+/**
+ *  搜索栏，键盘搜索按钮点击事件
+ */
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar {
     self.pagination = 1;
     
@@ -205,21 +227,43 @@
     [self loadData];
 }
 
-#pragma mark - ZCPSelectSortMethodDelegate
-- (void)selectedCellIndex:(NSInteger)cellIndex sortMethodName:(NSString *)sortMethodName {
-    self.sortMethod = cellIndex;
+#pragma mark - ZCPSelectMenuDelegate
+/**
+ *  选择菜单视图，item点击事件
+ */
+- (void)selectMenuController:(ZCPSelectMenuController *)selectMenuControl selectedCellIndex:(NSInteger)cellIndex item:(NSString *)item {
+    if (selectMenuControl == self.selectSortMethodControl) {
+        self.sortMethod = cellIndex;
+    } else if (selectMenuControl == self.selectFieldControl) {
+        self.fieldIndex = cellIndex;
+    }
     self.pagination = 1;
     
     // 加载数据
     [self loadData];
 }
-#pragma mark - ZCPSelectFieldDelegate
-- (void)selectedCellIndex:(NSInteger)cellIndex fieldName:(NSString *)fieldName {
-    self.fieldIndex = cellIndex;
-    self.pagination = 1;
-    
-    // 加载数据
-    [self loadData];
+/**
+ *  选择菜单视图，下拉刷新事件
+ */
+- (void)selectMenuController:(ZCPSelectMenuController *)selectMenuControl refreshHeader:(MJRefreshHeader *)mj_header {
+    if (selectMenuControl == self.selectSortMethodControl) {
+        [selectMenuControl reloadData];
+        [mj_header endRefreshing];
+    } else if (selectMenuControl == self.selectFieldControl) {
+        [[ZCPRequestManager sharedInstance] getFieldListSuccess:^(AFHTTPRequestOperation *operation, ZCPListDataModel *fieldListModel) {
+            if ([fieldListModel isKindOfClass:[ZCPListDataModel class]] && fieldListModel.items) {
+                NSMutableArray *itemTempArray = [NSMutableArray arrayWithObjects:@"全部", nil];
+                for (ZCPFieldModel *model in fieldListModel.items) {
+                    [itemTempArray addObject:model.fieldName];
+                }
+                selectMenuControl.itemArray = itemTempArray;
+            }
+            [mj_header endRefreshing];
+        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+            TTDPRINT(@"%@", error);
+            [mj_header endRefreshing];
+        }];
+    }
 }
 
 #pragma mark - Load Data

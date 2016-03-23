@@ -29,11 +29,11 @@
 
 @implementation ZCPMainActivityController
 
-@synthesize optionView = _optionView;
-@synthesize mainScrollView = _mainScrollView;
-@synthesize coupletController = _coupletController;
-@synthesize thesisController = _thesisController;
-@synthesize questionController = _questionController;
+@synthesize optionView              = _optionView;
+@synthesize mainScrollView          = _mainScrollView;
+@synthesize coupletController       = _coupletController;
+@synthesize thesisController        = _thesisController;
+@synthesize questionController      = _questionController;
 
 #pragma mark - life cycle
 - (void)viewDidLoad {

@@ -70,6 +70,29 @@
                                          failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure;
 
 /**
+ *  添加图书
+ *
+ *  @param coverImage      封面图片
+ *  @param bookName        书名
+ *  @param bookAuthor      作者
+ *  @param bookPublisher   出版社
+ *  @param bookPublishTime 出版日期
+ *  @param fieldID         领域ID
+ *  @param bookSummary     简介
+ *  @param currUserID      当前用户ID
+ */
+- (NSOperation *)addBookCoverImage:(UIImage *)coverImage
+                              bookName:(NSString *)bookName
+                            bookAuthor:(NSString *)bookAuthor
+                         bookPublisher:(NSString *)bookPublisher
+                       bookPublishTime:(NSString *)bookPublishTime
+                           bookSummary:(NSString *)bookSummary
+                               fieldID:(NSInteger)fieldID
+                            currUserID:(NSInteger)currUserID
+                               success:(void (^)(AFHTTPRequestOperation *operation, BOOL isSuccess))success
+                               failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure;
+
+/**
  *  添加图书回复
  *
  *  @param bookReplyContent 对联回复内容

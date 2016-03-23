@@ -21,8 +21,8 @@
         instance = [[self alloc] initWithBaseURL:nil];
         
         // 设置默认访问的解析类
-        [instance setResponseSerializer:[AFJSONResponseSerializer serializer]];
         [instance setRequestSerializer:[AFHTTPRequestSerializer serializer]];
+        [instance setResponseSerializer:[AFJSONResponseSerializer serializer]];
         
         ((ZCPRequestManager *)instance).responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json",@"text/json", @"text/plain", @"text/html",@"image/png", nil];
     });

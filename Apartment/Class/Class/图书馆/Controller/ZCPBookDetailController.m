@@ -11,7 +11,7 @@
 #import "ZCPBookModel.h"
 #import "ZCPBookReplyModel.h"
 #import "ZCPBookCell.h"
-#import "ZCPIntroductionCell.h"
+#import "ZCPMultiLineTextCell.h"
 #import "ZCPSectionCell.h"
 #import "ZCPBookReplyCell.h"
 #import "ZCPTabBarController.h"
@@ -97,8 +97,8 @@
     sectionItem1.sectionTitle = @"简介";
     
     // introductionItem
-    ZCPIntroductionCellItem *introductionItem = [[ZCPIntroductionCellItem alloc] initWithDefault];
-    introductionItem.introductionString = self.currentBookModel.bookSummary;
+    ZCPMultiLineTextCellItem *introductionItem = [[ZCPMultiLineTextCellItem alloc] initWithDefault];
+    introductionItem.multiLineText = self.currentBookModel.bookSummary;
     
     // sectionItem2
     ZCPSectionCellItem *sectionItem2 = [[ZCPSectionCellItem alloc] initWithDefault];
@@ -168,16 +168,16 @@
                 bookdetailItem.bookCollected = ZCPCurrUserHaveCollectBook;
                 weakSelf.currentBookModel.collected = ZCPCurrUserHaveCollectBook;
                 
-                TTDPRINT(@"点赞成功！");
-                [MBProgressHUD showSuccess:@"点赞成功！" toView:self.view];
+                TTDPRINT(@"收藏成功！");
+                [MBProgressHUD showSuccess:@"收藏成功！" toView:self.view];
             }
             else if (bookdetailItem.bookCollected == ZCPCurrUserHaveCollectBook) {
                 button.selected = NO;
                 bookdetailItem.bookCollected = ZCPCurrUserNotCollectBook;
                 weakSelf.currentBookModel.collected = ZCPCurrUserNotCollectBook;
                 
-                TTDPRINT(@"取消点赞成功！");
-                [MBProgressHUD showSuccess:@"取消点赞成功！" toView:self.view];
+                TTDPRINT(@"取消收藏成功！");
+                [MBProgressHUD showSuccess:@"取消收藏成功！" toView:self.view];
             }
         }
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {

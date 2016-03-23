@@ -35,6 +35,7 @@
 		1836F2471C47A145000FCB36 /* ZCPTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1836F2461C47A145000FCB36 /* ZCPTableViewCell.m */; };
 		1836F24A1C47A16C000FCB36 /* ZCPSectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1836F2491C47A16C000FCB36 /* ZCPSectionCell.m */; };
 		1836F24D1C47AD2C000FCB36 /* ZCPTableViewCell+Category.m in Sources */ = {isa = PBXBuildFile; fileRef = 1836F24C1C47AD2C000FCB36 /* ZCPTableViewCell+Category.m */; };
+		183B78A71CA0F2FA00D6FD4B /* ZCPJudge.m in Sources */ = {isa = PBXBuildFile; fileRef = 183B78A61CA0F2FA00D6FD4B /* ZCPJudge.m */; };
 		183F3B151C53211C007D2F10 /* ZCPCoupletModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 183F3B141C53211C007D2F10 /* ZCPCoupletModel.m */; };
 		183F3B1B1C532AB5007D2F10 /* ZCPCoupletDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = 183F3B1A1C532AB5007D2F10 /* ZCPCoupletDetailController.m */; };
 		183F3B1E1C5330A1007D2F10 /* NSObject+Category.m in Sources */ = {isa = PBXBuildFile; fileRef = 183F3B1D1C5330A1007D2F10 /* NSObject+Category.m */; };
@@ -49,7 +50,6 @@
 		184DB20D1C589A5E00B504C1 /* ZCPAddThesisController.m in Sources */ = {isa = PBXBuildFile; fileRef = 184DB20C1C589A5E00B504C1 /* ZCPAddThesisController.m */; };
 		184DB2131C58B03100B504C1 /* ZCPAddArgumentController.m in Sources */ = {isa = PBXBuildFile; fileRef = 184DB2121C58B03100B504C1 /* ZCPAddArgumentController.m */; };
 		184DB2161C58B5C400B504C1 /* ZCPSwitchRadioCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 184DB2151C58B5C400B504C1 /* ZCPSwitchRadioCell.m */; };
-		185DFC7F1C8478780056AD51 /* ZCPSelectFieldController.m in Sources */ = {isa = PBXBuildFile; fileRef = 185DFC7C1C8478780056AD51 /* ZCPSelectFieldController.m */; };
 		185DFC801C8478780056AD51 /* ZCPViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 185DFC7E1C8478780056AD51 /* ZCPViewController.m */; };
 		1873359D1C5F3390003284EE /* ZCPAddBookController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1873359C1C5F3390003284EE /* ZCPAddBookController.m */; };
 		187335A01C5F3BCA003284EE /* ZCPAddPictureCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1873359F1C5F3BCA003284EE /* ZCPAddPictureCell.m */; };
@@ -102,6 +102,7 @@
 		18AB4D961C30DAB300C52BF6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 18AB4D8D1C30DAB300C52BF6 /* Assets.xcassets */; };
 		18AB4D971C30DAB300C52BF6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18AB4D8E1C30DAB300C52BF6 /* LaunchScreen.storyboard */; };
 		18AB4D9A1C30DAB300C52BF6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 18AB4D931C30DAB300C52BF6 /* main.m */; };
+		18ADA2791C9FE179009DE45C /* ZCPMultiLineTextCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 18ADA2781C9FE179009DE45C /* ZCPMultiLineTextCell.m */; };
 		18B0EE001C4F1A1400F078EB /* ZCPSettingChangePwdController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18B0EDFF1C4F1A1400F078EB /* ZCPSettingChangePwdController.m */; };
 		18B0EE031C4F1A4A00F078EB /* ZCPSettingUserInfoController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18B0EE021C4F1A4A00F078EB /* ZCPSettingUserInfoController.m */; };
 		18B0EE061C4F1A6C00F078EB /* ZCPSettingChangeSecurityController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18B0EE051C4F1A6C00F078EB /* ZCPSettingChangeSecurityController.m */; };
@@ -111,8 +112,8 @@
 		18B0EE1B1C4F572400F078EB /* ZCPDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 18B0EE181C4F572400F078EB /* ZCPDataModel.m */; };
 		18B0EE1C1C4F572400F078EB /* ZCPViewDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 18B0EE1A1C4F572400F078EB /* ZCPViewDataModel.m */; };
 		18B0EE1F1C4F575100F078EB /* ZCPUserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 18B0EE1E1C4F575100F078EB /* ZCPUserModel.m */; };
-		18C7FB831C7C7A230013AC96 /* ZCPSelectSortMethodController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18C7FB821C7C7A230013AC96 /* ZCPSelectSortMethodController.m */; };
 		18C95D541C478CE4005BE745 /* ZCPListTableViewAdaptor.m in Sources */ = {isa = PBXBuildFile; fileRef = 18C95D531C478CE4005BE745 /* ZCPListTableViewAdaptor.m */; };
+		18CF1AC51C9BFCD4009134DD /* ZCPSelectMenuController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18CF1AC41C9BFCD4009134DD /* ZCPSelectMenuController.m */; };
 		18D0B06C1C34C54D00F4B2DB /* UIViewController+Category.m in Sources */ = {isa = PBXBuildFile; fileRef = 18D0B06B1C34C54D00F4B2DB /* UIViewController+Category.m */; };
 		18D0B06F1C34C9B200F4B2DB /* UIBarButtonItem+Category.m in Sources */ = {isa = PBXBuildFile; fileRef = 18D0B06E1C34C9B200F4B2DB /* UIBarButtonItem+Category.m */; };
 		18E3F71C1C507FCC00318761 /* ZCPMainActivityController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18E3F71B1C507FCC00318761 /* ZCPMainActivityController.m */; };
@@ -132,7 +133,6 @@
 		18EF8A021C5705B700924CCF /* ZCPSecurityQuestionModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 18EF8A011C5705B700924CCF /* ZCPSecurityQuestionModel.m */; };
 		18EF8A051C57088900924CCF /* ZCPArgumentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 18EF8A041C57088900924CCF /* ZCPArgumentCell.m */; };
 		18EFA87F1C770F6000A8378D /* ZCPMainLoginController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18EFA87E1C770F6000A8378D /* ZCPMainLoginController.m */; };
-		18F1BD611C5EF8E3003C43A8 /* ZCPIntroductionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F1BD601C5EF8E3003C43A8 /* ZCPIntroductionCell.m */; };
 		18F1BD641C5F057C003C43A8 /* ZCPBookReplyCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F1BD631C5F057C003C43A8 /* ZCPBookReplyCell.m */; };
 		18FE5EB91C73077500F3CFEA /* ZCPURLCommon.m in Sources */ = {isa = PBXBuildFile; fileRef = 18FE5EB81C73077500F3CFEA /* ZCPURLCommon.m */; };
 		59270AFCF362F5F599DC29B9 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CF86021FDC156551CF6948C1 /* libPods.a */; };
@@ -212,6 +212,8 @@
 		1836F2491C47A16C000FCB36 /* ZCPSectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZCPSectionCell.m; sourceTree = "<group>"; };
 		1836F24B1C47AD2C000FCB36 /* ZCPTableViewCell+Category.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ZCPTableViewCell+Category.h"; sourceTree = "<group>"; };
 		1836F24C1C47AD2C000FCB36 /* ZCPTableViewCell+Category.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ZCPTableViewCell+Category.m"; sourceTree = "<group>"; };
+		183B78A51CA0F2FA00D6FD4B /* ZCPJudge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZCPJudge.h; sourceTree = "<group>"; };
+		183B78A61CA0F2FA00D6FD4B /* ZCPJudge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZCPJudge.m; sourceTree = "<group>"; };
 		183F3B131C53211C007D2F10 /* ZCPCoupletModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZCPCoupletModel.h; sourceTree = "<group>"; };
 		183F3B141C53211C007D2F10 /* ZCPCoupletModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZCPCoupletModel.m; sourceTree = "<group>"; };
 		183F3B191C532AB5007D2F10 /* ZCPCoupletDetailController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZCPCoupletDetailController.h; sourceTree = "<group>"; };
@@ -240,8 +242,6 @@
 		184DB2121C58B03100B504C1 /* ZCPAddArgumentController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZCPAddArgumentController.m; sourceTree = "<group>"; };
 		184DB2141C58B5C400B504C1 /* ZCPSwitchRadioCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZCPSwitchRadioCell.h; sourceTree = "<group>"; };
 		184DB2151C58B5C400B504C1 /* ZCPSwitchRadioCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZCPSwitchRadioCell.m; sourceTree = "<group>"; };
-		185DFC7B1C8478780056AD51 /* ZCPSelectFieldController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZCPSelectFieldController.h; sourceTree = "<group>"; };
-		185DFC7C1C8478780056AD51 /* ZCPSelectFieldController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZCPSelectFieldController.m; sourceTree = "<group>"; };
 		185DFC7D1C8478780056AD51 /* ZCPViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZCPViewController.h; sourceTree = "<group>"; };
 		185DFC7E1C8478780056AD51 /* ZCPViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZCPViewController.m; sourceTree = "<group>"; };
 		1873359B1C5F3390003284EE /* ZCPAddBookController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZCPAddBookController.h; sourceTree = "<group>"; };
@@ -351,6 +351,8 @@
 		18AB4DA81C30DEEB00C52BF6 /* ZCPSingleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZCPSingleton.h; sourceTree = "<group>"; };
 		18AB4DA91C30DF2500C52BF6 /* ZCPBasicHeaders.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZCPBasicHeaders.h; sourceTree = "<group>"; };
 		18AB4DAA1C30DF8600C52BF6 /* ZCPGlobalMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZCPGlobalMacros.h; sourceTree = "<group>"; };
+		18ADA2771C9FE179009DE45C /* ZCPMultiLineTextCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZCPMultiLineTextCell.h; sourceTree = "<group>"; };
+		18ADA2781C9FE179009DE45C /* ZCPMultiLineTextCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZCPMultiLineTextCell.m; sourceTree = "<group>"; };
 		18B0EDFE1C4F1A1400F078EB /* ZCPSettingChangePwdController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZCPSettingChangePwdController.h; sourceTree = "<group>"; };
 		18B0EDFF1C4F1A1400F078EB /* ZCPSettingChangePwdController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZCPSettingChangePwdController.m; sourceTree = "<group>"; };
 		18B0EE011C4F1A4A00F078EB /* ZCPSettingUserInfoController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZCPSettingUserInfoController.h; sourceTree = "<group>"; };
@@ -369,11 +371,11 @@
 		18B0EE1A1C4F572400F078EB /* ZCPViewDataModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZCPViewDataModel.m; sourceTree = "<group>"; };
 		18B0EE1D1C4F575100F078EB /* ZCPUserModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZCPUserModel.h; sourceTree = "<group>"; };
 		18B0EE1E1C4F575100F078EB /* ZCPUserModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZCPUserModel.m; sourceTree = "<group>"; };
-		18C7FB811C7C7A230013AC96 /* ZCPSelectSortMethodController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZCPSelectSortMethodController.h; sourceTree = "<group>"; };
-		18C7FB821C7C7A230013AC96 /* ZCPSelectSortMethodController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZCPSelectSortMethodController.m; sourceTree = "<group>"; };
 		18C95D521C478CE4005BE745 /* ZCPListTableViewAdaptor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZCPListTableViewAdaptor.h; sourceTree = "<group>"; };
 		18C95D531C478CE4005BE745 /* ZCPListTableViewAdaptor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZCPListTableViewAdaptor.m; sourceTree = "<group>"; };
 		18C95D561C478E50005BE745 /* ZCPTableViewCellItemBasicProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZCPTableViewCellItemBasicProtocol.h; sourceTree = "<group>"; };
+		18CF1AC31C9BFCD4009134DD /* ZCPSelectMenuController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZCPSelectMenuController.h; sourceTree = "<group>"; };
+		18CF1AC41C9BFCD4009134DD /* ZCPSelectMenuController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZCPSelectMenuController.m; sourceTree = "<group>"; };
 		18D0B06A1C34C54D00F4B2DB /* UIViewController+Category.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+Category.h"; sourceTree = "<group>"; };
 		18D0B06B1C34C54D00F4B2DB /* UIViewController+Category.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+Category.m"; sourceTree = "<group>"; };
 		18D0B06D1C34C9B200F4B2DB /* UIBarButtonItem+Category.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+Category.h"; sourceTree = "<group>"; };
@@ -412,8 +414,6 @@
 		18EF8A041C57088900924CCF /* ZCPArgumentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZCPArgumentCell.m; sourceTree = "<group>"; };
 		18EFA87D1C770F6000A8378D /* ZCPMainLoginController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZCPMainLoginController.h; sourceTree = "<group>"; };
 		18EFA87E1C770F6000A8378D /* ZCPMainLoginController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZCPMainLoginController.m; sourceTree = "<group>"; };
-		18F1BD5F1C5EF8E3003C43A8 /* ZCPIntroductionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZCPIntroductionCell.h; sourceTree = "<group>"; };
-		18F1BD601C5EF8E3003C43A8 /* ZCPIntroductionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZCPIntroductionCell.m; sourceTree = "<group>"; };
 		18F1BD621C5F057C003C43A8 /* ZCPBookReplyCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZCPBookReplyCell.h; sourceTree = "<group>"; };
 		18F1BD631C5F057C003C43A8 /* ZCPBookReplyCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZCPBookReplyCell.m; sourceTree = "<group>"; };
 		18FE5EB71C73077500F3CFEA /* ZCPURLCommon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZCPURLCommon.h; sourceTree = "<group>"; };
@@ -475,12 +475,12 @@
 			children = (
 				188DA20B1C58D64F00FFF3E5 /* ZCPBookCell.h */,
 				188DA20C1C58D64F00FFF3E5 /* ZCPBookCell.m */,
-				18F1BD5F1C5EF8E3003C43A8 /* ZCPIntroductionCell.h */,
-				18F1BD601C5EF8E3003C43A8 /* ZCPIntroductionCell.m */,
 				18F1BD621C5F057C003C43A8 /* ZCPBookReplyCell.h */,
 				18F1BD631C5F057C003C43A8 /* ZCPBookReplyCell.m */,
 				1873359E1C5F3BCA003284EE /* ZCPAddPictureCell.h */,
 				1873359F1C5F3BCA003284EE /* ZCPAddPictureCell.m */,
+				18ADA2771C9FE179009DE45C /* ZCPMultiLineTextCell.h */,
+				18ADA2781C9FE179009DE45C /* ZCPMultiLineTextCell.m */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -553,8 +553,6 @@
 				1845A5621C59C57000491A4B /* ZCPBookDetailController.m */,
 				1873359B1C5F3390003284EE /* ZCPAddBookController.h */,
 				1873359C1C5F3390003284EE /* ZCPAddBookController.m */,
-				18C7FB811C7C7A230013AC96 /* ZCPSelectSortMethodController.h */,
-				18C7FB821C7C7A230013AC96 /* ZCPSelectSortMethodController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -582,10 +580,10 @@
 		185DFC7A1C8478780056AD51 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
-				185DFC7B1C8478780056AD51 /* ZCPSelectFieldController.h */,
-				185DFC7C1C8478780056AD51 /* ZCPSelectFieldController.m */,
 				185DFC7D1C8478780056AD51 /* ZCPViewController.h */,
 				185DFC7E1C8478780056AD51 /* ZCPViewController.m */,
+				18CF1AC31C9BFCD4009134DD /* ZCPSelectMenuController.h */,
+				18CF1AC41C9BFCD4009134DD /* ZCPSelectMenuController.m */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -1008,6 +1006,8 @@
 				189624E21C4C77E1003733CE /* WebService */,
 				1896982A1C32297E0018BA3F /* DataConstructor */,
 				1896981C1C32229B0018BA3F /* Navigator */,
+				183B78A51CA0F2FA00D6FD4B /* ZCPJudge.h */,
+				183B78A61CA0F2FA00D6FD4B /* ZCPJudge.m */,
 			);
 			name = Util;
 			path = Class/Util;
@@ -1347,6 +1347,7 @@
 				18B0EE1C1C4F572400F078EB /* ZCPViewDataModel.m in Sources */,
 				189624F91C4CCEAA003733CE /* ZCPImageTextCell.m in Sources */,
 				18E3F7221C50801D00318761 /* ZCPThesisMainController.m in Sources */,
+				183B78A71CA0F2FA00D6FD4B /* ZCPJudge.m in Sources */,
 				18EF8A021C5705B700924CCF /* ZCPSecurityQuestionModel.m in Sources */,
 				184DB20D1C589A5E00B504C1 /* ZCPAddThesisController.m in Sources */,
 				187335B91C5F6359003284EE /* UIFont+Category.m in Sources */,
@@ -1354,7 +1355,6 @@
 				18EF89F91C57012B00924CCF /* ZCPBookPostCommentModel.m in Sources */,
 				18EFA87F1C770F6000A8378D /* ZCPMainLoginController.m in Sources */,
 				18AB4D9A1C30DAB300C52BF6 /* main.m in Sources */,
-				185DFC7F1C8478780056AD51 /* ZCPSelectFieldController.m in Sources */,
 				188A2FB91C75EC8E0044AA4E /* ZCPRequestResponseTranslator+Library.m in Sources */,
 				18FE5EB91C73077500F3CFEA /* ZCPURLCommon.m in Sources */,
 				18D0B06F1C34C9B200F4B2DB /* UIBarButtonItem+Category.m in Sources */,
@@ -1372,13 +1372,14 @@
 				18A3033E1C741DC0000D9004 /* ZCPRequestResponseTranslator+Couplet.m in Sources */,
 				18A1DE941C537BF000551C52 /* ZCPThesisModel.m in Sources */,
 				187335A61C5F52C7003284EE /* ZCPDatePicker.m in Sources */,
-				18F1BD611C5EF8E3003C43A8 /* ZCPIntroductionCell.m in Sources */,
+				18CF1AC51C9BFCD4009134DD /* ZCPSelectMenuController.m in Sources */,
 				187335A01C5F3BCA003284EE /* ZCPAddPictureCell.m in Sources */,
 				1804696F1C56526A004E7DCC /* ZCPArgumentModel.m in Sources */,
 				18A1DE971C537C2700551C52 /* ZCPStateModel.m in Sources */,
 				1896250B1C4CD9EC003733CE /* ZCPUserAboutController.m in Sources */,
 				1896250D1C4CD9EC003733CE /* ZCPUserCollectionController.m in Sources */,
 				189698151C3220890018BA3F /* ZCPNavigationController.m in Sources */,
+				18ADA2791C9FE179009DE45C /* ZCPMultiLineTextCell.m in Sources */,
 				187335AE1C5F53F3003284EE /* NSString+Category.m in Sources */,
 				1845A55C1C59AFFF00491A4B /* ZCPMainHotTrendController.m in Sources */,
 				188DA20D1C58D64F00FFF3E5 /* ZCPBookCell.m in Sources */,
@@ -1387,7 +1388,6 @@
 				1836F24A1C47A16C000FCB36 /* ZCPSectionCell.m in Sources */,
 				185DFC801C8478780056AD51 /* ZCPViewController.m in Sources */,
 				18B0EE1B1C4F572400F078EB /* ZCPDataModel.m in Sources */,
-				18C7FB831C7C7A230013AC96 /* ZCPSelectSortMethodController.m in Sources */,
 				187335B21C5F5566003284EE /* NSString+PAFormat.m in Sources */,
 				18B0EE061C4F1A6C00F078EB /* ZCPSettingChangeSecurityController.m in Sources */,
 				187335B61C5F5D0B003284EE /* ZCPNavigator.m in Sources */,
@@ -1550,7 +1550,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				GCC_PREFIX_HEADER = Apartment/Class/Global/ZCPPrefixHeader.pch;
 				INFOPLIST_FILE = Apartment/Other/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = zcp.Apartment;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1564,7 +1564,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				GCC_PREFIX_HEADER = Apartment/Class/Global/ZCPPrefixHeader.pch;
 				INFOPLIST_FILE = Apartment/Other/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = zcp.Apartment;
 				PRODUCT_NAME = "$(TARGET_NAME)";

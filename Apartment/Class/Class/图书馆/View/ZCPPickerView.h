@@ -12,6 +12,8 @@
 
 @property (nonatomic, strong) UIPickerView *pickerView;         // pickerView
 @property (nonatomic, strong) NSArray *optionsArr;              // picker选项
-@property (nonatomic, strong) NSArray *selectedValuesArr;       // picker选中的值
+@property (nonatomic, strong) NSMutableArray *selectedValues;   // picker选中的值
+
+@property (nonatomic, weak) UITextField *bindingTextField;      // 绑定的TextField
 
 @end

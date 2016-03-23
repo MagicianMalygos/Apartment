@@ -9,19 +9,19 @@
 
 #import "ZCPBookReplyCell.h"
 
-#define ButtonWidth     20
-#define ButtonHeight    20
-#define TimeLabelWidth  80
+#define ButtonWidth     20  // 按钮宽度
+#define ButtonHeight    20  // 按钮高度
+#define TimeLabelWidth  80  // 时间标签宽度
 
 @implementation ZCPBookReplyCell
 
-@synthesize userHeadImageView = _userHeadImageView;
-@synthesize userNameLabel = _userNameLabel;
-@synthesize bookreplyContentLabel = _bookreplyContentLabel;
-@synthesize bookreplyTiemLabel = _bookreplyTiemLabel;
-@synthesize bookreplySupportLabel = _bookreplySupportLabel;
-@synthesize supportButton = _supportButton;
-@synthesize item = _item;
+@synthesize userHeadImageView       = _userHeadImageView;
+@synthesize userNameLabel           = _userNameLabel;
+@synthesize bookreplyContentLabel   = _bookreplyContentLabel;
+@synthesize bookreplyTiemLabel      = _bookreplyTiemLabel;
+@synthesize bookreplySupportLabel   = _bookreplySupportLabel;
+@synthesize supportButton           = _supportButton;
+@synthesize item                    = _item;
 
 #pragma mark - Setup Cell
 - (void)setupContentView {

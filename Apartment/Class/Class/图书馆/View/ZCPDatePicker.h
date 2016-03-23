@@ -10,4 +10,6 @@
 
 @interface ZCPDatePicker : UIDatePicker
 
+@property (nonatomic, weak) UITextField *bindingTextField;  // 绑定的TextField
+
 @end

@@ -12,7 +12,7 @@
 
 @interface ZCPAddPictureCell : ZCPTableViewWithLineCell
 
-@property (nonatomic, strong) UIImageView *uploadImageView;     // 图片视图
+@property (nonatomic, strong) UIImageView *uploadImageView;     // 待上传图片视图
 @property (nonatomic, strong) UILabel *tipLabel;                // 提示信息标签
 @property (nonatomic, strong) ZCPAddPictureCellItem *item;      // item
 
@@ -20,6 +20,7 @@
 
 @interface ZCPAddPictureCellItem : ZCPDataModel
 
-@property (nonatomic, copy) NSString *tipText;               // 提示信息
+@property (nonatomic, strong) UIImage *uploadImage;             // 待上传图片
+@property (nonatomic, copy) NSString *tipText;                  // 提示信息
 
 @end

@@ -10,14 +10,18 @@
 
 @implementation ZCPTextFieldCell
 
-@synthesize textField = _textField;
-@synthesize item = _item;
+@synthesize textField   = _textField;
+@synthesize item        = _item;
 
 #pragma mark - Setup Cell
 - (void)setupContentView {
     
     self.textField = [[UITextField alloc] init];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(textDidChange:) name:UITextFieldTextDidChangeNotification object:nil];
+    
+    // 监听键盘输入造成的text改变
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(textDidChanged:) name:UITextFieldTextDidChangeNotification object:nil];
+    // 监听setText造成的text改变
+    [self.textField addObserver:self forKeyPath:@"text" options:NSKeyValueObservingOptionNew context:nil];
     
     [self.contentView addSubview:self.textField];
 }
@@ -27,7 +31,11 @@
         ZCPTextFieldCellItem *item = (ZCPTextFieldCellItem *)object;
         CGFloat cellHeight = [item.cellHeight floatValue];
         
+        // 设置frame
         self.textField.frame = CGRectMake(HorizontalMargin, VerticalMargin, CELLWIDTH_DEFAULT - HorizontalMargin * 2, cellHeight - VerticalMargin * 2);
+        
+        // 设置属性
+        self.textField.text = self.item.textInputValue;
         if (self.item.textFieldConfigBlock) {
             self.item.textFieldConfigBlock(self.textField);
         }
@@ -38,19 +46,26 @@
     return [item.cellHeight floatValue];
 }
 - (void)dealloc {
+    // 移除通知和观察者
     [[NSNotificationCenter defaultCenter] removeObserver:self];
+    [self.textField removeObserver:self forKeyPath:@"text"];
 }
 
-#pragma mark - Notification
-- (void)textDidChange:(NSNotification *)notification {
+#pragma mark - TextChanged
+// 监听键盘输入造成的text改变
+- (void)textDidChanged:(NSNotification *)notification {
     self.item.textInputValue = self.textField.text;
 }
-
+// 监听setText造成的text改变
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSString *,id> *)change context:(void *)context {
+    self.item.textInputValue = [change valueForKey:@"new"];
+}
 
 @end
 
 @implementation ZCPTextFieldCellItem
 
+#pragma mark - synthesize
 @synthesize textFieldConfigBlock = _textFieldConfigBlock;
 
 #pragma mark - instancetype
@@ -72,19 +87,18 @@
 
 @end
 
-
 @implementation ZCPLabelTextFieldCell
 
 #pragma mark - Setup Cell
 - (void)setupContentView {
+    [super setupContentView];
+    
     self.label = [[UILabel alloc] initWithFrame:CGRectMake(HorizontalMargin, VerticalMargin, 0, 30)];
     self.label.numberOfLines = 1;
-    self.label.font = [UIFont fontWithName:@"Helvetica" size:15.0f];
+    self.label.font = [UIFont defaultBoldFontWithSize:15.0f];
     
-    self.textField = [[UITextField alloc] init],
-    
-    self.label.backgroundColor = [UIColor redColor];
-    self.textField.backgroundColor = [UIColor redColor];
+    self.label.backgroundColor = [UIColor clearColor];
+    self.textField.backgroundColor = [UIColor whiteColor];
     
     [self.contentView addSubview:self.label];
     [self.contentView addSubview:self.textField];
@@ -99,13 +113,15 @@
         [self.label sizeToFit];
         
         // 根据label宽度设置textField的frame
-        self.textField.frame = CGRectMake(self.label.right + UIMargin, VerticalMargin, CELLWIDTH_DEFAULT - HorizontalMargin * 2 - UIMargin - self.label.width, 30);
+        self.textField.frame = CGRectMake(self.label.right + UIMargin
+                                          , VerticalMargin
+                                          , CELLWIDTH_DEFAULT - HorizontalMargin * 2 - UIMargin - self.label.width
+                                          , 30);
         if (self.item.textFieldConfigBlock) {
             self.item.textFieldConfigBlock(self.textField);
         }
         // 设置label中心的y值
         self.label.center = CGPointMake(self.label.center.x, self.textField.center.y);
-        
     }
 }
 + (CGFloat)tableView:(UITableView *)tableView rowHeightForObject:(id)object {

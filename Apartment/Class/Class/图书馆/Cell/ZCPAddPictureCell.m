@@ -8,19 +8,30 @@
 
 #import "ZCPAddPictureCell.h"
 
+#define COVER_HEIGHT            (150 - VerticalMargin * 2)      // 封面高度
+#define COVER_RATE              0.707f                          // 封面宽高比
+#define COVER_WIDTH             (COVER_HEIGHT * COVER_RATE)     // 封面宽度
+
 @implementation ZCPAddPictureCell
 
 #pragma mark - Setup Cell
 - (void)setupContentView {
     // 图片
-    self.uploadImageView = [[UIImageView alloc] initWithFrame:CGRectMake(HorizontalMargin, VerticalMargin, (150 - VerticalMargin * 2) * 0.618, 150 - VerticalMargin * 2)];
+    self.uploadImageView = [[UIImageView alloc] initWithFrame:CGRectMake(HorizontalMargin
+                                                                         , VerticalMargin
+                                                                         , COVER_WIDTH
+                                                                         , COVER_HEIGHT)];
     // 提示文字
-    self.tipLabel = [[UILabel alloc] initWithFrame:CGRectMake(self.uploadImageView.right + UIMargin, self.uploadImageView.center.y - 15, APPLICATIONWIDTH - HorizontalMargin * 2 - UIMargin - self.uploadImageView.width, 30)];
-    self.tipLabel.textAlignment = NSTextAlignmentLeft;
-    self.tipLabel.font = [UIFont fontWithName:@"Helvetica-Bold" size:15.0f];
+    self.tipLabel = [[UILabel alloc] initWithFrame:CGRectMake(self.uploadImageView.right + UIMargin
+                                                              , self.uploadImageView.center.y - 15
+                                                              , APPLICATIONWIDTH - HorizontalMargin * 2 - UIMargin - self.uploadImageView.width
+                                                              , 30)];
+    self.tipLabel.textAlignment = NSTextAlignmentCenter;
+    self.tipLabel.font = [UIFont defaultBoldFontWithSize:18.0f];
     
-    self.uploadImageView.backgroundColor = [UIColor redColor];
-    self.tipLabel.backgroundColor = [UIColor redColor];
+    // 背景颜色
+    self.uploadImageView.backgroundColor = [UIColor clearColor];
+    self.tipLabel.backgroundColor = [UIColor clearColor];
     
     [self.contentView addSubview:self.uploadImageView];
     [self.contentView addSubview:self.tipLabel];
@@ -29,8 +40,13 @@
     if ([object isKindOfClass:[ZCPAddPictureCellItem class]]) {
         self.item = (ZCPAddPictureCellItem *)object;
         
-        // 设置信息
+        // 设置属性
         self.tipLabel.text = self.item.tipText;
+        if (self.item.uploadImage) {
+            [self.uploadImageView setImage:self.item.uploadImage];
+        } else {
+            [self.uploadImageView setImage:[UIImage imageNamed:@"cover_default"]];
+        }
     }
 }
 + (CGFloat)tableView:(UITableView *)tableView rowHeightForObject:(id)object {

@@ -134,7 +134,7 @@
                                                      , @"currUserID": @(currUserID)}
                                            success:^(AFHTTPRequestOperation *operation, id responseObject) {
                                                if (success) {
-                                                   success(operation, [responseObject valueForKey:@"result"]);
+                                                   success(operation, [[responseObject valueForKey:@"result"] boolValue]);
                                                }
                                            }
                                            failure:failure];
@@ -171,7 +171,7 @@
                                                      , @"currUserID": @(currUserID)}
                                            success:^(AFHTTPRequestOperation *operation, id responseObject) {
                                                if (success) {
-                                                   success(operation, [responseObject valueForKey:@"result"]);
+                                                   success(operation, [[responseObject valueForKey:@"result"] boolValue]);
                                                }
                                            }
                                            failure:failure];
@@ -203,7 +203,7 @@
                                                      , @"currUserID": @(currUserID)}
                                            success:^(AFHTTPRequestOperation *operation, id responseObject) {
                                                if (success) {
-                                                   success(operation, [responseObject valueForKey:@"result"]);
+                                                   success(operation, [[responseObject valueForKey:@"result"] boolValue]);
                                                }
                                            }
                                            failure:failure];

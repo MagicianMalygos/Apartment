@@ -28,6 +28,21 @@ NSString *fixIconString(NSString *iconString);
  */
 @interface NSString (Category)
 
+/* NSDate转换为日期字符串 */
++ (NSString *)stringFromDate:(NSDate *)date;
++ (NSString *)stringFromYDMHmsDate:(NSDate *)date;
++ (NSString *)stringFromDate:(NSDate *)date withDateFormat:(NSString *)format;
+/* 当前字符串转为NSDate */
+- (NSDate *)toDate;
+
+
+
+
+
+
+
+
+
 //中英文长度，按字节来算
 - (NSInteger)getValidLenth;
 
@@ -52,11 +67,6 @@ NSString *fixIconString(NSString *iconString);
 /* 创建一个唯一的UDID */
 + (NSString *)createUDID;
 
-/* 从日期生成字符串 */
-+ (NSString *)stringFromDate:(NSDate *)date;
-+ (NSString *)stringYMDHMFromDate:(NSDate *)date;
-+ (NSString *)stringYMDHMSFromDate:(NSDate *)date;
-
 /* 从UIColor对象生成一个字符串 */
 + (NSString *)fromColor:(UIColor *)color;
 
@@ -65,9 +75,6 @@ NSString *fixIconString(NSString *iconString);
 
 /* 从字符串生成一个UIColor对象，并指定一个默认颜色 */
 - (UIColor *)toColorWithDefaultColor:(UIColor *)defaultColor;
-
-/* 从当前字符串创建一个日期对象 */
-- (NSDate *)toDate;
 
 /* 忽略大小写比较两个字符串 */
 - (BOOL)equalsIgnoreCase:(NSString *)str;

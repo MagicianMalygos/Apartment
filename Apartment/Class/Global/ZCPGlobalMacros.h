@@ -13,11 +13,16 @@
 #define SYSTEM_VERSION                  [[UIDevice currentDevice] systemVersion].floatValue
 #define APP_IS_FOR_IPHONE5              (SCREENHEIGHT > 480)                     //判断是不是iphone5的分辨率
 
-//设备是否ipad
+// 设备是否ipad
 #define ISIPAD                          (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
 // 判断是否是高清屏
 #define IS_RETINA                       ([[UIScreen mainScreen] respondsToSelector:@selector(displayLinkWithTarget:selector:)] && ([UIScreen mainScreen].scale == 2.0))
 #define OnePoint (1/[UIScreen mainScreen].scale)
+
+// 设备是否支持打开相机
+#define PHOTO_LIBRARY_AVAILABLE [UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypePhotoLibrary]
+// 设备是否支持打开相册
+#define CAMERA_AVAILABLE        [UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]
 
 // TODO: 时间性能测量用
 // 结束时间除以CLOCKS_PER_SEC得到耗时秒数
@@ -43,7 +48,6 @@
 #define Height_StatusBar                            20
 // 导航栏高度
 #define Height_NavigationBar                        44
-//#define Height_TABBAR                              ((int)(APPLICATIONWIDTH *  68.0/320.0))
 #define Height_TABBAR                               48
 
 // 待计算
@@ -91,8 +95,6 @@ do { \
     Stuff; \
     _Pragma("clang diagnostic pop") \
 } while (0)
-
-
 
 // 默认用户头像
 #define HEAD_IMAGE_NAME_DEFAULT            @"head_default"

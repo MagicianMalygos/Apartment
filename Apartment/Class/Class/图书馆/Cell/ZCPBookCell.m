@@ -129,9 +129,9 @@
         self.coverImageView.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:self.item.bookCoverURL]]];
         [self.coverImageView sd_setImageWithURL:[NSURL URLWithString:coverImageGetURL(self.item.bookCoverURL)] placeholderImage:[UIImage imageNamed:@"cover_default"]];
         
-        self.nameLabel.text = self.item.bookName;
-        self.authorLabel.text = self.item.bookAuthor;
-        self.publisherLabel.text = self.item.bookPublisher;
+        self.nameLabel.text = [NSString stringWithFormat:@"《%@》", self.item.bookName];
+        self.authorLabel.text = [NSString stringWithFormat:@"作者：%@", self.item.bookAuthor];
+        self.publisherLabel.text = [NSString stringWithFormat:@"出版社：%@", self.item.bookPublisher];
         
         NSString *fieldStr = @"";
         for (NSString *f in self.item.field) {

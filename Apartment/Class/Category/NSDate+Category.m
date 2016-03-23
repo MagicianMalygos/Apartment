@@ -13,26 +13,31 @@
  *
  *     输入的日期字符串形如：@"2010-05-21"
  */
-+ (NSDate *)dateFromString:(NSString *)dateStr {
++ (NSDate *)dateFromString:(NSString *)dateString {
+    return [self dateFromString:dateString withDateFormat:@"yyyy-MM-dd"];
+}
++ (NSDate *)dateFromYDMHmsString:(NSString *)dateString {
+    return [self dateFromString:dateString withDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+}
++ (NSDate *)dateFromString:(NSString *)dateString withDateFormat:(NSString *)format {
     NSDateFormatter *formatter = [NSDateFormatter staticDateFormatter];
-    formatter.calendar = [NSCalendar currentCalendar];
-    [formatter setDateFormat: @"yyyy-MM-dd"];
-    NSDate *retDate = [formatter dateFromString:dateStr];
-    
-    return retDate;
+    [formatter setDateFormat:format];
+    return [formatter dateFromString:dateString];
+}
+/**
+ *  当前NSDate转为字符串
+ *
+ *  输出的日期字符串形如：@"2010-05-21"
+ */
+- (NSString *)toString {
+    return [NSString stringFromDate:self];
 }
 
-+ (NSDate *)dateFromYDMHmsString:(NSString *)dateStr
-{
-    NSDateFormatter *formatter = [NSDateFormatter staticDateFormatter];
-    
-    [formatter setDateFormat: @"yyyy-MM-dd HH:mm:ss"];
-    NSDate *retDate = [formatter dateFromString:dateStr];
-    
-    return retDate;
-}
 
 
+
+
+/* 获取yyyy/mm/dd 格式日期 */
 + (NSString *)getYMDByInterval:(NSTimeInterval)interval
 {
     NSString *timeDes = @"";
@@ -45,19 +50,6 @@
     }
     return timeDes;
 }
-
-
-
-
-/**
- *  当前NSDate转为字符串
- *
- *     输出的日期字符串形如：@"2010-05-21"
- */
-- (NSString *)toString {
-    return [NSString stringFromDate:self];
-}
-
 /* 获取yyyy/mm/dd 格式日期 */
 - (NSString *)getYMDShortString {
     NSDateFormatter *formatter = [NSDateFormatter staticDateFormatter];

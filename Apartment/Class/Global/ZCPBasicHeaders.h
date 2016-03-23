@@ -25,6 +25,7 @@
 #import "ZCPControlingCenter.h"
 #import "ZCPURLCommon.h"
 #import "ZCPUserCenter.h"
+#import "ZCPJudge.h"
 
 #pragma mark - Category
 #import "UIViewController+Category.h"

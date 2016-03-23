@@ -12,6 +12,9 @@
 
 #pragma mark - 视图控制器标识宏
 
+// 观点交流
+#define APPURL_VIEW_IDENTIFIER_COMMUNION_ADDBOOKPOST        @"ZCPAddBookpostController"
+
 // 文趣活动
 #define APPURL_VIEW_IDENTIFIER_COUPLET_DETAIL               @"ZCPCoupletDetailController"
 #define APPURL_VIEW_IDENTIFIER_COUPLET_ADD                  @"ZCPAddCoupletController"

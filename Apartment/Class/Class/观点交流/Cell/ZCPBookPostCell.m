@@ -46,7 +46,7 @@
     // 第三行
     self.bpContentLabel = [[UILabel alloc] init];
     self.bpContentLabel.font = [UIFont defaultFontWithSize:16.0f];
-    self.bpContentLabel.numberOfLines = 0;
+    self.bpContentLabel.numberOfLines = 3;  // 首页展示最多3行
     
     // 第四行
     self.supportNumberLabel = [[UILabel alloc] init];

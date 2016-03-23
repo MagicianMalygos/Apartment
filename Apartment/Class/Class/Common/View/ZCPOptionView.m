@@ -16,10 +16,10 @@
 
 @implementation ZCPOptionView
 
-@synthesize optionItemLabelArr = _optionItemLabelArr;
-@synthesize markView = _markView;
-@synthesize lineView = _lineView;
-
+#pragma mark - synthesize
+@synthesize optionItemLabelArr  = _optionItemLabelArr;
+@synthesize markView            = _markView;
+@synthesize lineView            = _lineView;
 
 #pragma mark - init
 - (instancetype)initWithFrame:(CGRect)frame attributeStringArr:(NSArray *)attrStrArr {
@@ -54,7 +54,7 @@
     // 初始化markView
     self.currentSelectedLabelTag = 0;
     self.markView = [[UIView alloc] initWithFrame:CGRectMake(0, self.height - 4, perWidth, 4)];
-    self.markView.backgroundColor = [UIColor blueColor];
+    self.markView.backgroundColor = [UIColor buttonDefaultColor];
     [self addSubview:self.markView];
     
     // 初始化lineView

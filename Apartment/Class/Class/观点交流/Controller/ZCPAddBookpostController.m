@@ -14,24 +14,25 @@
 
 @implementation ZCPAddBookpostController
 
+#pragma mark - life cycle
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+}
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self clearNavigationBar];
+    self.tabBarController.title = @"观点交流";
+}
+- (void)viewWillLayoutSubviews {
+    [super viewWillLayoutSubviews];
+    self.tableView.frame = CGRectMake(0, 0, APPLICATIONWIDTH, APPLICATIONHEIGHT - Height_NavigationBar - Height_TABBAR);
+}
+#pragma mark - Construct Data
+- (void)constructData {
+    NSMutableArray *items = [NSMutableArray array];
+    
+    self.tableViewAdaptor.items = items;
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

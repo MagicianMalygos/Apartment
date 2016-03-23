@@ -10,6 +10,32 @@
 
 @implementation NSString (Category)
 
+/* NSDate转换为日期字符串 */
++ (NSString *)stringFromDate:(NSDate *)date {
+    return [self stringFromDate:date withDateFormat:@"yyyy-MM-dd"];
+}
++ (NSString *)stringFromYDMHmsDate:(NSDate *)date {
+    return [self stringFromDate:date withDateFormat:@"yyyy-MM-dd HH-mm-ss"];
+}
++ (NSString *)stringFromDate:(NSDate *)date withDateFormat:(NSString *)format{
+    NSDateFormatter *formatter = [NSDateFormatter staticDateFormatter];
+    [formatter setDateFormat:format];
+    return [formatter stringFromDate:date];
+}
+/* 当前字符串转为NSDate */
+- (NSDate *)toDate {
+    return [NSDate dateFromString:self withDateFormat:@"yyyy-MM-dd HH-mm-ss"];
+}
+
+
+
+
+
+
+
+
+
+
 - (NSString *)maskedPhoneNumber {
     NSUInteger length = [self length];
     NSString *masks = @"****";
@@ -161,40 +187,6 @@ NSString *fixIconString(NSString *iconString) {
 }
 
 /**
- * 从日期生成字符串
- *
- * @return NSString
- **/
-+ (NSString *)stringFromDate:(NSDate *)date {
-	NSDateFormatter *formatter = [NSDateFormatter staticDateFormatter];
-
-	[formatter setDateFormat:@"yyyy-MM-dd"];
-	NSString *retStr = [formatter stringFromDate:date];
-
-	return retStr;
-}
-
-+ (NSString *)stringYMDHMFromDate:(NSDate *)date
-{
-    NSDateFormatter *formatter = [NSDateFormatter staticDateFormatter];
-    
-	[formatter setDateFormat:@"yyyy-MM-dd HH:mm"];
-	NSString *retStr = [formatter stringFromDate:date];
-    
-	return retStr;
-}
-
-+ (NSString *)stringYMDHMSFromDate:(NSDate *)date
-{
-    NSDateFormatter *formatter = [NSDateFormatter staticDateFormatter];
-    
-    [formatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
-    NSString *retStr = [formatter stringFromDate:date];
-    
-    return retStr;
-}
-
-/**
  * 从UIColor对象生成一个字符串
  *
  * @return NSString
@@ -342,15 +334,6 @@ NSString *fixIconString(NSString *iconString) {
     }
 
 	return [UIColor colorWithRed:((float) r / 255.0f) green:((float) g / 255.0f) blue:((float) b / 255.0f) alpha:(255.0f - a) / 255.0f];
-}
-
-/**
- * 从当前字符串创建一个日期对象
- *
- * @return NSDate
- **/
-- (NSDate *)toDate {
-	return [NSDate dateFromYDMHmsString:self];
 }
 
 /**
