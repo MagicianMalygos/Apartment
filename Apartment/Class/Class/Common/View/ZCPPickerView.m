@@ -88,3 +88,12 @@
 }
 
 @end
+
+/**
+ *  获取自定义选择器
+ */
+ZCPPickerView *getPicker(NSArray *optionsArr) {
+    ZCPPickerView *pickerView = [[ZCPPickerView alloc] initWithFrame:CGRectMake(0, 0, APPLICATIONWIDTH, 200)];
+    pickerView.optionsArr = optionsArr? @[[optionsArr mutableCopy]]: @[[NSArray array]];
+    return pickerView;
+}

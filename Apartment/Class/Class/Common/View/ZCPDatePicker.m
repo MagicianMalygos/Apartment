@@ -31,3 +31,15 @@
 }
 
 @end
+
+/**
+ *  获取时间选择器
+ */
+ZCPDatePicker *getDatePicker() {
+    ZCPDatePicker *datePicker = [[ZCPDatePicker alloc] initWithFrame: CGRectMake(0, 0, APPLICATIONWIDTH, 240)];
+    
+    datePicker.minimumDate = [NSDate dateFromString:@"1800-01-01"];
+    datePicker.maximumDate = [NSDate dateFromString:@"2100-01-01"];
+    datePicker.datePickerMode = UIDatePickerModeDate;
+    return datePicker;
+}

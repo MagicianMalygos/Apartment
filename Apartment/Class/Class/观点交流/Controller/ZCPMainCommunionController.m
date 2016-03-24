@@ -218,8 +218,11 @@
             break;
         }
         case 2: {
+            NSMutableArray *fieldArray = [NSMutableArray arrayWithArray:self.selectFieldControl.itemArray];
+            [fieldArray removeObject:@"全部"];
             // 跳转到发表评论视图控制器
-            [[ZCPNavigator sharedInstance] gotoViewWithIdentifier:APPURL_VIEW_IDENTIFIER_COMMUNION_ADDBOOKPOST paramDictForInit:nil];
+            [[ZCPNavigator sharedInstance] gotoViewWithIdentifier:APPURL_VIEW_IDENTIFIER_COMMUNION_ADDBOOKPOST
+                                                 paramDictForInit:@{@"_fieldArray": fieldArray}];
         }
         default:
             break;

@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "AppDelegate.h"
 
 #define PASS_JUDGE  NSIntegerMax
 // ZCPRange范围
@@ -33,16 +34,20 @@
 
 // 判断对象是否为空
 + (BOOL)judgeNullObject:(NSObject *)object;
++ (BOOL)judgeNullObject:(NSObject *)object showErrorMsg:(NSString *)errorMsg;
 + (BOOL)judgeNullObject:(NSObject *)object showErrorMsg:(NSString *)errorMsg toView:(UIView *)view;
 // 判断文本是否为空
-+ (BOOL)judgeNullTextInput:(NSString *)textInput showErrorMsg:(NSString *)errorMsg toView:(UIView *)view;
 + (BOOL)judgeNullTextInput:(NSString *)textInput;
++ (BOOL)judgeNullTextInput:(NSString *)textInput showErrorMsg:(NSString *)errorMsg;
++ (BOOL)judgeNullTextInput:(NSString *)textInput showErrorMsg:(NSString *)errorMsg toView:(UIView *)view;
 // 判断文本长度是否超出指定范围
-+ (BOOL)judgeOutOfRangeTextInput:(NSString *)text range:(ZCPLengthRange *)range showErrorMsg:(NSString *)errorMsg toView:(UIView *)view;
 + (BOOL)judgeOutOfRangeTextInput:(NSString *)text range:(ZCPLengthRange *)range;
++ (BOOL)judgeOutOfRangeTextInput:(NSString *)text range:(ZCPLengthRange *)range showErrorMsg:(NSString *)errorMsg;
++ (BOOL)judgeOutOfRangeTextInput:(NSString *)text range:(ZCPLengthRange *)range showErrorMsg:(NSString *)errorMsg toView:(UIView *)view;
 
 // 判断日期是否有误
-+ (BOOL)judgeWrongDateString:(NSString *)dateString showErrorMsg:(NSString *)errorMsg toView:(UIView *)view;
 + (BOOL)judgeWrongDateString:(NSString *)dateString;
++ (BOOL)judgeWrongDateString:(NSString *)dateString showErrorMsg:(NSString *)errorMsg;
++ (BOOL)judgeWrongDateString:(NSString *)dateString showErrorMsg:(NSString *)errorMsg toView:(UIView *)view;
 
 @end

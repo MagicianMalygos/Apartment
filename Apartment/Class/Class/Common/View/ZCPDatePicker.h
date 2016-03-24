@@ -13,3 +13,8 @@
 @property (nonatomic, weak) UITextField *bindingTextField;  // 绑定的TextField
 
 @end
+
+/**
+ *  获取时间选择器
+ */
+ZCPDatePicker *getDatePicker();

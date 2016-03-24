@@ -79,6 +79,7 @@ IMP_SINGLETON
                      /* - 观点交流相关 - */
                      , BOOKPOST_LIST_BY_MULTI_CONDITION:        @"/1.0/communion/getBookpostBySearchTextSortMethodFieldID"
                      , CHANGE_BOOKPOST_COLLECTION_STATE:        @"/1.0/communion/changeBookpostCollectionRecord"
+                     , ADD_BOOKPOST:                            @"/1.0/communion/addBookpost"
                      /* - 文趣活动相关(Couplet) - */
                      , COUPLET_LIST_BY_MULTI_CONDITION:         @"/1.0/activity/getCoupletBySortMethod"
                      , COUPLET_REPLY_LIST:                      @"/1.0/activity/getCoupletReplyByCoupletID"

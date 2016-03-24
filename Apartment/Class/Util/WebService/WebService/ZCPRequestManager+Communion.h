@@ -49,5 +49,20 @@ typedef NS_ENUM(NSInteger, ZCPBookpostSortMethod){
                                        success:(void (^)(AFHTTPRequestOperation *operation, BOOL isSuccess))success
                                        failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure;
 
+/**
+ *  添加图书贴
+ *
+ *  @param title    标题
+ *  @param content  内容
+ *  @param bookName 相关书籍名
+ */
+- (NSOperation *)addBookpostWithBookpostTitle:(NSString *)bookpostTitle
+                              bookpostContent:(NSString *)bookpostContent
+                             bookpostBookName:(NSString *)bookpostBookName
+                                   currUserID:(NSInteger)currUserID
+                                      fieldID:(NSInteger)fieldID
+                                      success:(void (^)(AFHTTPRequestOperation *operation, BOOL isSuccess))success
+                                      failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure;
+
 
 @end

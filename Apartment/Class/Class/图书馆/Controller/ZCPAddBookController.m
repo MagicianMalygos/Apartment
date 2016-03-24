@@ -15,6 +15,7 @@
 #import "ZCPButtonCell.h"
 #import "ZCPDatePicker.h"
 #import "ZCPPickerView.h"
+#import "ZCPImagePickerController.h"
 #import "ZCPRequestManager+Library.h"
 
 #define YearSecond (12.0 * 30.0 * 24.0 * 60.0 * 60.0)
@@ -62,12 +63,21 @@
     // 书名
     ZCPLabelTextFieldCellItem *nameItem = [[ZCPLabelTextFieldCellItem alloc] initWithDefault];
     nameItem.labelText = @"书名：";
+    nameItem.textFieldConfigBlock = ^(UITextField *textField) {
+        textField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"请输入书名" attributes:@{NSFontAttributeName: [UIFont defaultBoldFontWithSize:15.0f], NSForegroundColorAttributeName: [UIColor lightGrayColor]}];
+    };
     // 作者
     ZCPLabelTextFieldCellItem *authorItem = [[ZCPLabelTextFieldCellItem alloc] initWithDefault];
     authorItem.labelText = @"作者：";
+    authorItem.textFieldConfigBlock = ^(UITextField *textField) {
+        textField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"请输入作者" attributes:@{NSFontAttributeName: [UIFont defaultBoldFontWithSize:15.0f], NSForegroundColorAttributeName: [UIColor lightGrayColor]}];
+    };
     // 出版社
     ZCPLabelTextFieldCellItem *publisherItem = [[ZCPLabelTextFieldCellItem alloc] initWithDefault];
     publisherItem.labelText = @"出版社：";
+    publisherItem.textFieldConfigBlock = ^(UITextField *textField) {
+        textField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"请输入出版社" attributes:@{NSFontAttributeName: [UIFont defaultBoldFontWithSize:15.0f], NSForegroundColorAttributeName: [UIColor lightGrayColor]}];
+    };
     // 出版时间
     ZCPDatePicker *datePicker = getDatePicker();
     ZCPLabelTextFieldCellItem *publishTimeItem = [[ZCPLabelTextFieldCellItem alloc] initWithDefault];
@@ -76,6 +86,7 @@
         textField.inputView = datePicker;
         datePicker.bindingTextField = textField;    // 进行单向绑定
         textField.keyboardType = UIKeyboardTypeAlphabet;
+        textField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"请选择出版时间" attributes:@{NSFontAttributeName: [UIFont defaultBoldFontWithSize:15.0f], NSForegroundColorAttributeName: [UIColor lightGrayColor]}];
     };
     // 所属类型
     ZCPPickerView *typePicker = getPicker(self.fieldArray);
@@ -85,12 +96,14 @@
         textField.inputView = typePicker;
         typePicker.bindingTextField = textField;    // 进行单向绑定
         textField.keyboardType = UIKeyboardTypeAlphabet;
+        textField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"请选择类型" attributes:@{NSFontAttributeName: [UIFont defaultBoldFontWithSize:15.0f], NSForegroundColorAttributeName: [UIColor lightGrayColor]}];
     };
     
     ZCPSectionCellItem *sectionItem2 = [[ZCPSectionCellItem alloc] initWithDefault];
     sectionItem2.sectionTitle = @"简介";
     // 简介
     ZCPTextViewCellItem *summaryItem = [[ZCPTextViewCellItem alloc] initWithDefault];
+    summaryItem.placeholder = @"请输入图书简介";
     
     ZCPLineCellItem *blankItem = [[ZCPLineCellItem alloc] initWithDefault];
     ZCPButtonCellItem *determineItem = [[ZCPButtonCellItem alloc] initWithDefault];
@@ -154,21 +167,21 @@
     NSString *summary = summaryItem.textInputValue;
     
     // 空值检测
-    if ([ZCPJudge judgeNullObject:uploadImage showErrorMsg:@"请选择一张封面！" toView:self.view]
-        || [ZCPJudge judgeNullTextInput:name showErrorMsg:@"书名不能为空！" toView:self.view]
-        || [ZCPJudge judgeNullTextInput:author showErrorMsg:@"作者不能为空！" toView:self.view]
-        || [ZCPJudge judgeNullTextInput:publisher showErrorMsg:@"出版社不能为空" toView:self.view]
-        || [ZCPJudge judgeNullTextInput:field showErrorMsg:@"类型不能为空！" toView:self.view]
-        || [ZCPJudge judgeNullTextInput:summary showErrorMsg:@"简介不能为空！" toView:self.view]) {
+    if ([ZCPJudge judgeNullObject:uploadImage showErrorMsg:@"请选择一张封面！"]
+        || [ZCPJudge judgeNullTextInput:name showErrorMsg:@"书名不能为空！"]
+        || [ZCPJudge judgeNullTextInput:author showErrorMsg:@"作者不能为空！"]
+        || [ZCPJudge judgeNullTextInput:publisher showErrorMsg:@"出版社不能为空"]
+        || [ZCPJudge judgeNullTextInput:field showErrorMsg:@"类型不能为空！"]
+        || [ZCPJudge judgeNullTextInput:summary showErrorMsg:@"简介不能为空！"]) {
         return;
     }
-    if ([ZCPJudge judgeWrongDateString:publishTime]) {
+    if ([ZCPJudge judgeWrongDateString:publishTime showErrorMsg:@"出版时间有误"]) {
         return;
     }
-    if ([ZCPJudge judgeOutOfRangeTextInput:name range:[ZCPLengthRange rangeWithMin:1 max:30] showErrorMsg:@"书名不能超过30字" toView:self.view]
-        || [ZCPJudge judgeOutOfRangeTextInput:author range:[ZCPLengthRange rangeWithMin:1 max:30] showErrorMsg:@"作者不能超过30字" toView:self.view]
-        || [ZCPJudge judgeOutOfRangeTextInput:publisher range:[ZCPLengthRange rangeWithMin:1 max:30] showErrorMsg:@"出版社不能超过30字" toView:self.view]
-        || [ZCPJudge judgeOutOfRangeTextInput:summary range:[ZCPLengthRange rangeWithMin:1 max:1000] showErrorMsg:@"简介不能超过30字" toView:self.view]) {
+    if ([ZCPJudge judgeOutOfRangeTextInput:name range:[ZCPLengthRange rangeWithMin:1 max:30] showErrorMsg:@"书名不能超过30字"]
+        || [ZCPJudge judgeOutOfRangeTextInput:author range:[ZCPLengthRange rangeWithMin:1 max:30] showErrorMsg:@"作者不能超过30字"]
+        || [ZCPJudge judgeOutOfRangeTextInput:publisher range:[ZCPLengthRange rangeWithMin:1 max:30] showErrorMsg:@"出版社不能超过30字"]
+        || [ZCPJudge judgeOutOfRangeTextInput:summary range:[ZCPLengthRange rangeWithMin:1 max:1000] showErrorMsg:@"简介不能超过30字"]) {
         return;
     }
     
@@ -198,7 +211,7 @@
     UIAlertController *actionSheet = [UIAlertController alertControllerWithTitle:@"选择一张图书封面" message:nil preferredStyle:UIAlertControllerStyleActionSheet];
     UIAlertAction *cameraAction = [UIAlertAction actionWithTitle:@"拍照" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         if (CAMERA_AVAILABLE) {
-            UIImagePickerController *imagePicker = getImagePicker(self, UIImagePickerControllerSourceTypeCamera);
+            ZCPImagePickerController *imagePicker = getImagePicker(self, UIImagePickerControllerSourceTypeCamera);
             [self presentViewController:imagePicker animated:YES completion:nil];
         } else {
             TTDPRINT(@"相机不可用！");
@@ -206,7 +219,7 @@
     }];
     UIAlertAction *albumAction = [UIAlertAction actionWithTitle:@"打开相册" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         if (PHOTO_LIBRARY_AVAILABLE) {
-            UIImagePickerController *imagePicker = getImagePicker(self, UIImagePickerControllerSourceTypePhotoLibrary);
+            ZCPImagePickerController *imagePicker = getImagePicker(self, UIImagePickerControllerSourceTypePhotoLibrary);
             [self presentViewController:imagePicker animated:YES completion:nil];
         } else {
             TTDPRINT(@"相册不可用！");
@@ -219,41 +232,6 @@
     
     // present menu
     [self presentViewController:actionSheet animated:YES completion:nil];
-}
-
-#pragma mark - Create Picker
-/**
- *  时间选择器
- */
-ZCPDatePicker *getDatePicker() {
-    ZCPDatePicker *datePicker = [[ZCPDatePicker alloc] initWithFrame: CGRectMake(0, 0, APPLICATIONWIDTH, 240)];
-    
-    datePicker.minimumDate = [NSDate dateFromString:@"1800-01-01"];
-    datePicker.maximumDate = [NSDate dateFromString:@"2100-01-01"];
-    datePicker.datePickerMode = UIDatePickerModeDate;
-    return datePicker;
-}
-/**
- *  自定义选择器
- */
-ZCPPickerView *getPicker(NSArray *optionsArr) {
-    ZCPPickerView *pickerView = [[ZCPPickerView alloc] initWithFrame:CGRectMake(0, 0, APPLICATIONWIDTH, 200)];
-    pickerView.optionsArr = optionsArr? @[optionsArr]: @[[NSArray array]];
-    return pickerView;
-}
-/**
- *  图片选择器
- */
-UIImagePickerController *getImagePicker(id<UINavigationControllerDelegate, UIImagePickerControllerDelegate>delegate, UIImagePickerControllerSourceType sourceType) {
-    UIImagePickerController *imagePicker = [[UIImagePickerController alloc] init];
-    imagePicker.allowsEditing = YES;
-    imagePicker.delegate = delegate;
-    imagePicker.sourceType = sourceType;
-    imagePicker.mediaTypes = @[(NSString *)kUTTypeImage];
-    imagePicker.navigationBar.barTintColor = [UIColor lightGrayColor];
-    imagePicker.navigationBar.tintColor = [UIColor whiteColor];
-    
-    return imagePicker;
 }
 
 @end

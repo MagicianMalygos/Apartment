@@ -42,7 +42,7 @@ typedef void(^ZCPButtonConfigBlock)(UIButton *button);
 @property (nonatomic, assign) NSInteger tag;                                // 按钮标识
 @property (nonatomic, assign) ZCPButtonInitialize state;                    // 按钮初始状态
 @property (nonatomic, weak) id<ZCPButtonCellDelegate> delegate;             // delegate
-@property (nonatomic, copy) ZCPButtonConfigBlock buttonConfigBlock;     // 按钮配置块
+@property (nonatomic, copy) ZCPButtonConfigBlock buttonConfigBlock;         // 按钮配置块
 
 @end
 

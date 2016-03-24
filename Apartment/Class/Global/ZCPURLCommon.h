@@ -22,6 +22,7 @@
 #pragma mark - - - - - - 观点交流相关
 #define BOOKPOST_LIST_BY_MULTI_CONDITION                        @"BOOKPOST_LIST_BY_MULTI_CONDITION"
 #define CHANGE_BOOKPOST_COLLECTION_STATE                        @"CHANGE_BOOKPOST_COLLECTION_STATE"
+#define ADD_BOOKPOST                                            @"ADD_BOOKPOST"
 
 #pragma mark - - - - - - 文趣活动相关(Couplet)
 #define COUPLET_LIST_BY_MULTI_CONDITION                         @"COUPLET_LIST_BY_MULTI_CONDITION"

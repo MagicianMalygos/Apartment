@@ -16,3 +16,8 @@
 @property (nonatomic, weak) UITextField *bindingTextField;      // 绑定的TextField
 
 @end
+
+/**
+ *  获取自定义选择器
+ */
+ZCPPickerView *getPicker(NSArray *optionsArr);

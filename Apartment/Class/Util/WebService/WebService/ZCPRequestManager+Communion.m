@@ -86,4 +86,40 @@
     return operation;
 }
 
+/**
+ *  添加图书贴
+ *
+ *  @param title    标题
+ *  @param content  内容
+ *  @param bookName 相关书籍名
+ */
+- (NSOperation *)addBookpostWithBookpostTitle:(NSString *)bookpostTitle
+                              bookpostContent:(NSString *)bookpostContent
+                             bookpostBookName:(NSString *)bookpostBookName
+                                   currUserID:(NSInteger)currUserID
+                                      fieldID:(NSInteger)fieldID
+                              success:(void (^)(AFHTTPRequestOperation *operation, BOOL isSuccess))success
+                              failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure {
+    
+    NSString * scheme       = schemeForType(kURLTypeCommon);
+    NSString * host         = hostForType(kURLTypeCommon);
+    NSString * path         = urlForKey(ADD_BOOKPOST);
+    
+    AFHTTPRequestOperation *operation = [self POST:ZCPMakeURLString(scheme, host, path)
+                                        parameters:@{@"bookpostTitle": bookpostTitle
+                                                     , @"bookpostContent": bookpostContent
+                                                     , @"bookpostBookName": bookpostBookName
+                                                     , @"currUserID": @(currUserID)
+                                                     , @"fieldID": @(fieldID)}
+                                           success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                                               if (success) {
+                                                   success(operation, [[responseObject valueForKey:@"result"] boolValue]);
+                                               }
+                                           }
+                                           failure:failure];
+    
+    TTDPRINT(@"URL=%@  params=%@", operation.request.URL, [[NSString alloc] initWithData:operation.request.HTTPBody encoding:NSUTF8StringEncoding]);
+    return operation;
+}
+
 @end
