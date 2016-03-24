@@ -10,8 +10,9 @@
 
 @implementation ZCPTextViewCell
 
-@synthesize textView = _textView;
-@synthesize item = _item;
+#pragma mark - synthesize
+@synthesize textView    = _textView;
+@synthesize item        = _item;
 
 #pragma mark - Setup Cell
 - (void)setupContentView {
@@ -53,8 +54,10 @@
 
 @implementation ZCPTextViewCellItem
 
-@synthesize placeholder = _placeholder;
-@synthesize textEdgeInset = _textEdgeInset;
+#pragma mark - synthesize
+@synthesize placeholder     = _placeholder;
+@synthesize textEdgeInset   = _textEdgeInset;
+@synthesize textInputValue  = _textInputValue;
 
 #pragma mark - instancetype
 - (instancetype)init {

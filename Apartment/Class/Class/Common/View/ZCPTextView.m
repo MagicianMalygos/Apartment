@@ -16,9 +16,9 @@
 
 @implementation ZCPTextView
 
-@synthesize placeholder = _placeholder;
-@synthesize placeholderColor = _placeholderColor;
-@synthesize placeholderLabel = _placeholderLabel;
+@synthesize placeholder         = _placeholder;
+@synthesize placeholderColor    = _placeholderColor;
+@synthesize placeholderLabel    = _placeholderLabel;
 
 #pragma mark - instancetype
 /**

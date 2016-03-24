@@ -10,6 +10,9 @@
 
 @implementation ZCPTableViewCell
 
+#pragma mark - synthesize
+@synthesize object  = _object;
+
 #pragma mark - instancetype
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
     if (self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]) {

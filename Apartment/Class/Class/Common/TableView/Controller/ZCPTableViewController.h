@@ -13,10 +13,8 @@
 // 表格视图控制器基类
 @interface ZCPTableViewController : ZCPViewController <ZCPListTableViewAdaptorDelegate, UITableViewDelegate, UITableViewDataSource>
 
-// table view
-@property (nonatomic, strong) UITableView *tableView;
-// 适配器
-@property (nonatomic, strong) ZCPListTableViewAdaptor *tableViewAdaptor;
+@property (nonatomic, strong) UITableView *tableView;                       // tableView
+@property (nonatomic, strong) ZCPListTableViewAdaptor *tableViewAdaptor;    // 适配器
 
 /**
  *  构造数据

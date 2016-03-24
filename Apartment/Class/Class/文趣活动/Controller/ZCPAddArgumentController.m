@@ -23,7 +23,8 @@
 
 @implementation ZCPAddArgumentController
 
-@synthesize currThesisID = _currThesisID;
+#pragma mark - synthesize
+@synthesize currThesisID    = _currThesisID;
 
 #pragma mark - init
 - (instancetype)initWithParams:(NSDictionary *)params {

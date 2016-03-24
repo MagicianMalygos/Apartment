@@ -10,6 +10,7 @@
 
 @implementation ZCPTextFieldCell
 
+#pragma mark - synthesize
 @synthesize textField   = _textField;
 @synthesize item        = _item;
 
@@ -66,7 +67,8 @@
 @implementation ZCPTextFieldCellItem
 
 #pragma mark - synthesize
-@synthesize textFieldConfigBlock = _textFieldConfigBlock;
+@synthesize textInputValue          = _textInputValue;
+@synthesize textFieldConfigBlock    = _textFieldConfigBlock;
 
 #pragma mark - instancetype
 - (instancetype)init {
@@ -88,6 +90,9 @@
 @end
 
 @implementation ZCPLabelTextFieldCell
+
+#pragma mark - synthesize
+@synthesize label   = _label;
 
 #pragma mark - Setup Cell
 - (void)setupContentView {
@@ -132,6 +137,9 @@
 @end
 
 @implementation ZCPLabelTextFieldCellItem
+
+#pragma mark - synthesize
+@synthesize labelText   = _labelText;
 
 #pragma mark - instancetype
 - (instancetype)init {

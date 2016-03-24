@@ -14,6 +14,11 @@
 
 @implementation ZCPAddPictureCell
 
+#pragma mark - sythesize
+@synthesize uploadImageView     = _uploadImageView;
+@synthesize tipLabel            = _tipLabel;
+@synthesize item                = _item;
+
 #pragma mark - Setup Cell
 - (void)setupContentView {
     // 图片
@@ -57,6 +62,10 @@
 @end
 
 @implementation ZCPAddPictureCellItem
+
+#pragma mark - synthesize
+@synthesize uploadImage = _uploadImage;
+@synthesize tipText = _tipText;
 
 #pragma mark - instancetype
 - (instancetype)init {

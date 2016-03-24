@@ -8,13 +8,12 @@
 
 #import "ZCPButtonCell.h"
 
-
-
 @implementation ZCPButtonCell
 
-@synthesize button = _button;
-@synthesize item = _item;
-@synthesize delegate = _delegate;
+#pragma mark - synthesize
+@synthesize button      = _button;
+@synthesize item        = _item;
+@synthesize delegate    = _delegate;
 
 #pragma mark - life cycle
 - (void)layoutSubviews {
@@ -97,6 +96,7 @@
 
 @implementation ZCPButtonCellItem
 
+#pragma mark - synthesize
 @synthesize buttonTitle                         = _buttonTitle;
 @synthesize titleColorNormal                    = _titleColorNormal;
 @synthesize titleColorHighlighted               = _titleColorHighlighted;
@@ -108,6 +108,7 @@
 @synthesize tag                                 = _tag;
 @synthesize state                               = _state;
 @synthesize delegate                            = _delegate;
+@synthesize buttonConfigBlock                   = _buttonConfigBlock;
 
 #pragma mark - instancetype
 + (instancetype)buttonCellItem {

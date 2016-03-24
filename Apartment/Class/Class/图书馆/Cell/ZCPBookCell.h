@@ -25,7 +25,6 @@
 @property (nonatomic, strong) UILabel *contributorLabel;            // 贡献者标签
 @property (nonatomic, strong) UILabel *collectNumberLabel;          // 收藏人数标签
 @property (nonatomic, strong) UILabel *commentCountLabel;           // 评论人数标签
-
 @property (nonatomic, strong) ZCPBookCellItem *item;                // item
 
 @end

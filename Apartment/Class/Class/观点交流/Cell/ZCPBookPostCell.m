@@ -17,16 +17,17 @@
 
 @implementation ZCPBookPostCell
 
-@synthesize bpTitleLabel = _bpTitleLabel;
-@synthesize bpContentLabel = _bpContentLabel;
-@synthesize bpTimeLabel = _bpTimeLabel;
-@synthesize uploaderLabel = _uploaderLabel;
-@synthesize fieldLabel = _fieldLabel;
-@synthesize bookNameLabel = _bookNameLabel;
-@synthesize supportNumberLabel = _supportNumberLabel;
-@synthesize collectionNumberLabel = _collectionNumberLabel;
-@synthesize replyNumberLabel = _replyNumberLabel;
-@synthesize item = _item;
+#pragma mark - synthesize
+@synthesize bpTitleLabel            = _bpTitleLabel;
+@synthesize bpContentLabel          = _bpContentLabel;
+@synthesize bpTimeLabel             = _bpTimeLabel;
+@synthesize uploaderLabel           = _uploaderLabel;
+@synthesize fieldLabel              = _fieldLabel;
+@synthesize bookNameLabel           = _bookNameLabel;
+@synthesize supportNumberLabel      = _supportNumberLabel;
+@synthesize collectionNumberLabel   = _collectionNumberLabel;
+@synthesize replyNumberLabel        = _replyNumberLabel;
+@synthesize item                    = _item;
 
 #pragma mark - Setup Cell
 - (void)setupContentView {
@@ -183,6 +184,17 @@
 @end
 
 @implementation ZCPBookPostCellItem
+
+#pragma mark - synthesize
+@synthesize bpTitle = _bpTitle;
+@synthesize bpContent = _bpContent;
+@synthesize bpTime = _bpTime;
+@synthesize uploader = _uploader;
+@synthesize field = _field;
+@synthesize bookName = _bookName;
+@synthesize supportNumber = _supportNumber;
+@synthesize collectionNumber = _collectionNumber;
+@synthesize replyNumber = _replyNumber;
 
 #pragma mark - instancetype
 - (instancetype)init {

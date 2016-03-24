@@ -10,6 +10,11 @@
 
 @implementation ZCPLengthRange
 
+#pragma mark - synthesize
+@synthesize minValue = _minValue;
+@synthesize maxValue = _maxValue;
+
+#pragma mark - instancetype
 + (instancetype)rangeWithMin:(NSUInteger)minValue max:(NSUInteger)maxValue {
     return [[self alloc] initWithMin:minValue max:maxValue];
 }

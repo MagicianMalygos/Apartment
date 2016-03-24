@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-
+// 用于标识cell上下边线显示
 typedef NS_ENUM(NSUInteger, ZCPGroupedCellPosition) {
     ZCPGroupedCellPositionNone,
     ZCPGroupedCellPositionFirst,
@@ -36,6 +36,7 @@ typedef void(^ZCPEventBlock)(id object);
 @property (nonatomic, assign) ZCPGroupedCellPosition groupedCellPosition;
 // cell上下边线的缩进值
 @property (nonatomic, strong) NSNumber *lineIndent;
+// 是否使用nib
 @property (nonatomic, assign) BOOL useNib;
 
 @end

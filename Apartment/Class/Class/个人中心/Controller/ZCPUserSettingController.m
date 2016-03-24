@@ -7,17 +7,12 @@
 //
 
 #import "ZCPUserSettingController.h"
-
 #import "ZCPSectionCell.h"
 #import "ZCPButtonCell.h"
 #import "ZCPImageTextCell.h"
 #import "ZCPHeadImageCell.h"
 #import "ZCPUserCenter.h"
 #import "ZCPRequestManager+User.h"
-
-// 获取设备功能
-static BOOL photoLibraryAvailable;
-static BOOL cameraAvailable;
 
 @interface ZCPUserSettingController() <ZCPButtonCellDelegate, ZCPHeadImageCellDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 
@@ -28,13 +23,13 @@ static BOOL cameraAvailable;
 
 @implementation ZCPUserSettingController
 
+#pragma mark - synthesize
+@synthesize actionSheet     = _actionSheet;
+@synthesize imagePicker     = _imagePicker;
+
 #pragma mark - life cycle
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    // 获取设备功能
-    photoLibraryAvailable = [UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypePhotoLibrary];
-    cameraAvailable = [UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera];
     
     [self constructData];
     [self.tableView reloadData];
@@ -120,7 +115,7 @@ static BOOL cameraAvailable;
     if (_actionSheet == nil) {
         _actionSheet = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleActionSheet];
         // 初始化Action
-        if (cameraAvailable) {
+        if (CAMERA_AVAILABLE) {
             WEAK_SELF;
             UIAlertAction * takePhotoAction = [UIAlertAction actionWithTitle:@"拍照" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
                 STRONG_SELF;
@@ -131,7 +126,7 @@ static BOOL cameraAvailable;
                 TTDPRINT(@"打开相机");
             }];
             [_actionSheet addAction:takePhotoAction];
-        } else if (photoLibraryAvailable) {
+        } else if (PHOTO_LIBRARY_AVAILABLE) {
             WEAK_SELF;
             UIAlertAction *openAlbumAction = [UIAlertAction actionWithTitle:@"打开相册" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
                 STRONG_SELF;

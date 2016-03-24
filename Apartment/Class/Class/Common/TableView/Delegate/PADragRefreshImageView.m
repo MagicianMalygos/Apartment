@@ -123,7 +123,6 @@
     }
 }
 
-
 - (void) setStatus:(PATableHeaderDragRefreshStatus)status {
     
     _imageView.hidden = NO;

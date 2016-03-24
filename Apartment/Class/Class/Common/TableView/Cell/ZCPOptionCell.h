@@ -7,7 +7,6 @@
 //
 
 #import "ZCPTableViewWithLineCell.h"
-
 #import "ZCPOptionView.h"
 
 @class ZCPOptionCellItem;
@@ -23,7 +22,7 @@
 // 选项视图CellItem
 @interface ZCPOptionCellItem : ZCPDataModel
 
-@property (nonatomic, strong) NSArray *attributedStringArr;
-@property (nonatomic, weak) id<ZCPOptionViewDelegate>delegate;
+@property (nonatomic, strong) NSArray *attributedStringArr;     // 富文本数组,对应item个数
+@property (nonatomic, weak) id<ZCPOptionViewDelegate>delegate;  // delegate
 
 @end

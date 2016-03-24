@@ -38,6 +38,16 @@
 
 @implementation ZCPMainCommunionController
 
+#pragma mark - synthesize
+@synthesize searchBar                   = _searchBar;
+@synthesize optionView                  = _optionView;
+@synthesize selectSortMethodControl     = _selectSortMethodControl;
+@synthesize selectFieldControl          = _selectFieldControl;
+@synthesize bookpostArr                 = _bookpostArr;
+@synthesize fieldIndex                  = _fieldIndex;
+@synthesize sortMethod                  = _sortMethod;
+@synthesize pagination                  = _pagination;
+
 #pragma mark - life cycle
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -76,7 +86,7 @@
 - (UISearchBar *)searchBar {
     if (_searchBar == nil) {
         _searchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(0, 0, APPLICATIONWIDTH, SearchBarHeight)];
-        _searchBar.placeholder = @"请输入作者名、书籍名、观点标题等关键词";
+        _searchBar.placeholder = @"请输入观点标题、观点内容、书籍名等关键词";
         _searchBar.delegate = self;
     }
     return _searchBar;
@@ -102,6 +112,9 @@
     }
     return _optionView;
 }
+/**
+ *  懒加载选择排序方式视图控制器
+ */
 - (ZCPSelectMenuController *)selectSortMethodControl {
     if (_selectSortMethodControl == nil) {
         _selectSortMethodControl = [ZCPSelectMenuController new];
@@ -152,7 +165,7 @@
         bpItem.bpTime = model.bookpostTime;
         bpItem.uploader = model.user.userName;
         bpItem.field = model.field.fieldName;
-        bpItem.bookName = model.book.bookName;
+        bpItem.bookName = model.bookpostBookName;
         bpItem.supportNumber = model.bookpostSupport;
         bpItem.collectionNumber = model.bookpostCollectNumber;
         bpItem.replyNumber = model.bookpostReplyNumber;
@@ -186,22 +199,21 @@
     switch (index) {
         case 0: {
             // 显示或隐藏选择排序方式视图
-            if (self.selectSortMethodControl.view.alpha == 1.0f) {
-                [self.selectSortMethodControl hideView];
-            }
-            else if (self.selectSortMethodControl.view.alpha == 0.0f) {
+            if (self.selectSortMethodControl.isViewHidden) {
                 [self.selectSortMethodControl showView];
                 [self.selectFieldControl hideView];
+            } else {
+                [self.selectSortMethodControl hideView];
             }
             break;
         }
         case 1: {
             // 显示或隐藏选择领域视图
-            if (self.selectFieldControl.view.alpha == 1.0f) {
-                [self.selectFieldControl hideView];
-            }
-            else if (self.selectFieldControl.view.alpha == 0.0f) {
+            if (self.selectFieldControl.isViewHidden) {
                 [self.selectFieldControl showView];
+                [self.selectSortMethodControl hideView];
+            } else {
+                [self.selectFieldControl hideView];
             }
             break;
         }
@@ -327,7 +339,5 @@
     // 加载数据
     [self loadData];
 }
-
-
 
 @end

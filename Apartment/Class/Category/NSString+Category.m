@@ -30,12 +30,6 @@
 
 
 
-
-
-
-
-
-
 - (NSString *)maskedPhoneNumber {
     NSUInteger length = [self length];
     NSString *masks = @"****";

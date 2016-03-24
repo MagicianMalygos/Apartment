@@ -734,8 +734,8 @@
 				180700161C48821600F3BE2B /* PACircleLoadingView.m */,
 				180700171C48821600F3BE2B /* PADragRefreshImageView.h */,
 				180700181C48821600F3BE2B /* PADragRefreshImageView.m */,
-				180700191C48821600F3BE2B /* PALoadFooterView.h */,
 				1807001A1C48821600F3BE2B /* PALoadFooterView.m */,
+				180700191C48821600F3BE2B /* PALoadFooterView.h */,
 				1807001B1C48821600F3BE2B /* PATableHeaderDragRefreshView.h */,
 				1807001C1C48821600F3BE2B /* PATableHeaderDragRefreshView.m */,
 			);

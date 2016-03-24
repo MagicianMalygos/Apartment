@@ -18,7 +18,6 @@
 @property (nonatomic, weak) id<ZCPNetworkDataConstructorDelegate> delegate;
 @property (nonatomic, readonly, getter = isLoading) BOOL loading;
 
-
 #pragma mark - 子类覆盖方法
 /**
  *  加载数据
@@ -58,7 +57,6 @@
 
 @end
 
-
 @protocol ZCPNetworkDataConstructorDelegate <NSObject>
 
 @optional
@@ -66,16 +64,4 @@
 - (void)dataConstructor:(id)dataConstructor didFinishLoad:(ZCPDataModel *)dataModel;
 - (void)dataConstructorDidFailLoadData:(id)dataConstructor withError:(ZCPDataModel *)errorDataModel;
 
-
-
 @end
-
-
-
-
-
-
-
-
-
-

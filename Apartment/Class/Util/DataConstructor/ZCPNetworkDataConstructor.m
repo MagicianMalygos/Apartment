@@ -17,8 +17,10 @@
 
 @implementation ZCPNetworkDataConstructor
 
+#pragma mark - synthesize
 @synthesize delegate        = _delegate;
 @synthesize delegateClass   = _delegateClass;
+@synthesize loading         = _loading;
 
 #pragma mark - getter / setter
 - (void)setDelegate:(id<ZCPNetworkDataConstructorDelegate>)delegate {

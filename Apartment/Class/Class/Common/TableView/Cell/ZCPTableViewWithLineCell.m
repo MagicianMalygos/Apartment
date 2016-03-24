@@ -10,8 +10,9 @@
 
 @implementation ZCPTableViewWithLineCell
 
-@synthesize lineUpper = _lineUpper;
-@synthesize lineLower = _lineLower;
+#pragma mark - synthesize
+@synthesize lineUpper   = _lineUpper;
+@synthesize lineLower   = _lineLower;
 
 #pragma mark - instancetype
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {

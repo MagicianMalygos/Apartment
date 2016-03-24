@@ -18,13 +18,15 @@
 
 @implementation ZCPArgumentCell
 
-@synthesize userHeadImgView = _userHeadImgView;
-@synthesize userNameLabel = _userNameLabel;
-@synthesize supportNumberLabel = _supportNumberLabel;
-@synthesize supportButton = _supportButton;
-@synthesize argumentContentLabel = _argumentContentLabel;
-@synthesize timeLabel = _timeLabel;
-@synthesize item = _item;
+#pragma mark - synthesize
+@synthesize userHeadImgView         = _userHeadImgView;
+@synthesize userNameLabel           = _userNameLabel;
+@synthesize supportNumberLabel      = _supportNumberLabel;
+@synthesize supportButton           = _supportButton;
+@synthesize argumentContentLabel    = _argumentContentLabel;
+@synthesize timeLabel               = _timeLabel;
+@synthesize item                    = _item;
+@synthesize delegate                = _delegate;
 
 #pragma mark - Setup Cell
 - (void)setupContentView {
@@ -127,11 +129,16 @@
 
 @implementation ZCPArgumentCellItem
 
-@synthesize userHeadImgURL = _userHeadImgURL;
-@synthesize userName = _userName;
-@synthesize argumentContent = _argumentContent;
-@synthesize time = _time;
-@synthesize supportNumber = _supportNumber;
+#pragma mark - synthesize
+@synthesize argumentID          = _argumentID;
+@synthesize argumentBelong      = _argumentBelong;
+@synthesize userHeadImgURL      = _userHeadImgURL;
+@synthesize userName            = _userName;
+@synthesize argumentContent     = _argumentContent;
+@synthesize time                = _time;
+@synthesize supportNumber       = _supportNumber;
+@synthesize argumentSupported   = _argumentSupported;
+@synthesize delegate            = _delegate;
 
 #pragma mark - instancetype
 - (instancetype)init {

@@ -8,12 +8,9 @@
 
 #import "PACircleLoadingView.h"
 
-
 #define ANGLE(a) 2*M_PI/360*a
 
-
 @implementation PACircleLoadingView
-
 
 - (id)initWithFrame:(CGRect)frame
 {
@@ -25,7 +22,6 @@
     }
     return self;
 }
-
 
 // Only override drawRect: if you perform custom drawing.
 // An empty implementation adversely affects performance during animation.

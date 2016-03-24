@@ -11,13 +11,13 @@
 @implementation ZCPListDataModel
 
 #pragma mark - synthesize
-@synthesize items = _items;
-@synthesize page = _page;
-@synthesize rows = _rows;
-@synthesize hasMore = _hasMore;
-@synthesize start = _start;
-@synthesize max = _max;
-@synthesize totalRecords = _totalRecords;
+@synthesize items           = _items;
+@synthesize page            = _page;
+@synthesize rows            = _rows;
+@synthesize hasMore         = _hasMore;
+@synthesize start           = _start;
+@synthesize max             = _max;
+@synthesize totalRecords    = _totalRecords;
 
 #pragma mark - Public Method
 // 获取列表中对应下标的对象

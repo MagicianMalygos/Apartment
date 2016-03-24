@@ -14,15 +14,6 @@
 
 @implementation ZCPNavigationController
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-}
-
 #pragma mark - UIGestureRecognizerDelegate
 - (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch {
     return (gestureRecognizer == self.interactivePopGestureRecognizer);

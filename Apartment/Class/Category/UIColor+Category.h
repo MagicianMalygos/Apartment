@@ -35,8 +35,6 @@
 + (UIColor *)PAToolBarBgColor;
 //优惠icon颜色
 + (UIColor *)PAYouHuiColor;
-//好房贷icon颜色
-+ (UIColor *)PAHFLoanColor;
 //价格颜色
 + (UIColor *)PAPriceColor;
 //价格单位颜色

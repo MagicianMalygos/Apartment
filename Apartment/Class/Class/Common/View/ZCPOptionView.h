@@ -20,8 +20,16 @@
 
 @property (nonatomic, assign) BOOL markViewMoving;                  // markView是否正在移动，防止点击label移动和使用偏移量移动产生冲突
 
-@property (nonatomic, weak) id<ZCPOptionViewDelegate> delegate;
+@property (nonatomic, weak) id<ZCPOptionViewDelegate> delegate;     // delegate
 
+/**
+ *  实例化方法
+ *
+ *  @param frame      frame
+ *  @param attrStrArr 选项富文本
+ *
+ *  @return 选项视图
+ */
 - (instancetype)initWithFrame:(CGRect)frame attributeStringArr:(NSArray *)attrStrArr;
 /**
  *  通过传参AttributedString数组设置label

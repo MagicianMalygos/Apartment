@@ -10,10 +10,13 @@
 
 @implementation ZCPCommentView
 
-@synthesize keyboardResponder = _keyboardResponder;
-@synthesize coverView = _coverView;
-@synthesize target = _target;
-@synthesize delegate = _delegate;
+// ----------------------------------------------------------------------
+#pragma mark - synthesize
+// ----------------------------------------------------------------------
+@synthesize keyboardResponder   = _keyboardResponder;
+@synthesize coverView           = _coverView;
+@synthesize target              = _target;
+@synthesize delegate            = _delegate;
 
 // ----------------------------------------------------------------------
 #pragma mark - instancetype

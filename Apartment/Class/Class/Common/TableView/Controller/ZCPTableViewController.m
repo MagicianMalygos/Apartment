@@ -8,12 +8,15 @@
 
 #import "ZCPTableViewController.h"
 
-
 @interface ZCPTableViewController ()
 
 @end
 
 @implementation ZCPTableViewController
+
+#pragma mark - synthesize
+@synthesize tableView           = _tableView;
+@synthesize tableViewAdaptor    = _tableViewAdaptor;
 
 #pragma mark - init
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
@@ -108,8 +111,5 @@
 #pragma mark - ZCPListTableViewAdaptorDelegate
 - (void)tableView:(UITableView *)tableView didSelectObject:(id<ZCPTableViewCellItemBasicProtocol>)object rowAtIndexPath:(NSIndexPath *)indexPath {
 }
-
-
-
 
 @end

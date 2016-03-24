@@ -11,7 +11,6 @@
 @interface UIImage (Category)
 //自定义长宽
 - (UIImage *)reSizeImageToSize:(CGSize)reSize;
-
 - (UIImage *)imageAtRect:(CGRect)rect;
 
 /*!

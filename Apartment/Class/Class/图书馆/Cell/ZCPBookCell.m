@@ -20,16 +20,17 @@
 #pragma mark - ZCPBookCell
 @implementation ZCPBookCell
 
-@synthesize coverImageView = _coverImageView;
-@synthesize nameLabel = _nameLabel;
-@synthesize authorLabel = _authorLabel;
-@synthesize publisherLabel = _publisherLabel;
-@synthesize fieldLabel = _fieldLabel;
-@synthesize publishTimeLabel = _publishTimeLabel;
-@synthesize contributorLabel = _contributorLabel;
-@synthesize collectNumberLabel = _collectNumberLabel;
-@synthesize commentCountLabel = _commentCountLabel;
-@synthesize item = _item;
+#pragma mark - synthesize
+@synthesize coverImageView      = _coverImageView;
+@synthesize nameLabel           = _nameLabel;
+@synthesize authorLabel         = _authorLabel;
+@synthesize publisherLabel      = _publisherLabel;
+@synthesize fieldLabel          = _fieldLabel;
+@synthesize publishTimeLabel    = _publishTimeLabel;
+@synthesize contributorLabel    = _contributorLabel;
+@synthesize collectNumberLabel  = _collectNumberLabel;
+@synthesize commentCountLabel   = _commentCountLabel;
+@synthesize item                = _item;
 
 #pragma mark - Setup Cell
 - (void)setupContentView {
@@ -154,15 +155,16 @@
 
 @implementation ZCPBookCellItem
 
-@synthesize bookCoverURL = _bookCoverURL;
-@synthesize bookName = _bookName;
-@synthesize bookAuthor = _bookAuthor;
-@synthesize bookPublisher = _bookPublisher;
-@synthesize field = _field;
-@synthesize bookPublishTime = _bookPublishTime;
-@synthesize contributor = _contributor;
-@synthesize bookCollectNumber = _bookCollectNumber;
-@synthesize bookCommentCount = _bookCommentCount;
+#pragma mark - synthesize
+@synthesize bookCoverURL        = _bookCoverURL;
+@synthesize bookName            = _bookName;
+@synthesize bookAuthor          = _bookAuthor;
+@synthesize bookPublisher       = _bookPublisher;
+@synthesize field               = _field;
+@synthesize bookPublishTime     = _bookPublishTime;
+@synthesize contributor         = _contributor;
+@synthesize bookCollectNumber   = _bookCollectNumber;
+@synthesize bookCommentCount    = _bookCommentCount;
 
 #pragma mark - instancetype
 - (instancetype)init {
@@ -188,6 +190,9 @@
 
 #pragma mark - ZCPBookDetailCell
 @implementation ZCPBookDetailCell
+
+#pragma mark - synthesize
+@synthesize collectionButton = _collectionButton;
 
 #pragma mark - Setup Cell
 - (void)setupContentView {

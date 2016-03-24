@@ -27,6 +27,9 @@
 
 @implementation ZCPAddBookController
 
+#pragma mark - synthesize
+@synthesize fieldArray  = _fieldArray;
+
 #pragma mark - instancetype
 - (instancetype)initWithParams:(NSDictionary *)params {
     if (self = [super init]) {

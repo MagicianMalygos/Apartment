@@ -10,12 +10,14 @@
 
 @implementation ZCPSwitchRadioCell
 
-@synthesize switchView = _switchView;
-@synthesize switchLabel = _switchLabel;
-@synthesize radioButtonOne = _radioButtonOne;
-@synthesize radioLabelOne = _radioLabelOne;
-@synthesize radioButtonTwo = _radioButtonTwo;
-@synthesize radioLabelTwo = _radioLabelTwo;
+#pragma mark - synthesize
+@synthesize switchView      = _switchView;
+@synthesize switchLabel     = _switchLabel;
+@synthesize radioButtonOne  = _radioButtonOne;
+@synthesize radioLabelOne   = _radioLabelOne;
+@synthesize radioButtonTwo  = _radioButtonTwo;
+@synthesize radioLabelTwo   = _radioLabelTwo;
+@synthesize item            = _item;
 
 #pragma mark - Setup Cell
 - (void)setupContentView {
@@ -131,11 +133,16 @@
 
 @implementation ZCPSwitchRadioCellItem
 
-@synthesize switchInitialValue = _switchInitialValue;
-@synthesize switchResponser = _switchResponser;
-@synthesize switchTipText = _switchTipText;
-@synthesize radioTipTextOne = _radioTipTextOne;
-@synthesize radioTipTextTwo = _radioTipTextTwo;
+#pragma mark - synthesize
+@synthesize switchInitialValue          = _switchInitialValue;
+@synthesize switchResponser             = _switchResponser;
+@synthesize switchTipText               = _switchTipText;
+@synthesize radioTipTextOne             = _radioTipTextOne;
+@synthesize radioTipTextTwo             = _radioTipTextTwo;
+@synthesize radioButtonOneConfigBlock   = _radioButtonOneConfigBlock;
+@synthesize radioButtonTwoConfigBlock   = _radioButtonTwoConfigBlock;
+@synthesize switchValue                 = _switchValue;
+@synthesize selectedRadioTipIndex       = _selectedRadioTipIndex;
 
 #pragma mark - instancetype
 - (instancetype)init {

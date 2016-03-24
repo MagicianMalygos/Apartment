@@ -10,12 +10,13 @@
 
 @implementation ZCPHeadImageCell
 
-@synthesize bigButton = _bigButton;
-@synthesize middleButton = _middleButton;
-@synthesize smallButton = _smallButton;
-@synthesize bgImageView = _bgImageView;
-@synthesize item = _item;
-@synthesize delegate = _delegate;
+#pragma mark - synthesize
+@synthesize bigButton       = _bigButton;
+@synthesize middleButton    = _middleButton;
+@synthesize smallButton     = _smallButton;
+@synthesize bgImageView     = _bgImageView;
+@synthesize item            = _item;
+@synthesize delegate        = _delegate;
 
 #pragma mark - Setup Cell
 - (void)setupContentView {
@@ -97,7 +98,9 @@
 
 @implementation ZCPHeadImageCellItem
 
-@synthesize headImageURL = _headImageURL;
+#pragma mark - synthesize
+@synthesize headImageURL    = _headImageURL;
+@synthesize delegate        = _delegate;
 
 #pragma mark - instancetype
 - (instancetype)init {

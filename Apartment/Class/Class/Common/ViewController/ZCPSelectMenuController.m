@@ -15,7 +15,10 @@
 
 @implementation ZCPSelectMenuController
 
-@synthesize itemArray = _itemArray;
+#pragma mark - synthesize
+@synthesize itemArray   = _itemArray;
+@synthesize viewHidden  = _viewHidden;
+@synthesize delegate    = _delegate;
 
 #pragma mark - life cycle
 - (void)viewDidLoad {

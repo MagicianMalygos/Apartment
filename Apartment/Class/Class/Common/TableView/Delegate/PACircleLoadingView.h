@@ -20,7 +20,6 @@
 
 @property (nonatomic, readonly) BOOL isAnimating;
 
-
 - (void)startRotateAnimation;
 - (void)stopRotateAnimation;
 @end

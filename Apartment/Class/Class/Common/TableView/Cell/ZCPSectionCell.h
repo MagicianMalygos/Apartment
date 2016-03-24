@@ -15,16 +15,16 @@
 // 用作Section的Cell
 @interface ZCPSectionCell : ZCPLineCell
 
-@property (nonatomic, strong) UILabel *sectionTitleLabel;
+@property (nonatomic, strong) UILabel *sectionTitleLabel;               // section标题标签
 
 @end
 
 #pragma mark - Section CellItem
 @interface ZCPSectionCellItem : ZCPLineCellItem <NSCopying>
 
-@property (nonatomic, copy) NSString *sectionTitle;
-@property (nonatomic, strong) NSAttributedString *sectionAttrTitle;
-@property (nonatomic, strong) UIFont *font;
-@property (nonatomic, assign) UIEdgeInsets titleEdgeInset;
+@property (nonatomic, copy) NSString *sectionTitle;                     // section标题
+@property (nonatomic, strong) NSAttributedString *sectionAttrTitle;     // section富文本标题
+@property (nonatomic, strong) UIFont *font;                             // section字体
+@property (nonatomic, assign) UIEdgeInsets titleEdgeInset;              // section标题边距
 
 @end

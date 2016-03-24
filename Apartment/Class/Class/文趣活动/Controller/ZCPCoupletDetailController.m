@@ -29,10 +29,11 @@
 
 @implementation ZCPCoupletDetailController
 
-@synthesize commentView = _commentView;
-@synthesize selectedCoupletModel = _selectedCoupletModel;
-@synthesize coupletReplyModelArr = _coupletReplyModelArr;
-@synthesize pagination = _pagination;
+#pragma mark - synthesize
+@synthesize commentView             = _commentView;
+@synthesize selectedCoupletModel    = _selectedCoupletModel;
+@synthesize coupletReplyModelArr    = _coupletReplyModelArr;
+@synthesize pagination              = _pagination;
 
 #pragma mark - init
 - (instancetype)initWithParams:(NSDictionary *)params {

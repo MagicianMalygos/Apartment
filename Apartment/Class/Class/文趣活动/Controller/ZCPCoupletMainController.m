@@ -21,7 +21,6 @@
 @interface ZCPCoupletMainController () <ZCPOptionViewDelegate, ZCPListTableViewAdaptorDelegate>
 
 @property (nonatomic, strong) NSMutableArray *coupletModelArr;      // 对联模型数组
-
 @property (nonatomic, assign) ZCPCoupletSortMethod sortMethodFlag;  // 标记当前是以何种方式排序
 @property (assign, nonatomic) int pagination;                       // 页码
 
@@ -29,7 +28,10 @@
 
 @implementation ZCPCoupletMainController
 
-@synthesize coupletModelArr = _coupletModelArr;
+#pragma mark - synthesize
+@synthesize coupletModelArr     = _coupletModelArr;
+@synthesize sortMethodFlag      = _sortMethodFlag;
+@synthesize pagination          = _pagination;
 
 #pragma mark - life cycle
 - (void)viewDidLoad {

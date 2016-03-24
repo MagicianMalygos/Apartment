@@ -14,14 +14,14 @@
 
 @interface ZCPBookReplyCell : ZCPTableViewWithLineCell
 
-@property (nonatomic, strong) UIImageView *userHeadImageView;       // 用户头像视图
-@property (nonatomic, strong) UILabel *userNameLabel;               // 用户名标签
-@property (nonatomic, strong) UILabel *bookreplyContentLabel;       // 回复内容标签
-@property (nonatomic, strong) UILabel *bookreplyTiemLabel;          // 回复时间标签
-@property (nonatomic, strong) UILabel *bookreplySupportLabel;       // 点赞量标签
-@property (nonatomic, strong) UIButton *supportButton;              // 点赞按钮
-@property (nonatomic, strong) ZCPBookReplyCellItem *item;           // item
-@property (nonatomic, weak) id<ZCPBookReplyCellDelegate> delegate;  // delegate
+@property (nonatomic, strong) UIImageView *userHeadImageView;               // 用户头像视图
+@property (nonatomic, strong) UILabel *userNameLabel;                       // 用户名标签
+@property (nonatomic, strong) UILabel *bookreplyContentLabel;               // 回复内容标签
+@property (nonatomic, strong) UILabel *bookreplyTiemLabel;                  // 回复时间标签
+@property (nonatomic, strong) UILabel *bookreplySupportLabel;               // 点赞量标签
+@property (nonatomic, strong) UIButton *supportButton;                      // 点赞按钮
+@property (nonatomic, strong) ZCPBookReplyCellItem *item;                   // item
+@property (nonatomic, weak) id<ZCPBookReplyCellDelegate> delegate;          // delegate
 
 @end
 

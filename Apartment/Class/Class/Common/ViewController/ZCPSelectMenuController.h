@@ -11,10 +11,11 @@
 @protocol ZCPSelectMenuDataSource;
 @protocol ZCPSelectMenuDelegate;
 
+// 选择菜单视图
 @interface ZCPSelectMenuController : ZCPTableViewController
 
 @property (nonatomic, strong) NSArray *itemArray;                       // item数组
-@property (nonatomic, assign, getter=isViewHidden) BOOL viewHidden;     // 视图隐藏状态
+@property (nonatomic, assign, getter=isViewHidden) BOOL viewHidden;     // 视图是否隐藏
 @property (nonatomic, weak) id<ZCPSelectMenuDelegate> delegate;         // delegate
 
 /**

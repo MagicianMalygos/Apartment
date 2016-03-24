@@ -96,10 +96,6 @@
     return [UIColor colorFromHexRGB:@"ff5a75"];
 }
 
-+ (UIColor *)PAHFLoanColor{
-    return [UIColor colorFromHexRGB:@"64b7ff"];
-}
-
 + (UIColor *)PAPriceColor{
     return [UIColor colorFromHexRGB:@"fa5728"];
 }
@@ -156,24 +152,6 @@
                            green:((float) g / 255.0f)
                             blue:((float) b / 255.0f)
                            alpha:1.0f];
-//    UIColor *result = nil;
-//    unsigned int colorCode = 0;
-//    unsigned char redByte, greenByte, blueByte;
-//    
-//    if (nil != inColorString)
-//    {
-//        NSScanner *scanner = [NSScanner scannerWithString:inColorString];
-//        (void) [scanner scanHexInt:&colorCode]; // ignore error
-//    }
-//    redByte = (unsigned char) (colorCode >> 16);
-//    greenByte = (unsigned char) (colorCode >> 8);
-//    blueByte = (unsigned char) (colorCode); // masks off high bits
-//    result = [UIColor
-//              colorWithRed: (float)redByte / 0xff
-//              green: (float)greenByte/ 0xff
-//              blue: (float)blueByte / 0xff
-//              alpha:1.0];
-//    return result;
 }
 
 + (UIColor *)colorFromHex:(UInt32)color

@@ -23,8 +23,8 @@
 
 @interface ZCPBookDetailController () <ZCPCommentViewDelegate, ZCPBookDetailCellDelegate, ZCPBookReplyCellDelegate>
 
-@property (nonatomic, strong) ZCPCommentView *commentView;          // 评论视图
 @property (nonatomic, strong) ZCPBookModel *currentBookModel;       // 当前的图书模型
+@property (nonatomic, strong) ZCPCommentView *commentView;          // 评论视图
 @property (nonatomic, strong) NSMutableArray *bookreplyArr;         // 图书回复模型列表
 @property (nonatomic, assign) NSUInteger pagination;                // 页码
 
@@ -32,7 +32,11 @@
 
 @implementation ZCPBookDetailController
 
-@synthesize currentBookModel = _currentBookModel;
+#pragma mark - synthesize
+@synthesize currentBookModel    = _currentBookModel;
+@synthesize commentView         = _commentView;
+@synthesize bookreplyArr        = _bookreplyArr;
+@synthesize pagination          = _pagination;
 
 #pragma mark - init
 - (instancetype)initWithParams:(NSDictionary *)params {

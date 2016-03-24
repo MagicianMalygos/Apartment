@@ -13,6 +13,7 @@
 // 设置圆角
 - (void)changeToRound;
 
+/* 设置按钮背景图片 */
 /**
  *  设置button的全状态image
  */
@@ -21,7 +22,6 @@
  *  设置仅有一种显示图片的button
  */
 - (void)setOnlyImageName:(NSString *)imageName;
-
 
 /**
  *  使用URL设置

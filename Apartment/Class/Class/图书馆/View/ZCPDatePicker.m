@@ -10,6 +10,10 @@
 
 @implementation ZCPDatePicker
 
+#pragma mark - synthesize
+@synthesize bindingTextField    = _bindingTextField;
+
+#pragma mark - life cycle
 /**
  *  当视图移动完成后调用
  */
@@ -21,6 +25,7 @@
     [self addTarget:self action:@selector(valueChanged) forControlEvents:UIControlEventValueChanged];
 }
 
+#pragma mark - action
 - (void)valueChanged {
     self.bindingTextField.text = [self.date toString];
 }

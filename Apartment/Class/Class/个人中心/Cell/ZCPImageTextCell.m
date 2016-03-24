@@ -11,8 +11,9 @@
 #pragma mark - Text Cell&Item
 @implementation ZCPTextCell
 
-@synthesize textLabel = _textLabel;
-@synthesize item = _item;
+#pragma mark - synthesize
+@synthesize textLabel   = _textLabel;
+@synthesize item        = _item;
 
 #pragma mark - Setup Cell
 /**
@@ -51,8 +52,9 @@
 
 @implementation ZCPTextCellItem
 
-@synthesize text = _text;
-@synthesize accessoryType = _accessoryType;
+#pragma mark - synthesize
+@synthesize text            = _text;
+@synthesize accessoryType   = _accessoryType;
 
 #pragma mark - init
 - (instancetype)init {
@@ -76,7 +78,8 @@
 #pragma mark - Image Text Cell&Item
 @implementation ZCPImageTextCell
 
-@synthesize imgIcon = _imgIcon;
+#pragma mark - synthesize
+@synthesize imgIcon     = _imgIcon;
 
 /**
  *  初始化视图
@@ -120,7 +123,8 @@
 @end
 @implementation ZCPImageTextCellItem
 
-@synthesize imageName = _imageName;
+#pragma mark - synthesize
+@synthesize imageName   = _imageName;
 
 #pragma mark - instancetype
 - (instancetype)init {
@@ -146,7 +150,8 @@
 #pragma mark - Image Text Switch Cell&Item
 @implementation ZCPImageTextSwitchCell
 
-@synthesize switchView = _switchView;
+#pragma mark - synthesize
+@synthesize switchView  = _switchView;
 
 /**
  *  初始化视图
@@ -207,8 +212,9 @@
 
 @implementation ZCPImageTextSwitchCellItem
 
-@synthesize switchInitialValue = _switchInitialValue;
-@synthesize switchResponser = _switchResponser;
+#pragma mark - synthesize
+@synthesize switchInitialValue  = _switchInitialValue;
+@synthesize switchResponser     = _switchResponser;
 
 #pragma mark - init
 - (instancetype)init {

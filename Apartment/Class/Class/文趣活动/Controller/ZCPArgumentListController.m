@@ -24,8 +24,10 @@
 
 @implementation ZCPArgumentListController
 
-@synthesize argumentBelong = _argumentBelong;
-@synthesize argumentArr = _argumentArr;
+#pragma mark - synthesize
+@synthesize argumentBelong  = _argumentBelong;
+@synthesize argumentArr     = _argumentArr;
+@synthesize pagination      = _pagination;
 
 #pragma mark - init
 - (instancetype)initWithParams:(NSDictionary *)params {

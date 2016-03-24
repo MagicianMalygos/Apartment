@@ -24,7 +24,8 @@
 
 @implementation ZCPControlingCenter
 
-@synthesize appTheme = _appTheme;
+#pragma mark - synthesize
+@synthesize appTheme    = _appTheme;
 
 IMP_SINGLETON
 

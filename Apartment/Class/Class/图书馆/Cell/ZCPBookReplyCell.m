@@ -15,6 +15,7 @@
 
 @implementation ZCPBookReplyCell
 
+#pragma mark - sythesize
 @synthesize userHeadImageView       = _userHeadImageView;
 @synthesize userNameLabel           = _userNameLabel;
 @synthesize bookreplyContentLabel   = _bookreplyContentLabel;
@@ -22,6 +23,7 @@
 @synthesize bookreplySupportLabel   = _bookreplySupportLabel;
 @synthesize supportButton           = _supportButton;
 @synthesize item                    = _item;
+@synthesize delegate                = _delegate;
 
 #pragma mark - Setup Cell
 - (void)setupContentView {
@@ -139,11 +141,14 @@
 
 @implementation ZCPBookReplyCellItem
 
-@synthesize userHeadImageURL = _userHeadImageURL;
-@synthesize userName = _userName;
-@synthesize bookreplyContent = _bookreplyContent;
-@synthesize bookreplyTime = _bookreplyTime;
-@synthesize bookreplySupportNumber = _bookreplySupportNumber;
+#pragma mark - sythesize
+@synthesize userHeadImageURL        = _userHeadImageURL;
+@synthesize userName                = _userName;
+@synthesize bookreplyId             = _bookreplyId;
+@synthesize bookreplyContent        = _bookreplyContent;
+@synthesize bookreplyTime           = _bookreplyTime;
+@synthesize bookreplySupported      = _bookreplySupported;
+@synthesize bookreplySupportNumber  = _bookreplySupportNumber;
 
 #pragma mark - instancetype
 - (instancetype)init {

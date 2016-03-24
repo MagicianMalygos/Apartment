@@ -11,7 +11,7 @@
 // 扩展UITextView，使其具有placeholder功能
 @interface ZCPTextView : UITextView
 
-@property (nonatomic, copy) NSString *placeholder;
-@property (nonatomic, strong) UIColor *placeholderColor;
+@property (nonatomic, copy) NSString *placeholder;          // Placeholder
+@property (nonatomic, strong) UIColor *placeholderColor;    // Placeholder颜色
 
 @end

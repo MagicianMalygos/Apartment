@@ -15,10 +15,11 @@
 
 @implementation ZCPUserImageCell
 
-@synthesize bgImageView = _bgImageView;
-@synthesize userHeadImageView = _userHeadImageView;
-@synthesize userNameLabel = _userNameLabel;
-@synthesize item = _item;
+#pragma mark - synthesize
+@synthesize bgImageView         = _bgImageView;
+@synthesize userHeadImageView   = _userHeadImageView;
+@synthesize userNameLabel       = _userNameLabel;
+@synthesize item                = _item;
 
 #pragma mark - Setup Cell
 - (void)setupContentView {
@@ -88,9 +89,10 @@
 
 @implementation ZCPUserImageCellItem
 
-@synthesize bgImageURL = _bgImageURL;
-@synthesize userHeadURL = _userHeadURL;
-@synthesize userName = _userName;
+#pragma mark - synthesize
+@synthesize bgImageURL      = _bgImageURL;
+@synthesize userHeadURL     = _userHeadURL;
+@synthesize userName        = _userName;
 
 #pragma mark - instancetype
 - (instancetype)init {

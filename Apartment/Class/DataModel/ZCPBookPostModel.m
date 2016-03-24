@@ -16,6 +16,7 @@
 @synthesize bookpostId              = _bookpostId;
 @synthesize bookpostTitle           = _bookpostTitle;
 @synthesize bookpostContent         = _bookpostContent;
+@synthesize bookpostBookName        = _bookpostBookName;
 @synthesize bookpostPosition        = _bookpostPosition;
 @synthesize bookpostSupport         = _bookpostSupport;
 @synthesize bookpostTime            = _bookpostTime;

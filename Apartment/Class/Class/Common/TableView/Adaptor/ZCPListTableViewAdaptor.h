@@ -19,16 +19,15 @@
  */
 @interface ZCPListTableViewAdaptor : NSObject <UITableViewDelegate, UITableViewDataSource>
 
+// tableView
 @property (nonatomic, weak) UITableView *tableView;
-
 // cell显示所需数据数组，每一个数据模型都要实现PATableViewCellItemBasicProtocol协议
 @property (nonatomic, strong, nullable) NSMutableArray *items;
-
 // cell点击事件对应的action，使用celltype进行索引
 @property (nonatomic, strong, nullable) NSMutableDictionary *cellActionDictionary;
 // cell执行点击事件的对象存放的字典，使用celltype进行索引
 @property (nonatomic, strong, nullable)NSMutableDictionary *cellTargetDictionary;
-
+// delegate
 @property (nonatomic, weak) id<ZCPListTableViewAdaptorDelegate> delegate;
 
 #pragma mark - method

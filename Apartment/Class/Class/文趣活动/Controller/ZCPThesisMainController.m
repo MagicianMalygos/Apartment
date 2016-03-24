@@ -28,6 +28,7 @@
 
 @implementation ZCPThesisMainController
 
+#pragma mark - synthesize
 @synthesize thesisView = _thesisView;
 @synthesize thesisModel = _thesisModel;
 @synthesize prosArgumentArr = _prosArgumentArr;

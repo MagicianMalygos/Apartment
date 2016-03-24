@@ -10,6 +10,10 @@
 
 @implementation ZCPMultiLineTextCell
 
+#pragma mark - synthesize
+@synthesize multiLineTextLabel = _multiLineTextLabel;
+@synthesize item = _item;
+
 #pragma mark - Setup Cell
 - (void)setupContentView {
     self.multiLineTextLabel = [[UILabel alloc] initWithFrame:CGRectMake(HorizontalMargin, VerticalMargin, APPLICATIONWIDTH, 0)];
@@ -50,6 +54,9 @@
 @end
 
 @implementation ZCPMultiLineTextCellItem
+
+#pragma mark - synthesize
+@synthesize multiLineText = _multiLineText;
 
 #pragma mark - instancetype
 - (instancetype)init {

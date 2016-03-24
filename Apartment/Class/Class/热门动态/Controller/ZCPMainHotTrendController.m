@@ -20,6 +20,10 @@
 
 @implementation ZCPMainHotTrendController
 
+#pragma mark - synthesize
+@synthesize textView        = _textView;
+@synthesize commentView     = _commentView;
+
 #pragma mark - life cycle
 - (void)viewDidLoad {
     [super viewDidLoad];    

@@ -43,7 +43,6 @@
 @property (nonatomic, copy) NSString *imageName;
 @end
 
-
 #pragma mark - Image Text Switch Cell&Item
 // 左边有一个图片和标签，右边有一个开关的Cell
 @interface ZCPImageTextSwitchCell : ZCPImageTextCell

@@ -10,6 +10,10 @@
 
 @implementation ZCPThesisCell
 
+#pragma mark - synthesize
+@synthesize thesisView  = _thesisView;
+@synthesize item        = _item;
+
 #pragma mark - Setup Cell
 - (void)setupContentView {
 }
@@ -33,6 +37,10 @@
 @end
 
 @implementation ZCPThesisCellItem
+
+#pragma mark - synthesize
+@synthesize thesisModel     = _thesisModel;
+@synthesize delegate        = _delegate;
 
 #pragma mark - instancetype
 - (instancetype)init {

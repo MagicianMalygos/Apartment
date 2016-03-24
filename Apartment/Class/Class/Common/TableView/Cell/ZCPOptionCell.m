@@ -10,8 +10,9 @@
 
 @implementation ZCPOptionCell
 
-@synthesize optionView = _optionView;
-@synthesize item = _item;
+#pragma mark - synthesize
+@synthesize optionView  = _optionView;
+@synthesize item        = _item;
 
 #pragma mark - Setup Cell
 - (void)setupContentView {
@@ -44,8 +45,9 @@
 
 @implementation ZCPOptionCellItem
 
-@synthesize attributedStringArr = _attributedStringArr;
-@synthesize delegate = _delegate;
+#pragma mark - synthesize
+@synthesize attributedStringArr     = _attributedStringArr;
+@synthesize delegate                = _delegate;
 
 #pragma mark - instancetype
 - (instancetype)init {

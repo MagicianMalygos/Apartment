@@ -14,15 +14,16 @@
 // 存放ViewController的相关信息
 // key是ViewController对象的identifier，value是ZCPViewDataModel对象
 @property (nonatomic, strong) NSMutableDictionary *viewModelDict;
-@property (nonatomic, strong) UIViewController *rootViewController;
 
 @end
 
 @implementation ZCPBaseNavigator
 
 #pragma mar - synthesize
-@synthesize window = _window;
-@synthesize viewModelDict = _viewModelDict;
+@synthesize window              = _window;
+@synthesize rootViewController  = _rootViewController;
+@synthesize topViewController   = _topViewController;
+@synthesize viewModelDict       = _viewModelDict;
 
 #pragma mark - 初始化
 /**
@@ -49,7 +50,7 @@
     return _viewModelDict;
 }
 - (void)setupRootViewController {
-    self.rootViewController = [[ZCPControlingCenter sharedInstance] generateRootViewController];
+    _rootViewController = [[ZCPControlingCenter sharedInstance] generateRootViewController];
     self.window.rootViewController = self.rootViewController;
 }
 

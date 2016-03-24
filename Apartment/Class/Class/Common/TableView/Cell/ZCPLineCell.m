@@ -10,7 +10,8 @@
 
 @implementation ZCPLineCell
 
-@synthesize item = _item;
+#pragma mark - synthesize
+@synthesize item    = _item;
 
 #pragma mark - Setup Cell
 - (void)setupContentView {
@@ -35,7 +36,8 @@
 
 @implementation ZCPLineCellItem
 
-@synthesize backgroundColor = _backgroundColor;
+#pragma mark - synthesize
+@synthesize backgroundColor     = _backgroundColor;
 
 #pragma mark - instancetype
 - (instancetype)init {

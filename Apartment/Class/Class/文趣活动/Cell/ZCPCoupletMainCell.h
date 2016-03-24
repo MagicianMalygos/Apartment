@@ -19,7 +19,6 @@
 @property (nonatomic, strong) UILabel *timeLabel;            // 对联发布时间标签
 @property (nonatomic, strong) UILabel *supportLabel;         // 点赞人数标签
 @property (nonatomic, strong) UILabel *replyNumLabel;        // 回复人数标签
-
 @property (nonatomic, strong) ZCPCoupletMainCellItem *item;  // Item
 
 @end

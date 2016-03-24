@@ -22,6 +22,27 @@
 
 @implementation ZCPThesisView
 
+#pragma mark - synthesize
+@synthesize thesisModel             = _thesisModel;
+@synthesize bgView                  = _bgView;
+@synthesize prosLabel               = _prosLabel;
+@synthesize consLabel               = _consLabel;
+@synthesize prosStaffView           = _prosStaffView;
+@synthesize consStaffView           = _consStaffView;
+@synthesize vernierView             = _vernierView;
+@synthesize prosRateLabel           = _prosRateLabel;
+@synthesize consRateLabel           = _consRateLabel;
+@synthesize thesisContentLabel      = _thesisContentLabel;
+@synthesize prosArgumentLabel       = _prosArgumentLabel;
+@synthesize consArgumentLabel       = _consArgumentLabel;
+@synthesize replyNumberLabel        = _replyNumberLabel;
+@synthesize collectionNumberLabel   = _collectionNumberLabel;
+@synthesize commentButton           = _commentButton;
+@synthesize collectionButton        = _collectionButton;
+@synthesize shareThesisButton       = _shareThesisButton;
+@synthesize thesisCollected         = _thesisCollected;
+@synthesize delegate                = _delegate;
+
 #pragma mark instancetype
 - (instancetype)initWithFrame:(CGRect)frame thesis:(ZCPThesisModel *)thesisModel {
     if (self = [super initWithFrame:frame]) {

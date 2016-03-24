@@ -17,9 +17,12 @@
 @implementation ZCPOptionView
 
 #pragma mark - synthesize
-@synthesize optionItemLabelArr  = _optionItemLabelArr;
-@synthesize markView            = _markView;
-@synthesize lineView            = _lineView;
+@synthesize optionItemLabelArr          = _optionItemLabelArr;
+@synthesize markView                    = _markView;
+@synthesize lineView                    = _lineView;
+@synthesize currentSelectedLabelTag     = _currentSelectedLabelTag;
+@synthesize markViewMoving              = _markViewMoving;
+@synthesize delegate                    = _delegate;
 
 #pragma mark - init
 - (instancetype)initWithFrame:(CGRect)frame attributeStringArr:(NSArray *)attrStrArr {

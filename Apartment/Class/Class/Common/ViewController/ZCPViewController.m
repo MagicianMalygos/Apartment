@@ -15,9 +15,9 @@
 @implementation ZCPViewController
 
 #pragma mark - synthesize
-@synthesize appTheme = _appTheme;
-@synthesize tap = _tap;
-@synthesize needsTapToDismissKeyboard = _needsTapToDismissKeyboard;
+@synthesize appTheme                    = _appTheme;
+@synthesize tap                         = _tap;
+@synthesize needsTapToDismissKeyboard   = _needsTapToDismissKeyboard;
 
 #pragma mark - init
 - (instancetype)initWithParams:(NSDictionary *)params {

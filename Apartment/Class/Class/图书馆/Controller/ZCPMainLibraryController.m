@@ -25,19 +25,29 @@
 @interface ZCPMainLibraryController () <ZCPListTableViewAdaptorDelegate, ZCPOptionViewDelegate, UISearchBarDelegate, ZCPSelectMenuDelegate>
 
 
-@property (nonatomic, strong) NSMutableArray *bookArr;              // 图书模型数组
-@property (nonatomic, assign) NSInteger fieldIndex;                 // 领域索引
-@property (nonatomic, assign) ZCPLibrarySortMethod sortMethod;      // 排序方法
-@property (nonatomic, assign) NSInteger pagination;                 // 页码
+@property (nonatomic, strong) NSMutableArray *bookArr;                          // 图书模型数组
+@property (nonatomic, assign) NSInteger fieldIndex;                             // 领域索引
+@property (nonatomic, assign) ZCPLibrarySortMethod sortMethod;                  // 排序方法
+@property (nonatomic, assign) NSInteger pagination;                             // 页码
 
-@property (nonatomic, strong) UISearchBar *searchBar;               // 搜索视图
-@property (nonatomic, strong) ZCPOptionView *optionView;            // 选项视图
+@property (nonatomic, strong) UISearchBar *searchBar;                           // 搜索视图
+@property (nonatomic, strong) ZCPOptionView *optionView;                        // 选项视图
 @property (nonatomic, strong) ZCPSelectMenuController *selectSortMethodControl; // 选择排序方式视图控制器
 @property (nonatomic, strong) ZCPSelectMenuController *selectFieldControl;      // 选择领域视图控制器
 
 @end
 
 @implementation ZCPMainLibraryController
+
+#pragma mark - synthesize
+@synthesize bookArr                     = _bookArr;
+@synthesize fieldIndex                  = _fieldIndex;
+@synthesize sortMethod                  = _sortMethod;
+@synthesize pagination                  = _pagination;
+@synthesize searchBar                   = _searchBar;
+@synthesize optionView                  = _optionView;
+@synthesize selectSortMethodControl     = _selectSortMethodControl;
+@synthesize selectFieldControl          = _selectFieldControl;
 
 #pragma mark - life cycle
 - (void)viewDidLoad {
@@ -51,7 +61,7 @@
     // 添加各子视图
     [self.view addSubview:self.searchBar];
     [self.view addSubview:self.optionView];
-    [self.view addSubview:self.selectSortMehtodControl.view];
+    [self.view addSubview:self.selectSortMethodControl.view];
     [self.view addSubview:self.selectFieldControl.view];
     
     // 获取图书数据
@@ -106,7 +116,7 @@
 /**
  *  选择排序方式视图控制器
  */
-- (ZCPSelectMenuController *)selectSortMehtodControl {
+- (ZCPSelectMenuController *)selectSortMethodControl {
     if (_selectSortMethodControl == nil) {
         _selectSortMethodControl = [ZCPSelectMenuController new];
         _selectSortMethodControl.view.frame = CGRectMake(APPLICATIONWIDTH / 6 - SelectSortMethodWidth / 2, self.optionView.bottom, SelectSortMethodWidth, SelectSortMethodHeight);
@@ -167,11 +177,11 @@
     switch (index) {
         case 0: {
             // 显示或隐藏选择排序方式视图
-            if (self.selectSortMehtodControl.isViewHidden) {
-                [self.selectSortMehtodControl showView];
+            if (self.selectSortMethodControl.isViewHidden) {
+                [self.selectSortMethodControl showView];
                 [self.selectFieldControl hideView];
             } else {
-                [self.selectSortMehtodControl hideView];
+                [self.selectSortMethodControl hideView];
             }
             break;
         }
@@ -179,7 +189,7 @@
             // 显示或隐藏选择领域视图
             if (self.selectFieldControl.isViewHidden) {
                 [self.selectFieldControl showView];
-                [self.selectSortMehtodControl hideView];
+                [self.selectSortMethodControl hideView];
             } else {
                 [self.selectFieldControl hideView];
             }
@@ -187,7 +197,7 @@
         }
         case 2: {
             // 隐藏选项视图
-            [self.selectSortMehtodControl hideView];
+            [self.selectSortMethodControl hideView];
             [self.selectFieldControl hideView];
             NSMutableArray *fieldArray = [NSMutableArray arrayWithArray:self.selectFieldControl.itemArray];
             [fieldArray removeObject:@"全部"];
@@ -207,7 +217,7 @@
  */
 - (void)tableView:(UITableView *)tableView didSelectObject:(id<ZCPTableViewCellItemBasicProtocol>)object rowAtIndexPath:(NSIndexPath *)indexPath {
     // 隐藏选择视图
-    [self.selectSortMehtodControl hideView];
+    [self.selectSortMethodControl hideView];
     [self.selectFieldControl hideView];
     
     // 跳转到图书详情界面，判断如果图书模型为nil，则向字典中传入[NSNull null]

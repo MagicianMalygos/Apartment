@@ -33,7 +33,6 @@
     [self setImageNameNormal:imageName Highlighted:imageName Selected:imageName Disabled:imageName];
 }
 
-
 /**
  *  使用URL设置
  */

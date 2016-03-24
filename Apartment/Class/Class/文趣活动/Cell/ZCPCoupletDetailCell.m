@@ -10,14 +10,16 @@
 
 @implementation ZCPCoupletDetailCell
 
-@synthesize commentButton = _commentButton;
-@synthesize collectionButton = _collectionButton;
-@synthesize supportButton = _supportButton;
-@synthesize coupletContentLabel = _coupletContentLabel;
-@synthesize userHeadImgView = _userHeadImgView;
-@synthesize userNameLabel = _userNameLabel;
-@synthesize timeLabel = _timeLabel;
-@synthesize item = _item;
+#pragma mark - synthesize
+@synthesize commentButton           = _commentButton;
+@synthesize collectionButton        = _collectionButton;
+@synthesize supportButton           = _supportButton;
+@synthesize coupletContentLabel     = _coupletContentLabel;
+@synthesize userHeadImgView         = _userHeadImgView;
+@synthesize userNameLabel           = _userNameLabel;
+@synthesize timeLabel               = _timeLabel;
+@synthesize item                    = _item;
+@synthesize delegate                = _delegate;
 
 #pragma mark - Setup Cell
 - (void)setupContentView {
@@ -155,12 +157,15 @@
 
 @implementation ZCPCoupletDetailCellItem
 
-@synthesize coupletContent = _coupletContent;
-@synthesize userHeadImageURL = _userHeadImageURL;
-@synthesize userName = _userName;
-@synthesize time = _time;
-@synthesize supportNumber = _supportNumber;
-@synthesize delegate = _delegate;
+#pragma mark - synthesize
+@synthesize coupletContent      = _coupletContent;
+@synthesize coupletSupported    = _coupletSupported;
+@synthesize coupletCollected    = _coupletCollected;
+@synthesize userHeadImageURL    = _userHeadImageURL;
+@synthesize userName            = _userName;
+@synthesize time                = _time;
+@synthesize supportNumber       = _supportNumber;
+@synthesize delegate            = _delegate;
 
 #pragma mark - instancetype
 - (instancetype)init {

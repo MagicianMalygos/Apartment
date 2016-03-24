@@ -10,12 +10,15 @@
 
 @implementation ZCPCoupletReplyCell
 
-@synthesize userHeadImgView = _userHeadImgView;
-@synthesize userNameLabel = _userNameLabel;
-@synthesize supportButton = _supportButton;
-@synthesize replyContentLabel = _replyContentLabel;
-@synthesize replyTimeLabel = _replyTimeLabel;
-@synthesize item = _item;
+#pragma mark - synthesize
+@synthesize userHeadImgView     = _userHeadImgView;
+@synthesize userNameLabel       = _userNameLabel;
+@synthesize replySupportLabel   = _replySupportLabel;
+@synthesize supportButton       = _supportButton;
+@synthesize replyContentLabel   = _replyContentLabel;
+@synthesize replyTimeLabel      = _replyTimeLabel;
+@synthesize item                = _item;
+@synthesize delegate            = _delegate;
 
 #pragma mark - Setup Cell
 - (void)setupContentView {

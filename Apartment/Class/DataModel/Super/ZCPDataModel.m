@@ -11,17 +11,17 @@
 @implementation ZCPDataModel
 
 #pragma mark - synthesize
-@synthesize idString = _idString;
+@synthesize idString                = _idString;
 // protocol synthesize
-@synthesize eventBlock = _eventBlock;
-@synthesize cellClass = _cellClass;
-@synthesize cellType = _cellType;
-@synthesize cellHeight = _cellHeight;
-@synthesize cellSelResponse = _cellSelResponse;
-@synthesize cellTag = _cellTag;
-@synthesize groupedCellPosition = _groupedCellPosition;
-@synthesize lineIndent = _lineIndent;
-@synthesize useNib = _useNib;
+@synthesize eventBlock              = _eventBlock;
+@synthesize cellClass               = _cellClass;
+@synthesize cellType                = _cellType;
+@synthesize cellHeight              = _cellHeight;
+@synthesize cellSelResponse         = _cellSelResponse;
+@synthesize cellTag                 = _cellTag;
+@synthesize groupedCellPosition     = _groupedCellPosition;
+@synthesize lineIndent              = _lineIndent;
+@synthesize useNib                  = _useNib;
 
 #pragma mark - instancetype
 + (instancetype)modelFromDictionary:(NSDictionary *)dictionary {
@@ -54,16 +54,16 @@
 }
 - (instancetype)copyWithZone:(NSZone *)zone {
     ZCPDataModel *model = [[[self class] alloc] init];
-    model.idString = self.idString;
-    model.eventBlock = [self.eventBlock copy];
-    model.cellClass = self.cellClass;
-    model.cellHeight = self.cellHeight;
-    model.cellType = self.cellType;
-    model.cellSelResponse = self.cellSelResponse;
-    model.cellTag = self.cellTag;
-    model.groupedCellPosition = self.groupedCellPosition;
-    model.lineIndent = self.lineIndent;
-    model.useNib = self.useNib;
+    model.idString              = self.idString;
+    model.eventBlock            = [self.eventBlock copy];
+    model.cellClass             = self.cellClass;
+    model.cellHeight            = self.cellHeight;
+    model.cellType              = self.cellType;
+    model.cellSelResponse       = self.cellSelResponse;
+    model.cellTag               = self.cellTag;
+    model.groupedCellPosition   = self.groupedCellPosition;
+    model.lineIndent            = self.lineIndent;
+    model.useNib                = self.useNib;
     return model;
 }
 

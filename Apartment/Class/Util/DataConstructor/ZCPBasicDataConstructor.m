@@ -11,7 +11,8 @@
 @implementation ZCPBasicDataConstructor
 
 #pragma mark - synthesize
-@synthesize items = _items;
+@synthesize items       = _items;
+@synthesize responder   = _responder;
 
 #pragma mark - getter / setter
 - (NSMutableArray *)items {

@@ -10,13 +10,14 @@
 
 @implementation ZCPCoupletMainCell
 
-@synthesize userHeadImgView = _userHeadImgView;
-@synthesize userNameLabel = _userNameLabel;
-@synthesize coupletContentLabel = _coupletContentLabel;
-@synthesize timeLabel = _timeLabel;
-@synthesize supportLabel = _supportLabel;
-@synthesize replyNumLabel = _replyNumLabel;
-@synthesize item = _item;
+#pragma mark - synthesize
+@synthesize userHeadImgView         = _userHeadImgView;
+@synthesize userNameLabel           = _userNameLabel;
+@synthesize coupletContentLabel     = _coupletContentLabel;
+@synthesize timeLabel               = _timeLabel;
+@synthesize supportLabel            = _supportLabel;
+@synthesize replyNumLabel           = _replyNumLabel;
+@synthesize item                    = _item;
 
 #pragma mark - Setup Cell
 - (void)setupContentView {
@@ -111,12 +112,13 @@
 
 @implementation ZCPCoupletMainCellItem
 
-@synthesize userHeadImageURL = _userHeadImageURL;
-@synthesize userName = _userName;
-@synthesize coupletContent = _coupletContent;
-@synthesize time = _time;
-@synthesize supportNumber = _supportNumber;
-@synthesize replyNumber = _replyNumber;
+#pragma mark - synthesize
+@synthesize userHeadImageURL    = _userHeadImageURL;
+@synthesize userName            = _userName;
+@synthesize coupletContent      = _coupletContent;
+@synthesize time                = _time;
+@synthesize supportNumber       = _supportNumber;
+@synthesize replyNumber         = _replyNumber;
 
 #pragma mark - instancetype
 - (instancetype)init {

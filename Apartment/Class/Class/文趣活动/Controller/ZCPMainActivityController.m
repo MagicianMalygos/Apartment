@@ -19,7 +19,6 @@
 @interface ZCPMainActivityController () <UIScrollViewDelegate, ZCPOptionViewDelegate>
 
 @property (nonatomic, strong) ZCPOptionView *optionView;                        // 选项视图
-
 @property (nonatomic, strong) UIScrollView *mainScrollView;                     // 滑动视图
 @property (nonatomic, strong) ZCPCoupletMainController *coupletController;      // 对对联视图控制器
 @property (nonatomic, strong) ZCPThesisMainController *thesisController;        // 舌场争锋视图控制器
@@ -29,6 +28,7 @@
 
 @implementation ZCPMainActivityController
 
+#pragma mark - synthesize
 @synthesize optionView              = _optionView;
 @synthesize mainScrollView          = _mainScrollView;
 @synthesize coupletController       = _coupletController;

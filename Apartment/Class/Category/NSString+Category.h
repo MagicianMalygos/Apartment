@@ -36,13 +36,6 @@ NSString *fixIconString(NSString *iconString);
 - (NSDate *)toDate;
 
 
-
-
-
-
-
-
-
 //中英文长度，按字节来算
 - (NSInteger)getValidLenth;
 
@@ -167,7 +160,6 @@ NSString *fixIconString(NSString *iconString);
 // see NSString+PAFormat.h
 
 #pragma mark - Bse64编码
-
 @interface NSString (DES)
 - (NSString *)DESBase64EncodeWithKey:(NSString *)key;
 - (NSString *)Base64DESDecodeWithKey:(NSString *)key;

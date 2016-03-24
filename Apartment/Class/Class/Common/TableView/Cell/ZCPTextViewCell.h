@@ -7,7 +7,6 @@
 //
 
 #import "ZCPTableViewWithLineCell.h"
-
 #import "ZCPTextView.h"
 
 @class ZCPTextViewCellItem;
@@ -19,7 +18,6 @@
 @property (nonatomic, strong) ZCPTextViewCellItem *item;        // item
 
 @end
-
 
 // 文本输入框TextView CellItem
 @interface ZCPTextViewCellItem : ZCPDataModel

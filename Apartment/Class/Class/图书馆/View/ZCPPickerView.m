@@ -14,6 +14,12 @@
 
 @implementation ZCPPickerView
 
+#pragma mark - synthesize
+@synthesize pickerView          = _pickerView;
+@synthesize optionsArr          = _optionsArr;
+@synthesize selectedValues      = _selectedValues;
+@synthesize bindingTextField    = _bindingTextField;
+
 #pragma mark - init
 - (instancetype)initWithFrame:(CGRect)frame {
     if (self = [super initWithFrame:frame]) {

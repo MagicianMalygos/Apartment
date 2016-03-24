@@ -17,11 +17,12 @@
 
 @implementation ZCPListTableViewAdaptor
 
-@synthesize items = _items;
-@synthesize cellActionDictionary = _cellActionDictionary;
-@synthesize cellTargetDictionary = _cellTargetDictionary;
-@synthesize tableView = _tableView;
-@synthesize delegate = _delegate;
+#pragma mark - synthesize
+@synthesize tableView               = _tableView;
+@synthesize items                   = _items;
+@synthesize cellActionDictionary    = _cellActionDictionary;
+@synthesize cellTargetDictionary    = _cellTargetDictionary;
+@synthesize delegate                = _delegate;
 
 #pragma mark - facilities
 - (ZCPTableViewCell *)generateCellForObject:(id<ZCPTableViewCellItemBasicProtocol>)object indexPath:(NSIndexPath *)indexPath identifier:(NSString *)identifier{
@@ -193,7 +194,7 @@
     
     if (cell == nil) {
         //初始化cell
-        cell               = [self generateCellForObject:object indexPath:indexPath identifier:identifier];
+        cell = [self generateCellForObject:object indexPath:indexPath identifier:identifier];
     }
     
     if (!cell) {
@@ -219,7 +220,7 @@
     if (self.tableView == nil) {
         self.tableView  = tableView;
     }
-    height              = [self heightForRowAtIndexPath:indexPath];
+    height = [self heightForRowAtIndexPath:indexPath];
     
     return height;
 }

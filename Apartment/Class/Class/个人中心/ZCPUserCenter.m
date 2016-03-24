@@ -10,8 +10,9 @@
 
 @implementation ZCPUserCenter
 
-@synthesize currentUserModel = _currentUserModel;
-@synthesize login = _login;
+#pragma mark - synthesize
+@synthesize currentUserModel    = _currentUserModel;
+@synthesize login               = _login;
 
 IMP_SINGLETON
 
