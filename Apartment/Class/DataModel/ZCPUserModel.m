@@ -7,6 +7,7 @@
 //
 
 #import "ZCPUserModel.h"
+#import "ZCPFieldModel.h"
 
 @implementation ZCPUserModel
 
@@ -21,15 +22,18 @@
 @synthesize userEXP             = _userEXP;
 @synthesize userRegisterTime    = _userRegisterTime;
 @synthesize userLevel           = _userLevel;
-@synthesize foucusFieldsArr     = _foucusFieldsArr;
+@synthesize focusFieldArr       = _focusFieldArr;
 
 #pragma mark - kvc
 - (void)setValue:(id)value forKey:(NSString *)key {
     if ([key isEqualToString:@"userRegisterTime"]) {
         value = [value toDate];
     }
-    if ([key isEqualToString:@"foucusFieldsArr"]) {
-        value = [value mutableCopy];
+    if ([key isEqualToString:@"focusFieldArr"]) {
+        value = [NSMutableArray array];
+        for (NSDictionary *fieldDict in value) {
+            [value addObject:[ZCPFieldModel modelFromDictionary:fieldDict]];
+        }
     }
     [super setValue:value forKey:key];
 }

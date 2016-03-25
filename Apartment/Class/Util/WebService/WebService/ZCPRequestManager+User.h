@@ -17,8 +17,8 @@
  *  @param userID    用户ID
  */
 - (NSOperation *)uploadUserHeadImage:(UIImage *)headImage
-                              userID:(NSInteger)userID
-                             success:(void (^)(AFHTTPRequestOperation *operation, UIImage *headImage, ZCPDataModel *userModel))success
+                              currUserID:(NSInteger)currUserID
+                             success:(void (^)(AFHTTPRequestOperation *operation, UIImage *headImage, ZCPUserModel *userModel))success
                              failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure;
 
 

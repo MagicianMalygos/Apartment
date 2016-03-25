@@ -205,7 +205,7 @@
                                                  , 20);
     [self.bookpostSearchButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     self.bookpostSearchButton.titleLabel.font = [UIFont defaultFontWithSize:13.0f];
-    [self.bookpostSearchButton changeToRound];
+    [self.bookpostSearchButton changeToFillet];
     [self.bookpostSearchButton addTarget:self action:@selector(buttonClicked:) forControlEvents:UIControlEventTouchUpInside];
     
     self.webSearchButton = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -215,7 +215,7 @@
                                             , 20);
     [self.webSearchButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     self.webSearchButton.titleLabel.font = [UIFont defaultFontWithSize:13.0f];
-    [self.webSearchButton changeToRound];
+    [self.webSearchButton changeToFillet];
     [self.webSearchButton addTarget:self action:@selector(buttonClicked:) forControlEvents:UIControlEventTouchUpInside];
     
     self.collectionButton = [UIButton buttonWithType:UIButtonTypeCustom];

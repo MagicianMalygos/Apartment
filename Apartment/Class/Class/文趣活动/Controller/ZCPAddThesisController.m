@@ -101,8 +101,17 @@
     NSString *thesisCons = consArgumentItem.textInputValue;
     NSString *thesisAddReason = reasonItem.textInputValue;
     
-    // 如果未通过输入检测则不进行提交
-    if (![self judgeTextInput:thesisContent pros:thesisPros cons:thesisCons reason:thesisAddReason]) {
+    // 空值检测
+    if ([ZCPJudge judgeNullTextInput:thesisContent showErrorMsg:@"辩题内容不能为空！"]
+        || [ZCPJudge judgeNullTextInput:thesisPros showErrorMsg:@"正方论点不能为空！"]
+        || [ZCPJudge judgeNullTextInput:thesisCons showErrorMsg:@"反方论点不能为空！"]) {
+        return;
+    }
+    // 长度检测
+    if ([ZCPJudge judgeOutOfRangeTextInput:thesisContent range:[ZCPLengthRange rangeWithMin:1 max:50] showErrorMsg:@"辩题内容不得超过50字！"]
+        || [ZCPJudge judgeOutOfRangeTextInput:thesisPros range:[ZCPLengthRange rangeWithMin:1 max:50] showErrorMsg:@"正方论点不得超过50字！"]
+        || [ZCPJudge judgeOutOfRangeTextInput:thesisCons range:[ZCPLengthRange rangeWithMin:1 max:50] showErrorMsg:@"正方论点不得超过50字！"]
+        || [ZCPJudge judgeOutOfRangeTextInput:thesisAddReason range:[ZCPLengthRange rangeWithMin:1 max:500] showErrorMsg:@"原因不得超过1000字！"]) {
         return;
     }
     
@@ -123,35 +132,6 @@
     
     // pop
     [self.navigationController popViewControllerAnimated:YES];
-}
-
-#pragma mark - Private Method
-/**
- *  进行输入检测
- */
-- (BOOL)judgeTextInput:(NSString *)thesisContent pros:(NSString *)thesisPros cons:(NSString *)thesisCons reason:(NSString *)thesisAddReason {
-    if (thesisContent.length == 0) {
-        [MBProgressHUD showError:@"辩题内容不能为空！" toView:self.view];
-        return NO;
-    }
-    if ([thesisPros isEqualToString:@""] || [thesisCons isEqualToString:@""]) {
-        [MBProgressHUD showError:@"论点不能为空！" toView:self.view];
-        return NO;
-    }
-    if (thesisContent.length > 50) {
-        [MBProgressHUD showError:@"辩题内容不得超过50字！" toView:self.view];
-        return NO;
-    }
-    if ((thesisPros.length > 50)
-        || (thesisCons.length > 50)) {
-        [MBProgressHUD showError:@"论点内容不得超过50字！" toView:self.view];
-        return NO;
-    }
-    if (thesisAddReason.length > 1000) {
-        [MBProgressHUD showError:@"原因不能超过1000字！" toView:self.view];
-        return NO;
-    }
-    return YES;
 }
 
 @end

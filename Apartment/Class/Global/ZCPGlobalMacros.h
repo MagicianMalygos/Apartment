@@ -97,9 +97,11 @@ do { \
 } while (0)
 
 // 默认用户头像
-#define HEAD_IMAGE_NAME_DEFAULT            @"head_default"
+#define HEAD_IMAGE_NAME_DEFAULT             @"head_default"
 // 默认列表一页数据量
-#define PAGE_COUNT_DEFAULT      10
+#define PAGE_COUNT_DEFAULT                  10
+// 盐，四位随机数
+#define SALT                                (arc4random() % 9000 + 1000)
 
 
 #endif /* ZCPGlobalMacros_h */

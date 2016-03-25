@@ -63,7 +63,7 @@
         
         // 设置图片
         WEAK_SELF;
-        [self.bgImageView sd_setImageWithURL:[NSURL URLWithString:self.item.headImageURL] placeholderImage:[UIImage imageNamed:HEAD_IMAGE_NAME_DEFAULT] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+        [self.bgImageView sd_setImageWithURL:[NSURL URLWithString:headImageGetURL(self.item.headImageURL)] placeholderImage:[UIImage imageNamed:HEAD_IMAGE_NAME_DEFAULT] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
             // 设置大中小头像
             [weakSelf.bigButton setOnlyImage:weakSelf.bgImageView.image];
             [weakSelf.middleButton setOnlyImage:weakSelf.bgImageView.image];
@@ -80,6 +80,11 @@
         [self.bigButton addTarget:self action:@selector(headImageButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
         [self.middleButton addTarget:self action:@selector(headImageButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
         [self.smallButton addTarget:self action:@selector(headImageButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
+        
+        // 设置头像按钮为圆形
+        [self.bigButton changeToRound];
+        [self.middleButton changeToRound];
+        [self.smallButton changeToRound];
     }
 }
 + (CGFloat)tableView:(UITableView *)tableView rowHeightForObject:(id)object {

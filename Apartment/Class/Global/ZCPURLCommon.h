@@ -49,6 +49,7 @@
 #define CHANGE_BOOK_REPLY_SUPPORT_STATE                         @"CHANGE_BOOK_REPLY_SUPPORT_STATE"
 
 #pragma mark - - - - - - 个人中心相关
+#define UPLOAD_HEAD                                             @"UPLOAD_HEAD"
 
 // 协议 + host + path
 NSString *  ZCPMakeURLString(NSString *scheme, NSString *host, NSString *path);
@@ -65,6 +66,7 @@ NSString * imageGetURL(NSString * key,NSString * imageName);
 NSString * coverImageGetURL(NSString * imageName);
 // 获取头像图片地址
 NSString * headImageGetURL(NSString * imageName);
+
 
 
 @interface ZCPURLCommon : NSObject

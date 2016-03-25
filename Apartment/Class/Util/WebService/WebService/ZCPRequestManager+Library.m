@@ -189,7 +189,7 @@
                              NSString *fileName = nil;
                              NSString *mimeType = nil;
                              NSString *extension = nil;
-                             
+
                              NSData *coverImageData = nil;
                              if ((coverImageData = UIImageJPEGRepresentation(coverImage, 0.5f))) {
                                  mimeType = @"image/jpeg";
@@ -199,7 +199,7 @@
                                  mimeType = @"image/png";
                                  extension = @".png";
                              }
-                             fileName = [NSString stringWithFormat:@"%@%u%@", [NSString stringFromDate:[NSDate new] withDateFormat:@"yyyyMMddHHmmss"], (arc4random() % 9000 + 1000), extension];
+                             fileName = [NSString stringWithFormat:@"%@%u%@", [NSString stringFromDate:[NSDate new] withDateFormat:@"yyyyMMddHHmmss"], SALT, extension];
                              
                              [formData appendPartWithFileData:coverImageData    // 文件data
                                                          name:@"cover"          // php获取参数名

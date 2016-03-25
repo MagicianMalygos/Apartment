@@ -103,6 +103,7 @@ IMP_SINGLETON
                      , CHANGE_BOOK_COLLECTION_STATE:            @"/1.0/library/changeBookCollectionRecord"
                      , CHANGE_BOOK_REPLY_SUPPORT_STATE:         @"/1.0/library/changeBookReplySupportRecord"
                      /* - 个人中心相关 - */
+                     , UPLOAD_HEAD:                             @"/1.0/user/uploadUserHead"
                      };
 
 }

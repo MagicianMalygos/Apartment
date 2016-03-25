@@ -100,7 +100,8 @@
     BOOL isAnonymous = switchRadioItem.switchValue;
     
     // 如果未通过输入检测则不进行提交
-    if (![self judgeTextInput:argumentContent]) {
+    if ([ZCPJudge judgeNullTextInput:argumentContent showErrorMsg:@"观点不能为空！"]
+        || [ZCPJudge judgeOutOfRangeTextInput:argumentContent range:[ZCPLengthRange rangeWithMin:1 max:500] showErrorMsg:@"字数不得超过500字！"]) {
         return;
     }
     
@@ -121,22 +122,6 @@
     
     // pop
     [self.navigationController popViewControllerAnimated:YES];
-}
-
-#pragma mark - Private Method
-/**
- *  输入检测
- */
-- (BOOL)judgeTextInput:(NSString *)text {
-    if (text.length == 0) {
-        [MBProgressHUD showError:@"评论不能为空！" toView:self.view];
-        return NO;
-    }
-    else if (text.length > 50) {
-        [MBProgressHUD showError:@"字数不得超过50字！" toView:self.view];
-        return NO;
-    }
-    return YES;
 }
 
 @end

@@ -19,24 +19,47 @@
  *  @param userID    用户ID
  */
 - (NSOperation *)uploadUserHeadImage:(UIImage *)headImage
-                              userID:(NSInteger)userID
-                             success:(void (^)(AFHTTPRequestOperation *operation, UIImage *headImage, ZCPDataModel *model))success
+                              currUserID:(NSInteger)currUserID
+                             success:(void (^)(AFHTTPRequestOperation *operation, UIImage *headImage, ZCPUserModel *model))success
                              failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure {
-    AFHTTPRequestOperation *operation = [self POST:@""
-                                        parameters:@{@"headImage":headImage
-                                                     ,@"userID":@(userID)}
-                                           success:^(AFHTTPRequestOperation *operation, id responseObject) {
-                                               
-                                               ZCPDataModel *model = nil;
-                                               if ([responseObject isKindOfClass:[NSDictionary class]]) {
-                                                   model = [ZCPRequestResponseTranslator translateResponse_UserModel:responseObject[@"userModel"]];
-                                               }
-                                                
-                                               if (success) {
-                                                   success(operation, headImage, model);
-                                               }
-                                           }
-                                           failure:failure];
+    
+    NSString * scheme       = schemeForType(kURLTypeCommon);
+    NSString * host         = hostForType(kURLTypeCommon);
+    NSString * path         = urlForKey(UPLOAD_HEAD);
+    
+    AFHTTPRequestOperation *operation = [self POST:ZCPMakeURLString(scheme, host, path)
+                                        parameters:@{@"currUserID": @(currUserID)}
+                         constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
+                             
+                             NSString *fileName = nil;
+                             NSString *mimeType = nil;
+                             NSString *extension = nil;
+                             
+                             NSData *headImageData = nil;
+                             if ((headImageData = UIImageJPEGRepresentation(headImage, 0.5f))) {
+                                 mimeType = @"image/jpeg";
+                                 extension = @".jpeg";
+                             } else {
+                                 headImageData = UIImagePNGRepresentation(headImage);
+                                 mimeType = @"image/png";
+                                 extension = @".png";
+                             }
+                             fileName = [NSString stringWithFormat:@"%@%u%@", [NSString stringFromDate:[NSDate new] withDateFormat:@"yyyyMMddHHmmss"], SALT, extension];
+                            
+                             [formData appendPartWithFileData:headImageData      // 文件data
+                                                         name:@"head"            // php获取参数名
+                                                     fileName:fileName           // 文件名
+                                                     mimeType:mimeType];         // 文件类型
+                         } success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                             ZCPUserModel *model = nil;
+                             if ([responseObject isKindOfClass:[NSDictionary class]]) {
+                                 model = [ZCPRequestResponseTranslator translateResponse_UserModel:responseObject[@"data"][@"aUser"]];
+                             }
+        
+                             if (success) {
+                                 success(operation, headImage, model);
+                             }
+                         } failure:failure];
     
     TTDPRINT(@"request=%@\nparams=%@", operation, [[NSString alloc] initWithData:operation.request.HTTPBody encoding:NSUTF8StringEncoding]);
     

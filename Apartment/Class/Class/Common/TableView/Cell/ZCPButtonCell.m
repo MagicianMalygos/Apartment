@@ -71,7 +71,7 @@
             self.button.enabled = YES;
         }
         // 设置圆角
-        [self.button changeToRound];
+        [self.button changeToFillet];
         
         [self.button setTitle:item.buttonTitle forState:UIControlStateNormal];
         if (item.buttonConfigBlock) {

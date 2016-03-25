@@ -218,6 +218,9 @@
             break;
         }
         case 2: {
+            [self.selectSortMethodControl hideView];
+            [self.selectFieldControl hideView];
+            
             NSMutableArray *fieldArray = [NSMutableArray arrayWithArray:self.selectFieldControl.itemArray];
             [fieldArray removeObject:@"全部"];
             // 跳转到发表评论视图控制器

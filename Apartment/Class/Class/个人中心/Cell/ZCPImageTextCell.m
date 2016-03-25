@@ -162,9 +162,9 @@
     self.textLabel = [[UILabel alloc] init];
     self.switchView = [[UISwitch alloc] init];
     
-    self.imgIcon.backgroundColor = [UIColor redColor];
-    //    self.textLabel.backgroundColor = [UIColor yellowColor];
-    //    self.switchView.backgroundColor = [UIColor blueColor];
+    self.imgIcon.backgroundColor = [UIColor clearColor];
+    self.textLabel.backgroundColor = [UIColor clearColor];
+    self.switchView.backgroundColor = [UIColor clearColor];
     
     [self.contentView addSubview:self.imgIcon];
     [self.contentView addSubview:self.textLabel];

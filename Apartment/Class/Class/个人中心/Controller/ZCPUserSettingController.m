@@ -16,8 +16,8 @@
 
 @interface ZCPUserSettingController() <ZCPButtonCellDelegate, ZCPHeadImageCellDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 
-@property (nonatomic, strong) UIAlertController *actionSheet;
-@property (nonatomic, strong) UIImagePickerController *imagePicker;
+@property (nonatomic, strong) UIAlertController *actionSheet;       // 菜单视图
+@property (nonatomic, strong) UIImagePickerController *imagePicker; // 图片选择器
 
 @end
 
@@ -208,24 +208,22 @@
     if ([[info valueForKey:UIImagePickerControllerMediaType] isEqualToString:@"public.image"]) {
         UIImage *selectedImage = [info valueForKey:UIImagePickerControllerOriginalImage];
         
-        [[ZCPRequestManager sharedInstance] uploadUserHeadImage:selectedImage
-                                                         userID:[ZCPUserCenter sharedInstance].currentUserModel.userId
-                                                        success:^(AFHTTPRequestOperation *operation, UIImage *headImage, ZCPDataModel *userModel) {
-                                                            if (userModel && [userModel isKindOfClass:[ZCPUserModel class]]) {
-                                                                // 更新用户信息
-                                                                [[ZCPUserCenter sharedInstance] saveUserModel:(ZCPUserModel *)userModel];
-                                                                
-                                                                // 更新tableview（全局更新，可优化为局部更新）
-                                                                [self constructData];
-                                                                [self.tableView reloadData];
-                                                            }
-                                                            else {
-                                                                TTDPRINT(@"上传图片失败！");
-                                                            }
-                                                        }
-                                                        failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-                                                            TTDPRINT(@"上传图片失败");
-                                                        }];
+        [[ZCPRequestManager sharedInstance] uploadUserHeadImage:selectedImage currUserID:[ZCPUserCenter sharedInstance].currentUserModel.userId success:^(AFHTTPRequestOperation *operation, UIImage *headImage, ZCPUserModel *userModel) {
+            if (userModel && [userModel isKindOfClass:[ZCPUserModel class]]) {
+                // 更新用户信息
+                [[ZCPUserCenter sharedInstance] saveUserModel:(ZCPUserModel *)userModel];
+                
+                // 更新tableview（全局更新，可优化为局部更新）
+                [self constructData];
+                [self.tableView reloadData];
+            }
+            else {
+                TTDPRINT(@"上传图片失败！");
+            }
+        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+            TTDPRINT(@"上传图片失败！%@", error);
+        }];
+        
         [picker dismissViewControllerAnimated:YES completion:nil];
     }
 }

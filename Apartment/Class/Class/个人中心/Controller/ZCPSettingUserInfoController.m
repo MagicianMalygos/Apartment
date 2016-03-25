@@ -40,12 +40,12 @@
     // 昵称
     ZCPTextFieldCellItem *nameItem = [[ZCPTextFieldCellItem alloc] initWithDefault];
     nameItem.textFieldConfigBlock = ^(UITextField *textField) {
-        textField.placeholder = @"请输入昵称";
+        textField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"请输入昵称" attributes:@{NSFontAttributeName: [UIFont defaultBoldFontWithSize:15.0f], NSForegroundColorAttributeName: [UIColor lightGrayColor]}];
     };
     // 年龄
     ZCPTextFieldCellItem *ageItem = [[ZCPTextFieldCellItem alloc] initWithDefault];
     ageItem.textFieldConfigBlock = ^(UITextField *textField) {
-        textField.placeholder = @"请输入年龄";
+        textField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"请输入年龄" attributes:@{NSFontAttributeName: [UIFont defaultBoldFontWithSize:15.0f], NSForegroundColorAttributeName: [UIColor lightGrayColor]}];
     };
     
     ZCPSectionCellItem *sectionItem2 = [[ZCPSectionCellItem alloc] initWithDefault];

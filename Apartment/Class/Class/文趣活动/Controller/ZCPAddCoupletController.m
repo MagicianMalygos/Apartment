@@ -29,7 +29,6 @@
     self.tableView.frame = CGRectMake(0, 0, APPLICATIONWIDTH, APPLICATIONHEIGHT - Height_NavigationBar);
 }
 
-
 #pragma mark - Construct Data
 - (void)constructData {
     NSMutableArray *items = [NSMutableArray array];
@@ -43,7 +42,7 @@
     // 对联内容
     ZCPTextFieldCellItem *textItem = [[ZCPTextFieldCellItem alloc] initWithDefault];
     textItem.textFieldConfigBlock = ^(UITextField *textField) {
-        textField.placeholder = @"请输入对联内容，不超过N个字...";
+        textField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"请输入对联内容，不超过50个字" attributes:@{NSFontAttributeName: [UIFont defaultBoldFontWithSize:15.0f], NSForegroundColorAttributeName: [UIColor lightGrayColor]}];
     };
     
     // blank
@@ -69,8 +68,9 @@
     ZCPTextFieldCellItem *textItem = [self.tableViewAdaptor.items objectAtIndex:1];
     NSString *coupletContent = textItem.textInputValue;
     
-    // 如果未通过输入检测则不进行提交
-    if (![self judgeTextInput:coupletContent]) {
+    // 空值检测
+    if ([ZCPJudge judgeNullTextInput:coupletContent showErrorMsg:@"对联内容不能为空！"]
+        || [ZCPJudge judgeOutOfRangeTextInput:coupletContent range:[ZCPLengthRange rangeWithMin:1 max:50] showErrorMsg:@"字数不得超过50字！"]) {
         return;
     }
     
@@ -79,8 +79,7 @@
         if (isSuccess) {
             TTDPRINT(@"提交对联成功！！");
             [MBProgressHUD showSuccess:@"对联添加成功！" toView:[[UIApplication sharedApplication].delegate window]];
-        }
-        else {
+        } else {
             TTDPRINT(@"提交对联失败！！");
             [MBProgressHUD showError:@"对联添加失败！" toView:[[UIApplication sharedApplication].delegate window]];
         }
@@ -92,22 +91,5 @@
     // pop
     [self.navigationController popViewControllerAnimated:YES];
 }
-
-#pragma mark - Private Method
-/**
- *  输入检测
- */
-- (BOOL)judgeTextInput:(NSString *)text {
-    if (text.length == 0) {
-        [MBProgressHUD showError:@"评论不能为空！" toView:self.view];
-        return NO;
-    }
-    else if (text.length > 50) {
-        [MBProgressHUD showError:@"字数不得超过50字！" toView:self.view];
-        return NO;
-    }
-    return YES;
-}
-
 
 @end

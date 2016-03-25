@@ -10,8 +10,10 @@
 
 @interface UIButton (Category)
 
-// 设置圆角
+// 设置圆形，要在设置frame之后设置
 - (void)changeToRound;
+// 设置圆角，要在设置frame之后设置
+- (void)changeToFillet;
 
 /* 设置按钮背景图片 */
 /**

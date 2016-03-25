@@ -18,6 +18,7 @@
 - (void)setupContentView {
     
     self.textField = [[UITextField alloc] init];
+    self.textField.backgroundColor = [UIColor whiteColor];
     
     // 监听键盘输入造成的text改变
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(textDidChanged:) name:UITextFieldTextDidChangeNotification object:nil];
@@ -33,7 +34,7 @@
         CGFloat cellHeight = [item.cellHeight floatValue];
         
         // 设置frame
-        self.textField.frame = CGRectMake(HorizontalMargin, VerticalMargin, CELLWIDTH_DEFAULT - HorizontalMargin * 2, cellHeight - VerticalMargin * 2);
+        self.textField.frame = CGRectMake(4, VerticalMargin, CELLWIDTH_DEFAULT - 4 * 2, cellHeight - VerticalMargin * 2);
         
         // 设置属性
         self.textField.text = self.item.textInputValue;

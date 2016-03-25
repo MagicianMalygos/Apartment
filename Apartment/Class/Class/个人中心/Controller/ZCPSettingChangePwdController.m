@@ -41,7 +41,7 @@
     // 密码
     ZCPTextFieldCellItem *oldPwdItem = [[ZCPTextFieldCellItem alloc] initWithDefault];
     oldPwdItem.textFieldConfigBlock = ^(UITextField *textField) {
-        textField.placeholder = @"请输入旧密码";
+        textField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"请输入旧密码" attributes:@{NSFontAttributeName: [UIFont defaultBoldFontWithSize:15.0f], NSForegroundColorAttributeName: [UIColor lightGrayColor]}];
     };
     
     ZCPSectionCellItem *sectionItem2 = [[ZCPSectionCellItem alloc] initWithDefault];
@@ -51,7 +51,7 @@
     // 密码
     ZCPTextFieldCellItem *newPwdItem = [[ZCPTextFieldCellItem alloc] initWithDefault];
     newPwdItem.textFieldConfigBlock = ^(UITextField *textField) {
-        textField.placeholder = @"请输入新密码";
+        textField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"请输入新密码" attributes:@{NSFontAttributeName: [UIFont defaultBoldFontWithSize:15.0f], NSForegroundColorAttributeName: [UIColor lightGrayColor]}];
     };
     
     ZCPSectionCellItem *sectionItem3 = [[ZCPSectionCellItem alloc] initWithDefault];
@@ -61,7 +61,7 @@
     // 重复密码
     ZCPTextFieldCellItem *reNewPwdItem = [[ZCPTextFieldCellItem alloc] initWithDefault];
     reNewPwdItem.textFieldConfigBlock = ^(UITextField *textField) {
-        textField.placeholder = @"请再次输入";
+        textField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"请再次输入" attributes:@{NSFontAttributeName: [UIFont defaultBoldFontWithSize:15.0f], NSForegroundColorAttributeName: [UIColor lightGrayColor]}];
     };
     
     ZCPLineCellItem *blankItem = [[ZCPLineCellItem alloc] initWithDefault];

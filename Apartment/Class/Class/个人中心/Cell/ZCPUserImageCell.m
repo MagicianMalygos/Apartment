@@ -50,7 +50,7 @@
         self.userNameLabel.frame = CGRectMake(0, self.userHeadImageView.bottom, APPLICATIONWIDTH, USER_NAME_HEIGHT);
         
         // 设置属性
-        [self.userHeadImageView sd_setImageWithURL:[NSURL URLWithString:self.item.bgImageURL] placeholderImage:[UIImage imageNamed:HEAD_IMAGE_NAME_DEFAULT] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+        [self.userHeadImageView sd_setImageWithURL:[NSURL URLWithString:headImageGetURL(self.item.bgImageURL)] placeholderImage:[UIImage imageNamed:HEAD_IMAGE_NAME_DEFAULT] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
             UIImage *loadImage = [UIImage imageNamed:HEAD_IMAGE_NAME_DEFAULT];
             if (image != nil) {
                 loadImage = image;
@@ -77,7 +77,10 @@
             // 第三方
         }];
         
+        // 设置属性
         self.userNameLabel.text = self.item.userName;
+        // 设置头像为圆形
+        [self.userHeadImageView changeToRound];
     }
 }
 + (CGFloat)tableView:(UITableView *)tableView rowHeightForObject:(id)object {
