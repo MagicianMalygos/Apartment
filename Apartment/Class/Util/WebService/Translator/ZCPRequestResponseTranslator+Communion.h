@@ -19,5 +19,9 @@
 
 // 图书贴列表模型转换
 + (ZCPListDataModel *)translateResponse_BookPostListModel:(NSDictionary *)responseData;
+// 图书贴评论列表模型转换
++ (ZCPListDataModel *)translateResponse_BookPostCommentListModel:(NSDictionary *)responseData;
+// 图书贴评论回复列表模型转换
++ (ZCPListDataModel *)translateResponse_BookPostCommentReplyListModel:(NSDictionary *)responseData;
 
 @end

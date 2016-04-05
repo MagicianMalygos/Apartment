@@ -62,8 +62,8 @@
     [self addSubview:self.replyNumLabel];
 }
 - (void)setObject:(NSObject *)object {
-    if ([object isKindOfClass:[ZCPCoupletMainCellItem class]] && self.item != object) {
-        self.item = (ZCPCoupletMainCellItem *)object;
+    if ([object isKindOfClass:[ZCPCoupletModel class]] && self.item != object) {
+        self.item = (ZCPCoupletModel *)object;
         
         // 计算高度
         CGFloat contentHeight = [self.item.coupletContent boundingRectWithSize:CGSizeMake(CELLWIDTH_DEFAULT - 2 * HorizontalMargin, CGFLOAT_MAX) options:NSStringDrawingUsesLineFragmentOrigin|NSStringDrawingUsesFontLeading attributes:@{NSFontAttributeName: [UIFont defaultBoldFontWithSize:18.0f]} context:nil].size.height;
@@ -75,12 +75,12 @@
         self.supportLabel.frame = CGRectMake(self.replyNumLabel.left - UIMargin - 80, self.timeLabel.y, 80, 20);
         
         // 设置内容
-        [self.userHeadImgView sd_setImageWithURL:[NSURL URLWithString:self.item.userHeadImageURL] placeholderImage:[UIImage imageNamed:HEAD_IMAGE_NAME_DEFAULT]];
-        self.userNameLabel.text = self.item.userName;
+        [self.userHeadImgView sd_setImageWithURL:[NSURL URLWithString:self.item.user.userFaceURL] placeholderImage:[UIImage imageNamed:HEAD_IMAGE_NAME_DEFAULT]];
+        self.userNameLabel.text = self.item.user.userName;
         [self.coupletContentLabel setText:self.item.coupletContent];
-        self.supportLabel.text = [NSString stringWithFormat:@"%li 人点赞", self.item.supportNumber];
-        self.replyNumLabel.text = [NSString stringWithFormat:@"%li 人回复", self.item.replyNumber];
-        self.timeLabel.text = [self.item.time toString];
+        self.supportLabel.text = [NSString stringWithFormat:@"%li 人点赞", self.item.coupletSupport];
+        self.replyNumLabel.text = [NSString stringWithFormat:@"%li 人回复", self.item.coupletReplyNumber];
+        self.timeLabel.text = [self.item.coupletTime toString];
         
         // 设置cell高度
         self.item.cellHeight = [NSNumber numberWithFloat:self.timeLabel.bottom + VerticalMargin];
@@ -89,7 +89,7 @@
     }
 }
 + (CGFloat)tableView:(UITableView *)tableView rowHeightForObject:(id)object {
-    ZCPCoupletMainCellItem *item = (ZCPCoupletMainCellItem *)object;
+    ZCPCoupletModel *item = (ZCPCoupletModel *)object;
     
     // 第一行
     CGFloat rowHeight1 = 25.0f;
@@ -107,33 +107,5 @@
     return cellHeight;
 }
 
-
-@end
-
-@implementation ZCPCoupletMainCellItem
-
-#pragma mark - synthesize
-@synthesize userHeadImageURL    = _userHeadImageURL;
-@synthesize userName            = _userName;
-@synthesize coupletContent      = _coupletContent;
-@synthesize time                = _time;
-@synthesize supportNumber       = _supportNumber;
-@synthesize replyNumber         = _replyNumber;
-
-#pragma mark - instancetype
-- (instancetype)init {
-    if (self = [super init]) {
-        self.cellClass = [ZCPCoupletMainCell class];
-        self.cellType = [ZCPCoupletMainCell cellIdentifier];
-    }
-    return self;
-}
-- (instancetype)initWithDefault {
-    if (self = [super initWithDefault]) {
-        self.cellClass = [ZCPCoupletMainCell class];
-        self.cellType = [ZCPCoupletMainCell cellIdentifier];
-    }
-    return self;
-}
 
 @end

@@ -86,9 +86,9 @@
     bookDetailItem.bookName = self.currentBookModel.bookName;
     bookDetailItem.bookAuthor = self.currentBookModel.bookAuthor;
     bookDetailItem.bookPublisher = self.currentBookModel.bookPublisher;
-    bookDetailItem.field = @[self.currentBookModel.field.fieldName];
+    bookDetailItem.field = self.currentBookModel.field;
     bookDetailItem.bookPublishTime = self.currentBookModel.bookPublishTime;
-    bookDetailItem.contributor = self.currentBookModel.contributor.userName;
+    bookDetailItem.contributor = self.currentBookModel.contributor;
     bookDetailItem.bookCommentCount = self.currentBookModel.bookCommentCount;
     bookDetailItem.bookCollectNumber = self.currentBookModel.bookCollectNumber;
     bookDetailItem.bookCollected = self.currentBookModel.collected;
@@ -238,13 +238,15 @@
 - (BOOL)textInputShouldReturn:(ZCPTextView *)keyboardResponder {
     
     // 获取文本输入框内容并进行非法性判断
-    NSString *coupletReplyContent = keyboardResponder.text;
-    if (![self judgeTextInput:coupletReplyContent]) {
+    NSString *bookReplyContent = keyboardResponder.text;
+    if ([ZCPJudge judgeNullTextInput:bookReplyContent showErrorMsg:@"评论不能为空！"]
+        || [ZCPJudge judgeOutOfRangeTextInput:bookReplyContent range:[ZCPLengthRange rangeWithMin:1 max:50] showErrorMsg:@"字数不得超过50字！"]) {
         return NO;
     }
+    
     // 上传评论
     TTDPRINT(@"准备提交图书回复内容...");
-    [[ZCPRequestManager sharedInstance] addBookReplyContent:coupletReplyContent currBookID:self.currentBookModel.bookId currUserID:[ZCPUserCenter sharedInstance].currentUserModel.userId success:^(AFHTTPRequestOperation *operation, BOOL isSuccess) {
+    [[ZCPRequestManager sharedInstance] addBookReplyContent:bookReplyContent currBookID:self.currentBookModel.bookId currUserID:[ZCPUserCenter sharedInstance].currentUserModel.userId success:^(AFHTTPRequestOperation *operation, BOOL isSuccess) {
         if (isSuccess) {
             TTDPRINT(@"提交成功...");
             [MBProgressHUD showSuccess:@"添加回复成功！" toView:self.view];
@@ -265,23 +267,6 @@
     
     return YES;
 }
-
-#pragma mark - Private Method
-/**
- *  输入检测
- */
-- (BOOL)judgeTextInput:(NSString *)text {
-    if (text.length == 0) {
-        [MBProgressHUD showError:@"评论不能为空！" toView:self.view];
-        return NO;
-    }
-    else if (text.length > 50) {
-        [MBProgressHUD showError:@"字数不得超过50字！" toView:self.view];
-        return NO;
-    }
-    return YES;
-}
-
 
 #pragma mark - Load Data
 - (void)headerRefresh {

@@ -8,6 +8,7 @@
 
 #import "ZCPTableViewController.h"
 
+// 添加图书贴
 @interface ZCPAddBookpostController : ZCPTableViewController
 
 @end

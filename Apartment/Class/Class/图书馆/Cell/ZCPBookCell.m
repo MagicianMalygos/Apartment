@@ -123,8 +123,8 @@
     [self.contentView addSubview:self.commentCountLabel];
 }
 - (void)setObject:(NSObject *)object {
-    if ([object isKindOfClass:[ZCPBookCellItem class]]) {
-        self.item = (ZCPBookCellItem *)object;
+    if ([object isKindOfClass:[ZCPBookModel class]]) {
+        self.item = (ZCPBookModel *)object;
     
         // 设置属性
         self.coverImageView.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:self.item.bookCoverURL]]];
@@ -134,58 +134,18 @@
         self.authorLabel.text = [NSString stringWithFormat:@"作者：%@", self.item.bookAuthor];
         self.publisherLabel.text = [NSString stringWithFormat:@"出版社：%@", self.item.bookPublisher];
         
-        NSString *fieldStr = @"";
-        for (NSString *f in self.item.field) {
-            fieldStr = [fieldStr stringByAppendingString:f];
-        }
-        self.fieldLabel.text = fieldStr;
+        self.fieldLabel.text = self.item.field.fieldName;
         self.publishTimeLabel.text = [NSString stringWithFormat:@"出版日期：%@", [self.item.bookPublishTime toString]];
-        self.contributorLabel.text = [NSString stringWithFormat:@"贡献者：%@", self.item.contributor];
+        self.contributorLabel.text = [NSString stringWithFormat:@"贡献者：%@", self.item.contributor.userName];
         self.collectNumberLabel.text = [NSString stringWithFormat:@"%lu 人收藏", self.item.bookCollectNumber];
         self.commentCountLabel.text = [NSString stringWithFormat:@"%lu 人评论", self.item.bookCommentCount];
     }
 }
 + (CGFloat)tableView:(UITableView *)tableView rowHeightForObject:(id)object {
-    // 此处的cellHeight已经过计算，cell高度为定值
-    ZCPBookCellItem *item = (ZCPBookCellItem *)object;
-    return [item.cellHeight floatValue];
+    return CELL_HEIGHT;
 }
 
 @end
-
-@implementation ZCPBookCellItem
-
-#pragma mark - synthesize
-@synthesize bookCoverURL        = _bookCoverURL;
-@synthesize bookName            = _bookName;
-@synthesize bookAuthor          = _bookAuthor;
-@synthesize bookPublisher       = _bookPublisher;
-@synthesize field               = _field;
-@synthesize bookPublishTime     = _bookPublishTime;
-@synthesize contributor         = _contributor;
-@synthesize bookCollectNumber   = _bookCollectNumber;
-@synthesize bookCommentCount    = _bookCommentCount;
-
-#pragma mark - instancetype
-- (instancetype)init {
-    if (self = [super init]) {
-        self.cellClass = [ZCPBookCell class];
-        self.cellType = [ZCPBookCell cellIdentifier];
-        self.cellHeight = @CELL_HEIGHT;
-    }
-    return self;
-}
-- (instancetype)initWithDefault {
-    if (self = [super initWithDefault]) {
-        self.cellClass = [ZCPBookCell class];
-        self.cellType = [ZCPBookCell cellIdentifier];
-        self.cellHeight = @CELL_HEIGHT;
-    }
-    return self;
-}
-
-@end
-
 
 
 #pragma mark - ZCPBookDetailCell

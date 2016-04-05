@@ -159,18 +159,10 @@
     NSMutableArray *items = [NSMutableArray array];
     
     for (ZCPBookPostModel *model in self.bookpostArr) {
-        ZCPBookPostCellItem *bpItem = [[ZCPBookPostCellItem alloc] initWithDefault];
-        bpItem.bpTitle = model.bookpostTitle;
-        bpItem.bpContent = model.bookpostContent;
-        bpItem.bpTime = model.bookpostTime;
-        bpItem.uploader = model.user.userName;
-        bpItem.field = model.field.fieldName;
-        bpItem.bookName = model.bookpostBookName;
-        bpItem.supportNumber = model.bookpostSupport;
-        bpItem.collectionNumber = model.bookpostCollectNumber;
-        bpItem.replyNumber = model.bookpostReplyNumber;
+        model.cellClass = [ZCPBookPostCell class];
+        model.cellType = [ZCPBookPostCell cellIdentifier];
         
-        [items addObject:bpItem];
+        [items addObject:model];
     }
     self.tableViewAdaptor.items = items;
 }
@@ -184,8 +176,16 @@
  *  @param indexPath cell索引
  */
 - (void)tableView:(UITableView *)tableView didSelectObject:(id<ZCPTableViewCellItemBasicProtocol>)object rowAtIndexPath:(NSIndexPath *)indexPath {
-    // 隐藏选择视图
-    [self.selectFieldControl hideView];
+    
+    if ([object isKindOfClass:[ZCPBookPostModel class]]) {
+        // 隐藏选择视图
+        [self.selectFieldControl hideView];
+        [self.selectSortMethodControl hideView];
+        
+        // 跳转到图书贴详情视图控制器（图书贴评论视图控制器）
+        ZCPBookPostModel *selectedBookpostModel = (ZCPBookPostModel *)object;
+        [[ZCPNavigator sharedInstance] gotoViewWithIdentifier:APPURL_VIEW_IDENTIFIER_COMMUNION_BOOKPOSTDETAIL paramDictForInit:@{@"_currentBookpostModel": selectedBookpostModel}];
+    }
 }
 
 #pragma mark - UISearchBarDelegate
@@ -329,14 +329,13 @@
             [self constructData];
             [weakSelf.tableView reloadData];
         }
-        [weakSelf.tableView.mj_header endRefreshing];
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         TTDPRINT(@"%@", error);
-        [weakSelf.tableView.mj_header endRefreshing];
     }];
 }
 
 #pragma mark - Public Method
+// 点击图书详情的“搜索交流贴”会切换到该控制器执行此方法
 - (void)librarySearchBookName:(NSString *)bookName {
     self.pagination = 1;
     self.sortMethod = ZCPBookpostSortByTime;

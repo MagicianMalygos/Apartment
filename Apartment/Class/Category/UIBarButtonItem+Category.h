@@ -17,4 +17,7 @@
 // 创建不带标题的leftBarButton
 + (id)setCustomBackBarItemWithTarget:(id)target action:(SEL)action;
 
++ (id)barItemWithTitle:(NSString *)title target:(id)target action:(SEL)action;
++ (id)barItemWithTitle:(NSString *)title font:(UIFont *)font target:(id)target action:(SEL)action;
+
 @end

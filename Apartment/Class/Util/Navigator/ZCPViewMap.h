@@ -14,6 +14,10 @@
 
 // 观点交流
 #define APPURL_VIEW_IDENTIFIER_COMMUNION_ADDBOOKPOST        @"ZCPAddBookpostController"
+#define APPURL_VIEW_IDENTIFIER_COMMUNION_BOOKPOSTDETAIL     @"ZCPBookpostDetailController"
+#define APPURL_VIEW_IDENTIFIER_COMMUNION_BOOKPOSTCOMMENTDETAIL      @"ZCPBookpostCommentDetailController"
+#define APPURL_VIEW_IDENTIFIER_COMMUNION_BOOKPOSTCOMMENTREPLY       @"ZCPBookpostCommentReplyController"
+#define APPURL_VIEW_IDENTIFIER_COMMUNION_ADDBOOKPOSTCOMMENTREPLY    @"ZCPAddBookpostCommentReplyController"
 
 // 文趣活动
 #define APPURL_VIEW_IDENTIFIER_COUPLET_DETAIL               @"ZCPCoupletDetailController"

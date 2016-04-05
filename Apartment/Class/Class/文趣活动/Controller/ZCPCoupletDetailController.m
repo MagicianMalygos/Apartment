@@ -220,7 +220,8 @@
     
     // 获取文本输入框内容并进行非法性判断
     NSString *coupletReplyContent = keyboardResponder.text;
-    if (![self judgeTextInput:coupletReplyContent]) {
+    if ([ZCPJudge judgeNullTextInput:coupletReplyContent showErrorMsg:@"评论不能为空！"]
+        || [ZCPJudge judgeOutOfRangeTextInput:coupletReplyContent range:[ZCPLengthRange rangeWithMin:1 max:50] showErrorMsg:@"字数不得超过50字！"]) {
         return NO;
     }
     
@@ -244,22 +245,6 @@
     // 提交后清除文本输入框内容
     [self.commentView clearText];
     
-    return YES;
-}
-
-#pragma mark - Private Method
-/**
- *  输入检测
- */
-- (BOOL)judgeTextInput:(NSString *)text {
-    if (text.length == 0) {
-        [MBProgressHUD showError:@"评论不能为空！" toView:self.view];
-        return NO;
-    }
-    else if (text.length > 50) {
-        [MBProgressHUD showError:@"字数不得超过50字！" toView:self.view];
-        return NO;
-    }
     return YES;
 }
 

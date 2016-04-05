@@ -154,19 +154,10 @@
     NSMutableArray *items = [NSMutableArray array];
     
     for (ZCPBookModel *model in self.bookArr) {
+        model.cellClass = [ZCPBookCell class];
+        model.cellType = [ZCPBookCell cellIdentifier];
         
-        ZCPBookCellItem *bookItem = [[ZCPBookCellItem alloc] initWithDefault];
-        bookItem.bookCoverURL = model.bookCoverURL;
-        bookItem.bookName = model.bookName;
-        bookItem.bookAuthor = model.bookAuthor;
-        bookItem.bookPublisher = model.bookPublisher;
-        bookItem.field = @[model.field.fieldName];
-        bookItem.bookPublishTime = model.bookPublishTime;
-        bookItem.contributor = model.contributor.userName;
-        bookItem.bookCommentCount = model.bookCommentCount;
-        bookItem.bookCollectNumber = model.bookCollectNumber;
-        
-        [items addObject:bookItem];
+        [items addObject:model];
     }
 
     self.tableViewAdaptor.items = items;

@@ -72,14 +72,9 @@
     
     // 对联列表cell
     for (ZCPCoupletModel *model in self.coupletModelArr) {
-        ZCPCoupletMainCellItem *coupletItem = [[ZCPCoupletMainCellItem alloc] initWithDefault];
-        coupletItem.userHeadImageURL = model.user.userFaceURL;
-        coupletItem.userName = model.user.userName;
-        coupletItem.coupletContent = model.coupletContent;
-        coupletItem.time = model.coupletTime;
-        coupletItem.supportNumber = model.coupletSupport;
-        coupletItem.replyNumber = model.coupletReplyNumber;
-        [items addObject:coupletItem];
+        model.cellClass = [ZCPCoupletMainCell class];
+        model.cellType = [ZCPCoupletMainCell cellIdentifier];
+        [items addObject:model];
     }
 
     self.tableViewAdaptor.items = items;

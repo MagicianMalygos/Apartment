@@ -22,7 +22,6 @@
 @synthesize bookpost            = _bookpost;
 @synthesize commentReplyNumber  = _commentReplyNumber;
 @synthesize supported           = _supported;
-@synthesize collected           = _collected;
 
 #pragma mark - kvc
 - (void)setValue:(id)value forKey:(NSString *)key {

@@ -78,8 +78,15 @@ IMP_SINGLETON
                      /* - 热门动态相关 - */
                      /* - 观点交流相关 - */
                      , BOOKPOST_LIST_BY_MULTI_CONDITION:        @"/1.0/communion/getBookpostBySearchTextSortMethodFieldID"
+                     , BOOKPOSTCOMMENT_LIST_BY_BOOKPOSTID:      @"/1.0/communion/getBookpostCommentByBookpostID"
+                     , BOOKPOSTCOMMENTREPLY_LIST_BY_BOOKPOSTCOMMENTID: @"/1.0/communion/getBookpostCommentReplyByBookpostCommentID"
+                     , CHANGE_BOOKPOST_SUPPORT_STATE:           @"/1.0/communion/changeBookpostSupportRecord"
                      , CHANGE_BOOKPOST_COLLECTION_STATE:        @"/1.0/communion/changeBookpostCollectionRecord"
+                     , CHANGE_BOOKPOSTCOMMENT_SUPPORT_STATE:    @"/1.0/communion/changeBookpostCommentSupportRecord"
+                     , CHANGE_BOOKPOSTCOMMENTREPLY_SUPPORT_STATE: @"/1.0/communion/changeBookpostCommentReplySupportRecord"
                      , ADD_BOOKPOST:                            @"/1.0/communion/addBookpost"
+                     , ADD_BOOKPOSTCOMMENT:                     @"/1.0/communion/addBookpostComment"
+                     , ADD_BOOKPOSTCOMMENTREPLY:                @"/1.0/communion/addBookpostCommentReply"
                      /* - 文趣活动相关(Couplet) - */
                      , COUPLET_LIST_BY_MULTI_CONDITION:         @"/1.0/activity/getCoupletBySortMethod"
                      , COUPLET_REPLY_LIST:                      @"/1.0/activity/getCoupletReplyByCoupletID"
@@ -105,7 +112,6 @@ IMP_SINGLETON
                      /* - 个人中心相关 - */
                      , UPLOAD_HEAD:                             @"/1.0/user/uploadUserHead"
                      };
-
 }
 
 @end

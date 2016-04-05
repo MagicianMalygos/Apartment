@@ -55,7 +55,7 @@
     }
     return model;
 }
-//
+
 /**
  *  图书贴列表模型转换
  *
@@ -77,5 +77,51 @@
     }
     return listModel;
 }
+
+/**
+ *  图书贴评论列表模型转换
+ *
+ *  @param dict 列表字典
+ *
+ *  @return 图书贴评论列表模型
+ */
++ (ZCPListDataModel *)translateResponse_BookPostCommentListModel:(NSDictionary *)responseData {
+    ZCPListDataModel *listModel = nil;
+    if ([responseData isKindOfClass:[NSDictionary class]]) {
+        listModel = [[ZCPListDataModel  alloc] init];
+        NSArray *bookpostCommentList = [responseData valueForKey:@"aList"];
+        if (![bookpostCommentList isNilOrNull]) {
+            for (NSDictionary *bookpostCommentDict in bookpostCommentList) {
+                ZCPBookPostCommentModel *model = [ZCPRequestResponseTranslator translateResponse_BookPostCommentModel:bookpostCommentDict];
+                [listModel.items addObject:model];
+            }
+        }
+    }
+    return listModel;
+}
+
+
+/**
+ *  图书贴评论回复列表模型转换
+ *
+ *  @param dict 列表字典
+ *
+ *  @return 图书贴评论回复列表模型
+ */
++ (ZCPListDataModel *)translateResponse_BookPostCommentReplyListModel:(NSDictionary *)responseData {
+    ZCPListDataModel *listModel = nil;
+    if ([responseData isKindOfClass:[NSDictionary class]]) {
+        listModel = [[ZCPListDataModel  alloc] init];
+        NSArray *bookpostCommentReplyList = [responseData valueForKey:@"aList"];
+        if (![bookpostCommentReplyList isNilOrNull]) {
+            for (NSDictionary *bookpostCommentReplyDict in bookpostCommentReplyList) {
+                ZCPBookPostCommentReplyModel *model = [ZCPRequestResponseTranslator translateResponse_BookPostCommentReplyModel:bookpostCommentReplyDict];
+                [listModel.items addObject:model];
+            }
+        }
+    }
+    return listModel;
+}
+
 
 @end

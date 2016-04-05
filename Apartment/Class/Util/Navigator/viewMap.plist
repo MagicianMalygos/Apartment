@@ -130,5 +130,37 @@
 		<key>description</key>
 		<string>观点交流-添加观点 视图控制器</string>
 	</dict>
+	<dict>
+		<key>className</key>
+		<string>ZCPBookpostDetailController</string>
+		<key>identifier</key>
+		<string>ZCPBookpostDetailController</string>
+		<key>description</key>
+		<string>观点交流-观点详情 视图控制器</string>
+	</dict>
+	<dict>
+		<key>className</key>
+		<string>ZCPBookpostCommentReplyController</string>
+		<key>identifier</key>
+		<string>ZCPBookpostCommentReplyController</string>
+		<key>description</key>
+		<string>观点交流-添加观点 视图控制器</string>
+	</dict>
+	<dict>
+		<key>className</key>
+		<string>ZCPBookpostCommentDetailController</string>
+		<key>identifier</key>
+		<string>ZCPBookpostCommentDetailController</string>
+		<key>description</key>
+		<string>观点交流-评论详情 视图控制器</string>
+	</dict>
+	<dict>
+		<key>className</key>
+		<string>ZCPAddBookpostCommentReplyController</string>
+		<key>identifier</key>
+		<string>ZCPAddBookpostCommentReplyController</string>
+		<key>description</key>
+		<string>观点交流-添加观点 视图控制器</string>
+	</dict>
 </array>
 </plist>

@@ -42,7 +42,7 @@
  */
 + (void)showSuccess:(NSString *)success
 {
-    [self showSuccess:success toView:nil];
+    [self showSuccess:success toView:[[UIApplication sharedApplication].delegate window]];
 }
 
 /**
@@ -62,7 +62,7 @@
  */
 + (void)showError:(NSString *)error
 {
-    [self showError:error toView:nil];
+    [self showError:error toView:[[UIApplication sharedApplication].delegate window]];
 }
 
 /**
@@ -84,7 +84,7 @@
  */
 + (MBProgressHUD *)showMessage:(NSString *)message
 {
-    return [self showMessage:message toView:nil];
+    return [self showMessage:message toView:[[UIApplication sharedApplication].delegate window]];
 }
 
 /**
@@ -112,7 +112,7 @@
  */
 + (void)hideHUD
 {
-    [self hideHUDForView:nil];
+    [self hideHUDForView:[[UIApplication sharedApplication].delegate window]];
 }
 
 /**

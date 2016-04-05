@@ -122,7 +122,7 @@
     }
     // 长度检测
     if ([ZCPJudge judgeOutOfRangeTextInput:bookpostTitle range:[ZCPLengthRange rangeWithMin:1 max:50] showErrorMsg:@"标题不能超过50字"]
-        || [ZCPJudge judgeOutOfRangeTextInput:bookpostContent range:[ZCPLengthRange rangeWithMin:1 max:500] showErrorMsg:@"内容不能超过500字"]
+        || [ZCPJudge judgeOutOfRangeTextInput:bookpostContent range:[ZCPLengthRange rangeWithMin:1 max:1000] showErrorMsg:@"内容不能超过1000字"]
         || [ZCPJudge judgeOutOfRangeTextInput:bookpostBookName range:[ZCPLengthRange rangeWithMin:1 max:50] showErrorMsg:@"书名不能超过50字"]) {
         return;
     }
