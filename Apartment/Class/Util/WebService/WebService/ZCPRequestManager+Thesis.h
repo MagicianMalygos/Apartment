@@ -37,6 +37,32 @@
                                    failure:(void(^)(AFHTTPRequestOperation *operation, NSError *error))failure;
 
 /**
+ *  改变辩题收藏状态
+ *
+ *  @param currCollected 当前收藏状态
+ *  @param currThesisID  当前辩题ID
+ *  @param currUserID    当前用户ID
+ */
+- (NSOperation *)changeThesisCurrCollectionState:(NSInteger)currCollected
+                                 currThesisID:(NSInteger)currThesisID
+                                   currUserID:(NSInteger)currUserID
+                                      success:(void (^)(AFHTTPRequestOperation *operation, BOOL isSuccess))success
+                                      failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure;
+
+/**
+ *  改变论据点赞状态
+ *
+ *  @param currSupported  当前点赞状态
+ *  @param currArgumentID 当前论据ID
+ *  @param currUserID     当前用户ID
+ */
+- (NSOperation *)changeArgumentCurrSupportedState:(NSInteger)currSupported
+                                   currArgumentID:(NSInteger)currArgumentID
+                                       currUserID:(NSInteger)currUserID
+                                          success:(void (^)(AFHTTPRequestOperation *operation, BOOL isSuccess))success
+                                          failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure;
+
+/**
  *  添加辩题
  *
  *  @param thesisContent   辩题内容
@@ -54,19 +80,6 @@
                           failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure;
 
 /**
- *  改变辩题收藏状态
- *
- *  @param currCollected 当前收藏状态
- *  @param currThesisID  当前辩题ID
- *  @param currUserID    当前用户ID
- */
-- (NSOperation *)changeThesisCurrCollectionState:(NSInteger)currCollected
-                                 currThesisID:(NSInteger)currThesisID
-                                   currUserID:(NSInteger)currUserID
-                                      success:(void (^)(AFHTTPRequestOperation *operation, BOOL isSuccess))success
-                                      failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure;
-
-/**
  *  添加论据
  *
  *  @param argumentContent 论据内容
@@ -82,18 +95,5 @@
                          currUserID:(NSInteger)currUserID
                             success:(void (^)(AFHTTPRequestOperation *operation, BOOL isSuccess))success
                             failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure;
-
-/**
- *  改变论据点赞状态
- *
- *  @param currSupported  当前点赞状态
- *  @param currArgumentID 当前论据ID
- *  @param currUserID     当前用户ID
- */
-- (NSOperation *)changeArgumentCurrSupportedState:(NSInteger)currSupported
-                                 currArgumentID:(NSInteger)currArgumentID
-                                   currUserID:(NSInteger)currUserID
-                                      success:(void (^)(AFHTTPRequestOperation *operation, BOOL isSuccess))success
-                                      failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure;
 
 @end

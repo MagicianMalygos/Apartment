@@ -42,9 +42,6 @@
 
 @interface ZCPBookDetailCellItem : ZCPBookModel
 
-@property (nonatomic, copy) NSString *bookpostSearchButtonTitle;        // 相关图书帖搜索按钮标题
-@property (nonatomic, copy) NSString *webSearchButtonTitle;             // 网上搜索按钮标题
-@property (nonatomic, assign) ZCPBookCollectState bookCollected;        // 图书收藏状态
 @property (nonatomic, weak) id<ZCPBookDetailCellDelegate> delegate;     // delegate
 
 @end

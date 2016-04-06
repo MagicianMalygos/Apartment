@@ -89,7 +89,11 @@
         self.delegate = self.item.delegate;
         self.supportButton.selected = (self.item.argumentModel.supported == ZCPCurrUserHaveSupportArgument)? YES: NO;
         [self.userHeadImgView sd_setImageWithURL:[NSURL URLWithString:self.item.argumentModel.user.userFaceURL] placeholderImage:[UIImage imageNamed:HEAD_IMAGE_NAME_DEFAULT]];
-        self.userNameLabel.text = self.item.argumentModel.user.userName;
+        if (self.item.argumentModel.state.stateValue == ZCPArgumentAnonymous) {
+            self.userNameLabel.text = @"匿名用户";
+        } else {
+            self.userNameLabel.text = self.item.argumentModel.user.userName;
+        }
         self.supportNumberLabel.text = [NSString getFormateFromNumberOfPeople:self.item.argumentModel.argumentSupport];
         self.argumentContentLabel.text = self.item.argumentModel.argumentContent;
         self.timeLabel.text = [self.item.argumentModel.argumentTime toString];

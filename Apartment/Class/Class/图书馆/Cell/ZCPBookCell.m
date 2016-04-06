@@ -213,9 +213,9 @@
         
         // 设置属性
         self.delegate = item.delegate;
-        self.collectionButton.selected = (item.bookCollected == ZCPCurrUserHaveCollectBook)? YES: NO;
-        [self.bookpostSearchButton setTitle:item.bookpostSearchButtonTitle forState:UIControlStateNormal];
-        [self.webSearchButton setTitle:item.webSearchButtonTitle forState:UIControlStateNormal];
+        self.collectionButton.selected = (item.collected == ZCPCurrUserHaveCollectBook)? YES: NO;
+        [self.bookpostSearchButton setTitle:@"搜索图书贴" forState:UIControlStateNormal];
+        [self.webSearchButton setTitle:@"搜索网络" forState:UIControlStateNormal];
     }
 }
 + (CGFloat)tableView:(UITableView *)tableView rowHeightForObject:(id)object {
@@ -250,13 +250,6 @@
 @implementation ZCPBookDetailCellItem
 
 #pragma mark - instancetype
-- (instancetype)init {
-    if (self = [super init]) {
-        self.cellClass = [ZCPBookDetailCell class];
-        self.cellType = [ZCPBookDetailCell cellIdentifier];
-    }
-    return self;
-}
 - (instancetype)initWithDefault {
     if (self = [super initWithDefault]) {
         self.cellClass = [ZCPBookDetailCell class];

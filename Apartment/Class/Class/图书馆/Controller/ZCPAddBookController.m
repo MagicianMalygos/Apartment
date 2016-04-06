@@ -200,6 +200,8 @@
     }];
     
     TTDPRINT(@"上传图书成功!");
+    
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 #pragma mark - private method

@@ -91,9 +91,7 @@
     bookDetailItem.contributor = self.currentBookModel.contributor;
     bookDetailItem.bookCommentCount = self.currentBookModel.bookCommentCount;
     bookDetailItem.bookCollectNumber = self.currentBookModel.bookCollectNumber;
-    bookDetailItem.bookCollected = self.currentBookModel.collected;
-    bookDetailItem.bookpostSearchButtonTitle = @"搜索图书贴";
-    bookDetailItem.webSearchButtonTitle = @"搜索网络";
+    bookDetailItem.collected = self.currentBookModel.collected;
     bookDetailItem.delegate = self;
     
     // sectionItem1
@@ -161,22 +159,27 @@
     WEAK_SELF;
     [[ZCPRequestManager sharedInstance] changeBookCurrCollectionState:self.currentBookModel.collected currBookID:self.currentBookModel.bookId currUserID:[ZCPUserCenter sharedInstance].currentUserModel.userId success:^(AFHTTPRequestOperation *operation, BOOL isSuccess) {
         if (isSuccess) {
-            if (bookdetailItem.bookCollected == ZCPCurrUserNotCollectBook) {
+            if (bookdetailItem.collected == ZCPCurrUserNotCollectBook) {
                 button.selected = YES;
-                bookdetailItem.bookCollected = ZCPCurrUserHaveCollectBook;
+                bookdetailItem.collected = ZCPCurrUserHaveCollectBook;
                 weakSelf.currentBookModel.collected = ZCPCurrUserHaveCollectBook;
+                weakSelf.currentBookModel.bookCollectNumber ++;
+                cell.item.bookCollectNumber ++;
                 
                 TTDPRINT(@"收藏成功！");
                 [MBProgressHUD showSuccess:@"收藏成功！" toView:self.view];
             }
-            else if (bookdetailItem.bookCollected == ZCPCurrUserHaveCollectBook) {
+            else if (bookdetailItem.collected == ZCPCurrUserHaveCollectBook) {
                 button.selected = NO;
-                bookdetailItem.bookCollected = ZCPCurrUserNotCollectBook;
+                bookdetailItem.collected = ZCPCurrUserNotCollectBook;
                 weakSelf.currentBookModel.collected = ZCPCurrUserNotCollectBook;
+                weakSelf.currentBookModel.bookCollectNumber --;
+                cell.item.bookCollectNumber --;
                 
                 TTDPRINT(@"取消收藏成功！");
                 [MBProgressHUD showSuccess:@"取消收藏成功！" toView:self.view];
             }
+            cell.collectNumberLabel.text = [NSString stringWithFormat:@"%@ 人收藏", [NSString getFormateFromNumberOfPeople:cell.item.bookCollectNumber]];
         }
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         TTDPRINT(@"操作失败！%@", error);
@@ -197,27 +200,25 @@
 - (void)bookReplyCell:(ZCPBookReplyCell *)cell supportButtonClick:(UIButton *)button {
     ZCPBookReplyCellItem *bookreplyItem = (ZCPBookReplyCellItem *)cell.item;
     
-    // 点赞图书回复
     [[ZCPRequestManager sharedInstance] changeBookReplyCurrSupportState:bookreplyItem.bookReplyModel.supported currBookReplyID:bookreplyItem.bookReplyModel.bookreplyId currUserID:[ZCPUserCenter sharedInstance].currentUserModel.userId success:^(AFHTTPRequestOperation *operation, BOOL isSuccess) {
         if (isSuccess) {
             if (bookreplyItem.bookReplyModel.supported == ZCPCurrUserNotSupportBookReply) {
                 button.selected = YES;
                 bookreplyItem.bookReplyModel.supported = ZCPCurrUserHaveCollectBook;
-                cell.item.bookReplyModel.bookreplySupport = cell.item.bookReplyModel.bookreplySupport + 1;
-                cell.bookreplySupportLabel.text = [NSString stringWithFormat:@"%li", cell.item.bookReplyModel.bookreplySupport];
+                cell.item.bookReplyModel.bookreplySupport ++;
                 
-                TTDPRINT(@"点赞成功！");
-                [MBProgressHUD showSuccess:@"点赞成功！" toView:self.view];
+                TTDPRINT(@"图书回复点赞成功！");
+                [MBProgressHUD showSuccess:@"点赞成功！"];
             }
             else if (bookreplyItem.bookReplyModel.supported == ZCPCurrUserHaveSupportBookReply) {
                 button.selected = NO;
                 bookreplyItem.bookReplyModel.supported = ZCPCurrUserNotSupportBookReply;
-                cell.item.bookReplyModel.bookreplySupport = cell.item.bookReplyModel.bookreplySupport - 1;
-                cell.bookreplySupportLabel.text = [NSString stringWithFormat:@"%li", cell.item.bookReplyModel.bookreplySupport];
+                cell.item.bookReplyModel.bookreplySupport --;
                 
-                TTDPRINT(@"取消点赞成功！");
-                [MBProgressHUD showSuccess:@"取消点赞成功！" toView:self.view];
+                TTDPRINT(@"取消图书回复点赞成功！");
+                [MBProgressHUD showSuccess:@"取消点赞成功！"];
             }
+            cell.bookreplySupportLabel.text = [NSString getFormateFromNumberOfPeople:cell.item.bookReplyModel.bookreplySupport];
         }
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         TTDPRINT(@"操作失败！%@", error);
@@ -244,6 +245,7 @@
         if (isSuccess) {
             TTDPRINT(@"提交成功...");
             [MBProgressHUD showSuccess:@"添加回复成功！" toView:self.view];
+            self.currentBookModel.bookCommentCount ++;
             
             // 重新加载数据
             [self loadData];

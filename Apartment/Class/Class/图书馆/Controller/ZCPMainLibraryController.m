@@ -121,7 +121,7 @@
         _selectSortMethodControl = [ZCPSelectMenuController new];
         _selectSortMethodControl.view.frame = CGRectMake(APPLICATIONWIDTH / 6 - SelectSortMethodWidth / 2, self.optionView.bottom, SelectSortMethodWidth, SelectSortMethodHeight);
         _selectSortMethodControl.delegate = self;
-        _selectSortMethodControl.itemArray = @[@"时间", @"点赞量", @"评论量"];
+        _selectSortMethodControl.itemArray = @[@"时间", @"收藏量", @"评论量"];
     }
     return _selectSortMethodControl;
 }

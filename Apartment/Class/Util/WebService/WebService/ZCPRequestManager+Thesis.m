@@ -74,6 +74,68 @@
 }
 
 /**
+ *  改变辩题收藏状态
+ *
+ *  @param currCollected 当前收藏状态
+ *  @param currThesisID  当前辩题ID
+ *  @param currUserID    当前用户ID
+ */
+- (NSOperation *)changeThesisCurrCollectionState:(NSInteger)currCollected
+                                    currThesisID:(NSInteger)currThesisID
+                                      currUserID:(NSInteger)currUserID
+                                         success:(void (^)(AFHTTPRequestOperation *operation, BOOL isSuccess))success
+                                         failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure {
+    
+    NSString * scheme       = schemeForType(kURLTypeCommon);
+    NSString * host         = hostForType(kURLTypeCommon);
+    NSString * path         = urlForKey(CHANGE_THESIS_COLLECTION_STATE);
+    
+    AFHTTPRequestOperation *operation = [self POST:ZCPMakeURLString(scheme, host, path)
+                                        parameters:@{@"currCollected": @(currCollected)
+                                                     , @"currThesisID": @(currThesisID)
+                                                     , @"currUserID": @(currUserID)}
+                                           success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                                               if (success) {
+                                                   success(operation, [[responseObject valueForKey:@"result"] boolValue]);
+                                               }
+                                           }
+                                           failure:failure];
+    TTDPRINT(@"URL=%@  params=%@", operation.request.URL, [[NSString alloc] initWithData:operation.request.HTTPBody encoding:NSUTF8StringEncoding]);
+    return operation;
+}
+
+/**
+ *  改变论据点赞状态
+ *
+ *  @param currSupported  当前点赞状态
+ *  @param currArgumentID 当前论据ID
+ *  @param currUserID     当前用户ID
+ */
+- (NSOperation *)changeArgumentCurrSupportedState:(NSInteger)currSupported
+                                   currArgumentID:(NSInteger)currArgumentID
+                                       currUserID:(NSInteger)currUserID
+                                          success:(void (^)(AFHTTPRequestOperation *operation, BOOL isSuccess))success
+                                          failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure {
+    
+    NSString * scheme       = schemeForType(kURLTypeCommon);
+    NSString * host         = hostForType(kURLTypeCommon);
+    NSString * path         = urlForKey(CHANGE_ARGUMENT_SUPPORT_STATE);
+    
+    AFHTTPRequestOperation *operation = [self POST:ZCPMakeURLString(scheme, host, path)
+                                        parameters:@{@"currSupported": @(currSupported)
+                                                     , @"currArgumentID": @(currArgumentID)
+                                                     , @"currUserID": @(currUserID)}
+                                           success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                                               if (success) {
+                                                   success(operation, [[responseObject valueForKey:@"result"] boolValue]);
+                                               }
+                                           }
+                                           failure:failure];
+    TTDPRINT(@"URL=%@  params=%@", operation.request.URL, [[NSString alloc] initWithData:operation.request.HTTPBody encoding:NSUTF8StringEncoding]);
+    return operation;
+}
+
+/**
  *  添加辩题
  *
  *  @param thesisContent   辩题内容
@@ -104,37 +166,6 @@
                                                if (success) {
                                                    NSDictionary *modelDict = [ZCPRequestResponseTranslator translateResponse_CurrThesisAndArgument:[responseObject valueForKey:@"data"]];
                                                    success(operation, modelDict);
-                                               }
-                                           }
-                                           failure:failure];
-    TTDPRINT(@"URL=%@  params=%@", operation.request.URL, [[NSString alloc] initWithData:operation.request.HTTPBody encoding:NSUTF8StringEncoding]);
-    return operation;
-}
-
-/**
- *  改变辩题收藏状态
- *
- *  @param currCollected 当前收藏状态
- *  @param currThesisID  当前辩题ID
- *  @param currUserID    当前用户ID
- */
-- (NSOperation *)changeThesisCurrCollectionState:(NSInteger)currCollected
-                                    currThesisID:(NSInteger)currThesisID
-                                      currUserID:(NSInteger)currUserID
-                                         success:(void (^)(AFHTTPRequestOperation *operation, BOOL isSuccess))success
-                                         failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure {
-    
-    NSString * scheme       = schemeForType(kURLTypeCommon);
-    NSString * host         = hostForType(kURLTypeCommon);
-    NSString * path         = urlForKey(CHANGE_THESIS_COLLECTION_STATE);
-    
-    AFHTTPRequestOperation *operation = [self POST:ZCPMakeURLString(scheme, host, path)
-                                        parameters:@{@"currCollected": @(currCollected)
-                                                     , @"currThesisID": @(currThesisID)
-                                                     , @"currUserID": @(currUserID)}
-                                           success:^(AFHTTPRequestOperation *operation, id responseObject) {
-                                               if (success) {
-                                                   success(operation, [[responseObject valueForKey:@"result"] boolValue]);
                                                }
                                            }
                                            failure:failure];
@@ -179,37 +210,5 @@
     TTDPRINT(@"URL=%@  params=%@", operation.request.URL, [[NSString alloc] initWithData:operation.request.HTTPBody encoding:NSUTF8StringEncoding]);
     return operation;
 }
-
-/**
- *  改变论据点赞状态
- *
- *  @param currSupported  当前点赞状态
- *  @param currArgumentID 当前论据ID
- *  @param currUserID     当前用户ID
- */
-- (NSOperation *)changeArgumentCurrSupportedState:(NSInteger)currSupported
-                              currArgumentID:(NSInteger)currArgumentID
-                                  currUserID:(NSInteger)currUserID
-                                     success:(void (^)(AFHTTPRequestOperation *operation, BOOL isSuccess))success
-                                     failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure {
-    
-    NSString * scheme       = schemeForType(kURLTypeCommon);
-    NSString * host         = hostForType(kURLTypeCommon);
-    NSString * path         = urlForKey(CHANGE_ARGUMENT_SUPPORT_STATE);
-    
-    AFHTTPRequestOperation *operation = [self POST:ZCPMakeURLString(scheme, host, path)
-                                        parameters:@{@"currSupported": @(currSupported)
-                                                     , @"currArgumentID": @(currArgumentID)
-                                                     , @"currUserID": @(currUserID)}
-                                           success:^(AFHTTPRequestOperation *operation, id responseObject) {
-                                               if (success) {
-                                                   success(operation, [[responseObject valueForKey:@"result"] boolValue]);
-                                               }
-                                           }
-                                           failure:failure];
-    TTDPRINT(@"URL=%@  params=%@", operation.request.URL, [[NSString alloc] initWithData:operation.request.HTTPBody encoding:NSUTF8StringEncoding]);
-    return operation;
-}
-
 
 @end

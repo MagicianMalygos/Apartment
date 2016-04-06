@@ -32,6 +32,6 @@ typedef NS_ENUM(NSInteger, ZCPBookCollectState) {
 @property (nonatomic, strong) NSDate *bookTime;                 // 记录添加时间
 @property (nonatomic, strong) ZCPFieldModel *field;             // 图书所在领域
 @property (nonatomic, strong) ZCPUserModel *contributor;        // 图书贡献者
-@property (nonatomic, assign) NSInteger collected;              // 当前用户是否已经收藏该对联
+@property (nonatomic, assign) ZCPBookCollectState collected;    // 当前用户是否已经收藏该图书
 
 @end

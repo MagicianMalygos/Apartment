@@ -137,8 +137,7 @@
             if (thesisView.thesisCollected == ZCPCurrUserNotCollectThesis) {
                 button.selected = YES;
                 thesisView.thesisCollected = ZCPCurrUserHaveCollectThesis;
-                thesisView.thesisModel.thesisCollectNumber = thesisView.thesisModel.thesisCollectNumber + 1;
-                thesisView.collectionNumberLabel.text = [NSString stringWithFormat:@"%lu 人收藏", self.thesisModel.thesisCollectNumber];
+                thesisView.thesisModel.thesisCollectNumber ++;
                 
                 TTDPRINT(@"收藏成功！");
                 [MBProgressHUD showSuccess:@"收藏成功！" toView:self.view];
@@ -146,12 +145,12 @@
             else if (thesisView.thesisCollected == ZCPCurrUserHaveCollectThesis) {
                 button.selected = NO;
                 thesisView.thesisCollected = ZCPCurrUserNotCollectThesis;
-                thesisView.thesisModel.thesisCollectNumber = thesisView.thesisModel.thesisCollectNumber - 1;
-                thesisView.collectionNumberLabel.text = [NSString stringWithFormat:@"%lu 人收藏", self.thesisModel.thesisCollectNumber];
+                thesisView.thesisModel.thesisCollectNumber --;
                 
                 TTDPRINT(@"取消收藏成功！");
                 [MBProgressHUD showSuccess:@"取消收藏成功！" toView:self.view];
             }
+            thesisView.collectionNumberLabel.text = [NSString stringWithFormat:@"%@ 人收藏", [NSString getFormateFromNumberOfPeople:self.thesisModel.thesisCollectNumber]];
         }
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         TTDPRINT(@"操作失败！%@", error);
