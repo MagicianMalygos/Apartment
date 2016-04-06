@@ -78,12 +78,7 @@
     
     // Couplet Detail
     ZCPCoupletDetailCellItem *detailItem = [[ZCPCoupletDetailCellItem alloc] initWithDefault];
-    detailItem.coupletContent = self.selectedCoupletModel.coupletContent;
-    detailItem.userHeadImageURL = self.selectedCoupletModel.user.userFaceURL;
-    detailItem.userName = self.selectedCoupletModel.user.userName;
-    detailItem.time = self.selectedCoupletModel.coupletTime;
-    detailItem.coupletSupported = self.selectedCoupletModel.supported;
-    detailItem.coupletCollected = self.selectedCoupletModel.collected;
+    detailItem.coupletModel = self.selectedCoupletModel;
     detailItem.delegate = self;
     [items addObject:detailItem];
 
@@ -94,13 +89,7 @@
     
     for (ZCPCoupletReplyModel *model in self.coupletReplyModelArr) {
         ZCPCoupletReplyCellItem * replyItem = [[ZCPCoupletReplyCellItem alloc] initWithDefault];
-        replyItem.replyId = model.replyId;
-        replyItem.replyContent = model.replyContent;
-        replyItem.userHeadImageURL = model.user.userFaceURL;
-        replyItem.userName = model.user.userName;
-        replyItem.replyTime = model.replyTime;
-        replyItem.replySupportNumber = model.replySupport;
-        replyItem.replySupported = model.supported;
+        replyItem.coupletReplyModel = model;
         replyItem.delegate = self;
         [items addObject:replyItem];
     }
@@ -181,26 +170,25 @@
     
     ZCPCoupletReplyCellItem *replyItem = cell.item;
     
-    [[ZCPRequestManager sharedInstance] changeCoupletReplyCurrSupportState:replyItem.replySupported currCoupletReplyID:replyItem.replyId currUserID:[ZCPUserCenter sharedInstance].currentUserModel.userId success:^(AFHTTPRequestOperation *operation, BOOL isSuccess) {
+    [[ZCPRequestManager sharedInstance] changeCoupletReplyCurrSupportState:replyItem.coupletReplyModel.supported currCoupletReplyID:replyItem.coupletReplyModel.replyId currUserID:[ZCPUserCenter sharedInstance].currentUserModel.userId success:^(AFHTTPRequestOperation *operation, BOOL isSuccess) {
         if (isSuccess) {
-            if (replyItem.replySupported == ZCPCurrUserNotSupportCoupletReply) {
+            if (replyItem.coupletReplyModel.supported == ZCPCurrUserNotSupportCoupletReply) {
                 button.selected = YES;
-                replyItem.replySupported = ZCPCurrUserHaveSupportCoupletReply;
-                cell.item.replySupportNumber = cell.item.replySupportNumber + 1;
-                cell.replySupportLabel.text = [NSString stringWithFormat:@"%li", cell.item.replySupportNumber];
+                replyItem.coupletReplyModel.supported = ZCPCurrUserHaveSupportCoupletReply;
+                cell.item.coupletReplyModel.replySupport ++;
                 
                 TTDPRINT(@"点赞成功！");
                 [MBProgressHUD showSuccess:@"点赞成功！" toView:self.view];
             }
-            else if (replyItem.replySupported == ZCPCurrUserHaveSupportCoupletReply) {
+            else if (replyItem.coupletReplyModel.supported == ZCPCurrUserHaveSupportCoupletReply) {
                 button.selected = NO;
-                replyItem.replySupported = ZCPCurrUserNotSupportCoupletReply;
-                cell.item.replySupportNumber = cell.item.replySupportNumber - 1;
-                cell.replySupportLabel.text = [NSString stringWithFormat:@"%li", cell.item.replySupportNumber];
+                replyItem.coupletReplyModel.supported = ZCPCurrUserNotSupportCoupletReply;
+                cell.item.coupletReplyModel.replySupport --;
                 
                 TTDPRINT(@"取消点赞成功！");
                 [MBProgressHUD showSuccess:@"取消点赞成功！" toView:self.view];
             }
+            cell.replySupportLabel.text = [NSString getFormateFromNumberOfPeople:cell.item.coupletReplyModel.replySupport];
         }
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         TTDPRINT(@"操作失败！%@", error);

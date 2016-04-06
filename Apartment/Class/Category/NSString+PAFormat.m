@@ -10,6 +10,21 @@
 
 @implementation NSString (PAFormat)
 
+// 将人数规格化
++ (NSString *)getFormateFromNumberOfPeople:(NSInteger)numberOfPeople {
+    NSString *result = @"0";
+    if (numberOfPeople >= 10000) {
+        numberOfPeople -= numberOfPeople % 1000;
+        result = [NSString stringWithFormat:@"%.1fw", numberOfPeople / 10000.0f];
+    } else if (numberOfPeople >= 1000) {
+        numberOfPeople -= numberOfPeople % 100;
+        result = [NSString stringWithFormat:@"%.1fk", numberOfPeople / 1000.0f];
+    } else {
+        result = [NSString stringWithFormat:@"%li", numberOfPeople];
+    }
+    return result;
+}
+
 + (NSString *)getFormateFileLength:(NSUInteger)length {
     return [NSByteCountFormatter stringFromByteCount:length countStyle:NSByteCountFormatterCountStyleFile];
 }

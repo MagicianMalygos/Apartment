@@ -116,13 +116,7 @@
     // bookreply
     for (ZCPBookReplyModel *model in self.bookreplyArr) {
         ZCPBookReplyCellItem *bookreplyItem = [[ZCPBookReplyCellItem alloc] initWithDefault];
-        bookreplyItem.userHeadImageURL = model.user.userFaceURL;
-        bookreplyItem.userName = model.user.userName;
-        bookreplyItem.bookreplyId = model.bookreplyId;
-        bookreplyItem.bookreplyContent = model.bookreplyContent;
-        bookreplyItem.bookreplyTime = model.bookreplyTime;
-        bookreplyItem.bookreplySupportNumber = model.bookreplySupport;
-        bookreplyItem.bookreplySupported = model.supported;
+        bookreplyItem.bookReplyModel = model;
         bookreplyItem.delegate = self;
         
         [items addObject:bookreplyItem];
@@ -204,22 +198,22 @@
     ZCPBookReplyCellItem *bookreplyItem = (ZCPBookReplyCellItem *)cell.item;
     
     // 点赞图书回复
-    [[ZCPRequestManager sharedInstance] changeBookReplyCurrSupportState:bookreplyItem.bookreplySupported currBookReplyID:bookreplyItem.bookreplyId currUserID:[ZCPUserCenter sharedInstance].currentUserModel.userId success:^(AFHTTPRequestOperation *operation, BOOL isSuccess) {
+    [[ZCPRequestManager sharedInstance] changeBookReplyCurrSupportState:bookreplyItem.bookReplyModel.supported currBookReplyID:bookreplyItem.bookReplyModel.bookreplyId currUserID:[ZCPUserCenter sharedInstance].currentUserModel.userId success:^(AFHTTPRequestOperation *operation, BOOL isSuccess) {
         if (isSuccess) {
-            if (bookreplyItem.bookreplySupported == ZCPCurrUserNotSupportBookReply) {
+            if (bookreplyItem.bookReplyModel.supported == ZCPCurrUserNotSupportBookReply) {
                 button.selected = YES;
-                bookreplyItem.bookreplySupported = ZCPCurrUserHaveCollectBook;
-                cell.item.bookreplySupportNumber = cell.item.bookreplySupportNumber + 1;
-                cell.bookreplySupportLabel.text = [NSString stringWithFormat:@"%li", cell.item.bookreplySupportNumber];
+                bookreplyItem.bookReplyModel.supported = ZCPCurrUserHaveCollectBook;
+                cell.item.bookReplyModel.bookreplySupport = cell.item.bookReplyModel.bookreplySupport + 1;
+                cell.bookreplySupportLabel.text = [NSString stringWithFormat:@"%li", cell.item.bookReplyModel.bookreplySupport];
                 
                 TTDPRINT(@"点赞成功！");
                 [MBProgressHUD showSuccess:@"点赞成功！" toView:self.view];
             }
-            else if (bookreplyItem.bookreplySupported == ZCPCurrUserHaveSupportBookReply) {
+            else if (bookreplyItem.bookReplyModel.supported == ZCPCurrUserHaveSupportBookReply) {
                 button.selected = NO;
-                bookreplyItem.bookreplySupported = ZCPCurrUserNotSupportBookReply;
-                cell.item.bookreplySupportNumber = cell.item.bookreplySupportNumber - 1;
-                cell.bookreplySupportLabel.text = [NSString stringWithFormat:@"%li", cell.item.bookreplySupportNumber];
+                bookreplyItem.bookReplyModel.supported = ZCPCurrUserNotSupportBookReply;
+                cell.item.bookReplyModel.bookreplySupport = cell.item.bookReplyModel.bookreplySupport - 1;
+                cell.bookreplySupportLabel.text = [NSString stringWithFormat:@"%li", cell.item.bookReplyModel.bookreplySupport];
                 
                 TTDPRINT(@"取消点赞成功！");
                 [MBProgressHUD showSuccess:@"取消点赞成功！" toView:self.view];

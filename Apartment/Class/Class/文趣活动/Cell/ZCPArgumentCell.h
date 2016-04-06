@@ -30,15 +30,8 @@
 // 论据CellItem
 @interface ZCPArgumentCellItem : ZCPDataModel
 
-@property (nonatomic, assign) NSInteger argumentID;                         // 论据ID
-@property (nonatomic, assign) ZCPArgumentBelong argumentBelong;             // 论据所属正反方
-@property (nonatomic, copy) NSString *userHeadImgURL;                       // 用户头像URL
-@property (nonatomic, copy) NSString *userName;                             // 用户名
-@property (nonatomic, copy) NSString *argumentContent;                      // 论据内容
-@property (nonatomic, strong) NSDate *time;                                 // 论据发布时间
-@property (nonatomic, assign) NSInteger supportNumber;                      // 点赞人数
-@property (nonatomic, assign) ZCPArgumentSupportState argumentSupported;    // 论据点赞状态
-@property (nonatomic, weak) id<ZCPArgumentCellDelegate> delegate;           // delegate
+@property (nonatomic, strong) ZCPArgumentModel *argumentModel;      // 论据模型
+@property (nonatomic, weak) id<ZCPArgumentCellDelegate> delegate;   // delegate
 
 @end
 

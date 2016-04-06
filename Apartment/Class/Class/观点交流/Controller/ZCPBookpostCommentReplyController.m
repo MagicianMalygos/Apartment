@@ -46,15 +46,15 @@
     self.commentView.delegate = self;
     [self.view addSubview:self.commentView];
     
-    // 加载数据
-    [self loadData];
-    
     // 初始化上拉下拉刷新控件
     self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(headerRefresh)];
     self.tableView.mj_footer = [MJRefreshBackFooter footerWithRefreshingTarget:self refreshingAction:@selector(footerRefresh)];
 }
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    
+    // 加载数据
+    [self loadData];
     
     [self clearNavigationBar];
     self.title = @"回复列表";
@@ -132,11 +132,8 @@
                 TTDPRINT(@"取消点赞成功！");
                 [MBProgressHUD showSuccess:@"取消点赞成功！"];
             }
-            if (cell.item.replyModel.replySupport >= 1000) {
-                cell.supportNumberLabel.text = [NSString stringWithFormat:@"%.1fk", cell.item.replyModel.replySupport / 1000.0f];
-            } else {
-                cell.supportNumberLabel.text = [NSString stringWithFormat:@"%li", cell.item.replyModel.replySupport];
-            }
+
+            cell.supportNumberLabel.text = [NSString getFormateFromNumberOfPeople:cell.item.replyModel.replySupport];
         }
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         TTDPRINT(@"操作失败！%@", error);

@@ -89,11 +89,7 @@
         self.replyTimeLabel.text = [self.item.replyModel.replyTime toString];
         self.replyContentLabel.text = self.item.replyModel.replyContent;
         self.supportButton.selected = (self.item.replyModel.supported == ZCPCurrUserHaveSupportBookpostCommentReply)? YES: NO;
-        if (self.item.replyModel.replySupport >= 1000) {
-            self.supportNumberLabel.text = [NSString stringWithFormat:@"%.1fk", self.item.replyModel.replySupport / 1000.0f];
-        } else {
-            self.supportNumberLabel.text = [NSString stringWithFormat:@"%li", self.item.replyModel.replySupport];
-        }
+        self.supportNumberLabel.text = [NSString getFormateFromNumberOfPeople:self.item.replyModel.replySupport];
         
         // 设置frame
         self.replyContentLabel.height = [self.replyContentLabel.text boundingRectWithSize:CGSizeMake(self.replyContentLabel.width, CGFLOAT_MAX) options:NSStringDrawingUsesFontLeading| NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName: [UIFont defaultFontWithSize:13.0f]} context:nil].size.height;

@@ -9,7 +9,12 @@
 #import <Foundation/Foundation.h>
 
 @interface NSString (PAFormat)
+
+// 将人数规格化
++ (NSString *)getFormateFromNumberOfPeople:(NSInteger)numberOfPeople;
+
 + (NSString *)getFormateFileLength:(NSUInteger)length;
+
 @end
 
 #pragma mark - 电话格式化

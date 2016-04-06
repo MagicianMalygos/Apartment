@@ -76,7 +76,7 @@
         self.item = (ZCPBookReplyCellItem *)object;
         
         // 计算内容标签高度
-        CGFloat contentLabelHeight = [self.item.bookreplyContent boundingRectWithSize:CGSizeMake(APPLICATIONWIDTH - HorizontalMargin, CGFLOAT_MAX)
+        CGFloat contentLabelHeight = [self.item.bookReplyModel.bookreplyContent boundingRectWithSize:CGSizeMake(APPLICATIONWIDTH - HorizontalMargin, CGFLOAT_MAX)
                                                                               options:NSStringDrawingUsesFontLeading| NSStringDrawingUsesLineFragmentOrigin
                                                                            attributes:@{NSFontAttributeName: [UIFont defaultFontWithSize:15.0f]}
                                                                               context:nil].size.height;
@@ -101,12 +101,12 @@
         
         // 设置内容
         self.delegate = self.item.delegate;
-        self.supportButton.selected = (self.item.bookreplySupported == ZCPCurrUserHaveSupportBookReply)? YES: NO;
-        [self.userHeadImageView sd_setImageWithURL:[NSURL URLWithString:self.item.userHeadImageURL] placeholderImage:[UIImage imageNamed:HEAD_IMAGE_NAME_DEFAULT]];
-        self.userNameLabel.text = self.item.userName;
-        self.bookreplyContentLabel.text = self.item.bookreplyContent;
-        self.bookreplyTiemLabel.text = [self.item.bookreplyTime toString];
-        self.bookreplySupportLabel.text = [NSString stringWithFormat:@"%li", self.item.bookreplySupportNumber];
+        self.supportButton.selected = (self.item.bookReplyModel.supported == ZCPCurrUserHaveSupportBookReply)? YES: NO;
+        [self.userHeadImageView sd_setImageWithURL:[NSURL URLWithString:self.item.bookReplyModel.user.userFaceURL] placeholderImage:[UIImage imageNamed:HEAD_IMAGE_NAME_DEFAULT]];
+        self.userNameLabel.text = self.item.bookReplyModel.user.userName;
+        self.bookreplyContentLabel.text = self.item.bookReplyModel.bookreplyContent;
+        self.bookreplyTiemLabel.text = [self.item.bookReplyModel.bookreplyTime toString];
+        self.bookreplySupportLabel.text = [NSString stringWithFormat:@"%li", self.item.bookReplyModel.bookreplySupport];
     }
 }
 + (CGFloat)tableView:(UITableView *)tableView rowHeightForObject:(id)object {
@@ -115,7 +115,7 @@
     // 第一行
     CGFloat rowHeight1 = 20;
     // 第二行
-    CGFloat rowHeight2 = [item.bookreplyContent boundingRectWithSize:CGSizeMake(APPLICATIONWIDTH - HorizontalMargin, CGFLOAT_MAX)
+    CGFloat rowHeight2 = [item.bookReplyModel.bookreplyContent boundingRectWithSize:CGSizeMake(APPLICATIONWIDTH - HorizontalMargin, CGFLOAT_MAX)
                                                                   options:NSStringDrawingUsesFontLeading| NSStringDrawingUsesLineFragmentOrigin
                                                                attributes:@{NSFontAttributeName: [UIFont defaultFontWithSize:15.0f]}
                                                                   context:nil].size.height;
@@ -141,23 +141,7 @@
 
 @implementation ZCPBookReplyCellItem
 
-#pragma mark - sythesize
-@synthesize userHeadImageURL        = _userHeadImageURL;
-@synthesize userName                = _userName;
-@synthesize bookreplyId             = _bookreplyId;
-@synthesize bookreplyContent        = _bookreplyContent;
-@synthesize bookreplyTime           = _bookreplyTime;
-@synthesize bookreplySupported      = _bookreplySupported;
-@synthesize bookreplySupportNumber  = _bookreplySupportNumber;
-
 #pragma mark - instancetype
-- (instancetype)init {
-    if (self = [super init]) {
-        self.cellClass = [ZCPBookReplyCell class];
-        self.cellType = [ZCPBookReplyCell cellIdentifier];
-    }
-    return self;
-}
 - (instancetype)initWithDefault {
     if (self = [super initWithDefault]) {
         self.cellClass = [ZCPBookReplyCell class];

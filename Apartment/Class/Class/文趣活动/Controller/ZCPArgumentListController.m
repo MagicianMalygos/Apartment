@@ -66,14 +66,7 @@
     
     for (ZCPArgumentModel *model in self.argumentArr) {
         ZCPArgumentCellItem *argumentItem = [[ZCPArgumentCellItem alloc] initWithDefault];
-        argumentItem.argumentID = model.argumentId;
-        argumentItem.argumentBelong = model.argumentBelong;
-        argumentItem.userHeadImgURL = model.user.userFaceURL;
-        argumentItem.userName = model.user.userName;
-        argumentItem.argumentContent = model.argumentContent;
-        argumentItem.time = model.argumentTime;
-        argumentItem.supportNumber = model.argumentSupport;
-        argumentItem.argumentSupported = model.supported;
+        argumentItem.argumentModel = model;
         argumentItem.delegate = self;
         [items addObject:argumentItem];
     }
@@ -86,26 +79,25 @@
  *  点赞按钮响应事件
  */
 - (void)argumentCell:(ZCPArgumentCell *)cell supportButtonClicked:(UIButton *)button {
-    [[ZCPRequestManager sharedInstance] changeArgumentCurrSupportedState:cell.item.argumentSupported currArgumentID:cell.item.argumentID currUserID:[ZCPUserCenter sharedInstance].currentUserModel.userId success:^(AFHTTPRequestOperation *operation, BOOL isSuccess) {
+    [[ZCPRequestManager sharedInstance] changeArgumentCurrSupportedState:cell.item.argumentModel.supported currArgumentID:cell.item.argumentModel.argumentId currUserID:[ZCPUserCenter sharedInstance].currentUserModel.userId success:^(AFHTTPRequestOperation *operation, BOOL isSuccess) {
         if (isSuccess) {
-            if (cell.item.argumentSupported == ZCPCurrUserNotSupportArgument) {
+            if (cell.item.argumentModel.supported == ZCPCurrUserNotSupportArgument) {
                 button.selected = YES;
-                cell.item.argumentSupported = ZCPCurrUserHaveSupportArgument;
-                cell.item.supportNumber = cell.item.supportNumber + 1;
-                cell.supportNumberLabel.text = [NSString stringWithFormat:@"%li", cell.item.supportNumber];
+                cell.item.argumentModel.supported = ZCPCurrUserHaveSupportArgument;
+                cell.item.argumentModel.argumentSupport ++;
                 
                 TTDPRINT(@"点赞成功！");
                 [MBProgressHUD showSuccess:@"点赞成功！" toView:self.view];
             }
-            else if (cell.item.argumentSupported == ZCPCurrUserHaveSupportArgument) {
+            else if (cell.item.argumentModel.supported == ZCPCurrUserHaveSupportArgument) {
                 button.selected = NO;
-                cell.item.argumentSupported = ZCPCurrUserNotSupportArgument;
-                cell.item.supportNumber = cell.item.supportNumber - 1;
-                cell.supportNumberLabel.text = [NSString stringWithFormat:@"%li", cell.item.supportNumber];
+                cell.item.argumentModel.supported = ZCPCurrUserNotSupportArgument;
+                cell.item.argumentModel.argumentSupport --;
                 
                 TTDPRINT(@"取消点赞成功！");
                 [MBProgressHUD showSuccess:@"取消点赞成功！" toView:self.view];
             }
+            cell.supportNumberLabel.text = [NSString getFormateFromNumberOfPeople:cell.item.argumentModel.argumentSupport];
         }
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         TTDPRINT(@"操作失败！%@", error);

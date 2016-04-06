@@ -149,11 +149,7 @@
                 TTDPRINT(@"收藏成功！");
                 [MBProgressHUD showSuccess:@"收藏成功！"];
             }
-            if (cell.item.bookpostModel.bookpostCollectNumber >= 1000) {
-                cell.collectionNumberLabel.text = [NSString stringWithFormat:@"%.1fk 人收藏", cell.item.bookpostModel.bookpostCollectNumber / 1000.0f];
-            } else {
-                cell.collectionNumberLabel.text = [NSString stringWithFormat:@"%li 人收藏", cell.item.bookpostModel.bookpostCollectNumber];
-            }
+            cell.collectionNumberLabel.text = [NSString stringWithFormat:@"%@ 人收藏", [NSString getFormateFromNumberOfPeople:cell.item.bookpostModel.bookpostCollectNumber]];
         }
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         TTDPRINT(@"操作失败！%@", error);
@@ -183,11 +179,7 @@
                 TTDPRINT(@"取消点赞成功！");
                 [MBProgressHUD showSuccess:@"取消点赞成功！"];
             }
-            if (cell.item.bookpostModel.bookpostSupport >= 1000) {
-                cell.supportNumberLabel.text = [NSString stringWithFormat:@"%.1fk 人点赞", cell.item.bookpostModel.bookpostSupport / 1000.0f];
-            } else {
-                cell.supportNumberLabel.text = [NSString stringWithFormat:@"%li 人点赞", cell.item.bookpostModel.bookpostSupport];
-            }
+            cell.supportNumberLabel.text = [NSString stringWithFormat:@"%@ 人点赞", [NSString getFormateFromNumberOfPeople:cell.item.bookpostModel.bookpostSupport]];
         }
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         TTDPRINT(@"操作失败！%@", error);

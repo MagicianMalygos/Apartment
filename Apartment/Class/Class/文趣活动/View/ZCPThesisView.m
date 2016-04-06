@@ -317,7 +317,7 @@
         self.replyNumberLabel.font = [UIFont defaultFontWithSize:13.0f];
     }
     // 每次设置thesisModel需更新部分
-    self.replyNumberLabel.text = [NSString stringWithFormat:@"%lu 人回复", self.thesisModel.thesisProsReplyNumber + self.thesisModel.thesisConsReplyNumber];
+    self.replyNumberLabel.text = [NSString stringWithFormat:@"%@ 人回复", [NSString getFormateFromNumberOfPeople:self.thesisModel.thesisProsReplyNumber + self.thesisModel.thesisConsReplyNumber]];
     return self.replyNumberLabel;
 }
 /**
@@ -333,7 +333,7 @@
         self.collectionNumberLabel.font = [UIFont defaultFontWithSize:13.0f];
     }
     // 每次设置thesisModel需更新部分
-    self.collectionNumberLabel.text = [NSString stringWithFormat:@"%lu 人收藏", self.thesisModel.thesisCollectNumber];
+    self.collectionNumberLabel.text = [NSString stringWithFormat:@"%@ 人收藏", [NSString getFormateFromNumberOfPeople:self.thesisModel.thesisCollectNumber]];
     return self.collectionNumberLabel;
 }
 /**

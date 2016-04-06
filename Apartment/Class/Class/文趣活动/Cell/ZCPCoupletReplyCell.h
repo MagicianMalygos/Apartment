@@ -30,13 +30,7 @@
 // 对联回复CellItem
 @interface ZCPCoupletReplyCellItem : ZCPDataModel
 
-@property (nonatomic, assign) NSInteger replyId;                            // 回复Id
-@property (nonatomic, copy) NSString *replyContent;                         // 回复内容
-@property (nonatomic, copy) NSString *userHeadImageURL;                     // 用户头像URL
-@property (nonatomic, copy) NSString *userName;                             // 用户名
-@property (nonatomic, strong) NSDate *replyTime;                            // 回复时间
-@property (nonatomic, assign) NSInteger replySupportNumber;                 // 点赞量
-@property (nonatomic, assign) ZCPCoupletReplySupportState replySupported;   // 对联回复点赞状态
+@property (nonatomic, strong) ZCPCoupletReplyModel *coupletReplyModel;      // 对联回复模型
 @property (nonatomic, weak) id<ZCPCoupletReplyCellDelegate> delegate;       // delegate
 
 @end

@@ -64,11 +64,7 @@
         // 设置属性
         [self.userHeadImageView sd_setImageWithURL:[NSURL URLWithString:self.item.user.userFaceURL] placeholderImage:[UIImage imageNamed:HEAD_IMAGE_NAME_DEFAULT]];
         self.userNameLabel.text = self.item.user.userName;
-        if (self.item.commentSupport >= 1000) {
-            self.supportNumberLabel.text = [NSString stringWithFormat:@"%.1fk", self.item.commentSupport / 1000.0];
-        } else {
-            self.supportNumberLabel.text = [NSString stringWithFormat:@"%li", self.item.commentSupport];
-        }
+        self.supportNumberLabel.text = [NSString getFormateFromNumberOfPeople:self.item.commentSupport];
         self.commentContentLabel.text = self.item.commentContent;
         
         // 计算内容高度

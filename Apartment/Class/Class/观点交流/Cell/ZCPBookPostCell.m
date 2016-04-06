@@ -44,10 +44,10 @@
     // 第三行
     self.supportNumberLabel = [[UILabel alloc] init];
     self.supportNumberLabel.font = [UIFont defaultFontWithSize:13.0f];
-    self.replyNumberLabel = [[UILabel alloc] init];
-    self.replyNumberLabel.font = [UIFont defaultFontWithSize:13.0f];
     self.collectionNumberLabel = [[UILabel alloc] init];
     self.collectionNumberLabel.font = [UIFont defaultFontWithSize:13.0f];
+    self.replyNumberLabel = [[UILabel alloc] init];
+    self.replyNumberLabel.font = [UIFont defaultFontWithSize:13.0f];
     
     self.bpTitleLabel.backgroundColor = [UIColor clearColor];
     self.fieldLabel.backgroundColor = [UIColor clearColor];
@@ -72,10 +72,9 @@
         self.fieldLabel.text = self.item.field.fieldName;
         self.bookNameLabel.text = self.item.bookpostBookName;
         
-        self.supportNumberLabel.text = [NSString stringWithFormat:@"%li 人点赞", self.item.bookpostSupport];
-        self.replyNumberLabel.text = [NSString stringWithFormat:@"%li 人回复", self.item.bookpostReplyNumber];
-        self.collectionNumberLabel.text = [NSString stringWithFormat:@"%li 人收藏", self.item.bookpostCollectNumber];
-        
+        self.supportNumberLabel.text = [NSString stringWithFormat:@"%@ 人点赞", [NSString getFormateFromNumberOfPeople:self.item.bookpostSupport]];
+        self.collectionNumberLabel.text = [NSString stringWithFormat:@"%@ 人收藏", [NSString getFormateFromNumberOfPeople:self.item.bookpostCollectNumber]];
+        self.replyNumberLabel.text = [NSString stringWithFormat:@"%@ 人回复", [NSString getFormateFromNumberOfPeople:self.item.bookpostReplyNumber]];
         // 设置frame
         self.fieldLabel.frame = CGRectMake(HorizontalMargin, VerticalMargin, FieldLabelWidth, LabelHeight);
         self.bookNameLabel.frame = CGRectMake(self.fieldLabel.right + UIMargin
@@ -96,11 +95,11 @@
                                                    , self.bpTitleLabel.bottom + UIMargin
                                                    , NumberLabelWidth
                                                    , NumberLabelHeight);
-        self.replyNumberLabel.frame = CGRectMake(self.supportNumberLabel.right + UIMargin
+        self.collectionNumberLabel.frame = CGRectMake(self.supportNumberLabel.right + UIMargin
                                                  , self.bpTitleLabel.bottom + UIMargin
                                                  , NumberLabelWidth
                                                  , NumberLabelHeight);
-        self.collectionNumberLabel.frame = CGRectMake(self.replyNumberLabel.right + UIMargin
+        self.replyNumberLabel.frame = CGRectMake(self.collectionNumberLabel.right + UIMargin
                                                       , self.bpTitleLabel.bottom + UIMargin
                                                       , NumberLabelWidth
                                                       , NumberLabelHeight);

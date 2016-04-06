@@ -78,7 +78,7 @@
         self.item = (ZCPCoupletDetailCellItem *)object;
         
         // 计算高度
-        CGFloat contentHeight = [self.item.coupletContent boundingRectWithSize:CGSizeMake(CELLWIDTH_DEFAULT - HorizontalMargin * 2, CGFLOAT_MAX)
+        CGFloat contentHeight = [self.item.coupletModel.coupletContent boundingRectWithSize:CGSizeMake(CELLWIDTH_DEFAULT - HorizontalMargin * 2, CGFLOAT_MAX)
                                                                        options:NSStringDrawingUsesFontLeading| NSStringDrawingUsesLineFragmentOrigin
                                                                     attributes:@{NSFontAttributeName: [UIFont defaultBoldFontWithSize:18.0f]}
                                                                        context:nil].size.height;
@@ -103,12 +103,12 @@
         
         // 设置属性
         self.delegate = self.item.delegate;
-        self.supportButton.selected = (self.item.coupletSupported == ZCPCurrUserHaveSupportCouplet)? YES: NO;
-        self.collectionButton.selected = (self.item.coupletCollected == ZCPCurrUserHaveCollectCouplet)? YES: NO;
-        self.coupletContentLabel.text = self.item.coupletContent;
-        [self.userHeadImgView sd_setImageWithURL:[NSURL URLWithString:self.item.userHeadImageURL] placeholderImage:[UIImage imageNamed:HEAD_IMAGE_NAME_DEFAULT]];
-        self.userNameLabel.text = self.item.userName;
-        self.timeLabel.text = [self.item.time toString];
+        self.supportButton.selected = (self.item.coupletModel.supported == ZCPCurrUserHaveSupportCouplet)? YES: NO;
+        self.collectionButton.selected = (self.item.coupletModel.collected == ZCPCurrUserHaveCollectCouplet)? YES: NO;
+        self.coupletContentLabel.text = self.item.coupletModel.coupletContent;
+        [self.userHeadImgView sd_setImageWithURL:[NSURL URLWithString:self.item.coupletModel.user.userFaceURL] placeholderImage:[UIImage imageNamed:HEAD_IMAGE_NAME_DEFAULT]];
+        self.userNameLabel.text = self.item.coupletModel.user.userName;
+        self.timeLabel.text = [self.item.coupletModel.coupletTime toString];
         
         // 设置cell高度
         self.item.cellHeight = [NSNumber numberWithFloat:self.userHeadImgView.bottom + VerticalMargin];
@@ -123,7 +123,7 @@
     // 第一行
     CGFloat rowHeight1 = 20.0f;
     // 第二行
-    CGFloat rowHeight2 = [item.coupletContent boundingRectWithSize:CGSizeMake(CELLWIDTH_DEFAULT - HorizontalMargin * 2, CGFLOAT_MAX)
+    CGFloat rowHeight2 = [item.coupletModel.coupletContent boundingRectWithSize:CGSizeMake(CELLWIDTH_DEFAULT - HorizontalMargin * 2, CGFLOAT_MAX)
                                                            options:NSStringDrawingUsesFontLeading| NSStringDrawingUsesLineFragmentOrigin
                                                         attributes:@{NSFontAttributeName: [UIFont defaultBoldFontWithSize:18.0f]}
                                                            context:nil].size.height;
@@ -158,23 +158,10 @@
 @implementation ZCPCoupletDetailCellItem
 
 #pragma mark - synthesize
-@synthesize coupletContent      = _coupletContent;
-@synthesize coupletSupported    = _coupletSupported;
-@synthesize coupletCollected    = _coupletCollected;
-@synthesize userHeadImageURL    = _userHeadImageURL;
-@synthesize userName            = _userName;
-@synthesize time                = _time;
-@synthesize supportNumber       = _supportNumber;
-@synthesize delegate            = _delegate;
+@synthesize coupletModel    = _coupletModel;
+@synthesize delegate        = _delegate;
 
 #pragma mark - instancetype
-- (instancetype)init {
-    if (self = [super init]) {
-        self.cellClass = [ZCPCoupletDetailCell class];
-        self.cellType = [ZCPCoupletDetailCell cellIdentifier];
-    }
-    return self;
-}
 - (instancetype)initWithDefault {
     if (self = [super initWithDefault]) {
         self.cellClass = [ZCPCoupletDetailCell class];

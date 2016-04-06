@@ -100,21 +100,10 @@
         self.fieldLabel.text = self.item.bookpostModel.field.fieldName;
         self.bookNameLabel.text = self.item.bookpostModel.bookpostBookName;
         self.bpTimeLabel.text = [NSString stringWithFormat:@"发表于 %@", [self.item.bookpostModel.bookpostTime toString]];
-        if (self.item.bookpostModel.bookpostSupport >= 1000) {
-            self.supportNumberLabel.text = [NSString stringWithFormat:@"%.1fk 人点赞", self.item.bookpostModel.bookpostSupport / 1000.0f];
-        } else {
-            self.supportNumberLabel.text = [NSString stringWithFormat:@"%li 人点赞", self.item.bookpostModel.bookpostSupport];
-        }
-        if (self.item.bookpostModel.bookpostCollectNumber >= 1000) {
-            self.collectionNumberLabel.text = [NSString stringWithFormat:@"%.1fk 人收藏", self.item.bookpostModel.bookpostCollectNumber / 1000.0f];
-        } else {
-            self.collectionNumberLabel.text = [NSString stringWithFormat:@"%li 人收藏", self.item.bookpostModel.bookpostCollectNumber];
-        }
-        if (self.item.bookpostModel.bookpostReplyNumber >= 1000) {
-            self.replyNumberLabel.text = [NSString stringWithFormat:@"%.1fk 人回复", self.item.bookpostModel.bookpostReplyNumber / 1000.0f];
-        } else {
-            self.replyNumberLabel.text = [NSString stringWithFormat:@"%li 人回复", self.item.bookpostModel.bookpostReplyNumber];
-        }
+
+        self.supportNumberLabel.text = [NSString stringWithFormat:@"%@ 人点赞", [NSString getFormateFromNumberOfPeople:self.item.bookpostModel.bookpostSupport]];
+        self.collectionNumberLabel.text = [NSString stringWithFormat:@"%@ 人收藏", [NSString getFormateFromNumberOfPeople:self.item.bookpostModel.bookpostCollectNumber]];
+        self.replyNumberLabel.text = [NSString stringWithFormat:@"%@ 人回复", [NSString getFormateFromNumberOfPeople:self.item.bookpostModel.bookpostReplyNumber]];
         self.supportButton.selected = (self.item.bookpostModel.supported == ZCPCurrUserHaveSupportBookpost)? YES: NO;
         self.collectionButton.selected = (self.item.bookpostModel.collected == ZCPCurrUserHaveCollectBook)? YES: NO;
         

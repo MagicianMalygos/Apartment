@@ -82,10 +82,7 @@
         self.item = (ZCPCoupletReplyCellItem *)object;
         
         // 计算高度
-        CGFloat contentHeight = [self.item.replyContent boundingRectWithSize:CGSizeMake(CELLWIDTH_DEFAULT - HorizontalMargin * 2, CGFLOAT_MAX)
-                                                                     options:NSStringDrawingUsesFontLeading| NSStringDrawingUsesLineFragmentOrigin
-                                                                  attributes:@{NSFontAttributeName: [UIFont defaultBoldFontWithSize:18.0f]}
-                                                                     context:nil].size.height;
+        CGFloat contentHeight = [self.item.coupletReplyModel.replyContent boundingRectWithSize:CGSizeMake(CELLWIDTH_DEFAULT - HorizontalMargin * 2, CGFLOAT_MAX) options:NSStringDrawingUsesFontLeading| NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName: [UIFont defaultBoldFontWithSize:18.0f]} context:nil].size.height;
         
         // 设置frame
         self.replyContentLabel.frame = CGRectMake(HorizontalMargin
@@ -99,12 +96,12 @@
         
         // 设置内容
         self.delegate = self.item.delegate;
-        [self.userHeadImgView sd_setImageWithURL:[NSURL URLWithString:self.item.userHeadImageURL] placeholderImage:[UIImage imageNamed:HEAD_IMAGE_NAME_DEFAULT]];
-        self.replySupportLabel.text = [NSString stringWithFormat:@"%li", self.item.replySupportNumber];
-        self.supportButton.selected = (self.item.replySupported == ZCPCurrUserHaveSupportCoupletReply)? YES: NO;
-        self.userNameLabel.text = self.item.userName;
-        self.replyContentLabel.text = self.item.replyContent;
-        self.replyTimeLabel.text = [self.item.replyTime toString];
+        [self.userHeadImgView sd_setImageWithURL:[NSURL URLWithString:self.item.coupletReplyModel.user.userFaceURL] placeholderImage:[UIImage imageNamed:HEAD_IMAGE_NAME_DEFAULT]];
+        self.replySupportLabel.text = [NSString getFormateFromNumberOfPeople:self.item.coupletReplyModel.replySupport];
+        self.supportButton.selected = (self.item.coupletReplyModel.supported == ZCPCurrUserHaveSupportCoupletReply)? YES: NO;
+        self.userNameLabel.text = self.item.coupletReplyModel.user.userName;
+        self.replyContentLabel.text = self.item.coupletReplyModel.replyContent;
+        self.replyTimeLabel.text = [self.item.coupletReplyModel.replyTime toString];
         
         // 设置cell高度
         self.item.cellHeight = [NSNumber numberWithFloat:self.replyTimeLabel.bottom + VerticalMargin];
@@ -118,10 +115,7 @@
     // 第一行
     CGFloat rowHeight1 = 25.0f;
     // 第二行
-    CGFloat rowHeight2 = [item.replyContent boundingRectWithSize:CGSizeMake(CELLWIDTH_DEFAULT - HorizontalMargin * 2, CGFLOAT_MAX)
-                                                         options:NSStringDrawingUsesFontLeading| NSStringDrawingUsesLineFragmentOrigin
-                                                      attributes:@{NSFontAttributeName: [UIFont defaultBoldFontWithSize:18.0f]}
-                                                         context:nil].size.height;
+    CGFloat rowHeight2 = [item.coupletReplyModel.replyContent boundingRectWithSize:CGSizeMake(CELLWIDTH_DEFAULT - HorizontalMargin * 2, CGFLOAT_MAX) options:NSStringDrawingUsesFontLeading| NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName: [UIFont defaultBoldFontWithSize:18.0f]} context:nil].size.height;
     // 第三行
     CGFloat rowHeight3 = 20.0f;
     // cell高度
@@ -144,23 +138,10 @@
 @implementation ZCPCoupletReplyCellItem
 
 #pragma mark - synthesize
-@synthesize replyId             = _replyId;
-@synthesize replyContent        = _replyContent;
-@synthesize userHeadImageURL    = _userHeadImageURL;
-@synthesize userName            = _userName;
-@synthesize replyTime           = _replyTime;
-@synthesize replySupportNumber  = _replySupportNumber;
-@synthesize replySupported      = _replySupported;
+@synthesize coupletReplyModel   = _coupletReplyModel;
 @synthesize delegate            = _delegate;
 
 #pragma mark - instancetype
-- (instancetype)init {
-    if (self = [super init]) {
-        self.cellClass = [ZCPCoupletReplyCell class];
-        self.cellType = [ZCPCoupletReplyCell cellIdentifier];
-    }
-    return self;
-}
 - (instancetype)initWithDefault {
     if (self = [super initWithDefault]) {
         self.cellClass = [ZCPCoupletReplyCell class];

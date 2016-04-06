@@ -77,7 +77,7 @@
         self.item = (ZCPArgumentCellItem *)object;
         
         // 计算高度
-        CGFloat contentHeight = [self.item.argumentContent boundingRectWithSize:CGSizeMake(CELLWIDTH_DEFAULT - HorizontalMargin * 2, CGFLOAT_MAX)
+        CGFloat contentHeight = [self.item.argumentModel.argumentContent boundingRectWithSize:CGSizeMake(CELLWIDTH_DEFAULT - HorizontalMargin * 2, CGFLOAT_MAX)
                                                                         options:NSStringDrawingUsesFontLeading| NSStringDrawingUsesLineFragmentOrigin
                                                                      attributes:@{NSFontAttributeName: [UIFont defaultBoldFontWithSize:18.0f]}
                                                                         context:nil].size.height;
@@ -87,12 +87,12 @@
         
         // 设置内容
         self.delegate = self.item.delegate;
-        self.supportButton.selected = (self.item.argumentSupported == ZCPCurrUserHaveSupportArgument)? YES: NO;
-        [self.userHeadImgView sd_setImageWithURL:[NSURL URLWithString:self.item.userHeadImgURL] placeholderImage:[UIImage imageNamed:HEAD_IMAGE_NAME_DEFAULT]];
-        self.userNameLabel.text = self.item.userName;
-        self.supportNumberLabel.text = [NSString stringWithFormat:@"%li", self.item.supportNumber];
-        self.argumentContentLabel.text = self.item.argumentContent;
-        self.timeLabel.text = [self.item.time toString];
+        self.supportButton.selected = (self.item.argumentModel.supported == ZCPCurrUserHaveSupportArgument)? YES: NO;
+        [self.userHeadImgView sd_setImageWithURL:[NSURL URLWithString:self.item.argumentModel.user.userFaceURL] placeholderImage:[UIImage imageNamed:HEAD_IMAGE_NAME_DEFAULT]];
+        self.userNameLabel.text = self.item.argumentModel.user.userName;
+        self.supportNumberLabel.text = [NSString getFormateFromNumberOfPeople:self.item.argumentModel.argumentSupport];
+        self.argumentContentLabel.text = self.item.argumentModel.argumentContent;
+        self.timeLabel.text = [self.item.argumentModel.argumentTime toString];
         
         // 设置cell高度
         self.item.cellHeight = [NSNumber numberWithFloat:self.timeLabel.bottom + VerticalMargin];
@@ -106,7 +106,7 @@
     // 第一行
     CGFloat rowHeight1 = 25.0f;
     // 第二行
-    CGFloat rowHeight2 = [item.argumentContent boundingRectWithSize:CGSizeMake(CELLWIDTH_DEFAULT - HorizontalMargin * 2, CGFLOAT_MAX)
+    CGFloat rowHeight2 = [item.argumentModel.argumentContent boundingRectWithSize:CGSizeMake(CELLWIDTH_DEFAULT - HorizontalMargin * 2, CGFLOAT_MAX)
                                                             options:NSStringDrawingUsesFontLeading| NSStringDrawingUsesLineFragmentOrigin
                                                          attributes:@{NSFontAttributeName: [UIFont systemFontOfSize:17.0f weight:10.0f]}
                                                             context:nil].size.height;
@@ -130,24 +130,10 @@
 @implementation ZCPArgumentCellItem
 
 #pragma mark - synthesize
-@synthesize argumentID          = _argumentID;
-@synthesize argumentBelong      = _argumentBelong;
-@synthesize userHeadImgURL      = _userHeadImgURL;
-@synthesize userName            = _userName;
-@synthesize argumentContent     = _argumentContent;
-@synthesize time                = _time;
-@synthesize supportNumber       = _supportNumber;
-@synthesize argumentSupported   = _argumentSupported;
-@synthesize delegate            = _delegate;
+@synthesize argumentModel   = _argumentModel;
+@synthesize delegate        = _delegate;
 
 #pragma mark - instancetype
-- (instancetype)init {
-    if (self = [super init]) {
-        self.cellClass = [ZCPArgumentCell class];
-        self.cellType = [ZCPArgumentCell cellIdentifier];
-    }
-    return self;
-}
 - (instancetype)initWithDefault {
     if (self = [super initWithDefault]) {
         self.cellClass = [ZCPArgumentCell class];

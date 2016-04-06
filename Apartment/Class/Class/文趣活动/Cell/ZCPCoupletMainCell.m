@@ -78,8 +78,9 @@
         [self.userHeadImgView sd_setImageWithURL:[NSURL URLWithString:self.item.user.userFaceURL] placeholderImage:[UIImage imageNamed:HEAD_IMAGE_NAME_DEFAULT]];
         self.userNameLabel.text = self.item.user.userName;
         [self.coupletContentLabel setText:self.item.coupletContent];
-        self.supportLabel.text = [NSString stringWithFormat:@"%li 人点赞", self.item.coupletSupport];
-        self.replyNumLabel.text = [NSString stringWithFormat:@"%li 人回复", self.item.coupletReplyNumber];
+        
+        self.supportLabel.text = [NSString stringWithFormat:@"%@ 人点赞", [NSString getFormateFromNumberOfPeople:self.item.coupletSupport]];
+        self.replyNumLabel.text = [NSString stringWithFormat:@"%@ 人回复", [NSString getFormateFromNumberOfPeople:self.item.coupletReplyNumber]];
         self.timeLabel.text = [self.item.coupletTime toString];
         
         // 设置cell高度
