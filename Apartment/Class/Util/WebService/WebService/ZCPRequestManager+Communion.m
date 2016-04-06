@@ -330,6 +330,7 @@
  *  @param respondentID                被回复人
  */
 - (NSOperation *)addBookpostCommentReplyWithBookpostCommentReplyContent:(NSString *)bookpostCommentReplyContent
+                                                          isReplyAuthor:(BOOL)isReplyAuthor
                                                       bookpostCommentID:(NSInteger)bookpostCommentID
                                                              currUserID:(NSInteger)currUserID
                                                              receiverID:(NSInteger)receiverID
@@ -341,6 +342,7 @@
     
     AFHTTPRequestOperation *operation = [self POST:ZCPMakeURLString(scheme, host, path)
                                         parameters:@{@"bookpostCommentReplyContent": bookpostCommentReplyContent
+                                                     , @"isReplyAuthor": @(isReplyAuthor)
                                                      , @"bookpostCommentID": @(bookpostCommentID)
                                                      , @"currUserID": @(currUserID)
                                                      , @"receiverID": @(receiverID)}

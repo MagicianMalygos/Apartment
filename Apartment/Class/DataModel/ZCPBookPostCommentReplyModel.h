@@ -20,6 +20,7 @@ typedef NS_ENUM(NSInteger, ZCPBookpostCommentReplySupportState){
 
 @property (nonatomic, assign) NSInteger replyId;                                // 图书评论回复表编号
 @property (nonatomic, copy) NSString *replyContent;                             // 回复内容
+@property (nonatomic, assign) BOOL isReplyAuthor;                               // 是否是直接对作者进行的回复
 @property (nonatomic, assign) NSInteger replySupport;                           // 回复点赞量
 @property (nonatomic, strong) NSDate *replyTime;                                // 回复时间
 @property (nonatomic, strong) ZCPUserModel *user;                               // 回复人

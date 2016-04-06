@@ -154,6 +154,7 @@ typedef NS_ENUM(NSInteger, ZCPBookpostSortMethod){
  *  @param respondentID                被回复人
  */
 - (NSOperation *)addBookpostCommentReplyWithBookpostCommentReplyContent:(NSString *)bookpostCommentReplyContent
+                                                          isReplyAuthor:(BOOL)isReplyAuthor
                                                       bookpostCommentID:(NSInteger)bookpostCommentID
                                                              currUserID:(NSInteger)currUserID
                                                              receiverID:(NSInteger)receiverID

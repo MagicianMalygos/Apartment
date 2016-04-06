@@ -82,6 +82,7 @@
         
         ZCPBookpostCommentReplyCellItem *replyItem = [[ZCPBookpostCommentReplyCellItem alloc] initWithDefault];
         replyItem.replyModel = model;
+        replyItem.replyModel.comment = self.currCommentModel;
         replyItem.delegate = self;
         
         [items addObject:replyItem];
@@ -99,9 +100,9 @@
  */
 - (void)tableView:(UITableView *)tableView didSelectObject:(id<ZCPTableViewCellItemBasicProtocol>)object rowAtIndexPath:(NSIndexPath *)indexPath {
     
-    if ([object isKindOfClass:[ZCPBookPostCommentReplyModel class]]) {
-        ZCPBookPostCommentReplyModel *currReplyModel = (ZCPBookPostCommentReplyModel *)object;
-        self.receiverID = currReplyModel.user.userId;    // 暂存回复对应的用户ID
+    if ([object isKindOfClass:[ZCPBookpostCommentReplyCellItem class]]) {
+        ZCPBookpostCommentReplyCellItem *item = (ZCPBookpostCommentReplyCellItem *)object;
+        self.receiverID = item.replyModel.user.userId;    // 暂存回复对应的用户ID
         // 显示评论视图
         [self.commentView showCommentView];
     }
@@ -159,7 +160,7 @@
     }
     
     TTDPRINT(@"准备提交图书贴评论内容...");
-    [[ZCPRequestManager sharedInstance] addBookpostCommentReplyWithBookpostCommentReplyContent:replyContent bookpostCommentID:self.currCommentModel.commentId currUserID:[ZCPUserCenter sharedInstance].currentUserModel.userId receiverID:self.receiverID success:^(AFHTTPRequestOperation *operation, BOOL isSuccess) {
+    [[ZCPRequestManager sharedInstance] addBookpostCommentReplyWithBookpostCommentReplyContent:replyContent isReplyAuthor:NO bookpostCommentID:self.currCommentModel.commentId currUserID:[ZCPUserCenter sharedInstance].currentUserModel.userId receiverID:self.receiverID success:^(AFHTTPRequestOperation *operation, BOOL isSuccess) {
         if (isSuccess) {
             TTDPRINT(@"提交成功...");
             [MBProgressHUD showSuccess:@"添加回复成功！"];

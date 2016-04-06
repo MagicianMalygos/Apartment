@@ -16,6 +16,7 @@
 @synthesize replyId         = _replyId;
 @synthesize replyContent    = _replyContent;
 @synthesize replySupport    = _replySupport;
+@synthesize isReplyAuthor   = _isReplyAuthor;
 @synthesize replyTime       = _replyTime;
 @synthesize user            = _user;
 @synthesize receiver        = _receiver;

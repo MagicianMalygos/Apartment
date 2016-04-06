@@ -80,10 +80,27 @@
         // 设置属性
         [self.userHeadImageView sd_setImageWithURL:[NSURL URLWithString:self.item.replyModel.user.userFaceURL] placeholderImage:[UIImage imageNamed:HEAD_IMAGE_NAME_DEFAULT]];
         
-        if (self.item.replyModel.user.userId == self.item.replyModel.receiver.userId) {
-            self.userNameLabel.text = self.item.replyModel.user.userName;
+        if (self.item.replyModel.isReplyAuthor == YES) {
+            if (self.item.replyModel.user.userId == self.item.replyModel.comment.user.userId) {
+                self.userNameLabel.text = [NSString stringWithFormat:@"%@（作者）", self.item.replyModel.user.userName];
+            } else {
+                self.userNameLabel.text = self.item.replyModel.user.userName;
+            }
         } else {
-            self.userNameLabel.text = [NSString stringWithFormat:@"%@ 回复 %@", self.item.replyModel.user.userName, self.item.replyModel.receiver.userName];
+            if (self.item.replyModel.user.userId == self.item.replyModel.comment.user.userId) {
+                if (self.item.replyModel.receiver.userId != self.item.replyModel.comment.user.userId) {
+                    self.userNameLabel.text = [NSString stringWithFormat:@"%@(作者) 回复 %@", self.item.replyModel.user.userName, self.item.replyModel.receiver.userName];
+                } else {
+                    self.userNameLabel.text = [NSString stringWithFormat:@"%@(作者) 回复 %@（作者）", self.item.replyModel.user.userName, self.item.replyModel.receiver.userName];
+                }
+            }
+            if (self.item.replyModel.user.userId != self.item.replyModel.comment.user.userId) {
+                if (self.item.replyModel.receiver.userId == self.item.replyModel.comment.user.userId) {
+                    self.userNameLabel.text = [NSString stringWithFormat:@"%@ 回复 %@（作者）", self.item.replyModel.user.userName, self.item.replyModel.receiver.userName];
+                } else {
+                    self.userNameLabel.text = [NSString stringWithFormat:@"%@ 回复 %@", self.item.replyModel.user.userName, self.item.replyModel.receiver.userName];
+                }
+            }
         }
         
         self.replyTimeLabel.text = [self.item.replyModel.replyTime toString];

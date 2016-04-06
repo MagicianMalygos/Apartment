@@ -83,7 +83,7 @@
     }
     
     TTDPRINT(@"提交回复中...");
-    [[ZCPRequestManager sharedInstance] addBookpostCommentReplyWithBookpostCommentReplyContent:replyContent bookpostCommentID:self.currCommentModel.commentId currUserID:[ZCPUserCenter sharedInstance].currentUserModel.userId receiverID:self.currCommentModel.user.userId success:^(AFHTTPRequestOperation *operation, BOOL isSuccess) {
+    [[ZCPRequestManager sharedInstance] addBookpostCommentReplyWithBookpostCommentReplyContent:replyContent isReplyAuthor:YES bookpostCommentID:self.currCommentModel.commentId currUserID:[ZCPUserCenter sharedInstance].currentUserModel.userId receiverID:self.currCommentModel.user.userId success:^(AFHTTPRequestOperation *operation, BOOL isSuccess) {
         if (isSuccess) {
             TTDPRINT(@"提交回复成功！！");
             [MBProgressHUD showSuccess:@"回复添加成功！"];
