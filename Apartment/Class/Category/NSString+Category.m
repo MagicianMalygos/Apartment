@@ -147,6 +147,13 @@ NSString *fixIconString(NSString *iconString) {
 	return [testResult evaluateWithObject:self];
 }
 
+/* 判断一个字符串是否全由数字组成 */
+- (BOOL)is_numbers {
+    NSString *regPattern = @"[0-9]+";
+    NSPredicate *testResult = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", regPattern];
+    return [testResult evaluateWithObject:self];
+}
+
 -(NSString *)findNumStringIndexFromString
 {
     // Intermediate

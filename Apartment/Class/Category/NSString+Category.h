@@ -54,6 +54,9 @@ NSString *fixIconString(NSString *iconString);
 /* 判断一个字符串是否全由字母组成 */
 - (BOOL)is_letters;
 
+/* 判断一个字符串是否全由数字组成 */
+- (BOOL)is_numbers;
+
 //找出字符串中的数字字符串
 -(NSString *)findNumStringIndexFromString;
 

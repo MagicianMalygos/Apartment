@@ -10,6 +10,7 @@
 #import "ZCPSectionCell.h"
 #import "ZCPButtonCell.h"
 #import "ZCPTextFieldCell.h"
+#import "ZCPJudge.h"
 
 @interface ZCPSettingChangePwdController () <ZCPButtonCellDelegate>
 
@@ -71,7 +72,6 @@
     determineItem.buttonTitle = @"确认";
     determineItem.delegate = self;
     
-    
     NSMutableArray *items = [NSMutableArray array];
     [items addObject:sectionItem1];
     [items addObject:oldPwdItem];
@@ -89,6 +89,26 @@
 
 #pragma mark - ZCPButtonCell Delegate
 - (void)cell:(UITableViewCell *)cell buttonClicked:(UIButton *)button {
+    
+    ZCPTextFieldCellItem *oldPwdItem = [self.tableViewAdaptor.items objectAtIndex:1];
+    ZCPTextFieldCellItem *newPwdItem = [self.tableViewAdaptor.items objectAtIndex:3];
+    ZCPTextFieldCellItem *reNewPwdItem = [self.tableViewAdaptor.items objectAtIndex:5];
+    
+    NSString *oldPwd = oldPwdItem.textInputValue;
+    NSString *newPwd = newPwdItem.textInputValue;
+    NSString *reNewPwd = reNewPwdItem.textInputValue;
+    
+    // 输入检测
+    if ([ZCPJudge judgeOutOfRangeTextInput:oldPwd range:[ZCPLengthRange rangeWithMin:6 max:18] showErrorMsg:@"旧密码长度不符合规则！"]
+        || [ZCPJudge judgeOutOfRangeTextInput:newPwd range:[ZCPLengthRange rangeWithMin:6 max:18] showErrorMsg:@"新密码长度不符合规则！"]) {
+        return;
+    }
+    if (![newPwd isEqualToString:reNewPwd]) {
+        [MBProgressHUD showError:@"新密码两次输入不一致"];
+        return;
+    }
+    
+    // 提交
 }
 
 

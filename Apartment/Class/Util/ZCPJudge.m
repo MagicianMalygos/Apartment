@@ -76,7 +76,7 @@
     return [self judgeOutOfRangeTextInput:text range:range showErrorMsg:errorMsg toView:MYWINDOW];
 }
 + (BOOL)judgeOutOfRangeTextInput:(NSString *)text range:(ZCPLengthRange *)range showErrorMsg:(NSString *)errorMsg toView:(UIView *)view {
-    if (!text || ![self length:text.length inLengthRange:range]) {
+    if (!text || ![range numberInRange:text.length]) {
         [self showErrorMsg:errorMsg toView:view];
         return YES;
     }
@@ -99,13 +99,6 @@
 }
 
 #pragma mark - Other
-// 判断长度是否在范围内
-+ (BOOL)length:(NSUInteger)length inLengthRange:(ZCPLengthRange *)range {
-    if (length >= range.minValue && length <= range.maxValue) {
-        return YES;
-    }
-    return NO;
-}
 // 在view上显示错误信息
 + (void)showErrorMsg:(NSString *)errorMsg toView:(UIView *)view {
     if (errorMsg && view) {

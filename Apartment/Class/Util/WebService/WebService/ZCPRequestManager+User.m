@@ -80,7 +80,7 @@
                                  oldFieldIDArr:(NSArray *)oldFieldIDArr
                                  newFieldIDArr:(NSArray *)newFieldIDArr
                                     currUserID:(NSInteger)currUserID
-                                       success:(void (^)(AFHTTPRequestOperation *operation, BOOL isSuccess))success
+                                       success:(void (^)(AFHTTPRequestOperation *operation, BOOL isSuccess, ZCPUserModel *model))success
                                        failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure {
     
     NSString * scheme       = schemeForType(kURLTypeCommon);
@@ -94,8 +94,16 @@
                                                      , @"newFieldIDArr": newFieldIDArr
                                                      , @"currUserID": @(currUserID)}
                                            success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                                               ZCPUserModel *model = nil;
+                                               BOOL isSuccess = NO;
+                                               if ([responseObject isKindOfClass:[NSDictionary class]]
+                                                   && ([[responseObject valueForKey:@"code"] integerValue] == 0)) {
+                                                    isSuccess = YES;
+                                                    model = [ZCPRequestResponseTranslator translateResponse_UserModel:responseObject[@"data"][@"aUser"]];
+                                               }
+                                               
                                                if (success) {
-                                                   success(operation, [[responseObject valueForKey:@"result"] boolValue]);
+                                                   success(operation, isSuccess, model);
                                                }
                                            }
                                            failure:failure];

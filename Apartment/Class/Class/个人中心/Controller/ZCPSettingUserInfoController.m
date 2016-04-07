@@ -13,6 +13,7 @@
 #import "ZCPPickerView.h"
 #import "ZCPRequestManager+User.h"
 #import "ZCPFieldModel.h"
+#import "ZCPJudge.h"
 
 @interface ZCPSettingUserInfoController () <ZCPButtonCellDelegate>
 
@@ -71,6 +72,7 @@
     ageItem.textFieldConfigBlock = ^(UITextField *textField) {
         textField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"请输入年龄" attributes:@{NSFontAttributeName: [UIFont defaultBoldFontWithSize:15.0f], NSForegroundColorAttributeName: [UIColor lightGrayColor]}];
         textField.text = [NSString stringWithFormat:@"%li", [ZCPUserCenter sharedInstance].currentUserModel.userAge];
+        textField.keyboardType = UIKeyboardTypeNumberPad;
     };
     
     ZCPSectionCellItem *sectionItem2 = [[ZCPSectionCellItem alloc] initWithDefault];
@@ -133,8 +135,49 @@
 
 #pragma mark - ZCPButtonCell Delegate
 - (void)cell:(UITableViewCell *)cell buttonClicked:(UIButton *)button {
-    [[ZCPRequestManager sharedInstance] modifyUserInfoWithNewUserName:@"zcp" newUserAge:10 oldFieldIDArr:@[@(1), @(2), @(3)] newFieldIDArr:@[@(4), @(5), @(6)] currUserID:[ZCPUserCenter sharedInstance].currentUserModel.userId success:^(AFHTTPRequestOperation *operation, BOOL isSuccess) {
-        
+    
+    ZCPTextFieldCellItem *nameItem = [self.tableViewAdaptor.items objectAtIndex:1];
+    ZCPTextFieldCellItem *ageItem = [self.tableViewAdaptor.items objectAtIndex:2];
+    ZCPTextFieldCellItem *fieldItem = [self.tableViewAdaptor.items objectAtIndex:4];
+    NSString *userName = nameItem.textInputValue;
+    NSString *userAge = ageItem.textInputValue;
+    NSString *userFields = fieldItem.textInputValue;
+    NSArray *newFieldNameArr = [userFields componentsSeparatedByString:@" "];
+    NSMutableArray *newFieldIDArr = [NSMutableArray arrayWithCapacity:3];
+    for (NSString *fieldName in newFieldNameArr) {
+        [newFieldIDArr addObject:@([self.fieldArray indexOfObject:fieldName] + 1)];
+    }
+    NSMutableArray *oldFieldIDArr = [NSMutableArray arrayWithCapacity:3];
+    for (ZCPFieldModel *model in [ZCPUserCenter sharedInstance].currentUserModel.focusFieldArr) {
+        [oldFieldIDArr addObject:@(model.fieldId)];
+    }
+    
+    // 进行输入检测
+    if ([ZCPJudge judgeNullTextInput:userName showErrorMsg:@"用户名不能为空！"]
+        || [ZCPJudge judgeNullTextInput:userAge showErrorMsg:@"用户年龄不能为空"]) {
+        return;
+    }
+    if ([newFieldIDArr[0] integerValue] == [newFieldIDArr[1] integerValue]
+        || [newFieldIDArr[0] integerValue] == [newFieldIDArr[2] integerValue]
+        || [newFieldIDArr[1] integerValue] == [newFieldIDArr[2] integerValue]) {
+        [MBProgressHUD showError:@"领域不能有重复"];
+        return;
+    }
+    if (![userAge is_numbers]) {
+        [MBProgressHUD showError:@"年龄输入有误"];
+        return;
+    }
+    
+    // 提交保存
+    [[ZCPRequestManager sharedInstance] modifyUserInfoWithNewUserName:userName newUserAge:[userAge integerValue] oldFieldIDArr:oldFieldIDArr newFieldIDArr:newFieldIDArr currUserID:[ZCPUserCenter sharedInstance].currentUserModel.userId success:^(AFHTTPRequestOperation *operation, BOOL isSuccess, ZCPUserModel *model) {
+        if (isSuccess) {
+            [[ZCPUserCenter sharedInstance] saveUserModel:model];
+            TTDPRINT(@"用户信息更新成功！");
+            [MBProgressHUD showError:@"更新成功！"];
+        } else {
+            TTDPRINT(@"原信息与新信息相同！");
+            [MBProgressHUD showError:@"原信息与新信息相同！"];
+        }
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         TTDPRINT(@"%@", error);
     }];
