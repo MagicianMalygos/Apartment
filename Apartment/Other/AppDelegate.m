@@ -20,8 +20,18 @@
     // 初始化api
     [[ZCPURLCommon sharedInstance] initialize];
     
+    // 假数据,初始化用户信息，后面要改到通过登录注册
     [ZCPUserCenter sharedInstance].currentUserModel = [ZCPUserModel modelFromDictionary:@{@"userId":@(1)
-                                                                                          ,@"userName": @"zcp"}];
+                                                                                          , @"userAccount": @"1001"
+                                                                                          , @"userName": @"奥特曼"
+                                                                                          , @"userAge": @"18"
+                                                                                          , @"userFaceURL": @"201603302059038762.jpeg"
+                                                                                          , @"userScore": @"0"
+                                                                                          , @"userEXP": @"483"
+                                                                                          , @"userLevel": @"白衣文士"
+                                                                                          , @"focusFieldArr": @[@{@"fieldId":@(1), @"fieldName": @"散文"}
+                                                                                                                , @{@"fieldId":@(2), @"fieldName": @"军事"}
+                                                                                                                , @{@"fieldId":@(3), @"fieldName": @"传记"}]}];
     
     self.window = [[ZCPNavigator sharedInstance] window];
     [[ZCPNavigator sharedInstance] setupRootViewController];

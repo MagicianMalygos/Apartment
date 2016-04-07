@@ -71,7 +71,7 @@
         textField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"请输入相关图书名" attributes:@{NSFontAttributeName: [UIFont defaultBoldFontWithSize:15.0f], NSForegroundColorAttributeName: [UIColor lightGrayColor]}];
     };
     // 领域
-    ZCPPickerView *typePicker = getPicker(self.fieldArray);
+    ZCPPickerView *typePicker = getPicker(@[self.fieldArray]);
     ZCPLabelTextFieldCellItem *fieldItem = [[ZCPLabelTextFieldCellItem alloc] initWithDefault];
     fieldItem.labelText = @"类型";
     fieldItem.textFieldConfigBlock = ^(UITextField *textField) {

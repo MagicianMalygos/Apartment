@@ -36,19 +36,17 @@
     [super didMoveToSuperview];
     
     self.selectedValues = [NSMutableArray array];  // 重置数组
+    
     for (int i = 0; i < self.optionsArr.count; i++) {
         NSInteger row = [self.pickerView selectedRowInComponent:i];
-        [self.selectedValues addObject:self.optionsArr[i][row]];
-    }
-    
-    // 设置绑定的textField的内容
-    for (int i = 0; i < self.selectedValues.count; i++) {
-        if (i == self.selectedValues.count - 1) {
-            self.bindingTextField.text = self.selectedValues[i];
+        if (self.optionsArr[i] && [(NSArray *)self.optionsArr[i] count]) {
+            [self.selectedValues addObject:self.optionsArr[i][row]];
         } else {
-            self.bindingTextField.text = [self.selectedValues[i] stringByAppendingString:@" "];
+            [self.selectedValues addObject:@""];
         }
     }
+    
+    [self setBindingText];
 }
 
 #pragma mark - UIPickerView Delegate & DataSource
@@ -75,16 +73,26 @@
  *  picker值发生改变
  */
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component {
-    [self.selectedValues replaceObjectAtIndex:component withObject:[[self.optionsArr objectAtIndex:component] objectAtIndex:row]];
+    NSString *newValue = @"";
+    if (self.optionsArr[component] && [(NSArray *)self.optionsArr[component] count]) {
+        newValue = [[self.optionsArr objectAtIndex:component] objectAtIndex:row];
+    }
+    [self.selectedValues replaceObjectAtIndex:component withObject:newValue];
     
-    // 设置绑定的textField的内容
+    [self setBindingText];
+}
+
+#pragma mark - private method
+// 设置绑定文本输入框的内容
+- (void)setBindingText {
+    NSString *text = @"";
     for (int i = 0; i < self.selectedValues.count; i++) {
-        if (i == self.selectedValues.count - 1) {
-            self.bindingTextField.text = self.selectedValues[i];
-        } else {
-            self.bindingTextField.text = [self.selectedValues[i] stringByAppendingString:@" "];
+        text = [text stringByAppendingString:self.selectedValues[i]];
+        if (i != self.selectedValues.count - 1) {
+            text = [text stringByAppendingString:@" "];
         }
     }
+    self.bindingTextField.text = text;
 }
 
 @end
@@ -92,8 +100,15 @@
 /**
  *  获取自定义选择器
  */
-ZCPPickerView *getPicker(NSArray *optionsArr) {
+ZCPPickerView *getPicker(NSArray *componentArray) {
     ZCPPickerView *pickerView = [[ZCPPickerView alloc] initWithFrame:CGRectMake(0, 0, APPLICATIONWIDTH, 200)];
-    pickerView.optionsArr = optionsArr? @[[optionsArr mutableCopy]]: @[[NSArray array]];
+    
+    NSMutableArray *tempComponentArray = [NSMutableArray array];
+    for (NSArray *array in componentArray) {
+        if (array && [array isKindOfClass:[NSArray class]]) {
+            [tempComponentArray addObject:[array mutableCopy]];
+        }
+    }
+    pickerView.optionsArr = tempComponentArray;
     return pickerView;
 }

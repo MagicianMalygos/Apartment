@@ -46,6 +46,7 @@
     
     // 添加键盘响应事件
     [self registerKeyboardNotification];
+    [self unregisterKeyboardIQ];
 }
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
@@ -127,6 +128,17 @@
 - (void)keyboardWillChangeFrame:(NSNotification *)notification {
 }
 - (void)keyboardDidChangeFrame:(NSNotification *)notification {
+}
+
+// IQKeyboardManager
+- (void)registerKeyboardIQ {
+    [IQKeyboardManager sharedManager].enable = YES;
+    [IQKeyboardManager sharedManager].enableAutoToolbar = YES;
+    [IQKeyboardManager sharedManager].shouldResignOnTouchOutside = self.needsTapToDismissKeyboard.boolValue;
+}
+- (void)unregisterKeyboardIQ {
+    [IQKeyboardManager sharedManager].enable = NO;
+    [IQKeyboardManager sharedManager].enableAutoToolbar = NO;
 }
 
 #pragma mark - getter / setter

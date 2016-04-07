@@ -25,5 +25,6 @@
 @property (nonatomic, copy) NSString *placeholder;              // 提示文字
 @property (nonatomic, assign) UIEdgeInsets textEdgeInset;       // 输入框外边距
 @property (nonatomic, copy) NSString *textInputValue;           // 文本输入内容
+@property (nonatomic, weak) id<UITextViewDelegate> delegate;    // delegate
 
 @end

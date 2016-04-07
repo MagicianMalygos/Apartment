@@ -27,6 +27,7 @@
 @property (nonatomic, assign) NSUInteger maxValue;
 
 + (instancetype)rangeWithMin:(NSUInteger)minValue max:(NSUInteger)maxValue;
+- (BOOL)numberInRange:(NSInteger)number;
 
 @end
 

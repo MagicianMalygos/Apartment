@@ -23,18 +23,33 @@
 
 
 /**
+ *  修改用户信息
+ *
+ *  @param newUserName      新用户名
+ *  @param newUserAge       新年龄
+ *  @param oldFieldIDArr    就领域ID数组
+ *  @param newFieldArr      新领域ID数组
+ *  @param currUserID       当前用户ID
+ */
+- (NSOperation *)modifyUserInfoWithNewUserName:(NSString *)newUserName
+                                    newUserAge:(NSInteger)newUserAge
+                                 oldFieldIDArr:(NSArray *)oldFieldIDArr
+                                 newFieldIDArr:(NSArray *)newFieldIDArr
+                                    currUserID:(NSInteger)currUserID
+                                       success:(void (^)(AFHTTPRequestOperation *operation, BOOL isSuccess))success
+                                       failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure;
+
+/**
  *  修改密码
  *
  *  @param newPassword 新密码
  *  @param oldPassword 旧密码
- *  @param userID      用户ID
+ *  @param currUserID  用户ID
  */
-- (NSOperation *)changePassword:(NSString *)newPassword
+- (NSOperation *)modifyPassword:(NSString *)newPassword
                     oldPassword:(NSString *)oldPassword
-                         userID:(NSInteger)userID
+                     currUserID:(NSInteger)currUserID
                         success:(void (^)(AFHTTPRequestOperation *operation, BOOL isSuccess))success
                         failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure;
-
-- (NSOperation *)changeSecurity;
 
 @end

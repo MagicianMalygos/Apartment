@@ -111,6 +111,8 @@ IMP_SINGLETON
                      , CHANGE_BOOK_REPLY_SUPPORT_STATE:         @"/1.0/library/changeBookReplySupportRecord"
                      /* - 个人中心相关 - */
                      , UPLOAD_HEAD:                             @"/1.0/user/uploadUserHead"
+                     , MODIFY_USER_INFO:                        @"/1.0/user/modifyUserInfo"
+                     , MODIFY_USER_PASSWORD:                    @"/1.0/user/modifyUserPassword"
                      };
 }
 

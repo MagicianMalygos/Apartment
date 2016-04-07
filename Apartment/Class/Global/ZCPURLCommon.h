@@ -57,6 +57,8 @@
 
 #pragma mark - - - - - - 个人中心相关
 #define UPLOAD_HEAD                                             @"UPLOAD_HEAD"
+#define MODIFY_USER_INFO                                        @"MODIFY_USER_INFO"
+#define MODIFY_USER_PASSWORD                                    @"MODIFY_USER_PASSWORD"
 
 // 协议 + host + path
 NSString *  ZCPMakeURLString(NSString *scheme, NSString *host, NSString *path);

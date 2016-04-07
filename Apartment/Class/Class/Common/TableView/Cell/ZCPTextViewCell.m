@@ -37,6 +37,7 @@
         
         // 设置属性
         self.textView.placeholder = self.item.placeholder;
+        self.textView.delegate = self.item.delegate;
     }
 }
 + (CGFloat)tableView:(UITableView *)tableView rowHeightForObject:(id)object {

@@ -27,6 +27,12 @@
     }
     return self;
 }
+- (BOOL)numberInRange:(NSInteger)number {
+    if (self.minValue <= number && number <= self.maxValue) {
+        return YES;
+    }
+    return NO;
+}
 
 @end
 

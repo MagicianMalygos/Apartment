@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = 'C8FE4E45BFA3A22EE4D1AF62'
+               BlueprintIdentifier = '7FE59DD94D9794E7B2E19103'
                BlueprintName = 'MGBoxKit'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'libMGBoxKit.a'>

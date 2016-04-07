@@ -67,6 +67,43 @@
 }
 
 /**
+ *  修改用户信息
+ *
+ *  @param newUserName      新用户名
+ *  @param newUserAge       新年龄
+ *  @param oldFieldIDArr    就领域ID数组
+ *  @param newFieldArr      新领域ID数组
+ *  @param currUserID       当前用户ID
+ */
+- (NSOperation *)modifyUserInfoWithNewUserName:(NSString *)newUserName
+                                    newUserAge:(NSInteger)newUserAge
+                                 oldFieldIDArr:(NSArray *)oldFieldIDArr
+                                 newFieldIDArr:(NSArray *)newFieldIDArr
+                                    currUserID:(NSInteger)currUserID
+                                       success:(void (^)(AFHTTPRequestOperation *operation, BOOL isSuccess))success
+                                       failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure {
+    
+    NSString * scheme       = schemeForType(kURLTypeCommon);
+    NSString * host         = hostForType(kURLTypeCommon);
+    NSString * path         = urlForKey(MODIFY_USER_INFO);
+    
+    AFHTTPRequestOperation *operation = [self POST:ZCPMakeURLString(scheme, host, path)
+                                        parameters:@{@"newUserName": newUserName
+                                                     , @"newUserAge": @(newUserAge)
+                                                     , @"oldFieldIDArr": oldFieldIDArr
+                                                     , @"newFieldIDArr": newFieldIDArr
+                                                     , @"currUserID": @(currUserID)}
+                                           success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                                               if (success) {
+                                                   success(operation, [[responseObject valueForKey:@"result"] boolValue]);
+                                               }
+                                           }
+                                           failure:failure];
+    TTDPRINT(@"URL=%@  params=%@", operation.request.URL, [[NSString alloc] initWithData:operation.request.HTTPBody encoding:NSUTF8StringEncoding]);
+    return operation;
+}
+
+/**
  *  修改密码
  *
  *  @param newPassword 新密码
@@ -74,16 +111,20 @@
  *  @param userID      用户ID
  *
  */
-- (NSOperation *)changePassword:(NSString *)newPassword
+- (NSOperation *)modifyPassword:(NSString *)newPassword
                     oldPassword:(NSString *)oldPassword
-                         userID:(NSInteger)userID
+                     currUserID:(NSInteger)currUserID
                         success:(void (^)(AFHTTPRequestOperation *operation, BOOL isSuccess))success
                         failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure {
     
-    AFHTTPRequestOperation *operation = [self POST:@""
+    NSString * scheme       = schemeForType(kURLTypeCommon);
+    NSString * host         = hostForType(kURLTypeCommon);
+    NSString * path         = urlForKey(MODIFY_USER_INFO);
+    
+    AFHTTPRequestOperation *operation = [self POST:ZCPMakeURLString(scheme, host, path)
                                         parameters:@{@"newPassword":newPassword
                                                      ,@"oldPassword":oldPassword
-                                                     ,@"userId":@(userID)}
+                                                     ,@"currUserID":@(currUserID)}
                                            success:^(AFHTTPRequestOperation *operation, id responseObject) {
                                                
                                            }

@@ -23,6 +23,7 @@ IMP_SINGLETON
     return self;
 }
 
+// 保存用户模型
 - (void)saveUserModel:(ZCPUserModel *)userModel {
     if (userModel == nil) {
         self.currentUserModel = [ZCPUserModel new];
@@ -31,10 +32,12 @@ IMP_SINGLETON
     // 设置
     self.currentUserModel = userModel;
 }
+// 清空用户模型
 - (void)clearUserModel {
     [[ZCPUserCenter sharedInstance] saveUserModel:nil];
     self.login = NO;
 }
+// 登出
 - (void)logout {
     [[ZCPUserCenter sharedInstance] clearUserModel];
 }

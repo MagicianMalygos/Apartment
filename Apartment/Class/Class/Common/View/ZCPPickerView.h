@@ -20,4 +20,4 @@
 /**
  *  获取自定义选择器
  */
-ZCPPickerView *getPicker(NSArray *optionsArr);
+ZCPPickerView *getPicker(NSArray *componentArray);

@@ -58,6 +58,7 @@
 #import <UIImageView+WebCache.h>
 #import <MJRefresh.h>
 #import <MBProgressHUD.h>
+#import <IQKeyboardManager.h>
 
 
 #endif /* ZCPBasicHeaders_h */

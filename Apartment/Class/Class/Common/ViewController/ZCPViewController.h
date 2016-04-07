@@ -33,6 +33,10 @@
 - (void)keyboardWillChangeFrame:(NSNotification *)notification;
 - (void)keyboardDidChangeFrame:(NSNotification *)notification;
 
+// IQKeyboardManager
+- (void)registerKeyboardIQ;
+- (void)unregisterKeyboardIQ;
+
 #pragma mark - NavigationBar
 // 重写此方法，返回YES为隐藏
 - (BOOL)isHideLeftBarButton;

@@ -30,10 +30,11 @@
         value = [value toDate];
     }
     if ([key isEqualToString:@"focusFieldArr"]) {
-        value = [NSMutableArray array];
+        NSMutableArray *fieldArray = [NSMutableArray array];
         for (NSDictionary *fieldDict in value) {
-            [value addObject:[ZCPFieldModel modelFromDictionary:fieldDict]];
+            [fieldArray addObject:[ZCPFieldModel modelFromDictionary:fieldDict]];
         }
+        value = fieldArray;
     }
     [super setValue:value forKey:key];
 }

@@ -20,6 +20,10 @@
 @implementation ZCPAddThesisController
 
 #pragma mark - life cycle
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    [self registerKeyboardIQ];
+}
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     self.title = @"分享辩题";
@@ -27,6 +31,10 @@
 - (void)viewWillLayoutSubviews {
     [super viewWillLayoutSubviews];
     self.tableView.frame = CGRectMake(0, 0, APPLICATIONWIDTH, APPLICATIONHEIGHT - Height_NavigationBar);
+}
+- (void)viewDidDisappear:(BOOL)animated {
+    [super viewDidDisappear:animated];
+    [self unregisterKeyboardIQ];
 }
 
 #pragma mark - Construct Data

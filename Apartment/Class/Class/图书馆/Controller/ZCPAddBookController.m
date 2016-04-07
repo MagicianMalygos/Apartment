@@ -40,6 +40,10 @@
 }
 
 #pragma mark - life cycle
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    [self registerKeyboardIQ];
+}
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [self clearNavigationBar];
@@ -48,6 +52,10 @@
 - (void)viewWillLayoutSubviews {
     [super viewWillLayoutSubviews];
     self.tableView.frame = CGRectMake(0, 0, APPLICATIONWIDTH, APPLICATIONHEIGHT - Height_NavigationBar);
+}
+- (void)viewDidDisappear:(BOOL)animated {
+    [super viewDidDisappear:animated];
+    [self unregisterKeyboardIQ];
 }
 
 #pragma mark - Construct Data
@@ -89,7 +97,7 @@
         textField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"请选择出版时间" attributes:@{NSFontAttributeName: [UIFont defaultBoldFontWithSize:15.0f], NSForegroundColorAttributeName: [UIColor lightGrayColor]}];
     };
     // 所属类型
-    ZCPPickerView *typePicker = getPicker(self.fieldArray);
+    ZCPPickerView *typePicker = getPicker(@[self.fieldArray]);
     ZCPLabelTextFieldCellItem *fieldItem = [[ZCPLabelTextFieldCellItem alloc] initWithDefault];
     fieldItem.labelText = @"类型：";
     fieldItem.textFieldConfigBlock = ^(UITextField *textField) {
