@@ -82,13 +82,6 @@
     changePwd.cellHeight = @50;
     changePwd.text = [[NSMutableAttributedString alloc] initWithString:@"修改密码" attributes:@{NSForegroundColorAttributeName: textColor}];
     
-    // 修改密保
-    ZCPTextCellItem *changeSecurity = [[ZCPTextCellItem alloc] initWithDefault];
-    changeSecurity.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-    changeSecurity.cellTag = ZCPSettingChangeSecurityCellTag;
-    changeSecurity.cellHeight = @50;
-    changeSecurity.text = [[NSMutableAttributedString alloc] initWithString:@"修改密保" attributes:@{NSForegroundColorAttributeName: textColor}];
-    
     ZCPLineCellItem *blankItem = [[ZCPLineCellItem alloc] initWithDefault];
     
     // 退出登录
@@ -104,7 +97,6 @@
     [items addObject:sectionItem2];
     [items addObject:userInfoItem];
     [items addObject:changePwd];
-    [items addObject:changeSecurity];
     
     [items addObject:blankItem];
     [items addObject:logoutItem];
@@ -168,10 +160,6 @@
             break;
         case ZCPSettingChangePwdCellTag:
             [[ZCPNavigator sharedInstance] gotoViewWithIdentifier:APPURL_VIEW_IDENTIFIER_USER_SETTING_CHANGEPWD
-                                                 paramDictForInit:nil];
-            break;
-        case ZCPSettingChangeSecurityCellTag:
-            [[ZCPNavigator sharedInstance] gotoViewWithIdentifier:APPURL_VIEW_IDENTIFIER_USER_SETTING_CHANGESECURITY
                                                  paramDictForInit:nil];
             break;
         default:

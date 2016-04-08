@@ -160,7 +160,7 @@
     if ([newFieldIDArr[0] integerValue] == [newFieldIDArr[1] integerValue]
         || [newFieldIDArr[0] integerValue] == [newFieldIDArr[2] integerValue]
         || [newFieldIDArr[1] integerValue] == [newFieldIDArr[2] integerValue]) {
-        [MBProgressHUD showError:@"领域不能有重复"];
+        [MBProgressHUD showError:@"类型不能有重复"];
         return;
     }
     if (![userAge is_numbers]) {

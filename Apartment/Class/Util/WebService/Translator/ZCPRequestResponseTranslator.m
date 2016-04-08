@@ -27,21 +27,6 @@
     return model;
 }
 /**
- *  密保问题模型转换
- *
- *  @param responseData 属性字典
- *
- *  @return 密保问题模型
- */
-+ (ZCPSecurityQuestionModel *)translateResponse_SecurityQuestionModel:(NSDictionary *)responseData {
-    ZCPSecurityQuestionModel *model = nil;
-    if ([responseData isKindOfClass:[NSDictionary class]]) {
-        // 在此处写字典转模型代码
-        model = [ZCPSecurityQuestionModel modelFromDictionary:responseData];
-    }
-    return model;
-}
-/**
  *  领域模型转换
  *
  *  @param responseData 属性字典

@@ -11,6 +11,7 @@
 #import "ZCPButtonCell.h"
 #import "ZCPTextFieldCell.h"
 #import "ZCPJudge.h"
+#import "ZCPRequestManager+User.h"
 
 @interface ZCPSettingChangePwdController () <ZCPButtonCellDelegate>
 
@@ -38,11 +39,12 @@
     ZCPSectionCellItem *sectionItem1 = [[ZCPSectionCellItem alloc] initWithDefault];
     sectionItem1.backgroundColor = [UIColor lightGrayColor];;
     sectionItem1.titleEdgeInset = UIEdgeInsetsZero;
-    sectionItem1.sectionAttrTitle = [[NSMutableAttributedString alloc] initWithString:@"请输入旧密码" attributes:@{NSForegroundColorAttributeName: textColor, NSFontAttributeName: [UIFont defaultFontWithSize:14.0f]}];
+    sectionItem1.sectionAttrTitle = [[NSMutableAttributedString alloc] initWithString:@"请输入原密码" attributes:@{NSForegroundColorAttributeName: textColor, NSFontAttributeName: [UIFont defaultFontWithSize:14.0f]}];
     // 密码
     ZCPTextFieldCellItem *oldPwdItem = [[ZCPTextFieldCellItem alloc] initWithDefault];
     oldPwdItem.textFieldConfigBlock = ^(UITextField *textField) {
-        textField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"请输入旧密码" attributes:@{NSFontAttributeName: [UIFont defaultBoldFontWithSize:15.0f], NSForegroundColorAttributeName: [UIColor lightGrayColor]}];
+        textField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"请输入原密码" attributes:@{NSFontAttributeName: [UIFont defaultBoldFontWithSize:15.0f], NSForegroundColorAttributeName: [UIColor lightGrayColor]}];
+        textField.secureTextEntry = YES;
     };
     
     ZCPSectionCellItem *sectionItem2 = [[ZCPSectionCellItem alloc] initWithDefault];
@@ -53,6 +55,7 @@
     ZCPTextFieldCellItem *newPwdItem = [[ZCPTextFieldCellItem alloc] initWithDefault];
     newPwdItem.textFieldConfigBlock = ^(UITextField *textField) {
         textField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"请输入新密码" attributes:@{NSFontAttributeName: [UIFont defaultBoldFontWithSize:15.0f], NSForegroundColorAttributeName: [UIColor lightGrayColor]}];
+        textField.secureTextEntry = YES;
     };
     
     ZCPSectionCellItem *sectionItem3 = [[ZCPSectionCellItem alloc] initWithDefault];
@@ -63,6 +66,7 @@
     ZCPTextFieldCellItem *reNewPwdItem = [[ZCPTextFieldCellItem alloc] initWithDefault];
     reNewPwdItem.textFieldConfigBlock = ^(UITextField *textField) {
         textField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"请再次输入" attributes:@{NSFontAttributeName: [UIFont defaultBoldFontWithSize:15.0f], NSForegroundColorAttributeName: [UIColor lightGrayColor]}];
+        textField.secureTextEntry = YES;
     };
     
     ZCPLineCellItem *blankItem = [[ZCPLineCellItem alloc] initWithDefault];
@@ -109,6 +113,22 @@
     }
     
     // 提交
+    WEAK_SELF;
+    [[ZCPRequestManager sharedInstance] modifyPassword:newPwd oldPassword:oldPwd currUserID:[ZCPUserCenter sharedInstance].currentUserModel.userId success:^(AFHTTPRequestOperation *operation, BOOL isSuccess, ZCPUserModel *model) {
+        STRONG_SELF;
+        if (isSuccess) {
+            [[ZCPUserCenter sharedInstance] saveUserModel:model];
+            TTDPRINT(@"用户密码修改成功！");
+            [MBProgressHUD showError:@"修改成功！"];
+            
+            // reload清空数据
+            [self constructData];
+            [weakSelf.tableView reloadData];
+        }
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        TTDPRINT(@"%@", error);
+        [MBProgressHUD showError:@"修改失败！网络异常！"];
+    }];
 }
 
 

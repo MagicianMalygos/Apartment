@@ -40,7 +40,6 @@
 
 #define APPURL_VIEW_IDENTIFIER_USER_SETTING_USERINFO        @"ZCPSettingUserInfoController"
 #define APPURL_VIEW_IDENTIFIER_USER_SETTING_CHANGEPWD       @"ZCPSettingChangePwdController"
-#define APPURL_VIEW_IDENTIFIER_USER_SETTING_CHANGESECURITY  @"ZCPSettingChangeSecurityController"
 
 
 #endif /* ZCPViewMap_h */

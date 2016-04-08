@@ -21,7 +21,6 @@ typedef NS_ENUM(NSUInteger, ZCPUserCellTag) {
 typedef NS_ENUM(NSUInteger, ZCPSettingCellTag) {
     ZCPSettingUserInfoCellTag = 200,    // 设置用户信息cell标识
     ZCPSettingChangePwdCellTag,         // 修改密码cell标识
-    ZCPSettingChangeSecurityCellTag     // 修改密保cell标识
 };
 
 @interface ZCPUserControllerHelper : NSObject

@@ -49,7 +49,7 @@
 - (NSOperation *)modifyPassword:(NSString *)newPassword
                     oldPassword:(NSString *)oldPassword
                      currUserID:(NSInteger)currUserID
-                        success:(void (^)(AFHTTPRequestOperation *operation, BOOL isSuccess))success
+                        success:(void (^)(AFHTTPRequestOperation *operation, BOOL isSuccess, ZCPUserModel *model))success
                         failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure;
 
 @end

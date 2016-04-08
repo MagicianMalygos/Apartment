@@ -60,14 +60,6 @@
 	</dict>
 	<dict>
 		<key>className</key>
-		<string>ZCPSettingChangeSecurityController</string>
-		<key>identifier</key>
-		<string>ZCPSettingChangeSecurityController</string>
-		<key>description</key>
-		<string>个人中心-设置-用户信息 视图控制器</string>
-	</dict>
-	<dict>
-		<key>className</key>
 		<string>ZCPCoupletDetailController</string>
 		<key>identifier</key>
 		<string>ZCPCoupletDetailController</string>

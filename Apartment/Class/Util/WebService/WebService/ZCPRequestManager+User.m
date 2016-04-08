@@ -122,19 +122,36 @@
 - (NSOperation *)modifyPassword:(NSString *)newPassword
                     oldPassword:(NSString *)oldPassword
                      currUserID:(NSInteger)currUserID
-                        success:(void (^)(AFHTTPRequestOperation *operation, BOOL isSuccess))success
+                        success:(void (^)(AFHTTPRequestOperation *operation, BOOL isSuccess, ZCPUserModel *model))success
                         failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure {
     
     NSString * scheme       = schemeForType(kURLTypeCommon);
     NSString * host         = hostForType(kURLTypeCommon);
-    NSString * path         = urlForKey(MODIFY_USER_INFO);
+    NSString * path         = urlForKey(MODIFY_USER_PASSWORD);
     
     AFHTTPRequestOperation *operation = [self POST:ZCPMakeURLString(scheme, host, path)
                                         parameters:@{@"newPassword":newPassword
                                                      ,@"oldPassword":oldPassword
                                                      ,@"currUserID":@(currUserID)}
                                            success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                                               ZCPUserModel *model = nil;
+                                               BOOL isSuccess = NO;
+                                               if ([responseObject isKindOfClass:[NSDictionary class]]
+                                                   && ([[responseObject valueForKey:@"code"] integerValue] == 0)) {
+                                                   isSuccess = YES;
+                                                   model = [ZCPRequestResponseTranslator translateResponse_UserModel:responseObject[@"data"][@"aUser"]];
+                                               }
+                                               if ([[responseObject valueForKey:@"code"] integerValue] == 1) {
+                                                   TTDPRINT(@"用户密码有误！");
+                                                   [MBProgressHUD showError:@"原密码有误！"];
+                                               } else if ([[responseObject valueForKey:@"code"] integerValue] == 2) {
+                                                   TTDPRINT(@"数据库存储数据失败！");
+                                                   [MBProgressHUD showError:@"修改失败！"];
+                                               }
                                                
+                                               if (success) {
+                                                   success(operation, isSuccess, model);
+                                               }
                                            }
                                            failure:failure];
     
