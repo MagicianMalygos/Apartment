@@ -36,5 +36,7 @@
 
 // 领域模型转换
 + (ZCPListDataModel *)translateResponse_FieldListModel:(NSDictionary *)responseData;
+// 用户模型列表转换
++ (ZCPListDataModel *)translateResponse_UserListModel:(NSDictionary *)responseData;
 
 @end

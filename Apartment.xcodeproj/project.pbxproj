@@ -121,6 +121,7 @@
 		18CF1AC51C9BFCD4009134DD /* ZCPSelectMenuController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18CF1AC41C9BFCD4009134DD /* ZCPSelectMenuController.m */; };
 		18D0B06C1C34C54D00F4B2DB /* UIViewController+Category.m in Sources */ = {isa = PBXBuildFile; fileRef = 18D0B06B1C34C54D00F4B2DB /* UIViewController+Category.m */; };
 		18D0B06F1C34C9B200F4B2DB /* UIBarButtonItem+Category.m in Sources */ = {isa = PBXBuildFile; fileRef = 18D0B06E1C34C9B200F4B2DB /* UIBarButtonItem+Category.m */; };
+		18D68B251CB753750056BD8E /* ZCPUserInfoController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18D68B241CB753750056BD8E /* ZCPUserInfoController.m */; };
 		18E3F71C1C507FCC00318761 /* ZCPMainActivityController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18E3F71B1C507FCC00318761 /* ZCPMainActivityController.m */; };
 		18E3F71F1C50800900318761 /* ZCPCoupletMainController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18E3F71E1C50800900318761 /* ZCPCoupletMainController.m */; };
 		18E3F7221C50801D00318761 /* ZCPThesisMainController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18E3F7211C50801D00318761 /* ZCPThesisMainController.m */; };
@@ -397,6 +398,8 @@
 		18D0B06B1C34C54D00F4B2DB /* UIViewController+Category.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+Category.m"; sourceTree = "<group>"; };
 		18D0B06D1C34C9B200F4B2DB /* UIBarButtonItem+Category.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+Category.h"; sourceTree = "<group>"; };
 		18D0B06E1C34C9B200F4B2DB /* UIBarButtonItem+Category.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+Category.m"; sourceTree = "<group>"; };
+		18D68B231CB753750056BD8E /* ZCPUserInfoController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZCPUserInfoController.h; sourceTree = "<group>"; };
+		18D68B241CB753750056BD8E /* ZCPUserInfoController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZCPUserInfoController.m; sourceTree = "<group>"; };
 		18E3F71A1C507FCC00318761 /* ZCPMainActivityController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZCPMainActivityController.h; sourceTree = "<group>"; };
 		18E3F71B1C507FCC00318761 /* ZCPMainActivityController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZCPMainActivityController.m; sourceTree = "<group>"; };
 		18E3F71D1C50800900318761 /* ZCPCoupletMainController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZCPCoupletMainController.h; sourceTree = "<group>"; };
@@ -695,6 +698,8 @@
 				18B0EDFF1C4F1A1400F078EB /* ZCPSettingChangePwdController.m */,
 				18B0EE011C4F1A4A00F078EB /* ZCPSettingUserInfoController.h */,
 				18B0EE021C4F1A4A00F078EB /* ZCPSettingUserInfoController.m */,
+				18D68B231CB753750056BD8E /* ZCPUserInfoController.h */,
+				18D68B241CB753750056BD8E /* ZCPUserInfoController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1407,6 +1412,7 @@
 				180700371C48CE9600F3BE2B /* ZCPLineCell.m in Sources */,
 				180700471C48F7EA00F3BE2B /* ZCPUserImageCell.m in Sources */,
 				18E727851C706A59005BC5D7 /* ZCPResponseDataModel.m in Sources */,
+				18D68B251CB753750056BD8E /* ZCPUserInfoController.m in Sources */,
 				180D842C1C7C0C2000A7D724 /* ZCPAddBookpostController.m in Sources */,
 				18A3033E1C741DC0000D9004 /* ZCPRequestResponseTranslator+Couplet.m in Sources */,
 				18A1DE941C537BF000551C52 /* ZCPThesisModel.m in Sources */,

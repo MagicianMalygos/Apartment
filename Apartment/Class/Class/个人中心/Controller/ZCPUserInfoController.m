@@ -1,28 +1,32 @@
 //
-//  ZCPMainUserController.m
+//  ZCPUserInfoController.m
 //  Apartment
 //
-//  Created by apple on 15/12/29.
-//  Copyright © 2015年 zcp. All rights reserved.
+//  Created by apple on 16/4/8.
+//  Copyright © 2016年 zcp. All rights reserved.
 //
 
-#import "ZCPMainUserController.h"
+#import "ZCPUserInfoController.h"
 #import "ZCPUserImageCell.h"
 #import "ZCPSectionCell.h"
 #import "ZCPImageTextCell.h"
-#import "ZCPUserControllerHelper.h"
-#import "ZCPUserFocusOnPeopleController.h"
-#import "ZCPUserAchievementController.h"
-#import "ZCPUserCollectionController.h"
-#import "ZCPUserSettingController.h"
-#import "ZCPUserAboutController.h"
-#import "ZCPFieldModel.h"
+#import "ZCPButtonCell.h"
 
-@interface ZCPMainUserController () <ZCPImageTextSwitchCellItemDelegate>
+@interface ZCPUserInfoController ()
+
+@property (nonatomic, strong) ZCPUserModel *currUserModel;  // 当前用户模型
 
 @end
 
-@implementation ZCPMainUserController
+@implementation ZCPUserInfoController
+
+#pragma mark - init
+- (instancetype)initWithParams:(NSDictionary *)params {
+    if (self = [super initWithParams:params]) {
+        _currUserModel = [params valueForKey:@"_currUserModel"];
+    }
+    return self;
+}
 
 #pragma mark - life cycle
 - (void)viewDidLoad {
@@ -33,7 +37,7 @@
     
     // 设置nav
     [self clearNavigationBar];
-    self.tabBarController.title = @"个人中心";
+    self.title = self.currUserModel.userName;
     
     // 重新刷新用户信息
     [self constructData];
@@ -42,7 +46,7 @@
 - (void)viewWillLayoutSubviews {
     [super viewWillLayoutSubviews];
     
-    self.tableView.frame = CGRectMake(0, 0, APPLICATIONWIDTH, APPLICATIONHEIGHT - Height_NavigationBar - Height_TABBAR);
+    self.tableView.frame = CGRectMake(0, 0, APPLICATIONWIDTH, APPLICATIONHEIGHT - Height_NavigationBar);
     
     self.appTheme = [[ZCPControlingCenter sharedInstance] appTheme];
     if (self.appTheme == LightTheme) {
@@ -56,17 +60,15 @@
 #pragma mark - constructData
 - (void)constructData {
     
-    ZCPUserModel *currUserModel = [ZCPUserCenter sharedInstance].currentUserModel;
-    
     // 文字主题颜色
     UIColor *textColor = (self.appTheme == LightTheme)?[UIColor blackColor]:[UIColor whiteColor];
     
     // userImage
     ZCPUserImageCellItem *userImageItem = [[ZCPUserImageCellItem alloc] initWithDefault];
     userImageItem.cellHeight = @200;
-    userImageItem.bgImageURL = currUserModel.userFaceURL;
-    userImageItem.userHeadURL = currUserModel.userFaceURL;
-    userImageItem.userName = currUserModel.userName;
+    userImageItem.bgImageURL = self.currUserModel.userFaceURL;
+    userImageItem.userHeadURL = self.currUserModel.userFaceURL;
+    userImageItem.userName = self.currUserModel.userName;
     
     // BasicInfo Section
     ZCPSectionCellItem *sectionItem1 = [[ZCPSectionCellItem alloc] initWithDefault];
@@ -80,26 +82,26 @@
     ageItem.accessoryType = UITableViewCellAccessoryNone;
     ageItem.cellHeight = @50;
     ageItem.imageName = @"年龄.png";
-    ageItem.text = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"年龄：%lu", currUserModel.userAge] attributes:@{NSForegroundColorAttributeName: textColor}];
+    ageItem.text = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"年龄：%lu", self.currUserModel.userAge] attributes:@{NSForegroundColorAttributeName: textColor}];
     // 文采值cell
     ZCPImageTextCellItem *expItem = [[ZCPImageTextCellItem alloc] initWithDefault];
     expItem.accessoryType = UITableViewCellAccessoryNone;
     expItem.cellHeight = @50;
     expItem.imageName = @"文采值.png";
-    expItem.text = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"文采值：%lu", currUserModel.userEXP] attributes:@{NSForegroundColorAttributeName: textColor}];
+    expItem.text = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"文采值：%lu", self.currUserModel.userEXP] attributes:@{NSForegroundColorAttributeName: textColor}];
     // 称号cell
     ZCPImageTextCellItem *appellationItem = [[ZCPImageTextCellItem alloc] initWithDefault];
     appellationItem.accessoryType = UITableViewCellAccessoryNone;
     appellationItem.cellHeight = @50;
     appellationItem.imageName = @"称号.png";
-    appellationItem.text = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"称号：%@", currUserModel.userLevel] attributes:@{NSForegroundColorAttributeName: textColor}];
+    appellationItem.text = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"称号：%@", self.currUserModel.userLevel] attributes:@{NSForegroundColorAttributeName: textColor}];
     
     // 成绩cell
     ZCPImageTextCellItem *scoreItem = [[ZCPImageTextCellItem alloc] initWithDefault];
     scoreItem.accessoryType = UITableViewCellAccessoryNone;
     scoreItem.cellHeight = @50;
     scoreItem.imageName = @"成绩.png";
-    scoreItem.text = [[NSMutableAttributedString alloc]initWithString:[NSString stringWithFormat:@"成绩：%lu", currUserModel.userScore] attributes:@{NSForegroundColorAttributeName: textColor}];
+    scoreItem.text = [[NSMutableAttributedString alloc]initWithString:[NSString stringWithFormat:@"成绩：%lu", self.currUserModel.userScore] attributes:@{NSForegroundColorAttributeName: textColor}];
     
     // CommunityInfo Section
     ZCPSectionCellItem *sectionItem2 = [[ZCPSectionCellItem alloc] initWithDefault];
@@ -114,9 +116,9 @@
     fieldItem.cellHeight = @50;
     fieldItem.imageName = @"关注领域.png";
     NSMutableString *fields = [NSMutableString string];
-    for (int i = 0; i < currUserModel.focusFieldArr.count; i++) {
-        [fields appendString:((ZCPFieldModel *)[currUserModel.focusFieldArr objectAtIndex:i]).fieldName];
-        if (i != currUserModel.focusFieldArr.count - 1) {
+    for (int i = 0; i < self.currUserModel.focusFieldArr.count; i++) {
+        [fields appendString:((ZCPFieldModel *)[self.currUserModel.focusFieldArr objectAtIndex:i]).fieldName];
+        if (i != self.currUserModel.focusFieldArr.count - 1) {
             [fields appendString:@"  "];
         }
     }
@@ -128,7 +130,7 @@
     peopleItem.cellTag = ZCPUserFocusOnPeopleCellTag;
     peopleItem.cellHeight = @50;
     peopleItem.imageName = @"所关注人.png";
-    peopleItem.text = [[NSMutableAttributedString alloc] initWithString:@"我关注的人" attributes:@{NSForegroundColorAttributeName: textColor}];
+    peopleItem.text = [[NSMutableAttributedString alloc] initWithString:@"他关注的人" attributes:@{NSForegroundColorAttributeName: textColor}];
     
     // 个人成就
     ZCPImageTextCellItem *achievementItem = [[ZCPImageTextCellItem alloc] initWithDefault];
@@ -144,44 +146,7 @@
     collectionItem.cellTag = ZCPUserCollectionCellTag;
     collectionItem.cellHeight = @50;
     collectionItem.imageName = @"我的收藏.png";
-    collectionItem.text = [[NSMutableAttributedString alloc] initWithString:@"我的收藏" attributes:@{NSForegroundColorAttributeName: textColor}];
-    
-    // Setting Section
-    ZCPSectionCellItem *sectionItem3 = [[ZCPSectionCellItem alloc] initWithDefault];
-    sectionItem3.cellHeight = @20;
-    sectionItem3.backgroundColor = [UIColor lightGrayColor];;
-    sectionItem3.titleEdgeInset = UIEdgeInsetsZero;
-    sectionItem3.sectionAttrTitle = [[NSMutableAttributedString alloc] initWithString:@"设置" attributes:@{NSForegroundColorAttributeName: textColor, NSFontAttributeName: [UIFont defaultFontWithSize:14.0f]}];
-    
-    // 夜间模式设置cell
-    ZCPImageTextSwitchCellItem *themeItem = [[ZCPImageTextSwitchCellItem alloc] initWithDefault];
-    themeItem.accessoryType = UITableViewCellAccessoryNone;
-    themeItem.cellHeight = @50;
-    themeItem.imageName = @"夜间模式.png";
-    themeItem.text = [[NSMutableAttributedString alloc] initWithString:@"夜间模式" attributes:@{NSForegroundColorAttributeName: textColor}];
-    themeItem.switchResponser = self;
-    
-    // 设置
-    ZCPImageTextCellItem *settingItem = [[ZCPImageTextCellItem alloc] initWithDefault];
-    settingItem.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-    settingItem.cellTag = ZCPUserSettingCellTag;
-    settingItem.cellHeight = @50;
-    settingItem.imageName = @"设置.png";
-    settingItem.text = [[NSMutableAttributedString alloc] initWithString:@"个人设置" attributes:@{NSForegroundColorAttributeName: textColor}];
-    
-    // About Section
-    ZCPSectionCellItem *sectionItem4 = [[ZCPSectionCellItem alloc] initWithDefault];
-    sectionItem4.cellHeight = @20;
-    sectionItem4.backgroundColor = [UIColor lightGrayColor];
-    sectionItem4.titleEdgeInset = UIEdgeInsetsZero;
-    sectionItem4.sectionAttrTitle = [[NSMutableAttributedString alloc] initWithString:@"其他" attributes:@{NSForegroundColorAttributeName: textColor, NSFontAttributeName: [UIFont defaultFontWithSize:14.0f]}];
-    
-    // 关于cell
-    ZCPTextCellItem *aboutItem = [[ZCPTextCellItem alloc] initWithDefault];
-    aboutItem.cellTag = ZCPUserAboutCellTag;
-    aboutItem.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-    aboutItem.cellHeight = @50;
-    aboutItem.text = [[NSMutableAttributedString alloc] initWithString:@"关于" attributes:@{NSForegroundColorAttributeName: textColor}];
+    collectionItem.text = [[NSMutableAttributedString alloc] initWithString:@"他的收藏" attributes:@{NSForegroundColorAttributeName: textColor}];
     
     NSMutableArray *items = [NSMutableArray array];
     [items addObject:userImageItem];
@@ -197,17 +162,10 @@
     [items addObject:achievementItem];
     [items addObject:collectionItem];
     
-    [items addObject:sectionItem3];
-    [items addObject:themeItem];
-    [items addObject:settingItem];
-    
-    [items addObject:sectionItem4];
-    [items addObject:aboutItem];
-    
     self.tableViewAdaptor.items = items;
 }
 
-#pragma mark - ZCPListTableViewAdaptorDelegate
+#pragma mark - ZCPListTableViewAdaptor Delegate
 /**
  *  cell点击事件
  *
@@ -219,44 +177,19 @@
     switch (object.cellTag) {
         case ZCPUserFocusOnPeopleCellTag:
             [[ZCPNavigator sharedInstance] gotoViewWithIdentifier:APPURL_VIEW_IDENTIFIER_USER_FOCUSON_PEOPLE
-                                                 paramDictForInit:@{@"_currUserID": @([ZCPUserCenter sharedInstance].currentUserModel.userId)}];
+                                                 paramDictForInit:@{@"_currUserID": @(self.currUserModel.userId)}];
             break;
         case ZCPUserAchievementCellTag:
             [[ZCPNavigator sharedInstance] gotoViewWithIdentifier:APPURL_VIEW_IDENTIFIER_USER_ACHIEVEMENT
-                                                 paramDictForInit:@{@"_currUserID": @([ZCPUserCenter sharedInstance].currentUserModel.userId)}];
+                                                 paramDictForInit:@{@"_currUserID": @(self.currUserModel.userId)}];
             break;
         case ZCPUserCollectionCellTag:
             [[ZCPNavigator sharedInstance] gotoViewWithIdentifier:APPURL_VIEW_IDENTIFIER_USER_COLLECTION
-                                                 paramDictForInit:@{@"_currUserID": @([ZCPUserCenter sharedInstance].currentUserModel.userId)}];
-            break;
-        case ZCPUserSettingCellTag:
-            [[ZCPNavigator sharedInstance] gotoViewWithIdentifier:APPURL_VIEW_IDENTIFIER_USER_SETTING
-                                                 paramDictForInit:nil];
-            break;
-        case ZCPUserAboutCellTag:
-            [[ZCPNavigator sharedInstance] gotoViewWithIdentifier:APPURL_VIEW_IDENTIFIER_USER_ABOUT
-                                                 paramDictForInit:nil];
+                                                 paramDictForInit:@{@"_currUserID": @(self.currUserModel.userId)}];
             break;
         default:
             break;
     }
-}
-
-#pragma mark - ZCPImageTextSwitchCellItemDelegate
-/**
- *  夜间模式开关值改变响应事件
- *
- *  @param cell       cell
- *  @param switchView 夜间模式开关
- */
-- (void)cell:(ZCPImageTextSwitchCell *)cell switchValueChanged:(UISwitch *)switchView {
-    if (!switchView.on) {
-        [[ZCPControlingCenter sharedInstance] setAppTheme:LightTheme];
-    }
-    else {
-        [[ZCPControlingCenter sharedInstance] setAppTheme:DarkTheme];
-    }
-    [self viewWillLayoutSubviews];
 }
 
 @end

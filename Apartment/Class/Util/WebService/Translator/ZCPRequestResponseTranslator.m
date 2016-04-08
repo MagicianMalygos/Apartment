@@ -78,5 +78,20 @@
     }
     return listModel;
 }
+// 用户模型列表转换
++ (ZCPListDataModel *)translateResponse_UserListModel:(NSDictionary *)responseData {
+    ZCPListDataModel *listModel = nil;
+    if ([responseData isKindOfClass:[NSDictionary class]]) {
+        listModel = [[ZCPListDataModel alloc] init];
+        NSArray *userList = [responseData valueForKey:@"aList"];
+        if (![userList isNilOrNull]) {
+            for (NSDictionary *userDict in userList) {
+                ZCPUserModel *model = [ZCPRequestResponseTranslator translateResponse_UserModel:userDict];
+                [listModel.items addObject:model];
+            }
+        }
+    }
+    return listModel;
+}
 
 @end

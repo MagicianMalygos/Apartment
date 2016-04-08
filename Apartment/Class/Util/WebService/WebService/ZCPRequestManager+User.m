@@ -160,4 +160,95 @@
 }
 
 
+/**
+ *  获得用户所关注人列表
+ *
+ *  @param currUserID 当前用户ID
+ *  @param pagination 页码
+ *  @param pageCount  一页数量
+ */
+- (NSOperation *)getCollectedUserListWithCurrUserID:(NSInteger)currUserID
+                                         pagination:(NSInteger)pagination
+                                          pageCount:(NSInteger)pageCount
+                                            success:(void (^)(AFHTTPRequestOperation *operation, ZCPListDataModel* userListModel))success
+                                            failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure {
+
+    NSString * scheme       = schemeForType(kURLTypeCommon);
+    NSString * host         = hostForType(kURLTypeCommon);
+    NSString * path         = urlForKey(COLLECTED_USER_LIST);
+    
+    AFHTTPRequestOperation *operation = [self POST:ZCPMakeURLString(scheme, host, path)
+                                        parameters:@{@"currUserID": @(currUserID)
+                                                     , @"pagination": @(pagination)
+                                                     , @"pageCount": @(pageCount)}
+                                           success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                                               if (success) {
+                                                   ZCPListDataModel *model = [ZCPRequestResponseTranslator translateResponse_UserListModel:[responseObject objectForKey:@"data"]];
+                                                   success(operation, model);
+                                               }
+                                           }
+                                           failure:failure];
+    TTDPRINT(@"URL=%@  params=%@", operation.request.URL, [[NSString alloc] initWithData:operation.request.HTTPBody encoding:NSUTF8StringEncoding]);
+    return operation;
+}
+
+
+/**
+ *  改变用户被关注状态
+ *
+ *  @param collectedUserID  被关注人ID
+ *  @param currUserID       用户ID
+ */
+- (NSOperation *)changeCollectedUserCurrCollectionState:(NSInteger)currCollected
+                                        collectedUserID:(NSInteger)collectedUserID
+                                             currUserID:(NSInteger)currUserID
+                                                success:(void (^)(AFHTTPRequestOperation *operation, BOOL isSuccess))success
+                                                failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure {
+
+    NSString * scheme       = schemeForType(kURLTypeCommon);
+    NSString * host         = hostForType(kURLTypeCommon);
+    NSString * path         = urlForKey(CHANGE_USER_COLLECTION_STATE);
+    
+    AFHTTPRequestOperation *operation = [self POST:ZCPMakeURLString(scheme, host, path)
+                                        parameters:@{@"currCollected": @(currCollected)
+                                                     , @"collectedUserID": @(collectedUserID)
+                                                     , @"currUserID": @(currUserID)}
+                                           success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                                               if (success) {
+                                                   success(operation, [[responseObject valueForKey:@"result"] boolValue]);
+                                               }
+                                           }
+                                           failure:failure];
+    TTDPRINT(@"URL=%@  params=%@", operation.request.URL, [[NSString alloc] initWithData:operation.request.HTTPBody encoding:NSUTF8StringEncoding]);
+    return operation;
+}
+
+/**
+ *  判断用户是否关注另一个用户
+ *
+ *  @param otherUserID 另一个用户ID
+ *  @param currUserID  用户ID
+ */
+- (NSOperation *)judgeUserCollectOtherUserID:(NSInteger)otherUserID
+                                  currUserID:(NSInteger)currUserID
+                                     success:(void (^)(AFHTTPRequestOperation *operation, BOOL isSuccess))success
+                                     failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure {
+
+    NSString * scheme       = schemeForType(kURLTypeCommon);
+    NSString * host         = hostForType(kURLTypeCommon);
+    NSString * path         = urlForKey(JUDGE_USER_COLLECT_OTHERUSER);
+    
+    AFHTTPRequestOperation *operation = [self POST:ZCPMakeURLString(scheme, host, path)
+                                        parameters:@{@"otherUserID": @(otherUserID)
+                                                     , @"currUserID": @(currUserID)}
+                                           success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                                               if (success) {
+                                                   success(operation, [[responseObject valueForKey:@"result"] boolValue]);
+                                               }
+                                           }
+                                           failure:failure];
+    TTDPRINT(@"URL=%@  params=%@", operation.request.URL, [[NSString alloc] initWithData:operation.request.HTTPBody encoding:NSUTF8StringEncoding]);
+    return operation;
+}
+
 @end

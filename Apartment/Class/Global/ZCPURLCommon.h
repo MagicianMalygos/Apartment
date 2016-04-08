@@ -59,6 +59,9 @@
 #define UPLOAD_HEAD                                             @"UPLOAD_HEAD"
 #define MODIFY_USER_INFO                                        @"MODIFY_USER_INFO"
 #define MODIFY_USER_PASSWORD                                    @"MODIFY_USER_PASSWORD"
+#define COLLECTED_USER_LIST                                     @"COLLECTED_USER_LIST"
+#define CHANGE_USER_COLLECTION_STATE                            @"CHANGE_USER_COLLECTION_STATE"
+#define JUDGE_USER_COLLECT_OTHERUSER                            @"JUDGE_USER_COLLECT_OTHERUSER"
 
 // 协议 + host + path
 NSString *  ZCPMakeURLString(NSString *scheme, NSString *host, NSString *path);

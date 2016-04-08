@@ -154,6 +154,13 @@ NSString *fixIconString(NSString *iconString) {
     return [testResult evaluateWithObject:self];
 }
 
+/* 判断一个字符串是否是url */
+- (BOOL)is_url {
+    NSString *regex = @"^http://.+";
+    NSPredicate *testResult = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", regex];
+    return [testResult evaluateWithObject:self];
+}
+
 -(NSString *)findNumStringIndexFromString
 {
     // Intermediate

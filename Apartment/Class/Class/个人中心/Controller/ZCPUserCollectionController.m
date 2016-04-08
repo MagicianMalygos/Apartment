@@ -10,6 +10,9 @@
 
 @interface ZCPUserCollectionController ()
 
+@property (nonatomic, assign) NSInteger currUserID;                 // 用户ID
+@property (nonatomic, assign) NSUInteger pagination;                // 页码
+
 @end
 
 @implementation ZCPUserCollectionController

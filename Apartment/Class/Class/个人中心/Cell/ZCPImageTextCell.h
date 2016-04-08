@@ -14,8 +14,12 @@
 @class ZCPTextCellItem;
 @class ZCPImageTextCellItem;
 @class ZCPImageTextSwitchCellItem;
+@class ZCPImageTextButtonCellItem;
 
 @protocol ZCPImageTextSwitchCellItemDelegate;
+@protocol ZCPImageTextButtonCellItemDelegate;
+
+typedef void(^ZCPButtonConfigBlock)(UIButton *);        // button配置块
 
 #define RIGHT_WIDTH         50
 #define MARGIN_IMG_TEXT     20
@@ -59,5 +63,25 @@
 @protocol ZCPImageTextSwitchCellItemDelegate <NSObject>
 // 按钮开关事件响应方法
 - (void)cell:(ZCPImageTextSwitchCell *)cell switchValueChanged:(UISwitch *)switchView;
+@end
+
+#pragma mark - Image Text Switch Cell&Item
+// 左边有一个图片和标签，右边有一个按钮的Cell
+@interface ZCPImageTextButtonCell : ZCPImageTextCell
+@property (nonatomic, strong) UIButton *button;
+@end
+
+@interface ZCPImageTextButtonCellItem : ZCPImageTextCellItem
+// 附加信息
+@property (nonatomic, strong) NSObject *tagInfo;
+// 按钮配置块
+@property (nonatomic, copy) ZCPButtonConfigBlock buttonConfigBlock;
+// 按钮点击事件响应者
+@property (nonatomic, weak) id<ZCPImageTextButtonCellItemDelegate> delegate;
+@end
+
+@protocol ZCPImageTextButtonCellItemDelegate <NSObject>
+// 按钮点击事件响应方法
+- (void)cell:(ZCPImageTextButtonCell *)cell buttonClicked:(UIButton *)button;
 @end
 

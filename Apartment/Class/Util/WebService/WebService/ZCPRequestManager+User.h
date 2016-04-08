@@ -52,4 +52,42 @@
                         success:(void (^)(AFHTTPRequestOperation *operation, BOOL isSuccess, ZCPUserModel *model))success
                         failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure;
 
+
+/**
+ *  获得用户所关注人列表
+ *
+ *  @param currUserID 当前用户ID
+ *  @param pagination 页码
+ *  @param pageCount  一页数量
+ */
+- (NSOperation *)getCollectedUserListWithCurrUserID:(NSInteger)currUserID
+                                         pagination:(NSInteger)pagination
+                                          pageCount:(NSInteger)pageCount
+                                            success:(void (^)(AFHTTPRequestOperation *operation, ZCPListDataModel* userListModel))success
+                                            failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure;
+
+
+/**
+ *  改变用户被关注状态
+ *
+ *  @param collectedUserID  被关注人ID
+ *  @param currUserID       用户ID
+ */
+- (NSOperation *)changeCollectedUserCurrCollectionState:(NSInteger)currCollected
+                                        collectedUserID:(NSInteger)collectedUserID
+                                             currUserID:(NSInteger)currUserID
+                                                success:(void (^)(AFHTTPRequestOperation *operation, BOOL isSuccess))success
+                                                failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure;
+
+/**
+ *  判断用户是否关注另一个用户
+ *
+ *  @param otherUserID 另一个用户ID
+ *  @param currUserID  用户ID
+ */
+- (NSOperation *)judgeUserCollectOtherUserID:(NSInteger)otherUserID
+                                  currUserID:(NSInteger)currUserID
+                                     success:(void (^)(AFHTTPRequestOperation *operation, BOOL isSuccess))success
+                                     failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure;
+
 @end

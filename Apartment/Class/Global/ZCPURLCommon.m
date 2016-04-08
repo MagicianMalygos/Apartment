@@ -113,6 +113,9 @@ IMP_SINGLETON
                      , UPLOAD_HEAD:                             @"/1.0/user/uploadUserHead"
                      , MODIFY_USER_INFO:                        @"/1.0/user/modifyUserInfo"
                      , MODIFY_USER_PASSWORD:                    @"/1.0/user/modifyUserPassword"
+                     , COLLECTED_USER_LIST:                     @"/1.0/user/getCollectedUserList"
+                     , CHANGE_USER_COLLECTION_STATE:            @"/1.0/user/changeUserCollectionRecord"
+                     , JUDGE_USER_COLLECT_OTHERUSER:            @"/1.0/user/judgeUserCollectOtherUser"
                      };
 }
 

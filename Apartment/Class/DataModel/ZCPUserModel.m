@@ -36,6 +36,9 @@
         }
         value = fieldArray;
     }
+    if ([key isEqualToString:@"userFaceURL"]) {
+        value = headImageGetURL(value);
+    }
     [super setValue:value forKey:key];
 }
 
