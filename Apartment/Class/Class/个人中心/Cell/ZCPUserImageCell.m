@@ -67,14 +67,16 @@
 //            UIImage *blurImage = [UIImage imageWithCGImage:imageRef];
 //            [self.bgImageView setImage:blurImage];
             
-            // 毛玻璃
-            [self.bgImageView setImage:loadImage];
-            UIBlurEffect *blur = [UIBlurEffect effectWithStyle:UIBlurEffectStyleLight];
-            UIVisualEffectView *effectview = [[UIVisualEffectView alloc] initWithEffect:blur];
-            effectview.frame = CGRectMake(0, 0, self.bgImageView.width, self.bgImageView.height);
-            [self.bgImageView addSubview:effectview];
+            // 毛玻璃，效果很差劲
+//            [self.bgImageView setImage:loadImage];
+//            UIBlurEffect *blur = [UIBlurEffect effectWithStyle:UIBlurEffectStyleLight];
+//            UIVisualEffectView *effectview = [[UIVisualEffectView alloc] initWithEffect:blur];
+//            effectview.frame = CGRectMake(0, 0, self.bgImageView.width, self.bgImageView.height);
+//            [self.bgImageView addSubview:effectview];
             
-            // 第三方
+            // 第三方实现模糊
+            UIImage *blurImage = [loadImage imageByBlurRadius:20 tintColor:nil tintMode:0 saturation:1 maskImage:nil];
+            [self.bgImageView setImage:blurImage];
         }];
         
         // 设置属性

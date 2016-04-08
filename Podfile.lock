@@ -32,6 +32,9 @@ PODS:
   - SDWebImage (3.7.5):
     - SDWebImage/Core (= 3.7.5)
   - SDWebImage/Core (3.7.5)
+  - YYKit (1.0.4):
+    - YYKit/no-arc (= 1.0.4)
+  - YYKit/no-arc (1.0.4)
 
 DEPENDENCIES:
   - AFNetworking (~> 2.5.4)
@@ -41,6 +44,7 @@ DEPENDENCIES:
   - MJRefresh (~> 3.1.0)
   - RDVTabBarController (~> 1.1.9)
   - SDWebImage (~> 3.7.4)
+  - YYKit (~> 1.0.4)
 
 SPEC CHECKSUMS:
   AFNetworking: 05edc0ac4c4c8cf57bcf4b84be5b0744b6d8e71e
@@ -52,5 +56,6 @@ SPEC CHECKSUMS:
   MJRefresh: 743e6404967d1c2c688472ea3ecfde247d872db4
   RDVTabBarController: 67794f7a7a37f8e32f046f85ac67d06ab92d624a
   SDWebImage: 69c6303e3348fba97e03f65d65d4fbc26740f461
+  YYKit: 71f7e48cc5de6c69b5c35fee4d3978dac3267041
 
 COCOAPODS: 0.39.0

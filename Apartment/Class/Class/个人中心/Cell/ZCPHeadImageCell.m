@@ -69,11 +69,14 @@
             [weakSelf.middleButton setOnlyImage:weakSelf.bgImageView.image];
             [weakSelf.smallButton setOnlyImage:weakSelf.bgImageView.image];
             
-            // 毛玻璃
-            UIBlurEffect *blur = [UIBlurEffect effectWithStyle:UIBlurEffectStyleLight];
-            UIVisualEffectView *effectview = [[UIVisualEffectView alloc] initWithEffect:blur];
-            effectview.frame = CGRectMake(0, 0, weakSelf.bgImageView.width, weakSelf.bgImageView.height);
-            [weakSelf.bgImageView addSubview:effectview];
+            // 毛玻璃，效果很差劲
+//            UIBlurEffect *blur = [UIBlurEffect effectWithStyle:UIBlurEffectStyleLight];
+//            UIVisualEffectView *effectview = [[UIVisualEffectView alloc] initWithEffect:blur];
+//            effectview.frame = CGRectMake(0, 0, weakSelf.bgImageView.width, weakSelf.bgImageView.height);
+//            [weakSelf.bgImageView addSubview:effectview];
+            
+            // 第三方实现模糊
+            weakSelf.bgImageView.image = [weakSelf.bgImageView.image imageByBlurRadius:20 tintColor:nil tintMode:0 saturation:1 maskImage:nil];
         }];
         
         // 添加头像按钮点击事件

@@ -59,6 +59,7 @@
 #import <MJRefresh.h>
 #import <MBProgressHUD.h>
 #import <IQKeyboardManager.h>
+#import <YYKit.h>
 
 
 #endif /* ZCPBasicHeaders_h */
