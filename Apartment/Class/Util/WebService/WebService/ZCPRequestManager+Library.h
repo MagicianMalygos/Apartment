@@ -41,6 +41,18 @@
                                    failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure;
 
 /**
+ *  得到某个人收藏的图书列表
+ *  @param currUserID 当前用户ID
+ *  @param pagination 页码
+ *  @param pageCount  一页数量
+ */
+- (NSOperation *)getBookCollectionListWithCurrUserID:(NSInteger) currUserID
+                                          pagination:(NSInteger) pagination
+                                           pageCount:(NSInteger) pageCount
+                                             success:(void (^)(AFHTTPRequestOperation *operation, ZCPListDataModel *bookListModel))success
+                                             failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure;
+
+/**
  *  得到图书回复列表
  *
  *  @param currBookID   当前对联ID

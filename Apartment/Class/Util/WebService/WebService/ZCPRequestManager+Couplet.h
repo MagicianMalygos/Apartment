@@ -41,6 +41,18 @@
                                      failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure;
 
 /**
+ *  得到某个人收藏的对联列表
+ *  @param currUserID 当前用户ID
+ *  @param pagination 页码
+ *  @param pageCount  一页数量
+ */
+- (NSOperation *)getCoupltCollectionListWithCurrUserID:(NSInteger) currUserID
+                                            pagination:(NSInteger) pagination
+                                             pageCount:(NSInteger) pageCount
+                                               success:(void (^)(AFHTTPRequestOperation *operation, ZCPListDataModel *coupltListModel))success
+                                               failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure;
+
+/**
  *  得到对联回复列表
  *
  *  @param currCoupletID 当前对联ID

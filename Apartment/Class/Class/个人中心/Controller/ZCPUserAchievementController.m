@@ -36,11 +36,11 @@ typedef void (^FooterLoadBlock)(AFHTTPRequestOperation *operation, ZCPListDataMo
 
 @interface ZCPUserAchievementController () <ZCPOptionViewDelegate>
 
-@property (nonatomic, assign) NSInteger currUserID;         // 用户ID
-@property (nonatomic, assign) NSUInteger pagination;        // 页码
-@property (nonatomic, strong) ZCPOptionView *optionView;    // 选项视图
-@property (nonatomic, strong) NSMutableArray *listArray;    // 列表数组
-@property (nonatomic, assign) ListType listType;            // 列表类型
+@property (nonatomic, assign) NSInteger currUserID;             // 用户ID
+@property (nonatomic, assign) NSUInteger pagination;            // 页码
+@property (nonatomic, strong) ZCPOptionView *optionView;        // 选项视图
+@property (nonatomic, strong) NSMutableArray *listArray;        // 列表数组
+@property (nonatomic, assign) ListType listType;                // 列表类型
 
 @property (nonatomic, copy) LoadBlock loadBlock;                // 普通加载块
 @property (nonatomic, copy) HeaderLoadBlock headerLoadBlock;    // 下拉刷新加载块
@@ -49,6 +49,14 @@ typedef void (^FooterLoadBlock)(AFHTTPRequestOperation *operation, ZCPListDataMo
 @end
 
 @implementation ZCPUserAchievementController
+
+#pragma mark - init
+- (instancetype)initWithParams:(NSDictionary *)params {
+    if (self = [super initWithParams:params]) {
+        _currUserID = [[params valueForKey:@"_currUserID"] integerValue];
+    }
+    return self;
+}
 
 #pragma mark - life cycle
 - (void)viewDidLoad {
@@ -220,7 +228,7 @@ typedef void (^FooterLoadBlock)(AFHTTPRequestOperation *operation, ZCPListDataMo
             self.listType = BookpostList;
             // 加载图书列表
             WEAK_SELF;
-            [[ZCPRequestManager sharedInstance] getBookpostListWithCurrUserID:[ZCPUserCenter sharedInstance].currentUserModel.userId pagination:self.pagination pageCount:PAGE_COUNT_DEFAULT success:^(AFHTTPRequestOperation *operation, ZCPListDataModel *bookpostListModel) {
+            [[ZCPRequestManager sharedInstance] getBookpostListWithCurrUserID:self.currUserID pagination:self.pagination pageCount:PAGE_COUNT_DEFAULT success:^(AFHTTPRequestOperation *operation, ZCPListDataModel *bookpostListModel) {
                 weakSelf.loadBlock(operation, bookpostListModel);
             } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
                 TTDPRINT(@"%@", error);
@@ -230,7 +238,7 @@ typedef void (^FooterLoadBlock)(AFHTTPRequestOperation *operation, ZCPListDataMo
         case 1: {
             self.listType = BookList;
             WEAK_SELF;
-            [[ZCPRequestManager sharedInstance] getBookListWithCurrUserID:[ZCPUserCenter sharedInstance].currentUserModel.userId pagination:self.pagination pageCount:PAGE_COUNT_DEFAULT success:^(AFHTTPRequestOperation *operation, ZCPListDataModel *bookListModel) {
+            [[ZCPRequestManager sharedInstance] getBookListWithCurrUserID:self.currUserID pagination:self.pagination pageCount:PAGE_COUNT_DEFAULT success:^(AFHTTPRequestOperation *operation, ZCPListDataModel *bookListModel) {
                 weakSelf.loadBlock(operation, bookListModel);
             } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
                 TTDPRINT(@"%@", error);
@@ -240,7 +248,7 @@ typedef void (^FooterLoadBlock)(AFHTTPRequestOperation *operation, ZCPListDataMo
         case 2: {
             self.listType = CoupletList;
             WEAK_SELF;
-            [[ZCPRequestManager sharedInstance] getCoupltListWithCurrUserID:[ZCPUserCenter sharedInstance].currentUserModel.userId pagination:self.pagination pageCount:PAGE_COUNT_DEFAULT success:^(AFHTTPRequestOperation *operation, ZCPListDataModel *coupltListModel) {
+            [[ZCPRequestManager sharedInstance] getCoupltListWithCurrUserID:self.currUserID pagination:self.pagination pageCount:PAGE_COUNT_DEFAULT success:^(AFHTTPRequestOperation *operation, ZCPListDataModel *coupltListModel) {
                 weakSelf.loadBlock(operation, coupltListModel);
             } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
                 TTDPRINT(@"%@", error);
@@ -250,7 +258,7 @@ typedef void (^FooterLoadBlock)(AFHTTPRequestOperation *operation, ZCPListDataMo
         case 3: {
             self.listType = ThesisList;
             WEAK_SELF;
-            [[ZCPRequestManager sharedInstance] getThesisWithCurrUserID:[ZCPUserCenter sharedInstance].currentUserModel.userId pagination:self.pagination pageCount:PAGE_COUNT_DEFAULT success:^(AFHTTPRequestOperation *operation, ZCPListDataModel *thesisListModel) {
+            [[ZCPRequestManager sharedInstance] getThesisListWithCurrUserID:self.currUserID pagination:self.pagination pageCount:PAGE_COUNT_DEFAULT success:^(AFHTTPRequestOperation *operation, ZCPListDataModel *thesisListModel) {
                 weakSelf.loadBlock(operation, thesisListModel);
             } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
                 TTDPRINT(@"%@", error);
@@ -276,7 +284,7 @@ typedef void (^FooterLoadBlock)(AFHTTPRequestOperation *operation, ZCPListDataMo
             self.listType = BookpostList;
             // 加载图书列表
             WEAK_SELF;
-            [[ZCPRequestManager sharedInstance] getBookpostListWithCurrUserID:[ZCPUserCenter sharedInstance].currentUserModel.userId pagination:self.pagination pageCount:PAGE_COUNT_DEFAULT success:^(AFHTTPRequestOperation *operation, ZCPListDataModel *bookpostListModel) {
+            [[ZCPRequestManager sharedInstance] getBookpostListWithCurrUserID:self.currUserID pagination:self.pagination pageCount:PAGE_COUNT_DEFAULT success:^(AFHTTPRequestOperation *operation, ZCPListDataModel *bookpostListModel) {
                 weakSelf.headerLoadBlock(operation, bookpostListModel);
             } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
                 TTDPRINT(@"%@", error);
@@ -287,7 +295,7 @@ typedef void (^FooterLoadBlock)(AFHTTPRequestOperation *operation, ZCPListDataMo
         case BookList: {
             self.listType = BookList;
             WEAK_SELF;
-            [[ZCPRequestManager sharedInstance] getBookListWithCurrUserID:[ZCPUserCenter sharedInstance].currentUserModel.userId pagination:self.pagination pageCount:PAGE_COUNT_DEFAULT success:^(AFHTTPRequestOperation *operation, ZCPListDataModel *bookListModel) {
+            [[ZCPRequestManager sharedInstance] getBookListWithCurrUserID:self.currUserID pagination:self.pagination pageCount:PAGE_COUNT_DEFAULT success:^(AFHTTPRequestOperation *operation, ZCPListDataModel *bookListModel) {
                 weakSelf.headerLoadBlock(operation, bookListModel);
             } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
                 TTDPRINT(@"%@", error);
@@ -298,7 +306,7 @@ typedef void (^FooterLoadBlock)(AFHTTPRequestOperation *operation, ZCPListDataMo
         case CoupletList: {
             self.listType = CoupletList;
             WEAK_SELF;
-            [[ZCPRequestManager sharedInstance] getCoupltListWithCurrUserID:[ZCPUserCenter sharedInstance].currentUserModel.userId pagination:self.pagination pageCount:PAGE_COUNT_DEFAULT success:^(AFHTTPRequestOperation *operation, ZCPListDataModel *coupltListModel) {
+            [[ZCPRequestManager sharedInstance] getCoupltListWithCurrUserID:self.currUserID pagination:self.pagination pageCount:PAGE_COUNT_DEFAULT success:^(AFHTTPRequestOperation *operation, ZCPListDataModel *coupltListModel) {
                 weakSelf.headerLoadBlock(operation, coupltListModel);
             } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
                 TTDPRINT(@"%@", error);
@@ -309,7 +317,7 @@ typedef void (^FooterLoadBlock)(AFHTTPRequestOperation *operation, ZCPListDataMo
         case ThesisList: {
             self.listType = ThesisList;
             WEAK_SELF;
-            [[ZCPRequestManager sharedInstance] getThesisWithCurrUserID:[ZCPUserCenter sharedInstance].currentUserModel.userId pagination:self.pagination pageCount:PAGE_COUNT_DEFAULT success:^(AFHTTPRequestOperation *operation, ZCPListDataModel *thesisListModel) {
+            [[ZCPRequestManager sharedInstance] getThesisListWithCurrUserID:self.currUserID pagination:self.pagination pageCount:PAGE_COUNT_DEFAULT success:^(AFHTTPRequestOperation *operation, ZCPListDataModel *thesisListModel) {
                 weakSelf.headerLoadBlock(operation, thesisListModel);
             } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
                 TTDPRINT(@"%@", error);
@@ -327,16 +335,15 @@ typedef void (^FooterLoadBlock)(AFHTTPRequestOperation *operation, ZCPListDataMo
 }
 - (void)footerRefresh {
     
-    NSInteger currUserID = [ZCPUserCenter sharedInstance].currentUserModel.userId;
     NSInteger pagination = self.pagination + 1;
     
     // 加载数据
     switch (self.listType) {
         case BookpostList: {
             self.listType = BookpostList;
-            // 加载图书列表
+            // 加载图书贴列表
             WEAK_SELF;
-            [[ZCPRequestManager sharedInstance] getBookpostListWithCurrUserID:currUserID pagination:pagination pageCount:PAGE_COUNT_DEFAULT success:^(AFHTTPRequestOperation *operation, ZCPListDataModel *bookpostListModel) {
+            [[ZCPRequestManager sharedInstance] getBookpostListWithCurrUserID:self.currUserID pagination:pagination pageCount:PAGE_COUNT_DEFAULT success:^(AFHTTPRequestOperation *operation, ZCPListDataModel *bookpostListModel) {
                 weakSelf.footerLoadBlock(operation, bookpostListModel);
             } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
                 TTDPRINT(@"%@", error);
@@ -346,8 +353,9 @@ typedef void (^FooterLoadBlock)(AFHTTPRequestOperation *operation, ZCPListDataMo
         }
         case BookList: {
             self.listType = BookList;
+            // 加载图书列表
             WEAK_SELF;
-            [[ZCPRequestManager sharedInstance] getBookListWithCurrUserID:currUserID pagination:pagination pageCount:PAGE_COUNT_DEFAULT success:^(AFHTTPRequestOperation *operation, ZCPListDataModel *bookListModel) {
+            [[ZCPRequestManager sharedInstance] getBookListWithCurrUserID:self.currUserID pagination:pagination pageCount:PAGE_COUNT_DEFAULT success:^(AFHTTPRequestOperation *operation, ZCPListDataModel *bookListModel) {
                 weakSelf.footerLoadBlock(operation, bookListModel);
             } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
                 TTDPRINT(@"%@", error);
@@ -357,8 +365,9 @@ typedef void (^FooterLoadBlock)(AFHTTPRequestOperation *operation, ZCPListDataMo
         }
         case CoupletList: {
             self.listType = CoupletList;
+            // 加载对联列表
             WEAK_SELF;
-            [[ZCPRequestManager sharedInstance] getCoupltListWithCurrUserID:currUserID pagination:pagination pageCount:PAGE_COUNT_DEFAULT success:^(AFHTTPRequestOperation *operation, ZCPListDataModel *coupltListModel) {
+            [[ZCPRequestManager sharedInstance] getCoupltListWithCurrUserID:self.currUserID pagination:pagination pageCount:PAGE_COUNT_DEFAULT success:^(AFHTTPRequestOperation *operation, ZCPListDataModel *coupltListModel) {
                 weakSelf.footerLoadBlock(operation, coupltListModel);
             } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
                 TTDPRINT(@"%@", error);
@@ -368,8 +377,9 @@ typedef void (^FooterLoadBlock)(AFHTTPRequestOperation *operation, ZCPListDataMo
         }
         case ThesisList: {
             self.listType = ThesisList;
+            // 加载辩题列表
             WEAK_SELF;
-            [[ZCPRequestManager sharedInstance] getThesisWithCurrUserID:currUserID pagination:pagination pageCount:PAGE_COUNT_DEFAULT success:^(AFHTTPRequestOperation *operation, ZCPListDataModel *thesisListModel) {
+            [[ZCPRequestManager sharedInstance] getThesisListWithCurrUserID:self.currUserID pagination:pagination pageCount:PAGE_COUNT_DEFAULT success:^(AFHTTPRequestOperation *operation, ZCPListDataModel *thesisListModel) {
                 weakSelf.footerLoadBlock(operation, thesisListModel);
             } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
                 TTDPRINT(@"%@", error);

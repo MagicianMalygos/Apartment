@@ -22,6 +22,7 @@
 #pragma mark - - - - - - 观点交流相关
 #define BOOKPOST_LIST_BY_MULTI_CONDITION                        @"BOOKPOST_LIST_BY_MULTI_CONDITION"
 #define BOOKPOST_LIST_BY_USERID                                 @"BOOKPOST_LIST_BY_USERID"
+#define BOOKPOST_COLLECTION_LIST_BY_USERID                      @"BOOKPOST_COLLECTION_LIST_BY_USERID"
 #define BOOKPOSTCOMMENT_LIST_BY_BOOKPOSTID                      @"BOOKPOSTCOMMENT_LIST_BY_BOOKPOSTID"
 #define BOOKPOSTCOMMENTREPLY_LIST_BY_BOOKPOSTCOMMENTID          @"BOOKPOSTCOMMENTREPLY_LIST_BY_BOOKPOSTCOMMENTID"
 #define CHANGE_BOOKPOST_SUPPORT_STATE                           @"CHANGE_BOOKPOST_SUPPORT_STATE"
@@ -35,6 +36,7 @@
 #pragma mark - - - - - - 文趣活动相关(Couplet)
 #define COUPLET_LIST_BY_MULTI_CONDITION                         @"COUPLET_LIST_BY_MULTI_CONDITION"
 #define COUPLET_LIST_BY_USERID                                  @"COUPLET_LIST_BY_USERID"
+#define COUPLET_COLLECTION_LIST_BY_USERID                       @"COUPLET_COLLECTION_LIST_BY_USERID"
 #define COUPLET_REPLY_LIST                                      @"COUPLET_REPLY_LIST"
 #define ADD_COUPLET                                             @"ADD_COUPLET"
 #define ADD_COUPLET_REPLY                                       @"ADD_COUPLET_REPLY"
@@ -44,6 +46,7 @@
 #pragma mark - - - - - - 文趣活动相关(Thesis)
 #define CURRENT_THESIS                                          @"CURRENT_THESIS"
 #define THESIS_LIST_BY_USERID                                   @"THESIS_LIST_BY_USERID"
+#define THESIS_COLLECTION_LIST_BY_USERID                        @"THESIS_COLLECTION_LIST_BY_USERID"
 #define ARGUMENT_LIST_BY_BELONG                                 @"ARGUMENT_LIST_BY_BELONG"
 #define ADD_THESIS                                              @"ADD_THESIS"
 #define ADD_ARGUMENT                                            @"ADD_ARGUMENT"
@@ -53,6 +56,7 @@
 #pragma mark - - - - - - 图书馆相关
 #define BOOK_LIST                                               @"BOOK_LIST"
 #define BOOK_LIST_BY_USERID                                     @"BOOK_LIST_BY_USERID"
+#define BOOK_COLLECTION_LIST_BY_USERID                          @"BOOK_COLLECTION_LIST_BY_USERID"
 #define BOOK_REPLY_LIST                                         @"BOOK_REPLY_LIST"
 #define ADD_BOOK                                                @"ADD_BOOK"
 #define ADD_BOOK_REPLY                                          @"ADD_BOOK_REPLY"

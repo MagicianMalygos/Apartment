@@ -44,11 +44,11 @@
  *  @param pagination 页码
  *  @param pageCount  一页数量
  */
-- (NSOperation *)getThesisWithCurrUserID:(NSInteger) currUserID
-                              pagination:(NSInteger) pagination
-                               pageCount:(NSInteger) pageCount
-                                 success:(void (^)(AFHTTPRequestOperation *operation, ZCPListDataModel *thesisListModel))success
-                                 failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure {
+- (NSOperation *)getThesisListWithCurrUserID:(NSInteger) currUserID
+                                  pagination:(NSInteger) pagination
+                                   pageCount:(NSInteger) pageCount
+                                     success:(void (^)(AFHTTPRequestOperation *operation, ZCPListDataModel *thesisListModel))success
+                                     failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure {
     NSString * scheme       = schemeForType(kURLTypeCommon);
     NSString * host         = hostForType(kURLTypeCommon);
     NSString * path         = urlForKey(THESIS_LIST_BY_USERID);
@@ -56,7 +56,40 @@
     AFHTTPRequestOperation *operation = [self POST:ZCPMakeURLString(scheme, host, path)
                                         parameters:@{@"currUserID": @(currUserID)
                                                      , @"pagination": @(pagination)
-                                                     , @"pageCount": @(pageCount)}
+                                                     , @"pageCount": @(pageCount)
+                                                     , @"myUserID": @([ZCPUserCenter sharedInstance].currentUserModel.userId)}
+                                           success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                                               if (success) {
+                                                   ZCPListDataModel *model = [ZCPRequestResponseTranslator translateResponse_ThesisListModel:[responseObject objectForKey:@"data"]];
+                                                   success(operation, model);
+                                               }
+                                           }
+                                           failure:failure];
+    TTDPRINT(@"URL=%@  params=%@", operation.request.URL, [[NSString alloc] initWithData:operation.request.HTTPBody encoding:NSUTF8StringEncoding]);
+    return operation;
+}
+
+/**
+ *  得到某个人收藏的辩题列表
+ *  @param currUserID 当前用户ID
+ *  @param pagination 页码
+ *  @param pageCount  一页数量
+ */
+- (NSOperation *)getThesisCollectionListWithCurrUserID:(NSInteger) currUserID
+                                            pagination:(NSInteger) pagination
+                                             pageCount:(NSInteger) pageCount
+                                               success:(void (^)(AFHTTPRequestOperation *operation, ZCPListDataModel *thesisListModel))success
+                                               failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure {
+    
+    NSString * scheme       = schemeForType(kURLTypeCommon);
+    NSString * host         = hostForType(kURLTypeCommon);
+    NSString * path         = urlForKey(THESIS_COLLECTION_LIST_BY_USERID);
+    
+    AFHTTPRequestOperation *operation = [self POST:ZCPMakeURLString(scheme, host, path)
+                                        parameters:@{@"currUserID": @(currUserID)
+                                                     , @"pagination": @(pagination)
+                                                     , @"pageCount": @(pageCount)
+                                                     , @"myUserID": @([ZCPUserCenter sharedInstance].currentUserModel.userId)}
                                            success:^(AFHTTPRequestOperation *operation, id responseObject) {
                                                if (success) {
                                                    ZCPListDataModel *model = [ZCPRequestResponseTranslator translateResponse_ThesisListModel:[responseObject objectForKey:@"data"]];

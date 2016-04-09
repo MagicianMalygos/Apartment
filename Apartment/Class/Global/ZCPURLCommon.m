@@ -79,6 +79,7 @@ IMP_SINGLETON
                      /* - 观点交流相关 - */
                      , BOOKPOST_LIST_BY_MULTI_CONDITION:        @"/1.0/communion/getBookpostBySearchTextSortMethodFieldID"
                      , BOOKPOST_LIST_BY_USERID:                 @"/1.0/communion/getBookpostByUserID"
+                     , BOOKPOST_COLLECTION_LIST_BY_USERID:      @"/1.0/communion/getCollectedBookpostByUserID"
                      , BOOKPOSTCOMMENT_LIST_BY_BOOKPOSTID:      @"/1.0/communion/getBookpostCommentByBookpostID"
                      , BOOKPOSTCOMMENTREPLY_LIST_BY_BOOKPOSTCOMMENTID: @"/1.0/communion/getBookpostCommentReplyByBookpostCommentID"
                      , CHANGE_BOOKPOST_SUPPORT_STATE:           @"/1.0/communion/changeBookpostSupportRecord"
@@ -91,6 +92,7 @@ IMP_SINGLETON
                      /* - 文趣活动相关(Couplet) - */
                      , COUPLET_LIST_BY_MULTI_CONDITION:         @"/1.0/activity/getCoupletBySortMethod"
                      , COUPLET_LIST_BY_USERID:                  @"/1.0/activity/getCoupletByUserID"
+                     , COUPLET_COLLECTION_LIST_BY_USERID:       @"/1.0/activity/getCollectedCoupletByUserID"
                      , COUPLET_REPLY_LIST:                      @"/1.0/activity/getCoupletReplyByCoupletID"
                      , ADD_COUPLET:                             @"/1.0/activity/addCouplet"
                      , ADD_COUPLET_REPLY:                       @"/1.0/activity/addCoupletReply"
@@ -100,6 +102,7 @@ IMP_SINGLETON
                      /* - 文趣活动相关(Thesis) - */
                      , CURRENT_THESIS:                          @"/1.0/activity/getCurrThesis"
                      , THESIS_LIST_BY_USERID:                   @"/1.0/activity/getThesisByUserID"
+                     , THESIS_COLLECTION_LIST_BY_USERID:        @"/1.0/activity/getCollectedThesisByUserID"
                      , ARGUMENT_LIST_BY_BELONG:                 @"/1.0/activity/getArgumentByBelong"
                      , ADD_THESIS:                              @"/1.0/activity/addThesis"
                      , ADD_ARGUMENT:                            @"/1.0/activity/addArgument"
@@ -108,6 +111,7 @@ IMP_SINGLETON
                      /* - 图书馆相关 - */
                      , BOOK_LIST:                               @"/1.0/library/getBookBySearchTextSortMethodFieldID"
                      , BOOK_LIST_BY_USERID:                     @"/1.0/library/getBookByUserID"
+                     , BOOK_COLLECTION_LIST_BY_USERID:          @"/1.0/library/getCollectedBookByUserID"
                      , BOOK_REPLY_LIST:                         @"/1.0/library/getBookReplyByBookID"
                      , ADD_BOOK:                                @"/1.0/library/addBook"
                      , ADD_BOOK_REPLY:                          @"/1.0/library/addBookReply"
