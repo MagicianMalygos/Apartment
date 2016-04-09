@@ -55,6 +55,37 @@
 }
 
 /**
+ *  得到某个人发表的图书贴列表
+ *  @param currUserID 当前用户ID
+ *  @param pagination 页码
+ *  @param pageCount  一页数量
+ */
+- (NSOperation *)getBookpostListWithCurrUserID:(NSInteger) currUserID
+                                    pagination:(NSInteger) pagination
+                                     pageCount:(NSInteger) pageCount
+                                       success:(void (^)(AFHTTPRequestOperation *operation, ZCPListDataModel *bookpostListModel))success
+                                       failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure {
+    NSString * scheme       = schemeForType(kURLTypeCommon);
+    NSString * host         = hostForType(kURLTypeCommon);
+    NSString * path         = urlForKey(BOOKPOST_LIST_BY_USERID);
+    
+    AFHTTPRequestOperation *operation = [self POST:ZCPMakeURLString(scheme, host, path)
+                                        parameters:@{@"currUserID": @(currUserID)
+                                                     , @"pagination": @(pagination)
+                                                     , @"pageCount": @(pageCount)}
+                                           success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                                               if (success) {
+                                                   ZCPListDataModel *model = [ZCPRequestResponseTranslator translateResponse_BookPostListModel:[responseObject objectForKey:@"data"]];
+                                                   success(operation, model);
+                                               }
+                                           }
+                                           failure:failure];
+    
+    TTDPRINT(@"URL=%@  params=%@", operation.request.URL, [[NSString alloc] initWithData:operation.request.HTTPBody encoding:NSUTF8StringEncoding]);
+    return operation;
+}
+
+/**
  *  得到图书贴的评论列表
  *
  *  @param bookpostID 图书贴ID

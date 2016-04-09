@@ -212,7 +212,7 @@
     [self.selectFieldControl hideView];
     
     // 跳转到图书详情界面，判断如果图书模型为nil，则向字典中传入[NSNull null]
-    ZCPBookModel *currentBookModel = [self.bookArr objectAtIndex:indexPath.row];
+    ZCPBookModel *currentBookModel = (ZCPBookModel *)object;
     [[ZCPNavigator sharedInstance] gotoViewWithIdentifier:APPURL_VIEW_IDENTIFIER_LIBRARY_BOOKDETAIL
                                          paramDictForInit:@{@"_currentBookModel": (currentBookModel != nil)? currentBookModel: [NSNull null]}];
 }

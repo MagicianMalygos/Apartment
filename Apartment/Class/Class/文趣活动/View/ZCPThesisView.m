@@ -276,7 +276,7 @@
                                               , APPLICATIONWIDTH - HorizontalMargin * 2
                                               , height);
 
-    self.prosArgumentLabel.text = self.thesisModel.thesisPros;
+    self.prosArgumentLabel.text = [NSString stringWithFormat:@"正方：%@", self.thesisModel.thesisPros];
     return self.prosArgumentLabel;
 }
 /**
@@ -301,7 +301,7 @@
                                               , APPLICATIONWIDTH - HorizontalMargin * 2
                                               , height);
 
-    self.consArgumentLabel.text = self.thesisModel.thesisCons;
+    self.consArgumentLabel.text = [NSString stringWithFormat:@"反方：%@", self.thesisModel.thesisCons];
     return self.consArgumentLabel;
 }
 /**

@@ -59,3 +59,88 @@
 }
 
 @end
+
+
+// 辩题展示cell
+@implementation ZCPThesisShowCell
+
+#pragma mark - synthesize
+@synthesize thesisContentLabel      = _thesisContentLabel;
+@synthesize thesisProsLabel         = _thesisProsLabel;
+@synthesize thesisConsLabel         = _thesisConsLabel;
+@synthesize replyNumberLabel        = _replyNumberLabel;
+@synthesize collectionNumberLabel   = _collectionNumberLabel;
+@synthesize item                    = _item;
+
+#pragma mark - Setup Cell
+- (void)setupContentView {
+    // 初始化控件
+    self.thesisContentLabel = [[UILabel alloc] init];
+    self.thesisContentLabel.numberOfLines = 0;
+    self.thesisContentLabel.textAlignment = NSTextAlignmentCenter;
+    self.thesisContentLabel.font = [UIFont defaultFontWithSize:18.0f];
+    
+    self.thesisProsLabel = [[UILabel alloc] init];
+    self.thesisProsLabel.numberOfLines = 0;
+    self.thesisProsLabel.font = [UIFont defaultFontWithSize:15.0f];
+    
+    self.thesisConsLabel = [[UILabel alloc] init];
+    self.thesisConsLabel.numberOfLines = 0;
+    self.thesisConsLabel.font = [UIFont defaultFontWithSize:15.0f];
+    
+    self.replyNumberLabel = [[UILabel alloc] init];
+    self.replyNumberLabel.font = [UIFont defaultFontWithSize:13.0f];
+    
+    self.collectionNumberLabel = [[UILabel alloc] init];
+    self.collectionNumberLabel.font = [UIFont defaultFontWithSize:13.0f];
+    
+    // 设置背景颜色
+    self.thesisContentLabel.backgroundColor = [UIColor clearColor];
+    self.thesisProsLabel.backgroundColor = [UIColor clearColor];
+    self.thesisConsLabel.backgroundColor = [UIColor clearColor];
+    self.replyNumberLabel.backgroundColor = [UIColor clearColor];
+    self.collectionNumberLabel.backgroundColor = [UIColor clearColor];
+    
+    // add
+    [self.contentView addSubview:self.thesisContentLabel];
+    [self.contentView addSubview:self.thesisProsLabel];
+    [self.contentView addSubview:self.thesisConsLabel];
+    [self.contentView addSubview:self.replyNumberLabel];
+    [self.contentView addSubview:self.collectionNumberLabel];
+}
+- (void)setObject:(NSObject *)object {
+    if (object && self.item != object) {
+        self.item = (ZCPThesisModel *)object;
+        // 设置属性
+        self.thesisContentLabel.text = self.item.thesisContent;
+        self.thesisProsLabel.text = [NSString stringWithFormat:@"正方：%@", self.item.thesisPros];
+        self.thesisConsLabel.text = [NSString stringWithFormat:@"反方：%@", self.item.thesisCons];
+        self.replyNumberLabel.text = [NSString stringWithFormat:@"%@ 人回复", [NSString getFormateFromNumberOfPeople:self.item.thesisProsReplyNumber + self.item.thesisConsReplyNumber]];
+        self.collectionNumberLabel.text = [NSString stringWithFormat:@"%@ 人收藏", [NSString getFormateFromNumberOfPeople:self.item.thesisCollectNumber]];
+        
+        // 设置frame
+        CGFloat contentHeight = [self.thesisContentLabel.text boundingRectWithSize:CGSizeMake(APPLICATIONWIDTH - HorizontalMargin * 2, CGFLOAT_MAX) options:NSStringDrawingUsesFontLeading| NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName: [UIFont defaultFontWithSize:18.0f]} context:nil].size.height;
+        CGFloat prosHeight = [self.thesisProsLabel.text boundingRectWithSize:CGSizeMake(APPLICATIONWIDTH - HorizontalMargin * 2, CGFLOAT_MAX) options:NSStringDrawingUsesFontLeading| NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName: [UIFont defaultFontWithSize:18.0f]} context:nil].size.height;
+        CGFloat consHeight = [self.thesisConsLabel.text boundingRectWithSize:CGSizeMake(APPLICATIONWIDTH - HorizontalMargin * 2, CGFLOAT_MAX) options:NSStringDrawingUsesFontLeading| NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName: [UIFont defaultFontWithSize:18.0f]} context:nil].size.height;
+        self.thesisContentLabel.frame = CGRectMake(HorizontalMargin, VerticalMargin, APPLICATIONWIDTH - HorizontalMargin * 2, contentHeight);
+        self.thesisProsLabel.frame = CGRectMake(HorizontalMargin, self.thesisContentLabel.bottom + UIMargin, APPLICATIONWIDTH - HorizontalMargin * 2, prosHeight);
+        self.thesisConsLabel.frame = CGRectMake(HorizontalMargin, self.thesisProsLabel.bottom + UIMargin, APPLICATIONWIDTH - HorizontalMargin * 2, consHeight);
+        self.replyNumberLabel.frame = CGRectMake(HorizontalMargin, self.thesisConsLabel.bottom + UIMargin, 90, 20);
+        self.collectionNumberLabel.frame = CGRectMake(self.replyNumberLabel.right +  UIMargin, self.thesisConsLabel.bottom + UIMargin, 90, 20);
+    }
+}
++ (CGFloat)tableView:(UITableView *)tableView rowHeightForObject:(id)object {
+    ZCPThesisModel *model = (ZCPThesisModel *)object;
+    
+    NSString *content = model.thesisContent;
+    NSString *pros = [NSString stringWithFormat:@"正方：%@", model.thesisPros];
+    NSString *cons = [NSString stringWithFormat:@"反方：%@", model.thesisCons];
+    
+    CGFloat contentHeight = [content boundingRectWithSize:CGSizeMake(APPLICATIONWIDTH - HorizontalMargin * 2, CGFLOAT_MAX) options:NSStringDrawingUsesFontLeading| NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName: [UIFont defaultFontWithSize:18.0f]} context:nil].size.height;
+    CGFloat prosHeight = [pros boundingRectWithSize:CGSizeMake(APPLICATIONWIDTH - HorizontalMargin * 2, CGFLOAT_MAX) options:NSStringDrawingUsesFontLeading| NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName: [UIFont defaultFontWithSize:18.0f]} context:nil].size.height;
+    CGFloat consHeight = [cons boundingRectWithSize:CGSizeMake(APPLICATIONWIDTH - HorizontalMargin * 2, CGFLOAT_MAX) options:NSStringDrawingUsesFontLeading| NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName: [UIFont defaultFontWithSize:18.0f]} context:nil].size.height;
+    
+    return contentHeight + prosHeight + consHeight + 20 + VerticalMargin * 2 + UIMargin * 3;
+}
+
+@end

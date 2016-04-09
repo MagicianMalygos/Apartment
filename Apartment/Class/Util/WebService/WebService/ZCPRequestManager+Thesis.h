@@ -22,6 +22,18 @@
                                      failure:(void(^)(AFHTTPRequestOperation *operation, NSError *error))failure;
 
 /**
+ *  得到某个人发表的辩题列表
+ *  @param currUserID 当前用户ID
+ *  @param pagination 页码
+ *  @param pageCount  一页数量
+ */
+- (NSOperation *)getThesisWithCurrUserID:(NSInteger) currUserID
+                                pagination:(NSInteger) pagination
+                                 pageCount:(NSInteger) pageCount
+                                   success:(void (^)(AFHTTPRequestOperation *operation, ZCPListDataModel *thesisListModel))success
+                                   failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure;
+
+/**
  *  获取当前辩题的论据列表
  *
  *  @param belong     所属正反方
