@@ -133,7 +133,6 @@
 // IQKeyboardManager
 - (void)registerKeyboardIQ {
     [IQKeyboardManager sharedManager].enable = YES;
-    [IQKeyboardManager sharedManager].enableAutoToolbar = YES;
     [IQKeyboardManager sharedManager].shouldResignOnTouchOutside = self.needsTapToDismissKeyboard.boolValue;
 }
 - (void)unregisterKeyboardIQ {

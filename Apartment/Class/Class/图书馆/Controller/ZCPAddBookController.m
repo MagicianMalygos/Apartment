@@ -186,10 +186,10 @@
     if ([ZCPJudge judgeWrongDateString:publishTime showErrorMsg:@"出版时间有误"]) {
         return;
     }
-    if ([ZCPJudge judgeOutOfRangeTextInput:name range:[ZCPLengthRange rangeWithMin:1 max:30] showErrorMsg:@"书名不能超过30字"]
-        || [ZCPJudge judgeOutOfRangeTextInput:author range:[ZCPLengthRange rangeWithMin:1 max:30] showErrorMsg:@"作者不能超过30字"]
-        || [ZCPJudge judgeOutOfRangeTextInput:publisher range:[ZCPLengthRange rangeWithMin:1 max:30] showErrorMsg:@"出版社不能超过30字"]
-        || [ZCPJudge judgeOutOfRangeTextInput:summary range:[ZCPLengthRange rangeWithMin:1 max:1000] showErrorMsg:@"简介不能超过30字"]) {
+    if ([ZCPJudge judgeOutOfRangeTextInput:name range:[ZCPLengthRange rangeWithMin:1 max:50] showErrorMsg:@"书名不能超过50字"]
+        || [ZCPJudge judgeOutOfRangeTextInput:author range:[ZCPLengthRange rangeWithMin:1 max:20] showErrorMsg:@"作者不能超过20字"]
+        || [ZCPJudge judgeOutOfRangeTextInput:publisher range:[ZCPLengthRange rangeWithMin:1 max:20] showErrorMsg:@"出版社不能超过20字"]
+        || [ZCPJudge judgeOutOfRangeTextInput:summary range:[ZCPLengthRange rangeWithMin:1 max:1000] showErrorMsg:@"简介不能超过1000字"]) {
         return;
     }
     

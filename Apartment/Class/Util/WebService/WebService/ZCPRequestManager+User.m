@@ -36,7 +36,7 @@
                              NSString *extension = nil;
                              
                              NSData *headImageData = nil;
-                             if ((headImageData = UIImageJPEGRepresentation(headImage, 0.5f))) {
+                             if ((headImageData = UIImageJPEGRepresentation(headImage, 0.1f))) {
                                  mimeType = @"image/jpeg";
                                  extension = @".jpeg";
                              } else {

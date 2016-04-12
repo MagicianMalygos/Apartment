@@ -50,6 +50,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    [self unregisterKeyboardIQ];
+    
     // 初始化
     self.pagination = 1;    // 初始化页码
     // 初始化评论视图
@@ -235,7 +237,7 @@
     // 获取文本输入框内容并进行非法性判断
     NSString *bookReplyContent = keyboardResponder.text;
     if ([ZCPJudge judgeNullTextInput:bookReplyContent showErrorMsg:@"评论不能为空！"]
-        || [ZCPJudge judgeOutOfRangeTextInput:bookReplyContent range:[ZCPLengthRange rangeWithMin:1 max:50] showErrorMsg:@"字数不得超过50字！"]) {
+        || [ZCPJudge judgeOutOfRangeTextInput:bookReplyContent range:[ZCPLengthRange rangeWithMin:1 max:1000] showErrorMsg:@"字数不得超过1000字！"]) {
         return NO;
     }
     
