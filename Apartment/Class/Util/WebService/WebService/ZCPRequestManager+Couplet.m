@@ -57,6 +57,7 @@
                                    pageCount:(NSInteger) pageCount
                                      success:(void (^)(AFHTTPRequestOperation *operation, ZCPListDataModel *coupltListModel))success
                                      failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure {
+    
     NSString * scheme       = schemeForType(kURLTypeCommon);
     NSString * host         = hostForType(kURLTypeCommon);
     NSString * path         = urlForKey(COUPLET_LIST_BY_USERID);

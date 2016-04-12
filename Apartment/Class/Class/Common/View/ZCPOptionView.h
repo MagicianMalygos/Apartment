@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
+// 选项视图默认高度
+#define OPTION_VIEW_DEFAULT_HEIGHT  35.0f
+
 @protocol ZCPOptionViewDelegate;
 
 // 类似SegmentView的选项卡视图

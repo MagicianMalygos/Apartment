@@ -15,7 +15,7 @@
 #import "ZCPArgumentCell.h"
 #import "ZCPRequestManager+Thesis.h"
 
-#define OptionHeight 50.0f
+#define OptionHeight    44.0f
 
 @interface ZCPThesisMainController () <ZCPListTableViewAdaptorDelegate, ZCPThesisViewDelegate, ZCPArgumentCellDelegate>
 

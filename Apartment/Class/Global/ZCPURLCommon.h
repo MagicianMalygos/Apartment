@@ -52,6 +52,14 @@
 #define ADD_ARGUMENT                                            @"ADD_ARGUMENT"
 #define CHANGE_THESIS_COLLECTION_STATE                          @"CHANGE_THESIS_COLLECTION_STATE"
 #define CHANGE_ARGUMENT_SUPPORT_STATE                           @"CHANGE_ARGUMENT_SUPPORT_STATE"
+#pragma mark - - - - - - 文趣活动相关(Question)
+#define QUESTION_LIST                                           @"QUESTION_LIST"
+#define QUESTION_LIST_BY_USERID                                 @"QUESTION_LIST_BY_USERID"
+#define QUESTION_COLLECTION_LIST_BY_USERID                      @"QUESTION_COLLECTION_LIST_BY_USERID"
+#define USER_ANSWER_RECORD                                      @"USER_ANSWER_RECORD"
+#define SUBMIT_QUESTION_ANSWERS                                 @"SUBMIT_QUESTION_ANSWERS"
+#define ADD_QUESTION                                            @"ADD_QUESTION"
+#define CHANGE_QUESTION_COLLECTION_STATE                        @"CHANGE_QUESTION_COLLECTION_STATE"
 
 #pragma mark - - - - - - 图书馆相关
 #define BOOK_LIST                                               @"BOOK_LIST"

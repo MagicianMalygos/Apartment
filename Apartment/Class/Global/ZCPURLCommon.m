@@ -108,6 +108,14 @@ IMP_SINGLETON
                      , ADD_ARGUMENT:                            @"/1.0/activity/addArgument"
                      , CHANGE_THESIS_COLLECTION_STATE:          @"/1.0/activity/changeThesisCollectionRecord"
                      , CHANGE_ARGUMENT_SUPPORT_STATE:           @"/1.0/activity/changeArgumentSupportRecord"
+                     /* - 文趣活动相关(Question) - */
+                     , QUESTION_LIST:                           @"/1.0/activity/getQuestion"
+                     , QUESTION_LIST_BY_USERID:                 @"/1.0/activity/getQuestionByUserID"
+                     , QUESTION_COLLECTION_LIST_BY_USERID:      @"/1.0/activity/getCollectedQuestionByUserID"
+                     , USER_ANSWER_RECORD:                      @"/1.0/activity/getAnswerRecordByUserID"
+                     , SUBMIT_QUESTION_ANSWERS:                 @"/1.0/activity/submitQuestionAnswer"
+                     , ADD_QUESTION:                            @"/1.0/activity/addQuestion"
+                     , CHANGE_QUESTION_COLLECTION_STATE:        @"/1.0/activity/changeQuestionCollectionRecord"
                      /* - 图书馆相关 - */
                      , BOOK_LIST:                               @"/1.0/library/getBookBySearchTextSortMethodFieldID"
                      , BOOK_LIST_BY_USERID:                     @"/1.0/library/getBookByUserID"

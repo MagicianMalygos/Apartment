@@ -15,7 +15,6 @@
 #import "ZCPRequestManager+Library.h"
 
 #define SearchBarHeight           44.0f     // 搜索栏视图高度
-#define OptionViewHight           35.0f     // 选项视图高度
 #define SelectSortMethodWidth     80.0f     // 选择排序方式视图宽度
 #define SelectSortMethodHeight    160.0f    // 选择排序方式视图高度
 #define SelectFieldWidth          50.0f     // 选择领域视图宽度
@@ -77,7 +76,7 @@
 }
 - (void)viewWillLayoutSubviews {
     [super viewWillLayoutSubviews];
-    self.tableView.frame = CGRectMake(0, self.optionView.bottom, APPLICATIONWIDTH, APPLICATIONHEIGHT - Height_NavigationBar - Height_TABBAR - SearchBarHeight - OptionViewHight);
+    self.tableView.frame = CGRectMake(0, self.optionView.bottom, APPLICATIONWIDTH, APPLICATIONHEIGHT - Height_NavigationBar - Height_TABBAR - SearchBarHeight - OPTION_VIEW_DEFAULT_HEIGHT);
 }
 
 #pragma mark - getter / setter
@@ -106,7 +105,7 @@
                                    ,[[NSAttributedString alloc] initWithString:@"上传"
                                                                     attributes:@{NSFontAttributeName: [UIFont defaultFontWithSize:13.0f]}]];
         _optionView = [[ZCPOptionView alloc] initWithFrame:({
-            CGRectMake(0, SearchBarHeight, self.view.width, OptionViewHight);
+            CGRectMake(0, SearchBarHeight, self.view.width, OPTION_VIEW_DEFAULT_HEIGHT);
         }) attributeStringArr:attrStringArr];
         _optionView.delegate = self;
         [_optionView hideMarkView];

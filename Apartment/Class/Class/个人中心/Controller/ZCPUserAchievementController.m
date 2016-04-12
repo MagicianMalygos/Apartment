@@ -17,34 +17,28 @@
 #import "ZCPBookCell.h"
 #import "ZCPCoupletMainCell.h"
 #import "ZCPThesisCell.h"
-
-#define OptionViewHight           35.0f     // 选项视图高度
+#import "ZCPQuestionCell.h"
 
 // 列表类型枚举
-typedef NS_ENUM(NSInteger, ListType) {
+typedef NS_ENUM(NSInteger, ZCPListType) {
     BookpostList = 0,
     BookList = 1,
     CoupletList = 2,
     ThesisList = 3,
     QuestionList = 4
 };
-// 加载块
-typedef void (^LoadBlock)(AFHTTPRequestOperation *operation, ZCPListDataModel *listModel);
-typedef void (^HeaderLoadBlock)(AFHTTPRequestOperation *operation, ZCPListDataModel *listModel);
-typedef void (^FooterLoadBlock)(AFHTTPRequestOperation *operation, ZCPListDataModel *listModel);
 
+@interface ZCPUserAchievementController () <ZCPOptionViewDelegate, ZCPQuestionCellDelegate>
 
-@interface ZCPUserAchievementController () <ZCPOptionViewDelegate>
+@property (nonatomic, assign) NSInteger currUserID;                 // 用户ID
+@property (nonatomic, assign) NSUInteger pagination;                // 页码
+@property (nonatomic, strong) ZCPOptionView *optionView;            // 选项视图
+@property (nonatomic, strong) NSMutableArray *listArray;            // 列表数组
+@property (nonatomic, assign) ZCPListType listType;                 // 列表类型
 
-@property (nonatomic, assign) NSInteger currUserID;             // 用户ID
-@property (nonatomic, assign) NSUInteger pagination;            // 页码
-@property (nonatomic, strong) ZCPOptionView *optionView;        // 选项视图
-@property (nonatomic, strong) NSMutableArray *listArray;        // 列表数组
-@property (nonatomic, assign) ListType listType;                // 列表类型
-
-@property (nonatomic, copy) LoadBlock loadBlock;                // 普通加载块
-@property (nonatomic, copy) HeaderLoadBlock headerLoadBlock;    // 下拉刷新加载块
-@property (nonatomic, copy) FooterLoadBlock footerLoadBlock;    // 上拉刷新加载块
+@property (nonatomic, copy) LoadListBlock loadBlock;                // 普通加载块
+@property (nonatomic, copy) HeaderLoadListBlock headerLoadBlock;    // 下拉刷新加载块
+@property (nonatomic, copy) FooterLoadListBlock footerLoadBlock;    // 上拉刷新加载块
 
 @end
 
@@ -121,7 +115,7 @@ typedef void (^FooterLoadBlock)(AFHTTPRequestOperation *operation, ZCPListDataMo
 }
 - (void)viewWillLayoutSubviews {
     [super viewWillLayoutSubviews];
-    self.tableView.frame = CGRectMake(0, self.optionView.bottom, APPLICATIONWIDTH, APPLICATIONHEIGHT - Height_NavigationBar - OptionViewHight);
+    self.tableView.frame = CGRectMake(0, self.optionView.bottom, APPLICATIONWIDTH, APPLICATIONHEIGHT - Height_NavigationBar - OPTION_VIEW_DEFAULT_HEIGHT);
 }
 
 #pragma mark - constructData
@@ -133,30 +127,45 @@ typedef void (^FooterLoadBlock)(AFHTTPRequestOperation *operation, ZCPListDataMo
             case BookpostList: {
                 model.cellClass = [ZCPBookPostCell class];
                 model.cellType = [ZCPBookPostCell cellIdentifier];
+                [items addObject:model];
                 break;
             }
             case BookList: {
                 model.cellClass = [ZCPBookCell class];
                 model.cellType = [ZCPBookCell cellIdentifier];
+                [items addObject:model];
                 break;
             }
             case CoupletList: {
                 model.cellClass = [ZCPCoupletMainCell class];
                 model.cellType = [ZCPCoupletMainCell cellIdentifier];
+                [items addObject:model];
                 break;
             }
             case ThesisList: {
                 model.cellClass = [ZCPThesisShowCell class];
                 model.cellType = [ZCPThesisShowCell cellIdentifier];
+                [items addObject:model];
                 break;
             }
             case QuestionList: {
+                ZCPQuestionCellItem *item = [[ZCPQuestionCellItem alloc] initWithDefault];
+                item.questionModel = (ZCPQuestionModel *)model;
+                // 如果题目正在使用中，则不显示答案
+                if (item.questionModel.state.stateValue == 2) {
+                    item.userHaveAnswer = NO;
+                    item.userSelectIndex = DEFAULT_INDEX;
+                } else { // 否则显示答案为红色，不显示勾选项
+                    item.userHaveAnswer = YES;
+                    item.userAnswerIndex = DEFAULT_INDEX;
+                }
+                item.delegate = self;
+                [items addObject:item];
                 break;
             }
             default:
                 break;
         }
-        [items addObject:model];
     }
     self.tableViewAdaptor.items = items;
 }
@@ -185,7 +194,7 @@ typedef void (^FooterLoadBlock)(AFHTTPRequestOperation *operation, ZCPListDataMo
                                                                     attributes:@{NSFontAttributeName: [UIFont defaultFontWithSize:13.0f]}]
                                    ];
         _optionView = [[ZCPOptionView alloc] initWithFrame:({
-            CGRectMake(0, 0, self.view.width, OptionViewHight);
+            CGRectMake(0, 0, self.view.width, OPTION_VIEW_DEFAULT_HEIGHT);
         }) attributeStringArr:attrStringArr];
         _optionView.delegate = self;
         [_optionView hideMarkView];
@@ -267,11 +276,46 @@ typedef void (^FooterLoadBlock)(AFHTTPRequestOperation *operation, ZCPListDataMo
         }
         case 4: {
             self.listType = QuestionList;
+            WEAK_SELF;
+            [[ZCPRequestManager sharedInstance] getQuestionListWithCurrUserID:self.currUserID pagination:self.pagination pageCount:PAGE_COUNT_DEFAULT success:^(AFHTTPRequestOperation *operation, ZCPListDataModel *questionListModel) {
+                weakSelf.loadBlock(operation, questionListModel);
+            } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                TTDPRINT(@"%@", error);
+            }];
             break;
         }
         default:
             break;
     }
+}
+
+#pragma mark - ZCPQuestionCellDelegate
+- (void)questionCell:(ZCPQuestionCell *)cell collectButtonClicked:(UIButton *)button {
+    ZCPQuestionCellItem *item = cell.item;
+    
+    [[ZCPRequestManager sharedInstance] changeQuestionCurrCollectionState:item.questionModel.collected currQuestionID:item.questionModel.questionId currUserID:[ZCPUserCenter sharedInstance].currentUserModel.userId success:^(AFHTTPRequestOperation *operation, BOOL isSuccess) {
+        if (isSuccess) {
+            if (cell.item.questionModel.collected == ZCPCurrUserNotCollectQuestion) {
+                button.selected = YES;
+                cell.item.questionModel.collected = ZCPCurrUserHaveCollectQuestion;
+                cell.item.questionModel.questionCollectNumber ++;
+                
+                TTDPRINT(@"收藏成功！");
+                [MBProgressHUD showSuccess:@"收藏成功！" toView:self.view];
+            }
+            else if (cell.item.questionModel.collected == ZCPCurrUserHaveCollectQuestion) {
+                button.selected = NO;
+                cell.item.questionModel.collected = ZCPCurrUserNotCollectQuestion;
+                cell.item.questionModel.questionCollectNumber --;
+                
+                TTDPRINT(@"取消收藏成功！");
+                [MBProgressHUD showSuccess:@"取消收藏成功！" toView:self.view];
+            }
+        }
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        TTDPRINT(@"操作失败！%@", error);
+        [MBProgressHUD showSuccess:@"操作失败！网络异常！" toView:self.view];
+    }];
 }
 
 #pragma mark - Load Data
@@ -327,6 +371,13 @@ typedef void (^FooterLoadBlock)(AFHTTPRequestOperation *operation, ZCPListDataMo
         }
         case QuestionList: {
             self.listType = QuestionList;
+            WEAK_SELF;
+            [[ZCPRequestManager sharedInstance] getQuestionListWithCurrUserID:self.currUserID pagination:self.pagination pageCount:PAGE_COUNT_DEFAULT success:^(AFHTTPRequestOperation *operation, ZCPListDataModel *questionListModel) {
+                weakSelf.headerLoadBlock(operation, questionListModel);
+            } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                TTDPRINT(@"%@", error);
+                [weakSelf.tableView.mj_header endRefreshing];
+            }];
             break;
         }
         default:
@@ -389,6 +440,13 @@ typedef void (^FooterLoadBlock)(AFHTTPRequestOperation *operation, ZCPListDataMo
         }
         case QuestionList: {
             self.listType = QuestionList;
+            WEAK_SELF;
+            [[ZCPRequestManager sharedInstance] getQuestionListWithCurrUserID:self.currUserID pagination:pagination pageCount:PAGE_COUNT_DEFAULT success:^(AFHTTPRequestOperation *operation, ZCPListDataModel *questionListModel) {
+                weakSelf.footerLoadBlock(operation, questionListModel);
+            } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                TTDPRINT(@"%@", error);
+                [weakSelf.tableView.mj_footer endRefreshing];
+            }];
             break;
         }
         default:

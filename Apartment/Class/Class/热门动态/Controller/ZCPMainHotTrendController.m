@@ -11,38 +11,15 @@
 #import "ZCPTextView.h"
 #import "ZCPCommentView.h"
 
-@interface ZCPMainHotTrendController () <UITextFieldDelegate, UITextViewDelegate>
-
-@property (nonatomic, strong) ZCPTextView *textView;
-@property (nonatomic, strong) ZCPCommentView *commentView;
+@interface ZCPMainHotTrendController ()
 
 @end
 
 @implementation ZCPMainHotTrendController
 
-#pragma mark - synthesize
-@synthesize textView        = _textView;
-@synthesize commentView     = _commentView;
-
 #pragma mark - life cycle
 - (void)viewDidLoad {
-    [super viewDidLoad];    
-    
-    self.textView = [[ZCPTextView alloc] init];
-    self.textView.frame = CGRectMake(0, 0, APPLICATIONWIDTH, 100);
-    self.textView.placeholder = @"请输入...";
-    [self.textView setFont:[UIFont systemFontOfSize:50.0f]];
-    self.textView.delegate = self;
-    [self.view addSubview:self.textView];
-    
-    UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
-    button.frame = CGRectMake(0, 100, 100, 50);
-    button.backgroundColor = [UIColor redColor];
-    [button addTarget:self action:@selector(btnClick:) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:button];
-    
-    self.commentView = [[ZCPCommentView alloc] initWithTarget:self];
-    [self.view addSubview:self.commentView];
+    [super viewDidLoad];
 }
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
@@ -50,8 +27,8 @@
     self.title = @"热门动态";
 }
 
-- (void)btnClick:(UIButton *)sender {
-    [self.commentView showCommentView];
+- (void)constructData {
+    
 }
 
 @end

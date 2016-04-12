@@ -127,15 +127,15 @@
     [[ZCPRequestManager sharedInstance] addThesisContent:thesisContent thesisPros:thesisPros thesisCons:thesisCons thesisAddReason:thesisAddReason currUserID:[ZCPUserCenter sharedInstance].currentUserModel.userId success:^(AFHTTPRequestOperation *operation, BOOL isSuccess) {
         if (isSuccess) {
             TTDPRINT(@"提交辩题成功！正在审核中！");
-            [MBProgressHUD showSuccess:@"提交辩题成功！正在审核中！" toView:[[UIApplication sharedApplication].delegate window]];
+            [MBProgressHUD showSuccess:@"提交辩题成功！正在审核中！"];
         }
         else {
             TTDPRINT(@"提交辩题失败！");
-            [MBProgressHUD showError:@"提交辩题失败！" toView:[[UIApplication sharedApplication].delegate window]];
+            [MBProgressHUD showError:@"提交辩题失败！"];
         }
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         TTDPRINT(@"提交失败！%@", error);
-        [MBProgressHUD showError:@"提交辩题失败！网络异常！" toView:[[UIApplication sharedApplication].delegate window]];
+        [MBProgressHUD showError:@"提交辩题失败！网络异常！"];
     }];
     
     // pop

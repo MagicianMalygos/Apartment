@@ -58,8 +58,6 @@
     
     [self clearNavigationBar];
     self.title = @"回复列表";
-    // 设置nav rightbutton
-    self.navigationItem.rightBarButtonItem = [UIBarButtonItem barItemWithTitle:@"+" target:self action:@selector(addReply)];
 }
 - (void)viewWillLayoutSubviews {
     [super viewWillLayoutSubviews];

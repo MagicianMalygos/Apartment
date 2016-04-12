@@ -162,5 +162,13 @@
 		<key>description</key>
 		<string>用户中心-我关注的人-详情 视图控制器</string>
 	</dict>
+	<dict>
+		<key>className</key>
+		<string>ZCPAddQuestionController</string>
+		<key>identifier</key>
+		<string>ZCPAddQuestionController</string>
+		<key>description</key>
+		<string>头脑风暴-添加问题 视图控制器</string>
+	</dict>
 </array>
 </plist>

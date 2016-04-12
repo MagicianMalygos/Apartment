@@ -7,25 +7,35 @@
 //
 
 #import "ZCPAddQuestionController.h"
-
 #import "ZCPSectionCell.h"
 #import "ZCPTextViewCell.h"
 #import "ZCPTextFieldCell.h"
 #import "ZCPButtonCell.h"
+#import "ZCPJudge.h"
+#import "ZCPRequestManager+Question.h"
 
-@interface ZCPAddQuestionController ()
+@interface ZCPAddQuestionController () <ZCPButtonCellDelegate>
 
 @end
 
 @implementation ZCPAddQuestionController
 
 #pragma mark - life cycle
+- (void)viewDidLoad {
+    [super viewDidLoad];
+}
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    [self clearNavigationBar];
+    self.title = @"上传问题";
 }
 - (void)viewWillLayoutSubviews {
     [super viewWillLayoutSubviews];
     self.tableView.frame = CGRectMake(0, 0, APPLICATIONWIDTH, APPLICATIONHEIGHT - Height_NavigationBar);
+}
+- (void)viewDidDisappear:(BOOL)animated {
+    [super viewDidDisappear:animated];
+    [self unregisterKeyboardIQ];
 }
 
 #pragma mark - Construct Data
@@ -43,43 +53,40 @@
     ZCPSectionCellItem *sectionItem1 = [[ZCPSectionCellItem alloc] initWithDefault];
     sectionItem1.sectionTitle = @"选项一";
     // 选项一
-    ZCPTextFieldCellItem *optionItem1 = [[ZCPTextFieldCellItem alloc] initWithDefault];
-    optionItem1.textFieldConfigBlock = ^(UITextField *textField) {
-        textField.placeholder = @"请输入选项一,不超过20字...";
-    };
+    ZCPTextViewCellItem *optionItem1 = [[ZCPTextViewCellItem alloc] initWithDefault];
+    optionItem1.cellHeight = @40;
+    optionItem1.placeholder = @"请输入选项一,不超过10个字...";
     
     // section 2
     ZCPSectionCellItem *sectionItem2 = [[ZCPSectionCellItem alloc] initWithDefault];
     sectionItem2.sectionTitle = @"选项二";
     // 选项二
-    ZCPTextFieldCellItem *optionItem2 = [[ZCPTextFieldCellItem alloc] initWithDefault];
-    optionItem2.textFieldConfigBlock = ^(UITextField *textField) {
-        textField.placeholder = @"请输入选项二,不超过20字...";
-    };
+    ZCPTextViewCellItem *optionItem2 = [[ZCPTextViewCellItem alloc] initWithDefault];
+    optionItem2.cellHeight = @40;
+    optionItem2.placeholder = @"请输入选项二,不超过10个字...";
     
     // section 3
     ZCPSectionCellItem *sectionItem3 = [[ZCPSectionCellItem alloc] initWithDefault];
     sectionItem3.sectionTitle = @"选项三";
     // 选项三
-    ZCPTextFieldCellItem *optionItem3 = [[ZCPTextFieldCellItem alloc] initWithDefault];
-    optionItem3.textFieldConfigBlock = ^(UITextField *textField) {
-        textField.placeholder = @"请输入选项三,不超过20字...";
-    };
+    ZCPTextViewCellItem *optionItem3 = [[ZCPTextViewCellItem alloc] initWithDefault];
+    optionItem3.cellHeight = @40;
+    optionItem3.placeholder = @"请输入选项三,不超过10个字...";
     
     // section 4
     ZCPSectionCellItem *sectionItem4 = [[ZCPSectionCellItem alloc] initWithDefault];
-    sectionItem4.sectionTitle = @"选项四";
+    sectionItem4.sectionTitle = @"正确答案";
     // 正确答案
-    ZCPTextFieldCellItem *answerItem = [[ZCPTextFieldCellItem alloc] initWithDefault];
-    answerItem.textFieldConfigBlock = ^(UITextField *textField) {
-        textField.placeholder = @"请输入选项四,不超过20字...";
-    };
+    ZCPTextViewCellItem *answerItem = [[ZCPTextViewCellItem alloc] initWithDefault];
+    answerItem.cellHeight = @40;
+    answerItem.placeholder = @"请输入正确答案,不超过10个字...";
     
     // blank
     ZCPLineCellItem *blankItem = [[ZCPLineCellItem alloc] initWithDefault];
     // 提交按钮
     ZCPButtonCellItem *determineItem = [[ZCPButtonCellItem alloc] initWithDefault];
     determineItem.buttonTitle = @"提交";
+    determineItem.delegate = self;
     
     [items addObject:sectionItem];
     [items addObject:questionItem];
@@ -96,5 +103,49 @@
     self.tableViewAdaptor.items = items;
 }
 
+#pragma mark - ZCPButtonCellDelegate
+- (void)cell:(UITableViewCell *)cell buttonClicked:(UIButton *)button {
+    
+    ZCPTextViewCellItem *contentItem = [self.tableViewAdaptor.items objectAtIndex:1];
+    ZCPTextViewCellItem *optionOneItem = [self.tableViewAdaptor.items objectAtIndex:3];
+    ZCPTextViewCellItem *optionTwoItem = [self.tableViewAdaptor.items objectAtIndex:5];
+    ZCPTextViewCellItem *optionThreeItem = [self.tableViewAdaptor.items objectAtIndex:7];
+    ZCPTextViewCellItem *answerItem = [self.tableViewAdaptor.items objectAtIndex:9];
+    
+    NSString *content = contentItem.textInputValue;
+    NSString *optionOne = optionOneItem.textInputValue;
+    NSString *optionTwo = optionTwoItem.textInputValue;
+    NSString *optionThree = optionThreeItem.textInputValue;
+    NSString *answer = answerItem.textInputValue;
+    
+    // 输入检测
+    if ([ZCPJudge judgeNullTextInput:content showErrorMsg:@"问题内容不可为空！"]
+        || [ZCPJudge judgeNullTextInput:optionOne showErrorMsg:@"选项一不可为空！"]
+        || [ZCPJudge judgeNullTextInput:optionTwo showErrorMsg:@"选项二不可为空！"]
+        || [ZCPJudge judgeNullTextInput:optionThree showErrorMsg:@"选项三不可为空！"]
+        || [ZCPJudge judgeNullTextInput:answer showErrorMsg:@"选项四不可为空！"]) {
+        return;
+    }
+    if ([ZCPJudge judgeOutOfRangeTextInput:content range:[ZCPLengthRange rangeWithMin:1 max:50] showErrorMsg:@"问题内容不能超过50字！"]
+        || [ZCPJudge judgeOutOfRangeTextInput:optionOne range:[ZCPLengthRange rangeWithMin:1 max:10] showErrorMsg:@"选项一不能超过10字！"]
+        || [ZCPJudge judgeOutOfRangeTextInput:optionTwo range:[ZCPLengthRange rangeWithMin:1 max:10] showErrorMsg:@"选项二不能超过10字！"]
+        || [ZCPJudge judgeOutOfRangeTextInput:optionThree range:[ZCPLengthRange rangeWithMin:1 max:10] showErrorMsg:@"选项三不能超过10字！"]
+        || [ZCPJudge judgeOutOfRangeTextInput:answer range:[ZCPLengthRange rangeWithMin:1 max:10] showErrorMsg:@"选项四不能超过10字！"]) {
+        return;
+    }
+    
+    [[ZCPRequestManager sharedInstance] addQuestionContent:content optionOne:optionOne optionTwo:optionTwo optionThree:optionThree answer:answer currUserID:[ZCPUserCenter sharedInstance].currentUserModel.userId success:^(AFHTTPRequestOperation *operation, BOOL isSuccess) {
+        if (isSuccess) {
+            [MBProgressHUD showError:@"提交题目成功！正在审核中！"];
+        } else {
+            [MBProgressHUD showError:@"提交题目失败！"];
+        }
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        [MBProgressHUD showError:@"网络异常！"];
+        TTDPRINT(@"%@", error);
+    }];
+    
+    [self.navigationController popViewControllerAnimated:YES];
+}
 
 @end

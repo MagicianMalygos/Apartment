@@ -32,12 +32,6 @@
     return backItem;
 }
 
-+ (id)barItemWithTitle:(NSString *)title target:(id)target action:(SEL)action {
-    return [UIBarButtonItem barItemWithTitle:title
-                                        font:[UIFont fontWithName:@"iconfont" size:16]
-                                      target:target action:action];
-}
-
 + (id)barItemWithTitle:(NSString *)title font:(UIFont *)font target:(id)target action:(SEL)action {
     UIButton *btn = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 44, 44)];
     btn.exclusiveTouch = YES;

@@ -26,6 +26,7 @@ typedef NS_ENUM(NSInteger, ZCPQuestionCollectState) {
 @property (nonatomic, copy) NSString *questionOptionThree;          // 选项三
 @property (nonatomic, copy) NSString *questionAnswer;               // 正确答案
 @property (nonatomic, assign) NSInteger questionCollectNumber;      // 收藏题目人数
+@property (nonatomic, copy) NSString *questionShowOrder;            // 选项展示顺序
 @property (nonatomic, strong) NSDate *questionTime;                 // 记录添加时间
 @property (nonatomic, strong) ZCPUserModel *user;                   // 出题人
 @property (nonatomic, strong) ZCPStateModel *state;                 // 题目状态

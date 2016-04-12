@@ -96,7 +96,6 @@
         self.thesisController.view.frame = CGRectMake(width, 0, width, height);
         self.questionController = [ZCPQuestionMainController new];
         self.questionController.view.frame = CGRectMake(width * 2, 0, width, height);
-        self.questionController.view.backgroundColor = [UIColor blueColor];
         
         // 添加视图控制器的视图作为mainScrollView的滑动视图
         [_mainScrollView addSubview:self.coupletController.view];

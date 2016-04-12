@@ -14,7 +14,7 @@
 #import "ZCPRequestManager+Couplet.h"
 #import "ZCPCoupletDetailController.h"
 
-#define OptionHeight                35.0f
+#define OptionHeight                44.0f
 #define COUPLET_LIST_PAGE_COUNT     PAGE_COUNT_DEFAULT
 
 
@@ -60,7 +60,7 @@
     
     // 选项视图cell
     ZCPOptionCellItem *optionItem = [[ZCPOptionCellItem alloc] initWithDefault];
-    optionItem.cellHeight = @OptionHeight;
+    optionItem.cellHeight = @(35.0f);
     optionItem.delegate = self;
     optionItem.attributedStringArr = @[[[NSAttributedString alloc] initWithString:@"按时间排序"
                                                                        attributes:@{NSFontAttributeName: [UIFont defaultFontWithSize:13.0f]}]

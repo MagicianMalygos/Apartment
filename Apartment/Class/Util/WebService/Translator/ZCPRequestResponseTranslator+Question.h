@@ -12,5 +12,7 @@
 
 // 问题模型转换
 + (ZCPQuestionModel *)translateResponse_QuestionModel:(NSDictionary *)dict;
+// 问题列表模型转换
++ (ZCPListDataModel *)translateResponse_QuestionListModel:(NSDictionary *)responseData;
 
 @end

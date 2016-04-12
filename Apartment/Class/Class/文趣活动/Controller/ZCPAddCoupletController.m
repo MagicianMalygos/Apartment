@@ -7,9 +7,8 @@
 //
 
 #import "ZCPAddCoupletController.h"
-
 #import "ZCPSectionCell.h"
-#import "ZCPTextFieldCell.h"
+#import "ZCPTextViewCell.h"
 #import "ZCPButtonCell.h"
 #import "ZCPRequestManager+Couplet.h"
 
@@ -35,15 +34,11 @@
     
     // section
     ZCPSectionCellItem *sectionItem = [[ZCPSectionCellItem alloc] initWithDefault];
-    sectionItem.cellHeight = @20;
-    sectionItem.backgroundColor = [UIColor lightGrayColor];
     sectionItem.sectionTitle = @"写对联";
-    sectionItem.titleEdgeInset = UIEdgeInsetsZero;
     // 对联内容
-    ZCPTextFieldCellItem *textItem = [[ZCPTextFieldCellItem alloc] initWithDefault];
-    textItem.textFieldConfigBlock = ^(UITextField *textField) {
-        textField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"请输入对联内容，不超过50个字" attributes:@{NSFontAttributeName: [UIFont defaultBoldFontWithSize:15.0f], NSForegroundColorAttributeName: [UIColor lightGrayColor]}];
-    };
+    ZCPTextViewCellItem *textItem = [[ZCPTextViewCellItem alloc] initWithDefault];
+    textItem.cellHeight = @40;
+    textItem.placeholder = @"请输入对联内容，不超过50个字...";
     
     // blank
     ZCPLineCellItem *blankItem = [[ZCPLineCellItem alloc] initWithDefault];
@@ -65,7 +60,7 @@
 #pragma mark - ZCPButtonCellDelegate
 - (void)cell:(UITableViewCell *)cell buttonClicked:(UIButton *)button {
     
-    ZCPTextFieldCellItem *textItem = [self.tableViewAdaptor.items objectAtIndex:1];
+    ZCPTextViewCellItem *textItem = [self.tableViewAdaptor.items objectAtIndex:1];
     NSString *coupletContent = textItem.textInputValue;
     
     // 空值检测

@@ -26,4 +26,25 @@
     return model;
 }
 
+/**
+ *  问题列表模型转换
+ *
+ *  @param responseData 列表字典
+ *
+ *  @return 问题列表模型
+ */
++ (ZCPListDataModel *)translateResponse_QuestionListModel:(NSDictionary *)responseData {
+    ZCPListDataModel *listModel = nil;
+    if ([responseData isKindOfClass:[NSDictionary class]]) {
+        listModel = [[ZCPListDataModel alloc] init];
+        NSArray *questionList = [responseData valueForKey:@"aList"];
+        if (![questionList isNilOrNull]) {
+            for (NSDictionary *questionDict in questionList) {
+                ZCPQuestionModel *model = [ZCPRequestResponseTranslator translateResponse_QuestionModel:questionDict];
+                [listModel.items addObject:model];
+            }
+        }
+    }
+    return listModel;
+}
 @end

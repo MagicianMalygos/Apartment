@@ -27,6 +27,8 @@
 #define APPURL_VIEW_IDENTIFIER_THESIS_ADDTHESIS             @"ZCPAddThesisController"
 #define APPURL_VIEW_IDENTIFIER_THESIS_ADDARGUMENT           @"ZCPAddArgumentController"
 
+#define APPURL_VIEW_IDENTIFIER_QUESTION_ADD                 @"ZCPAddQuestionController"
+
 // 图书馆
 #define APPURL_VIEW_IDENTIFIER_LIBRARY_BOOKDETAIL           @"ZCPBookDetailController"
 #define APPURL_VIEW_IDENTIFIER_LIBRARY_ADDBOOK              @"ZCPAddBookController"
