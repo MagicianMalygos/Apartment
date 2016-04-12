@@ -1,0 +1,2120 @@
+[ 2016-03-30T18:48:29+08:00 ] ::1 /1.0/communion/getBookpostBySearchTextSortMethodFieldID
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000027s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001397s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000891s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000968s ]
+SQL: call proc_Bookpost_SelectByMultiCondition('%%', 0, 0, 0, 10) [ RunTime:0.0666s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,17) [ RunTime:0.0035s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,17) [ RunTime:0.0003s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,16) [ RunTime:0.0003s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,16) [ RunTime:0.0003s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,10) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,10) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,9) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,9) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,8) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,8) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,7) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,7) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,6) [ RunTime:0.0003s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,6) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,5) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,5) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,4) [ RunTime:0.0004s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,4) [ RunTime:0.0008s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,3) [ RunTime:0.0012s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,3) [ RunTime:0.0008s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000897s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000981s ]
+
+[ 2016-03-30T18:48:37+08:00 ] ::1 /1.0/activity/getCoupletBySortMethod
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000020s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000362s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000401s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000442s ]
+SQL: call WenHuiApartment.proc_Couplet_SelectByMultiCondition(0, 0, 10) [ RunTime:0.0066s ]
+SQL: call WenHuiApartment.proc_UserSupportCoupletByCoupletIDUserID_Select(32, 1) [ RunTime:0.0053s ]
+SQL: call WenHuiApartment.proc_UserCollectCoupletByCoupletIDUserID_Select(32, 1) [ RunTime:0.0028s ]
+SQL: call WenHuiApartment.proc_UserSupportCoupletByCoupletIDUserID_Select(31, 1) [ RunTime:0.0010s ]
+SQL: call WenHuiApartment.proc_UserCollectCoupletByCoupletIDUserID_Select(31, 1) [ RunTime:0.0006s ]
+SQL: call WenHuiApartment.proc_UserSupportCoupletByCoupletIDUserID_Select(30, 1) [ RunTime:0.0004s ]
+SQL: call WenHuiApartment.proc_UserCollectCoupletByCoupletIDUserID_Select(30, 1) [ RunTime:0.0004s ]
+SQL: call WenHuiApartment.proc_UserSupportCoupletByCoupletIDUserID_Select(29, 1) [ RunTime:0.0003s ]
+SQL: call WenHuiApartment.proc_UserCollectCoupletByCoupletIDUserID_Select(29, 1) [ RunTime:0.0003s ]
+SQL: call WenHuiApartment.proc_UserSupportCoupletByCoupletIDUserID_Select(28, 1) [ RunTime:0.0003s ]
+SQL: call WenHuiApartment.proc_UserCollectCoupletByCoupletIDUserID_Select(28, 1) [ RunTime:0.0004s ]
+SQL: call WenHuiApartment.proc_UserSupportCoupletByCoupletIDUserID_Select(27, 1) [ RunTime:0.0004s ]
+SQL: call WenHuiApartment.proc_UserCollectCoupletByCoupletIDUserID_Select(27, 1) [ RunTime:0.0004s ]
+SQL: call WenHuiApartment.proc_UserSupportCoupletByCoupletIDUserID_Select(26, 1) [ RunTime:0.0005s ]
+SQL: call WenHuiApartment.proc_UserCollectCoupletByCoupletIDUserID_Select(26, 1) [ RunTime:0.0003s ]
+SQL: call WenHuiApartment.proc_UserSupportCoupletByCoupletIDUserID_Select(25, 1) [ RunTime:0.0002s ]
+SQL: call WenHuiApartment.proc_UserCollectCoupletByCoupletIDUserID_Select(25, 1) [ RunTime:0.0002s ]
+SQL: call WenHuiApartment.proc_UserSupportCoupletByCoupletIDUserID_Select(24, 1) [ RunTime:0.0003s ]
+SQL: call WenHuiApartment.proc_UserCollectCoupletByCoupletIDUserID_Select(24, 1) [ RunTime:0.0002s ]
+SQL: call WenHuiApartment.proc_UserSupportCoupletByCoupletIDUserID_Select(23, 1) [ RunTime:0.0003s ]
+SQL: call WenHuiApartment.proc_UserCollectCoupletByCoupletIDUserID_Select(23, 1) [ RunTime:0.0002s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001506s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001608s ]
+
+[ 2016-03-30T18:48:37+08:00 ] ::1 /1.0/activity/getCurrThesis
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000512s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000466s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000540s ]
+SQL: call WenHuiApartment.proc_ThesisByThesisState_Select() [ RunTime:0.0044s ]
+SQL: call WenHuiApartment.proc_UserCollectThesisBythesisIDUserID_Select(1, 1) [ RunTime:0.0019s ]
+SQL: call WenHuiApartment.proc_ArgumentByBelong_Select(1, 0, 1) [ RunTime:0.0016s ]
+SQL: call WenHuiApartment.proc_UserSupportArgumentByArgumentIDUserID_Select(36, 1) [ RunTime:0.0022s ]
+SQL: call WenHuiApartment.proc_ArgumentByBelong_Select(0, 0, 1) [ RunTime:0.0006s ]
+SQL: call WenHuiApartment.proc_UserSupportArgumentByArgumentIDUserID_Select(34, 1) [ RunTime:0.0003s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000511s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000558s ]
+
+[ 2016-03-30T18:48:40+08:00 ] ::1 /1.0/common/getField
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000018s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000413s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000518s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000581s ]
+SQL: SHOW COLUMNS FROM `t_field` [ RunTime:0.0437s ]
+SQL: SELECT * FROM `t_field`  [ RunTime:0.0004s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000666s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000725s ]
+
+[ 2016-03-30T18:48:40+08:00 ] ::1 /1.0/library/getBookBySearchTextSortMethodFieldID
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000014s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000394s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000516s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000570s ]
+SQL: call WenHuiApartment.proc_Book_SelectByMultiCondition('%%', 0, 0, 0, 10); [ RunTime:0.0064s ]
+SQL: call WenHuiApartment.proc_UserCollectBookByBookIDUserID_Select(43, 1) [ RunTime:0.0017s ]
+SQL: call WenHuiApartment.proc_UserCollectBookByBookIDUserID_Select(10, 1) [ RunTime:0.0003s ]
+SQL: call WenHuiApartment.proc_UserCollectBookByBookIDUserID_Select(9, 1) [ RunTime:0.0003s ]
+SQL: call WenHuiApartment.proc_UserCollectBookByBookIDUserID_Select(8, 1) [ RunTime:0.0002s ]
+SQL: call WenHuiApartment.proc_UserCollectBookByBookIDUserID_Select(7, 1) [ RunTime:0.0002s ]
+SQL: call WenHuiApartment.proc_UserCollectBookByBookIDUserID_Select(6, 1) [ RunTime:0.0002s ]
+SQL: call WenHuiApartment.proc_UserCollectBookByBookIDUserID_Select(5, 1) [ RunTime:0.0002s ]
+SQL: call WenHuiApartment.proc_UserCollectBookByBookIDUserID_Select(4, 1) [ RunTime:0.0002s ]
+SQL: call WenHuiApartment.proc_UserCollectBookByBookIDUserID_Select(3, 1) [ RunTime:0.0002s ]
+SQL: call WenHuiApartment.proc_UserCollectBookByBookIDUserID_Select(2, 1) [ RunTime:0.0002s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000486s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000524s ]
+
+[ 2016-03-30T18:48:40+08:00 ] ::1 /1.0/Application/Home/Images/Cover/cover_10.png
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000029s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001251s ]
+
+[ 2016-03-30T18:48:40+08:00 ] ::1 /1.0/Application/Home/Images/Cover/cover_9.png
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000378s ]
+
+[ 2016-03-30T18:48:44+08:00 ] ::1 /1.0/Application/Home/Images/Cover/cover_8.png
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000327s ]
+
+[ 2016-03-30T18:48:45+08:00 ] ::1 /1.0/Application/Home/Images/Cover/cover_7.png
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000302s ]
+
+[ 2016-03-30T18:48:46+08:00 ] ::1 /1.0/Application/Home/Images/Cover/cover_6.png
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000319s ]
+
+[ 2016-03-30T18:48:48+08:00 ] ::1 /1.0/Application/Home/Images/Cover/cover_5.png
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000295s ]
+
+[ 2016-03-30T18:48:48+08:00 ] ::1 /1.0/Application/Home/Images/Cover/cover_4.png
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000025s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000426s ]
+
+[ 2016-03-30T18:48:48+08:00 ] ::1 /1.0/Application/Home/Images/Cover/cover_3.png
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000290s ]
+
+[ 2016-03-30T18:48:48+08:00 ] ::1 /1.0/Application/Home/Images/Cover/cover_2.png
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000276s ]
+
+[ 2016-03-30T18:48:52+08:00 ] ::1 /1.0/library/getBookBySearchTextSortMethodFieldID
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000022s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000441s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000708s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000781s ]
+SQL: call WenHuiApartment.proc_Book_SelectByMultiCondition('%%', 0, 0, 10, 10); [ RunTime:0.0050s ]
+SQL: call WenHuiApartment.proc_UserCollectBookByBookIDUserID_Select(1, 1) [ RunTime:0.0004s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000570s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000616s ]
+
+[ 2016-03-30T18:48:54+08:00 ] ::1 /1.0/library/getBookBySearchTextSortMethodFieldID
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000034s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000746s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001184s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001268s ]
+SQL: call WenHuiApartment.proc_Book_SelectByMultiCondition('%%', 0, 0, 20, 10); [ RunTime:0.0115s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000756s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000826s ]
+
+[ 2016-03-30T18:49:08+08:00 ] ::1 /1.0/library/getBookBySearchTextSortMethodFieldID
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000020s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000391s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000409s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000450s ]
+SQL: call WenHuiApartment.proc_Book_SelectByMultiCondition('%%', 0, 4, 0, 10); [ RunTime:0.0083s ]
+SQL: call WenHuiApartment.proc_UserCollectBookByBookIDUserID_Select(10, 1) [ RunTime:0.0005s ]
+SQL: call WenHuiApartment.proc_UserCollectBookByBookIDUserID_Select(9, 1) [ RunTime:0.0002s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000722s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000787s ]
+
+[ 2016-03-30T18:49:10+08:00 ] ::1 /1.0/library/getBookBySearchTextSortMethodFieldID
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000270s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000357s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000392s ]
+SQL: call WenHuiApartment.proc_Book_SelectByMultiCondition('%%', 0, 0, 0, 10); [ RunTime:0.0059s ]
+SQL: call WenHuiApartment.proc_UserCollectBookByBookIDUserID_Select(43, 1) [ RunTime:0.0006s ]
+SQL: call WenHuiApartment.proc_UserCollectBookByBookIDUserID_Select(10, 1) [ RunTime:0.0017s ]
+SQL: call WenHuiApartment.proc_UserCollectBookByBookIDUserID_Select(9, 1) [ RunTime:0.0014s ]
+SQL: call WenHuiApartment.proc_UserCollectBookByBookIDUserID_Select(8, 1) [ RunTime:0.0003s ]
+SQL: call WenHuiApartment.proc_UserCollectBookByBookIDUserID_Select(7, 1) [ RunTime:0.0002s ]
+SQL: call WenHuiApartment.proc_UserCollectBookByBookIDUserID_Select(6, 1) [ RunTime:0.0003s ]
+SQL: call WenHuiApartment.proc_UserCollectBookByBookIDUserID_Select(5, 1) [ RunTime:0.0003s ]
+SQL: call WenHuiApartment.proc_UserCollectBookByBookIDUserID_Select(4, 1) [ RunTime:0.0003s ]
+SQL: call WenHuiApartment.proc_UserCollectBookByBookIDUserID_Select(3, 1) [ RunTime:0.0007s ]
+SQL: call WenHuiApartment.proc_UserCollectBookByBookIDUserID_Select(2, 1) [ RunTime:0.0004s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000510s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000556s ]
+
+[ 2016-03-30T18:49:13+08:00 ] ::1 /1.0/common/getField
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000275s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000340s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000376s ]
+SQL: SHOW COLUMNS FROM `t_field` [ RunTime:0.0238s ]
+SQL: SELECT * FROM `t_field`  [ RunTime:0.0003s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000535s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000601s ]
+
+[ 2016-03-30T19:14:46+08:00 ] ::1 /1.0/activity/getCoupletReplyByCoupletID
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000041s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001028s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001067s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001179s ]
+SQL: call WenHuiApartment.proc_CoupletReplyByCoupletID_Select(32, 0, 10) [ RunTime:0.0011s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001051s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001125s ]
+
+[ 2016-03-30T19:29:01+08:00 ] ::1 /1.0/common/getField
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000021s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000476s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000535s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000583s ]
+SQL: SHOW COLUMNS FROM `t_field` [ RunTime:0.0849s ]
+SQL: SELECT * FROM `t_field`  [ RunTime:0.0005s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000909s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000968s ]
+
+[ 2016-03-30T19:29:01+08:00 ] ::1 /1.0/communion/getBookpostBySearchTextSortMethodFieldID
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000027s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000732s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000775s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000830s ]
+SQL: call proc_Bookpost_SelectByMultiCondition('%%', 0, 0, 0, 10) [ RunTime:0.1447s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,17) [ RunTime:0.0007s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,17) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,16) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,16) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,10) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,10) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,9) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,9) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,8) [ RunTime:0.0003s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,8) [ RunTime:0.0003s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,7) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,7) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,6) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,6) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,5) [ RunTime:0.0003s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,5) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,4) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,4) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,3) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,3) [ RunTime:0.0002s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000548s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000593s ]
+
+[ 2016-03-30T19:35:15+08:00 ] ::1 /1.0/common/getField
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000566s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000365s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000407s ]
+SQL: SHOW COLUMNS FROM `t_field` [ RunTime:0.0501s ]
+SQL: SELECT * FROM `t_field`  [ RunTime:0.0005s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000858s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000926s ]
+
+[ 2016-03-30T19:35:15+08:00 ] ::1 /1.0/communion/getBookpostBySearchTextSortMethodFieldID
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000489s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000542s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000600s ]
+SQL: call proc_Bookpost_SelectByMultiCondition('%%', 0, 0, 0, 10) [ RunTime:0.0936s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,17) [ RunTime:0.0007s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,17) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,16) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,16) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,10) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,10) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,9) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,9) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,8) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,8) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,7) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,7) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,6) [ RunTime:0.0003s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,6) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,5) [ RunTime:0.0003s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,5) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,4) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,4) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,3) [ RunTime:0.0005s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,3) [ RunTime:0.0002s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000513s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000553s ]
+
+[ 2016-03-30T19:38:49+08:00 ] ::1 /1.0/activity/getCoupletBySortMethod
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000279s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000350s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000388s ]
+SQL: call WenHuiApartment.proc_Couplet_SelectByMultiCondition(0, 0, 10) [ RunTime:0.0061s ]
+SQL: call WenHuiApartment.proc_UserSupportCoupletByCoupletIDUserID_Select(32, 1) [ RunTime:0.0008s ]
+SQL: call WenHuiApartment.proc_UserCollectCoupletByCoupletIDUserID_Select(32, 1) [ RunTime:0.0005s ]
+SQL: call WenHuiApartment.proc_UserSupportCoupletByCoupletIDUserID_Select(31, 1) [ RunTime:0.0003s ]
+SQL: call WenHuiApartment.proc_UserCollectCoupletByCoupletIDUserID_Select(31, 1) [ RunTime:0.0003s ]
+SQL: call WenHuiApartment.proc_UserSupportCoupletByCoupletIDUserID_Select(30, 1) [ RunTime:0.0003s ]
+SQL: call WenHuiApartment.proc_UserCollectCoupletByCoupletIDUserID_Select(30, 1) [ RunTime:0.0003s ]
+SQL: call WenHuiApartment.proc_UserSupportCoupletByCoupletIDUserID_Select(29, 1) [ RunTime:0.0003s ]
+SQL: call WenHuiApartment.proc_UserCollectCoupletByCoupletIDUserID_Select(29, 1) [ RunTime:0.0003s ]
+SQL: call WenHuiApartment.proc_UserSupportCoupletByCoupletIDUserID_Select(28, 1) [ RunTime:0.0002s ]
+SQL: call WenHuiApartment.proc_UserCollectCoupletByCoupletIDUserID_Select(28, 1) [ RunTime:0.0003s ]
+SQL: call WenHuiApartment.proc_UserSupportCoupletByCoupletIDUserID_Select(27, 1) [ RunTime:0.0003s ]
+SQL: call WenHuiApartment.proc_UserCollectCoupletByCoupletIDUserID_Select(27, 1) [ RunTime:0.0002s ]
+SQL: call WenHuiApartment.proc_UserSupportCoupletByCoupletIDUserID_Select(26, 1) [ RunTime:0.0003s ]
+SQL: call WenHuiApartment.proc_UserCollectCoupletByCoupletIDUserID_Select(26, 1) [ RunTime:0.0003s ]
+SQL: call WenHuiApartment.proc_UserSupportCoupletByCoupletIDUserID_Select(25, 1) [ RunTime:0.0003s ]
+SQL: call WenHuiApartment.proc_UserCollectCoupletByCoupletIDUserID_Select(25, 1) [ RunTime:0.0003s ]
+SQL: call WenHuiApartment.proc_UserSupportCoupletByCoupletIDUserID_Select(24, 1) [ RunTime:0.0002s ]
+SQL: call WenHuiApartment.proc_UserCollectCoupletByCoupletIDUserID_Select(24, 1) [ RunTime:0.0002s ]
+SQL: call WenHuiApartment.proc_UserSupportCoupletByCoupletIDUserID_Select(23, 1) [ RunTime:0.0002s ]
+SQL: call WenHuiApartment.proc_UserCollectCoupletByCoupletIDUserID_Select(23, 1) [ RunTime:0.0002s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000639s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000684s ]
+
+[ 2016-03-30T19:38:49+08:00 ] ::1 /1.0/activity/getCurrThesis
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000416s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000509s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000566s ]
+SQL: call WenHuiApartment.proc_ThesisByThesisState_Select() [ RunTime:0.0015s ]
+SQL: call WenHuiApartment.proc_UserCollectThesisBythesisIDUserID_Select(1, 1) [ RunTime:0.0008s ]
+SQL: call WenHuiApartment.proc_ArgumentByBelong_Select(1, 0, 1) [ RunTime:0.0013s ]
+SQL: call WenHuiApartment.proc_UserSupportArgumentByArgumentIDUserID_Select(36, 1) [ RunTime:0.0008s ]
+SQL: call WenHuiApartment.proc_ArgumentByBelong_Select(0, 0, 1) [ RunTime:0.0013s ]
+SQL: call WenHuiApartment.proc_UserSupportArgumentByArgumentIDUserID_Select(34, 1) [ RunTime:0.0005s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000786s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000858s ]
+
+[ 2016-03-30T19:47:25+08:00 ] ::1 /1.0/common/getField
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001040s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000468s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000513s ]
+SQL: SHOW COLUMNS FROM `t_field` [ RunTime:0.0825s ]
+SQL: SELECT * FROM `t_field`  [ RunTime:0.0012s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000899s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000968s ]
+
+[ 2016-03-30T19:47:25+08:00 ] ::1 /1.0/communion/getBookpostBySearchTextSortMethodFieldID
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000541s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000719s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000772s ]
+SQL: call proc_Bookpost_SelectByMultiCondition('%%', 0, 0, 0, 10) [ RunTime:0.1253s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,17) [ RunTime:0.0010s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,17) [ RunTime:0.0004s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,16) [ RunTime:0.0004s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,16) [ RunTime:0.0004s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,10) [ RunTime:0.0004s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,10) [ RunTime:0.0004s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,9) [ RunTime:0.0003s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,9) [ RunTime:0.0004s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,8) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,8) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,7) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,7) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,6) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,6) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,5) [ RunTime:0.0003s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,5) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,4) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,4) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,3) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,3) [ RunTime:0.0002s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000974s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001026s ]
+
+[ 2016-03-30T19:48:14+08:00 ] ::1 /1.0/common/getField
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000573s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000768s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000817s ]
+SQL: SHOW COLUMNS FROM `t_field` [ RunTime:0.0775s ]
+SQL: SELECT * FROM `t_field`  [ RunTime:0.0025s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000954s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001020s ]
+
+[ 2016-03-30T19:48:15+08:00 ] ::1 /1.0/communion/getBookpostBySearchTextSortMethodFieldID
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000489s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000541s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000591s ]
+SQL: call proc_Bookpost_SelectByMultiCondition('%%', 0, 0, 0, 10) [ RunTime:0.1641s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,17) [ RunTime:0.0007s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,17) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,16) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,16) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,10) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,10) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,9) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,9) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,8) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,8) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,7) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,7) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,6) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,6) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,5) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,5) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,4) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,4) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,3) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,3) [ RunTime:0.0002s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000544s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000586s ]
+
+[ 2016-03-30T19:49:16+08:00 ] ::1 /1.0/common/getField
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000014s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000583s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000724s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000777s ]
+SQL: SHOW COLUMNS FROM `t_field` [ RunTime:0.0702s ]
+SQL: SELECT * FROM `t_field`  [ RunTime:0.0006s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001129s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001227s ]
+
+[ 2016-03-30T19:49:16+08:00 ] ::1 /1.0/communion/getBookpostBySearchTextSortMethodFieldID
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000414s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000488s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000538s ]
+SQL: call proc_Bookpost_SelectByMultiCondition('%%', 0, 0, 0, 10) [ RunTime:0.1170s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,17) [ RunTime:0.0007s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,17) [ RunTime:0.0003s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,16) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,16) [ RunTime:0.0003s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,10) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,10) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,9) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,9) [ RunTime:0.0007s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,8) [ RunTime:0.0003s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,8) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,7) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,7) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,6) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,6) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,5) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,5) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,4) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,4) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,3) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,3) [ RunTime:0.0002s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000564s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000609s ]
+
+[ 2016-03-30T19:51:07+08:00 ] ::1 /1.0/activity/getCurrThesis
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000016s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000411s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000382s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000448s ]
+SQL: call WenHuiApartment.proc_ThesisByThesisState_Select() [ RunTime:0.0008s ]
+SQL: call WenHuiApartment.proc_UserCollectThesisBythesisIDUserID_Select(1, 1) [ RunTime:0.0003s ]
+SQL: call WenHuiApartment.proc_ArgumentByBelong_Select(1, 0, 1) [ RunTime:0.0009s ]
+SQL: call WenHuiApartment.proc_UserSupportArgumentByArgumentIDUserID_Select(36, 1) [ RunTime:0.0004s ]
+SQL: call WenHuiApartment.proc_ArgumentByBelong_Select(0, 0, 1) [ RunTime:0.0004s ]
+SQL: call WenHuiApartment.proc_UserSupportArgumentByArgumentIDUserID_Select(34, 1) [ RunTime:0.0004s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000902s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000960s ]
+
+[ 2016-03-30T19:51:07+08:00 ] ::1 /1.0/activity/getCoupletBySortMethod
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000016s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000573s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000721s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000817s ]
+SQL: call WenHuiApartment.proc_Couplet_SelectByMultiCondition(0, 0, 10) [ RunTime:0.0152s ]
+SQL: call WenHuiApartment.proc_UserSupportCoupletByCoupletIDUserID_Select(32, 1) [ RunTime:0.0013s ]
+SQL: call WenHuiApartment.proc_UserCollectCoupletByCoupletIDUserID_Select(32, 1) [ RunTime:0.0005s ]
+SQL: call WenHuiApartment.proc_UserSupportCoupletByCoupletIDUserID_Select(31, 1) [ RunTime:0.0003s ]
+SQL: call WenHuiApartment.proc_UserCollectCoupletByCoupletIDUserID_Select(31, 1) [ RunTime:0.0003s ]
+SQL: call WenHuiApartment.proc_UserSupportCoupletByCoupletIDUserID_Select(30, 1) [ RunTime:0.0003s ]
+SQL: call WenHuiApartment.proc_UserCollectCoupletByCoupletIDUserID_Select(30, 1) [ RunTime:0.0003s ]
+SQL: call WenHuiApartment.proc_UserSupportCoupletByCoupletIDUserID_Select(29, 1) [ RunTime:0.0003s ]
+SQL: call WenHuiApartment.proc_UserCollectCoupletByCoupletIDUserID_Select(29, 1) [ RunTime:0.0003s ]
+SQL: call WenHuiApartment.proc_UserSupportCoupletByCoupletIDUserID_Select(28, 1) [ RunTime:0.0007s ]
+SQL: call WenHuiApartment.proc_UserCollectCoupletByCoupletIDUserID_Select(28, 1) [ RunTime:0.0019s ]
+SQL: call WenHuiApartment.proc_UserSupportCoupletByCoupletIDUserID_Select(27, 1) [ RunTime:0.0004s ]
+SQL: call WenHuiApartment.proc_UserCollectCoupletByCoupletIDUserID_Select(27, 1) [ RunTime:0.0002s ]
+SQL: call WenHuiApartment.proc_UserSupportCoupletByCoupletIDUserID_Select(26, 1) [ RunTime:0.0002s ]
+SQL: call WenHuiApartment.proc_UserCollectCoupletByCoupletIDUserID_Select(26, 1) [ RunTime:0.0004s ]
+SQL: call WenHuiApartment.proc_UserSupportCoupletByCoupletIDUserID_Select(25, 1) [ RunTime:0.0003s ]
+SQL: call WenHuiApartment.proc_UserCollectCoupletByCoupletIDUserID_Select(25, 1) [ RunTime:0.0002s ]
+SQL: call WenHuiApartment.proc_UserSupportCoupletByCoupletIDUserID_Select(24, 1) [ RunTime:0.0002s ]
+SQL: call WenHuiApartment.proc_UserCollectCoupletByCoupletIDUserID_Select(24, 1) [ RunTime:0.0002s ]
+SQL: call WenHuiApartment.proc_UserSupportCoupletByCoupletIDUserID_Select(23, 1) [ RunTime:0.0002s ]
+SQL: call WenHuiApartment.proc_UserCollectCoupletByCoupletIDUserID_Select(23, 1) [ RunTime:0.0002s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000630s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000682s ]
+
+[ 2016-03-30T19:51:08+08:00 ] ::1 /1.0/activity/getCoupletReplyByCoupletID
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000297s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000430s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000473s ]
+SQL: call WenHuiApartment.proc_CoupletReplyByCoupletID_Select(32, 0, 10) [ RunTime:0.0009s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000954s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001029s ]
+
+[ 2016-03-30T19:57:23+08:00 ] ::1 /1.0/activity/getCoupletReplyByCoupletID
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000020s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001117s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000807s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000876s ]
+SQL: call WenHuiApartment.proc_CoupletReplyByCoupletID_Select(32, 0, 10) [ RunTime:0.0022s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001617s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001825s ]
+
+[ 2016-03-30T19:59:48+08:00 ] ::1 /1.0/common/getField
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000015s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000586s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000810s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000866s ]
+SQL: SHOW COLUMNS FROM `t_field` [ RunTime:0.0593s ]
+SQL: SELECT * FROM `t_field`  [ RunTime:0.0005s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001158s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001256s ]
+
+[ 2016-03-30T19:59:48+08:00 ] ::1 /1.0/communion/getBookpostBySearchTextSortMethodFieldID
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001097s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000486s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000530s ]
+SQL: call proc_Bookpost_SelectByMultiCondition('%%', 0, 0, 0, 10) [ RunTime:0.1353s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,17) [ RunTime:0.0007s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,17) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,16) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,16) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,10) [ RunTime:0.0003s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,10) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,9) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,9) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,8) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,8) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,7) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,7) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,6) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,6) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,5) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,5) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,4) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,4) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,3) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,3) [ RunTime:0.0002s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000524s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000573s ]
+
+[ 2016-03-30T20:09:29+08:00 ] ::1 /1.0/common/getField
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000015s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000515s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000729s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000783s ]
+SQL: SHOW COLUMNS FROM `t_field` [ RunTime:0.0660s ]
+SQL: SELECT * FROM `t_field`  [ RunTime:0.0005s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001073s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001154s ]
+
+[ 2016-03-30T20:09:29+08:00 ] ::1 /1.0/communion/getBookpostBySearchTextSortMethodFieldID
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000015s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000606s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000729s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000783s ]
+SQL: call proc_Bookpost_SelectByMultiCondition('%%', 0, 0, 0, 10) [ RunTime:0.1261s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,17) [ RunTime:0.0007s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,17) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,16) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,16) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,10) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,10) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,9) [ RunTime:0.0003s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,9) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,8) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,8) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,7) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,7) [ RunTime:0.0003s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,6) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,6) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,5) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,5) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,4) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,4) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,3) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,3) [ RunTime:0.0003s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000519s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000559s ]
+
+[ 2016-03-30T20:10:00+08:00 ] ::1 /1.0/activity/getCoupletBySortMethod
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000018s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000476s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000620s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000686s ]
+SQL: call WenHuiApartment.proc_Couplet_SelectByMultiCondition(0, 0, 10) [ RunTime:0.0075s ]
+SQL: call WenHuiApartment.proc_UserSupportCoupletByCoupletIDUserID_Select(32, 1) [ RunTime:0.0005s ]
+SQL: call WenHuiApartment.proc_UserCollectCoupletByCoupletIDUserID_Select(32, 1) [ RunTime:0.0003s ]
+SQL: call WenHuiApartment.proc_UserSupportCoupletByCoupletIDUserID_Select(31, 1) [ RunTime:0.0003s ]
+SQL: call WenHuiApartment.proc_UserCollectCoupletByCoupletIDUserID_Select(31, 1) [ RunTime:0.0003s ]
+SQL: call WenHuiApartment.proc_UserSupportCoupletByCoupletIDUserID_Select(30, 1) [ RunTime:0.0003s ]
+SQL: call WenHuiApartment.proc_UserCollectCoupletByCoupletIDUserID_Select(30, 1) [ RunTime:0.0003s ]
+SQL: call WenHuiApartment.proc_UserSupportCoupletByCoupletIDUserID_Select(29, 1) [ RunTime:0.0003s ]
+SQL: call WenHuiApartment.proc_UserCollectCoupletByCoupletIDUserID_Select(29, 1) [ RunTime:0.0004s ]
+SQL: call WenHuiApartment.proc_UserSupportCoupletByCoupletIDUserID_Select(28, 1) [ RunTime:0.0003s ]
+SQL: call WenHuiApartment.proc_UserCollectCoupletByCoupletIDUserID_Select(28, 1) [ RunTime:0.0003s ]
+SQL: call WenHuiApartment.proc_UserSupportCoupletByCoupletIDUserID_Select(27, 1) [ RunTime:0.0003s ]
+SQL: call WenHuiApartment.proc_UserCollectCoupletByCoupletIDUserID_Select(27, 1) [ RunTime:0.0003s ]
+SQL: call WenHuiApartment.proc_UserSupportCoupletByCoupletIDUserID_Select(26, 1) [ RunTime:0.0002s ]
+SQL: call WenHuiApartment.proc_UserCollectCoupletByCoupletIDUserID_Select(26, 1) [ RunTime:0.0003s ]
+SQL: call WenHuiApartment.proc_UserSupportCoupletByCoupletIDUserID_Select(25, 1) [ RunTime:0.0003s ]
+SQL: call WenHuiApartment.proc_UserCollectCoupletByCoupletIDUserID_Select(25, 1) [ RunTime:0.0003s ]
+SQL: call WenHuiApartment.proc_UserSupportCoupletByCoupletIDUserID_Select(24, 1) [ RunTime:0.0003s ]
+SQL: call WenHuiApartment.proc_UserCollectCoupletByCoupletIDUserID_Select(24, 1) [ RunTime:0.0005s ]
+SQL: call WenHuiApartment.proc_UserSupportCoupletByCoupletIDUserID_Select(23, 1) [ RunTime:0.0004s ]
+SQL: call WenHuiApartment.proc_UserCollectCoupletByCoupletIDUserID_Select(23, 1) [ RunTime:0.0006s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000790s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000860s ]
+
+[ 2016-03-30T20:10:00+08:00 ] ::1 /1.0/activity/getCurrThesis
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000016s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000458s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000560s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000721s ]
+SQL: call WenHuiApartment.proc_ThesisByThesisState_Select() [ RunTime:0.0010s ]
+SQL: call WenHuiApartment.proc_UserCollectThesisBythesisIDUserID_Select(1, 1) [ RunTime:0.0005s ]
+SQL: call WenHuiApartment.proc_ArgumentByBelong_Select(1, 0, 1) [ RunTime:0.0033s ]
+SQL: call WenHuiApartment.proc_UserSupportArgumentByArgumentIDUserID_Select(36, 1) [ RunTime:0.0008s ]
+SQL: call WenHuiApartment.proc_ArgumentByBelong_Select(0, 0, 1) [ RunTime:0.0006s ]
+SQL: call WenHuiApartment.proc_UserSupportArgumentByArgumentIDUserID_Select(34, 1) [ RunTime:0.0002s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000538s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000586s ]
+
+[ 2016-03-30T20:10:08+08:00 ] ::1 /1.0/activity/getCoupletReplyByCoupletID
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000028s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000462s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000548s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000596s ]
+SQL: call WenHuiApartment.proc_CoupletReplyByCoupletID_Select(32, 0, 10) [ RunTime:0.0010s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000806s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000879s ]
+
+[ 2016-03-30T20:16:44+08:00 ] ::1 /1.0/activity/getCoupletBySortMethod
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000324s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000657s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000735s ]
+SQL: call WenHuiApartment.proc_Couplet_SelectByMultiCondition(0, 0, 10) [ RunTime:0.0095s ]
+SQL: call WenHuiApartment.proc_UserSupportCoupletByCoupletIDUserID_Select(32, 1) [ RunTime:0.0005s ]
+SQL: call WenHuiApartment.proc_UserCollectCoupletByCoupletIDUserID_Select(32, 1) [ RunTime:0.0004s ]
+SQL: call WenHuiApartment.proc_UserSupportCoupletByCoupletIDUserID_Select(31, 1) [ RunTime:0.0006s ]
+SQL: call WenHuiApartment.proc_UserCollectCoupletByCoupletIDUserID_Select(31, 1) [ RunTime:0.0003s ]
+SQL: call WenHuiApartment.proc_UserSupportCoupletByCoupletIDUserID_Select(30, 1) [ RunTime:0.0003s ]
+SQL: call WenHuiApartment.proc_UserCollectCoupletByCoupletIDUserID_Select(30, 1) [ RunTime:0.0003s ]
+SQL: call WenHuiApartment.proc_UserSupportCoupletByCoupletIDUserID_Select(29, 1) [ RunTime:0.0003s ]
+SQL: call WenHuiApartment.proc_UserCollectCoupletByCoupletIDUserID_Select(29, 1) [ RunTime:0.0003s ]
+SQL: call WenHuiApartment.proc_UserSupportCoupletByCoupletIDUserID_Select(28, 1) [ RunTime:0.0004s ]
+SQL: call WenHuiApartment.proc_UserCollectCoupletByCoupletIDUserID_Select(28, 1) [ RunTime:0.0035s ]
+SQL: call WenHuiApartment.proc_UserSupportCoupletByCoupletIDUserID_Select(27, 1) [ RunTime:0.0004s ]
+SQL: call WenHuiApartment.proc_UserCollectCoupletByCoupletIDUserID_Select(27, 1) [ RunTime:0.0003s ]
+SQL: call WenHuiApartment.proc_UserSupportCoupletByCoupletIDUserID_Select(26, 1) [ RunTime:0.0003s ]
+SQL: call WenHuiApartment.proc_UserCollectCoupletByCoupletIDUserID_Select(26, 1) [ RunTime:0.0004s ]
+SQL: call WenHuiApartment.proc_UserSupportCoupletByCoupletIDUserID_Select(25, 1) [ RunTime:0.0003s ]
+SQL: call WenHuiApartment.proc_UserCollectCoupletByCoupletIDUserID_Select(25, 1) [ RunTime:0.0004s ]
+SQL: call WenHuiApartment.proc_UserSupportCoupletByCoupletIDUserID_Select(24, 1) [ RunTime:0.0004s ]
+SQL: call WenHuiApartment.proc_UserCollectCoupletByCoupletIDUserID_Select(24, 1) [ RunTime:0.0003s ]
+SQL: call WenHuiApartment.proc_UserSupportCoupletByCoupletIDUserID_Select(23, 1) [ RunTime:0.0004s ]
+SQL: call WenHuiApartment.proc_UserCollectCoupletByCoupletIDUserID_Select(23, 1) [ RunTime:0.0004s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000687s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000745s ]
+
+[ 2016-03-30T20:16:44+08:00 ] ::1 /1.0/activity/getCurrThesis
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000017s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000453s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000589s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000657s ]
+SQL: call WenHuiApartment.proc_ThesisByThesisState_Select() [ RunTime:0.0048s ]
+SQL: call WenHuiApartment.proc_UserCollectThesisBythesisIDUserID_Select(1, 1) [ RunTime:0.0008s ]
+SQL: call WenHuiApartment.proc_ArgumentByBelong_Select(1, 0, 1) [ RunTime:0.0034s ]
+SQL: call WenHuiApartment.proc_UserSupportArgumentByArgumentIDUserID_Select(36, 1) [ RunTime:0.0009s ]
+SQL: call WenHuiApartment.proc_ArgumentByBelong_Select(0, 0, 1) [ RunTime:0.0006s ]
+SQL: call WenHuiApartment.proc_UserSupportArgumentByArgumentIDUserID_Select(34, 1) [ RunTime:0.0003s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000663s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000717s ]
+
+[ 2016-03-30T20:16:51+08:00 ] ::1 /1.0/activity/getCoupletReplyByCoupletID
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000299s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000383s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000426s ]
+SQL: call WenHuiApartment.proc_CoupletReplyByCoupletID_Select(26, 0, 10) [ RunTime:0.0009s ]
+SQL: call WenHuiApartment.proc_UserSupportCoupletReplyByReplyIDUserID_Select(29, 1) [ RunTime:0.0022s ]
+SQL: call WenHuiApartment.proc_UserSupportCoupletReplyByReplyIDUserID_Select(28, 1) [ RunTime:0.0003s ]
+SQL: call WenHuiApartment.proc_UserSupportCoupletReplyByReplyIDUserID_Select(27, 1) [ RunTime:0.0002s ]
+SQL: call WenHuiApartment.proc_UserSupportCoupletReplyByReplyIDUserID_Select(26, 1) [ RunTime:0.0003s ]
+SQL: call WenHuiApartment.proc_UserSupportCoupletReplyByReplyIDUserID_Select(24, 1) [ RunTime:0.0002s ]
+SQL: call WenHuiApartment.proc_UserSupportCoupletReplyByReplyIDUserID_Select(21, 1) [ RunTime:0.0002s ]
+SQL: call WenHuiApartment.proc_UserSupportCoupletReplyByReplyIDUserID_Select(20, 1) [ RunTime:0.0002s ]
+SQL: call WenHuiApartment.proc_UserSupportCoupletReplyByReplyIDUserID_Select(19, 1) [ RunTime:0.0002s ]
+SQL: call WenHuiApartment.proc_UserSupportCoupletReplyByReplyIDUserID_Select(18, 1) [ RunTime:0.0002s ]
+SQL: call WenHuiApartment.proc_UserSupportCoupletReplyByReplyIDUserID_Select(17, 1) [ RunTime:0.0002s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000710s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000767s ]
+
+[ 2016-03-30T20:17:05+08:00 ] ::1 /1.0/activity/getCoupletBySortMethod
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000041s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000670s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000974s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001060s ]
+SQL: call WenHuiApartment.proc_Couplet_SelectByMultiCondition(0, 10, 10) [ RunTime:0.0074s ]
+SQL: call WenHuiApartment.proc_UserSupportCoupletByCoupletIDUserID_Select(22, 1) [ RunTime:0.0006s ]
+SQL: call WenHuiApartment.proc_UserCollectCoupletByCoupletIDUserID_Select(22, 1) [ RunTime:0.0004s ]
+SQL: call WenHuiApartment.proc_UserSupportCoupletByCoupletIDUserID_Select(21, 1) [ RunTime:0.0003s ]
+SQL: call WenHuiApartment.proc_UserCollectCoupletByCoupletIDUserID_Select(21, 1) [ RunTime:0.0003s ]
+SQL: call WenHuiApartment.proc_UserSupportCoupletByCoupletIDUserID_Select(20, 1) [ RunTime:0.0003s ]
+SQL: call WenHuiApartment.proc_UserCollectCoupletByCoupletIDUserID_Select(20, 1) [ RunTime:0.0609s ]
+SQL: call WenHuiApartment.proc_UserSupportCoupletByCoupletIDUserID_Select(19, 1) [ RunTime:0.0077s ]
+SQL: call WenHuiApartment.proc_UserCollectCoupletByCoupletIDUserID_Select(19, 1) [ RunTime:0.0045s ]
+SQL: call WenHuiApartment.proc_UserSupportCoupletByCoupletIDUserID_Select(18, 1) [ RunTime:0.0011s ]
+SQL: call WenHuiApartment.proc_UserCollectCoupletByCoupletIDUserID_Select(18, 1) [ RunTime:0.0006s ]
+SQL: call WenHuiApartment.proc_UserSupportCoupletByCoupletIDUserID_Select(17, 1) [ RunTime:0.0009s ]
+SQL: call WenHuiApartment.proc_UserCollectCoupletByCoupletIDUserID_Select(17, 1) [ RunTime:0.0005s ]
+SQL: call WenHuiApartment.proc_UserSupportCoupletByCoupletIDUserID_Select(16, 1) [ RunTime:0.0003s ]
+SQL: call WenHuiApartment.proc_UserCollectCoupletByCoupletIDUserID_Select(16, 1) [ RunTime:0.0003s ]
+SQL: call WenHuiApartment.proc_UserSupportCoupletByCoupletIDUserID_Select(15, 1) [ RunTime:0.0003s ]
+SQL: call WenHuiApartment.proc_UserCollectCoupletByCoupletIDUserID_Select(15, 1) [ RunTime:0.0003s ]
+SQL: call WenHuiApartment.proc_UserSupportCoupletByCoupletIDUserID_Select(14, 1) [ RunTime:0.0014s ]
+SQL: call WenHuiApartment.proc_UserCollectCoupletByCoupletIDUserID_Select(14, 1) [ RunTime:0.0003s ]
+SQL: call WenHuiApartment.proc_UserSupportCoupletByCoupletIDUserID_Select(13, 1) [ RunTime:0.0003s ]
+SQL: call WenHuiApartment.proc_UserCollectCoupletByCoupletIDUserID_Select(13, 1) [ RunTime:0.0003s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000788s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000850s ]
+
+[ 2016-03-30T20:17:07+08:00 ] ::1 /1.0/activity/getCoupletBySortMethod
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000016s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000385s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000571s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000624s ]
+SQL: call WenHuiApartment.proc_Couplet_SelectByMultiCondition(0, 0, 10) [ RunTime:0.0056s ]
+SQL: call WenHuiApartment.proc_UserSupportCoupletByCoupletIDUserID_Select(32, 1) [ RunTime:0.0004s ]
+SQL: call WenHuiApartment.proc_UserCollectCoupletByCoupletIDUserID_Select(32, 1) [ RunTime:0.0003s ]
+SQL: call WenHuiApartment.proc_UserSupportCoupletByCoupletIDUserID_Select(31, 1) [ RunTime:0.0002s ]
+SQL: call WenHuiApartment.proc_UserCollectCoupletByCoupletIDUserID_Select(31, 1) [ RunTime:0.0002s ]
+SQL: call WenHuiApartment.proc_UserSupportCoupletByCoupletIDUserID_Select(30, 1) [ RunTime:0.0002s ]
+SQL: call WenHuiApartment.proc_UserCollectCoupletByCoupletIDUserID_Select(30, 1) [ RunTime:0.0002s ]
+SQL: call WenHuiApartment.proc_UserSupportCoupletByCoupletIDUserID_Select(29, 1) [ RunTime:0.0002s ]
+SQL: call WenHuiApartment.proc_UserCollectCoupletByCoupletIDUserID_Select(29, 1) [ RunTime:0.0003s ]
+SQL: call WenHuiApartment.proc_UserSupportCoupletByCoupletIDUserID_Select(28, 1) [ RunTime:0.0002s ]
+SQL: call WenHuiApartment.proc_UserCollectCoupletByCoupletIDUserID_Select(28, 1) [ RunTime:0.0003s ]
+SQL: call WenHuiApartment.proc_UserSupportCoupletByCoupletIDUserID_Select(27, 1) [ RunTime:0.0002s ]
+SQL: call WenHuiApartment.proc_UserCollectCoupletByCoupletIDUserID_Select(27, 1) [ RunTime:0.0002s ]
+SQL: call WenHuiApartment.proc_UserSupportCoupletByCoupletIDUserID_Select(26, 1) [ RunTime:0.0002s ]
+SQL: call WenHuiApartment.proc_UserCollectCoupletByCoupletIDUserID_Select(26, 1) [ RunTime:0.0003s ]
+SQL: call WenHuiApartment.proc_UserSupportCoupletByCoupletIDUserID_Select(25, 1) [ RunTime:0.0004s ]
+SQL: call WenHuiApartment.proc_UserCollectCoupletByCoupletIDUserID_Select(25, 1) [ RunTime:0.0006s ]
+SQL: call WenHuiApartment.proc_UserSupportCoupletByCoupletIDUserID_Select(24, 1) [ RunTime:0.0012s ]
+SQL: call WenHuiApartment.proc_UserCollectCoupletByCoupletIDUserID_Select(24, 1) [ RunTime:0.0007s ]
+SQL: call WenHuiApartment.proc_UserSupportCoupletByCoupletIDUserID_Select(23, 1) [ RunTime:0.0008s ]
+SQL: call WenHuiApartment.proc_UserCollectCoupletByCoupletIDUserID_Select(23, 1) [ RunTime:0.0005s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001709s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001816s ]
+
+[ 2016-03-30T20:17:39+08:00 ] ::1 /1.0/activity/getCoupletBySortMethod
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000296s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000370s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000413s ]
+SQL: call WenHuiApartment.proc_Couplet_SelectByMultiCondition(0, 0, 10) [ RunTime:0.0071s ]
+SQL: call WenHuiApartment.proc_UserSupportCoupletByCoupletIDUserID_Select(32, 1) [ RunTime:0.0005s ]
+SQL: call WenHuiApartment.proc_UserCollectCoupletByCoupletIDUserID_Select(32, 1) [ RunTime:0.0005s ]
+SQL: call WenHuiApartment.proc_UserSupportCoupletByCoupletIDUserID_Select(31, 1) [ RunTime:0.0003s ]
+SQL: call WenHuiApartment.proc_UserCollectCoupletByCoupletIDUserID_Select(31, 1) [ RunTime:0.0003s ]
+SQL: call WenHuiApartment.proc_UserSupportCoupletByCoupletIDUserID_Select(30, 1) [ RunTime:0.0003s ]
+SQL: call WenHuiApartment.proc_UserCollectCoupletByCoupletIDUserID_Select(30, 1) [ RunTime:0.0003s ]
+SQL: call WenHuiApartment.proc_UserSupportCoupletByCoupletIDUserID_Select(29, 1) [ RunTime:0.0003s ]
+SQL: call WenHuiApartment.proc_UserCollectCoupletByCoupletIDUserID_Select(29, 1) [ RunTime:0.0003s ]
+SQL: call WenHuiApartment.proc_UserSupportCoupletByCoupletIDUserID_Select(28, 1) [ RunTime:0.0003s ]
+SQL: call WenHuiApartment.proc_UserCollectCoupletByCoupletIDUserID_Select(28, 1) [ RunTime:0.0005s ]
+SQL: call WenHuiApartment.proc_UserSupportCoupletByCoupletIDUserID_Select(27, 1) [ RunTime:0.0003s ]
+SQL: call WenHuiApartment.proc_UserCollectCoupletByCoupletIDUserID_Select(27, 1) [ RunTime:0.0003s ]
+SQL: call WenHuiApartment.proc_UserSupportCoupletByCoupletIDUserID_Select(26, 1) [ RunTime:0.0003s ]
+SQL: call WenHuiApartment.proc_UserCollectCoupletByCoupletIDUserID_Select(26, 1) [ RunTime:0.0003s ]
+SQL: call WenHuiApartment.proc_UserSupportCoupletByCoupletIDUserID_Select(25, 1) [ RunTime:0.0003s ]
+SQL: call WenHuiApartment.proc_UserCollectCoupletByCoupletIDUserID_Select(25, 1) [ RunTime:0.0003s ]
+SQL: call WenHuiApartment.proc_UserSupportCoupletByCoupletIDUserID_Select(24, 1) [ RunTime:0.0003s ]
+SQL: call WenHuiApartment.proc_UserCollectCoupletByCoupletIDUserID_Select(24, 1) [ RunTime:0.0003s ]
+SQL: call WenHuiApartment.proc_UserSupportCoupletByCoupletIDUserID_Select(23, 1) [ RunTime:0.0003s ]
+SQL: call WenHuiApartment.proc_UserCollectCoupletByCoupletIDUserID_Select(23, 1) [ RunTime:0.0003s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000867s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000928s ]
+
+[ 2016-03-30T20:17:39+08:00 ] ::1 /1.0/activity/getCurrThesis
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000017s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000534s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000694s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000754s ]
+SQL: call WenHuiApartment.proc_ThesisByThesisState_Select() [ RunTime:0.0026s ]
+SQL: call WenHuiApartment.proc_UserCollectThesisBythesisIDUserID_Select(1, 1) [ RunTime:0.0019s ]
+SQL: call WenHuiApartment.proc_ArgumentByBelong_Select(1, 0, 1) [ RunTime:0.0010s ]
+SQL: call WenHuiApartment.proc_UserSupportArgumentByArgumentIDUserID_Select(36, 1) [ RunTime:0.0005s ]
+SQL: call WenHuiApartment.proc_ArgumentByBelong_Select(0, 0, 1) [ RunTime:0.0007s ]
+SQL: call WenHuiApartment.proc_UserSupportArgumentByArgumentIDUserID_Select(34, 1) [ RunTime:0.0003s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001022s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001119s ]
+
+[ 2016-03-30T20:17:42+08:00 ] ::1 /1.0/activity/getCoupletReplyByCoupletID
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000014s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000530s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000529s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000574s ]
+SQL: call WenHuiApartment.proc_CoupletReplyByCoupletID_Select(30, 0, 10) [ RunTime:0.0009s ]
+SQL: call WenHuiApartment.proc_UserSupportCoupletReplyByReplyIDUserID_Select(35, 1) [ RunTime:0.0005s ]
+SQL: call WenHuiApartment.proc_UserSupportCoupletReplyByReplyIDUserID_Select(34, 1) [ RunTime:0.0002s ]
+SQL: call WenHuiApartment.proc_UserSupportCoupletReplyByReplyIDUserID_Select(33, 1) [ RunTime:0.0002s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000771s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000835s ]
+
+[ 2016-03-30T20:23:50+08:00 ] ::1 /1.0/common/getField
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000014s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000518s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000666s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000706s ]
+SQL: SHOW COLUMNS FROM `t_field` [ RunTime:0.0775s ]
+SQL: SELECT * FROM `t_field`  [ RunTime:0.0003s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001750s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001816s ]
+
+[ 2016-03-30T20:23:50+08:00 ] ::1 /1.0/communion/getBookpostBySearchTextSortMethodFieldID
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000009s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001261s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000444s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000490s ]
+SQL: call proc_Bookpost_SelectByMultiCondition('%%', 0, 0, 0, 10) [ RunTime:0.1179s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,17) [ RunTime:0.0009s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,17) [ RunTime:0.0004s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,16) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,16) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,10) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,10) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,9) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,9) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,8) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,8) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,7) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,7) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,6) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,6) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,5) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,5) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,4) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,4) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,3) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,3) [ RunTime:0.0002s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000673s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000723s ]
+
+[ 2016-03-30T20:23:50+08:00 ] ::1 /1.0/activity/getCoupletBySortMethod
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000290s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000368s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000409s ]
+SQL: call WenHuiApartment.proc_Couplet_SelectByMultiCondition(0, 0, 10) [ RunTime:0.0041s ]
+SQL: call WenHuiApartment.proc_UserSupportCoupletByCoupletIDUserID_Select(32, 1) [ RunTime:0.0004s ]
+SQL: call WenHuiApartment.proc_UserCollectCoupletByCoupletIDUserID_Select(32, 1) [ RunTime:0.0003s ]
+SQL: call WenHuiApartment.proc_UserSupportCoupletByCoupletIDUserID_Select(31, 1) [ RunTime:0.0003s ]
+SQL: call WenHuiApartment.proc_UserCollectCoupletByCoupletIDUserID_Select(31, 1) [ RunTime:0.0003s ]
+SQL: call WenHuiApartment.proc_UserSupportCoupletByCoupletIDUserID_Select(30, 1) [ RunTime:0.0003s ]
+SQL: call WenHuiApartment.proc_UserCollectCoupletByCoupletIDUserID_Select(30, 1) [ RunTime:0.0003s ]
+SQL: call WenHuiApartment.proc_UserSupportCoupletByCoupletIDUserID_Select(29, 1) [ RunTime:0.0003s ]
+SQL: call WenHuiApartment.proc_UserCollectCoupletByCoupletIDUserID_Select(29, 1) [ RunTime:0.0007s ]
+SQL: call WenHuiApartment.proc_UserSupportCoupletByCoupletIDUserID_Select(28, 1) [ RunTime:0.0003s ]
+SQL: call WenHuiApartment.proc_UserCollectCoupletByCoupletIDUserID_Select(28, 1) [ RunTime:0.0002s ]
+SQL: call WenHuiApartment.proc_UserSupportCoupletByCoupletIDUserID_Select(27, 1) [ RunTime:0.0002s ]
+SQL: call WenHuiApartment.proc_UserCollectCoupletByCoupletIDUserID_Select(27, 1) [ RunTime:0.0002s ]
+SQL: call WenHuiApartment.proc_UserSupportCoupletByCoupletIDUserID_Select(26, 1) [ RunTime:0.0002s ]
+SQL: call WenHuiApartment.proc_UserCollectCoupletByCoupletIDUserID_Select(26, 1) [ RunTime:0.0002s ]
+SQL: call WenHuiApartment.proc_UserSupportCoupletByCoupletIDUserID_Select(25, 1) [ RunTime:0.0002s ]
+SQL: call WenHuiApartment.proc_UserCollectCoupletByCoupletIDUserID_Select(25, 1) [ RunTime:0.0002s ]
+SQL: call WenHuiApartment.proc_UserSupportCoupletByCoupletIDUserID_Select(24, 1) [ RunTime:0.0005s ]
+SQL: call WenHuiApartment.proc_UserCollectCoupletByCoupletIDUserID_Select(24, 1) [ RunTime:0.0004s ]
+SQL: call WenHuiApartment.proc_UserSupportCoupletByCoupletIDUserID_Select(23, 1) [ RunTime:0.0004s ]
+SQL: call WenHuiApartment.proc_UserCollectCoupletByCoupletIDUserID_Select(23, 1) [ RunTime:0.0004s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000592s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000636s ]
+
+[ 2016-03-30T20:23:51+08:00 ] ::1 /1.0/activity/getCurrThesis
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000015s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000385s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000511s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000564s ]
+SQL: call WenHuiApartment.proc_ThesisByThesisState_Select() [ RunTime:0.0009s ]
+SQL: call WenHuiApartment.proc_UserCollectThesisBythesisIDUserID_Select(1, 1) [ RunTime:0.0005s ]
+SQL: call WenHuiApartment.proc_ArgumentByBelong_Select(1, 0, 1) [ RunTime:0.0008s ]
+SQL: call WenHuiApartment.proc_UserSupportArgumentByArgumentIDUserID_Select(36, 1) [ RunTime:0.0004s ]
+SQL: call WenHuiApartment.proc_ArgumentByBelong_Select(0, 0, 1) [ RunTime:0.0006s ]
+SQL: call WenHuiApartment.proc_UserSupportArgumentByArgumentIDUserID_Select(34, 1) [ RunTime:0.0003s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000534s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000582s ]
+
+[ 2016-03-30T20:24:35+08:00 ] ::1 /1.0/common/getField
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000014s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000971s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000771s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000834s ]
+SQL: SHOW COLUMNS FROM `t_field` [ RunTime:0.0742s ]
+SQL: SELECT * FROM `t_field`  [ RunTime:0.0003s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000745s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000793s ]
+
+[ 2016-03-30T20:24:35+08:00 ] ::1 /1.0/communion/getBookpostBySearchTextSortMethodFieldID
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000020s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000674s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000793s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000853s ]
+SQL: call proc_Bookpost_SelectByMultiCondition('%%', 0, 0, 0, 10) [ RunTime:0.1035s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,17) [ RunTime:0.0007s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,17) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,16) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,16) [ RunTime:0.0003s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,10) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,10) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,9) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,9) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,8) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,8) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,7) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,7) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,6) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,6) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,5) [ RunTime:0.0003s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,5) [ RunTime:0.0003s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,4) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,4) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,3) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,3) [ RunTime:0.0002s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000601s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000674s ]
+
+[ 2016-03-30T20:24:36+08:00 ] ::1 /1.0/activity/getCoupletBySortMethod
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000286s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000366s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000407s ]
+SQL: call WenHuiApartment.proc_Couplet_SelectByMultiCondition(0, 0, 10) [ RunTime:0.0040s ]
+SQL: call WenHuiApartment.proc_UserSupportCoupletByCoupletIDUserID_Select(32, 1) [ RunTime:0.0004s ]
+SQL: call WenHuiApartment.proc_UserCollectCoupletByCoupletIDUserID_Select(32, 1) [ RunTime:0.0003s ]
+SQL: call WenHuiApartment.proc_UserSupportCoupletByCoupletIDUserID_Select(31, 1) [ RunTime:0.0002s ]
+SQL: call WenHuiApartment.proc_UserCollectCoupletByCoupletIDUserID_Select(31, 1) [ RunTime:0.0002s ]
+SQL: call WenHuiApartment.proc_UserSupportCoupletByCoupletIDUserID_Select(30, 1) [ RunTime:0.0002s ]
+SQL: call WenHuiApartment.proc_UserCollectCoupletByCoupletIDUserID_Select(30, 1) [ RunTime:0.0002s ]
+SQL: call WenHuiApartment.proc_UserSupportCoupletByCoupletIDUserID_Select(29, 1) [ RunTime:0.0002s ]
+SQL: call WenHuiApartment.proc_UserCollectCoupletByCoupletIDUserID_Select(29, 1) [ RunTime:0.0003s ]
+SQL: call WenHuiApartment.proc_UserSupportCoupletByCoupletIDUserID_Select(28, 1) [ RunTime:0.0003s ]
+SQL: call WenHuiApartment.proc_UserCollectCoupletByCoupletIDUserID_Select(28, 1) [ RunTime:0.0006s ]
+SQL: call WenHuiApartment.proc_UserSupportCoupletByCoupletIDUserID_Select(27, 1) [ RunTime:0.0005s ]
+SQL: call WenHuiApartment.proc_UserCollectCoupletByCoupletIDUserID_Select(27, 1) [ RunTime:0.0006s ]
+SQL: call WenHuiApartment.proc_UserSupportCoupletByCoupletIDUserID_Select(26, 1) [ RunTime:0.0003s ]
+SQL: call WenHuiApartment.proc_UserCollectCoupletByCoupletIDUserID_Select(26, 1) [ RunTime:0.0002s ]
+SQL: call WenHuiApartment.proc_UserSupportCoupletByCoupletIDUserID_Select(25, 1) [ RunTime:0.0002s ]
+SQL: call WenHuiApartment.proc_UserCollectCoupletByCoupletIDUserID_Select(25, 1) [ RunTime:0.0002s ]
+SQL: call WenHuiApartment.proc_UserSupportCoupletByCoupletIDUserID_Select(24, 1) [ RunTime:0.0002s ]
+SQL: call WenHuiApartment.proc_UserCollectCoupletByCoupletIDUserID_Select(24, 1) [ RunTime:0.0002s ]
+SQL: call WenHuiApartment.proc_UserSupportCoupletByCoupletIDUserID_Select(23, 1) [ RunTime:0.0003s ]
+SQL: call WenHuiApartment.proc_UserCollectCoupletByCoupletIDUserID_Select(23, 1) [ RunTime:0.0002s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000968s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001067s ]
+
+[ 2016-03-30T20:24:36+08:00 ] ::1 /1.0/activity/getCurrThesis
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000288s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000354s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000395s ]
+SQL: call WenHuiApartment.proc_ThesisByThesisState_Select() [ RunTime:0.0018s ]
+SQL: call WenHuiApartment.proc_UserCollectThesisBythesisIDUserID_Select(1, 1) [ RunTime:0.0006s ]
+SQL: call WenHuiApartment.proc_ArgumentByBelong_Select(1, 0, 1) [ RunTime:0.0008s ]
+SQL: call WenHuiApartment.proc_UserSupportArgumentByArgumentIDUserID_Select(36, 1) [ RunTime:0.0005s ]
+SQL: call WenHuiApartment.proc_ArgumentByBelong_Select(0, 0, 1) [ RunTime:0.0007s ]
+SQL: call WenHuiApartment.proc_UserSupportArgumentByArgumentIDUserID_Select(34, 1) [ RunTime:0.0004s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000748s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000812s ]
+
+[ 2016-03-30T20:24:37+08:00 ] ::1 /1.0/activity/getCoupletReplyByCoupletID
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000015s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000368s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000434s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000481s ]
+SQL: call WenHuiApartment.proc_CoupletReplyByCoupletID_Select(32, 0, 10) [ RunTime:0.0006s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000730s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000798s ]
+
+[ 2016-03-30T20:26:41+08:00 ] ::1 /1.0/activity/getCoupletBySortMethod
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000519s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000612s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000664s ]
+SQL: call WenHuiApartment.proc_Couplet_SelectByMultiCondition(0, 0, 10) [ RunTime:0.0114s ]
+SQL: call WenHuiApartment.proc_UserSupportCoupletByCoupletIDUserID_Select(32, 1) [ RunTime:0.0029s ]
+SQL: call WenHuiApartment.proc_UserCollectCoupletByCoupletIDUserID_Select(32, 1) [ RunTime:0.0005s ]
+SQL: call WenHuiApartment.proc_UserSupportCoupletByCoupletIDUserID_Select(31, 1) [ RunTime:0.0003s ]
+SQL: call WenHuiApartment.proc_UserCollectCoupletByCoupletIDUserID_Select(31, 1) [ RunTime:0.0003s ]
+SQL: call WenHuiApartment.proc_UserSupportCoupletByCoupletIDUserID_Select(30, 1) [ RunTime:0.0004s ]
+SQL: call WenHuiApartment.proc_UserCollectCoupletByCoupletIDUserID_Select(30, 1) [ RunTime:0.0005s ]
+SQL: call WenHuiApartment.proc_UserSupportCoupletByCoupletIDUserID_Select(29, 1) [ RunTime:0.0005s ]
+SQL: call WenHuiApartment.proc_UserCollectCoupletByCoupletIDUserID_Select(29, 1) [ RunTime:0.0003s ]
+SQL: call WenHuiApartment.proc_UserSupportCoupletByCoupletIDUserID_Select(28, 1) [ RunTime:0.0003s ]
+SQL: call WenHuiApartment.proc_UserCollectCoupletByCoupletIDUserID_Select(28, 1) [ RunTime:0.0005s ]
+SQL: call WenHuiApartment.proc_UserSupportCoupletByCoupletIDUserID_Select(27, 1) [ RunTime:0.0019s ]
+SQL: call WenHuiApartment.proc_UserCollectCoupletByCoupletIDUserID_Select(27, 1) [ RunTime:0.0027s ]
+SQL: call WenHuiApartment.proc_UserSupportCoupletByCoupletIDUserID_Select(26, 1) [ RunTime:0.0017s ]
+SQL: call WenHuiApartment.proc_UserCollectCoupletByCoupletIDUserID_Select(26, 1) [ RunTime:0.0010s ]
+SQL: call WenHuiApartment.proc_UserSupportCoupletByCoupletIDUserID_Select(25, 1) [ RunTime:0.0008s ]
+SQL: call WenHuiApartment.proc_UserCollectCoupletByCoupletIDUserID_Select(25, 1) [ RunTime:0.0007s ]
+SQL: call WenHuiApartment.proc_UserSupportCoupletByCoupletIDUserID_Select(24, 1) [ RunTime:0.0038s ]
+SQL: call WenHuiApartment.proc_UserCollectCoupletByCoupletIDUserID_Select(24, 1) [ RunTime:0.0008s ]
+SQL: call WenHuiApartment.proc_UserSupportCoupletByCoupletIDUserID_Select(23, 1) [ RunTime:0.0018s ]
+SQL: call WenHuiApartment.proc_UserCollectCoupletByCoupletIDUserID_Select(23, 1) [ RunTime:0.0011s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.002689s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002769s ]
+
+[ 2016-03-30T20:26:41+08:00 ] ::1 /1.0/activity/getCurrThesis
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000017s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000442s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000548s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000608s ]
+SQL: call WenHuiApartment.proc_ThesisByThesisState_Select() [ RunTime:0.0019s ]
+SQL: call WenHuiApartment.proc_UserCollectThesisBythesisIDUserID_Select(1, 1) [ RunTime:0.0010s ]
+SQL: call WenHuiApartment.proc_ArgumentByBelong_Select(1, 0, 1) [ RunTime:0.0029s ]
+SQL: call WenHuiApartment.proc_UserSupportArgumentByArgumentIDUserID_Select(36, 1) [ RunTime:0.0024s ]
+SQL: call WenHuiApartment.proc_ArgumentByBelong_Select(0, 0, 1) [ RunTime:0.0023s ]
+SQL: call WenHuiApartment.proc_UserSupportArgumentByArgumentIDUserID_Select(34, 1) [ RunTime:0.0004s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000773s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000846s ]
+
+[ 2016-03-30T20:26:43+08:00 ] ::1 /1.0/activity/getCoupletReplyByCoupletID
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000288s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000371s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000414s ]
+SQL: call WenHuiApartment.proc_CoupletReplyByCoupletID_Select(32, 0, 10) [ RunTime:0.0008s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000655s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000715s ]
+
+[ 2016-03-30T20:27:03+08:00 ] ::1 /1.0/library/getBookBySearchTextSortMethodFieldID
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000280s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000350s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000385s ]
+SQL: call WenHuiApartment.proc_Book_SelectByMultiCondition('%%', 0, 0, 0, 10); [ RunTime:0.0059s ]
+SQL: call WenHuiApartment.proc_UserCollectBookByBookIDUserID_Select(43, 1) [ RunTime:0.0005s ]
+SQL: call WenHuiApartment.proc_UserCollectBookByBookIDUserID_Select(10, 1) [ RunTime:0.0002s ]
+SQL: call WenHuiApartment.proc_UserCollectBookByBookIDUserID_Select(9, 1) [ RunTime:0.0003s ]
+SQL: call WenHuiApartment.proc_UserCollectBookByBookIDUserID_Select(8, 1) [ RunTime:0.0002s ]
+SQL: call WenHuiApartment.proc_UserCollectBookByBookIDUserID_Select(7, 1) [ RunTime:0.0003s ]
+SQL: call WenHuiApartment.proc_UserCollectBookByBookIDUserID_Select(6, 1) [ RunTime:0.0002s ]
+SQL: call WenHuiApartment.proc_UserCollectBookByBookIDUserID_Select(5, 1) [ RunTime:0.0002s ]
+SQL: call WenHuiApartment.proc_UserCollectBookByBookIDUserID_Select(4, 1) [ RunTime:0.0002s ]
+SQL: call WenHuiApartment.proc_UserCollectBookByBookIDUserID_Select(3, 1) [ RunTime:0.0002s ]
+SQL: call WenHuiApartment.proc_UserCollectBookByBookIDUserID_Select(2, 1) [ RunTime:0.0002s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000587s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000637s ]
+
+[ 2016-03-30T20:27:03+08:00 ] ::1 /1.0/common/getField
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000015s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000407s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000547s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000612s ]
+SQL: SHOW COLUMNS FROM `t_field` [ RunTime:0.0391s ]
+SQL: SELECT * FROM `t_field`  [ RunTime:0.0004s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000721s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000787s ]
+
+[ 2016-03-30T20:27:03+08:00 ] ::1 /1.0/Application/Home/Images/Cover/cover_9.png
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000009s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000270s ]
+
+[ 2016-03-30T20:27:03+08:00 ] ::1 /1.0/Application/Home/Images/Cover/cover_10.png
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000269s ]
+
+[ 2016-03-30T20:32:06+08:00 ] ::1 /1.0/common/getField
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000273s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000357s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000394s ]
+SQL: SHOW COLUMNS FROM `t_field` [ RunTime:0.0553s ]
+SQL: SELECT * FROM `t_field`  [ RunTime:0.0024s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001106s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001209s ]
+
+[ 2016-03-30T20:32:06+08:00 ] ::1 /1.0/library/getBookBySearchTextSortMethodFieldID
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000017s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000402s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000515s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000569s ]
+SQL: call WenHuiApartment.proc_Book_SelectByMultiCondition('%%', 0, 0, 0, 10); [ RunTime:0.0550s ]
+SQL: call WenHuiApartment.proc_UserCollectBookByBookIDUserID_Select(43, 1) [ RunTime:0.0007s ]
+SQL: call WenHuiApartment.proc_UserCollectBookByBookIDUserID_Select(10, 1) [ RunTime:0.0004s ]
+SQL: call WenHuiApartment.proc_UserCollectBookByBookIDUserID_Select(9, 1) [ RunTime:0.0003s ]
+SQL: call WenHuiApartment.proc_UserCollectBookByBookIDUserID_Select(8, 1) [ RunTime:0.0003s ]
+SQL: call WenHuiApartment.proc_UserCollectBookByBookIDUserID_Select(7, 1) [ RunTime:0.0003s ]
+SQL: call WenHuiApartment.proc_UserCollectBookByBookIDUserID_Select(6, 1) [ RunTime:0.0002s ]
+SQL: call WenHuiApartment.proc_UserCollectBookByBookIDUserID_Select(5, 1) [ RunTime:0.0002s ]
+SQL: call WenHuiApartment.proc_UserCollectBookByBookIDUserID_Select(4, 1) [ RunTime:0.0003s ]
+SQL: call WenHuiApartment.proc_UserCollectBookByBookIDUserID_Select(3, 1) [ RunTime:0.0003s ]
+SQL: call WenHuiApartment.proc_UserCollectBookByBookIDUserID_Select(2, 1) [ RunTime:0.0003s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000668s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000730s ]
+
+[ 2016-03-30T20:32:06+08:00 ] ::1 /1.0/Application/Home/Images/Cover/cover_10.png
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000564s ]
+
+[ 2016-03-30T20:32:06+08:00 ] ::1 /1.0/Application/Home/Images/Cover/cover_9.png
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000015s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000409s ]
+
+[ 2016-03-30T20:32:48+08:00 ] ::1 /1.0/activity/getCoupletBySortMethod
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000286s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000351s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000388s ]
+SQL: call WenHuiApartment.proc_Couplet_SelectByMultiCondition(0, 0, 10) [ RunTime:0.0043s ]
+SQL: call WenHuiApartment.proc_UserSupportCoupletByCoupletIDUserID_Select(32, 1) [ RunTime:0.0005s ]
+SQL: call WenHuiApartment.proc_UserCollectCoupletByCoupletIDUserID_Select(32, 1) [ RunTime:0.0004s ]
+SQL: call WenHuiApartment.proc_UserSupportCoupletByCoupletIDUserID_Select(31, 1) [ RunTime:0.0003s ]
+SQL: call WenHuiApartment.proc_UserCollectCoupletByCoupletIDUserID_Select(31, 1) [ RunTime:0.0003s ]
+SQL: call WenHuiApartment.proc_UserSupportCoupletByCoupletIDUserID_Select(30, 1) [ RunTime:0.0003s ]
+SQL: call WenHuiApartment.proc_UserCollectCoupletByCoupletIDUserID_Select(30, 1) [ RunTime:0.0003s ]
+SQL: call WenHuiApartment.proc_UserSupportCoupletByCoupletIDUserID_Select(29, 1) [ RunTime:0.0003s ]
+SQL: call WenHuiApartment.proc_UserCollectCoupletByCoupletIDUserID_Select(29, 1) [ RunTime:0.0002s ]
+SQL: call WenHuiApartment.proc_UserSupportCoupletByCoupletIDUserID_Select(28, 1) [ RunTime:0.0002s ]
+SQL: call WenHuiApartment.proc_UserCollectCoupletByCoupletIDUserID_Select(28, 1) [ RunTime:0.0002s ]
+SQL: call WenHuiApartment.proc_UserSupportCoupletByCoupletIDUserID_Select(27, 1) [ RunTime:0.0002s ]
+SQL: call WenHuiApartment.proc_UserCollectCoupletByCoupletIDUserID_Select(27, 1) [ RunTime:0.0002s ]
+SQL: call WenHuiApartment.proc_UserSupportCoupletByCoupletIDUserID_Select(26, 1) [ RunTime:0.0002s ]
+SQL: call WenHuiApartment.proc_UserCollectCoupletByCoupletIDUserID_Select(26, 1) [ RunTime:0.0002s ]
+SQL: call WenHuiApartment.proc_UserSupportCoupletByCoupletIDUserID_Select(25, 1) [ RunTime:0.0002s ]
+SQL: call WenHuiApartment.proc_UserCollectCoupletByCoupletIDUserID_Select(25, 1) [ RunTime:0.0002s ]
+SQL: call WenHuiApartment.proc_UserSupportCoupletByCoupletIDUserID_Select(24, 1) [ RunTime:0.0002s ]
+SQL: call WenHuiApartment.proc_UserCollectCoupletByCoupletIDUserID_Select(24, 1) [ RunTime:0.0002s ]
+SQL: call WenHuiApartment.proc_UserSupportCoupletByCoupletIDUserID_Select(23, 1) [ RunTime:0.0002s ]
+SQL: call WenHuiApartment.proc_UserCollectCoupletByCoupletIDUserID_Select(23, 1) [ RunTime:0.0002s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000671s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000749s ]
+
+[ 2016-03-30T20:32:48+08:00 ] ::1 /1.0/activity/getCurrThesis
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000015s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000410s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000620s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000697s ]
+SQL: call WenHuiApartment.proc_ThesisByThesisState_Select() [ RunTime:0.0015s ]
+SQL: call WenHuiApartment.proc_UserCollectThesisBythesisIDUserID_Select(1, 1) [ RunTime:0.0006s ]
+SQL: call WenHuiApartment.proc_ArgumentByBelong_Select(1, 0, 1) [ RunTime:0.0016s ]
+SQL: call WenHuiApartment.proc_UserSupportArgumentByArgumentIDUserID_Select(36, 1) [ RunTime:0.0006s ]
+SQL: call WenHuiApartment.proc_ArgumentByBelong_Select(0, 0, 1) [ RunTime:0.0016s ]
+SQL: call WenHuiApartment.proc_UserSupportArgumentByArgumentIDUserID_Select(34, 1) [ RunTime:0.0005s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.004373s ]
+INFO: [ app_end ] --END-- [ RunTime:0.004506s ]
+
+[ 2016-03-30T20:32:49+08:00 ] ::1 /1.0/library/getBookBySearchTextSortMethodFieldID
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000855s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000353s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000391s ]
+SQL: call WenHuiApartment.proc_Book_SelectByMultiCondition('%%', 0, 0, 0, 10); [ RunTime:0.0074s ]
+SQL: call WenHuiApartment.proc_UserCollectBookByBookIDUserID_Select(43, 1) [ RunTime:0.0010s ]
+SQL: call WenHuiApartment.proc_UserCollectBookByBookIDUserID_Select(10, 1) [ RunTime:0.0008s ]
+SQL: call WenHuiApartment.proc_UserCollectBookByBookIDUserID_Select(9, 1) [ RunTime:0.0004s ]
+SQL: call WenHuiApartment.proc_UserCollectBookByBookIDUserID_Select(8, 1) [ RunTime:0.0004s ]
+SQL: call WenHuiApartment.proc_UserCollectBookByBookIDUserID_Select(7, 1) [ RunTime:0.0003s ]
+SQL: call WenHuiApartment.proc_UserCollectBookByBookIDUserID_Select(6, 1) [ RunTime:0.0003s ]
+SQL: call WenHuiApartment.proc_UserCollectBookByBookIDUserID_Select(5, 1) [ RunTime:0.0003s ]
+SQL: call WenHuiApartment.proc_UserCollectBookByBookIDUserID_Select(4, 1) [ RunTime:0.0003s ]
+SQL: call WenHuiApartment.proc_UserCollectBookByBookIDUserID_Select(3, 1) [ RunTime:0.0003s ]
+SQL: call WenHuiApartment.proc_UserCollectBookByBookIDUserID_Select(2, 1) [ RunTime:0.0003s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001023s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001117s ]
+
+[ 2016-03-30T20:32:49+08:00 ] ::1 /1.0/common/getField
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000386s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000488s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000538s ]
+SQL: SHOW COLUMNS FROM `t_field` [ RunTime:0.0393s ]
+SQL: SELECT * FROM `t_field`  [ RunTime:0.0007s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001445s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001641s ]
+
+[ 2016-03-30T20:32:49+08:00 ] ::1 /1.0/Application/Home/Images/Cover/cover_10.png
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000292s ]
+
+[ 2016-03-30T20:32:49+08:00 ] ::1 /1.0/Application/Home/Images/Cover/cover_9.png
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000308s ]
+
+[ 2016-03-30T20:32:50+08:00 ] ::1 /1.0/Application/Home/Images/Cover/cover_8.png
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000273s ]
+
+[ 2016-03-30T20:32:50+08:00 ] ::1 /1.0/Application/Home/Images/Cover/cover_7.png
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000022s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000742s ]
+
+[ 2016-03-30T20:32:52+08:00 ] ::1 /1.0/library/getBookReplyByBookID
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000310s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000398s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000446s ]
+SQL: call WenHuiApartment.proc_BookReplyByBookID_Select(43, 0, 10); [ RunTime:0.0020s ]
+SQL: call WenHuiApartment.proc_UserSupportBookReplyByReplyIDUserID_Select(13, 1) [ RunTime:0.0012s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000615s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000666s ]
+
+[ 2016-03-30T20:35:27+08:00 ] ::1 /1.0/common/getField
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000362s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000496s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000548s ]
+SQL: SHOW COLUMNS FROM `t_field` [ RunTime:0.0323s ]
+SQL: SELECT * FROM `t_field`  [ RunTime:0.0003s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000647s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000702s ]
+
+[ 2016-03-30T20:35:27+08:00 ] ::1 /1.0/library/getBookBySearchTextSortMethodFieldID
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000282s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000500s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000541s ]
+SQL: call WenHuiApartment.proc_Book_SelectByMultiCondition('%%', 0, 0, 0, 10); [ RunTime:0.0338s ]
+SQL: call WenHuiApartment.proc_UserCollectBookByBookIDUserID_Select(43, 1) [ RunTime:0.0004s ]
+SQL: call WenHuiApartment.proc_UserCollectBookByBookIDUserID_Select(10, 1) [ RunTime:0.0003s ]
+SQL: call WenHuiApartment.proc_UserCollectBookByBookIDUserID_Select(9, 1) [ RunTime:0.0002s ]
+SQL: call WenHuiApartment.proc_UserCollectBookByBookIDUserID_Select(8, 1) [ RunTime:0.0002s ]
+SQL: call WenHuiApartment.proc_UserCollectBookByBookIDUserID_Select(7, 1) [ RunTime:0.0002s ]
+SQL: call WenHuiApartment.proc_UserCollectBookByBookIDUserID_Select(6, 1) [ RunTime:0.0002s ]
+SQL: call WenHuiApartment.proc_UserCollectBookByBookIDUserID_Select(5, 1) [ RunTime:0.0002s ]
+SQL: call WenHuiApartment.proc_UserCollectBookByBookIDUserID_Select(4, 1) [ RunTime:0.0002s ]
+SQL: call WenHuiApartment.proc_UserCollectBookByBookIDUserID_Select(3, 1) [ RunTime:0.0002s ]
+SQL: call WenHuiApartment.proc_UserCollectBookByBookIDUserID_Select(2, 1) [ RunTime:0.0002s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000526s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000568s ]
+
+[ 2016-03-30T20:35:27+08:00 ] ::1 /1.0/Application/Home/Images/Cover/cover_10.png
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000014s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000326s ]
+
+[ 2016-03-30T20:35:27+08:00 ] ::1 /1.0/Application/Home/Images/Cover/cover_9.png
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000017s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000432s ]
+
+[ 2016-03-30T20:35:28+08:00 ] ::1 /1.0/library/getBookReplyByBookID
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000371s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000372s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000415s ]
+SQL: call WenHuiApartment.proc_BookReplyByBookID_Select(43, 0, 10); [ RunTime:0.0006s ]
+SQL: call WenHuiApartment.proc_UserSupportBookReplyByReplyIDUserID_Select(13, 1) [ RunTime:0.0003s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000493s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000537s ]
+
+[ 2016-03-30T20:35:37+08:00 ] ::1 /1.0/communion/getBookpostBySearchTextSortMethodFieldID
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000022s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000481s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000648s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000731s ]
+SQL: call proc_Bookpost_SelectByMultiCondition('%%', 0, 0, 0, 10) [ RunTime:0.0732s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,17) [ RunTime:0.0007s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,17) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,16) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,16) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,10) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,10) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,9) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,9) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,8) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,8) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,7) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,7) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,6) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,6) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,5) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,5) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,4) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,4) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,3) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,3) [ RunTime:0.0002s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000550s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000594s ]
+
+[ 2016-03-30T20:35:37+08:00 ] ::1 /1.0/common/getField
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000016s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000472s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000511s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000563s ]
+SQL: SHOW COLUMNS FROM `t_field` [ RunTime:0.0129s ]
+SQL: SELECT * FROM `t_field`  [ RunTime:0.0003s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000984s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001053s ]
+
+[ 2016-03-30T20:35:45+08:00 ] ::1 /1.0/activity/getCoupletBySortMethod
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000286s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000358s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000396s ]
+SQL: call WenHuiApartment.proc_Couplet_SelectByMultiCondition(0, 0, 10) [ RunTime:0.0043s ]
+SQL: call WenHuiApartment.proc_UserSupportCoupletByCoupletIDUserID_Select(32, 1) [ RunTime:0.0004s ]
+SQL: call WenHuiApartment.proc_UserCollectCoupletByCoupletIDUserID_Select(32, 1) [ RunTime:0.0004s ]
+SQL: call WenHuiApartment.proc_UserSupportCoupletByCoupletIDUserID_Select(31, 1) [ RunTime:0.0003s ]
+SQL: call WenHuiApartment.proc_UserCollectCoupletByCoupletIDUserID_Select(31, 1) [ RunTime:0.0003s ]
+SQL: call WenHuiApartment.proc_UserSupportCoupletByCoupletIDUserID_Select(30, 1) [ RunTime:0.0003s ]
+SQL: call WenHuiApartment.proc_UserCollectCoupletByCoupletIDUserID_Select(30, 1) [ RunTime:0.0004s ]
+SQL: call WenHuiApartment.proc_UserSupportCoupletByCoupletIDUserID_Select(29, 1) [ RunTime:0.0006s ]
+SQL: call WenHuiApartment.proc_UserCollectCoupletByCoupletIDUserID_Select(29, 1) [ RunTime:0.0003s ]
+SQL: call WenHuiApartment.proc_UserSupportCoupletByCoupletIDUserID_Select(28, 1) [ RunTime:0.0003s ]
+SQL: call WenHuiApartment.proc_UserCollectCoupletByCoupletIDUserID_Select(28, 1) [ RunTime:0.0002s ]
+SQL: call WenHuiApartment.proc_UserSupportCoupletByCoupletIDUserID_Select(27, 1) [ RunTime:0.0002s ]
+SQL: call WenHuiApartment.proc_UserCollectCoupletByCoupletIDUserID_Select(27, 1) [ RunTime:0.0002s ]
+SQL: call WenHuiApartment.proc_UserSupportCoupletByCoupletIDUserID_Select(26, 1) [ RunTime:0.0002s ]
+SQL: call WenHuiApartment.proc_UserCollectCoupletByCoupletIDUserID_Select(26, 1) [ RunTime:0.0002s ]
+SQL: call WenHuiApartment.proc_UserSupportCoupletByCoupletIDUserID_Select(25, 1) [ RunTime:0.0002s ]
+SQL: call WenHuiApartment.proc_UserCollectCoupletByCoupletIDUserID_Select(25, 1) [ RunTime:0.0002s ]
+SQL: call WenHuiApartment.proc_UserSupportCoupletByCoupletIDUserID_Select(24, 1) [ RunTime:0.0006s ]
+SQL: call WenHuiApartment.proc_UserCollectCoupletByCoupletIDUserID_Select(24, 1) [ RunTime:0.0004s ]
+SQL: call WenHuiApartment.proc_UserSupportCoupletByCoupletIDUserID_Select(23, 1) [ RunTime:0.0005s ]
+SQL: call WenHuiApartment.proc_UserCollectCoupletByCoupletIDUserID_Select(23, 1) [ RunTime:0.0003s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000619s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000672s ]
+
+[ 2016-03-30T20:35:45+08:00 ] ::1 /1.0/activity/getCurrThesis
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000015s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000394s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000509s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000562s ]
+SQL: call WenHuiApartment.proc_ThesisByThesisState_Select() [ RunTime:0.0055s ]
+SQL: call WenHuiApartment.proc_UserCollectThesisBythesisIDUserID_Select(1, 1) [ RunTime:0.0006s ]
+SQL: call WenHuiApartment.proc_ArgumentByBelong_Select(1, 0, 1) [ RunTime:0.0009s ]
+SQL: call WenHuiApartment.proc_UserSupportArgumentByArgumentIDUserID_Select(36, 1) [ RunTime:0.0005s ]
+SQL: call WenHuiApartment.proc_ArgumentByBelong_Select(0, 0, 1) [ RunTime:0.0006s ]
+SQL: call WenHuiApartment.proc_UserSupportArgumentByArgumentIDUserID_Select(34, 1) [ RunTime:0.0003s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000929s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001414s ]
+
+[ 2016-03-30T20:35:46+08:00 ] ::1 /1.0/activity/getCoupletReplyByCoupletID
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000296s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000373s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000415s ]
+SQL: call WenHuiApartment.proc_CoupletReplyByCoupletID_Select(32, 0, 10) [ RunTime:0.0008s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001085s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001211s ]
+
+[ 2016-03-30T20:35:50+08:00 ] ::1 /1.0/activity/getCoupletReplyByCoupletID
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000014s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000294s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000476s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000536s ]
+SQL: call WenHuiApartment.proc_CoupletReplyByCoupletID_Select(30, 0, 10) [ RunTime:0.0016s ]
+SQL: call WenHuiApartment.proc_UserSupportCoupletReplyByReplyIDUserID_Select(35, 1) [ RunTime:0.0006s ]
+SQL: call WenHuiApartment.proc_UserSupportCoupletReplyByReplyIDUserID_Select(34, 1) [ RunTime:0.0004s ]
+SQL: call WenHuiApartment.proc_UserSupportCoupletReplyByReplyIDUserID_Select(33, 1) [ RunTime:0.0003s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000753s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000819s ]
+
+[ 2016-03-30T20:36:10+08:00 ] ::1 /1.0/activity/getCoupletReplyByCoupletID
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000016s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000467s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000526s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000578s ]
+SQL: call WenHuiApartment.proc_CoupletReplyByCoupletID_Select(32, 0, 10) [ RunTime:0.0010s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000964s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001042s ]
+
+[ 2016-03-30T20:37:21+08:00 ] ::1 /1.0/activity/getCoupletBySortMethod
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000533s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000680s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000737s ]
+SQL: call WenHuiApartment.proc_Couplet_SelectByMultiCondition(0, 0, 10) [ RunTime:0.0141s ]
+SQL: call WenHuiApartment.proc_UserSupportCoupletByCoupletIDUserID_Select(32, 1) [ RunTime:0.0012s ]
+SQL: call WenHuiApartment.proc_UserCollectCoupletByCoupletIDUserID_Select(32, 1) [ RunTime:0.0005s ]
+SQL: call WenHuiApartment.proc_UserSupportCoupletByCoupletIDUserID_Select(31, 1) [ RunTime:0.0003s ]
+SQL: call WenHuiApartment.proc_UserCollectCoupletByCoupletIDUserID_Select(31, 1) [ RunTime:0.0005s ]
+SQL: call WenHuiApartment.proc_UserSupportCoupletByCoupletIDUserID_Select(30, 1) [ RunTime:0.0003s ]
+SQL: call WenHuiApartment.proc_UserCollectCoupletByCoupletIDUserID_Select(30, 1) [ RunTime:0.0005s ]
+SQL: call WenHuiApartment.proc_UserSupportCoupletByCoupletIDUserID_Select(29, 1) [ RunTime:0.0003s ]
+SQL: call WenHuiApartment.proc_UserCollectCoupletByCoupletIDUserID_Select(29, 1) [ RunTime:0.0003s ]
+SQL: call WenHuiApartment.proc_UserSupportCoupletByCoupletIDUserID_Select(28, 1) [ RunTime:0.0003s ]
+SQL: call WenHuiApartment.proc_UserCollectCoupletByCoupletIDUserID_Select(28, 1) [ RunTime:0.0016s ]
+SQL: call WenHuiApartment.proc_UserSupportCoupletByCoupletIDUserID_Select(27, 1) [ RunTime:0.0006s ]
+SQL: call WenHuiApartment.proc_UserCollectCoupletByCoupletIDUserID_Select(27, 1) [ RunTime:0.0004s ]
+SQL: call WenHuiApartment.proc_UserSupportCoupletByCoupletIDUserID_Select(26, 1) [ RunTime:0.0003s ]
+SQL: call WenHuiApartment.proc_UserCollectCoupletByCoupletIDUserID_Select(26, 1) [ RunTime:0.0004s ]
+SQL: call WenHuiApartment.proc_UserSupportCoupletByCoupletIDUserID_Select(25, 1) [ RunTime:0.0003s ]
+SQL: call WenHuiApartment.proc_UserCollectCoupletByCoupletIDUserID_Select(25, 1) [ RunTime:0.0007s ]
+SQL: call WenHuiApartment.proc_UserSupportCoupletByCoupletIDUserID_Select(24, 1) [ RunTime:0.0010s ]
+SQL: call WenHuiApartment.proc_UserCollectCoupletByCoupletIDUserID_Select(24, 1) [ RunTime:0.0008s ]
+SQL: call WenHuiApartment.proc_UserSupportCoupletByCoupletIDUserID_Select(23, 1) [ RunTime:0.0011s ]
+SQL: call WenHuiApartment.proc_UserCollectCoupletByCoupletIDUserID_Select(23, 1) [ RunTime:0.0010s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000698s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000778s ]
+
+[ 2016-03-30T20:37:21+08:00 ] ::1 /1.0/activity/getCurrThesis
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000018s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000447s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000607s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000681s ]
+SQL: call WenHuiApartment.proc_ThesisByThesisState_Select() [ RunTime:0.0009s ]
+SQL: call WenHuiApartment.proc_UserCollectThesisBythesisIDUserID_Select(1, 1) [ RunTime:0.0007s ]
+SQL: call WenHuiApartment.proc_ArgumentByBelong_Select(1, 0, 1) [ RunTime:0.0010s ]
+SQL: call WenHuiApartment.proc_UserSupportArgumentByArgumentIDUserID_Select(36, 1) [ RunTime:0.0006s ]
+SQL: call WenHuiApartment.proc_ArgumentByBelong_Select(0, 0, 1) [ RunTime:0.0012s ]
+SQL: call WenHuiApartment.proc_UserSupportArgumentByArgumentIDUserID_Select(34, 1) [ RunTime:0.0008s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000996s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001061s ]
+
+[ 2016-03-30T20:37:23+08:00 ] ::1 /1.0/library/getBookBySearchTextSortMethodFieldID
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000272s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000357s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000398s ]
+SQL: call WenHuiApartment.proc_Book_SelectByMultiCondition('%%', 0, 0, 0, 10); [ RunTime:0.0109s ]
+SQL: call WenHuiApartment.proc_UserCollectBookByBookIDUserID_Select(43, 1) [ RunTime:0.0004s ]
+SQL: call WenHuiApartment.proc_UserCollectBookByBookIDUserID_Select(10, 1) [ RunTime:0.0003s ]
+SQL: call WenHuiApartment.proc_UserCollectBookByBookIDUserID_Select(9, 1) [ RunTime:0.0003s ]
+SQL: call WenHuiApartment.proc_UserCollectBookByBookIDUserID_Select(8, 1) [ RunTime:0.0002s ]
+SQL: call WenHuiApartment.proc_UserCollectBookByBookIDUserID_Select(7, 1) [ RunTime:0.0003s ]
+SQL: call WenHuiApartment.proc_UserCollectBookByBookIDUserID_Select(6, 1) [ RunTime:0.0003s ]
+SQL: call WenHuiApartment.proc_UserCollectBookByBookIDUserID_Select(5, 1) [ RunTime:0.0003s ]
+SQL: call WenHuiApartment.proc_UserCollectBookByBookIDUserID_Select(4, 1) [ RunTime:0.0002s ]
+SQL: call WenHuiApartment.proc_UserCollectBookByBookIDUserID_Select(3, 1) [ RunTime:0.0003s ]
+SQL: call WenHuiApartment.proc_UserCollectBookByBookIDUserID_Select(2, 1) [ RunTime:0.0003s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000785s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000855s ]
+
+[ 2016-03-30T20:37:23+08:00 ] ::1 /1.0/common/getField
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000017s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000393s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000517s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000573s ]
+SQL: SHOW COLUMNS FROM `t_field` [ RunTime:0.0415s ]
+SQL: SELECT * FROM `t_field`  [ RunTime:0.0004s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000680s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000740s ]
+
+[ 2016-03-30T20:37:23+08:00 ] ::1 /1.0/Application/Home/Images/Cover/cover_9.png
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000302s ]
+
+[ 2016-03-30T20:37:23+08:00 ] ::1 /1.0/Application/Home/Images/Cover/cover_10.png
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000304s ]
+
+[ 2016-03-30T20:37:23+08:00 ] ::1 /1.0/Application/Home/Images/Head/(null)
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000335s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000432s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000489s ]
+ERR: 无法加载控制器:Application
+
+[ 2016-03-30T20:37:25+08:00 ] ::1 /1.0/common/getField
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000017s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000418s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000608s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000677s ]
+SQL: SHOW COLUMNS FROM `t_field` [ RunTime:0.0337s ]
+SQL: SELECT * FROM `t_field`  [ RunTime:0.0003s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000567s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000617s ]
+
+[ 2016-03-30T20:37:25+08:00 ] ::1 /1.0/communion/getBookpostBySearchTextSortMethodFieldID
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000015s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000453s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000855s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000995s ]
+SQL: call proc_Bookpost_SelectByMultiCondition('%%', 0, 0, 0, 10) [ RunTime:0.0718s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,17) [ RunTime:0.0007s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,17) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,16) [ RunTime:0.0003s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,16) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,10) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,10) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,9) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,9) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,8) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,8) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,7) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,7) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,6) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,6) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,5) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,5) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,4) [ RunTime:0.0003s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,4) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,3) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,3) [ RunTime:0.0003s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000527s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000572s ]
+
+[ 2016-03-30T20:44:14+08:00 ] ::1 /1.0/activity/getArgumentByBelong
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000022s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000915s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.004863s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.005003s ]
+SQL: call WenHuiApartment.proc_ArgumentByBelong_Select(1, 0, 10) [ RunTime:0.0009s ]
+SQL: call WenHuiApartment.proc_UserSupportArgumentByArgumentIDUserID_Select(36, 1) [ RunTime:0.0004s ]
+SQL: call WenHuiApartment.proc_UserSupportArgumentByArgumentIDUserID_Select(35, 1) [ RunTime:0.0008s ]
+SQL: call WenHuiApartment.proc_UserSupportArgumentByArgumentIDUserID_Select(33, 1) [ RunTime:0.0008s ]
+SQL: call WenHuiApartment.proc_UserSupportArgumentByArgumentIDUserID_Select(32, 1) [ RunTime:0.0045s ]
+SQL: call WenHuiApartment.proc_UserSupportArgumentByArgumentIDUserID_Select(31, 1) [ RunTime:0.0007s ]
+SQL: call WenHuiApartment.proc_UserSupportArgumentByArgumentIDUserID_Select(30, 1) [ RunTime:0.0049s ]
+SQL: call WenHuiApartment.proc_UserSupportArgumentByArgumentIDUserID_Select(29, 1) [ RunTime:0.0009s ]
+SQL: call WenHuiApartment.proc_UserSupportArgumentByArgumentIDUserID_Select(28, 1) [ RunTime:0.0003s ]
+SQL: call WenHuiApartment.proc_UserSupportArgumentByArgumentIDUserID_Select(27, 1) [ RunTime:0.0003s ]
+SQL: call WenHuiApartment.proc_UserSupportArgumentByArgumentIDUserID_Select(26, 1) [ RunTime:0.0002s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000955s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001005s ]
+
+[ 2016-03-30T20:44:29+08:00 ] ::1 /1.0/library/getBookReplyByBookID
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000293s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000381s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000423s ]
+SQL: call WenHuiApartment.proc_BookReplyByBookID_Select(43, 0, 10); [ RunTime:0.0008s ]
+SQL: call WenHuiApartment.proc_UserSupportBookReplyByReplyIDUserID_Select(13, 1) [ RunTime:0.0004s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000775s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000854s ]
+
+[ 2016-03-30T20:46:57+08:00 ] ::1 /1.0/activity/getCoupletBySortMethod
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000020s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000461s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000667s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000793s ]
+SQL: call WenHuiApartment.proc_Couplet_SelectByMultiCondition(0, 0, 10) [ RunTime:0.0075s ]
+SQL: call WenHuiApartment.proc_UserSupportCoupletByCoupletIDUserID_Select(32, 1) [ RunTime:0.0005s ]
+SQL: call WenHuiApartment.proc_UserCollectCoupletByCoupletIDUserID_Select(32, 1) [ RunTime:0.0004s ]
+SQL: call WenHuiApartment.proc_UserSupportCoupletByCoupletIDUserID_Select(31, 1) [ RunTime:0.0003s ]
+SQL: call WenHuiApartment.proc_UserCollectCoupletByCoupletIDUserID_Select(31, 1) [ RunTime:0.0003s ]
+SQL: call WenHuiApartment.proc_UserSupportCoupletByCoupletIDUserID_Select(30, 1) [ RunTime:0.0003s ]
+SQL: call WenHuiApartment.proc_UserCollectCoupletByCoupletIDUserID_Select(30, 1) [ RunTime:0.0003s ]
+SQL: call WenHuiApartment.proc_UserSupportCoupletByCoupletIDUserID_Select(29, 1) [ RunTime:0.0003s ]
+SQL: call WenHuiApartment.proc_UserCollectCoupletByCoupletIDUserID_Select(29, 1) [ RunTime:0.0003s ]
+SQL: call WenHuiApartment.proc_UserSupportCoupletByCoupletIDUserID_Select(28, 1) [ RunTime:0.0003s ]
+SQL: call WenHuiApartment.proc_UserCollectCoupletByCoupletIDUserID_Select(28, 1) [ RunTime:0.0006s ]
+SQL: call WenHuiApartment.proc_UserSupportCoupletByCoupletIDUserID_Select(27, 1) [ RunTime:0.0004s ]
+SQL: call WenHuiApartment.proc_UserCollectCoupletByCoupletIDUserID_Select(27, 1) [ RunTime:0.0003s ]
+SQL: call WenHuiApartment.proc_UserSupportCoupletByCoupletIDUserID_Select(26, 1) [ RunTime:0.0003s ]
+SQL: call WenHuiApartment.proc_UserCollectCoupletByCoupletIDUserID_Select(26, 1) [ RunTime:0.0003s ]
+SQL: call WenHuiApartment.proc_UserSupportCoupletByCoupletIDUserID_Select(25, 1) [ RunTime:0.0003s ]
+SQL: call WenHuiApartment.proc_UserCollectCoupletByCoupletIDUserID_Select(25, 1) [ RunTime:0.0020s ]
+SQL: call WenHuiApartment.proc_UserSupportCoupletByCoupletIDUserID_Select(24, 1) [ RunTime:0.0007s ]
+SQL: call WenHuiApartment.proc_UserCollectCoupletByCoupletIDUserID_Select(24, 1) [ RunTime:0.0010s ]
+SQL: call WenHuiApartment.proc_UserSupportCoupletByCoupletIDUserID_Select(23, 1) [ RunTime:0.0006s ]
+SQL: call WenHuiApartment.proc_UserCollectCoupletByCoupletIDUserID_Select(23, 1) [ RunTime:0.0004s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000948s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001010s ]
+
+[ 2016-03-30T20:46:57+08:00 ] ::1 /1.0/activity/getCurrThesis
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000016s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000465s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000387s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000449s ]
+SQL: call WenHuiApartment.proc_ThesisByThesisState_Select() [ RunTime:0.0014s ]
+SQL: call WenHuiApartment.proc_UserCollectThesisBythesisIDUserID_Select(1, 1) [ RunTime:0.0007s ]
+SQL: call WenHuiApartment.proc_ArgumentByBelong_Select(1, 0, 1) [ RunTime:0.0011s ]
+SQL: call WenHuiApartment.proc_UserSupportArgumentByArgumentIDUserID_Select(36, 1) [ RunTime:0.0006s ]
+SQL: call WenHuiApartment.proc_ArgumentByBelong_Select(0, 0, 1) [ RunTime:0.0007s ]
+SQL: call WenHuiApartment.proc_UserSupportArgumentByArgumentIDUserID_Select(34, 1) [ RunTime:0.0004s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000951s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001047s ]
+
+[ 2016-03-30T20:46:59+08:00 ] ::1 /1.0/communion/getBookpostBySearchTextSortMethodFieldID
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000281s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000511s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000562s ]
+SQL: call proc_Bookpost_SelectByMultiCondition('%%', 0, 0, 0, 10) [ RunTime:0.0338s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,17) [ RunTime:0.0007s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,17) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,16) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,16) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,10) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,10) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,9) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,9) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,8) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,8) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,7) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,7) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,6) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,6) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,5) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,5) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,4) [ RunTime:0.0003s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,4) [ RunTime:0.0003s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,3) [ RunTime:0.0003s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,3) [ RunTime:0.0005s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001707s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002131s ]
+
+[ 2016-03-30T20:46:59+08:00 ] ::1 /1.0/common/getField
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000016s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000400s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000535s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000593s ]
+SQL: SHOW COLUMNS FROM `t_field` [ RunTime:0.0101s ]
+SQL: SELECT * FROM `t_field`  [ RunTime:0.0004s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000566s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000646s ]
+
+[ 2016-03-30T20:57:20+08:00 ] ::1 /1.0/common/getField
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000019s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000562s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000762s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000828s ]
+SQL: SHOW COLUMNS FROM `t_field` [ RunTime:0.0697s ]
+SQL: SELECT * FROM `t_field`  [ RunTime:0.0019s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.002202s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002387s ]
+
+[ 2016-03-30T20:57:20+08:00 ] ::1 /1.0/communion/getBookpostBySearchTextSortMethodFieldID
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000017s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001220s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000853s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000917s ]
+SQL: call proc_Bookpost_SelectByMultiCondition('%%', 0, 0, 0, 10) [ RunTime:0.1327s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,17) [ RunTime:0.0007s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,17) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,16) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,16) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,10) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,10) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,9) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,9) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,8) [ RunTime:0.0003s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,8) [ RunTime:0.0004s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,7) [ RunTime:0.0004s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,7) [ RunTime:0.0003s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,6) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,6) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,5) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,5) [ RunTime:0.0003s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,4) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,4) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,3) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,3) [ RunTime:0.0002s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000567s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000613s ]
+
+[ 2016-03-30T20:58:05+08:00 ] ::1 /1.0/common/getField
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000015s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000602s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000701s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000750s ]
+SQL: SHOW COLUMNS FROM `t_field` [ RunTime:0.0776s ]
+SQL: SELECT * FROM `t_field`  [ RunTime:0.0005s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001070s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001135s ]
+
+[ 2016-03-30T20:58:05+08:00 ] ::1 /1.0/communion/getBookpostBySearchTextSortMethodFieldID
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000015s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000602s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000362s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000400s ]
+SQL: call proc_Bookpost_SelectByMultiCondition('%%', 0, 0, 0, 10) [ RunTime:0.1360s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,17) [ RunTime:0.0006s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,17) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,16) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,16) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,10) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,10) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,9) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,9) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,8) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,8) [ RunTime:0.0003s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,7) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,7) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,6) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,6) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,5) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,5) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,4) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,4) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,3) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,3) [ RunTime:0.0002s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000547s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000591s ]
+
+[ 2016-03-30T20:58:50+08:00 ] ::1 /1.0/library/getBookBySearchTextSortMethodFieldID
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000024s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000791s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000589s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001149s ]
+SQL: call WenHuiApartment.proc_Book_SelectByMultiCondition('%%', 0, 0, 0, 10); [ RunTime:0.0050s ]
+SQL: call WenHuiApartment.proc_UserCollectBookByBookIDUserID_Select(43, 1) [ RunTime:0.0005s ]
+SQL: call WenHuiApartment.proc_UserCollectBookByBookIDUserID_Select(10, 1) [ RunTime:0.0002s ]
+SQL: call WenHuiApartment.proc_UserCollectBookByBookIDUserID_Select(9, 1) [ RunTime:0.0002s ]
+SQL: call WenHuiApartment.proc_UserCollectBookByBookIDUserID_Select(8, 1) [ RunTime:0.0002s ]
+SQL: call WenHuiApartment.proc_UserCollectBookByBookIDUserID_Select(7, 1) [ RunTime:0.0002s ]
+SQL: call WenHuiApartment.proc_UserCollectBookByBookIDUserID_Select(6, 1) [ RunTime:0.0004s ]
+SQL: call WenHuiApartment.proc_UserCollectBookByBookIDUserID_Select(5, 1) [ RunTime:0.0004s ]
+SQL: call WenHuiApartment.proc_UserCollectBookByBookIDUserID_Select(4, 1) [ RunTime:0.0005s ]
+SQL: call WenHuiApartment.proc_UserCollectBookByBookIDUserID_Select(3, 1) [ RunTime:0.0003s ]
+SQL: call WenHuiApartment.proc_UserCollectBookByBookIDUserID_Select(2, 1) [ RunTime:0.0003s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000691s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000747s ]
+
+[ 2016-03-30T20:58:50+08:00 ] ::1 /1.0/common/getField
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000020s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000454s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000420s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000472s ]
+SQL: SHOW COLUMNS FROM `t_field` [ RunTime:0.0365s ]
+SQL: SELECT * FROM `t_field`  [ RunTime:0.0004s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000733s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000789s ]
+
+[ 2016-03-30T20:58:50+08:00 ] ::1 /1.0/Application/Home/Images/Cover/cover_10.png
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000294s ]
+
+[ 2016-03-30T20:58:50+08:00 ] ::1 /1.0/Application/Home/Images/Cover/cover_9.png
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000299s ]
+
+[ 2016-03-30T20:58:51+08:00 ] ::1 /1.0/activity/getCurrThesis
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000282s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000352s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000388s ]
+SQL: call WenHuiApartment.proc_ThesisByThesisState_Select() [ RunTime:0.0006s ]
+SQL: call WenHuiApartment.proc_UserCollectThesisBythesisIDUserID_Select(1, 1) [ RunTime:0.0003s ]
+SQL: call WenHuiApartment.proc_ArgumentByBelong_Select(1, 0, 1) [ RunTime:0.0006s ]
+SQL: call WenHuiApartment.proc_UserSupportArgumentByArgumentIDUserID_Select(36, 1) [ RunTime:0.0003s ]
+SQL: call WenHuiApartment.proc_ArgumentByBelong_Select(0, 0, 1) [ RunTime:0.0004s ]
+SQL: call WenHuiApartment.proc_UserSupportArgumentByArgumentIDUserID_Select(34, 1) [ RunTime:0.0002s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000496s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000540s ]
+
+[ 2016-03-30T20:58:51+08:00 ] ::1 /1.0/activity/getCoupletBySortMethod
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000375s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000358s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000399s ]
+SQL: call WenHuiApartment.proc_Couplet_SelectByMultiCondition(0, 0, 10) [ RunTime:0.0069s ]
+SQL: call WenHuiApartment.proc_UserSupportCoupletByCoupletIDUserID_Select(32, 1) [ RunTime:0.0007s ]
+SQL: call WenHuiApartment.proc_UserCollectCoupletByCoupletIDUserID_Select(32, 1) [ RunTime:0.0004s ]
+SQL: call WenHuiApartment.proc_UserSupportCoupletByCoupletIDUserID_Select(31, 1) [ RunTime:0.0004s ]
+SQL: call WenHuiApartment.proc_UserCollectCoupletByCoupletIDUserID_Select(31, 1) [ RunTime:0.0003s ]
+SQL: call WenHuiApartment.proc_UserSupportCoupletByCoupletIDUserID_Select(30, 1) [ RunTime:0.0004s ]
+SQL: call WenHuiApartment.proc_UserCollectCoupletByCoupletIDUserID_Select(30, 1) [ RunTime:0.0003s ]
+SQL: call WenHuiApartment.proc_UserSupportCoupletByCoupletIDUserID_Select(29, 1) [ RunTime:0.0003s ]
+SQL: call WenHuiApartment.proc_UserCollectCoupletByCoupletIDUserID_Select(29, 1) [ RunTime:0.0003s ]
+SQL: call WenHuiApartment.proc_UserSupportCoupletByCoupletIDUserID_Select(28, 1) [ RunTime:0.0004s ]
+SQL: call WenHuiApartment.proc_UserCollectCoupletByCoupletIDUserID_Select(28, 1) [ RunTime:0.0003s ]
+SQL: call WenHuiApartment.proc_UserSupportCoupletByCoupletIDUserID_Select(27, 1) [ RunTime:0.0003s ]
+SQL: call WenHuiApartment.proc_UserCollectCoupletByCoupletIDUserID_Select(27, 1) [ RunTime:0.0003s ]
+SQL: call WenHuiApartment.proc_UserSupportCoupletByCoupletIDUserID_Select(26, 1) [ RunTime:0.0036s ]
+SQL: call WenHuiApartment.proc_UserCollectCoupletByCoupletIDUserID_Select(26, 1) [ RunTime:0.0005s ]
+SQL: call WenHuiApartment.proc_UserSupportCoupletByCoupletIDUserID_Select(25, 1) [ RunTime:0.0006s ]
+SQL: call WenHuiApartment.proc_UserCollectCoupletByCoupletIDUserID_Select(25, 1) [ RunTime:0.0005s ]
+SQL: call WenHuiApartment.proc_UserSupportCoupletByCoupletIDUserID_Select(24, 1) [ RunTime:0.0005s ]
+SQL: call WenHuiApartment.proc_UserCollectCoupletByCoupletIDUserID_Select(24, 1) [ RunTime:0.0004s ]
+SQL: call WenHuiApartment.proc_UserSupportCoupletByCoupletIDUserID_Select(23, 1) [ RunTime:0.0005s ]
+SQL: call WenHuiApartment.proc_UserCollectCoupletByCoupletIDUserID_Select(23, 1) [ RunTime:0.0004s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.007112s ]
+INFO: [ app_end ] --END-- [ RunTime:0.007216s ]
+
+[ 2016-03-30T20:58:52+08:00 ] ::1 /1.0/Application/Home/Images/Head/(null)
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000444s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000567s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000608s ]
+ERR: 无法加载控制器:Application
+
+[ 2016-03-30T20:59:04+08:00 ] ::1 /1.0/user/uploadUserHead
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000019s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000720s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000812s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000887s ]
+SQL: SHOW COLUMNS FROM `t_user` [ RunTime:0.0652s ]
+SQL: UPDATE `t_user` SET `user_face_url`='201603302059038762.jpeg' WHERE `pk_user_id` = 1 [ RunTime:0.0015s ]
+SQL: call WenHuiApartment.proc_UserByUserID_Select(1) [ RunTime:0.0012s ]
+SQL: call proc_UserFocusFieldByUserID_Select(1) [ RunTime:0.0013s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000840s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000894s ]
+
+[ 2016-03-30T21:00:03+08:00 ] ::1 /1.0/communion/getBookpostBySearchTextSortMethodFieldID
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000041s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000703s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001184s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001301s ]
+SQL: call proc_Bookpost_SelectByMultiCondition('%%', 0, 0, 0, 10) [ RunTime:0.0932s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,17) [ RunTime:0.0008s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,17) [ RunTime:0.0003s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,16) [ RunTime:0.0023s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,16) [ RunTime:0.0011s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,10) [ RunTime:0.0005s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,10) [ RunTime:0.0010s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,9) [ RunTime:0.0007s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,9) [ RunTime:0.0006s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,8) [ RunTime:0.0003s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,8) [ RunTime:0.0003s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,7) [ RunTime:0.0003s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,7) [ RunTime:0.0003s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,6) [ RunTime:0.0003s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,6) [ RunTime:0.0003s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,5) [ RunTime:0.0003s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,5) [ RunTime:0.0005s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,4) [ RunTime:0.0005s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,4) [ RunTime:0.0003s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,3) [ RunTime:0.0013s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,3) [ RunTime:0.0003s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000926s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000998s ]
+

@@ -11,10 +11,6 @@
 		180469721C56545D004E7DCC /* ZCPBookModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 180469711C56545D004E7DCC /* ZCPBookModel.m */; };
 		180469751C565485004E7DCC /* ZCPFieldModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 180469741C565485004E7DCC /* ZCPFieldModel.m */; };
 		180469781C565527004E7DCC /* ZCPQuestionModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 180469771C565527004E7DCC /* ZCPQuestionModel.m */; };
-		1807001D1C48821600F3BE2B /* PACircleLoadingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 180700161C48821600F3BE2B /* PACircleLoadingView.m */; };
-		1807001E1C48821600F3BE2B /* PADragRefreshImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 180700181C48821600F3BE2B /* PADragRefreshImageView.m */; };
-		1807001F1C48821600F3BE2B /* PALoadFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1807001A1C48821600F3BE2B /* PALoadFooterView.m */; };
-		180700201C48821600F3BE2B /* PATableHeaderDragRefreshView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1807001C1C48821600F3BE2B /* PATableHeaderDragRefreshView.m */; };
 		180700231C48837300F3BE2B /* UIScrollView+ExtraMethod.m in Sources */ = {isa = PBXBuildFile; fileRef = 180700221C48837300F3BE2B /* UIScrollView+ExtraMethod.m */; };
 		180700261C48850700F3BE2B /* UIColor+Category.m in Sources */ = {isa = PBXBuildFile; fileRef = 180700251C48850700F3BE2B /* UIColor+Category.m */; };
 		180700371C48CE9600F3BE2B /* ZCPLineCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 180700361C48CE9600F3BE2B /* ZCPLineCell.m */; };
@@ -173,14 +169,6 @@
 		180469741C565485004E7DCC /* ZCPFieldModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZCPFieldModel.m; sourceTree = "<group>"; };
 		180469761C565527004E7DCC /* ZCPQuestionModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZCPQuestionModel.h; sourceTree = "<group>"; };
 		180469771C565527004E7DCC /* ZCPQuestionModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZCPQuestionModel.m; sourceTree = "<group>"; };
-		180700151C48821600F3BE2B /* PACircleLoadingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PACircleLoadingView.h; sourceTree = "<group>"; };
-		180700161C48821600F3BE2B /* PACircleLoadingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PACircleLoadingView.m; sourceTree = "<group>"; };
-		180700171C48821600F3BE2B /* PADragRefreshImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PADragRefreshImageView.h; sourceTree = "<group>"; };
-		180700181C48821600F3BE2B /* PADragRefreshImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PADragRefreshImageView.m; sourceTree = "<group>"; };
-		180700191C48821600F3BE2B /* PALoadFooterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PALoadFooterView.h; sourceTree = "<group>"; };
-		1807001A1C48821600F3BE2B /* PALoadFooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PALoadFooterView.m; sourceTree = "<group>"; };
-		1807001B1C48821600F3BE2B /* PATableHeaderDragRefreshView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PATableHeaderDragRefreshView.h; sourceTree = "<group>"; };
-		1807001C1C48821600F3BE2B /* PATableHeaderDragRefreshView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PATableHeaderDragRefreshView.m; sourceTree = "<group>"; };
 		180700211C48837300F3BE2B /* UIScrollView+ExtraMethod.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+ExtraMethod.h"; sourceTree = "<group>"; };
 		180700221C48837300F3BE2B /* UIScrollView+ExtraMethod.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+ExtraMethod.m"; sourceTree = "<group>"; };
 		180700241C48850700F3BE2B /* UIColor+Category.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Category.h"; sourceTree = "<group>"; };
@@ -576,13 +564,6 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		1842D6381C5B369E00AFF9AC /* View */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
 		1845A5551C59AFCB00491A4B /* Controller */ = {
 			isa = PBXGroup;
 			children = (
@@ -727,7 +708,6 @@
 				1896980D1C321FCE0018BA3F /* Adaptor */,
 				1896980E1C321FCE0018BA3F /* Cell */,
 				1896980F1C321FCE0018BA3F /* Controller */,
-				189698101C321FCE0018BA3F /* Delegate */,
 			);
 			path = TableView;
 			sourceTree = "<group>";
@@ -772,21 +752,6 @@
 				1896981A1C3220C40018BA3F /* ZCPTableViewController.m */,
 			);
 			path = Controller;
-			sourceTree = "<group>";
-		};
-		189698101C321FCE0018BA3F /* Delegate */ = {
-			isa = PBXGroup;
-			children = (
-				180700151C48821600F3BE2B /* PACircleLoadingView.h */,
-				180700161C48821600F3BE2B /* PACircleLoadingView.m */,
-				180700171C48821600F3BE2B /* PADragRefreshImageView.h */,
-				180700181C48821600F3BE2B /* PADragRefreshImageView.m */,
-				1807001A1C48821600F3BE2B /* PALoadFooterView.m */,
-				180700191C48821600F3BE2B /* PALoadFooterView.h */,
-				1807001B1C48821600F3BE2B /* PATableHeaderDragRefreshView.h */,
-				1807001C1C48821600F3BE2B /* PATableHeaderDragRefreshView.m */,
-			);
-			path = Delegate;
 			sourceTree = "<group>";
 		};
 		189698111C32206D0018BA3F /* Navigation */ = {
@@ -838,13 +803,6 @@
 			children = (
 				18A1DE8F1C537B9600551C52 /* ZCPThesisView.h */,
 				18A1DE901C537B9600551C52 /* ZCPThesisView.m */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		18A6FC7B1C5F83D300D6F946 /* View */ = {
-			isa = PBXGroup;
-			children = (
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -997,7 +955,6 @@
 		18AB4D9F1C30DC5600C52BF6 /* 图书馆 */ = {
 			isa = PBXGroup;
 			children = (
-				1842D6381C5B369E00AFF9AC /* View */,
 				1845A5551C59AFCB00491A4B /* Controller */,
 				180700411C48EF1C00F3BE2B /* Cell */,
 			);
@@ -1026,7 +983,6 @@
 		18AB4DA21C30DC5600C52BF6 /* 观点交流 */ = {
 			isa = PBXGroup;
 			children = (
-				18A6FC7B1C5F83D300D6F946 /* View */,
 				1845A55D1C59B00B00491A4B /* Controller */,
 				180700441C48EF2E00F3BE2B /* Cell */,
 			);
@@ -1375,7 +1331,6 @@
 				188229761C608D2600199332 /* UIButton+Category.m in Sources */,
 				18A25F211CA3E14A00D4AD5A /* ZCPPickerView.m in Sources */,
 				187335A91C5F5383003284EE /* NSDate+Category.m in Sources */,
-				1807001E1C48821600F3BE2B /* PADragRefreshImageView.m in Sources */,
 				184DB20A1C584F1400B504C1 /* ZCPAddCoupletController.m in Sources */,
 				181CAB821C52289300FF9382 /* ZCPCoupletMainCell.m in Sources */,
 				18E7277F1C706318005BC5D7 /* ZCPRequestManager.m in Sources */,
@@ -1392,7 +1347,6 @@
 				18E8F64C1C756AF500B47F84 /* ZCPRequestResponseTranslator+Thesis.m in Sources */,
 				18A959E71C74625B00084595 /* MBProgressHUD+Easy.m in Sources */,
 				183F3B211C533AF0007D2F10 /* ZCPCoupletDetailCell.m in Sources */,
-				180700201C48821600F3BE2B /* PATableHeaderDragRefreshView.m in Sources */,
 				1845A5601C59B00B00491A4B /* ZCPMainCommunionController.m in Sources */,
 				18B0EE1C1C4F572400F078EB /* ZCPViewDataModel.m in Sources */,
 				189624F91C4CCEAA003733CE /* ZCPImageTextCell.m in Sources */,
@@ -1408,11 +1362,9 @@
 				188A2FB91C75EC8E0044AA4E /* ZCPRequestResponseTranslator+Library.m in Sources */,
 				18FE5EB91C73077500F3CFEA /* ZCPURLCommon.m in Sources */,
 				18D0B06F1C34C9B200F4B2DB /* UIBarButtonItem+Category.m in Sources */,
-				1807001D1C48821600F3BE2B /* PACircleLoadingView.m in Sources */,
 				1890A43D1C7A9CCE006F0749 /* ZCPRequestManager+Communion.m in Sources */,
 				18EF89FF1C57040300924CCF /* ZCPBookPostCommentReplyModel.m in Sources */,
 				18B0EE031C4F1A4A00F078EB /* ZCPSettingUserInfoController.m in Sources */,
-				1807001F1C48821600F3BE2B /* PALoadFooterView.m in Sources */,
 				189625121C4CF64C003733CE /* ZCPButtonCell.m in Sources */,
 				18E3F71F1C50800900318761 /* ZCPCoupletMainController.m in Sources */,
 				180700371C48CE9600F3BE2B /* ZCPLineCell.m in Sources */,

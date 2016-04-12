@@ -9,8 +9,6 @@
 #import <Foundation/Foundation.h>
 
 #import "ZCPTableViewCellItemBasicProtocol.h"
-#import "PATableHeaderDragRefreshView.h"
-#import "PALoadFooterView.h"
 
 @protocol ZCPListTableViewAdaptorDelegate;
 

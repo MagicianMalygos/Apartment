@@ -43,7 +43,7 @@
 @end
 
 @protocol ZCPQuestionCellDelegate <NSObject>
-
+@optional
 // 收藏按钮点击事件
 - (void)questionCell:(ZCPQuestionCell *)cell collectButtonClicked:(UIButton *)button;
 // 选项按钮点击事件

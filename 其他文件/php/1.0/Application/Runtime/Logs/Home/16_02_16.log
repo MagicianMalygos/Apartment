@@ -1,0 +1,482 @@
+[ 2016-02-16T13:02:36+08:00 ] ::1 /thinkphp_3.2.3_core/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000018s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000471s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000493s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000551s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000224s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000344s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.055183s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.055262s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000148s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000176s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000422s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000452s ]
+
+[ 2016-02-16T13:03:52+08:00 ] ::1 /thinkphp_3.2.3_core/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000020s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000436s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000382s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000416s ]
+INFO: [ view_parse ] --START--
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.000144s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.000179s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000113s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000137s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000403s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000433s ]
+
+[ 2016-02-16T13:05:49+08:00 ] ::1 /thinkphp_3.2.3_core/index.php
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000034s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000554s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000470s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000509s ]
+INFO: [ view_parse ] --START--
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.000171s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.000232s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000132s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000160s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000698s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000742s ]
+
+[ 2016-02-16T13:09:11+08:00 ] ::1 /thinkphp_3.2.3_core/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000364s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000421s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000466s ]
+INFO: [ view_parse ] --START--
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.000143s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.000180s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000116s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000140s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000517s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000553s ]
+
+[ 2016-02-16T13:15:33+08:00 ] ::1 /thinkphp_3.2.3_core/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000260s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000335s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000367s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000371s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000410s ]
+
+[ 2016-02-16T13:19:01+08:00 ] ::1 /thinkphp_3.2.3_core/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000277s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000345s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000379s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000459s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000496s ]
+
+[ 2016-02-16T13:24:11+08:00 ] ::1 /thinkphp_3.2.3_core/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000388s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000367s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000403s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000420s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000456s ]
+
+[ 2016-02-16T13:24:19+08:00 ] ::1 /thinkphp_3.2.3_core/zcp
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000271s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000345s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000381s ]
+ERR: Method Home\Controller\zcpController::__call() does not exist
+
+[ 2016-02-16T13:24:25+08:00 ] ::1 /thinkphp_3.2.3_core/test
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000033s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000404s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000673s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000752s ]
+ERR: 非法操作:index
+
+[ 2016-02-16T13:24:29+08:00 ] ::1 /thinkphp_3.2.3_core/test/test
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000296s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000374s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000411s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000420s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000457s ]
+
+[ 2016-02-16T13:26:24+08:00 ] ::1 /thinkphp_3.2.3_core/test/test
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000335s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000422s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000464s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000446s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000485s ]
+
+[ 2016-02-16T15:17:36+08:00 ] ::1 /thinkphp_3.2.3_core/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000018s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000497s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000371s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000408s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000509s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000563s ]
+
+[ 2016-02-16T15:17:53+08:00 ] ::1 /thinkphp_3.2.3_core/zcp/getCoupletByTime
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000022s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000427s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000543s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000617s ]
+NOTIC: [8] Undefined index: pageCount /Applications/MAMP/htdocs/thinkphp_3.2.3_core/Application/HOME/Controller/ZcpController.class.php 第 12 行.
+NOTIC: [8] Undefined index: currUserId /Applications/MAMP/htdocs/thinkphp_3.2.3_core/Application/HOME/Controller/ZcpController.class.php 第 13 行.
+ERR: SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: YES)
+
+[ 2016-02-16T15:18:57+08:00 ] ::1 /thinkphp_3.2.3_core/zcp/test
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000259s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000335s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000368s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000580s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000641s ]
+
+[ 2016-02-16T15:21:01+08:00 ] ::1 /thinkphp_3.2.3_core/zcp/getCoupletByTime
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000319s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000415s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000458s ]
+NOTIC: [8] Undefined index: pageCount /Applications/MAMP/htdocs/thinkphp_3.2.3_core/Application/HOME/Controller/ZcpController.class.php 第 15 行.
+NOTIC: [8] Undefined index: currUserId /Applications/MAMP/htdocs/thinkphp_3.2.3_core/Application/HOME/Controller/ZcpController.class.php 第 16 行.
+ERR: 1318:Incorrect number of arguments for PROCEDURE wenhuiapartment.proc_Z_CoupletByCoupletTime_Select; expected 1, got 0
+ [ SQL语句 ] : call WenHuiApartment.proc_Z_CoupletByCoupletTime_Select()
+ERR: 1318:Incorrect number of arguments for PROCEDURE wenhuiapartment.proc_Z_CoupletByCoupletTime_Select; expected 1, got 0
+ [ SQL语句 ] : call WenHuiApartment.proc_Z_CoupletByCoupletTime_Select()
+
+[ 2016-02-16T15:21:42+08:00 ] ::1 /thinkphp_3.2.3_core/zcp/getCoupletByTime
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000263s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000334s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000367s ]
+SQL: call WenHuiApartment.proc_Z_CoupletByCoupletTime_Select(1) [ RunTime:0.0007s ]
+SQL: call WenHuiApartment.proc_Z_CoupletSupRecordByCoupletIdUserId_Select(26, 1) [ RunTime:0.0005s ]
+SQL: call WenHuiApartment.proc_Z_UserCollectCoupletByCoupletIdUserId_Select(26, 1) [ RunTime:0.0003s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000545s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000588s ]
+
+[ 2016-02-16T15:21:59+08:00 ] ::1 /thinkphp_3.2.3_core/zcp/getCoupletByTime
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000293s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000416s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000459s ]
+SQL: call WenHuiApartment.proc_Z_CoupletByCoupletTime_Select(1) [ RunTime:0.0007s ]
+SQL: call WenHuiApartment.proc_Z_CoupletSupRecordByCoupletIdUserId_Select(26, 1) [ RunTime:0.0004s ]
+SQL: call WenHuiApartment.proc_Z_UserCollectCoupletByCoupletIdUserId_Select(26, 1) [ RunTime:0.0003s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000555s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000600s ]
+
+[ 2016-02-16T16:31:06+08:00 ] 127.0.0.1 /1.0/activity/getCoupletByTime
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000014s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000304s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000422s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000468s ]
+SQL: call WenHuiApartment.proc_Z_CoupletByCoupletTime_Select(1) [ RunTime:0.0010s ]
+SQL: call WenHuiApartment.proc_Z_CoupletSupRecordByCoupletIdUserId_Select(26, 1) [ RunTime:0.0006s ]
+SQL: call WenHuiApartment.proc_Z_UserCollectCoupletByCoupletIdUserId_Select(26, 1) [ RunTime:0.0008s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.003399s ]
+INFO: [ app_end ] --END-- [ RunTime:0.003660s ]
+
+[ 2016-02-16T16:40:59+08:00 ] 127.0.0.1 /1.0/activity/getCoupletByTime
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000020s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000378s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000378s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000414s ]
+NOTIC: [8] Undefined index: pageCount /Applications/MAMP/htdocs/1.0/Application/HOME/Controller/ActivityController.class.php 第 12 行.
+NOTIC: [8] Undefined index: currUserID /Applications/MAMP/htdocs/1.0/Application/HOME/Controller/ActivityController.class.php 第 13 行.
+ERR: 1318:Incorrect number of arguments for PROCEDURE wenhuiapartment.proc_Z_CoupletByCoupletTime_Select; expected 1, got 0
+ [ SQL语句 ] : call WenHuiApartment.proc_Z_CoupletByCoupletTime_Select()
+ERR: 1318:Incorrect number of arguments for PROCEDURE wenhuiapartment.proc_Z_CoupletByCoupletTime_Select; expected 1, got 0
+ [ SQL语句 ] : call WenHuiApartment.proc_Z_CoupletByCoupletTime_Select()
+
+[ 2016-02-16T16:42:24+08:00 ] 127.0.0.1 /1.0/activity/getCoupletByTime
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000022s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000492s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000603s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000686s ]
+SQL: call WenHuiApartment.proc_Z_CoupletByCoupletTime_Select(1) [ RunTime:0.0019s ]
+SQL: call WenHuiApartment.proc_Z_CoupletSupRecordByCoupletIdUserId_Select(26, 1) [ RunTime:0.0005s ]
+SQL: call WenHuiApartment.proc_Z_UserCollectCoupletByCoupletIdUserId_Select(26, 1) [ RunTime:0.0004s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000526s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000565s ]
+
+[ 2016-02-16T16:43:13+08:00 ] ::1 /1.0/activity/getCoupletByTime
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000334s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000364s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000400s ]
+SQL: call WenHuiApartment.proc_Z_CoupletByCoupletTime_Select(1) [ RunTime:0.0012s ]
+SQL: call WenHuiApartment.proc_Z_CoupletSupRecordByCoupletIdUserId_Select(26, 1) [ RunTime:0.0007s ]
+SQL: call WenHuiApartment.proc_Z_UserCollectCoupletByCoupletIdUserId_Select(26, 1) [ RunTime:0.0040s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000754s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000826s ]
+
+[ 2016-02-16T17:28:15+08:00 ] ::1 /1.0/Activity/getCoupletByTime
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000020s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000491s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002138s ]
+SQL: call WenHuiApartment.proc_Z_CoupletByCoupletTime_Select(1) [ RunTime:0.0007s ]
+SQL: call WenHuiApartment.proc_Z_CoupletSupRecordByCoupletIdUserId_Select(26, 1) [ RunTime:0.0004s ]
+SQL: call WenHuiApartment.proc_Z_UserCollectCoupletByCoupletIdUserId_Select(26, 1) [ RunTime:0.0004s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000561s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000607s ]
+
+[ 2016-02-16T17:28:19+08:00 ] ::1 /1.0/activity/getCoupletByTime
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000019s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000460s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000675s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000752s ]
+SQL: call WenHuiApartment.proc_Z_CoupletByCoupletTime_Select(1) [ RunTime:0.0006s ]
+SQL: call WenHuiApartment.proc_Z_CoupletSupRecordByCoupletIdUserId_Select(26, 1) [ RunTime:0.0003s ]
+SQL: call WenHuiApartment.proc_Z_UserCollectCoupletByCoupletIdUserId_Select(26, 1) [ RunTime:0.0003s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000577s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000626s ]
+
+[ 2016-02-16T17:28:21+08:00 ] ::1 /1.0/activity/getCoupletByTime
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000020s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000455s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000596s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000673s ]
+SQL: call WenHuiApartment.proc_Z_CoupletByCoupletTime_Select(1) [ RunTime:0.0007s ]
+SQL: call WenHuiApartment.proc_Z_CoupletSupRecordByCoupletIdUserId_Select(26, 1) [ RunTime:0.0004s ]
+SQL: call WenHuiApartment.proc_Z_UserCollectCoupletByCoupletIdUserId_Select(26, 1) [ RunTime:0.0003s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000523s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000561s ]
+
+[ 2016-02-16T17:39:48+08:00 ] ::1 /1.0/activity/getCoupletByTime
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000018s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000532s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000666s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000752s ]
+ERR: syntax error, unexpected '{'
+
+[ 2016-02-16T17:41:03+08:00 ] ::1 /1.0/activity/getCoupletByTime
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000570s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000643s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000797s ]
+SQL: call WenHuiApartment.proc_Z_CoupletByCoupletTime_Select(1) [ RunTime:0.0006s ]
+SQL: call WenHuiApartment.proc_Z_CoupletSupRecordByCoupletIdUserId_Select(26, 1) [ RunTime:0.0004s ]
+SQL: call WenHuiApartment.proc_Z_UserCollectCoupletByCoupletIdUserId_Select(26, 1) [ RunTime:0.0003s ]
+NOTIC: [8] Array to string conversion /Applications/MAMP/htdocs/1.0/Application/HOME/Controller/ActivityController.class.php 第 53 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000535s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000577s ]
+
+[ 2016-02-16T17:41:24+08:00 ] ::1 /1.0/activity/getCoupletByTime
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000020s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000545s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000622s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000721s ]
+SQL: call WenHuiApartment.proc_Z_CoupletByCoupletTime_Select(1) [ RunTime:0.0023s ]
+SQL: call WenHuiApartment.proc_Z_CoupletSupRecordByCoupletIdUserId_Select(26, 1) [ RunTime:0.0005s ]
+SQL: call WenHuiApartment.proc_Z_UserCollectCoupletByCoupletIdUserId_Select(26, 1) [ RunTime:0.0003s ]
+NOTIC: [8] Array to string conversion /Applications/MAMP/htdocs/1.0/Application/HOME/Controller/ActivityController.class.php 第 53 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000544s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000587s ]
+
+[ 2016-02-16T17:41:48+08:00 ] ::1 /1.0/activity/getCoupletByTime
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000616s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000714s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000799s ]
+SQL: call WenHuiApartment.proc_Z_CoupletByCoupletTime_Select(1) [ RunTime:0.0007s ]
+SQL: call WenHuiApartment.proc_Z_CoupletSupRecordByCoupletIdUserId_Select(26, 1) [ RunTime:0.0003s ]
+SQL: call WenHuiApartment.proc_Z_UserCollectCoupletByCoupletIdUserId_Select(26, 1) [ RunTime:0.0003s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000514s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000553s ]
+
+[ 2016-02-16T17:41:57+08:00 ] ::1 /1.0/activity/getCoupletByTime
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000020s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000496s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000756s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000850s ]
+SQL: call WenHuiApartment.proc_Z_CoupletByCoupletTime_Select(1) [ RunTime:0.0007s ]
+SQL: call WenHuiApartment.proc_Z_CoupletSupRecordByCoupletIdUserId_Select(26, 1) [ RunTime:0.0007s ]
+SQL: call WenHuiApartment.proc_Z_UserCollectCoupletByCoupletIdUserId_Select(26, 1) [ RunTime:0.0006s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001576s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001807s ]
+
+[ 2016-02-16T17:43:29+08:00 ] ::1 /1.0/activity/getCoupletByTime
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000019s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000491s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000630s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000706s ]
+SQL: call WenHuiApartment.proc_Z_CoupletByCoupletTime_Select(1) [ RunTime:0.0010s ]
+SQL: call WenHuiApartment.proc_Z_CoupletSupRecordByCoupletIdUserId_Select(26, 1) [ RunTime:0.0006s ]
+SQL: call WenHuiApartment.proc_Z_UserCollectCoupletByCoupletIdUserId_Select(26, 1) [ RunTime:0.0008s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001482s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001713s ]
+
+[ 2016-02-16T17:44:43+08:00 ] ::1 /1.0/activity/getCoupletByTime
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000019s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000506s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002019s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002176s ]
+SQL: call WenHuiApartment.proc_Z_CoupletByCoupletTime_Select(1) [ RunTime:0.0007s ]
+SQL: call WenHuiApartment.proc_Z_CoupletSupRecordByCoupletIdUserId_Select(26, 1) [ RunTime:0.0003s ]
+SQL: call WenHuiApartment.proc_Z_UserCollectCoupletByCoupletIdUserId_Select(26, 1) [ RunTime:0.0003s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000581s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000624s ]
+
+[ 2016-02-16T17:47:54+08:00 ] ::1 /1.0/activity/getCoupletByTime
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000286s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000349s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000385s ]
+SQL: call WenHuiApartment.proc_Z_CoupletByCoupletTime_Select(1) [ RunTime:0.0007s ]
+SQL: call WenHuiApartment.proc_Z_CoupletSupRecordByCoupletIdUserId_Select(26, 1) [ RunTime:0.0005s ]
+SQL: call WenHuiApartment.proc_Z_UserCollectCoupletByCoupletIdUserId_Select(26, 1) [ RunTime:0.0004s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000684s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000758s ]
+
+[ 2016-02-16T17:50:53+08:00 ] ::1 /1.0/activity/getCoupletByTime
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000021s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000518s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000641s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000729s ]
+SQL: call WenHuiApartment.proc_Z_CoupletByCoupletTime_Select(1) [ RunTime:0.0011s ]
+SQL: call WenHuiApartment.proc_Z_CoupletSupRecordByCoupletIdUserId_Select(26, 1) [ RunTime:0.0004s ]
+SQL: call WenHuiApartment.proc_Z_UserCollectCoupletByCoupletIdUserId_Select(26, 1) [ RunTime:0.0016s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001609s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001709s ]
+
+[ 2016-02-16T18:03:21+08:00 ] ::1 /1.0/activity/getCoupletByTime
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000025s ]
+INFO: [ app_init ] --END-- [ RunTime:0.004374s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000981s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001054s ]
+SQL: call WenHuiApartment.proc_Z_CoupletByCoupletTime_Select(1) [ RunTime:0.0008s ]
+SQL: call WenHuiApartment.proc_Z_CoupletSupRecordByCoupletIdUserId_Select(26, 1) [ RunTime:0.0005s ]
+SQL: call WenHuiApartment.proc_Z_UserCollectCoupletByCoupletIdUserId_Select(26, 1) [ RunTime:0.0009s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001004s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001058s ]
+
+[ 2016-02-16T18:22:12+08:00 ] ::1 /1.0/activity/getCoupletByTime
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000909s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001070s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001170s ]
+SQL: call WenHuiApartment.proc_Z_CoupletByCoupletTime_Select(1) [ RunTime:0.0047s ]
+SQL: call WenHuiApartment.proc_Z_CoupletSupRecordByCoupletIdUserId_Select(26, 1) [ RunTime:0.0011s ]
+SQL: call WenHuiApartment.proc_Z_UserCollectCoupletByCoupletIdUserId_Select(26, 1) [ RunTime:0.0005s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001059s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001130s ]
+
+[ 2016-02-16T18:23:24+08:00 ] ::1 /1.0/activity/getCoupletByTime
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000312s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000364s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000402s ]
+SQL: call WenHuiApartment.proc_Z_CoupletByCoupletTime_Select(1) [ RunTime:0.0006s ]
+SQL: call WenHuiApartment.proc_Z_CoupletSupRecordByCoupletIdUserId_Select(26, 1) [ RunTime:0.0003s ]
+SQL: call WenHuiApartment.proc_Z_UserCollectCoupletByCoupletIdUserId_Select(26, 1) [ RunTime:0.0003s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000701s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000744s ]
+

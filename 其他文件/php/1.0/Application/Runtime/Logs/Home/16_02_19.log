@@ -1,0 +1,240 @@
+[ 2016-02-19T17:44:09+08:00 ] ::1 /1.0/activity/getCurrThesis
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000021s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002461s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000863s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000985s ]
+SQL: call WenHuiApartment.proc_Z_ThesisByThesisState_Select() [ RunTime:0.0089s ]
+SQL: call WenHuiApartment.proc_Z_UserCollectThesisBythesisIdUserId_Select(1, 1) [ RunTime:0.0032s ]
+SQL: call WenHuiApartment.proc_Z_ArgumentByThesisIdBelong_Select(1, 1) [ RunTime:0.0034s ]
+SQL: call WenHuiApartment.proc_Z_ArgumentSupRecordByArgumentIdUserId_Select(33, 1) [ RunTime:0.0025s ]
+SQL: call WenHuiApartment.proc_Z_ArgumentByThesisIdBelong_Select(0, 1) [ RunTime:0.0005s ]
+SQL: call WenHuiApartment.proc_Z_ArgumentSupRecordByArgumentIdUserId_Select(25, 1) [ RunTime:0.0002s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000772s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000816s ]
+
+[ 2016-02-19T17:44:09+08:00 ] ::1 /1.0/activity/getCoupletByTime
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000078s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001937s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000911s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000986s ]
+SQL: call WenHuiApartment.proc_Z_CoupletByCoupletTime_Select(10) [ RunTime:0.0089s ]
+SQL: call WenHuiApartment.proc_Z_CoupletSupRecordByCoupletIdUserId_Select(27, 1) [ RunTime:0.0034s ]
+SQL: call WenHuiApartment.proc_Z_UserCollectCoupletByCoupletIdUserId_Select(27, 1) [ RunTime:0.0028s ]
+SQL: call WenHuiApartment.proc_Z_CoupletSupRecordByCoupletIdUserId_Select(26, 1) [ RunTime:0.0004s ]
+SQL: call WenHuiApartment.proc_Z_UserCollectCoupletByCoupletIdUserId_Select(26, 1) [ RunTime:0.0003s ]
+SQL: call WenHuiApartment.proc_Z_CoupletSupRecordByCoupletIdUserId_Select(25, 1) [ RunTime:0.0013s ]
+SQL: call WenHuiApartment.proc_Z_UserCollectCoupletByCoupletIdUserId_Select(25, 1) [ RunTime:0.0003s ]
+SQL: call WenHuiApartment.proc_Z_CoupletSupRecordByCoupletIdUserId_Select(24, 1) [ RunTime:0.0003s ]
+SQL: call WenHuiApartment.proc_Z_UserCollectCoupletByCoupletIdUserId_Select(24, 1) [ RunTime:0.0002s ]
+SQL: call WenHuiApartment.proc_Z_CoupletSupRecordByCoupletIdUserId_Select(23, 1) [ RunTime:0.0002s ]
+SQL: call WenHuiApartment.proc_Z_UserCollectCoupletByCoupletIdUserId_Select(23, 1) [ RunTime:0.0002s ]
+SQL: call WenHuiApartment.proc_Z_CoupletSupRecordByCoupletIdUserId_Select(22, 1) [ RunTime:0.0002s ]
+SQL: call WenHuiApartment.proc_Z_UserCollectCoupletByCoupletIdUserId_Select(22, 1) [ RunTime:0.0002s ]
+SQL: call WenHuiApartment.proc_Z_CoupletSupRecordByCoupletIdUserId_Select(21, 1) [ RunTime:0.0002s ]
+SQL: call WenHuiApartment.proc_Z_UserCollectCoupletByCoupletIdUserId_Select(21, 1) [ RunTime:0.0002s ]
+SQL: call WenHuiApartment.proc_Z_CoupletSupRecordByCoupletIdUserId_Select(20, 1) [ RunTime:0.0002s ]
+SQL: call WenHuiApartment.proc_Z_UserCollectCoupletByCoupletIdUserId_Select(20, 1) [ RunTime:0.0002s ]
+SQL: call WenHuiApartment.proc_Z_CoupletSupRecordByCoupletIdUserId_Select(19, 1) [ RunTime:0.0002s ]
+SQL: call WenHuiApartment.proc_Z_UserCollectCoupletByCoupletIdUserId_Select(19, 1) [ RunTime:0.0002s ]
+SQL: call WenHuiApartment.proc_Z_CoupletSupRecordByCoupletIdUserId_Select(18, 1) [ RunTime:0.0003s ]
+SQL: call WenHuiApartment.proc_Z_UserCollectCoupletByCoupletIdUserId_Select(18, 1) [ RunTime:0.0003s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000558s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000611s ]
+
+[ 2016-02-19T17:44:48+08:00 ] ::1 /1.0/activity/getCoupletByTime
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000026s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000741s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000890s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000977s ]
+SQL: call WenHuiApartment.proc_Z_CoupletByCoupletTime_Select(10) [ RunTime:0.0012s ]
+SQL: call WenHuiApartment.proc_Z_CoupletSupRecordByCoupletIdUserId_Select(27, 1) [ RunTime:0.0013s ]
+SQL: call WenHuiApartment.proc_Z_UserCollectCoupletByCoupletIdUserId_Select(27, 1) [ RunTime:0.0009s ]
+SQL: call WenHuiApartment.proc_Z_CoupletSupRecordByCoupletIdUserId_Select(26, 1) [ RunTime:0.0004s ]
+SQL: call WenHuiApartment.proc_Z_UserCollectCoupletByCoupletIdUserId_Select(26, 1) [ RunTime:0.0006s ]
+SQL: call WenHuiApartment.proc_Z_CoupletSupRecordByCoupletIdUserId_Select(25, 1) [ RunTime:0.0013s ]
+SQL: call WenHuiApartment.proc_Z_UserCollectCoupletByCoupletIdUserId_Select(25, 1) [ RunTime:0.0005s ]
+SQL: call WenHuiApartment.proc_Z_CoupletSupRecordByCoupletIdUserId_Select(24, 1) [ RunTime:0.0004s ]
+SQL: call WenHuiApartment.proc_Z_UserCollectCoupletByCoupletIdUserId_Select(24, 1) [ RunTime:0.0004s ]
+SQL: call WenHuiApartment.proc_Z_CoupletSupRecordByCoupletIdUserId_Select(23, 1) [ RunTime:0.0003s ]
+SQL: call WenHuiApartment.proc_Z_UserCollectCoupletByCoupletIdUserId_Select(23, 1) [ RunTime:0.0003s ]
+SQL: call WenHuiApartment.proc_Z_CoupletSupRecordByCoupletIdUserId_Select(22, 1) [ RunTime:0.0003s ]
+SQL: call WenHuiApartment.proc_Z_UserCollectCoupletByCoupletIdUserId_Select(22, 1) [ RunTime:0.0005s ]
+SQL: call WenHuiApartment.proc_Z_CoupletSupRecordByCoupletIdUserId_Select(21, 1) [ RunTime:0.0003s ]
+SQL: call WenHuiApartment.proc_Z_UserCollectCoupletByCoupletIdUserId_Select(21, 1) [ RunTime:0.0003s ]
+SQL: call WenHuiApartment.proc_Z_CoupletSupRecordByCoupletIdUserId_Select(20, 1) [ RunTime:0.0003s ]
+SQL: call WenHuiApartment.proc_Z_UserCollectCoupletByCoupletIdUserId_Select(20, 1) [ RunTime:0.0003s ]
+SQL: call WenHuiApartment.proc_Z_CoupletSupRecordByCoupletIdUserId_Select(19, 1) [ RunTime:0.0004s ]
+SQL: call WenHuiApartment.proc_Z_UserCollectCoupletByCoupletIdUserId_Select(19, 1) [ RunTime:0.0003s ]
+SQL: call WenHuiApartment.proc_Z_CoupletSupRecordByCoupletIdUserId_Select(18, 1) [ RunTime:0.0008s ]
+SQL: call WenHuiApartment.proc_Z_UserCollectCoupletByCoupletIdUserId_Select(18, 1) [ RunTime:0.0015s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.002078s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002182s ]
+
+[ 2016-02-19T17:44:48+08:00 ] ::1 /1.0/activity/getCurrThesis
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000019s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000474s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000666s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000749s ]
+SQL: call WenHuiApartment.proc_Z_ThesisByThesisState_Select() [ RunTime:0.0015s ]
+SQL: call WenHuiApartment.proc_Z_UserCollectThesisBythesisIdUserId_Select(1, 1) [ RunTime:0.0006s ]
+SQL: call WenHuiApartment.proc_Z_ArgumentByThesisIdBelong_Select(1, 1) [ RunTime:0.0012s ]
+SQL: call WenHuiApartment.proc_Z_ArgumentSupRecordByArgumentIdUserId_Select(33, 1) [ RunTime:0.0008s ]
+SQL: call WenHuiApartment.proc_Z_ArgumentByThesisIdBelong_Select(0, 1) [ RunTime:0.0043s ]
+SQL: call WenHuiApartment.proc_Z_ArgumentSupRecordByArgumentIdUserId_Select(25, 1) [ RunTime:0.0013s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001013s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001110s ]
+
+[ 2016-02-19T17:49:41+08:00 ] ::1 /1.0/activity/getCoupletByTime
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000025s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000679s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000852s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000929s ]
+SQL: call WenHuiApartment.proc_Z_CoupletByCoupletTime_Select(10) [ RunTime:0.0062s ]
+SQL: call WenHuiApartment.proc_Z_CoupletSupRecordByCoupletIdUserId_Select(27, 1) [ RunTime:0.0018s ]
+SQL: call WenHuiApartment.proc_Z_UserCollectCoupletByCoupletIdUserId_Select(27, 1) [ RunTime:0.0026s ]
+SQL: call WenHuiApartment.proc_Z_CoupletSupRecordByCoupletIdUserId_Select(26, 1) [ RunTime:0.0020s ]
+SQL: call WenHuiApartment.proc_Z_UserCollectCoupletByCoupletIdUserId_Select(26, 1) [ RunTime:0.0018s ]
+SQL: call WenHuiApartment.proc_Z_CoupletSupRecordByCoupletIdUserId_Select(25, 1) [ RunTime:0.0007s ]
+SQL: call WenHuiApartment.proc_Z_UserCollectCoupletByCoupletIdUserId_Select(25, 1) [ RunTime:0.0006s ]
+SQL: call WenHuiApartment.proc_Z_CoupletSupRecordByCoupletIdUserId_Select(24, 1) [ RunTime:0.0009s ]
+SQL: call WenHuiApartment.proc_Z_UserCollectCoupletByCoupletIdUserId_Select(24, 1) [ RunTime:0.0009s ]
+SQL: call WenHuiApartment.proc_Z_CoupletSupRecordByCoupletIdUserId_Select(23, 1) [ RunTime:0.0009s ]
+SQL: call WenHuiApartment.proc_Z_UserCollectCoupletByCoupletIdUserId_Select(23, 1) [ RunTime:0.0004s ]
+SQL: call WenHuiApartment.proc_Z_CoupletSupRecordByCoupletIdUserId_Select(22, 1) [ RunTime:0.0004s ]
+SQL: call WenHuiApartment.proc_Z_UserCollectCoupletByCoupletIdUserId_Select(22, 1) [ RunTime:0.0004s ]
+SQL: call WenHuiApartment.proc_Z_CoupletSupRecordByCoupletIdUserId_Select(21, 1) [ RunTime:0.0004s ]
+SQL: call WenHuiApartment.proc_Z_UserCollectCoupletByCoupletIdUserId_Select(21, 1) [ RunTime:0.0004s ]
+SQL: call WenHuiApartment.proc_Z_CoupletSupRecordByCoupletIdUserId_Select(20, 1) [ RunTime:0.0004s ]
+SQL: call WenHuiApartment.proc_Z_UserCollectCoupletByCoupletIdUserId_Select(20, 1) [ RunTime:0.0003s ]
+SQL: call WenHuiApartment.proc_Z_CoupletSupRecordByCoupletIdUserId_Select(19, 1) [ RunTime:0.0003s ]
+SQL: call WenHuiApartment.proc_Z_UserCollectCoupletByCoupletIdUserId_Select(19, 1) [ RunTime:0.0003s ]
+SQL: call WenHuiApartment.proc_Z_CoupletSupRecordByCoupletIdUserId_Select(18, 1) [ RunTime:0.0003s ]
+SQL: call WenHuiApartment.proc_Z_UserCollectCoupletByCoupletIdUserId_Select(18, 1) [ RunTime:0.0002s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001027s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001103s ]
+
+[ 2016-02-19T17:49:41+08:00 ] ::1 /1.0/activity/getCurrThesis
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000016s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000499s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000553s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000623s ]
+SQL: call WenHuiApartment.proc_Z_ThesisByThesisState_Select() [ RunTime:0.0020s ]
+SQL: call WenHuiApartment.proc_Z_UserCollectThesisBythesisIdUserId_Select(1, 1) [ RunTime:0.0005s ]
+SQL: call WenHuiApartment.proc_Z_ArgumentByThesisIdBelong_Select(1, 1) [ RunTime:0.0012s ]
+SQL: call WenHuiApartment.proc_Z_ArgumentSupRecordByArgumentIdUserId_Select(33, 1) [ RunTime:0.0007s ]
+SQL: call WenHuiApartment.proc_Z_ArgumentByThesisIdBelong_Select(0, 1) [ RunTime:0.0005s ]
+SQL: call WenHuiApartment.proc_Z_ArgumentSupRecordByArgumentIdUserId_Select(25, 1) [ RunTime:0.0003s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000818s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000886s ]
+
+[ 2016-02-19T17:49:47+08:00 ] ::1 /1.0/activity/getCoupletByTime
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000019s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000367s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000376s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000410s ]
+SQL: call WenHuiApartment.proc_Z_CoupletByCoupletTime_Select(10) [ RunTime:0.0010s ]
+SQL: call WenHuiApartment.proc_Z_CoupletSupRecordByCoupletIdUserId_Select(27, 1) [ RunTime:0.0005s ]
+SQL: call WenHuiApartment.proc_Z_UserCollectCoupletByCoupletIdUserId_Select(27, 1) [ RunTime:0.0005s ]
+SQL: call WenHuiApartment.proc_Z_CoupletSupRecordByCoupletIdUserId_Select(26, 1) [ RunTime:0.0004s ]
+SQL: call WenHuiApartment.proc_Z_UserCollectCoupletByCoupletIdUserId_Select(26, 1) [ RunTime:0.0007s ]
+SQL: call WenHuiApartment.proc_Z_CoupletSupRecordByCoupletIdUserId_Select(25, 1) [ RunTime:0.0004s ]
+SQL: call WenHuiApartment.proc_Z_UserCollectCoupletByCoupletIdUserId_Select(25, 1) [ RunTime:0.0003s ]
+SQL: call WenHuiApartment.proc_Z_CoupletSupRecordByCoupletIdUserId_Select(24, 1) [ RunTime:0.0003s ]
+SQL: call WenHuiApartment.proc_Z_UserCollectCoupletByCoupletIdUserId_Select(24, 1) [ RunTime:0.0003s ]
+SQL: call WenHuiApartment.proc_Z_CoupletSupRecordByCoupletIdUserId_Select(23, 1) [ RunTime:0.0020s ]
+SQL: call WenHuiApartment.proc_Z_UserCollectCoupletByCoupletIdUserId_Select(23, 1) [ RunTime:0.0004s ]
+SQL: call WenHuiApartment.proc_Z_CoupletSupRecordByCoupletIdUserId_Select(22, 1) [ RunTime:0.0015s ]
+SQL: call WenHuiApartment.proc_Z_UserCollectCoupletByCoupletIdUserId_Select(22, 1) [ RunTime:0.0018s ]
+SQL: call WenHuiApartment.proc_Z_CoupletSupRecordByCoupletIdUserId_Select(21, 1) [ RunTime:0.0008s ]
+SQL: call WenHuiApartment.proc_Z_UserCollectCoupletByCoupletIdUserId_Select(21, 1) [ RunTime:0.0003s ]
+SQL: call WenHuiApartment.proc_Z_CoupletSupRecordByCoupletIdUserId_Select(20, 1) [ RunTime:0.0003s ]
+SQL: call WenHuiApartment.proc_Z_UserCollectCoupletByCoupletIdUserId_Select(20, 1) [ RunTime:0.0003s ]
+SQL: call WenHuiApartment.proc_Z_CoupletSupRecordByCoupletIdUserId_Select(19, 1) [ RunTime:0.0003s ]
+SQL: call WenHuiApartment.proc_Z_UserCollectCoupletByCoupletIdUserId_Select(19, 1) [ RunTime:0.0003s ]
+SQL: call WenHuiApartment.proc_Z_CoupletSupRecordByCoupletIdUserId_Select(18, 1) [ RunTime:0.0003s ]
+SQL: call WenHuiApartment.proc_Z_UserCollectCoupletByCoupletIdUserId_Select(18, 1) [ RunTime:0.0003s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000741s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000802s ]
+
+[ 2016-02-19T17:50:05+08:00 ] ::1 /1.0/activity/getCoupletByTime
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000031s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000613s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000619s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000699s ]
+SQL: call WenHuiApartment.proc_Z_CoupletByCoupletTime_Select(10) [ RunTime:0.0013s ]
+SQL: call WenHuiApartment.proc_Z_CoupletSupRecordByCoupletIdUserId_Select(27, 1) [ RunTime:0.0013s ]
+SQL: call WenHuiApartment.proc_Z_UserCollectCoupletByCoupletIdUserId_Select(27, 1) [ RunTime:0.0010s ]
+SQL: call WenHuiApartment.proc_Z_CoupletSupRecordByCoupletIdUserId_Select(26, 1) [ RunTime:0.0003s ]
+SQL: call WenHuiApartment.proc_Z_UserCollectCoupletByCoupletIdUserId_Select(26, 1) [ RunTime:0.0003s ]
+SQL: call WenHuiApartment.proc_Z_CoupletSupRecordByCoupletIdUserId_Select(25, 1) [ RunTime:0.0003s ]
+SQL: call WenHuiApartment.proc_Z_UserCollectCoupletByCoupletIdUserId_Select(25, 1) [ RunTime:0.0003s ]
+SQL: call WenHuiApartment.proc_Z_CoupletSupRecordByCoupletIdUserId_Select(24, 1) [ RunTime:0.0003s ]
+SQL: call WenHuiApartment.proc_Z_UserCollectCoupletByCoupletIdUserId_Select(24, 1) [ RunTime:0.0003s ]
+SQL: call WenHuiApartment.proc_Z_CoupletSupRecordByCoupletIdUserId_Select(23, 1) [ RunTime:0.0003s ]
+SQL: call WenHuiApartment.proc_Z_UserCollectCoupletByCoupletIdUserId_Select(23, 1) [ RunTime:0.0003s ]
+SQL: call WenHuiApartment.proc_Z_CoupletSupRecordByCoupletIdUserId_Select(22, 1) [ RunTime:0.0005s ]
+SQL: call WenHuiApartment.proc_Z_UserCollectCoupletByCoupletIdUserId_Select(22, 1) [ RunTime:0.0037s ]
+SQL: call WenHuiApartment.proc_Z_CoupletSupRecordByCoupletIdUserId_Select(21, 1) [ RunTime:0.0006s ]
+SQL: call WenHuiApartment.proc_Z_UserCollectCoupletByCoupletIdUserId_Select(21, 1) [ RunTime:0.0008s ]
+SQL: call WenHuiApartment.proc_Z_CoupletSupRecordByCoupletIdUserId_Select(20, 1) [ RunTime:0.0009s ]
+SQL: call WenHuiApartment.proc_Z_UserCollectCoupletByCoupletIdUserId_Select(20, 1) [ RunTime:0.0086s ]
+SQL: call WenHuiApartment.proc_Z_CoupletSupRecordByCoupletIdUserId_Select(19, 1) [ RunTime:0.0074s ]
+SQL: call WenHuiApartment.proc_Z_UserCollectCoupletByCoupletIdUserId_Select(19, 1) [ RunTime:0.0009s ]
+SQL: call WenHuiApartment.proc_Z_CoupletSupRecordByCoupletIdUserId_Select(18, 1) [ RunTime:0.0005s ]
+SQL: call WenHuiApartment.proc_Z_UserCollectCoupletByCoupletIdUserId_Select(18, 1) [ RunTime:0.0003s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001439s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001759s ]
+
+[ 2016-02-19T17:50:05+08:00 ] ::1 /1.0/activity/getCurrThesis
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000026s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000539s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000833s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000951s ]
+SQL: call WenHuiApartment.proc_Z_ThesisByThesisState_Select() [ RunTime:0.0041s ]
+SQL: call WenHuiApartment.proc_Z_UserCollectThesisBythesisIdUserId_Select(1, 1) [ RunTime:0.0015s ]
+SQL: call WenHuiApartment.proc_Z_ArgumentByThesisIdBelong_Select(1, 1) [ RunTime:0.0020s ]
+SQL: call WenHuiApartment.proc_Z_ArgumentSupRecordByArgumentIdUserId_Select(33, 1) [ RunTime:0.0013s ]
+SQL: call WenHuiApartment.proc_Z_ArgumentByThesisIdBelong_Select(0, 1) [ RunTime:0.0005s ]
+SQL: call WenHuiApartment.proc_Z_ArgumentSupRecordByArgumentIdUserId_Select(25, 1) [ RunTime:0.0002s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000492s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000531s ]
+
+[ 2016-02-19T17:53:39+08:00 ] ::1 /1.0/activity/getCoupletReplyByCoupletId
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000019s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000395s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000460s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000514s ]
+SQL: call WenHuiApartment.proc_Z_CoupletReplyBySupportCoupletId_Select(27, 10) [ RunTime:0.0027s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000671s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000748s ]
+

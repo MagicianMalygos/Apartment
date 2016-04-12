@@ -1,0 +1,1360 @@
+[ 2016-04-04T13:21:11+08:00 ] ::1 /1.0/common/getField
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000412s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000454s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000511s ]
+SQL: SHOW COLUMNS FROM `t_field` [ RunTime:0.1125s ]
+SQL: SELECT * FROM `t_field`  [ RunTime:0.0003s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000982s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001065s ]
+
+[ 2016-04-04T13:21:11+08:00 ] ::1 /1.0/communion/getBookpostBySearchTextSortMethodFieldID
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000577s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000623s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000672s ]
+SQL: call proc_Bookpost_SelectByMultiCondition('%%', 0, 0, 0, 10) [ RunTime:0.1758s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,17) [ RunTime:0.0010s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,17) [ RunTime:0.0003s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,16) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,16) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,10) [ RunTime:0.0003s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,10) [ RunTime:0.0003s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,9) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,9) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,8) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,8) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,7) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,7) [ RunTime:0.0003s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,6) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,6) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,5) [ RunTime:0.0003s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,5) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,4) [ RunTime:0.0003s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,4) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,3) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,3) [ RunTime:0.0002s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000547s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000586s ]
+
+[ 2016-04-04T16:48:36+08:00 ] ::1 /1.0/common/getField
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000016s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000623s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000513s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000579s ]
+SQL: SHOW COLUMNS FROM `t_field` [ RunTime:0.0277s ]
+SQL: SELECT * FROM `t_field`  [ RunTime:0.0005s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000870s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000941s ]
+
+[ 2016-04-04T16:48:36+08:00 ] ::1 /1.0/communion/getBookpostBySearchTextSortMethodFieldID
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000016s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000624s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001437s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001498s ]
+SQL: call proc_Bookpost_SelectByMultiCondition('%%', 0, 0, 0, 10) [ RunTime:0.1080s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,17) [ RunTime:0.0004s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,17) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,16) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,16) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,10) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,10) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,9) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,9) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,8) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,8) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,7) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,7) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,6) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,6) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,5) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,5) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,4) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,4) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,3) [ RunTime:0.0003s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,3) [ RunTime:0.0003s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000574s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000623s ]
+
+[ 2016-04-04T16:48:38+08:00 ] ::1 /1.0/communion/getBookpostCommentByBookpostID
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000282s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000410s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000456s ]
+ERR: 1054:Unknown column 'bookpostID' in 'field list'
+ [ SQL语句 ] : call proc_BookpostCommentByBookpostID_Select(bookpostID, 1, 0, 10)
+ERR: 1054:Unknown column 'bookpostID' in 'field list'
+ [ SQL语句 ] : call proc_BookpostCommentByBookpostID_Select(bookpostID, 1, 0, 10)
+
+[ 2016-04-04T16:50:02+08:00 ] ::1 /1.0/communion/getBookpostCommentByBookpostID
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000014s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000546s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000916s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001042s ]
+ERR: 1054:Unknown column 'bookpostID' in 'field list'
+ [ SQL语句 ] : call proc_BookpostCommentByBookpostID_Select(bookpostID, 1, 0, 10)
+ERR: 1054:Unknown column 'bookpostID' in 'field list'
+ [ SQL语句 ] : call proc_BookpostCommentByBookpostID_Select(bookpostID, 1, 0, 10)
+
+[ 2016-04-04T16:51:12+08:00 ] ::1 /1.0/communion/getBookpostCommentByBookpostID
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000315s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000416s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000467s ]
+SQL: call proc_BookpostCommentByBookpostID_Select(17, 1, 0, 10) [ RunTime:0.0090s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000814s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000867s ]
+
+[ 2016-04-04T16:51:33+08:00 ] ::1 /1.0/communion/addBookpostComment
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000034s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000466s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001830s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001944s ]
+SQL: call WenHuiApartment.proc_BookpostComment_Insert('error', '1', '1') [ RunTime:0.0012s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000671s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000726s ]
+
+[ 2016-04-04T16:51:33+08:00 ] ::1 /1.0/communion/getBookpostCommentByBookpostID
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000032s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000575s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000655s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000717s ]
+SQL: call proc_BookpostCommentByBookpostID_Select(17, 1, 0, 10) [ RunTime:0.0074s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000666s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000722s ]
+
+[ 2016-04-04T16:51:35+08:00 ] ::1 /1.0/communion/getBookpostCommentByBookpostID
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000329s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001184s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001322s ]
+SQL: call proc_BookpostCommentByBookpostID_Select(17, 1, 0, 10) [ RunTime:0.0068s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000992s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001075s ]
+
+[ 2016-04-04T16:51:42+08:00 ] ::1 /1.0/communion/getBookpostCommentByBookpostID
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000038s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000790s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000572s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000629s ]
+SQL: call proc_BookpostCommentByBookpostID_Select(17, 1, 0, 10) [ RunTime:0.0071s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000831s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000909s ]
+
+[ 2016-04-04T16:51:48+08:00 ] ::1 /1.0/communion/getBookpostCommentByBookpostID
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000282s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000347s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000380s ]
+SQL: call proc_BookpostCommentByBookpostID_Select(17, 1, 0, 10) [ RunTime:0.0061s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000497s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000540s ]
+
+[ 2016-04-04T16:51:55+08:00 ] ::1 /1.0/communion/addBookpostComment
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000015s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000403s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000478s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000525s ]
+SQL: call WenHuiApartment.proc_BookpostComment_Insert('Yy', '1', '1') [ RunTime:0.0014s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001203s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001342s ]
+
+[ 2016-04-04T16:51:55+08:00 ] ::1 /1.0/communion/getBookpostCommentByBookpostID
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000373s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000468s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000518s ]
+SQL: call proc_BookpostCommentByBookpostID_Select(17, 1, 0, 10) [ RunTime:0.0069s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000912s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000976s ]
+
+[ 2016-04-04T16:52:04+08:00 ] ::1 /1.0/communion/addBookpostComment
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000015s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000414s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000495s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000542s ]
+SQL: call WenHuiApartment.proc_BookpostComment_Insert('Asdfsadfasdfasdfadsfasdfasdfasdf', '1', '1') [ RunTime:0.0013s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000674s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000728s ]
+
+[ 2016-04-04T16:52:04+08:00 ] ::1 /1.0/communion/getBookpostCommentByBookpostID
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000017s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000505s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000557s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000617s ]
+SQL: call proc_BookpostCommentByBookpostID_Select(17, 1, 0, 10) [ RunTime:0.0083s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000662s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000715s ]
+
+[ 2016-04-04T16:54:28+08:00 ] ::1 /1.0/common/getField
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000273s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000362s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000406s ]
+SQL: SHOW COLUMNS FROM `t_field` [ RunTime:0.0595s ]
+SQL: SELECT * FROM `t_field`  [ RunTime:0.0004s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000754s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000819s ]
+
+[ 2016-04-04T16:54:28+08:00 ] ::1 /1.0/communion/getBookpostBySearchTextSortMethodFieldID
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000014s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000386s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000517s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000571s ]
+SQL: call proc_Bookpost_SelectByMultiCondition('%%', 0, 0, 0, 10) [ RunTime:0.1162s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,17) [ RunTime:0.0004s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,17) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,16) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,16) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,10) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,10) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,9) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,9) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,8) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,8) [ RunTime:0.0003s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,7) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,7) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,6) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,6) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,5) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,5) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,4) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,4) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,3) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,3) [ RunTime:0.0002s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000716s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000765s ]
+
+[ 2016-04-04T16:55:42+08:00 ] ::1 /1.0/common/getField
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000015s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000394s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000512s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000567s ]
+SQL: SHOW COLUMNS FROM `t_field` [ RunTime:0.0757s ]
+SQL: SELECT * FROM `t_field`  [ RunTime:0.0003s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000532s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000577s ]
+
+[ 2016-04-04T16:55:42+08:00 ] ::1 /1.0/communion/getBookpostBySearchTextSortMethodFieldID
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000272s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000387s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000436s ]
+SQL: call proc_Bookpost_SelectByMultiCondition('%%', 0, 0, 0, 10) [ RunTime:0.1305s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,17) [ RunTime:0.0007s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,17) [ RunTime:0.0003s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,16) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,16) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,10) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,10) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,9) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,9) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,8) [ RunTime:0.0003s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,8) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,7) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,7) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,6) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,6) [ RunTime:0.0003s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,5) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,5) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,4) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,4) [ RunTime:0.0003s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,3) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,3) [ RunTime:0.0002s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000543s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000585s ]
+
+[ 2016-04-04T16:55:46+08:00 ] ::1 /1.0/communion/getBookpostCommentByBookpostID
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000312s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000378s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000422s ]
+SQL: call proc_BookpostCommentByBookpostID_Select(17, 1, 0, 10) [ RunTime:0.0104s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.002004s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002229s ]
+
+[ 2016-04-04T16:56:00+08:00 ] ::1 /1.0/communion/addBookpostComment
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000014s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000376s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000408s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000455s ]
+SQL: call WenHuiApartment.proc_BookpostComment_Insert('Asdasd', '17', '1') [ RunTime:0.0033s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000712s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000786s ]
+
+[ 2016-04-04T16:56:00+08:00 ] ::1 /1.0/communion/getBookpostCommentByBookpostID
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000016s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000436s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000527s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000587s ]
+SQL: call proc_BookpostCommentByBookpostID_Select(17, 1, 0, 10) [ RunTime:0.0605s ]
+SQL: call proc_UserSupportBookpostCommentByBookpostCommentIDUserID_Select(1,15) [ RunTime:0.0006s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001012s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001095s ]
+
+[ 2016-04-04T16:56:49+08:00 ] ::1 /1.0/common/getField
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000014s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000536s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000712s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000766s ]
+SQL: SHOW COLUMNS FROM `t_field` [ RunTime:0.0710s ]
+SQL: SELECT * FROM `t_field`  [ RunTime:0.0003s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001096s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001170s ]
+
+[ 2016-04-04T16:56:49+08:00 ] ::1 /1.0/communion/getBookpostBySearchTextSortMethodFieldID
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001006s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000517s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000565s ]
+SQL: call proc_Bookpost_SelectByMultiCondition('%%', 0, 0, 0, 10) [ RunTime:0.1451s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,17) [ RunTime:0.0008s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,17) [ RunTime:0.0003s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,16) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,16) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,10) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,10) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,9) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,9) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,8) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,8) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,7) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,7) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,6) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,6) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,5) [ RunTime:0.0003s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,5) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,4) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,4) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,3) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,3) [ RunTime:0.0002s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000539s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000581s ]
+
+[ 2016-04-04T16:56:50+08:00 ] ::1 /1.0/communion/getBookpostCommentByBookpostID
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000286s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000353s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000389s ]
+SQL: call proc_BookpostCommentByBookpostID_Select(17, 1, 0, 10) [ RunTime:0.0623s ]
+SQL: call proc_UserSupportBookpostCommentByBookpostCommentIDUserID_Select(1,15) [ RunTime:0.0006s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000659s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000724s ]
+
+[ 2016-04-04T16:58:26+08:00 ] ::1 /1.0/common/getField
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000016s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000653s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000608s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000667s ]
+SQL: SHOW COLUMNS FROM `t_field` [ RunTime:0.0691s ]
+SQL: SELECT * FROM `t_field`  [ RunTime:0.0004s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000750s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000805s ]
+
+[ 2016-04-04T16:58:26+08:00 ] ::1 /1.0/communion/getBookpostBySearchTextSortMethodFieldID
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000016s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000653s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001244s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001296s ]
+SQL: call proc_Bookpost_SelectByMultiCondition('%%', 0, 0, 0, 10) [ RunTime:0.1393s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,17) [ RunTime:0.0007s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,17) [ RunTime:0.0003s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,16) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,16) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,10) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,10) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,9) [ RunTime:0.0003s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,9) [ RunTime:0.0003s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,8) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,8) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,7) [ RunTime:0.0003s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,7) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,6) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,6) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,5) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,5) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,4) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,4) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,3) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,3) [ RunTime:0.0003s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000502s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000543s ]
+
+[ 2016-04-04T16:58:27+08:00 ] ::1 /1.0/communion/getBookpostCommentByBookpostID
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000283s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000353s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000387s ]
+SQL: call proc_BookpostCommentByBookpostID_Select(17, 1, 0, 10) [ RunTime:0.0457s ]
+NOTIC: [8] Undefined index: pk_bookpost_comment_id /Applications/MAMP/htdocs/1.0/Application/HOME/Controller/CommunionController.class.php 第 98 行.
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')' at line 1
+ [ SQL语句 ] : call proc_UserSupportBookpostCommentByBookpostCommentIDUserID_Select(1,)
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')' at line 1
+ [ SQL语句 ] : call proc_UserSupportBookpostCommentByBookpostCommentIDUserID_Select(1,)
+
+[ 2016-04-04T16:58:51+08:00 ] ::1 /1.0/communion/getBookpostCommentByBookpostID
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000020s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000500s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000728s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000826s ]
+SQL: call proc_BookpostCommentByBookpostID_Select(17, 1, 0, 10) [ RunTime:0.0252s ]
+NOTIC: [8] Undefined index: pk_bookpost_comment_id /Applications/MAMP/htdocs/1.0/Application/HOME/Controller/CommunionController.class.php 第 98 行.
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')' at line 1
+ [ SQL语句 ] : call proc_UserSupportBookpostCommentByBookpostCommentIDUserID_Select(1,)
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')' at line 1
+ [ SQL语句 ] : call proc_UserSupportBookpostCommentByBookpostCommentIDUserID_Select(1,)
+
+[ 2016-04-04T16:59:33+08:00 ] ::1 /1.0/communion/getBookpostCommentByBookpostID
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000019s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000741s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000818s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000896s ]
+SQL: call proc_BookpostCommentByBookpostID_Select(17, 1, 0, 10) [ RunTime:0.0413s ]
+SQL: call proc_UserSupportBookpostCommentByBookpostCommentIDUserID_Select(1,15) [ RunTime:0.0004s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000860s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000922s ]
+
+[ 2016-04-04T16:59:53+08:00 ] ::1 /1.0/communion/addBookpostComment
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000016s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000384s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000480s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000528s ]
+SQL: call WenHuiApartment.proc_BookpostComment_Insert('Asdfsadfasdfasdfadsfasdfasdfasdf', '17', '1') [ RunTime:0.0009s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000492s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000535s ]
+
+[ 2016-04-04T16:59:53+08:00 ] ::1 /1.0/communion/getBookpostCommentByBookpostID
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000282s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000346s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000383s ]
+SQL: call proc_BookpostCommentByBookpostID_Select(17, 1, 0, 10) [ RunTime:0.0622s ]
+SQL: call proc_UserSupportBookpostCommentByBookpostCommentIDUserID_Select(1,16) [ RunTime:0.0006s ]
+SQL: call proc_UserSupportBookpostCommentByBookpostCommentIDUserID_Select(1,15) [ RunTime:0.0003s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.002512s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002600s ]
+
+[ 2016-04-04T17:03:18+08:00 ] ::1 /1.0/common/getField
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001051s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000403s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000449s ]
+SQL: SHOW COLUMNS FROM `t_field` [ RunTime:0.0970s ]
+SQL: SELECT * FROM `t_field`  [ RunTime:0.0003s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000748s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000797s ]
+
+[ 2016-04-04T17:03:18+08:00 ] ::1 /1.0/communion/getBookpostBySearchTextSortMethodFieldID
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000544s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000704s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000774s ]
+SQL: call proc_Bookpost_SelectByMultiCondition('%%', 0, 0, 0, 10) [ RunTime:0.1202s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,17) [ RunTime:0.0007s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,17) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,16) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,16) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,10) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,10) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,9) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,9) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,8) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,8) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,7) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,7) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,6) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,6) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,5) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,5) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,4) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,4) [ RunTime:0.0003s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,3) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,3) [ RunTime:0.0003s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000474s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000511s ]
+
+[ 2016-04-04T17:03:19+08:00 ] ::1 /1.0/communion/getBookpostCommentByBookpostID
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000288s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000359s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000398s ]
+SQL: call proc_BookpostCommentByBookpostID_Select(17, 1, 0, 10) [ RunTime:0.0553s ]
+SQL: call proc_UserSupportBookpostCommentByBookpostCommentIDUserID_Select(1,16) [ RunTime:0.0006s ]
+SQL: call proc_UserSupportBookpostCommentByBookpostCommentIDUserID_Select(1,15) [ RunTime:0.0007s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000725s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000795s ]
+
+[ 2016-04-04T17:03:45+08:00 ] ::1 /1.0/common/getField
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000014s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000395s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000502s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000554s ]
+SQL: SHOW COLUMNS FROM `t_field` [ RunTime:0.0307s ]
+SQL: SELECT * FROM `t_field`  [ RunTime:0.0004s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000651s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000723s ]
+
+[ 2016-04-04T17:03:45+08:00 ] ::1 /1.0/communion/getBookpostBySearchTextSortMethodFieldID
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000017s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000396s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000498s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000552s ]
+SQL: call proc_Bookpost_SelectByMultiCondition('%%', 0, 0, 0, 10) [ RunTime:0.0848s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,17) [ RunTime:0.0004s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,17) [ RunTime:0.0003s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,16) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,16) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,10) [ RunTime:0.0003s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,10) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,9) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,9) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,8) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,8) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,7) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,7) [ RunTime:0.0003s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,6) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,6) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,5) [ RunTime:0.0003s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,5) [ RunTime:0.0003s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,4) [ RunTime:0.0004s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,4) [ RunTime:0.0003s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,3) [ RunTime:0.0004s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,3) [ RunTime:0.0002s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000534s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000575s ]
+
+[ 2016-04-04T17:03:46+08:00 ] ::1 /1.0/communion/getBookpostCommentByBookpostID
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000288s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000353s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000389s ]
+SQL: call proc_BookpostCommentByBookpostID_Select(17, 1, 0, 10) [ RunTime:0.0361s ]
+SQL: call proc_UserSupportBookpostCommentByBookpostCommentIDUserID_Select(1,16) [ RunTime:0.0005s ]
+SQL: call proc_UserSupportBookpostCommentByBookpostCommentIDUserID_Select(1,15) [ RunTime:0.0005s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000757s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000846s ]
+
+[ 2016-04-04T17:04:45+08:00 ] ::1 /1.0/common/getField
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000015s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000383s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000488s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000537s ]
+SQL: SHOW COLUMNS FROM `t_field` [ RunTime:0.0413s ]
+SQL: SELECT * FROM `t_field`  [ RunTime:0.0004s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000803s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000876s ]
+
+[ 2016-04-04T17:04:46+08:00 ] ::1 /1.0/communion/getBookpostBySearchTextSortMethodFieldID
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000009s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000282s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000350s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000386s ]
+SQL: call proc_Bookpost_SelectByMultiCondition('%%', 0, 0, 0, 10) [ RunTime:0.1061s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,17) [ RunTime:0.0022s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,17) [ RunTime:0.0004s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,16) [ RunTime:0.0003s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,16) [ RunTime:0.0003s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,10) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,10) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,9) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,9) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,8) [ RunTime:0.0003s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,8) [ RunTime:0.0003s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,7) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,7) [ RunTime:0.0009s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,6) [ RunTime:0.0003s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,6) [ RunTime:0.0003s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,5) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,5) [ RunTime:0.0003s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,4) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,4) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,3) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,3) [ RunTime:0.0003s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000547s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000591s ]
+
+[ 2016-04-04T17:04:46+08:00 ] ::1 /1.0/communion/getBookpostCommentByBookpostID
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000287s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000357s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000393s ]
+SQL: call proc_BookpostCommentByBookpostID_Select(17, 1, 0, 10) [ RunTime:0.0315s ]
+SQL: call proc_UserSupportBookpostCommentByBookpostCommentIDUserID_Select(1,16) [ RunTime:0.0006s ]
+SQL: call proc_UserSupportBookpostCommentByBookpostCommentIDUserID_Select(1,15) [ RunTime:0.0003s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000671s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000720s ]
+
+[ 2016-04-04T17:05:13+08:00 ] ::1 /1.0/common/getField
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000017s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000599s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000550s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000601s ]
+SQL: SHOW COLUMNS FROM `t_field` [ RunTime:0.0660s ]
+SQL: SELECT * FROM `t_field`  [ RunTime:0.0003s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000809s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000853s ]
+
+[ 2016-04-04T17:05:13+08:00 ] ::1 /1.0/communion/getBookpostBySearchTextSortMethodFieldID
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000017s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000612s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000695s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000746s ]
+SQL: call proc_Bookpost_SelectByMultiCondition('%%', 0, 0, 0, 10) [ RunTime:0.1459s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,17) [ RunTime:0.0008s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,17) [ RunTime:0.0003s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,16) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,16) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,10) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,10) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,9) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,9) [ RunTime:0.0003s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,8) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,8) [ RunTime:0.0003s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,7) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,7) [ RunTime:0.0003s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,6) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,6) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,5) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,5) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,4) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,4) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,3) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,3) [ RunTime:0.0002s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000549s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000590s ]
+
+[ 2016-04-04T17:05:14+08:00 ] ::1 /1.0/communion/getBookpostCommentByBookpostID
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000014s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000320s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000366s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000404s ]
+SQL: call proc_BookpostCommentByBookpostID_Select(17, 1, 0, 10) [ RunTime:0.0418s ]
+SQL: call proc_UserSupportBookpostCommentByBookpostCommentIDUserID_Select(1,16) [ RunTime:0.0005s ]
+SQL: call proc_UserSupportBookpostCommentByBookpostCommentIDUserID_Select(1,15) [ RunTime:0.0003s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000479s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000516s ]
+
+[ 2016-04-04T17:06:04+08:00 ] ::1 /1.0/common/getField
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000274s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000347s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000384s ]
+SQL: SHOW COLUMNS FROM `t_field` [ RunTime:0.0309s ]
+SQL: SELECT * FROM `t_field`  [ RunTime:0.0005s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000635s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000691s ]
+
+[ 2016-04-04T17:06:04+08:00 ] ::1 /1.0/communion/getBookpostBySearchTextSortMethodFieldID
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000376s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000484s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000533s ]
+SQL: call proc_Bookpost_SelectByMultiCondition('%%', 0, 0, 0, 10) [ RunTime:0.1323s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,17) [ RunTime:0.0004s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,17) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,16) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,16) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,10) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,10) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,9) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,9) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,8) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,8) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,7) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,7) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,6) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,6) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,5) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,5) [ RunTime:0.0003s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,4) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,4) [ RunTime:0.0003s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,3) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,3) [ RunTime:0.0002s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000546s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000590s ]
+
+[ 2016-04-04T17:06:04+08:00 ] ::1 /1.0/communion/getBookpostCommentByBookpostID
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000297s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000352s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000388s ]
+SQL: call proc_BookpostCommentByBookpostID_Select(17, 1, 0, 10) [ RunTime:0.0279s ]
+SQL: call proc_UserSupportBookpostCommentByBookpostCommentIDUserID_Select(1,16) [ RunTime:0.0004s ]
+SQL: call proc_UserSupportBookpostCommentByBookpostCommentIDUserID_Select(1,15) [ RunTime:0.0002s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000499s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000542s ]
+
+[ 2016-04-04T17:06:29+08:00 ] ::1 /1.0/common/getField
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000273s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000348s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000387s ]
+SQL: SHOW COLUMNS FROM `t_field` [ RunTime:0.0302s ]
+SQL: SELECT * FROM `t_field`  [ RunTime:0.0004s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000478s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000526s ]
+
+[ 2016-04-04T17:06:29+08:00 ] ::1 /1.0/communion/getBookpostBySearchTextSortMethodFieldID
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000014s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000384s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000504s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000556s ]
+SQL: call proc_Bookpost_SelectByMultiCondition('%%', 0, 0, 0, 10) [ RunTime:0.1050s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,17) [ RunTime:0.0006s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,17) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,16) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,16) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,10) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,10) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,9) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,9) [ RunTime:0.0003s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,8) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,8) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,7) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,7) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,6) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,6) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,5) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,5) [ RunTime:0.0003s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,4) [ RunTime:0.0003s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,4) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,3) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,3) [ RunTime:0.0002s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000562s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000604s ]
+
+[ 2016-04-04T17:06:29+08:00 ] ::1 /1.0/communion/getBookpostCommentByBookpostID
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000291s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000354s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000390s ]
+SQL: call proc_BookpostCommentByBookpostID_Select(17, 1, 0, 10) [ RunTime:0.0364s ]
+SQL: call proc_UserSupportBookpostCommentByBookpostCommentIDUserID_Select(1,16) [ RunTime:0.0014s ]
+SQL: call proc_UserSupportBookpostCommentByBookpostCommentIDUserID_Select(1,15) [ RunTime:0.0009s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001284s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001445s ]
+
+[ 2016-04-04T17:08:11+08:00 ] ::1 /1.0/common/getField
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000014s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000606s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000743s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000805s ]
+SQL: SHOW COLUMNS FROM `t_field` [ RunTime:0.0379s ]
+SQL: SELECT * FROM `t_field`  [ RunTime:0.0003s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000776s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000822s ]
+
+[ 2016-04-04T17:08:11+08:00 ] ::1 /1.0/communion/getBookpostBySearchTextSortMethodFieldID
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000510s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000743s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000805s ]
+SQL: call proc_Bookpost_SelectByMultiCondition('%%', 0, 0, 0, 10) [ RunTime:0.1088s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,17) [ RunTime:0.0006s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,17) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,16) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,16) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,10) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,10) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,9) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,9) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,8) [ RunTime:0.0003s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,8) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,7) [ RunTime:0.0003s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,7) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,6) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,6) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,5) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,5) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,4) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,4) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,3) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,3) [ RunTime:0.0002s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000540s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000583s ]
+
+[ 2016-04-04T17:08:12+08:00 ] ::1 /1.0/communion/getBookpostCommentByBookpostID
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000033s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000761s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001274s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001375s ]
+SQL: call proc_BookpostCommentByBookpostID_Select(17, 1, 0, 10) [ RunTime:0.0241s ]
+SQL: call proc_UserSupportBookpostCommentByBookpostCommentIDUserID_Select(1,16) [ RunTime:0.0004s ]
+SQL: call proc_UserSupportBookpostCommentByBookpostCommentIDUserID_Select(1,15) [ RunTime:0.0002s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000496s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000533s ]
+
+[ 2016-04-04T17:08:23+08:00 ] ::1 /1.0/communion/addBookpostComment
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000382s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000348s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000384s ]
+SQL: call WenHuiApartment.proc_BookpostComment_Insert('Lasjdlfkasdlkfj;dfkadlkasdjflak;dfwelmgao;sdflaskdjf;laksjdlaksdj;Lasjdlfkasdlkfj;sdflaskdjf;aksdjfl;kasdfkasdjlfkasdjflkasdjf', '17', '1') [ RunTime:0.0010s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000714s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000775s ]
+
+[ 2016-04-04T17:08:24+08:00 ] ::1 /1.0/communion/getBookpostCommentByBookpostID
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000018s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000393s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000541s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000596s ]
+SQL: call proc_BookpostCommentByBookpostID_Select(17, 1, 0, 10) [ RunTime:0.0185s ]
+SQL: call proc_UserSupportBookpostCommentByBookpostCommentIDUserID_Select(1,17) [ RunTime:0.0006s ]
+SQL: call proc_UserSupportBookpostCommentByBookpostCommentIDUserID_Select(1,16) [ RunTime:0.0004s ]
+SQL: call proc_UserSupportBookpostCommentByBookpostCommentIDUserID_Select(1,15) [ RunTime:0.0003s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001266s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001456s ]
+
+[ 2016-04-04T17:09:05+08:00 ] ::1 /1.0/communion/getBookpostCommentByBookpostID
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000268s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000335s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000368s ]
+SQL: call proc_BookpostCommentByBookpostID_Select(17, 1, 0, 10) [ RunTime:0.0363s ]
+SQL: call proc_UserSupportBookpostCommentByBookpostCommentIDUserID_Select(1,17) [ RunTime:0.0006s ]
+SQL: call proc_UserSupportBookpostCommentByBookpostCommentIDUserID_Select(1,16) [ RunTime:0.0003s ]
+SQL: call proc_UserSupportBookpostCommentByBookpostCommentIDUserID_Select(1,15) [ RunTime:0.0002s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000679s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000731s ]
+
+[ 2016-04-04T17:10:07+08:00 ] ::1 /1.0/common/getField
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000015s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000585s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001803s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001866s ]
+SQL: SHOW COLUMNS FROM `t_field` [ RunTime:0.0695s ]
+SQL: SELECT * FROM `t_field`  [ RunTime:0.0003s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000835s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000879s ]
+
+[ 2016-04-04T17:10:07+08:00 ] ::1 /1.0/communion/getBookpostBySearchTextSortMethodFieldID
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000015s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000566s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000610s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000659s ]
+SQL: call proc_Bookpost_SelectByMultiCondition('%%', 0, 0, 0, 10) [ RunTime:0.1262s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,17) [ RunTime:0.0007s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,17) [ RunTime:0.0003s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,16) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,16) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,10) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,10) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,9) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,9) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,8) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,8) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,7) [ RunTime:0.0003s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,7) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,6) [ RunTime:0.0003s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,6) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,5) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,5) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,4) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,4) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,3) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,3) [ RunTime:0.0003s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000530s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000577s ]
+
+[ 2016-04-04T17:10:08+08:00 ] ::1 /1.0/communion/getBookpostCommentByBookpostID
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000306s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000358s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000393s ]
+SQL: call proc_BookpostCommentByBookpostID_Select(17, 1, 0, 10) [ RunTime:0.0312s ]
+SQL: call proc_UserSupportBookpostCommentByBookpostCommentIDUserID_Select(1,17) [ RunTime:0.0005s ]
+SQL: call proc_UserSupportBookpostCommentByBookpostCommentIDUserID_Select(1,16) [ RunTime:0.0003s ]
+SQL: call proc_UserSupportBookpostCommentByBookpostCommentIDUserID_Select(1,15) [ RunTime:0.0003s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000697s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000755s ]
+
+[ 2016-04-04T17:10:46+08:00 ] ::1 /1.0/communion/getBookpostCommentByBookpostID
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000279s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000349s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000384s ]
+SQL: call proc_BookpostCommentByBookpostID_Select(17, 1, 0, 10) [ RunTime:0.0414s ]
+SQL: call proc_UserSupportBookpostCommentByBookpostCommentIDUserID_Select(1,17) [ RunTime:0.0011s ]
+SQL: call proc_UserSupportBookpostCommentByBookpostCommentIDUserID_Select(1,16) [ RunTime:0.0003s ]
+SQL: call proc_UserSupportBookpostCommentByBookpostCommentIDUserID_Select(1,15) [ RunTime:0.0003s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000768s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000852s ]
+
+[ 2016-04-04T17:12:43+08:00 ] ::1 /1.0/common/getField
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000505s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000684s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000733s ]
+SQL: SHOW COLUMNS FROM `t_field` [ RunTime:0.0860s ]
+SQL: SELECT * FROM `t_field`  [ RunTime:0.0003s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000774s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000818s ]
+
+[ 2016-04-04T17:12:43+08:00 ] ::1 /1.0/communion/getBookpostBySearchTextSortMethodFieldID
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001003s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000874s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000932s ]
+SQL: call proc_Bookpost_SelectByMultiCondition('%%', 0, 0, 0, 10) [ RunTime:0.1517s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,17) [ RunTime:0.0007s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,17) [ RunTime:0.0003s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,16) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,16) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,10) [ RunTime:0.0003s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,10) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,9) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,9) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,8) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,8) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,7) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,7) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,6) [ RunTime:0.0003s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,6) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,5) [ RunTime:0.0003s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,5) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,4) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,4) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,3) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,3) [ RunTime:0.0002s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000543s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000587s ]
+
+[ 2016-04-04T17:12:44+08:00 ] ::1 /1.0/communion/getBookpostCommentByBookpostID
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000283s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000356s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000390s ]
+SQL: call proc_BookpostCommentByBookpostID_Select(17, 1, 0, 10) [ RunTime:0.0238s ]
+SQL: call proc_UserSupportBookpostCommentByBookpostCommentIDUserID_Select(1,17) [ RunTime:0.0004s ]
+SQL: call proc_UserSupportBookpostCommentByBookpostCommentIDUserID_Select(1,16) [ RunTime:0.0002s ]
+SQL: call proc_UserSupportBookpostCommentByBookpostCommentIDUserID_Select(1,15) [ RunTime:0.0002s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000503s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000544s ]
+
+[ 2016-04-04T17:12:54+08:00 ] ::1 /1.0/communion/getBookpostCommentByBookpostID
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000292s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000358s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000396s ]
+SQL: call proc_BookpostCommentByBookpostID_Select(17, 1, 0, 10) [ RunTime:0.0211s ]
+SQL: call proc_UserSupportBookpostCommentByBookpostCommentIDUserID_Select(1,17) [ RunTime:0.0004s ]
+SQL: call proc_UserSupportBookpostCommentByBookpostCommentIDUserID_Select(1,16) [ RunTime:0.0002s ]
+SQL: call proc_UserSupportBookpostCommentByBookpostCommentIDUserID_Select(1,15) [ RunTime:0.0002s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000634s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000723s ]
+
+[ 2016-04-04T17:16:39+08:00 ] ::1 /1.0/common/getField
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000275s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000344s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000382s ]
+SQL: SHOW COLUMNS FROM `t_field` [ RunTime:0.0177s ]
+SQL: SELECT * FROM `t_field`  [ RunTime:0.0004s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.003453s ]
+INFO: [ app_end ] --END-- [ RunTime:0.004411s ]
+
+[ 2016-04-04T17:16:39+08:00 ] ::1 /1.0/communion/getBookpostBySearchTextSortMethodFieldID
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000441s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000594s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000673s ]
+SQL: call proc_Bookpost_SelectByMultiCondition('%%', 0, 0, 0, 10) [ RunTime:0.0945s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,17) [ RunTime:0.0004s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,17) [ RunTime:0.0003s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,16) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,16) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,10) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,10) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,9) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,9) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,8) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,8) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,7) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,7) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,6) [ RunTime:0.0003s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,6) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,5) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,5) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,4) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,4) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,3) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,3) [ RunTime:0.0002s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000542s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000584s ]
+
+[ 2016-04-04T17:16:41+08:00 ] ::1 /1.0/communion/getBookpostCommentByBookpostID
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000378s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000364s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000400s ]
+SQL: call proc_BookpostCommentByBookpostID_Select(17, 1, 0, 10) [ RunTime:0.0231s ]
+SQL: call proc_UserSupportBookpostCommentByBookpostCommentIDUserID_Select(1,17) [ RunTime:0.0004s ]
+SQL: call proc_UserSupportBookpostCommentByBookpostCommentIDUserID_Select(1,16) [ RunTime:0.0002s ]
+SQL: call proc_UserSupportBookpostCommentByBookpostCommentIDUserID_Select(1,15) [ RunTime:0.0002s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000538s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000584s ]
+
+[ 2016-04-04T17:17:08+08:00 ] ::1 /1.0/common/getField
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000355s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000369s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000413s ]
+SQL: SHOW COLUMNS FROM `t_field` [ RunTime:0.0491s ]
+SQL: SELECT * FROM `t_field`  [ RunTime:0.0004s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000891s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000957s ]
+
+[ 2016-04-04T17:17:08+08:00 ] ::1 /1.0/communion/getBookpostBySearchTextSortMethodFieldID
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000016s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000385s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000498s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000546s ]
+SQL: call proc_Bookpost_SelectByMultiCondition('%%', 0, 0, 0, 10) [ RunTime:0.1072s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,17) [ RunTime:0.0004s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,17) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,16) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,16) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,10) [ RunTime:0.0003s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,10) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,9) [ RunTime:0.0003s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,9) [ RunTime:0.0003s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,8) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,8) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,7) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,7) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,6) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,6) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,5) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,5) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,4) [ RunTime:0.0003s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,4) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,3) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,3) [ RunTime:0.0002s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000641s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000692s ]
+
+[ 2016-04-04T17:17:09+08:00 ] ::1 /1.0/communion/getBookpostCommentByBookpostID
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000294s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000357s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000397s ]
+SQL: call proc_BookpostCommentByBookpostID_Select(17, 1, 0, 10) [ RunTime:0.0085s ]
+SQL: call proc_UserSupportBookpostCommentByBookpostCommentIDUserID_Select(1,17) [ RunTime:0.0004s ]
+SQL: call proc_UserSupportBookpostCommentByBookpostCommentIDUserID_Select(1,16) [ RunTime:0.0002s ]
+SQL: call proc_UserSupportBookpostCommentByBookpostCommentIDUserID_Select(1,15) [ RunTime:0.0002s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000515s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000556s ]
+
+[ 2016-04-04T17:17:42+08:00 ] ::1 /1.0/common/getField
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000370s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000368s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000409s ]
+SQL: SHOW COLUMNS FROM `t_field` [ RunTime:0.0743s ]
+SQL: SELECT * FROM `t_field`  [ RunTime:0.0003s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000501s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000540s ]
+
+[ 2016-04-04T17:17:42+08:00 ] ::1 /1.0/communion/getBookpostBySearchTextSortMethodFieldID
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000271s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000500s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000585s ]
+SQL: call proc_Bookpost_SelectByMultiCondition('%%', 0, 0, 0, 10) [ RunTime:0.1288s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,17) [ RunTime:0.0008s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,17) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,16) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,16) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,10) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,10) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,9) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,9) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,8) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,8) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,7) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,7) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,6) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,6) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,5) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,5) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,4) [ RunTime:0.0003s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,4) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,3) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBookpostByBookpostIDUserID_Select(1,3) [ RunTime:0.0002s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000513s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000555s ]
+
+[ 2016-04-04T17:17:42+08:00 ] ::1 /1.0/communion/getBookpostCommentByBookpostID
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000283s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000347s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000383s ]
+SQL: call proc_BookpostCommentByBookpostID_Select(17, 1, 0, 10) [ RunTime:0.0334s ]
+SQL: call proc_UserSupportBookpostCommentByBookpostCommentIDUserID_Select(1,17) [ RunTime:0.0004s ]
+SQL: call proc_UserSupportBookpostCommentByBookpostCommentIDUserID_Select(1,16) [ RunTime:0.0002s ]
+SQL: call proc_UserSupportBookpostCommentByBookpostCommentIDUserID_Select(1,15) [ RunTime:0.0002s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000526s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000571s ]
+
+[ 2016-04-04T17:18:26+08:00 ] ::1 /1.0/communion/addBookpostComment
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000014s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000381s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000476s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000520s ]
+SQL: call WenHuiApartment.proc_BookpostComment_Insert('Skdfjalskdfj;dfkadlkasdjflak', '17', '1') [ RunTime:0.0010s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000786s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000872s ]
+
+[ 2016-04-04T17:18:27+08:00 ] ::1 /1.0/communion/getBookpostCommentByBookpostID
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000017s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000410s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000564s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000621s ]
+SQL: call proc_BookpostCommentByBookpostID_Select(17, 1, 0, 10) [ RunTime:0.0527s ]
+SQL: call proc_UserSupportBookpostCommentByBookpostCommentIDUserID_Select(1,17) [ RunTime:0.0005s ]
+SQL: call proc_UserSupportBookpostCommentByBookpostCommentIDUserID_Select(1,18) [ RunTime:0.0002s ]
+SQL: call proc_UserSupportBookpostCommentByBookpostCommentIDUserID_Select(1,16) [ RunTime:0.0003s ]
+SQL: call proc_UserSupportBookpostCommentByBookpostCommentIDUserID_Select(1,15) [ RunTime:0.0002s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000723s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000778s ]
+
+[ 2016-04-04T17:18:29+08:00 ] ::1 /1.0/communion/getBookpostCommentByBookpostID
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000331s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000390s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000429s ]
+SQL: call proc_BookpostCommentByBookpostID_Select(17, 1, 0, 10) [ RunTime:0.0295s ]
+SQL: call proc_UserSupportBookpostCommentByBookpostCommentIDUserID_Select(1,17) [ RunTime:0.0010s ]
+SQL: call proc_UserSupportBookpostCommentByBookpostCommentIDUserID_Select(1,18) [ RunTime:0.0047s ]
+SQL: call proc_UserSupportBookpostCommentByBookpostCommentIDUserID_Select(1,16) [ RunTime:0.0008s ]
+SQL: call proc_UserSupportBookpostCommentByBookpostCommentIDUserID_Select(1,15) [ RunTime:0.0009s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001515s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001618s ]
+
