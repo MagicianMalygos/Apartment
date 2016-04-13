@@ -75,6 +75,9 @@ IMP_SINGLETON
     TTDPRINT(@"Load: = = = = api map = = = =");
     self.urlMaps = @{
                      FIELD_LIST:                                @"/1.0/common/getField"
+                     /* - 登录注册 - */
+                     , LOGIN:                                   @"/1.0/user/getUserByAccountPassword"
+                     , REGISTER:                                @""
                      /* - 热门动态相关 - */
                      /* - 观点交流相关 - */
                      , BOOKPOST_LIST_BY_MULTI_CONDITION:        @"/1.0/communion/getBookpostBySearchTextSortMethodFieldID"

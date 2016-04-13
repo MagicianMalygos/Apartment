@@ -10,15 +10,7 @@
 
 @implementation UIBarButtonItem (Category)
 
-+ (id)setCustomBackBarItem:(NSString *)title target:(id)target action:(SEL)action {
-    return nil;
-}
-
-+ (id)setCustomBackBarItemWithTarget:(id)target action:(SEL)action {
-    return [UIBarButtonItem setCustomBackBarItem:@"" target:target action:action];
-}
-
-+ (id)setBackItemWithTarget:(id)target action:(SEL)action {
++ (instancetype)setBackItemWithTarget:(id)target action:(SEL)action {
     UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
     button.exclusiveTouch = YES;  // UIView会独占整个Touch事件
     button.frame = CGRectMake(0.0f, 0.0f, 30.0f, 30.0f);
@@ -32,7 +24,7 @@
     return backItem;
 }
 
-+ (id)barItemWithTitle:(NSString *)title font:(UIFont *)font target:(id)target action:(SEL)action {
++ (instancetype)barItemWithTitle:(NSString *)title font:(UIFont *)font target:(id)target action:(SEL)action {
     UIButton *btn = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 44, 44)];
     btn.exclusiveTouch = YES;
     [btn setTitle:title forState:UIControlStateNormal];

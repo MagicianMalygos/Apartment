@@ -50,7 +50,8 @@
     return _viewModelDict;
 }
 - (void)setupRootViewControllerLoginRegister {
-    _rootViewController = [ZCPMainLoginController new];
+    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:[ZCPMainLoginController new]];
+    _rootViewController = nav;
     self.window.rootViewController = self.rootViewController;
 }
 - (void)setupRootViewController {

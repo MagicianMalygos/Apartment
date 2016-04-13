@@ -11,6 +11,17 @@
 @interface ZCPRequestManager (User)
 
 /**
+*  用户登录验证
+*
+*  @param account  账号
+*  @param password 密码
+*/
+- (NSOperation *)loginWithAccount:(NSString *)account
+                          password:(NSString *)password
+                             success:(void (^)(AFHTTPRequestOperation *operation, NSString *msg, ZCPUserModel *userModel))success
+                             failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure;
+
+/**
  *  上传用户头像
  *
  *  @param headImage 头像

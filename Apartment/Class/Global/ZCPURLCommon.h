@@ -17,6 +17,10 @@
 #pragma mark - - - - - - API PATH KEY - - - - - -
 #define FIELD_LIST                                              @"FIELD_LIST"
 
+#pragma mark - - - - - - 登录注册相关
+#define LOGIN                                                   @"LOGIN"
+#define REGISTER                                                @"REGISTER"
+
 #pragma mark - - - - - - 热门动态相关
 
 #pragma mark - - - - - - 观点交流相关

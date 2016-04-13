@@ -10,13 +10,9 @@
 
 @interface UIBarButtonItem (Category)
 
-// 创建导航栏返回按钮
-+ (id)setCustomBackBarItem:(NSString *)title target:(id)target action:(SEL)action;
 // 创建并设置leftBarButton
-+ (id)setBackItemWithTarget:(id)target action:(SEL)action;
-// 创建不带标题的leftBarButton
-+ (id)setCustomBackBarItemWithTarget:(id)target action:(SEL)action;
++ (instancetype)setBackItemWithTarget:(id)target action:(SEL)action;
 
-+ (id)barItemWithTitle:(NSString *)title font:(UIFont *)font target:(id)target action:(SEL)action;
++ (instancetype)barItemWithTitle:(NSString *)title font:(UIFont *)font target:(id)target action:(SEL)action;
 
 @end

@@ -13,6 +13,41 @@
 @implementation ZCPRequestManager (User)
 
 /**
+ *  用户登录验证
+ *
+ *  @param account  账号
+ *  @param password 密码
+ */
+- (NSOperation *)loginWithAccount:(NSString *)account
+                         password:(NSString *)password
+                          success:(void (^)(AFHTTPRequestOperation *operation, NSString *msg, ZCPUserModel *userModel))success
+                          failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure {
+    
+    NSString * scheme       = schemeForType(kURLTypeCommon);
+    NSString * host         = hostForType(kURLTypeCommon);
+    NSString * path         = urlForKey(LOGIN);
+    
+    AFHTTPRequestOperation *operation = [self POST:ZCPMakeURLString(scheme, host, path)
+                                        parameters:@{@"account": account
+                                                     , @"password": password}
+                                           success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                                               NSInteger code = [responseObject[@"code"] integerValue];
+                                               NSString *msg = responseObject[@"msg"];
+                                               // 如果登录成功
+                                               if (code == 0) {
+                                                   // 转换返回的用户模型
+                                                   ZCPUserModel *userModel = [ZCPRequestResponseTranslator translateResponse_UserModel:responseObject[@"aUser"]];
+                                                   success(operation, msg, userModel);
+                                               } else {
+                                                   success(operation, msg, nil);
+                                               }
+                                           }
+                                           failure:failure];
+    TTDPRINT(@"URL=%@  params=%@", operation.request.URL, [[NSString alloc] initWithData:operation.request.HTTPBody encoding:NSUTF8StringEncoding]);
+    return operation;
+}
+
+/**
  *  上传用户头像
  *
  *  @param headImage 头像

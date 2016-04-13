@@ -31,6 +31,7 @@ typedef NS_ENUM(NSInteger, ZCPShowState) {
 @property (nonatomic, strong) ZCPTextField *regPasswordTextField;   // 注册界面面输入框
 @property (nonatomic, strong) UIButton *loginRegisterButton;        // 登陆按钮
 @property (nonatomic, strong) UILabel *toggleLabel;                 // 切换标签
+@property (nonatomic, strong) UILabel *resetPasswordLabel;          // 重置密码标签
 @property (nonatomic, assign) ZCPShowState showState;               // 显示TextField状态
 
 @end
@@ -53,21 +54,17 @@ typedef NS_ENUM(NSInteger, ZCPShowState) {
     [self.view addSubview:self.inputAreaScrollView];
     [self.view addSubview:self.loginRegisterButton];
     [self.view addSubview:self.toggleLabel];
+    [self.view addSubview:self.resetPasswordLabel];
 }
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    self.view.backgroundColor = [UIColor redColor];
+    // 隐藏nav
+    [self.navigationController setNavigationBarHidden:YES];
+    
+    self.view.backgroundColor = [UIColor whiteColor];
 }
 - (void)viewWillLayoutSubviews {
     [super viewWillLayoutSubviews];
-    
-    self.appTheme = [[ZCPControlingCenter sharedInstance] appTheme];
-    if (self.appTheme == LightTheme) {
-        [self.view setBackgroundColor:[UIColor colorFromHexRGB:@"ececec"]];
-    }
-    else if(self.appTheme == DarkTheme) {
-        [self.view setBackgroundColor:[UIColor lightGrayColor]];
-    }
     
     // 设置控件frame
     self.logoImageView.frame = CGRectMake(self.view.center.x - 40, VerticalMargin * 6, 80, 80);
@@ -81,6 +78,8 @@ typedef NS_ENUM(NSInteger, ZCPShowState) {
     self.regPasswordTextField.frame = CGRectMake(APPLICATIONWIDTH + HorizontalMargin * 2, 60 + UIMargin * 2, TextFieldWidth, TextFieldHeight);
     [self.toggleLabel sizeToFit];
     self.toggleLabel.frame = CGRectMake(self.view.center.x - self.toggleLabel.width / 2, self.loginRegisterButton.bottom + UIMargin * 5, self.toggleLabel.width, 30);
+    [self.resetPasswordLabel sizeToFit];
+    self.resetPasswordLabel.frame = CGRectMake(self.view.center.x - self.resetPasswordLabel.width / 2, APPLICATIONHEIGHT - VerticalMargin * 2, self.resetPasswordLabel.width, 20);
 }
 
 #pragma mark - getter / setter
@@ -121,6 +120,7 @@ typedef NS_ENUM(NSInteger, ZCPShowState) {
 - (ZCPTextField *)passwordTextField {
     if (_passwordTextField == nil) {
         _passwordTextField = [[ZCPTextField alloc] init];
+        _passwordTextField.secureTextEntry = YES;
         _passwordTextField.placeholder = @"密码";
     }
     return _passwordTextField;
@@ -142,6 +142,7 @@ typedef NS_ENUM(NSInteger, ZCPShowState) {
 - (ZCPTextField *)regPasswordTextField {
     if (_regPasswordTextField == nil) {
         _regPasswordTextField = [[ZCPTextField alloc] init];
+        _regPasswordTextField.secureTextEntry = YES;
         _regPasswordTextField.placeholder = @"密码（不少于6位）";
     }
     return _regPasswordTextField;
@@ -175,6 +176,16 @@ typedef NS_ENUM(NSInteger, ZCPShowState) {
     }
     return _toggleLabel;
 }
+- (UILabel *)resetPasswordLabel {
+    if (_resetPasswordLabel == nil) {
+        _resetPasswordLabel = [[UILabel alloc] init];
+        _resetPasswordLabel.font = [UIFont defaultFontWithSize:13.0f];
+        _resetPasswordLabel.textColor = [UIColor lightGrayColor];
+        _resetPasswordLabel.text = @"登陆有问题？";
+//        [_resetPasswordLabel addGestureRecognizer:];
+    }
+    return _resetPasswordLabel;
+}
 
 #pragma mark - button click
 // 登陆注册按钮点击事件
@@ -192,7 +203,20 @@ typedef NS_ENUM(NSInteger, ZCPShowState) {
         }
         
         // 尝试登陆
-//        [[ZCPRequestManager sharedInstance]];
+        [[ZCPRequestManager sharedInstance] loginWithAccount:phone password:password success:^(AFHTTPRequestOperation *operation, NSString *msg, ZCPUserModel *userModel) {
+            if (userModel && [userModel isKindOfClass:[ZCPUserModel class]]) {
+                [[ZCPUserCenter sharedInstance] saveUserModel:userModel];
+                
+                // 登录成功，进入主视图
+                [[ZCPNavigator sharedInstance] setupRootViewController];
+//                [self presentViewController:[[ZCPControlingCenter sharedInstance] generateRootViewController] animated:YES completion:nil];
+            }
+            TTDPRINT(@"%@", msg);
+            [MBProgressHUD showError:msg];
+        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+            TTDPRINT(@"%@", error);
+            [MBProgressHUD showError:@"登录失败，网络异常！"];
+        }];
         
     } else if(self.showState == ZCPShowRegisterView) {
         NSString *userName = self.regUserNameTextField.text;
@@ -214,9 +238,9 @@ typedef NS_ENUM(NSInteger, ZCPShowState) {
         verifyCodeVC.userName = userName;
         verifyCodeVC.phone = phone;
         verifyCodeVC.password = password;
-        [self presentViewController:verifyCodeVC animated:YES completion:^{
-            // 发送验证码请求
-        }];
+        UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:verifyCodeVC];
+        
+        [self presentViewController:nav animated:YES completion:nil];
     }
     
 }

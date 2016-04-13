@@ -98,10 +98,16 @@ do { \
 
 // 默认用户头像
 #define HEAD_IMAGE_NAME_DEFAULT             @"head_default"
+// 默认图书封面
+#define COVER_IMAGE_NAME_DEFAULT            @"cover_default"
 // 默认列表一页数据量
 #define PAGE_COUNT_DEFAULT                  10
 // 盐，四位随机数
 #define SALT                                (arc4random() % 9000 + 1000)
+
+//SMSSDK官网公共key
+#define AppKey_SMS      @"f3fc6baa9ac4"
+#define AppSecrect_SMS  @"7f3dedcb36d92deebcb373af921d635a"
 
 
 #endif /* ZCPGlobalMacros_h */
