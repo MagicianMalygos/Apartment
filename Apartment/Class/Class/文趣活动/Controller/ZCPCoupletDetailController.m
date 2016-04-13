@@ -80,6 +80,7 @@
     ZCPCoupletDetailCellItem *detailItem = [[ZCPCoupletDetailCellItem alloc] initWithDefault];
     detailItem.coupletModel = self.selectedCoupletModel;
     detailItem.delegate = self;
+    detailItem.cellHeight = @80;
     [items addObject:detailItem];
 
     ZCPSectionCellItem * section = [[ZCPSectionCellItem alloc] initWithDefault];

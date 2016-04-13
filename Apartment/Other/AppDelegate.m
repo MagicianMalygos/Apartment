@@ -20,6 +20,9 @@
     // 初始化api
     [[ZCPURLCommon sharedInstance] initialize];
     
+    // 注册SMS，短信验证第三方（注册失败，则为测试用户，每天最多发20条）
+    [SMSSDK registerApp:@"" withSecret:@""];
+    
     // 假数据,初始化用户信息，后面要改到通过登录注册
     [ZCPUserCenter sharedInstance].currentUserModel = [ZCPUserModel modelFromDictionary:@{@"userId":@(1)
                                                                                           , @"userAccount": @"1001"
@@ -34,7 +37,8 @@
                                                                                                                 , @{@"fieldId":@(3), @"fieldName": @"传记"}]}];
     
     self.window = [[ZCPNavigator sharedInstance] window];
-    [[ZCPNavigator sharedInstance] setupRootViewController];
+//    [[ZCPNavigator sharedInstance] setupRootViewController];
+    [[ZCPNavigator sharedInstance] setupRootViewControllerLoginRegister];
     [self.window makeKeyAndVisible];
     
     return YES;

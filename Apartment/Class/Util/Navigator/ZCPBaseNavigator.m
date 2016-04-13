@@ -7,7 +7,7 @@
 //
 
 #import "ZCPBaseNavigator.h"
-
+#import "ZCPMainLoginController.h"
 #import "ZCPViewDataModel.h"
 
 @interface ZCPBaseNavigator ()
@@ -48,6 +48,10 @@
         _viewModelDict = [NSMutableDictionary dictionary];
     }
     return _viewModelDict;
+}
+- (void)setupRootViewControllerLoginRegister {
+    _rootViewController = [ZCPMainLoginController new];
+    self.window.rootViewController = self.rootViewController;
 }
 - (void)setupRootViewController {
     _rootViewController = [[ZCPControlingCenter sharedInstance] generateRootViewController];

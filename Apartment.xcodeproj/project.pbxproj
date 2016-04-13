@@ -37,6 +37,12 @@
 		183F3B1E1C5330A1007D2F10 /* NSObject+Category.m in Sources */ = {isa = PBXBuildFile; fileRef = 183F3B1D1C5330A1007D2F10 /* NSObject+Category.m */; };
 		183F3B211C533AF0007D2F10 /* ZCPCoupletDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 183F3B201C533AF0007D2F10 /* ZCPCoupletDetailCell.m */; };
 		183F3B241C533B04007D2F10 /* ZCPCoupletReplyCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 183F3B231C533B04007D2F10 /* ZCPCoupletReplyCell.m */; };
+		183FC2C01CBE0C3200D55E7E /* libz.1.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 183FC2BF1CBE0C3200D55E7E /* libz.1.dylib */; };
+		183FC2C21CBE0C6D00D55E7E /* libicucore.A.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 183FC2C11CBE0C6D00D55E7E /* libicucore.A.dylib */; };
+		183FC2C41CBE0C7700D55E7E /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 183FC2C31CBE0C7700D55E7E /* MessageUI.framework */; };
+		183FC2C61CBE0C8A00D55E7E /* libstdc++.6.0.9.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 183FC2C51CBE0C8A00D55E7E /* libstdc++.6.0.9.dylib */; };
+		183FC2C81CBE0E5D00D55E7E /* MOBFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 183FC2C71CBE0E5D00D55E7E /* MOBFoundation.framework */; };
+		183FC2CB1CBE171E00D55E7E /* ZCPVerifyCodeController.m in Sources */ = {isa = PBXBuildFile; fileRef = 183FC2CA1CBE171E00D55E7E /* ZCPVerifyCodeController.m */; };
 		1844C9B81C5731BD004F08E3 /* ZCPArgumentListController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1844C9B71C5731BD004F08E3 /* ZCPArgumentListController.m */; };
 		1845A5581C59AFEF00491A4B /* ZCPMainLibraryController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1845A5571C59AFEF00491A4B /* ZCPMainLibraryController.m */; };
 		1845A55C1C59AFFF00491A4B /* ZCPMainHotTrendController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1845A55B1C59AFFF00491A4B /* ZCPMainHotTrendController.m */; };
@@ -46,6 +52,7 @@
 		184DB20D1C589A5E00B504C1 /* ZCPAddThesisController.m in Sources */ = {isa = PBXBuildFile; fileRef = 184DB20C1C589A5E00B504C1 /* ZCPAddThesisController.m */; };
 		184DB2131C58B03100B504C1 /* ZCPAddArgumentController.m in Sources */ = {isa = PBXBuildFile; fileRef = 184DB2121C58B03100B504C1 /* ZCPAddArgumentController.m */; };
 		184DB2161C58B5C400B504C1 /* ZCPSwitchRadioCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 184DB2151C58B5C400B504C1 /* ZCPSwitchRadioCell.m */; };
+		185B8B711CBDE67600AD585D /* ZCPTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 185B8B701CBDE67600AD585D /* ZCPTextField.m */; };
 		185DFC801C8478780056AD51 /* ZCPViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 185DFC7E1C8478780056AD51 /* ZCPViewController.m */; };
 		1873359D1C5F3390003284EE /* ZCPAddBookController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1873359C1C5F3390003284EE /* ZCPAddBookController.m */; };
 		187335A01C5F3BCA003284EE /* ZCPAddPictureCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1873359F1C5F3BCA003284EE /* ZCPAddPictureCell.m */; };
@@ -221,6 +228,14 @@
 		183F3B201C533AF0007D2F10 /* ZCPCoupletDetailCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZCPCoupletDetailCell.m; sourceTree = "<group>"; };
 		183F3B221C533B04007D2F10 /* ZCPCoupletReplyCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZCPCoupletReplyCell.h; sourceTree = "<group>"; };
 		183F3B231C533B04007D2F10 /* ZCPCoupletReplyCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZCPCoupletReplyCell.m; sourceTree = "<group>"; };
+		183FC2BD1CBE0B9D00D55E7E /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		183FC2BF1CBE0C3200D55E7E /* libz.1.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.1.dylib; path = ../../../../usr/lib/libz.1.dylib; sourceTree = "<group>"; };
+		183FC2C11CBE0C6D00D55E7E /* libicucore.A.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libicucore.A.dylib; path = ../../../../usr/lib/libicucore.A.dylib; sourceTree = "<group>"; };
+		183FC2C31CBE0C7700D55E7E /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		183FC2C51CBE0C8A00D55E7E /* libstdc++.6.0.9.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libstdc++.6.0.9.dylib"; path = "../../../../usr/lib/libstdc++.6.0.9.dylib"; sourceTree = "<group>"; };
+		183FC2C71CBE0E5D00D55E7E /* MOBFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MOBFoundation.framework; path = Pods/SMSSDK/SMS_SDK/MOBFoundation.framework; sourceTree = "<group>"; };
+		183FC2C91CBE171E00D55E7E /* ZCPVerifyCodeController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZCPVerifyCodeController.h; sourceTree = "<group>"; };
+		183FC2CA1CBE171E00D55E7E /* ZCPVerifyCodeController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZCPVerifyCodeController.m; sourceTree = "<group>"; };
 		1844C9B61C5731BD004F08E3 /* ZCPArgumentListController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZCPArgumentListController.h; sourceTree = "<group>"; };
 		1844C9B71C5731BD004F08E3 /* ZCPArgumentListController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZCPArgumentListController.m; sourceTree = "<group>"; };
 		1845A5561C59AFEF00491A4B /* ZCPMainLibraryController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZCPMainLibraryController.h; sourceTree = "<group>"; };
@@ -239,6 +254,8 @@
 		184DB2121C58B03100B504C1 /* ZCPAddArgumentController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZCPAddArgumentController.m; sourceTree = "<group>"; };
 		184DB2141C58B5C400B504C1 /* ZCPSwitchRadioCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZCPSwitchRadioCell.h; sourceTree = "<group>"; };
 		184DB2151C58B5C400B504C1 /* ZCPSwitchRadioCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZCPSwitchRadioCell.m; sourceTree = "<group>"; };
+		185B8B6F1CBDE67600AD585D /* ZCPTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZCPTextField.h; sourceTree = "<group>"; };
+		185B8B701CBDE67600AD585D /* ZCPTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZCPTextField.m; sourceTree = "<group>"; };
 		185DFC7D1C8478780056AD51 /* ZCPViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZCPViewController.h; sourceTree = "<group>"; };
 		185DFC7E1C8478780056AD51 /* ZCPViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZCPViewController.m; sourceTree = "<group>"; };
 		1873359B1C5F3390003284EE /* ZCPAddBookController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZCPAddBookController.h; sourceTree = "<group>"; };
@@ -443,6 +460,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				183FC2C81CBE0E5D00D55E7E /* MOBFoundation.framework in Frameworks */,
+				183FC2C61CBE0C8A00D55E7E /* libstdc++.6.0.9.dylib in Frameworks */,
+				183FC2C41CBE0C7700D55E7E /* MessageUI.framework in Frameworks */,
+				183FC2C21CBE0C6D00D55E7E /* libicucore.A.dylib in Frameworks */,
+				183FC2C01CBE0C3200D55E7E /* libz.1.dylib in Frameworks */,
 				59270AFCF362F5F599DC29B9 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -467,6 +489,12 @@
 		0A04135CF0FBBA785F85B19C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				183FC2C71CBE0E5D00D55E7E /* MOBFoundation.framework */,
+				183FC2C51CBE0C8A00D55E7E /* libstdc++.6.0.9.dylib */,
+				183FC2C31CBE0C7700D55E7E /* MessageUI.framework */,
+				183FC2C11CBE0C6D00D55E7E /* libicucore.A.dylib */,
+				183FC2BF1CBE0C3200D55E7E /* libz.1.dylib */,
+				183FC2BD1CBE0B9D00D55E7E /* libz.tbd */,
 				CF86021FDC156551CF6948C1 /* libPods.a */,
 			);
 			name = Frameworks;
@@ -560,6 +588,8 @@
 				182400901C5B0280001D5147 /* ZCPOptionView.m */,
 				181F06761C71DB38002E6994 /* ZCPTextView.h */,
 				181F06771C71DB38002E6994 /* ZCPTextView.m */,
+				185B8B6F1CBDE67600AD585D /* ZCPTextField.h */,
+				185B8B701CBDE67600AD585D /* ZCPTextField.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1098,6 +1128,8 @@
 			children = (
 				18EFA87D1C770F6000A8378D /* ZCPMainLoginController.h */,
 				18EFA87E1C770F6000A8378D /* ZCPMainLoginController.m */,
+				183FC2C91CBE171E00D55E7E /* ZCPVerifyCodeController.h */,
+				183FC2CA1CBE171E00D55E7E /* ZCPVerifyCodeController.m */,
 			);
 			path = "登录注册";
 			sourceTree = "<group>";
@@ -1348,6 +1380,7 @@
 				18A959E71C74625B00084595 /* MBProgressHUD+Easy.m in Sources */,
 				183F3B211C533AF0007D2F10 /* ZCPCoupletDetailCell.m in Sources */,
 				1845A5601C59B00B00491A4B /* ZCPMainCommunionController.m in Sources */,
+				185B8B711CBDE67600AD585D /* ZCPTextField.m in Sources */,
 				18B0EE1C1C4F572400F078EB /* ZCPViewDataModel.m in Sources */,
 				189624F91C4CCEAA003733CE /* ZCPImageTextCell.m in Sources */,
 				18E3F7221C50801D00318761 /* ZCPThesisMainController.m in Sources */,
@@ -1407,6 +1440,7 @@
 				18B0EE1F1C4F575100F078EB /* ZCPUserModel.m in Sources */,
 				180469781C565527004E7DCC /* ZCPQuestionModel.m in Sources */,
 				1845A5581C59AFEF00491A4B /* ZCPMainLibraryController.m in Sources */,
+				183FC2CB1CBE171E00D55E7E /* ZCPVerifyCodeController.m in Sources */,
 				18A6FC811C5F843500D6F946 /* ZCPBookPostCell.m in Sources */,
 				182400911C5B0280001D5147 /* ZCPOptionView.m in Sources */,
 				18EF89F61C56FF5200924CCF /* ZCPBookPostModel.m in Sources */,
@@ -1554,6 +1588,10 @@
 			baseConfigurationReference = 9A0B59AD51081B5C1C24C487 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Pods/SMSSDK/SMS_SDK",
+				);
 				GCC_PREFIX_HEADER = Apartment/Class/Global/ZCPPrefixHeader.pch;
 				INFOPLIST_FILE = Apartment/Other/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
@@ -1568,6 +1606,10 @@
 			baseConfigurationReference = 8364B8CEAECFADBA9DD965F8 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Pods/SMSSDK/SMS_SDK",
+				);
 				GCC_PREFIX_HEADER = Apartment/Class/Global/ZCPPrefixHeader.pch;
 				INFOPLIST_FILE = Apartment/Other/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;

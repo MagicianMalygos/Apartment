@@ -23,6 +23,7 @@
 @property (nonatomic, readonly) UIViewController *topViewController;
 
 #pragma mark - 初始化rootViewController
+- (void)setupRootViewControllerLoginRegister;
 - (void)setupRootViewController;
 
 #pragma mark - 公有方法

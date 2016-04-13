@@ -60,6 +60,7 @@
 #import <MBProgressHUD.h>
 #import <IQKeyboardManager.h>
 #import <YYKit.h>
+#import <SMS_SDK/SMSSDK.h>
 
 
 #endif /* ZCPBasicHeaders_h */

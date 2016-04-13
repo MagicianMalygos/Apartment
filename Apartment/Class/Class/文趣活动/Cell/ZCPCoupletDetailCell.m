@@ -26,15 +26,12 @@
     
     // 第一行
     self.supportButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    self.supportButton.frame = CGRectMake(CELLWIDTH_DEFAULT - HorizontalMargin - 20, VerticalMargin, 20, 20);
     [self.supportButton setImageNameNormal:@"support_normal" Highlighted:@"support_selected" Selected:@"support_selected" Disabled:@"support_normal"];
     [self.supportButton addTarget:self action:@selector(buttonClicked:) forControlEvents:UIControlEventTouchUpInside];
     self.collectionButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    self.collectionButton.frame = CGRectMake(self.supportButton.left - UIMargin * 2 - 20, VerticalMargin, 20, 20);
     [self.collectionButton setImageNameNormal:@"collection_normal" Highlighted:@"collection_selected" Selected:@"collection_selected" Disabled:@"collection_normal"];
     [self.collectionButton addTarget:self action:@selector(buttonClicked:) forControlEvents:UIControlEventTouchUpInside];
     self.commentButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    self.commentButton.frame = CGRectMake(self.collectionButton.left - UIMargin * 2 - 20, VerticalMargin, 20, 20);
     [self.commentButton setOnlyImageName:@"comment_normal"];
     [self.commentButton addTarget:self action:@selector(buttonClicked:) forControlEvents:UIControlEventTouchUpInside];
     
@@ -77,29 +74,7 @@
     if ([object isKindOfClass:[ZCPCoupletDetailCellItem class]] && self.item != object) {
         self.item = (ZCPCoupletDetailCellItem *)object;
         
-        // 计算高度
-        CGFloat contentHeight = [self.item.coupletModel.coupletContent boundingRectWithSize:CGSizeMake(CELLWIDTH_DEFAULT - HorizontalMargin * 2, CGFLOAT_MAX)
-                                                                       options:NSStringDrawingUsesFontLeading| NSStringDrawingUsesLineFragmentOrigin
-                                                                    attributes:@{NSFontAttributeName: [UIFont defaultBoldFontWithSize:18.0f]}
-                                                                       context:nil].size.height;
-        
-        // 设置frame
-        self.coupletContentLabel.frame = CGRectMake(HorizontalMargin
-                                                    , self.collectionButton.bottom + VerticalMargin
-                                                    , CELLWIDTH_DEFAULT - HorizontalMargin * 2
-                                                    , contentHeight);
-        self.userHeadImgView.frame = CGRectMake(HorizontalMargin
-                                                , self.coupletContentLabel.bottom + VerticalMargin
-                                                , 25
-                                                , 25);
-        self.timeLabel.frame = CGRectMake(CELLWIDTH_DEFAULT - HorizontalMargin - 100
-                                          , self.userHeadImgView.y
-                                          , 100
-                                          , 25);
-        self.userNameLabel.frame = CGRectMake(self.userHeadImgView.right + UIMargin
-                                              , self.userHeadImgView.y
-                                              , CELLWIDTH_DEFAULT - HorizontalMargin * 2 - self.userHeadImgView.width - self.timeLabel.width - UIMargin * 2
-                                              , 25);
+
         
         // 设置属性
         self.delegate = self.item.delegate;
@@ -110,29 +85,57 @@
         self.userNameLabel.text = self.item.coupletModel.user.userName;
         self.timeLabel.text = [self.item.coupletModel.coupletTime toString];
         
-        // 设置cell高度
-        self.item.cellHeight = [NSNumber numberWithFloat:self.userHeadImgView.bottom + VerticalMargin];
-        
         [self.userHeadImgView changeToRound];
+        
+        // 第一行
+        CGFloat rowHeight1 = 20.0f;
+        // 第二行
+        CGFloat rowHeight2 = [_item.coupletModel.coupletContent boundingRectWithSize:CGSizeMake(CELLWIDTH_DEFAULT - HorizontalMargin * 2, CGFLOAT_MAX)
+                                                               options:NSStringDrawingUsesFontLeading| NSStringDrawingUsesLineFragmentOrigin
+                                                            attributes:@{NSFontAttributeName: [UIFont defaultBoldFontWithSize:18.0f]}
+                                                               context:nil].size.height;
+        // 第三行
+        CGFloat rowHeight3 = 25.0f;
+        // cell高度
+        CGFloat cellHeight = rowHeight1 + rowHeight2 + rowHeight3 + VerticalMargin * 2 + UIMargin * 2;
+        
+        self.item.cellHeight = @(cellHeight);
     }
-    
 }
 + (CGFloat)tableView:(UITableView *)tableView rowHeightForObject:(id)object {
     ZCPCoupletDetailCellItem *item = (ZCPCoupletDetailCellItem *)object;
     
-    // 第一行
-    CGFloat rowHeight1 = 20.0f;
-    // 第二行
-    CGFloat rowHeight2 = [item.coupletModel.coupletContent boundingRectWithSize:CGSizeMake(CELLWIDTH_DEFAULT - HorizontalMargin * 2, CGFLOAT_MAX)
-                                                           options:NSStringDrawingUsesFontLeading| NSStringDrawingUsesLineFragmentOrigin
-                                                        attributes:@{NSFontAttributeName: [UIFont defaultBoldFontWithSize:18.0f]}
-                                                           context:nil].size.height;
-    // 第三行
-    CGFloat rowHeight3 = 25.0f;
-    // cell高度
-    CGFloat cellHeight = rowHeight1 + rowHeight2 + rowHeight3 + VerticalMargin * 2 + UIMargin * 2;
+    return [item.cellHeight floatValue];
+}
+- (void)layoutSubviews {
+    [super layoutSubviews];
     
-    return cellHeight;
+    self.supportButton.frame = CGRectMake(CELLWIDTH_DEFAULT - HorizontalMargin - 20, VerticalMargin, 20, 20);
+    self.collectionButton.frame = CGRectMake(self.supportButton.left - UIMargin * 2 - 20, VerticalMargin, 20, 20);
+    self.commentButton.frame = CGRectMake(self.collectionButton.left - UIMargin * 2 - 20, VerticalMargin, 20, 20);
+    
+    // 计算高度
+    CGFloat contentHeight = [self.item.coupletModel.coupletContent boundingRectWithSize:CGSizeMake(CELLWIDTH_DEFAULT - HorizontalMargin * 2, CGFLOAT_MAX)
+                                                                                options:NSStringDrawingUsesFontLeading| NSStringDrawingUsesLineFragmentOrigin
+                                                                             attributes:@{NSFontAttributeName: [UIFont defaultBoldFontWithSize:18.0f]}
+                                                                                context:nil].size.height;
+    // 设置frame
+    self.coupletContentLabel.frame = CGRectMake(HorizontalMargin
+                                                , self.collectionButton.bottom + VerticalMargin
+                                                , CELLWIDTH_DEFAULT - HorizontalMargin * 2
+                                                , contentHeight);
+    self.userHeadImgView.frame = CGRectMake(HorizontalMargin
+                                            , self.coupletContentLabel.bottom + VerticalMargin
+                                            , 25
+                                            , 25);
+    self.timeLabel.frame = CGRectMake(CELLWIDTH_DEFAULT - HorizontalMargin - 100
+                                      , self.userHeadImgView.y
+                                      , 100
+                                      , 25);
+    self.userNameLabel.frame = CGRectMake(self.userHeadImgView.right + UIMargin
+                                          , self.userHeadImgView.y
+                                          , CELLWIDTH_DEFAULT - HorizontalMargin * 2 - self.userHeadImgView.width - self.timeLabel.width - UIMargin * 2
+                                          , 25);
 }
 
 #pragma mark - Button Click

@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '8C8B10F73DBD2D9B1DDD473F'
+               BlueprintIdentifier = '4F6E9CF58C1EF355CFE44422'
                BlueprintName = 'MGEvents'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'libMGEvents.a'>

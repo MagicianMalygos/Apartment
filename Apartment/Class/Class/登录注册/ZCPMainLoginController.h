@@ -8,6 +8,6 @@
 
 #import "ZCPTableViewController.h"
 
-@interface ZCPMainLoginController : ZCPTableViewController
+@interface ZCPMainLoginController : ZCPViewController
 
 @end

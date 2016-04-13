@@ -206,6 +206,10 @@ THE SOFTWARE.
 
 
 
+## SMSSDK
+
+Copyright © 2012-2015 mob.com
+
 ## YYKit
 
 The MIT License (MIT)

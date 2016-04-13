@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '7338E0460034F49510B7C6C4'
+               BlueprintIdentifier = 'D287F2D6ABC2456A4DA4D9A0'
                BlueprintName = 'MGMushParser'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'libMGMushParser.a'>

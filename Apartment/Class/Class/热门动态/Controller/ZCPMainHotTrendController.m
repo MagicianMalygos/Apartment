@@ -21,10 +21,14 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 }
-- (void)viewDidAppear:(BOOL)animated {
-    [super viewDidAppear:animated];
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
     [self clearNavigationBar];
-    self.title = @"热门动态";
+    self.tabBarController.title = @"热门动态";
+}
+- (void)viewWillLayoutSubviews {
+    [super viewWillLayoutSubviews];
+    self.tableView.frame = CGRectMake(0, 0, APPLICATIONWIDTH, APPLICATIONHEIGHT - Height_NavigationBar - Height_TABBAR);
 }
 
 - (void)constructData {
