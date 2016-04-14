@@ -39,7 +39,6 @@
     self.userNameBgView.layer.masksToBounds = YES;
     self.userNameBgView.layer.cornerRadius = 5.0;
     
-    
     self.bgImageView.backgroundColor = [UIColor clearColor];
     self.userHeadImageView.backgroundColor = [UIColor clearColor];
     self.userNameLabel.backgroundColor = [UIColor clearColor];

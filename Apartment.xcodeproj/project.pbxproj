@@ -65,6 +65,7 @@
 		187335B91C5F6359003284EE /* UIFont+Category.m in Sources */ = {isa = PBXBuildFile; fileRef = 187335B81C5F6359003284EE /* UIFont+Category.m */; };
 		188154A91CBF3A32003BA438 /* ZCPResetPwdInputPhoneController.m in Sources */ = {isa = PBXBuildFile; fileRef = 188154A81CBF3A32003BA438 /* ZCPResetPwdInputPhoneController.m */; };
 		188154AC1CBF3A48003BA438 /* ZCPResetPwdController.m in Sources */ = {isa = PBXBuildFile; fileRef = 188154AB1CBF3A48003BA438 /* ZCPResetPwdController.m */; };
+		188154B21CBF7D04003BA438 /* ZCPImageCircleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 188154AF1CBF7D04003BA438 /* ZCPImageCircleView.m */; };
 		188229761C608D2600199332 /* UIButton+Category.m in Sources */ = {isa = PBXBuildFile; fileRef = 188229751C608D2600199332 /* UIButton+Category.m */; };
 		188229791C60AFBC00199332 /* ZCPThesisCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 188229781C60AFBC00199332 /* ZCPThesisCell.m */; };
 		1885EABC1CBB99E3000EF051 /* ZCPQuestionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1885EABB1CBB99E3000EF051 /* ZCPQuestionCell.m */; };
@@ -280,6 +281,8 @@
 		188154A81CBF3A32003BA438 /* ZCPResetPwdInputPhoneController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZCPResetPwdInputPhoneController.m; sourceTree = "<group>"; };
 		188154AA1CBF3A48003BA438 /* ZCPResetPwdController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZCPResetPwdController.h; sourceTree = "<group>"; };
 		188154AB1CBF3A48003BA438 /* ZCPResetPwdController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZCPResetPwdController.m; sourceTree = "<group>"; };
+		188154AE1CBF7D04003BA438 /* ZCPImageCircleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZCPImageCircleView.h; sourceTree = "<group>"; };
+		188154AF1CBF7D04003BA438 /* ZCPImageCircleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZCPImageCircleView.m; sourceTree = "<group>"; };
 		188229741C608D2600199332 /* UIButton+Category.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+Category.h"; sourceTree = "<group>"; };
 		188229751C608D2600199332 /* UIButton+Category.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+Category.m"; sourceTree = "<group>"; };
 		188229771C60AFBC00199332 /* ZCPThesisCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZCPThesisCell.h; sourceTree = "<group>"; };
@@ -582,6 +585,7 @@
 		1824008E1C5B0280001D5147 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				188154AD1CBF7D03003BA438 /* 图片轮播 */,
 				18A25F191CA3E14A00D4AD5A /* ZCPDatePicker.h */,
 				18A25F1A1CA3E14A00D4AD5A /* ZCPDatePicker.m */,
 				18A25F1B1CA3E14A00D4AD5A /* ZCPImagePickerController.h */,
@@ -650,6 +654,15 @@
 				18CF1AC41C9BFCD4009134DD /* ZCPSelectMenuController.m */,
 			);
 			path = ViewController;
+			sourceTree = "<group>";
+		};
+		188154AD1CBF7D03003BA438 /* 图片轮播 */ = {
+			isa = PBXGroup;
+			children = (
+				188154AE1CBF7D04003BA438 /* ZCPImageCircleView.h */,
+				188154AF1CBF7D04003BA438 /* ZCPImageCircleView.m */,
+			);
+			path = "图片轮播";
 			sourceTree = "<group>";
 		};
 		189624E21C4C77E1003733CE /* WebService */ = {
@@ -1466,6 +1479,7 @@
 				18A25F201CA3E14A00D4AD5A /* ZCPImagePickerController.m in Sources */,
 				18B0EE091C4F203F00F078EB /* ZCPHeadImageCell.m in Sources */,
 				181F06751C71D7F4002E6994 /* ZCPCommentView.m in Sources */,
+				188154B21CBF7D04003BA438 /* ZCPImageCircleView.m in Sources */,
 				1890A4401C7AA36B006F0749 /* ZCPRequestResponseTranslator+Communion.m in Sources */,
 				18E7278B1C7087DE005BC5D7 /* UIImageView+Category.m in Sources */,
 				18EF89FC1C5702E800924CCF /* ZCPBookReplyModel.m in Sources */,
