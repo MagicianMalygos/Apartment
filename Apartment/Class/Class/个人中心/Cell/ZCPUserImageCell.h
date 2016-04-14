@@ -15,10 +15,11 @@
 // 用户图片和名字Cell
 @interface ZCPUserImageCell : ZCPTableViewWithLineCell
 
-@property (nonatomic, strong) UIImageView *bgImageView;             // 背景视图
-@property (nonatomic, strong) UIImageView *userHeadImageView;       // 头像视图
-@property (nonatomic, strong) UILabel *userNameLabel;               // 用户名标签
-@property (nonatomic, strong) ZCPUserImageCellItem *item;           // item
+@property (nonatomic, strong) UIImageView *bgImageView;         // 背景视图
+@property (nonatomic, strong) UIImageView *userHeadImageView;   // 头像视图
+@property (nonatomic, strong) UILabel *userNameLabel;           // 用户名标签
+@property (nonatomic, strong) UIView *userNameBgView;           // 用户名背景透明黑色视图
+@property (nonatomic, strong) ZCPUserImageCellItem *item;       // item
 
 @end
 

@@ -11,7 +11,7 @@
 // 用户头像宽度
 #define USER_HEAD_WIDTH       100
 #define USER_HEAD_HEIGHT      100
-#define USER_NAME_HEIGHT      50
+#define USER_NAME_HEIGHT      30
 
 @implementation ZCPUserImageCell
 
@@ -19,6 +19,7 @@
 @synthesize bgImageView         = _bgImageView;
 @synthesize userHeadImageView   = _userHeadImageView;
 @synthesize userNameLabel       = _userNameLabel;
+@synthesize userNameBgView      = _userNameBgView;
 @synthesize item                = _item;
 
 #pragma mark - Setup Cell
@@ -26,29 +27,34 @@
     
     self.bgImageView = [[UIImageView alloc] init];
     self.userHeadImageView = [[UIImageView alloc] init];
+    
     self.userNameLabel = [[UILabel alloc] init];
     self.userNameLabel.numberOfLines = 1;
     self.userNameLabel.textAlignment = NSTextAlignmentCenter;
     self.userNameLabel.font = [UIFont defaultBoldFontWithSize:20.0f];
+    self.userNameLabel.textColor = [UIColor whiteColor];
+    
+    self.userNameBgView = [[UIView alloc] init];
+    self.userNameBgView.alpha = 0.4f;
+    self.userNameBgView.layer.masksToBounds = YES;
+    self.userNameBgView.layer.cornerRadius = 5.0;
+    
     
     self.bgImageView.backgroundColor = [UIColor clearColor];
     self.userHeadImageView.backgroundColor = [UIColor clearColor];
     self.userNameLabel.backgroundColor = [UIColor clearColor];
+    self.userNameBgView.backgroundColor = [UIColor blackColor];
     
     [self.contentView addSubview:self.bgImageView];
     [self.contentView addSubview:self.userHeadImageView];
+    [self.contentView addSubview:self.userNameBgView];
     [self.contentView addSubview:self.userNameLabel];
 }
 - (void)setObject:(NSObject *)object {
     if ([object isKindOfClass:[ZCPUserImageCellItem class]] && self.item != object) {
         
         self.item = (ZCPUserImageCellItem *)object;
-        
-        // 设置frame
-        self.bgImageView.frame = CGRectMake(0, 0, CELLWIDTH_DEFAULT, [self.item.cellHeight floatValue]);
-        self.userHeadImageView.frame = CGRectMake((CELLWIDTH_DEFAULT - USER_HEAD_WIDTH)/2, self.bgImageView.frame.size.height - USER_HEAD_HEIGHT - USER_NAME_HEIGHT, USER_HEAD_WIDTH, USER_HEAD_HEIGHT);
-        self.userNameLabel.frame = CGRectMake(0, self.userHeadImageView.bottom, APPLICATIONWIDTH, USER_NAME_HEIGHT);
-        
+    
         // 设置属性
         [self.userHeadImageView sd_setImageWithURL:[NSURL URLWithString:self.item.bgImageURL] placeholderImage:[UIImage imageNamed:HEAD_IMAGE_NAME_DEFAULT] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
             UIImage *loadImage = [UIImage imageNamed:HEAD_IMAGE_NAME_DEFAULT];
@@ -81,13 +87,26 @@
         
         // 设置属性
         self.userNameLabel.text = self.item.userName;
-        // 设置头像为圆形
-        [self.userHeadImageView changeToRound];
     }
 }
 + (CGFloat)tableView:(UITableView *)tableView rowHeightForObject:(id)object {
     ZCPUserImageCellItem *item = (ZCPUserImageCellItem *)object;
     return [item.cellHeight floatValue];
+}
+
+- (void)layoutSubviews {
+    [super layoutSubviews];
+    
+    // 设置frame
+    self.bgImageView.frame = CGRectMake(0, 0, CELLWIDTH_DEFAULT, [self.item.cellHeight floatValue]);
+    self.userHeadImageView.frame = CGRectMake(self.contentView.center.x - USER_HEAD_WIDTH / 2, self.contentView.center.y - USER_HEAD_HEIGHT / 2 - 15, USER_HEAD_WIDTH, USER_HEAD_HEIGHT);
+    [self.userNameLabel sizeToFit];
+    self.userNameLabel.frame = CGRectMake(self.contentView.center.x - self.userNameLabel.width / 2, self.contentView.height - UIMargin * 2 - USER_NAME_HEIGHT, self.userNameLabel.width, USER_NAME_HEIGHT);
+    
+    self.userNameBgView.frame = CGRectMake(self.userNameLabel.left - UIMargin, self.userNameLabel.top - UIMargin, self.userNameLabel.width + UIMargin * 2, USER_NAME_HEIGHT + UIMargin * 2);
+    
+    // 设置头像为圆形
+    [self.userHeadImageView changeToRound];
 }
 
 @end
