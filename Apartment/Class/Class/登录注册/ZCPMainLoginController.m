@@ -8,6 +8,7 @@
 
 #import "ZCPMainLoginController.h"
 #import "ZCPVerifyCodeController.h"
+#import "ZCPResetPwdInputPhoneController.h"
 #import "ZCPTextField.h"
 #import "ZCPJudge.h"
 #import "ZCPRequestManager+User.h"
@@ -93,7 +94,7 @@ typedef NS_ENUM(NSInteger, ZCPShowState) {
 - (UIButton *)loginRegisterButton {
     if (_loginRegisterButton == nil) {
         _loginRegisterButton = [UIButton buttonWithType:UIButtonTypeCustom];
-        _loginRegisterButton.backgroundColor = [UIColor blueColor];
+        _loginRegisterButton.backgroundColor = [UIColor buttonDefaultColor];
         [_loginRegisterButton setTitle:@"登陆" forState:UIControlStateNormal];
         [_loginRegisterButton changeToFillet];
         [_loginRegisterButton addTarget:self action:@selector(loginRegister) forControlEvents:UIControlEventTouchUpInside];
@@ -179,10 +180,14 @@ typedef NS_ENUM(NSInteger, ZCPShowState) {
 - (UILabel *)resetPasswordLabel {
     if (_resetPasswordLabel == nil) {
         _resetPasswordLabel = [[UILabel alloc] init];
+        _resetPasswordLabel.userInteractionEnabled = YES;
         _resetPasswordLabel.font = [UIFont defaultFontWithSize:13.0f];
         _resetPasswordLabel.textColor = [UIColor lightGrayColor];
         _resetPasswordLabel.text = @"登陆有问题？";
-//        [_resetPasswordLabel addGestureRecognizer:];
+        WEAK_SELF;
+        [_resetPasswordLabel addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithActionBlock:^(id  _Nonnull sender) {
+            [weakSelf.navigationController pushViewController:[ZCPResetPwdInputPhoneController new] animated:YES];
+        }]];
     }
     return _resetPasswordLabel;
 }
@@ -209,7 +214,6 @@ typedef NS_ENUM(NSInteger, ZCPShowState) {
                 
                 // 登录成功，进入主视图
                 [[ZCPNavigator sharedInstance] setupRootViewController];
-//                [self presentViewController:[[ZCPControlingCenter sharedInstance] generateRootViewController] animated:YES completion:nil];
             }
             TTDPRINT(@"%@", msg);
             [MBProgressHUD showError:msg];

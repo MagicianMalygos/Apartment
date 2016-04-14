@@ -19,7 +19,9 @@
 
 #pragma mark - - - - - - 登录注册相关
 #define LOGIN                                                   @"LOGIN"
+#define ACCOUNT_CAN_BE_REGISTER                                 @"ACCOUNT_CAN_BE_REGISTER"
 #define REGISTER                                                @"REGISTER"
+#define RESET_PASSWORD                                          @"RESET_PASSWORD"
 
 #pragma mark - - - - - - 热门动态相关
 

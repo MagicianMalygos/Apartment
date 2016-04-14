@@ -1,25 +1,29 @@
 //
-//  ZCPVerifyCodeController.m
+//  ZCPResetPwdController.m
 //  Apartment
 //
-//  Created by apple on 16/4/13.
+//  Created by apple on 16/4/14.
 //  Copyright © 2016年 zcp. All rights reserved.
 //
 
-#import "ZCPVerifyCodeController.h"
+#import "ZCPResetPwdController.h"
+#import "ZCPResetPwdInputPhoneController.h"
 #import "ZCPTextField.h"
+#import "ZCPJudge.h"
 #import "ZCPRequestManager+User.h"
 
-@interface ZCPVerifyCodeController ()
+@interface ZCPResetPwdController ()
 
 @property (nonatomic, strong) UILabel *tipInfoLabel;                // 提示信息label
 @property (nonatomic, strong) ZCPTextField *verifyCodeTextField;    // 验证码输入框
+@property (nonatomic, strong) ZCPTextField *passwordTextField;      // 新密码输入框
+@property (nonatomic, strong) ZCPTextField *rePasswordTextField;    // 再一次输入密码输入框
 @property (nonatomic, strong) UIButton *determineButton;            // 完成按钮
 @property (nonatomic, strong) UILabel *resendVerifyCodeLabel;       // 重发送验证码label
 
 @end
 
-@implementation ZCPVerifyCodeController
+@implementation ZCPResetPwdController
 
 #pragma mark - life cycle
 - (void)viewDidLoad {
@@ -27,10 +31,12 @@
     
     [self.view addSubview:self.tipInfoLabel];
     [self.view addSubview:self.verifyCodeTextField];
+    [self.view addSubview:self.passwordTextField];
+    [self.view addSubview:self.rePasswordTextField];
     [self.view addSubview:self.determineButton];
     [self.view addSubview:self.resendVerifyCodeLabel];
     
-    // 上个视图控制器的信息验证成功，首次发送验证码
+    // 首次发送验证码
     [self tapResendVerifyCodeLabel:nil];
 }
 - (void)viewWillAppear:(BOOL)animated {
@@ -49,8 +55,11 @@
     [self.resendVerifyCodeLabel sizeToFit];
     self.resendVerifyCodeLabel.frame = CGRectMake(self.view.center.x - self.resendVerifyCodeLabel.width / 2, self.view.center.y - 15, self.resendVerifyCodeLabel.width, 30);
     self.determineButton.frame = CGRectMake(HorizontalMargin * 2, self.resendVerifyCodeLabel.top - HorizontalMargin * 2 - 40, APPLICATIONWIDTH - HorizontalMargin * 4, 40);
-    self.verifyCodeTextField.frame = CGRectMake(HorizontalMargin * 2, (self.determineButton.top - self.tipInfoLabel.bottom) / 2 + self.tipInfoLabel.bottom - 15, APPLICATIONWIDTH - HorizontalMargin * 4, 30);
+    self.rePasswordTextField.frame = CGRectMake(HorizontalMargin * 2, self.determineButton.top - HorizontalMargin * 2 - 30, APPLICATIONWIDTH - HorizontalMargin * 4, 30);
+    self.passwordTextField.frame = CGRectMake(HorizontalMargin * 2, self.rePasswordTextField.top - HorizontalMargin * 2 - 30 , APPLICATIONWIDTH - HorizontalMargin * 4, 30);
+    self.verifyCodeTextField.frame = CGRectMake(HorizontalMargin * 2, self.passwordTextField.top - HorizontalMargin * 2 - 30, APPLICATIONWIDTH - HorizontalMargin * 4, 30);
 }
+
 
 #pragma mark - getter / setter
 - (UILabel *)tipInfoLabel {
@@ -66,9 +75,24 @@
     if (_verifyCodeTextField == nil) {
         _verifyCodeTextField = [[ZCPTextField alloc] init];
         _verifyCodeTextField.placeholder = @"验证码";
-        _verifyCodeTextField.font = [UIFont defaultBoldFontWithSize:20.0f];
     }
     return _verifyCodeTextField;
+}
+- (ZCPTextField *)passwordTextField {
+    if (_passwordTextField == nil) {
+        _passwordTextField = [[ZCPTextField alloc] init];
+        _passwordTextField.secureTextEntry = YES;
+        _passwordTextField.placeholder = @"密码";
+    }
+    return _passwordTextField;
+}
+- (ZCPTextField *)rePasswordTextField {
+    if (_rePasswordTextField == nil) {
+        _rePasswordTextField = [[ZCPTextField alloc] init];
+        _rePasswordTextField.secureTextEntry = YES;
+        _rePasswordTextField.placeholder = @"再一次输入";
+    }
+    return _rePasswordTextField;
 }
 - (UIButton *)determineButton {
     if (_determineButton == nil) {
@@ -76,7 +100,7 @@
         _determineButton.backgroundColor = [UIColor buttonDefaultColor];
         [_determineButton changeToFillet];
         [_determineButton setTitle:@"提交" forState:UIControlStateNormal];
-        [_determineButton addTarget:self action:@selector(determineRegister) forControlEvents:UIControlEventTouchUpInside];
+        [_determineButton addTarget:self action:@selector(determineResetPwd) forControlEvents:UIControlEventTouchUpInside];
     }
     return _determineButton;
 }
@@ -95,7 +119,24 @@
 }
 
 #pragma mark - button clicked
-- (void)determineRegister {
+- (void)determineResetPwd {
+    
+    NSString *verifyCode = self.verifyCodeTextField.text;
+    NSString *password = self.passwordTextField.text;
+    NSString *rePassword = self.rePasswordTextField.text;
+    
+    // 输入检测
+    if ([ZCPJudge judgeNullTextInput:verifyCode showErrorMsg:@"请输入验证码"]
+        || [ZCPJudge judgeNullTextInput:password showErrorMsg:@"密码不能为空"]
+        || [ZCPJudge judgeNullTextInput:rePassword showErrorMsg:@"请再次输入密码"]
+        || [ZCPJudge judgeOutOfRangeTextInput:password range:[ZCPLengthRange rangeWithMin:6 max:18] showErrorMsg:@"密码长度6-18位"]) {
+        return;
+    }
+    if (![password isEqualToString:rePassword]) {
+        [MBProgressHUD showError:@"两次密码输入不一致"];
+        return;
+    }
+    
     // 判断验证码是否有误
     [SMSSDK commitVerificationCode:self.verifyCodeTextField.text phoneNumber:self.phone zone:@"86" result:^(NSError *error) {
         if (error) {
@@ -105,18 +146,17 @@
             TTDPRINT(@"验证成功");
             // 提交用户信息
             WEAK_SELF;
-            [[ZCPRequestManager sharedInstance] registerWithUserName:weakSelf.userName account:weakSelf.phone password:weakSelf.password success:^(AFHTTPRequestOperation *operation, NSString *msg, ZCPUserModel *userModel) {
-                if (userModel) {
-                    // 保存用户信息
-                    [[ZCPUserCenter sharedInstance] saveUserModel:userModel];
-                    // 进入主界面
-                    [[ZCPNavigator sharedInstance] setupRootViewController];
+            [[ZCPRequestManager sharedInstance] resetPassword:password account:weakSelf.phone success:^(AFHTTPRequestOperation *operation, BOOL isSuccess) {
+                if (isSuccess) {
+                    [MBProgressHUD showError:@"密码重设成功，请进行登录"];
+                    // 跳转回登陆视图控制器
+                    [self.navigationController popToRootViewControllerAnimated:YES];
+                } else {
+                    [MBProgressHUD showError:@"密码重设失败"];
                 }
-                TTDPRINT(@"%@", msg);
-                [MBProgressHUD showError:msg];
             } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
                 TTDPRINT(@"%@", error);
-                [MBProgressHUD showError:@"网络异常"];
+                [MBProgressHUD  showError:@"网络异常"];
             }];
         }
     }];

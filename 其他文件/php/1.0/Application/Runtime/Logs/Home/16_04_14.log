@@ -1,0 +1,887 @@
+[ 2016-04-14T10:07:40+08:00 ] ::1 /1.0/user/registerNewUser
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000024s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000878s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000966s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001055s ]
+SQL: SHOW COLUMNS FROM `t_user` [ RunTime:0.0192s ]
+SQL: INSERT INTO `t_user` (`user_account`,`user_password`,`user_name`,`user_age`,`user_register_time`) VALUES ('12278240392','123456','飞花','0','2016-04-14 10:07:40') [ RunTime:0.0005s ]
+SQL: SELECT * FROM `t_user` WHERE ( user_account=12278240392 )  [ RunTime:0.0003s ]
+NOTIC: [2] Illegal string offset 'pk_user_id' /Applications/MAMP/htdocs/1.0/Application/HOME/Controller/UserController.class.php 第 87 行.
+NOTIC: [2] Illegal string offset 'user_account' /Applications/MAMP/htdocs/1.0/Application/HOME/Controller/UserController.class.php 第 88 行.
+NOTIC: [2] Illegal string offset 'user_name' /Applications/MAMP/htdocs/1.0/Application/HOME/Controller/UserController.class.php 第 89 行.
+NOTIC: [2] Illegal string offset 'user_age' /Applications/MAMP/htdocs/1.0/Application/HOME/Controller/UserController.class.php 第 90 行.
+NOTIC: [2] Illegal string offset 'user_face_url' /Applications/MAMP/htdocs/1.0/Application/HOME/Controller/UserController.class.php 第 91 行.
+NOTIC: [2] Illegal string offset 'user_score' /Applications/MAMP/htdocs/1.0/Application/HOME/Controller/UserController.class.php 第 92 行.
+NOTIC: [2] Illegal string offset 'user_exp' /Applications/MAMP/htdocs/1.0/Application/HOME/Controller/UserController.class.php 第 93 行.
+NOTIC: [2] Illegal string offset 'user_register_time' /Applications/MAMP/htdocs/1.0/Application/HOME/Controller/UserController.class.php 第 94 行.
+NOTIC: [2] Illegal string offset 'level_name' /Applications/MAMP/htdocs/1.0/Application/HOME/Controller/UserController.class.php 第 95 行.
+NOTIC: [2] Illegal string offset 'pk_user_id' /Applications/MAMP/htdocs/1.0/Application/HOME/Controller/UserController.class.php 第 98 行.
+SQL: call proc_UserFocusFieldByUserID_Select(1) [ RunTime:0.0005s ]
+NOTIC: [8] Array to string conversion /Applications/MAMP/htdocs/1.0/Application/HOME/Controller/UserController.class.php 第 102 行.
+NOTIC: [2] Illegal string offset 'pk_field_id' /Applications/MAMP/htdocs/1.0/Application/HOME/Controller/UserController.class.php 第 103 行.
+NOTIC: [2] Illegal string offset 'field_name' /Applications/MAMP/htdocs/1.0/Application/HOME/Controller/UserController.class.php 第 104 行.
+NOTIC: [8] Array to string conversion /Applications/MAMP/htdocs/1.0/Application/HOME/Controller/UserController.class.php 第 102 行.
+NOTIC: [2] Illegal string offset 'pk_field_id' /Applications/MAMP/htdocs/1.0/Application/HOME/Controller/UserController.class.php 第 103 行.
+NOTIC: [2] Illegal string offset 'field_name' /Applications/MAMP/htdocs/1.0/Application/HOME/Controller/UserController.class.php 第 104 行.
+NOTIC: [8] Array to string conversion /Applications/MAMP/htdocs/1.0/Application/HOME/Controller/UserController.class.php 第 102 行.
+NOTIC: [2] Illegal string offset 'pk_field_id' /Applications/MAMP/htdocs/1.0/Application/HOME/Controller/UserController.class.php 第 103 行.
+NOTIC: [2] Illegal string offset 'field_name' /Applications/MAMP/htdocs/1.0/Application/HOME/Controller/UserController.class.php 第 104 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000903s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000958s ]
+
+[ 2016-04-14T10:08:15+08:00 ] ::1 /1.0/user/registerNewUser
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000021s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000606s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000432s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000481s ]
+SQL: SHOW COLUMNS FROM `t_user` [ RunTime:0.0389s ]
+SQL: INSERT INTO `t_user` (`user_account`,`user_password`,`user_name`,`user_age`,`user_register_time`) VALUES ('12278240392','123456','飞花','0','2016-04-14 10:08:15') [ RunTime:0.0005s ]
+SQL: SELECT * FROM `t_user` WHERE ( user_account=12278240392 )  [ RunTime:0.0003s ]
+NOTIC: [8] Undefined index: level_name /Applications/MAMP/htdocs/1.0/Application/HOME/Controller/UserController.class.php 第 95 行.
+SQL: call proc_UserFocusFieldByUserID_Select(11) [ RunTime:0.0005s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000537s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000579s ]
+
+[ 2016-04-14T10:09:46+08:00 ] ::1 /1.0/user/registerNewUser
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000020s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000552s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000624s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000703s ]
+SQL: SHOW COLUMNS FROM `t_user` [ RunTime:0.0430s ]
+NOTIC: [8] Undefined variable: userAccount /Applications/MAMP/htdocs/1.0/Application/HOME/Controller/UserController.class.php 第 77 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000539s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000581s ]
+
+[ 2016-04-14T10:10:25+08:00 ] ::1 /1.0/user/registerNewUser
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000021s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000453s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000754s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000845s ]
+SQL: SHOW COLUMNS FROM `t_user` [ RunTime:0.0537s ]
+NOTIC: [8] Undefined variable: userAccount /Applications/MAMP/htdocs/1.0/Application/HOME/Controller/UserController.class.php 第 77 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000533s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000574s ]
+
+[ 2016-04-14T10:10:49+08:00 ] ::1 /1.0/user/registerNewUser
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000338s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000400s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000442s ]
+SQL: SHOW COLUMNS FROM `t_user` [ RunTime:0.0553s ]
+NOTIC: [8] Undefined variable: userAccount /Applications/MAMP/htdocs/1.0/Application/HOME/Controller/UserController.class.php 第 77 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000536s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000577s ]
+
+[ 2016-04-14T10:11:35+08:00 ] ::1 /1.0/user/registerNewUser
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000019s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000480s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000585s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000657s ]
+SQL: SHOW COLUMNS FROM `t_user` [ RunTime:0.0524s ]
+NOTIC: [8] Undefined variable: userAccount /Applications/MAMP/htdocs/1.0/Application/HOME/Controller/UserController.class.php 第 77 行.
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')' at line 1
+ [ SQL语句 ] : SELECT * FROM `t_` WHERE ( user_account= ) 
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')' at line 1
+ [ SQL语句 ] : SELECT * FROM `t_` WHERE ( user_account= ) 
+
+[ 2016-04-14T10:11:48+08:00 ] ::1 /1.0/user/registerNewUser
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000019s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000459s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000593s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000657s ]
+SQL: SHOW COLUMNS FROM `t_user` [ RunTime:0.0477s ]
+NOTIC: [8] Undefined variable: userAccount /Applications/MAMP/htdocs/1.0/Application/HOME/Controller/UserController.class.php 第 77 行.
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')' at line 1
+ [ SQL语句 ] : SELECT * FROM `t_user` WHERE ( user_account= ) 
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')' at line 1
+ [ SQL语句 ] : SELECT * FROM `t_user` WHERE ( user_account= ) 
+
+[ 2016-04-14T10:12:07+08:00 ] ::1 /1.0/user/registerNewUser
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000021s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000497s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000693s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000762s ]
+SQL: SHOW COLUMNS FROM `t_user` [ RunTime:0.0416s ]
+NOTIC: [8] Undefined variable: userAccount /Applications/MAMP/htdocs/1.0/Application/HOME/Controller/UserController.class.php 第 77 行.
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')' at line 1
+ [ SQL语句 ] : SELECT * FROM `t_user` WHERE ( user_account= ) 
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')' at line 1
+ [ SQL语句 ] : SELECT * FROM `t_user` WHERE ( user_account= ) 
+
+[ 2016-04-14T10:12:19+08:00 ] ::1 /1.0/user/registerNewUser
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000020s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000499s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000633s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000714s ]
+SQL: SHOW COLUMNS FROM `t_user` [ RunTime:0.0358s ]
+SQL: SELECT * FROM `t_user` WHERE ( user_account=12278240392 )  [ RunTime:0.0003s ]
+SQL: INSERT INTO `t_user` (`user_account`,`user_password`,`user_name`,`user_age`,`user_register_time`) VALUES ('12278240392','123456','飞花','0','2016-04-14 10:12:19') [ RunTime:0.0003s ]
+SQL: SELECT * FROM `t_user` WHERE ( user_account=12278240392 )  [ RunTime:0.0002s ]
+NOTIC: [8] Undefined index: level_name /Applications/MAMP/htdocs/1.0/Application/HOME/Controller/UserController.class.php 第 103 行.
+SQL: call proc_UserFocusFieldByUserID_Select(13) [ RunTime:0.0004s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000503s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000542s ]
+
+[ 2016-04-14T10:15:24+08:00 ] ::1 /1.0/user/registerNewUser
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000295s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000394s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000439s ]
+SQL: SHOW COLUMNS FROM `t_user` [ RunTime:0.0599s ]
+SQL: SELECT * FROM `t_user` WHERE ( user_account=12278240392 )  [ RunTime:0.0004s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000527s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000571s ]
+
+[ 2016-04-14T10:15:37+08:00 ] ::1 /1.0/user/registerNewUser
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000020s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000632s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000794s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000871s ]
+SQL: SHOW COLUMNS FROM `t_user` [ RunTime:0.0607s ]
+SQL: SELECT * FROM `t_user` WHERE ( user_account=12278240392 )  [ RunTime:0.0003s ]
+SQL: INSERT INTO `t_user` (`user_account`,`user_password`,`user_name`,`user_age`,`user_register_time`) VALUES ('12278240392','123456','飞花','0','2016-04-14 10:15:37') [ RunTime:0.0005s ]
+SQL: call proc_UserByAccount_Select(12278240392) [ RunTime:0.0005s ]
+SQL: call proc_UserFocusFieldByUserID_Select(14) [ RunTime:0.0003s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000541s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000584s ]
+
+[ 2016-04-14T10:16:01+08:00 ] ::1 /1.0/user/judgeUserAccountHaveRegistered
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000018s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000481s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000428s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000479s ]
+SQL: SHOW COLUMNS FROM `t_user` [ RunTime:0.0438s ]
+NOTIC: [8] Undefined variable: db /Applications/MAMP/htdocs/1.0/Application/HOME/Controller/UserController.class.php 第 61 行.
+ERR: Call to a member function where() on unknown
+
+[ 2016-04-14T10:16:13+08:00 ] ::1 /1.0/user/judgeUserAccountHaveRegistered
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000019s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000423s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000634s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000717s ]
+SQL: SHOW COLUMNS FROM `t_user` [ RunTime:0.0469s ]
+NOTIC: [8] Undefined variable: db /Applications/MAMP/htdocs/1.0/Application/HOME/Controller/UserController.class.php 第 61 行.
+ERR: Call to a member function where() on unknown
+
+[ 2016-04-14T10:16:25+08:00 ] ::1 /1.0/user/judgeUserAccountHaveRegistered
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000031s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000505s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000394s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000439s ]
+SQL: SHOW COLUMNS FROM `t_user` [ RunTime:0.0278s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000539s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000582s ]
+
+[ 2016-04-14T10:16:33+08:00 ] ::1 /1.0/user/judgeUserAccountHaveRegistered
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000296s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000363s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000401s ]
+SQL: SHOW COLUMNS FROM `t_user` [ RunTime:0.0539s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000532s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000575s ]
+
+[ 2016-04-14T10:16:43+08:00 ] ::1 /1.0/user/judgeUserAccountHaveRegistered
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000019s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000469s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000384s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000424s ]
+SQL: SHOW COLUMNS FROM `t_user` [ RunTime:0.0547s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000536s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000579s ]
+
+[ 2016-04-14T10:16:47+08:00 ] ::1 /1.0/user/judgeUserAccountHaveRegistered
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000288s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000535s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000589s ]
+SQL: SHOW COLUMNS FROM `t_user` [ RunTime:0.0447s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000531s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000573s ]
+
+[ 2016-04-14T10:16:58+08:00 ] ::1 /1.0/user/judgeUserAccountHaveRegistered
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000334s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000630s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000705s ]
+SQL: SHOW COLUMNS FROM `t_user` [ RunTime:0.0587s ]
+SQL: SELECT * FROM `t_user` WHERE ( user_account=12278240392 )  [ RunTime:0.0003s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000529s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000573s ]
+
+[ 2016-04-14T10:17:16+08:00 ] ::1 /1.0/user/judgeUserAccountHaveRegistered
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000015s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000317s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000381s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000427s ]
+SQL: SHOW COLUMNS FROM `t_user` [ RunTime:0.0407s ]
+SQL: SELECT * FROM `t_user` WHERE ( user_account=12278240392 )  [ RunTime:0.0003s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000532s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000577s ]
+
+[ 2016-04-14T10:17:20+08:00 ] ::1 /1.0/user/judgeUserAccountHaveRegistered
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000020s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000493s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000725s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000792s ]
+SQL: SHOW COLUMNS FROM `t_user` [ RunTime:0.0479s ]
+SQL: SELECT * FROM `t_user` WHERE ( user_account=122782403922 )  [ RunTime:0.0003s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000532s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000576s ]
+
+[ 2016-04-14T10:17:24+08:00 ] ::1 /1.0/user/judgeUserAccountHaveRegistered
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000305s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000363s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000401s ]
+SQL: SHOW COLUMNS FROM `t_user` [ RunTime:0.0438s ]
+SQL: SELECT * FROM `t_user` WHERE ( user_account=12278240392 )  [ RunTime:0.0003s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000529s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000571s ]
+
+[ 2016-04-14T10:17:30+08:00 ] ::1 /1.0/user/judgeUserAccountHaveRegistered
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000309s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000398s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000446s ]
+SQL: SHOW COLUMNS FROM `t_user` [ RunTime:0.0386s ]
+SQL: SELECT * FROM `t_user` WHERE ( user_account=18850459303 )  [ RunTime:0.0003s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000530s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000572s ]
+
+[ 2016-04-14T10:28:43+08:00 ] ::1 /1.0/user/getUserByAccountPassword
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000018s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001454s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000851s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000923s ]
+SQL: call proc_UserByAccount_Select(18850459303) [ RunTime:0.0005s ]
+SQL: call proc_UserFocusFieldByUserID_Select(1) [ RunTime:0.0004s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000975s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001038s ]
+
+[ 2016-04-14T10:28:48+08:00 ] ::1 /1.0/common/getField
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000310s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000382s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000424s ]
+SQL: SHOW COLUMNS FROM `t_field` [ RunTime:0.0746s ]
+SQL: SELECT * FROM `t_field`  [ RunTime:0.0007s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001666s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001749s ]
+
+[ 2016-04-14T10:28:48+08:00 ] ::1 /1.0/communion/getBookpostBySearchTextSortMethodFieldID
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000399s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000509s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000566s ]
+SQL: call proc_Bp_SelectByMultiCondition('%%', 0, 0, 0, 10) [ RunTime:0.0698s ]
+SQL: call proc_UserCollectBpByBookpostIDUserID_Select(19, 1) [ RunTime:0.0004s ]
+SQL: call proc_UserSupportBpByBookpostIDUserID_Select(19, 1) [ RunTime:0.0004s ]
+SQL: call proc_UserCollectBpByBookpostIDUserID_Select(18, 1) [ RunTime:0.0003s ]
+SQL: call proc_UserSupportBpByBookpostIDUserID_Select(18, 1) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBpByBookpostIDUserID_Select(17, 1) [ RunTime:0.0002s ]
+SQL: call proc_UserSupportBpByBookpostIDUserID_Select(17, 1) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBpByBookpostIDUserID_Select(16, 1) [ RunTime:0.0002s ]
+SQL: call proc_UserSupportBpByBookpostIDUserID_Select(16, 1) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBpByBookpostIDUserID_Select(10, 1) [ RunTime:0.0002s ]
+SQL: call proc_UserSupportBpByBookpostIDUserID_Select(10, 1) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBpByBookpostIDUserID_Select(9, 1) [ RunTime:0.0002s ]
+SQL: call proc_UserSupportBpByBookpostIDUserID_Select(9, 1) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBpByBookpostIDUserID_Select(8, 1) [ RunTime:0.0002s ]
+SQL: call proc_UserSupportBpByBookpostIDUserID_Select(8, 1) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBpByBookpostIDUserID_Select(7, 1) [ RunTime:0.0003s ]
+SQL: call proc_UserSupportBpByBookpostIDUserID_Select(7, 1) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBpByBookpostIDUserID_Select(6, 1) [ RunTime:0.0002s ]
+SQL: call proc_UserSupportBpByBookpostIDUserID_Select(6, 1) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBpByBookpostIDUserID_Select(5, 1) [ RunTime:0.0002s ]
+SQL: call proc_UserSupportBpByBookpostIDUserID_Select(5, 1) [ RunTime:0.0002s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000561s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000604s ]
+
+[ 2016-04-14T10:28:48+08:00 ] ::1 /1.0/activity/getCoupletBySortMethod
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000016s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000392s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000498s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000551s ]
+SQL: call proc_Couplet_SelectByMultiCondition(0, 0, 10) [ RunTime:0.0046s ]
+SQL: call proc_UserSupportCoupletByCoupletIDUserID_Select(34, 1) [ RunTime:0.0004s ]
+SQL: call proc_UserCollectCoupletByCoupletIDUserID_Select(34, 1) [ RunTime:0.0004s ]
+SQL: call proc_UserSupportCoupletByCoupletIDUserID_Select(33, 1) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectCoupletByCoupletIDUserID_Select(33, 1) [ RunTime:0.0002s ]
+SQL: call proc_UserSupportCoupletByCoupletIDUserID_Select(32, 1) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectCoupletByCoupletIDUserID_Select(32, 1) [ RunTime:0.0002s ]
+SQL: call proc_UserSupportCoupletByCoupletIDUserID_Select(31, 1) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectCoupletByCoupletIDUserID_Select(31, 1) [ RunTime:0.0002s ]
+SQL: call proc_UserSupportCoupletByCoupletIDUserID_Select(30, 1) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectCoupletByCoupletIDUserID_Select(30, 1) [ RunTime:0.0002s ]
+SQL: call proc_UserSupportCoupletByCoupletIDUserID_Select(29, 1) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectCoupletByCoupletIDUserID_Select(29, 1) [ RunTime:0.0002s ]
+SQL: call proc_UserSupportCoupletByCoupletIDUserID_Select(28, 1) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectCoupletByCoupletIDUserID_Select(28, 1) [ RunTime:0.0002s ]
+SQL: call proc_UserSupportCoupletByCoupletIDUserID_Select(27, 1) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectCoupletByCoupletIDUserID_Select(27, 1) [ RunTime:0.0002s ]
+SQL: call proc_UserSupportCoupletByCoupletIDUserID_Select(26, 1) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectCoupletByCoupletIDUserID_Select(26, 1) [ RunTime:0.0002s ]
+SQL: call proc_UserSupportCoupletByCoupletIDUserID_Select(25, 1) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectCoupletByCoupletIDUserID_Select(25, 1) [ RunTime:0.0002s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000540s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000584s ]
+
+[ 2016-04-14T10:28:49+08:00 ] ::1 /1.0/activity/getCurrThesis
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000016s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000401s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000511s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000570s ]
+SQL: call proc_ThesisByThesisState_Select() [ RunTime:0.0010s ]
+SQL: call proc_UserCollectThesisBythesisIDUserID_Select(1, 1) [ RunTime:0.0005s ]
+SQL: call proc_ArgumentByBelong_Select(1, 0, 1) [ RunTime:0.0008s ]
+SQL: call proc_UserSupportArgumentByArgumentIDUserID_Select(38, 1) [ RunTime:0.0005s ]
+SQL: call proc_ArgumentByBelong_Select(0, 0, 1) [ RunTime:0.0005s ]
+SQL: call proc_UserSupportArgumentByArgumentIDUserID_Select(34, 1) [ RunTime:0.0003s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000538s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000580s ]
+
+[ 2016-04-14T10:28:49+08:00 ] ::1 /1.0/activity/getAnswerRecordByUserID
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000016s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000394s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000497s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000551s ]
+SQL: SHOW COLUMNS FROM `t_question` [ RunTime:0.0614s ]
+SQL: SHOW COLUMNS FROM `t_answer_record` [ RunTime:0.0154s ]
+SQL: SHOW COLUMNS FROM `t_user` [ RunTime:0.0084s ]
+SQL: SELECT `pk_question_id`,`question_answer`,`question_show_order` FROM `t_question` WHERE ( question_usable=1 AND fk_question_state_id=7 )  [ RunTime:0.0003s ]
+SQL: SELECT `answer_record_answer` FROM `t_answer_record` WHERE ( fk_answer_record_user_id=1 AND fk_answer_record_question_id=1 ) LIMIT 1   [ RunTime:0.0002s ]
+SQL: SELECT `answer_record_answer` FROM `t_answer_record` WHERE ( fk_answer_record_user_id=1 AND fk_answer_record_question_id=2 ) LIMIT 1   [ RunTime:0.0002s ]
+SQL: SELECT `answer_record_answer` FROM `t_answer_record` WHERE ( fk_answer_record_user_id=1 AND fk_answer_record_question_id=3 ) LIMIT 1   [ RunTime:0.0002s ]
+SQL: SELECT `answer_record_answer` FROM `t_answer_record` WHERE ( fk_answer_record_user_id=1 AND fk_answer_record_question_id=4 ) LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT `answer_record_answer` FROM `t_answer_record` WHERE ( fk_answer_record_user_id=1 AND fk_answer_record_question_id=5 ) LIMIT 1   [ RunTime:0.0002s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000482s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000519s ]
+
+[ 2016-04-14T10:28:49+08:00 ] ::1 /1.0/activity/getQuestion
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000274s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000339s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000373s ]
+SQL: call proc_QuestionByQuestionState_Select(2, 5) [ RunTime:0.0008s ]
+SQL: call proc_UserCollectQuestionByQuestionIDUserID_Select(1, 1) [ RunTime:0.0003s ]
+SQL: call proc_UserCollectQuestionByQuestionIDUserID_Select(2, 1) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectQuestionByQuestionIDUserID_Select(3, 1) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectQuestionByQuestionIDUserID_Select(4, 1) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectQuestionByQuestionIDUserID_Select(5, 1) [ RunTime:0.0002s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000694s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000743s ]
+
+[ 2016-04-14T10:28:49+08:00 ] ::1 /1.0/common/getField
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000291s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000363s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000402s ]
+SQL: SHOW COLUMNS FROM `t_field` [ RunTime:0.0201s ]
+SQL: SELECT * FROM `t_field`  [ RunTime:0.0003s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000534s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000579s ]
+
+[ 2016-04-14T10:28:49+08:00 ] ::1 /1.0/library/getBookBySearchTextSortMethodFieldID
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000014s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000404s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000365s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000408s ]
+SQL: call WenHuiApartment.proc_Book_SelectByMultiCondition('%%', 0, 0, 0, 10); [ RunTime:0.0517s ]
+SQL: call WenHuiApartment.proc_UserCollectBookByBookIDUserID_Select(51, 1) [ RunTime:0.0004s ]
+SQL: call WenHuiApartment.proc_UserCollectBookByBookIDUserID_Select(50, 1) [ RunTime:0.0002s ]
+SQL: call WenHuiApartment.proc_UserCollectBookByBookIDUserID_Select(49, 1) [ RunTime:0.0003s ]
+SQL: call WenHuiApartment.proc_UserCollectBookByBookIDUserID_Select(48, 1) [ RunTime:0.0002s ]
+SQL: call WenHuiApartment.proc_UserCollectBookByBookIDUserID_Select(12, 1) [ RunTime:0.0002s ]
+SQL: call WenHuiApartment.proc_UserCollectBookByBookIDUserID_Select(11, 1) [ RunTime:0.0003s ]
+SQL: call WenHuiApartment.proc_UserCollectBookByBookIDUserID_Select(10, 1) [ RunTime:0.0002s ]
+SQL: call WenHuiApartment.proc_UserCollectBookByBookIDUserID_Select(9, 1) [ RunTime:0.0002s ]
+SQL: call WenHuiApartment.proc_UserCollectBookByBookIDUserID_Select(8, 1) [ RunTime:0.0002s ]
+SQL: call WenHuiApartment.proc_UserCollectBookByBookIDUserID_Select(7, 1) [ RunTime:0.0003s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000708s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000765s ]
+
+[ 2016-04-14T10:29:32+08:00 ] ::1 /1.0/user/registerNewUser
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000276s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000341s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000376s ]
+SQL: SHOW COLUMNS FROM `t_user` [ RunTime:0.0293s ]
+SQL: SELECT * FROM `t_user` WHERE ( user_account=18850459303 )  [ RunTime:0.0003s ]
+SQL: INSERT INTO `t_user` (`user_account`,`user_password`,`user_name`,`user_age`,`user_register_time`) VALUES ('18850459303','123456','Zcpzcp','0','2016-04-14 10:29:32') [ RunTime:0.0004s ]
+SQL: call proc_UserByAccount_Select(18850459303) [ RunTime:0.0007s ]
+SQL: call proc_UserFocusFieldByUserID_Select(15) [ RunTime:0.0005s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000553s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000595s ]
+
+[ 2016-04-14T10:29:36+08:00 ] ::1 /1.0/Application/Home/Images/Head/default.png
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000279s ]
+
+[ 2016-04-14T10:29:41+08:00 ] ::1 /1.0/user/getCollectedUserList
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000289s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000357s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000392s ]
+SQL: call proc_UserCollectUser_Select(15, 0, 10) [ RunTime:0.0005s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000523s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000610s ]
+
+[ 2016-04-14T10:29:43+08:00 ] ::1 /1.0/communion/getBookpostByUserID
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000024s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000893s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000586s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000647s ]
+SQL: SHOW COLUMNS FROM `t_user` [ RunTime:0.0306s ]
+SQL: SHOW COLUMNS FROM `t_field` [ RunTime:0.0365s ]
+SQL: SHOW COLUMNS FROM `t_bookpost` [ RunTime:0.0159s ]
+SQL: SELECT * FROM `t_bookpost` WHERE ( bookpost_usable=1 AND fk_bp_user_id=15 ) ORDER BY bookpost_time desc LIMIT 0,10   [ RunTime:0.0003s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000556s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000601s ]
+
+[ 2016-04-14T10:29:45+08:00 ] ::1 /1.0/communion/getCollectedBookpostByUserID
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000302s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000365s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000402s ]
+SQL: SHOW COLUMNS FROM `t_user` [ RunTime:0.0330s ]
+SQL: SHOW COLUMNS FROM `t_field` [ RunTime:0.0240s ]
+SQL: SHOW COLUMNS FROM `t_bookpost` [ RunTime:0.0260s ]
+SQL: SHOW COLUMNS FROM `t_user_collect_bookpost` [ RunTime:0.0601s ]
+SQL: SELECT * FROM `t_user_collect_bookpost` LEFT JOIN T_bookpost on T_bookpost.pk_bookpost_id=T_user_collect_bookpost.fk_ucbp_bookpost_id  WHERE ( collect_usable=1 AND fk_ucbp_user_id=15 ) ORDER BY bookpost_time desc LIMIT 0,10   [ RunTime:0.0129s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000684s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000746s ]
+
+[ 2016-04-14T10:29:47+08:00 ] ::1 /1.0/communion/getBookpostByUserID
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000016s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000336s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000592s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000641s ]
+SQL: SHOW COLUMNS FROM `t_user` [ RunTime:0.0314s ]
+SQL: SHOW COLUMNS FROM `t_field` [ RunTime:0.0381s ]
+SQL: SHOW COLUMNS FROM `t_bookpost` [ RunTime:0.0322s ]
+SQL: SELECT * FROM `t_bookpost` WHERE ( bookpost_usable=1 AND fk_bp_user_id=15 ) ORDER BY bookpost_time desc LIMIT 0,10   [ RunTime:0.0011s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000749s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000818s ]
+
+[ 2016-04-14T10:29:48+08:00 ] ::1 /1.0/library/getBookByUserID
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000045s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001483s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000389s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000426s ]
+SQL: SHOW COLUMNS FROM `t_user` [ RunTime:0.0196s ]
+SQL: SHOW COLUMNS FROM `t_field` [ RunTime:0.0293s ]
+SQL: SHOW COLUMNS FROM `t_book` [ RunTime:0.0230s ]
+SQL: SELECT * FROM `t_book` WHERE ( book_usable=1 AND fk_book_user_id=15 ) ORDER BY book_time desc LIMIT 0,10   [ RunTime:0.0006s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000570s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000615s ]
+
+[ 2016-04-14T10:29:49+08:00 ] ::1 /1.0/activity/getCoupletByUserID
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000273s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000344s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000378s ]
+SQL: SHOW COLUMNS FROM `t_user` [ RunTime:0.0263s ]
+SQL: SHOW COLUMNS FROM `t_couplet` [ RunTime:0.0106s ]
+SQL: SELECT * FROM `t_couplet` WHERE ( couplet_usable=1 AND fk_couplet_user_id=15 ) ORDER BY couplet_time desc LIMIT 0,10   [ RunTime:0.0003s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000479s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000514s ]
+
+[ 2016-04-14T10:29:49+08:00 ] ::1 /1.0/activity/getThesisByUserID
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000272s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000338s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000372s ]
+SQL: SHOW COLUMNS FROM `t_state` [ RunTime:0.0102s ]
+SQL: SHOW COLUMNS FROM `t_thesis` [ RunTime:0.0273s ]
+SQL: SELECT * FROM `t_thesis` WHERE ( thesis_usable=1 AND fk_thesis_user_id=15 ) ORDER BY thesis_time desc LIMIT 0,10   [ RunTime:0.0003s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000532s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000573s ]
+
+[ 2016-04-14T10:29:49+08:00 ] ::1 /1.0/activity/getQuestionByUserID
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000418s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000357s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000393s ]
+SQL: SHOW COLUMNS FROM `t_state` [ RunTime:0.0084s ]
+SQL: SHOW COLUMNS FROM `t_question` [ RunTime:0.0280s ]
+SQL: SELECT * FROM `t_question` WHERE ( question_usable=1 AND fk_question_user_id=15 ) ORDER BY question_time desc LIMIT 0,10   [ RunTime:0.0003s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000508s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000546s ]
+
+[ 2016-04-14T10:29:50+08:00 ] ::1 /1.0/communion/getBookpostByUserID
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000268s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000336s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000370s ]
+SQL: SHOW COLUMNS FROM `t_user` [ RunTime:0.0311s ]
+SQL: SHOW COLUMNS FROM `t_field` [ RunTime:0.0080s ]
+SQL: SHOW COLUMNS FROM `t_bookpost` [ RunTime:0.0092s ]
+SQL: SELECT * FROM `t_bookpost` WHERE ( bookpost_usable=1 AND fk_bp_user_id=15 ) ORDER BY bookpost_time desc LIMIT 0,10   [ RunTime:0.0004s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000461s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000496s ]
+
+[ 2016-04-14T10:29:51+08:00 ] ::1 /1.0/communion/getBookpostByUserID
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000303s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000354s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000388s ]
+SQL: SHOW COLUMNS FROM `t_user` [ RunTime:0.0316s ]
+SQL: SHOW COLUMNS FROM `t_field` [ RunTime:0.0285s ]
+SQL: SHOW COLUMNS FROM `t_bookpost` [ RunTime:0.0222s ]
+SQL: SELECT * FROM `t_bookpost` WHERE ( bookpost_usable=1 AND fk_bp_user_id=15 ) ORDER BY bookpost_time desc LIMIT 0,10   [ RunTime:0.0004s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000539s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000582s ]
+
+[ 2016-04-14T10:29:54+08:00 ] ::1 /1.0/common/getField
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000305s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000375s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000417s ]
+SQL: SHOW COLUMNS FROM `t_field` [ RunTime:0.0301s ]
+SQL: SELECT * FROM `t_field`  [ RunTime:0.0002s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000492s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000535s ]
+
+[ 2016-04-14T10:30:02+08:00 ] ::1 /1.0/user/modifyUserInfo
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000036s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000711s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000482s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000539s ]
+NOTIC: [8] Undefined index: oldFieldIDArr /Applications/MAMP/htdocs/1.0/Application/HOME/Controller/UserController.class.php 第 195 行.
+SQL: call WenHuiApartment.proc_UserByUserID_Select(15) [ RunTime:0.0006s ]
+SQL: SHOW COLUMNS FROM `t_user` [ RunTime:0.0308s ]
+SQL: UPDATE `t_user` SET `user_name`='Zcpzcp',`user_age`='10' WHERE `pk_user_id` = 15 [ RunTime:0.0005s ]
+SQL: SHOW COLUMNS FROM `t_user_focus_field` [ RunTime:0.0260s ]
+SQL: SELECT `pk_user_focus_field_id` FROM `t_user_focus_field` WHERE ( fk_user_focus_field_user_id=15 ) LIMIT 1   [ RunTime:0.0005s ]
+SQL: INSERT INTO `t_user_focus_field` (`user_focus_field_time`,`fk_user_focus_field_field_id`,`fk_user_focus_field_user_id`) VALUES ('2016-04-14 10:30:02','1','15') [ RunTime:0.0005s ]
+SQL: INSERT INTO `t_user_focus_field` (`user_focus_field_time`,`fk_user_focus_field_field_id`,`fk_user_focus_field_user_id`) VALUES ('2016-04-14 10:30:02','2','15') [ RunTime:0.0004s ]
+SQL: INSERT INTO `t_user_focus_field` (`user_focus_field_time`,`fk_user_focus_field_field_id`,`fk_user_focus_field_user_id`) VALUES ('2016-04-14 10:30:02','3','15') [ RunTime:0.0003s ]
+SQL: call WenHuiApartment.proc_UserByUserID_Select(15) [ RunTime:0.0004s ]
+SQL: call proc_UserFocusFieldByUserID_Select(15) [ RunTime:0.0004s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000541s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000585s ]
+
+[ 2016-04-14T10:30:07+08:00 ] ::1 /1.0/common/getField
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000293s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000387s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000433s ]
+SQL: SHOW COLUMNS FROM `t_field` [ RunTime:0.0370s ]
+SQL: SELECT * FROM `t_field`  [ RunTime:0.0005s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000636s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000682s ]
+
+[ 2016-04-14T10:30:18+08:00 ] ::1 /1.0/user/modifyUserPassword
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000270s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000415s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000452s ]
+SQL: call WenHuiApartment.proc_UserByUserID_Select(15) [ RunTime:0.0005s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000467s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000503s ]
+
+[ 2016-04-14T10:30:24+08:00 ] ::1 /1.0/user/modifyUserPassword
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000272s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001620s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001916s ]
+SQL: call WenHuiApartment.proc_UserByUserID_Select(15) [ RunTime:0.0006s ]
+SQL: SHOW COLUMNS FROM `t_user` [ RunTime:0.0350s ]
+SQL: UPDATE `t_user` SET `user_password`='111111' WHERE `pk_user_id` = 15 [ RunTime:0.0008s ]
+SQL: call WenHuiApartment.proc_UserByUserID_Select(15) [ RunTime:0.0004s ]
+SQL: call proc_UserFocusFieldByUserID_Select(15) [ RunTime:0.0016s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001645s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001832s ]
+
+[ 2016-04-14T11:35:25+08:00 ] ::1 /1.0/user/judgeUserAccountCanBeRegistered
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000017s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000802s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001928s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002197s ]
+SQL: SHOW COLUMNS FROM `t_user` [ RunTime:0.0263s ]
+SQL: SELECT * FROM `t_user` WHERE ( user_account=18850459303 )  [ RunTime:0.0009s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000860s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000929s ]
+
+[ 2016-04-14T11:35:33+08:00 ] ::1 /1.0/user/judgeUserAccountCanBeRegistered
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000274s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000339s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000373s ]
+SQL: SHOW COLUMNS FROM `t_user` [ RunTime:0.0113s ]
+SQL: SELECT * FROM `t_user` WHERE ( user_account=18850459303 )  [ RunTime:0.0004s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000703s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000770s ]
+
+[ 2016-04-14T11:36:55+08:00 ] ::1 /1.0/user/judgeUserAccountCanBeRegistered
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000284s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000356s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000393s ]
+SQL: SHOW COLUMNS FROM `t_user` [ RunTime:0.0275s ]
+SQL: SELECT * FROM `t_user` WHERE ( user_account=18850459303 )  [ RunTime:0.0005s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000775s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000864s ]
+
+[ 2016-04-14T11:38:19+08:00 ] ::1 /1.0/user/judgeUserAccountCanBeRegistered
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000026s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001362s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000385s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000423s ]
+SQL: SHOW COLUMNS FROM `t_user` [ RunTime:0.0142s ]
+SQL: SELECT * FROM `t_user` WHERE ( user_account=18850459303 )  [ RunTime:0.0003s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000532s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000574s ]
+
+[ 2016-04-14T11:38:41+08:00 ] ::1 /1.0/user/resetPassword
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000014s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000485s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000385s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000422s ]
+SQL: SHOW COLUMNS FROM `t_user` [ RunTime:0.0263s ]
+NOTIC: [8] Undefined variable: db /Applications/MAMP/htdocs/1.0/Application/HOME/Controller/UserController.class.php 第 135 行.
+ERR: Call to a member function where() on unknown
+
+[ 2016-04-14T11:39:16+08:00 ] ::1 /1.0/user/resetPassword
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000019s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000452s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000480s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000550s ]
+SQL: SHOW COLUMNS FROM `t_user` [ RunTime:0.0278s ]
+NOTIC: [8] Undefined variable: db /Applications/MAMP/htdocs/1.0/Application/HOME/Controller/UserController.class.php 第 135 行.
+ERR: Call to a member function where() on unknown
+
+[ 2016-04-14T11:39:37+08:00 ] ::1 /1.0/user/resetPassword
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000019s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000391s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000638s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000699s ]
+SQL: SHOW COLUMNS FROM `t_user` [ RunTime:0.0417s ]
+SQL: UPDATE `t_user` SET `user_password`='111111' WHERE `user_account` = '18850459303' [ RunTime:0.0008s ]
+NOTIC: [8] Undefined variable: currUserID /Applications/MAMP/htdocs/1.0/Application/HOME/Controller/UserController.class.php 第 140 行.
+ERR: 1318:Incorrect number of arguments for PROCEDURE wenhuiapartment.proc_UserByUserID_Select; expected 1, got 0
+ [ SQL语句 ] : call WenHuiApartment.proc_UserByUserID_Select()
+ERR: 1318:Incorrect number of arguments for PROCEDURE wenhuiapartment.proc_UserByUserID_Select; expected 1, got 0
+ [ SQL语句 ] : call WenHuiApartment.proc_UserByUserID_Select()
+
+[ 2016-04-14T11:40:08+08:00 ] ::1 /1.0/user/resetPassword
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000289s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000357s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000394s ]
+SQL: SHOW COLUMNS FROM `t_user` [ RunTime:0.0390s ]
+SQL: UPDATE `t_user` SET `user_password`='111111' WHERE `user_account` = '18850459303' [ RunTime:0.0005s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000527s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000569s ]
+
+[ 2016-04-14T11:42:51+08:00 ] ::1 /1.0/user/judgeUserAccountCanBeRegistered
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000050s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001087s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001597s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001722s ]
+SQL: SHOW COLUMNS FROM `t_user` [ RunTime:0.0210s ]
+SQL: SELECT * FROM `t_user` WHERE ( user_account=18850459303 )  [ RunTime:0.0003s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000566s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000614s ]
+
+[ 2016-04-14T11:43:51+08:00 ] ::1 /1.0/user/judgeUserAccountCanBeRegistered
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000281s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000375s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000452s ]
+SQL: SHOW COLUMNS FROM `t_user` [ RunTime:0.0238s ]
+SQL: SELECT * FROM `t_user` WHERE ( user_account=18850459303 )  [ RunTime:0.0004s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000660s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000712s ]
+
+[ 2016-04-14T11:44:13+08:00 ] ::1 /1.0/user/resetPassword
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000272s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000344s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000378s ]
+SQL: SHOW COLUMNS FROM `t_user` [ RunTime:0.0365s ]
+SQL: UPDATE `t_user` SET `user_password`='123456' WHERE `user_account` = '18850459303' [ RunTime:0.0005s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000706s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000759s ]
+
+[ 2016-04-14T11:44:27+08:00 ] ::1 /1.0/user/getUserByAccountPassword
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000310s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000434s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000477s ]
+SQL: call proc_UserByAccount_Select(18850459303) [ RunTime:0.0005s ]
+SQL: call proc_UserFocusFieldByUserID_Select(1) [ RunTime:0.0004s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000535s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000577s ]
+

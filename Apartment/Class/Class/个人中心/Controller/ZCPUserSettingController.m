@@ -142,8 +142,6 @@
         _imagePicker.delegate = self;
         _imagePicker.navigationBar.barTintColor = [UIColor lightGrayColor];
         _imagePicker.navigationBar.tintColor = [UIColor blueColor];
-        
-        
     }
     return _imagePicker;
 }
@@ -173,6 +171,11 @@
  */
 - (void)cell:(UITableViewCell *)cell buttonClicked:(UIButton *)button {
     TTDPRINT(@"退出登陆");
+    
+    // 清除用户信息
+    [[ZCPUserCenter sharedInstance] clearUserModel];
+    // 进入登陆注册界面
+    [[ZCPNavigator sharedInstance] setupRootViewControllerLoginRegister];
 }
 #pragma mark - ZCPHeadImageCell Delegate
 /**

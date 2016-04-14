@@ -22,6 +22,39 @@
                              failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure;
 
 /**
+ *  判断当前账号是否可以注册
+ *
+ *  @param account  账号
+ */
+- (NSOperation *)JudgeAccountCanBeRegisterWithAccount:(NSString *)account
+                              success:(void (^)(AFHTTPRequestOperation *operation, BOOL isSuccess, NSString *msg))success
+                              failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure;
+
+/**
+ *  用户注册
+ *
+ *  @param userName 用户名
+ *  @param account  账号
+ *  @param password 密码
+ */
+- (NSOperation *)registerWithUserName:(NSString *)userName
+                              account:(NSString *)account
+                             password:(NSString *)password
+                              success:(void (^)(AFHTTPRequestOperation *operation, NSString *msg, ZCPUserModel *userModel))success
+                              failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure;
+
+/**
+ *  重设密码
+ *
+ *  @param newPassword 新密码
+ *  @param account     账号
+ */
+- (NSOperation *)resetPassword:(NSString *)newPassword
+                       account:(NSString *)account
+                       success:(void (^)(AFHTTPRequestOperation *operation, BOOL isSuccess))success
+                       failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure;
+
+/**
  *  上传用户头像
  *
  *  @param headImage 头像
