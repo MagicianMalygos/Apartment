@@ -96,8 +96,6 @@
         _collectionView.pagingEnabled = YES;    // 分页
         _collectionView.dataSource = self;
         _collectionView.delegate = self;
-        
-        _collectionView.backgroundColor = [UIColor greenColor];
     }
     return _collectionView;
 }
@@ -133,7 +131,6 @@
             [weakSelf.delegate pageView:weakSelf didSelectedPageAtIndex:indexPath.item % weakSelf.pageCount];
         }
     }];
-    cell.backgroundColor = [UIColor redColor];
     return cell;
 }
 #pragma mark - UICollectionViewDelegate UIScrollViewDelegate
@@ -192,7 +189,7 @@
         _imageView = [[UIImageView alloc] initWithFrame:({
             self.contentView.bounds;
         })];
-        _imageView.contentMode = UIViewContentModeScaleAspectFill;
+        _imageView.contentMode = UIViewContentModeScaleToFill;
         _imageView.clipsToBounds = YES;
         _imageView.userInteractionEnabled = YES;
         [_imageView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onPressedImageView:)]];
@@ -208,8 +205,8 @@
     
     self.imageViewClickBlock = imageViewClickBlock;
     
-    if ([self verifyURL:URLString]) {
-        [self.imageView sd_setImageWithURL:[NSURL URLWithString:URLString] placeholderImage:[UIImage imageNamed:@"default"] completed:nil];
+    if ([URLString is_url]) {
+        [self.imageView sd_setImageWithURL:[NSURL URLWithString:URLString] placeholderImage:[UIImage imageNamed:ADVERTISEMEN_IMAGE_DEFAULT] completed:nil];
     } else {
         [self.imageView setImage:[UIImage imageNamed:URLString]];
     }
@@ -220,13 +217,6 @@
     if (self.imageViewClickBlock) {
         self.imageViewClickBlock(imageView);
     }
-}
-#pragma mark - private method
-- (BOOL)verifyURL:(NSString *)url{
-    NSString *pattern = @"((http|ftp|https)://)(([a-zA-Z0-9\\._-]+\\.[a-zA-Z]{2,6})|([0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}))(:[0-9]{1,4})*(/[a-zA-Z0-9\\&%_\\./-~-]*)?";
-    NSPredicate *pred = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", pattern];
-    BOOL isMatch = [pred evaluateWithObject:url];
-    return isMatch;
 }
 
 @end

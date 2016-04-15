@@ -70,7 +70,7 @@
         // 设置属性
         self.bpTitleLabel.text = self.item.bookpostTitle;
         self.fieldLabel.text = self.item.field.fieldName;
-        self.bookNameLabel.text = self.item.bookpostBookName;
+        self.bookNameLabel.text = [NSString stringWithFormat:@"《%@》", self.item.bookpostBookName];
         
         self.supportNumberLabel.text = [NSString stringWithFormat:@"%@ 人点赞", [NSString getFormateFromNumberOfPeople:self.item.bookpostSupport]];
         self.collectionNumberLabel.text = [NSString stringWithFormat:@"%@ 人收藏", [NSString getFormateFromNumberOfPeople:self.item.bookpostCollectNumber]];

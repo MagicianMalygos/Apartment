@@ -100,6 +100,8 @@ do { \
 #define HEAD_IMAGE_NAME_DEFAULT             @"head_default"
 // 默认图书封面
 #define COVER_IMAGE_NAME_DEFAULT            @"cover_default"
+// 默认广告图片
+#define ADVERTISEMEN_IMAGE_DEFAULT          @"advertisement_default"
 // 默认列表一页数据量
 #define PAGE_COUNT_DEFAULT                  10
 // 盐，四位随机数

@@ -36,7 +36,7 @@
     // 第三行
     self.bpContentLabel = [[UILabel alloc] init];
     self.bpContentLabel.font = [UIFont defaultFontWithSize:16.0f];
-    self.bpContentLabel.numberOfLines = 3;  // 首页展示最多3行
+    self.bpContentLabel.numberOfLines = 0;
     
     // 第四行
     self.uploaderLabel = [[UILabel alloc] init];
@@ -98,7 +98,7 @@
         self.bpContentLabel.text = self.item.bookpostModel.bookpostContent;
         self.uploaderLabel.text = self.item.bookpostModel.user.userName;
         self.fieldLabel.text = self.item.bookpostModel.field.fieldName;
-        self.bookNameLabel.text = self.item.bookpostModel.bookpostBookName;
+        self.bookNameLabel.text = [NSString stringWithFormat:@"《%@》", self.item.bookpostModel.bookpostBookName];
         self.bpTimeLabel.text = [NSString stringWithFormat:@"发表于 %@", [self.item.bookpostModel.bookpostTime toString]];
 
         self.supportNumberLabel.text = [NSString stringWithFormat:@"%@ 人点赞", [NSString getFormateFromNumberOfPeople:self.item.bookpostModel.bookpostSupport]];

@@ -24,6 +24,7 @@
 #define RESET_PASSWORD                                          @"RESET_PASSWORD"
 
 #pragma mark - - - - - - 热门动态相关
+#define GET_HOT_BOOKPOST                                        @"GET_HOT_BOOKPOST"
 
 #pragma mark - - - - - - 观点交流相关
 #define BOOKPOST_LIST_BY_MULTI_CONDITION                        @"BOOKPOST_LIST_BY_MULTI_CONDITION"
@@ -100,6 +101,8 @@ NSString * imageGetURL(NSString * key,NSString * imageName);
 NSString * coverImageGetURL(NSString * imageName);
 // 获取头像图片地址
 NSString * headImageGetURL(NSString * imageName);
+// 获取广告图片地址
+NSString * advertisementGetURL(NSString * imageName);
 
 
 

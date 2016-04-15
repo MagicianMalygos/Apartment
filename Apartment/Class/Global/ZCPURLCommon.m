@@ -63,6 +63,10 @@ NSString * coverImageGetURL(NSString * imageName) {
 NSString * headImageGetURL(NSString * imageName) {
     return imageGetURL(@"Head", imageName);
 }
+// 获取广告图片地址
+NSString * advertisementGetURL(NSString * imageName) {
+    return imageGetURL(@"Advertisement", imageName);
+}
 
 
 @implementation ZCPURLCommon
@@ -81,6 +85,7 @@ IMP_SINGLETON
                      , REGISTER:                                @"/1.0/user/registerNewUser"
                      , RESET_PASSWORD:                          @"/1.0/user/resetPassword"
                      /* - 热门动态相关 - */
+                     , GET_HOT_BOOKPOST:                        @"/1.0/hottrend/getHotBookpost"
                      /* - 观点交流相关 - */
                      , BOOKPOST_LIST_BY_MULTI_CONDITION:        @"/1.0/communion/getBookpostBySearchTextSortMethodFieldID"
                      , BOOKPOST_LIST_BY_USERID:                 @"/1.0/communion/getBookpostByUserID"

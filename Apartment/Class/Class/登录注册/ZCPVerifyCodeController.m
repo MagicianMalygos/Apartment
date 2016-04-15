@@ -8,7 +8,7 @@
 
 #import "ZCPVerifyCodeController.h"
 #import "ZCPTextField.h"
-#import "ZCPRequestManager+User.h"
+#import "ZCPRequestManager+Login.h"
 
 @interface ZCPVerifyCodeController ()
 

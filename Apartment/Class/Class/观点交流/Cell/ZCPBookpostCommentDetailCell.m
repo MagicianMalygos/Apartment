@@ -28,6 +28,10 @@
     })];
     [self.userHeadImageView changeToRound];
     
+    self.replyButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    self.replyButton.frame = CGRectMake(APPLICATIONWIDTH - HorizontalMargin - UIMargin * 2 - 20 * 2, VerticalMargin, 20, 20);
+    [self.replyButton setOnlyImageName:@"comment_normal"];
+    [self.replyButton addTarget:self action:@selector(buttonClicked:) forControlEvents:UIControlEventTouchUpInside];
     self.supportButton = [UIButton buttonWithType:UIButtonTypeCustom];
     self.supportButton.frame = CGRectMake(APPLICATIONWIDTH - HorizontalMargin - 20, VerticalMargin, 20, 20);
     [self.supportButton setImageNameNormal:@"support_normal" Highlighted:@"support_selected" Selected:@"support_selected" Disabled:@"support_normal"];
@@ -53,12 +57,14 @@
     self.commentTimeLabel.font = [UIFont defaultFontWithSize:14.0f];
     
     self.userHeadImageView.backgroundColor = [UIColor clearColor];
+    self.replyButton.backgroundColor = [UIColor clearColor];
     self.supportButton.backgroundColor = [UIColor clearColor];
     self.userNameLabel.backgroundColor = [UIColor clearColor];
     self.commentContentLabel.backgroundColor = [UIColor clearColor];
     self.commentTimeLabel.backgroundColor = [UIColor clearColor];
     
     [self.contentView addSubview:self.userHeadImageView];
+    [self.contentView addSubview:self.replyButton];
     [self.contentView addSubview:self.supportButton];
     [self.contentView addSubview:self.userNameLabel];
     [self.contentView addSubview:self.commentContentLabel];
@@ -90,7 +96,14 @@
 
 #pragma mark - Button Clicked
 - (void)buttonClicked:(UIButton *)button {
-    if (self.item.delegate && [self.item.delegate respondsToSelector:@selector(bookpostCommentDetailCell:supportButtonClicked:)]) {
+    
+    if (!self.item.delegate) {
+        return;
+    }
+    
+    if (button == self.replyButton && [self.item.delegate respondsToSelector:@selector(bookpostCommentDetailCell:replyButtonClicked:)]) {
+        [self.item.delegate bookpostCommentDetailCell:self replyButtonClicked:button];
+    } else if (button == self.supportButton && [self.item.delegate respondsToSelector:@selector(bookpostCommentDetailCell:supportButtonClicked:)]) {
         [self.item.delegate bookpostCommentDetailCell:self supportButtonClicked:button];
     }
 }

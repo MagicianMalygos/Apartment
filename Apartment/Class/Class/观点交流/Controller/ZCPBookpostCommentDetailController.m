@@ -54,23 +54,13 @@
     self.tableViewAdaptor.items = items;
 }
 
-#pragma mark - ZCPListTableViewAdaptor Delegate
-/**
- *  Cell点击事件
- *
- *  @param tableView cell所属Tableview
- *  @param object    cellItem
- *  @param indexPath cell索引
- */
-- (void)tableView:(UITableView *)tableView didSelectObject:(id<ZCPTableViewCellItemBasicProtocol>)object rowAtIndexPath:(NSIndexPath *)indexPath {
-    
-    if ([object isKindOfClass:[ZCPBookpostCommentDetailCellItem class]]) {
-        // 跳转到图书贴详情视图控制器（图书贴评论视图控制器）
-        [[ZCPNavigator sharedInstance] gotoViewWithIdentifier:APPURL_VIEW_IDENTIFIER_COMMUNION_BOOKPOSTCOMMENTREPLY paramDictForInit:@{@"_currCommentModel": self.currCommentModel}];
-    }
-}
-
 #pragma mark - ZCPBookpostCommentDetailCellDelegate
+/**
+ *  回复按钮点击事件
+ */
+- (void)bookpostCommentDetailCell:(ZCPBookpostCommentDetailCell *)cell replyButtonClicked:(UIButton *)button {
+    [[ZCPNavigator sharedInstance] gotoViewWithIdentifier:APPURL_VIEW_IDENTIFIER_COMMUNION_BOOKPOSTCOMMENTREPLY paramDictForInit:@{@"_currCommentModel": self.currCommentModel}];
+}
 /**
  *  点赞按钮点击事件
  */

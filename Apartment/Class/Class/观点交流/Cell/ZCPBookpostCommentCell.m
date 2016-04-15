@@ -68,7 +68,7 @@
         self.commentContentLabel.text = self.item.commentContent;
         
         // 计算内容高度
-        CGFloat contentLabelHeight = [self.commentContentLabel.text boundingRectWithSize:CGSizeMake(self.commentContentLabel.width, CGFLOAT_MAX) options:NSStringDrawingUsesFontLeading| NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName: [UIFont defaultFontWithSize:14.0f]} context:nil].size.height;
+        CGFloat contentLabelHeight = [self.commentContentLabel.text boundingRectWithSize:CGSizeMake(self.commentContentLabel.width, 60.0f) options:NSStringDrawingUsesFontLeading| NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName: [UIFont defaultFontWithSize:14.0f]} context:nil].size.height;
         self.commentContentLabel.height = (contentLabelHeight > LABEL_HEIGHT)? contentLabelHeight: LABEL_HEIGHT;
         
     }
@@ -78,7 +78,7 @@
     CGFloat cellHeight;
     
     // 计算内容高度
-    CGFloat contentLabelHeight = [item.commentContent boundingRectWithSize:CGSizeMake(APPLICATIONWIDTH - HEAD_IMAGE_SIDE - HorizontalMargin * 2 - UIMargin, CGFLOAT_MAX) options:NSStringDrawingUsesFontLeading| NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName: [UIFont defaultFontWithSize:14.0f]} context:nil].size.height;
+    CGFloat contentLabelHeight = [item.commentContent boundingRectWithSize:CGSizeMake(APPLICATIONWIDTH - HEAD_IMAGE_SIDE - HorizontalMargin * 2 - UIMargin, 60.0f) options:NSStringDrawingUsesFontLeading| NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName: [UIFont defaultFontWithSize:14.0f]} context:nil].size.height;
     
     cellHeight = VerticalMargin * 2 + HEAD_IMAGE_SIDE + UIMargin + ((contentLabelHeight > LABEL_HEIGHT)? contentLabelHeight: LABEL_HEIGHT);
     return cellHeight;

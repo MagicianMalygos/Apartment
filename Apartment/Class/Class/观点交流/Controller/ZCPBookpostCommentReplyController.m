@@ -58,6 +58,7 @@
     
     [self clearNavigationBar];
     self.title = @"回复列表";
+    self.navigationItem.rightBarButtonItem = [UIBarButtonItem barItemWithTitle:@"+" font:[UIFont defaultBoldFontWithSize:20.0f] target:self action:@selector(addReply)];
 }
 - (void)viewWillLayoutSubviews {
     [super viewWillLayoutSubviews];

@@ -36,8 +36,8 @@
                                                                                                                 , @{@"fieldId":@(3), @"fieldName": @"传记"}]}];
     
     self.window = [[ZCPNavigator sharedInstance] window];
-//    [[ZCPNavigator sharedInstance] setupRootViewController];
-    [[ZCPNavigator sharedInstance] setupRootViewControllerLoginRegister];
+    [[ZCPNavigator sharedInstance] setupRootViewController];
+//    [[ZCPNavigator sharedInstance] setupRootViewControllerLoginRegister];
     [self.window makeKeyAndVisible];
     
     return YES;

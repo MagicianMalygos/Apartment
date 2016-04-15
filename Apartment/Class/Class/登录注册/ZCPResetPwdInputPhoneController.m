@@ -9,7 +9,7 @@
 #import "ZCPResetPwdInputPhoneController.h"
 #import "ZCPResetPwdController.h"
 #import "ZCPTextField.h"
-#import "ZCPRequestManager+User.h"
+#import "ZCPRequestManager+Login.h"
 
 @interface ZCPResetPwdInputPhoneController ()
 

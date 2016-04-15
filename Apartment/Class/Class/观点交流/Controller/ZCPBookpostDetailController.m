@@ -86,7 +86,7 @@
     
     ZCPSectionCellItem * section = [[ZCPSectionCellItem alloc] initWithDefault];
     section.cellHeight = @20;
-    section.sectionTitle = @"评论";
+    section.sectionTitle = (self.bookpostCommentArray.count == 0)? @"暂无评论": @"评论";
     [items addObject:section];
     
     for (ZCPBookPostCommentModel *model in self.bookpostCommentArray) {
@@ -95,6 +95,12 @@
         
         [items addObject:model];
     }
+    
+    // 底部留一块空位置
+    ZCPLineCellItem *blankItem = [[ZCPLineCellItem alloc] initWithDefault];
+    blankItem.cellHeight = @(40);
+    [items addObject:blankItem];
+    
     self.tableViewAdaptor.items = items;
 }
 
