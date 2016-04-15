@@ -44,4 +44,37 @@
     return operation;
 }
 
+/**
+ *  得到热门评论+交流贴
+ *
+ *  @param currUserID 当前用户ID
+ *  @param pagination 页码
+ *  @param pageCount  一页数量
+ */
+- (NSOperation *)getHotBookpostCommentListWithCurrUserID:(NSInteger) currUserID
+                                              pagination:(NSInteger) pagination
+                                               pageCount:(NSInteger) pageCount
+                                                 success:(void (^)(AFHTTPRequestOperation *operation, ZCPListDataModel *bookpostCommentListModel))success
+                                                 failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure {
+    
+    NSString * scheme       = schemeForType(kURLTypeCommon);
+    NSString * host         = hostForType(kURLTypeCommon);
+    NSString * path         = urlForKey(GET_HOT_BOOKPOSTCOMMENT);
+    
+    AFHTTPRequestOperation *operation = [self POST:ZCPMakeURLString(scheme, host, path)
+                                        parameters:@{@"currUserID": @(currUserID)
+                                                     , @"pagination": @(pagination)
+                                                     , @"pageCount": @(pageCount)}
+                                           success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                                               if (success) {
+                                                   ZCPListDataModel *model = [ZCPRequestResponseTranslator translateResponse_BookPostCommentListModel:[responseObject objectForKey:@"data"]];
+                                                   success(operation, model);
+                                               }
+                                           }
+                                           failure:failure];
+    
+    TTDPRINT(@"URL=%@  params=%@", operation.request.URL, [[NSString alloc] initWithData:operation.request.HTTPBody encoding:NSUTF8StringEncoding]);
+    return operation;
+}
+
 @end

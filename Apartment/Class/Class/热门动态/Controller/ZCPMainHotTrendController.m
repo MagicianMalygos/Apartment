@@ -13,12 +13,13 @@
 #import "ZCPBookPostModel.h"
 #import "ZCPBookPostCell.h"
 #import "ZCPRequestManager+HotTrend.h"
+#import "ZCPHotBookpostCommentCell.h"
 
 @interface ZCPMainHotTrendController () <ZCPImageCircleViewDelegate>
 
-@property (nonatomic, strong) ZCPImageCircleView *imageCircleView;  // 图片轮播视图
-@property (nonatomic, strong) NSMutableArray *hotBookpostArr;       // 热门图书贴信息
-@property (nonatomic, assign) NSInteger pagination;                 // 页码
+@property (nonatomic, strong) ZCPImageCircleView *imageCircleView;      // 图片轮播视图
+@property (nonatomic, strong) NSMutableArray *hotBookpostAndCommentArr; // 热门图书贴评论+图书贴信息
+@property (nonatomic, assign) NSInteger pagination;                     // 页码
 
 @end
 
@@ -55,12 +56,13 @@
 - (void)constructData {
     NSMutableArray *items = [NSMutableArray array];
     
-    for (ZCPBookPostModel *model in self.hotBookpostArr) {
-        model.cellClass = [ZCPBookPostCell class];
-        model.cellType = [ZCPBookPostCell cellIdentifier];
+    for (ZCPBookPostCommentModel *model in self.hotBookpostAndCommentArr) {
+        ZCPHotBookpostCommentCellItem *item = [[ZCPHotBookpostCommentCellItem alloc] initWithDefault];
+        item.bpcModel = model;
         
-        [items addObject:model];
+        [items addObject:item];
     }
+    
     self.tableViewAdaptor.items = items;
 }
 
@@ -79,6 +81,12 @@
         self.imageCircleView.delegate = self;
     }
     return _imageCircleView;
+}
+- (NSMutableArray *)hotBookpostAndCommentArr {
+    if (_hotBookpostAndCommentArr == nil) {
+        _hotBookpostAndCommentArr = [NSMutableArray array];
+    }
+    return _hotBookpostAndCommentArr;
 }
 
 #pragma mark - ZCPImageCircleViewDelegate
@@ -106,10 +114,10 @@
     
     // 获取数据
     WEAK_SELF;
-    [[ZCPRequestManager sharedInstance] getHotBookpostListWithCurrUserID:[ZCPUserCenter sharedInstance].currentUserModel.userId pagination:self.pagination pageCount:PAGE_COUNT_DEFAULT success:^(AFHTTPRequestOperation *operation, ZCPListDataModel *bookpostListModel) {
+    [[ZCPRequestManager sharedInstance] getHotBookpostCommentListWithCurrUserID:[ZCPUserCenter sharedInstance].currentUserModel.userId pagination:self.pagination pageCount:PAGE_COUNT_DEFAULT success:^(AFHTTPRequestOperation *operation, ZCPListDataModel *bookpostCommentListModel) {
         STRONG_SELF;
-        if ([bookpostListModel isKindOfClass:[ZCPListDataModel class]] && bookpostListModel.items) {
-            weakSelf.hotBookpostArr = [NSMutableArray arrayWithArray:bookpostListModel.items];
+        if ([bookpostCommentListModel isKindOfClass:[ZCPListDataModel class]] && bookpostCommentListModel.items) {
+            weakSelf.hotBookpostAndCommentArr = [NSMutableArray arrayWithArray:bookpostCommentListModel.items];
             
             // 重新构造并加载数据
             [self constructData];
@@ -127,16 +135,16 @@
 - (void)footerRefresh {
     // 获取数据
     WEAK_SELF;
-    [[ZCPRequestManager sharedInstance] getHotBookpostListWithCurrUserID:[ZCPUserCenter sharedInstance].currentUserModel.userId pagination:self.pagination + 1 pageCount:PAGE_COUNT_DEFAULT success:^(AFHTTPRequestOperation *operation, ZCPListDataModel *bookpostListModel) {
+    [[ZCPRequestManager sharedInstance] getHotBookpostCommentListWithCurrUserID:[ZCPUserCenter sharedInstance].currentUserModel.userId pagination:self.pagination + 1 pageCount:PAGE_COUNT_DEFAULT success:^(AFHTTPRequestOperation *operation, ZCPListDataModel *bookpostCommentListModel) {
         STRONG_SELF;
-        if ([bookpostListModel isKindOfClass:[ZCPListDataModel class]] && bookpostListModel.items) {
-            [weakSelf.hotBookpostArr addObjectsFromArray:bookpostListModel.items];
+        if ([bookpostCommentListModel isKindOfClass:[ZCPListDataModel class]] && bookpostCommentListModel.items) {
+            [weakSelf.hotBookpostAndCommentArr addObjectsFromArray:bookpostCommentListModel.items];
             
             // 重新构造并加载数据
             [self constructData];
             [weakSelf.tableView reloadData];
             // 如果获取到数据了，那么页数+1
-            if (bookpostListModel.items.count > 0) {
+            if (bookpostCommentListModel.items.count > 0) {
                 self.pagination ++;
             }
         }
@@ -152,10 +160,10 @@
  */
 - (void)loadData {
     WEAK_SELF;
-    [[ZCPRequestManager sharedInstance] getHotBookpostListWithCurrUserID:[ZCPUserCenter sharedInstance].currentUserModel.userId pagination:self.pagination pageCount:PAGE_COUNT_DEFAULT success:^(AFHTTPRequestOperation *operation, ZCPListDataModel *bookpostListModel) {
+    [[ZCPRequestManager sharedInstance] getHotBookpostCommentListWithCurrUserID:[ZCPUserCenter sharedInstance].currentUserModel.userId pagination:self.pagination pageCount:PAGE_COUNT_DEFAULT success:^(AFHTTPRequestOperation *operation, ZCPListDataModel *bookpostCommentListModel) {
         STRONG_SELF;
-        if ([bookpostListModel isKindOfClass:[ZCPListDataModel class]] && bookpostListModel.items) {
-            weakSelf.hotBookpostArr = [NSMutableArray arrayWithArray:bookpostListModel.items];
+        if ([bookpostCommentListModel isKindOfClass:[ZCPListDataModel class]] && bookpostCommentListModel.items) {
+            weakSelf.hotBookpostAndCommentArr = [NSMutableArray arrayWithArray:bookpostCommentListModel.items];
             
             // 重新构造并加载数据
             [self constructData];

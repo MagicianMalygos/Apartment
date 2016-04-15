@@ -86,6 +86,7 @@ IMP_SINGLETON
                      , RESET_PASSWORD:                          @"/1.0/user/resetPassword"
                      /* - 热门动态相关 - */
                      , GET_HOT_BOOKPOST:                        @"/1.0/hottrend/getHotBookpost"
+                     , GET_HOT_BOOKPOSTCOMMENT:                 @"/1.0/hottrend/getHotBookpostComment"
                      /* - 观点交流相关 - */
                      , BOOKPOST_LIST_BY_MULTI_CONDITION:        @"/1.0/communion/getBookpostBySearchTextSortMethodFieldID"
                      , BOOKPOST_LIST_BY_USERID:                 @"/1.0/communion/getBookpostByUserID"

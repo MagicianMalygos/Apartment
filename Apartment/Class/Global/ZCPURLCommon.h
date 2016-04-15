@@ -25,6 +25,7 @@
 
 #pragma mark - - - - - - 热门动态相关
 #define GET_HOT_BOOKPOST                                        @"GET_HOT_BOOKPOST"
+#define GET_HOT_BOOKPOSTCOMMENT                                 @"GET_HOT_BOOKPOSTCOMMENT"
 
 #pragma mark - - - - - - 观点交流相关
 #define BOOKPOST_LIST_BY_MULTI_CONDITION                        @"BOOKPOST_LIST_BY_MULTI_CONDITION"

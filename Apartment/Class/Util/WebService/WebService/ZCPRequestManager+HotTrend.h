@@ -23,4 +23,17 @@
                                        success:(void (^)(AFHTTPRequestOperation *operation, ZCPListDataModel *bookpostListModel))success
                                        failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure;
 
+/**
+ *  得到热门评论+交流贴
+ *
+ *  @param currUserID 当前用户ID
+ *  @param pagination 页码
+ *  @param pageCount  一页数量
+ */
+- (NSOperation *)getHotBookpostCommentListWithCurrUserID:(NSInteger) currUserID
+                                              pagination:(NSInteger) pagination
+                                               pageCount:(NSInteger) pageCount
+                                                 success:(void (^)(AFHTTPRequestOperation *operation, ZCPListDataModel *bookpostCommentListModel))success
+                                                 failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure;
+
 @end

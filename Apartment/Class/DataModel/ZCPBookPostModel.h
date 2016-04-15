@@ -36,7 +36,6 @@ typedef NS_ENUM(NSInteger, ZCPBookpostCollectState){
 @property (nonatomic, strong) NSDate *bookpostTime;                 // 发帖时间
 @property (nonatomic, strong) ZCPUserModel *user;                   // 发帖人
 @property (nonatomic, strong) ZCPFieldModel *field;                 // 帖子所属领域
-@property (nonatomic, strong) ZCPBookModel *book;                   // 帖子所关联书籍(弃用)
 @property (nonatomic, assign) ZCPBookpostSupportState supported;    // 当前用户是否已点过赞
 @property (nonatomic, assign) ZCPBookpostCollectState collected;    // 当前用户是否已收藏
 

@@ -22,7 +22,6 @@
 @synthesize bookpostTime            = _bookpostTime;
 @synthesize user                    = _user;
 @synthesize field                   = _field;
-@synthesize book                    = _book;
 @synthesize bookpostReplyNumber     = _bookpostReplyNumber;
 @synthesize bookpostCollectNumber   = _bookpostCollectNumber;
 @synthesize supported               = _supported;
@@ -32,9 +31,6 @@
 - (void)setValue:(id)value forKey:(NSString *)key {
     if ([key isEqualToString:@"bookpostTime"]) {
         value = [value toDate];
-    }
-    if ([key isEqualToString:@"book"]) {
-        value = [ZCPRequestResponseTranslator translateResponse_BookModel:value];
     }
     if ([key isEqualToString:@"field"]) {
         value = [ZCPRequestResponseTranslator translateResponse_FieldModel:value];

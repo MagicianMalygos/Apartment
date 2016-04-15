@@ -65,6 +65,8 @@
 		187335B91C5F6359003284EE /* UIFont+Category.m in Sources */ = {isa = PBXBuildFile; fileRef = 187335B81C5F6359003284EE /* UIFont+Category.m */; };
 		188067081CC0AB4000E46D3D /* ZCPRequestManager+HotTrend.m in Sources */ = {isa = PBXBuildFile; fileRef = 188067071CC0AB4000E46D3D /* ZCPRequestManager+HotTrend.m */; };
 		1880670B1CC0AB5D00E46D3D /* ZCPRequestManager+Login.m in Sources */ = {isa = PBXBuildFile; fileRef = 1880670A1CC0AB5D00E46D3D /* ZCPRequestManager+Login.m */; };
+		1880670E1CC0DB4000E46D3D /* ZCPRoundCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1880670D1CC0DB4000E46D3D /* ZCPRoundCell.m */; };
+		188067111CC0E05600E46D3D /* ZCPHotBookpostCommentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 188067101CC0E05600E46D3D /* ZCPHotBookpostCommentCell.m */; };
 		188154A91CBF3A32003BA438 /* ZCPResetPwdInputPhoneController.m in Sources */ = {isa = PBXBuildFile; fileRef = 188154A81CBF3A32003BA438 /* ZCPResetPwdInputPhoneController.m */; };
 		188154AC1CBF3A48003BA438 /* ZCPResetPwdController.m in Sources */ = {isa = PBXBuildFile; fileRef = 188154AB1CBF3A48003BA438 /* ZCPResetPwdController.m */; };
 		188154B21CBF7D04003BA438 /* ZCPImageCircleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 188154AF1CBF7D04003BA438 /* ZCPImageCircleView.m */; };
@@ -283,6 +285,10 @@
 		188067071CC0AB4000E46D3D /* ZCPRequestManager+HotTrend.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ZCPRequestManager+HotTrend.m"; sourceTree = "<group>"; };
 		188067091CC0AB5D00E46D3D /* ZCPRequestManager+Login.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ZCPRequestManager+Login.h"; sourceTree = "<group>"; };
 		1880670A1CC0AB5D00E46D3D /* ZCPRequestManager+Login.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ZCPRequestManager+Login.m"; sourceTree = "<group>"; };
+		1880670C1CC0DB4000E46D3D /* ZCPRoundCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ZCPRoundCell.h; path = Apartment/Class/Util/WebService/WebService/ZCPRoundCell.h; sourceTree = SOURCE_ROOT; };
+		1880670D1CC0DB4000E46D3D /* ZCPRoundCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ZCPRoundCell.m; path = Apartment/Class/Util/WebService/WebService/ZCPRoundCell.m; sourceTree = SOURCE_ROOT; };
+		1880670F1CC0E05600E46D3D /* ZCPHotBookpostCommentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ZCPHotBookpostCommentCell.h; path = Apartment/Class/Util/WebService/WebService/ZCPHotBookpostCommentCell.h; sourceTree = SOURCE_ROOT; };
+		188067101CC0E05600E46D3D /* ZCPHotBookpostCommentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ZCPHotBookpostCommentCell.m; path = Apartment/Class/Util/WebService/WebService/ZCPHotBookpostCommentCell.m; sourceTree = SOURCE_ROOT; };
 		188154A71CBF3A32003BA438 /* ZCPResetPwdInputPhoneController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZCPResetPwdInputPhoneController.h; sourceTree = "<group>"; };
 		188154A81CBF3A32003BA438 /* ZCPResetPwdInputPhoneController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZCPResetPwdInputPhoneController.m; sourceTree = "<group>"; };
 		188154AA1CBF3A48003BA438 /* ZCPResetPwdController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZCPResetPwdController.h; sourceTree = "<group>"; };
@@ -567,6 +573,10 @@
 		180700431C48EF2800F3BE2B /* Cell */ = {
 			isa = PBXGroup;
 			children = (
+				1880670C1CC0DB4000E46D3D /* ZCPRoundCell.h */,
+				1880670D1CC0DB4000E46D3D /* ZCPRoundCell.m */,
+				1880670F1CC0E05600E46D3D /* ZCPHotBookpostCommentCell.h */,
+				188067101CC0E05600E46D3D /* ZCPHotBookpostCommentCell.m */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -1387,6 +1397,7 @@
 				18A753931C58CECC007CEB5F /* ZCPTextFieldCell.m in Sources */,
 				187335AF1C5F53F3003284EE /* NSString+PACheckValid.m in Sources */,
 				189624FC1C4CD981003733CE /* ZCPUserControllerHelper.m in Sources */,
+				188067111CC0E05600E46D3D /* ZCPHotBookpostCommentCell.m in Sources */,
 				18B0EE151C4F54A700F078EB /* ZCPUserCenter.m in Sources */,
 				18A753941C58CECC007CEB5F /* ZCPTextViewCell.m in Sources */,
 				18EE2CD31CB3542D002E770C /* ZCPBookpostCommentReplyController.m in Sources */,
@@ -1470,6 +1481,7 @@
 				182F79D41C4DCF0300D5B079 /* UIImage+Category.m in Sources */,
 				188A2FB61C75EC480044AA4E /* ZCPRequestResponseTranslator+Question.m in Sources */,
 				1807003A1C48D01100F3BE2B /* ZCPTableViewWithLineCell.m in Sources */,
+				1880670E1CC0DB4000E46D3D /* ZCPRoundCell.m in Sources */,
 				188067081CC0AB4000E46D3D /* ZCPRequestManager+HotTrend.m in Sources */,
 				1896982D1C3229960018BA3F /* ZCPBasicDataConstructor.m in Sources */,
 				1807003D1C48D14600F3BE2B /* UILabel+Category.m in Sources */,
