@@ -16,6 +16,12 @@
     button.frame = CGRectMake(0.0f, 0.0f, 30.0f, 30.0f);
     button.backgroundColor = [UIColor clearColor];
     [button setTitle:@"<" forState:UIControlStateNormal];
+    if ([ZCPControlingCenter sharedInstance].appTheme == LightTheme) {
+        [button setTitleColor:[UIColor colorFromHexRGB:@"575b5f"] forState:UIControlStateNormal];
+    }
+    else if([ZCPControlingCenter sharedInstance].appTheme == DarkTheme) {
+        [button setTitleColor:[UIColor colorFromHexRGB:@"b1b9c6"] forState:UIControlStateNormal];
+    }
     button.titleLabel.font = [UIFont defaultBoldFontWithSize:20.0f];
     button.showsTouchWhenHighlighted = YES;
     [button addTarget:target action:action forControlEvents:UIControlEventTouchUpInside];
@@ -28,7 +34,13 @@
     UIButton *btn = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 44, 44)];
     btn.exclusiveTouch = YES;
     [btn setTitle:title forState:UIControlStateNormal];
-    [btn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    
+    if ([ZCPControlingCenter sharedInstance].appTheme == LightTheme) {
+        [btn setTitleColor:[UIColor colorFromHexRGB:@"575b5f"] forState:UIControlStateNormal];
+    }
+    else if([ZCPControlingCenter sharedInstance].appTheme == DarkTheme) {
+        [btn setTitleColor:[UIColor colorFromHexRGB:@"b1b9c6"] forState:UIControlStateNormal];
+    }
     btn.backgroundColor = [UIColor clearColor];
     btn.showsTouchWhenHighlighted = YES;
     if (font) {

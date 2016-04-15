@@ -50,11 +50,12 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     
+    // 设置主题颜色
     if ([ZCPControlingCenter sharedInstance].appTheme == LightTheme) {
-        [self.view setBackgroundColor:[UIColor colorFromHexRGB:@"ececec"]];
+        [self.view setBackgroundColor:LIGHT_BG_COLOR];
     }
     else if([ZCPControlingCenter sharedInstance].appTheme == DarkTheme) {
-        [self.view setBackgroundColor:[UIColor lightGrayColor]];
+        [self.view setBackgroundColor:NIGHT_BG_COLOR];
     }
 }
 - (void)viewDidAppear:(BOOL)animated {

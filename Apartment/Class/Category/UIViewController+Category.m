@@ -39,4 +39,13 @@
     self.tabBarController.navigationItem.rightBarButtonItem = nil;
 }
 
+- (void)setNavigationColor:(UIColor *)color {
+    self.navigationController.navigationBar.barTintColor = color;
+}
+
+- (void)setTabBarColor:(UIColor *)color {
+//    UITabBarController *tabbarControl = [ZCPControlingCenter sharedInstance].tabBarController;
+//    tabbarControl.tabBarItem.image = [UIImage imageNamed:@"tabbar_bg_light"];
+}
+
 @end

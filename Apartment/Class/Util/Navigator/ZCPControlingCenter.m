@@ -66,13 +66,22 @@ IMP_SINGLETON
     
     // 设置navigation的颜色与样式
     UINavigationBar *navigationBar = navigationController.navigationBar;
-    UIColor *color = [UIColor grayColor];
-    [[UINavigationBar appearance] setTintColor:color];
-    navigationBar.tintColor = color;                            // 左右按钮文字颜色
-    navigationBar.barTintColor = [UIColor PALightGrayColor];    // navigationBar背景颜色
-    navigationBar.translucent = NO;                             // 取消半透明效果，解决界面跳转的时候能看到导航栏的颜色发生变化
-    NSDictionary *navTitleDict = [NSDictionary dictionaryWithObjectsAndKeys:[UIFont defaultFontWithSize:18.0f], NSFontAttributeName, [UIColor whiteColor], NSForegroundColorAttributeName, nil];
+    
+    if ([ZCPControlingCenter sharedInstance].appTheme == LightTheme) {
+        [[UINavigationBar appearance] setTintColor:LIGHT_CELL_BG_COLOR];
+        navigationBar.tintColor = [UIColor colorFromHexRGB:@"575b5f"];  // 左右按钮文字颜色
+        navigationBar.barTintColor = LIGHT_CELL_BG_COLOR;               // navigationBar背景颜色
+    }
+    else if([ZCPControlingCenter sharedInstance].appTheme == DarkTheme) {
+        [[UINavigationBar appearance] setTintColor:NIGHT_CELL_BG_COLOR];
+        navigationBar.tintColor = [UIColor colorFromHexRGB:@"b1b9c6"];  // 左右按钮文字颜色
+        navigationBar.barTintColor = NIGHT_CELL_BG_COLOR;               // navigationBar背景颜色
+    }
+    UIColor *titleColor = ([ZCPControlingCenter sharedInstance].appTheme == LightTheme)? [UIColor colorFromHexRGB:@"575b5f"]: [UIColor colorFromHexRGB:@"b1b9c6"];
+    NSDictionary *navTitleDict = [NSDictionary dictionaryWithObjectsAndKeys:[UIFont defaultFontWithSize:18.0f], NSFontAttributeName, titleColor, NSForegroundColorAttributeName, nil];
     [navigationBar setTitleTextAttributes:navTitleDict];
+    
+    navigationBar.translucent = NO; // 取消半透明效果，解决界面跳转的时候能看到导航栏的颜色发生变化
     
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent animated:YES];
     [navigationController preferredStatusBarStyle];
@@ -85,6 +94,9 @@ IMP_SINGLETON
      */
     // 设置各TabBarItem上视图控制器
     [_tabBarController setViewControllers:[self getTabBarViewController]];
+    
+    // 设置最开始展示的tab
+    _tabBarController.selectedViewController = [_tabBarController.viewControllers objectAtIndex:0];
     
     return navigationController;
 }

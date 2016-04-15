@@ -89,7 +89,7 @@
                 return;
             }
             // 设置为不可用
-            button.backgroundColor = [UIColor greenColor];
+            button.backgroundColor = [UIColor buttonDefaultColor];
             [button setTitle:@"关注" forState:UIControlStateNormal];
             button.enabled = NO;
             

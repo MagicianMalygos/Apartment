@@ -27,4 +27,7 @@ DEF_SINGLETON(ZCPControlingCenter)
  */
 - (UIViewController *)generateRootViewController;
 
+// 获取tabbar
+- (UITabBarController *)tabBarController;
+
 @end

@@ -266,6 +266,7 @@
     self.textLabel.backgroundColor = [UIColor clearColor];
     self.button.backgroundColor = [UIColor clearColor];
     self.button.titleLabel.font = [UIFont defaultFontWithSize:13.0f];
+    [self.button addTarget:self action:@selector(buttonClicked:) forControlEvents:UIControlEventTouchUpInside];
     
     [self.contentView addSubview:self.imgIcon];
     [self.contentView addSubview:self.textLabel];
@@ -292,8 +293,10 @@
         } else {
             [self.imgIcon setImage:[UIImage imageNamed:item.imageName]];
         }
+        [self.imgIcon changeToRound];
         [self.textLabel setAttributedText:item.text];
-        [self.button addTarget:self action:@selector(buttonClicked:) forControlEvents:UIControlEventTouchUpInside];
+        
+        [self.button changeToFillet];
         if (item.buttonConfigBlock) {
             item.buttonConfigBlock(self.button);
         }

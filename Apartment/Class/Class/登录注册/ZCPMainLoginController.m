@@ -212,8 +212,9 @@ typedef NS_ENUM(NSInteger, ZCPShowState) {
             if (userModel && [userModel isKindOfClass:[ZCPUserModel class]]) {
                 [[ZCPUserCenter sharedInstance] saveUserModel:userModel];
                 
-                // 登录成功，进入主视图
+                // 登录成功，切换视图控制器栈
                 [[ZCPNavigator sharedInstance] setupRootViewController];
+                
             }
             TTDPRINT(@"%@", msg);
             [MBProgressHUD showError:msg];

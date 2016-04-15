@@ -251,8 +251,10 @@
         [[ZCPControlingCenter sharedInstance] setAppTheme:DarkTheme];
     }
     
-    // 设置背景颜色
+    // 设置主题颜色
     [self setThemeColor];
+    
+    // 设置tabbar颜色
     
     // 重新刷新用户信息，更新颜色
     [self constructData];
@@ -264,9 +266,19 @@
     // 设置主题颜色
     if ([ZCPControlingCenter sharedInstance].appTheme == LightTheme) {
         [self.tableView setBackgroundColor:LIGHT_BG_COLOR];
+        // 设置nav颜色
+        [self setNavigationColor:LIGHT_CELL_BG_COLOR];
+        // 设置tabbar颜色
+//        [self setTabBarColor:LIGHT_CELL_BG_COLOR];
+        self.tabBarController.tabBarItem.image = [UIImage imageNamed:@"tabbar_bg_light"];
     }
     else if([ZCPControlingCenter sharedInstance].appTheme == DarkTheme) {
         [self.tableView setBackgroundColor:NIGHT_BG_COLOR];
+        // 设置nav颜色
+        [self setNavigationColor:NIGHT_CELL_BG_COLOR];
+        // 设置tabbar颜色
+//        [self setTabBarColor:NIGHT_CELL_BG_COLOR];
+        self.tabBarController.tabBarItem.image = [UIImage imageNamed:@"tabbar_bg_night"];
     }
 }
 

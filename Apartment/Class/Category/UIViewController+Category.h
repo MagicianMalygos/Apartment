@@ -15,6 +15,12 @@
 // 设置返回按钮样式
 - (void)setBackBarButton;
 
+// 清除navbar
 - (void) clearNavigationBar;
+
+// 设置nav背景颜色
+- (void)setNavigationColor:(UIColor *)color;
+// 设置tabbar背景颜色
+- (void)setTabBarColor:(UIColor *)color;
 
 @end
