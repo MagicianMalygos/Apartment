@@ -14,8 +14,10 @@
 #import "ZCPBookPostCell.h"
 #import "ZCPRequestManager+HotTrend.h"
 #import "ZCPHotBookpostCommentCell.h"
+#import "ZCPMainActivityController.h"
+#import "ZCPMainLibraryController.h"
 
-@interface ZCPMainHotTrendController () <ZCPImageCircleViewDelegate>
+@interface ZCPMainHotTrendController () <ZCPImageCircleViewDelegate, ZCPHotBookpostCommentCellDelegate>
 
 @property (nonatomic, strong) ZCPImageCircleView *imageCircleView;      // 图片轮播视图
 @property (nonatomic, strong) NSMutableArray *hotBookpostAndCommentArr; // 热门图书贴评论+图书贴信息
@@ -59,6 +61,14 @@
     for (ZCPBookPostCommentModel *model in self.hotBookpostAndCommentArr) {
         ZCPHotBookpostCommentCellItem *item = [[ZCPHotBookpostCommentCellItem alloc] initWithDefault];
         item.bpcModel = model;
+        item.delegate = self;
+        item.headImageViewConfigBlock = ^(UIImageView *imageView) {
+            imageView.userInteractionEnabled = YES;
+            [imageView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithActionBlock:^(id  _Nonnull sender) {
+                // 跳转到用户信息详情
+                [[ZCPNavigator sharedInstance] gotoViewWithIdentifier:APPURL_VIEW_IDENTIFIER_USER_INFO_DETAIL paramDictForInit:@{@"_currUserModel": model.user}];
+            }]];
+        };
         
         [items addObject:item];
     }
@@ -91,19 +101,48 @@
 
 #pragma mark - ZCPImageCircleViewDelegate
 - (void)pageView:(ZCPImageCircleView *)imageCircleView didSelectedPageAtIndex:(NSUInteger)index {
-    NSLog(@"%li", index);
+    // 获取到tabbar，准备在下面进行tab的切换
+    ZCPTabBarController *tabBarController = (ZCPTabBarController *)self.navigationController.topViewController;
+    
     switch (index) {
-        case 0:
+        case 0: {
+            ZCPMainActivityController *activityVC = [tabBarController.viewControllers objectAtIndex:2];
+            [activityVC switchActivityWithIndex:0];
+            // 切换tab到对对联
+            tabBarController.selectedViewController = activityVC;
             break;
-        case 1:
+        }
+        case 1: {
+            ZCPMainActivityController *activityVC = [tabBarController.viewControllers objectAtIndex:2];
+            [activityVC switchActivityWithIndex:1];
+            // 切换tab到对对联
+            tabBarController.selectedViewController = activityVC;
             break;
-        case 2:
+        }
+        case 2: {
+            ZCPMainActivityController *activityVC = [tabBarController.viewControllers objectAtIndex:2];
+            [activityVC switchActivityWithIndex:2];
+            // 切换tab到对对联
+            tabBarController.selectedViewController = activityVC;
             break;
+        }
+        case 3: {
+            // 切换tab到图书馆
+            tabBarController.selectedViewController = [tabBarController.viewControllers objectAtIndex:3];
+            break;
+        }
         default:
             break;
     }
 }
 
+#pragma mark - ZCPHotBookpostCommentCellDelegate
+- (void)hotBookpostCommentCell:(ZCPHotBookpostCommentCell *)cell bpViewClicked:(ZCPBookPostModel *)bpModel {
+    [[ZCPNavigator sharedInstance] gotoViewWithIdentifier:APPURL_VIEW_IDENTIFIER_COMMUNION_BOOKPOSTDETAIL paramDictForInit:@{@"_currentBookpostModel": bpModel}];
+}
+- (void)hotBookpostCommentCell:(ZCPHotBookpostCommentCell *)cell bpcViewClicked:(ZCPBookPostCommentModel *)bpcModel {
+    [[ZCPNavigator sharedInstance] gotoViewWithIdentifier:APPURL_VIEW_IDENTIFIER_COMMUNION_BOOKPOSTCOMMENTDETAIL paramDictForInit:@{@"_currCommentModel": bpcModel}];
+}
 
 #pragma mark - Load Data
 /**

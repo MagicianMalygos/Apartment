@@ -124,7 +124,7 @@
  */
 - (void)tableView:(UITableView *)tableView didSelectObject:(id<ZCPTableViewCellItemBasicProtocol>)object rowAtIndexPath:(NSIndexPath *)indexPath {
     // 跳转到用户信息详情
-    [[ZCPNavigator sharedInstance] gotoViewWithIdentifier:APPURL_VIEW_IDENTIFIER_USER_FOCUSON_PEOPLE_DETAIL paramDictForInit:@{@"_currUserModel": [self.collectedUserArray objectAtIndex:indexPath.row]}];
+    [[ZCPNavigator sharedInstance] gotoViewWithIdentifier:APPURL_VIEW_IDENTIFIER_USER_INFO_DETAIL paramDictForInit:@{@"_currUserModel": [self.collectedUserArray objectAtIndex:indexPath.row]}];
 }
 #pragma mark - ZCPImageTextButtonCellItemDelegate
 - (void)cell:(ZCPImageTextButtonCell *)cell buttonClicked:(UIButton *)button {

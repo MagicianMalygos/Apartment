@@ -10,6 +10,11 @@
 
 #define CELLWIDTH_DEFAULT   APPLICATIONWIDTH
 
+// 配置块声明
+typedef void(^ZCPButtonConfigBlock)(UIButton *button);  // 按钮配置块
+typedef void(^ZCPTextFieldConfigBlock)(UITextField *);  // textField配置块
+typedef void(^ZCPImageViewConfigBlock)(UIImageView *);  // imageView配置块
+
 // Cell基类
 @interface ZCPTableViewCell : UITableViewCell
 

@@ -27,6 +27,7 @@
         CGRectMake(HorizontalMargin, VerticalMargin, IMAGE_SIDE, IMAGE_SIDE);
     })];
     [self.userHeadImageView changeToRound];
+    self.userHeadImageView.userInteractionEnabled = YES;
     
     self.replyButton = [UIButton buttonWithType:UIButtonTypeCustom];
     self.replyButton.frame = CGRectMake(APPLICATIONWIDTH - HorizontalMargin - UIMargin * 2 - 20 * 2, VerticalMargin, 20, 20);
@@ -76,6 +77,11 @@
         
         // 设置属性
         [self.userHeadImageView sd_setImageWithURL:[NSURL URLWithString:self.item.bookpostCommentModel.user.userFaceURL] placeholderImage:[UIImage imageNamed:HEAD_IMAGE_NAME_DEFAULT]];
+        WEAK_SELF;
+        [self.userHeadImageView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithActionBlock:^(id  _Nonnull sender) {
+            // 跳转到用户信息详情
+            [[ZCPNavigator sharedInstance] gotoViewWithIdentifier:APPURL_VIEW_IDENTIFIER_USER_INFO_DETAIL paramDictForInit:@{@"_currUserModel": weakSelf.item.bookpostCommentModel.user}];
+        }]];
         self.userNameLabel.text = self.item.bookpostCommentModel.user.userName;
         self.supportButton.selected = (self.item.bookpostCommentModel.supported == ZCPCurrUserHaveSupportBookpostComment)? YES: NO;
         self.commentContentLabel.text = self.item.bookpostCommentModel.commentContent;

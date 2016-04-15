@@ -39,6 +39,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    // 初始化当前显示活动
+    self.activityIndex = 0;
+    
     self.view.frame = CGRectMake(0, 0, APPLICATIONWIDTH, APPLICATIONHEIGHT - Height_NavigationBar - Height_TABBAR);
     [self.view addSubview:self.optionView];
     [self.view addSubview:self.mainScrollView];
@@ -48,6 +51,9 @@
     
     // 通过偏移量设置NavTitle
     [self setNavTitleByScrollViewOffset];
+    
+    // 设置当前显示的活动
+    [self.optionView triggerOptionWithIndex:self.activityIndex];
 }
 
 #pragma mark - getter / setter
@@ -133,6 +139,7 @@
  */
 - (void)label:(UILabel *)label animateWillBeginDidSelectedAtIndex:(NSInteger)index {
     self.mainScrollView.contentOffset = CGPointMake(APPLICATIONWIDTH * index, 0);
+    self.activityIndex = index;
 }
 /**
  *  label点击事件，动画将要结束时
@@ -156,6 +163,7 @@
             break;
     }
     self.tabBarController.title = titleString;
+    self.activityIndex = index;
 }
 
 #pragma mark - UIScrollView Delegate
@@ -188,5 +196,11 @@
 //- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate {
 //    [self setNavTitleByScrollViewOffset];
 //}
+
+#pragma mark - public method
+// 通过对应的索引切换当前显示的活动
+- (void)switchActivityWithIndex:(NSInteger)index {
+    self.activityIndex = index;
+}
 
 @end

@@ -11,4 +11,8 @@
 // 文趣活动主视图控制器
 @interface ZCPMainActivityController : ZCPViewController
 
+@property (nonatomic, assign) NSInteger activityIndex;
+// 通过对应的索引切换当前显示的活动
+- (void)switchActivityWithIndex:(NSInteger)index;
+
 @end

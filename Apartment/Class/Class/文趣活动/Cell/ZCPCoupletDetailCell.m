@@ -74,8 +74,6 @@
     if ([object isKindOfClass:[ZCPCoupletDetailCellItem class]] && self.item != object) {
         self.item = (ZCPCoupletDetailCellItem *)object;
         
-
-        
         // 设置属性
         self.delegate = self.item.delegate;
         self.supportButton.selected = (self.item.coupletModel.supported == ZCPCurrUserHaveSupportCouplet)? YES: NO;
@@ -86,6 +84,12 @@
         self.timeLabel.text = [self.item.coupletModel.coupletTime toString];
         
         [self.userHeadImgView changeToRound];
+        self.userHeadImgView.userInteractionEnabled = YES;
+        WEAK_SELF;
+        [self.userHeadImgView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithActionBlock:^(id  _Nonnull sender) {
+            // 跳转到用户信息详情
+            [[ZCPNavigator sharedInstance] gotoViewWithIdentifier:APPURL_VIEW_IDENTIFIER_USER_INFO_DETAIL paramDictForInit:@{@"_currUserModel": weakSelf.item.coupletModel.user}];
+        }]];
         
         // 第一行
         CGFloat rowHeight1 = 20.0f;

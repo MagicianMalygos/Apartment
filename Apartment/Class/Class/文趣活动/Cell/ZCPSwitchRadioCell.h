@@ -11,8 +11,6 @@
 @class ZCPSwitchRadioCellItem;
 @protocol ZCPSwitchRadioCellItemDelegate;
 
-typedef void(^ZCPButtonConfigBlock)(UIButton *);        // button配置块
-
 // 开关按钮+单选框 Cell（添加论点中匿名开关和选择正反方单选框）
 @interface ZCPSwitchRadioCell : ZCPTableViewWithLineCell
 

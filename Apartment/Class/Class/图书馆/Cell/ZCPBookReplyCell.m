@@ -31,6 +31,8 @@
     // 第一行
     self.userHeadImageView = [[UIImageView alloc] initWithFrame:CGRectMake(HorizontalMargin, VerticalMargin, 20, 20)];
     [self.userHeadImageView changeToRound];  // 头像显示圆形
+    self.userHeadImageView.userInteractionEnabled = YES;
+
     self.userNameLabel = [[UILabel alloc] initWithFrame:CGRectMake(self.userHeadImageView.right + UIMargin, VerticalMargin, APPLICATIONWIDTH - self.userHeadImageView.right - HorizontalMargin - UIMargin, 20)];
     self.userNameLabel.textAlignment = NSTextAlignmentLeft;
     self.userNameLabel.font =[UIFont defaultFontWithSize:15.0f];
@@ -103,6 +105,11 @@
         self.delegate = self.item.delegate;
         self.supportButton.selected = (self.item.bookReplyModel.supported == ZCPCurrUserHaveSupportBookReply)? YES: NO;
         [self.userHeadImageView sd_setImageWithURL:[NSURL URLWithString:self.item.bookReplyModel.user.userFaceURL] placeholderImage:[UIImage imageNamed:HEAD_IMAGE_NAME_DEFAULT]];
+        WEAK_SELF;
+        [self.userHeadImageView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithActionBlock:^(id  _Nonnull sender) {
+            // 跳转到用户信息详情
+            [[ZCPNavigator sharedInstance] gotoViewWithIdentifier:APPURL_VIEW_IDENTIFIER_USER_INFO_DETAIL paramDictForInit:@{@"_currUserModel": weakSelf.item.bookReplyModel.user}];
+        }]];
         self.userNameLabel.text = self.item.bookReplyModel.user.userName;
         self.bookreplyContentLabel.text = self.item.bookReplyModel.bookreplyContent;
         self.bookreplyTiemLabel.text = [self.item.bookReplyModel.bookreplyTime toString];

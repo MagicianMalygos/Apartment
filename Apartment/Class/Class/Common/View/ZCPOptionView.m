@@ -52,6 +52,7 @@
         [label addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(labelClicked:)]];
         label.userInteractionEnabled = YES;
         [self addSubview:label];
+        [self.optionItemLabelArr addObject:label];
     }
     
     // 初始化markView
@@ -110,6 +111,31 @@
  */
 - (void)hideLineView {
     self.lineView.hidden = YES;
+}
+
+/**
+ *  触发选项
+ *
+ *  @param index 选项索引
+ */
+- (void)triggerOptionWithIndex:(NSInteger)index {
+    UILabel *currentSelectedLabel = [self.optionItemLabelArr objectAtIndex:index];
+    
+    [UIView animateWithDuration:0.5f animations:^{
+        // TODO: 此处可进行设置如果markView隐藏了，不进行移动
+        [self moveMarkViewToIndex:currentSelectedLabel.tag];
+        if (self.delegate && [self.delegate respondsToSelector:@selector(label:animateWillBeginDidSelectedAtIndex:)]) {
+            [self.delegate label:currentSelectedLabel animateWillBeginDidSelectedAtIndex:self.currentSelectedLabelTag];
+        }
+    } completion:^(BOOL finished) {
+        if (self.delegate && [self.delegate respondsToSelector:@selector(label:animateWillEndDidSelectedAtIndex:)]) {
+            [self.delegate label:currentSelectedLabel animateWillEndDidSelectedAtIndex:self.currentSelectedLabelTag];
+        }
+    }];
+    
+    if (self.delegate && [self.delegate respondsToSelector:@selector(label:didSelectedAtIndex:)]) {
+        [self.delegate label:currentSelectedLabel didSelectedAtIndex:self.currentSelectedLabelTag];
+    }
 }
 
 #pragma mark - Tap GestureRecognizer

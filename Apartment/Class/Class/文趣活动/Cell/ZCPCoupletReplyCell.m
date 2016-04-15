@@ -107,6 +107,12 @@
         self.item.cellHeight = [NSNumber numberWithFloat:self.replyTimeLabel.bottom + VerticalMargin];
         
         [self.userHeadImgView changeToRound];
+        self.userHeadImgView.userInteractionEnabled = YES;
+        WEAK_SELF;
+        [self.userHeadImgView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithActionBlock:^(id  _Nonnull sender) {
+            // 跳转到用户信息详情
+            [[ZCPNavigator sharedInstance] gotoViewWithIdentifier:APPURL_VIEW_IDENTIFIER_USER_INFO_DETAIL paramDictForInit:@{@"_currUserModel": weakSelf.item.coupletReplyModel.user}];
+        }]];
     }
 }
 + (CGFloat)tableView:(UITableView *)tableView rowHeightForObject:(id)object {

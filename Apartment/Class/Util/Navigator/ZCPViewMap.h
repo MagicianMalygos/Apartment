@@ -35,7 +35,7 @@
 
 //个人中心
 #define APPURL_VIEW_IDENTIFIER_USER_FOCUSON_PEOPLE          @"ZCPUserFocusOnPeopleController"
-#define APPURL_VIEW_IDENTIFIER_USER_FOCUSON_PEOPLE_DETAIL   @"ZCPUserInfoController"
+#define APPURL_VIEW_IDENTIFIER_USER_INFO_DETAIL             @"ZCPUserInfoController"
 #define APPURL_VIEW_IDENTIFIER_USER_ACHIEVEMENT             @"ZCPUserAchievementController"
 #define APPURL_VIEW_IDENTIFIER_USER_COLLECTION              @"ZCPUserCollectionController"
 #define APPURL_VIEW_IDENTIFIER_USER_SETTING                 @"ZCPUserSettingController"

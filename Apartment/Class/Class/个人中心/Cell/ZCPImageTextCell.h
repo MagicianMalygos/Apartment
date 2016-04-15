@@ -19,8 +19,6 @@
 @protocol ZCPImageTextSwitchCellItemDelegate;
 @protocol ZCPImageTextButtonCellItemDelegate;
 
-typedef void(^ZCPButtonConfigBlock)(UIButton *);        // button配置块
-
 #define RIGHT_WIDTH         50
 #define MARGIN_IMG_TEXT     20
 

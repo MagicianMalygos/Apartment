@@ -24,6 +24,9 @@
     
     // 第一行
     self.userHeadImgView = [[UIImageView alloc] initWithFrame:CGRectMake(HorizontalMargin, VerticalMargin, 25, 25)];
+    [self.userHeadImgView changeToRound];
+    self.userHeadImgView.userInteractionEnabled = YES;
+    
     self.userNameLabel = [[UILabel alloc] initWithFrame:CGRectMake(self.userHeadImgView.right + HorizontalMargin, VerticalMargin, CELLWIDTH_DEFAULT - self.userHeadImgView.right - HorizontalMargin * 2, 25)];
     self.userNameLabel.textAlignment = NSTextAlignmentLeft;
     self.userNameLabel.font = [UIFont defaultFontWithSize:14.0f];
@@ -76,6 +79,11 @@
         
         // 设置内容
         [self.userHeadImgView sd_setImageWithURL:[NSURL URLWithString:self.item.user.userFaceURL] placeholderImage:[UIImage imageNamed:HEAD_IMAGE_NAME_DEFAULT]];
+        WEAK_SELF;
+        [self.userHeadImgView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithActionBlock:^(id  _Nonnull sender) {
+            // 跳转到用户信息详情
+            [[ZCPNavigator sharedInstance] gotoViewWithIdentifier:APPURL_VIEW_IDENTIFIER_USER_INFO_DETAIL paramDictForInit:@{@"_currUserModel": weakSelf.item.user}];
+        }]];
         self.userNameLabel.text = self.item.user.userName;
         [self.coupletContentLabel setText:self.item.coupletContent];
         

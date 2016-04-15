@@ -11,8 +11,6 @@
 @class ZCPTextFieldCellItem;
 @class ZCPLabelTextFieldCellItem;
 
-typedef void(^ZCPTextFieldConfigBlock)(UITextField *);
-
 // 只有一个TextField的Cell
 @interface ZCPTextFieldCell : ZCPTableViewWithLineCell
 

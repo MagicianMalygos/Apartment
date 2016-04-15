@@ -27,6 +27,8 @@
     self.userHeadImageView = [[UIImageView alloc] initWithFrame:({
         CGRectMake(HorizontalMargin, VerticalMargin, IMAGE_SIDE, IMAGE_SIDE);
     })];
+    [self.userHeadImageView changeToRound];
+    self.userHeadImageView.userInteractionEnabled = YES;
     
     self.userNameLabel = [[UILabel alloc] initWithFrame:({
         CGRectMake(self.userHeadImageView.right + UIMargin, VerticalMargin, APPLICATIONWIDTH - IMAGE_SIDE - TIME_LABEL_WIDTH - UIMargin * 2 - HorizontalMargin * 2, 20);
@@ -79,6 +81,11 @@
         
         // 设置属性
         [self.userHeadImageView sd_setImageWithURL:[NSURL URLWithString:self.item.replyModel.user.userFaceURL] placeholderImage:[UIImage imageNamed:HEAD_IMAGE_NAME_DEFAULT]];
+        WEAK_SELF;
+        [self.userHeadImageView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithActionBlock:^(id  _Nonnull sender) {
+            // 跳转到用户信息详情
+            [[ZCPNavigator sharedInstance] gotoViewWithIdentifier:APPURL_VIEW_IDENTIFIER_USER_INFO_DETAIL paramDictForInit:@{@"_currUserModel": weakSelf.item.replyModel.user}];
+        }]];
         
         if (self.item.replyModel.isReplyAuthor == YES) {
             if (self.item.replyModel.user.userId == self.item.replyModel.comment.user.userId) {

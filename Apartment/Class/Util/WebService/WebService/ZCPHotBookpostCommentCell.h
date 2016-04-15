@@ -9,6 +9,8 @@
 #import "ZCPRoundCell.h"
 #import "ZCPBookPostCommentModel.h"
 
+@protocol ZCPHotBookpostCommentCellDelegate;
+
 @interface ZCPHotBookpostCommentCell : ZCPRoundCell
 
 @property (nonatomic, strong) UIView *bpView;                       // 图书贴区域视图
@@ -23,6 +25,17 @@
 
 @interface ZCPHotBookpostCommentCellItem : ZCPRoundCellItem
 
-@property (nonatomic, strong) ZCPBookPostCommentModel *bpcModel;    // 图书贴评论模型
+@property (nonatomic, strong) ZCPBookPostCommentModel *bpcModel;                // 图书贴评论模型
+@property (nonatomic, copy) ZCPImageViewConfigBlock headImageViewConfigBlock;   // 用户头像配置块
+@property (nonatomic, weak) id<ZCPHotBookpostCommentCellDelegate> delegate;     // delegate
+
+@end
+
+@protocol ZCPHotBookpostCommentCellDelegate <NSObject>
+
+// 图书贴视图区被点击
+- (void)hotBookpostCommentCell:(ZCPHotBookpostCommentCell *)cell bpViewClicked:(ZCPBookPostModel *)bpModel;
+// 图书贴评论视图区被点击
+- (void)hotBookpostCommentCell:(ZCPHotBookpostCommentCell *)cell bpcViewClicked:(ZCPBookPostCommentModel *)bpcModel;
 
 @end

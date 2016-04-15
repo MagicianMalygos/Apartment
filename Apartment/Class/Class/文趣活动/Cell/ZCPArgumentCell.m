@@ -33,6 +33,8 @@
     
     // 第一行
     self.userHeadImgView = [[UIImageView alloc] initWithFrame:CGRectMake(HorizontalMargin, VerticalMargin, IMG_WIDTH, IMG_HEIGHT)];
+    [self.userHeadImgView changeToRound];
+    self.userHeadImgView.userInteractionEnabled = YES;
 
     self.supportNumberLabel = [[UILabel alloc] initWithFrame:CGRectMake(CELLWIDTH_DEFAULT - HorizontalMargin - UIMargin - SUPPORTLABEL_WIDTH - BUTTON_WIDTH, VerticalMargin + 10, SUPPORTLABEL_WIDTH, SUPPORTLABEL_HEIGHT)];
     self.supportNumberLabel.textAlignment = NSTextAlignmentRight;
@@ -88,11 +90,18 @@
         // 设置内容
         self.delegate = self.item.delegate;
         self.supportButton.selected = (self.item.argumentModel.supported == ZCPCurrUserHaveSupportArgument)? YES: NO;
-        [self.userHeadImgView sd_setImageWithURL:[NSURL URLWithString:self.item.argumentModel.user.userFaceURL] placeholderImage:[UIImage imageNamed:HEAD_IMAGE_NAME_DEFAULT]];
+        
         if (self.item.argumentModel.state.stateValue == ZCPArgumentAnonymous) {
             self.userNameLabel.text = @"匿名用户";
+            [self.userHeadImgView setImage:[UIImage imageNamed:HEAD_IMAGE_NAME_DEFAULT]];
         } else {
             self.userNameLabel.text = self.item.argumentModel.user.userName;
+            [self.userHeadImgView sd_setImageWithURL:[NSURL URLWithString:self.item.argumentModel.user.userFaceURL] placeholderImage:[UIImage imageNamed:HEAD_IMAGE_NAME_DEFAULT]];
+            WEAK_SELF;
+            [self.userHeadImgView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithActionBlock:^(id  _Nonnull sender) {
+                // 跳转到用户信息详情
+                [[ZCPNavigator sharedInstance] gotoViewWithIdentifier:APPURL_VIEW_IDENTIFIER_USER_INFO_DETAIL paramDictForInit:@{@"_currUserModel": weakSelf.item.argumentModel.user}];
+            }]];
         }
         self.supportNumberLabel.text = [NSString getFormateFromNumberOfPeople:self.item.argumentModel.argumentSupport];
         self.argumentContentLabel.text = self.item.argumentModel.argumentContent;
@@ -100,8 +109,6 @@
         
         // 设置cell高度
         self.item.cellHeight = [NSNumber numberWithFloat:self.timeLabel.bottom + VerticalMargin];
-        
-        [self.userHeadImgView changeToRound];
     }
 }
 + (CGFloat)tableView:(UITableView *)tableView rowHeightForObject:(id)object {

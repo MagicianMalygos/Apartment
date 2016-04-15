@@ -11,10 +11,11 @@
 #import "ZCPSectionCell.h"
 #import "ZCPImageTextCell.h"
 #import "ZCPButtonCell.h"
+#import "ZCPRequestManager+User.h"
 
-@interface ZCPUserInfoController ()
+@interface ZCPUserInfoController () <ZCPButtonCellDelegate>
 
-@property (nonatomic, strong) ZCPUserModel *currUserModel;  // 当前用户模型
+@property (nonatomic, strong) ZCPUserModel *currUserModel;  // 当前页用户模型
 
 @end
 
@@ -148,6 +149,32 @@
     collectionItem.imageName = @"我的收藏.png";
     collectionItem.text = [[NSMutableAttributedString alloc] initWithString:@"他的收藏" attributes:@{NSForegroundColorAttributeName: textColor}];
     
+    // 关注 / 取消关注按钮
+    ZCPButtonCellItem *focusItem = [[ZCPButtonCellItem alloc] initWithDefault];
+    focusItem.delegate = self;
+    focusItem.buttonConfigBlock = ^(UIButton *button) {
+        // 设置为不可用
+        button.backgroundColor = [UIColor darkGrayColor];
+        [button setTitle:@"关注" forState:UIControlStateNormal];
+        button.enabled = NO;
+        
+        [[ZCPRequestManager sharedInstance] judgeUserCollectOtherUserID:self.currUserModel.userId currUserID:[ZCPUserCenter sharedInstance].currentUserModel.userId success:^(AFHTTPRequestOperation *operation, BOOL isSuccess) {
+            
+            button.enabled = YES;
+            button.backgroundColor = [UIColor buttonDefaultColor];
+            
+            if (isSuccess) {
+                // 已收藏时
+                [button setTitle:@"取消关注" forState:UIControlStateNormal];
+            } else {
+                // 未收藏时
+                [button setTitle:@"关注" forState:UIControlStateNormal];
+            }
+        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+            TTDPRINT(@"%@", error);
+        }];
+    };
+    
     NSMutableArray *items = [NSMutableArray array];
     [items addObject:userImageItem];
     [items addObject:sectionItem1];
@@ -161,6 +188,13 @@
     [items addObject:peopleItem];
     [items addObject:achievementItem];
     [items addObject:collectionItem];
+    
+    // 如果该记录用户为当前登陆用户
+    if ([ZCPUserCenter sharedInstance].currentUserModel.userId != self.currUserModel.userId) {
+        [items addObject:[[ZCPLineCellItem alloc] initWithDefault]];
+        [items addObject:focusItem];
+    }
+    [items addObject:[[ZCPLineCellItem alloc] initWithDefault]];
     
     self.tableViewAdaptor.items = items;
 }
@@ -189,6 +223,32 @@
             break;
         default:
             break;
+    }
+}
+#pragma mark - ZCPButtonCellDelegate
+- (void)cell:(UITableViewCell *)cell buttonClicked:(UIButton *)button {
+    // 关注 / 取消关注
+    if ([button.titleLabel.text isEqualToString:@"关注"] || [button.titleLabel.text isEqualToString:@"取消关注"]) {
+        BOOL currCollected = [button.titleLabel.text isEqualToString:@"关注"]? NO: YES;
+        
+        [[ZCPRequestManager sharedInstance] changeCollectedUserCurrCollectionState:currCollected collectedUserID:self.currUserModel.userId currUserID:[ZCPUserCenter sharedInstance].currentUserModel.userId success:^(AFHTTPRequestOperation *operation, BOOL isSuccess) {
+            if (isSuccess) {
+                if (currCollected) {
+                    TTDPRINT(@"已成功取消关注！");
+                    [MBProgressHUD showError:@"已成功取消关注！"];
+                    [button setTitle:@"关注" forState:UIControlStateNormal];
+                } else {
+                    TTDPRINT(@"已成功添加关注！");
+                    [MBProgressHUD showError:@"已成功添加关注！"];
+                    [button setTitle:@"取消关注" forState:UIControlStateNormal];
+                }
+            } else {
+                TTDPRINT(@"添加关注失败！");
+                [MBProgressHUD showError:@"添加关注失败！"];
+            }
+        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+            TTDPRINT(@"%@", error);
+        }];
     }
 }
 

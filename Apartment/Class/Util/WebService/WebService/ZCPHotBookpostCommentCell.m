@@ -26,6 +26,13 @@
     // 图书贴区
     self.bpView = [[UIView alloc] init];
     [self.bpcView clipsToBounds];
+    WEAK_SELF;
+    [self.bpView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithActionBlock:^(id  _Nonnull sender) {
+        ZCPHotBookpostCommentCellItem *item = (ZCPHotBookpostCommentCellItem *)weakSelf.item;
+        if (item.delegate && [item.delegate respondsToSelector:@selector(hotBookpostCommentCell:bpViewClicked:)]) {
+            [item.delegate hotBookpostCommentCell:weakSelf bpViewClicked:item.bpcModel.bookpost];
+        }
+    }]];
     
     self.bookpostTitleLabel = [[UILabel alloc] init];
     self.bookpostTitleLabel.font = [UIFont defaultFontWithSize:17.0f];
@@ -37,6 +44,12 @@
     // 图书贴评论区域
     self.bpcView = [[UIView alloc] init];
     [self.bpcView clipsToBounds];
+    [self.bpcView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithActionBlock:^(id  _Nonnull sender) {
+        ZCPHotBookpostCommentCellItem *item = (ZCPHotBookpostCommentCellItem *)weakSelf.item;
+        if (item.delegate && [item.delegate respondsToSelector:@selector(hotBookpostCommentCell:bpcViewClicked:)]) {
+            [item.delegate hotBookpostCommentCell:weakSelf bpcViewClicked:item.bpcModel];
+        }
+    }]];
     
     self.bpcUserHeadImageView = [[UIImageView alloc] init];
     self.supportNumberLabel = [[UILabel alloc] init];
@@ -76,10 +89,13 @@
         self.supportNumberLabel.text = [NSString stringWithFormat:@"%li", item.bpcModel.commentSupport];
         self.bpcContentLabel.text = item.bpcModel.commentContent;
         
+        if (item.headImageViewConfigBlock) {
+            item.headImageViewConfigBlock(self.bpcUserHeadImageView);
+        }
+        
         // 设置item的cellHeight
         CGFloat bpTitleHeight = [item.bpcModel.bookpost.bookpostTitle boundingRectWithSize:CGSizeMake(APPLICATIONWIDTH - HorizontalMargin * 4, 40) options:NSStringDrawingUsesFontLeading| NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName: [UIFont defaultFontWithSize:17.0f]} context:nil].size.height;
         CGFloat leftInfoHeight = 25 + 16 + UIMargin;
-        NSLog(@"%f", bpTitleHeight + VerticalMargin * 2 + OnePoint + leftInfoHeight + VerticalMargin * 2 + VerticalMargin * 2);
         self.item.cellHeight = @(bpTitleHeight + VerticalMargin * 2 + OnePoint + leftInfoHeight + VerticalMargin * 2 + VerticalMargin * 2);
     }
 }
@@ -107,6 +123,8 @@
     self.supportNumberLabel.frame = CGRectMake(HorizontalMargin, self.bpcUserHeadImageView.bottom + UIMargin, 25, 16);
     self.bpcContentLabel.frame = CGRectMake(self.bpcUserHeadImageView.right + UIMargin, VerticalMargin, self.bpcView.width - HorizontalMargin * 2 - 25 - UIMargin, bpcContentHeight);
     
+    // 设置用户头像为圆形
+    [self.bpcUserHeadImageView changeToRound];
 }
 
 @end

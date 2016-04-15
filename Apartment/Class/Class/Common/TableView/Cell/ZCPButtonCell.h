@@ -18,8 +18,6 @@ typedef enum {
     ZCPButtonInitStateDisabled      // disabled
 }ZCPButtonInitialize;
 
-typedef void(^ZCPButtonConfigBlock)(UIButton *button);
-
 // 只有一个Button的Cell
 @interface ZCPButtonCell : ZCPTableViewCell
 

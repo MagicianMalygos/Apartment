@@ -62,6 +62,13 @@
  */
 - (void)hideLineView;
 
+/**
+ *  触发选项
+ *
+ *  @param index 选项索引
+ */
+- (void)triggerOptionWithIndex:(NSInteger)index;
+
 @end
 
 
