@@ -11,8 +11,6 @@
 // 视图控制器基类
 @interface ZCPViewController : UIViewController <ZCPNavigatorProtocol>
 
-@property (nonatomic, assign) APPTheme appTheme;
-
 // tap事件
 @property (nonatomic, strong) UITapGestureRecognizer *tap;
 // 是否需要在键盘显示之后，点击页面让键盘消失

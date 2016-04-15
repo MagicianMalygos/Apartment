@@ -15,7 +15,6 @@
 @implementation ZCPViewController
 
 #pragma mark - synthesize
-@synthesize appTheme                    = _appTheme;
 @synthesize tap                         = _tap;
 @synthesize needsTapToDismissKeyboard   = _needsTapToDismissKeyboard;
 
@@ -51,11 +50,10 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     
-    self.appTheme = [[ZCPControlingCenter sharedInstance] appTheme];
-    if (self.appTheme == LightTheme) {
+    if ([ZCPControlingCenter sharedInstance].appTheme == LightTheme) {
         [self.view setBackgroundColor:[UIColor colorFromHexRGB:@"ececec"]];
     }
-    else if(self.appTheme == DarkTheme) {
+    else if([ZCPControlingCenter sharedInstance].appTheme == DarkTheme) {
         [self.view setBackgroundColor:[UIColor lightGrayColor]];
     }
 }

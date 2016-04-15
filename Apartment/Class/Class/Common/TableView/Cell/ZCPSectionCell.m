@@ -81,6 +81,8 @@
     else {
         self.sectionTitleLabel.frame = CGRectMake(insets.left, insets.top, self.width - insets.left - insets.right, self.height - insets.top - insets.bottom);
     }
+    
+    self.backgroundColor = [UIColor clearColor];
 }
 
 @end

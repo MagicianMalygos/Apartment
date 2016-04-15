@@ -116,6 +116,14 @@ typedef NS_ENUM(NSInteger, ZCPListType) {
 - (void)viewWillLayoutSubviews {
     [super viewWillLayoutSubviews];
     self.tableView.frame = CGRectMake(0, self.optionView.bottom, APPLICATIONWIDTH, APPLICATIONHEIGHT - Height_NavigationBar - OPTION_VIEW_DEFAULT_HEIGHT);
+    
+    // 设置主题颜色
+    if ([ZCPControlingCenter sharedInstance].appTheme == LightTheme) {
+        [self.tableView setBackgroundColor:LIGHT_BG_COLOR];
+    }
+    else if([ZCPControlingCenter sharedInstance].appTheme == DarkTheme) {
+        [self.tableView setBackgroundColor:NIGHT_BG_COLOR];
+    }
 }
 
 #pragma mark - constructData

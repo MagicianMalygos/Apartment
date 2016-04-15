@@ -21,6 +21,14 @@
 }
 - (void)viewWillLayoutSubviews {
     [super viewWillLayoutSubviews];
+    
+    // 设置主题颜色
+    if ([ZCPControlingCenter sharedInstance].appTheme == LightTheme) {
+        [self.tableView setBackgroundColor:LIGHT_BG_COLOR];
+    }
+    else if([ZCPControlingCenter sharedInstance].appTheme == DarkTheme) {
+        [self.tableView setBackgroundColor:NIGHT_BG_COLOR];
+    }
 }
 
 @end

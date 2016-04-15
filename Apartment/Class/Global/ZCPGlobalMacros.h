@@ -71,21 +71,13 @@
 green:((float)((rgbValue & 0xFF00) >> 8))/255.0 \
 blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
 // RGB色值
-#define RGB(r,g,b)                          [UIColor colorWithRed:r/255.0 green:g/255.0 blue:b/255.0 alpha:1.0]
-
-// 颜色
-#define COLOR_FONT_GREEN                    [UIColor colorWithRed:46.0f/255.0f green:175.0f/255.0f blue:1.0f/255.0f alpha:1.0f]
-#define COLOR_FONT_DARK_GREEN               [UIColor colorWithRed:51.0f/255.0f green:153.0f/255.0f blue:0.0f/255.0f alpha:1.0f]
-#define COLOR_FONT_ORANGE                   [UIColor colorWithRed:250.0f/255.0f green:87.0f/255.0f blue:40.0f/255.0f alpha:1.0f]
-#define COLOR_FONT_BLACK                    [UIColor colorWithRed:51.0f/255.0f green:51.0f/255.0f blue:51.0f/255.0f alpha:1.0f]
-#define COLOR_FONT_DEFAULT                  [UIColor colorWithRed:102.0f/255.0f green:102.0f/255.0f blue:102.0f/255.0f alpha:1.0f]
-#define COLOR_FONT_GRAY                     [UIColor colorWithRed:128.0f/255.0f green:128.0f/255.0f blue:128.0f/255.0f alpha:1.0f]
-#define COLOR_FONT_DARKGRAY                 [UIColor colorWithRed:153.0f/255.0f green:153.0f/255.0f blue:153.0f/255.0f alpha:1.0f]
-#define COLOR_FONT_MEDIUM_GRAY              [UIColor colorWithRed:242.0f/255.0f green:242.0f/255.0f blue:242.0f/255.0f alpha:1.0f]
-#define COLOR_GRAY                          [UIColor colorWithRed:204.0f/255.0f green:204.0f/255.0f blue:204.0f/255.0f alpha:1.0f]
-#define COLOR_VIEW                          [UIColor colorWithRed:244.0f/255.0f green:243.0f/255.0f blue:237.0f/255.0f alpha:1.0f]
-#define COLOR_VIEW2                         [UIColor colorWithRed:248.0f/255.0f green:248.0f/255.0f blue:248.0f/255.0f alpha:1.0f]
-#define COLOR_LINE                          [UIColor colorWithRed:187.0f/255.0f green:187.0f/255.0f blue:187.0f/255.0f alpha:1.0f]
+#define RGB(r,g,b)      [UIColor colorWithRed:r/255.0 green:g/255.0 blue:b/255.0 alpha:1.0]
+#define LIGHT_TEXT_COLOR    [UIColor colorFromHexRGB:@"828282"]   // 日间模式文字颜色
+#define NIGHT_TEXT_COLOR    [UIColor colorFromHexRGB:@"808897"]   // 夜间模式文字颜色
+#define LIGHT_CELL_BG_COLOR [UIColor colorFromHexRGB:@"ffffff"]   // 日间模式cell背景颜色
+#define NIGHT_CELL_BG_COLOR [UIColor colorFromHexRGB:@"1e1e29"]   // 夜间模式cell背景颜色
+#define LIGHT_BG_COLOR      [UIColor colorFromHexRGB:@"efeff4"]   // 日间模式背景颜色
+#define NIGHT_BG_COLOR      [UIColor colorFromHexRGB:@"252634"]   // 夜间模式背景颜色
 
 // 忽略PerformSelectorleak警告宏
 #define SuppressPerformSelectorLeakWarning(Stuff) \
@@ -96,6 +88,8 @@ do { \
     _Pragma("clang diagnostic pop") \
 } while (0)
 
+// app logo
+#define APP_LOGO                            @"app_logo"
 // 默认用户头像
 #define HEAD_IMAGE_NAME_DEFAULT             @"head_default"
 // 默认图书封面

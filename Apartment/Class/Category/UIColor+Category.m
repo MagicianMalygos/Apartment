@@ -21,13 +21,13 @@
  *  button默认颜色
  */
 + (UIColor *)buttonDefaultColor {
-    return [UIColor colorWithRed:48.0f/255.0f green:100.0f/255.0f blue:191.0f/255.0f alpha:1.0f];
+    return [UIColor colorFromHexRGB:@"3a76cf"];
 }
 
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - 
 + (UIColor *)PADefaultBackgroundColor  {
-     return [UIColor colorFromHexRGB:@"ececec"];
+     return [UIColor colorFromHexRGB:@"4499ee"];
 }
 
 + (UIColor *)PAGrayColor

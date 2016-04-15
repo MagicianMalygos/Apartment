@@ -24,12 +24,10 @@
             self.contentView.superview.clipsToBounds = NO;
         }
         
-        _lineUpper = [[UILabel alloc] initWithFrame:CGRectMake(0.0f, -OnePoint, CELLWIDTH_DEFAULT, -OnePoint)];
-        _lineUpper.backgroundColor = [UIColor colorFromHexRGB:@"dddddd"];
+        _lineUpper = [[UILabel alloc] initWithFrame:CGRectMake(0.0f, -OnePoint, CELLWIDTH_DEFAULT, OnePoint)];
+        _lineLower = [[UILabel alloc] initWithFrame:CGRectMake(0.0f, self.height, CELLWIDTH_DEFAULT, OnePoint)];
+        
         [self addSubview:_lineUpper];
-    
-        _lineLower = [[UILabel alloc] initWithFrame:CGRectMake(0.0f, self.height, CELLWIDTH_DEFAULT, -OnePoint)];
-        _lineLower.backgroundColor = [UIColor colorFromHexRGB:@"dddddd"];
         [self addSubview:_lineLower];
     }
 
@@ -54,6 +52,16 @@
     [self bringSubviewToFront:_lineUpper];
     [self bringSubviewToFront:_lineLower];
     self.selectedBackgroundView.frame = self.bounds;
+    
+    // 设置上下边线颜色
+    if ([[ZCPControlingCenter sharedInstance] appTheme] == LightTheme) {
+        _lineUpper.backgroundColor = [UIColor colorFromHexRGB:@"e4e4e7"];
+        _lineLower.backgroundColor = [UIColor colorFromHexRGB:@"e4e4e7"];
+    }
+    else if([[ZCPControlingCenter sharedInstance] appTheme] == DarkTheme) {
+        _lineUpper.backgroundColor = [UIColor colorFromHexRGB:@"262937"];
+        _lineLower.backgroundColor = [UIColor colorFromHexRGB:@"262937"];
+    }
 }
 
 @end

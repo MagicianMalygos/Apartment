@@ -46,15 +46,14 @@
 }
 - (void)viewWillLayoutSubviews {
     [super viewWillLayoutSubviews];
-    
     self.tableView.frame = CGRectMake(0, 0, APPLICATIONWIDTH, APPLICATIONHEIGHT - Height_NavigationBar);
     
-    self.appTheme = [[ZCPControlingCenter sharedInstance] appTheme];
-    if (self.appTheme == LightTheme) {
-        [self.tableView setBackgroundColor:[UIColor colorFromHexRGB:@"ececec"]];
+    // 设置主题颜色
+    if ([ZCPControlingCenter sharedInstance].appTheme == LightTheme) {
+        [self.tableView setBackgroundColor:LIGHT_BG_COLOR];
     }
-    else if(self.appTheme == DarkTheme) {
-        [self.tableView setBackgroundColor:[UIColor lightGrayColor]];
+    else if([ZCPControlingCenter sharedInstance].appTheme == DarkTheme) {
+        [self.tableView setBackgroundColor:NIGHT_BG_COLOR];
     }
 }
 
@@ -62,7 +61,7 @@
 - (void)constructData {
     
     // 文字主题颜色
-    UIColor *textColor = (self.appTheme == LightTheme)?[UIColor blackColor]:[UIColor whiteColor];
+    UIColor *textColor = ([ZCPControlingCenter sharedInstance].appTheme == LightTheme)?[UIColor blackColor]:[UIColor whiteColor];
     
     // userImage
     ZCPUserImageCellItem *userImageItem = [[ZCPUserImageCellItem alloc] initWithDefault];

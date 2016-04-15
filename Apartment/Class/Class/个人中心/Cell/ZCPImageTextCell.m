@@ -166,6 +166,7 @@
     self.imgIcon = [[UIImageView alloc] init];
     self.textLabel = [[UILabel alloc] init];
     self.switchView = [[UISwitch alloc] init];
+    self.switchView.onTintColor = [UIColor buttonDefaultColor];
     
     self.imgIcon.backgroundColor = [UIColor clearColor];
     self.textLabel.backgroundColor = [UIColor clearColor];

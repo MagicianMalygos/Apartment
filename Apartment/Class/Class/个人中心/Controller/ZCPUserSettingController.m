@@ -40,14 +40,21 @@
 }
 - (void)viewWillLayoutSubviews {
     [super viewWillLayoutSubviews];
-    
     self.tableView.frame = CGRectMake(0, 0, APPLICATIONWIDTH, APPLICATIONHEIGHT - Height_NavigationBar);
+    
+    // 设置主题颜色
+    if ([ZCPControlingCenter sharedInstance].appTheme == LightTheme) {
+        [self.tableView setBackgroundColor:LIGHT_BG_COLOR];
+    }
+    else if([ZCPControlingCenter sharedInstance].appTheme == DarkTheme) {
+        [self.tableView setBackgroundColor:NIGHT_BG_COLOR];
+    }
 }
 #pragma mark - constructData
 - (void)constructData {
     
     // 文字主题颜色
-    UIColor *textColor = (self.appTheme == LightTheme)?[UIColor blackColor]:[UIColor whiteColor];
+    UIColor *textColor = ([ZCPControlingCenter sharedInstance].appTheme == LightTheme)?[UIColor blackColor]:[UIColor whiteColor];
     
     // User Head Section
     ZCPSectionCellItem *sectionItem1 = [[ZCPSectionCellItem alloc] initWithDefault];

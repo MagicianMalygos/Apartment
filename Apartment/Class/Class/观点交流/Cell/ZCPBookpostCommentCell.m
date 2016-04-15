@@ -50,7 +50,7 @@
     
     self.userHeadImageView.backgroundColor = [UIColor clearColor];
     self.userNameLabel.backgroundColor = [UIColor clearColor];
-    self.supportNumberLabel.backgroundColor = [UIColor blueColor];
+    self.supportNumberLabel.backgroundColor = [UIColor buttonDefaultColor];
     self.commentContentLabel.backgroundColor = [UIColor clearColor];
     
     [self.contentView addSubview:self.userHeadImageView];

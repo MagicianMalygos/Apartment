@@ -31,6 +31,10 @@
     ZCPLineCellItem *item = (ZCPLineCellItem *)object;
     return [item.cellHeight floatValue];
 }
+- (void)layoutSubviews {
+    [super layoutSubviews];
+    self.backgroundColor = [UIColor clearColor];
+}
 
 @end
 

@@ -37,10 +37,19 @@ IMP_SINGLETON
     return _tabBarController;
 }
 - (APPTheme)appTheme {
-    return _appTheme;
+    // 从用户配置中读取
+    APPTheme appTheme = LightTheme;
+    NSNumber *appThemeNumber = [[NSUserDefaults standardUserDefaults] objectForKey:@"APP_THEME"];
+    if (appThemeNumber != nil) {
+        appTheme = [appThemeNumber unsignedIntegerValue];
+    } else {
+        [[NSUserDefaults standardUserDefaults] setObject:@(appTheme) forKey:@"APP_THEME"];
+    }
+    return appTheme;
 }
 - (void)setAppTheme:(APPTheme)appTheme {
-    _appTheme = appTheme;
+    // 存入用户配置
+    [[NSUserDefaults standardUserDefaults] setObject:@(appTheme) forKey:@"APP_THEME"];
 }
 
 #pragma mark - 公有方法

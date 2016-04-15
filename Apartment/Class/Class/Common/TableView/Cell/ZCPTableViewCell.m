@@ -27,6 +27,17 @@
     }
     return self;
 }
+- (void)layoutSubviews {
+    [super layoutSubviews];
+    
+    // 设置cell背景颜色
+    if ([[ZCPControlingCenter sharedInstance] appTheme] == LightTheme) {
+        [self setBackgroundColor:LIGHT_CELL_BG_COLOR];
+    }
+    else if([[ZCPControlingCenter sharedInstance] appTheme] == DarkTheme) {
+        [self setBackgroundColor:NIGHT_CELL_BG_COLOR];
+    }
+}
 
 #pragma mark - Setup Cell
 - (void)setupContentView {

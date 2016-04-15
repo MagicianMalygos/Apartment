@@ -68,7 +68,7 @@ typedef NS_ENUM(NSInteger, ZCPShowState) {
     [super viewWillLayoutSubviews];
     
     // 设置控件frame
-    self.logoImageView.frame = CGRectMake(self.view.center.x - 40, VerticalMargin * 6, 80, 80);
+    self.logoImageView.frame = CGRectMake(self.view.center.x - 90, VerticalMargin * 6, 180, 60);
     self.loginRegisterButton.frame = CGRectMake(HorizontalMargin * 2, self.view.center.y - 20, APPLICATIONWIDTH - HorizontalMargin * 4, 40);
     self.inputAreaScrollView.frame = CGRectMake(0, self.loginRegisterButton.top - 90 - UIMargin * 4, APPLICATIONWIDTH, 90 + UIMargin * 2);
     
@@ -87,7 +87,7 @@ typedef NS_ENUM(NSInteger, ZCPShowState) {
 - (UIImageView *)logoImageView {
     if (_logoImageView == nil) {
         _logoImageView = [[UIImageView alloc] init];
-        _logoImageView.image = [UIImage imageNamed:HEAD_IMAGE_NAME_DEFAULT];
+        _logoImageView.image = [UIImage imageNamed:APP_LOGO];
     }
     return _logoImageView;
 }
@@ -236,17 +236,23 @@ typedef NS_ENUM(NSInteger, ZCPShowState) {
             || [ZCPJudge judgeOutOfRangeTextInput:password range:[ZCPLengthRange rangeWithMin:6 max:18] showErrorMsg:@"密码长度超过限制！"]) {
             return;
         }
-        
-        // 进入注册页面
-        ZCPVerifyCodeController *verifyCodeVC = [[ZCPVerifyCodeController alloc] init];
-        verifyCodeVC.userName = userName;
-        verifyCodeVC.phone = phone;
-        verifyCodeVC.password = password;
-        UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:verifyCodeVC];
-        
-        [self presentViewController:nav animated:YES completion:nil];
+        [[ZCPRequestManager sharedInstance] JudgeAccountCanBeRegisterWithAccount:phone success:^(AFHTTPRequestOperation *operation, BOOL isSuccess, NSString *msg) {
+            if (isSuccess) {
+                // 进入注册页面
+                ZCPVerifyCodeController *verifyCodeVC = [[ZCPVerifyCodeController alloc] init];
+                verifyCodeVC.userName = userName;
+                verifyCodeVC.phone = phone;
+                verifyCodeVC.password = password;
+                
+                [self.navigationController pushViewController:verifyCodeVC animated:YES];
+            } else {
+                [MBProgressHUD showError:msg];
+            }
+        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+            TTDPRINT(@"%@", error);
+            [MBProgressHUD showError:@"网络异常"];
+        }];
     }
-    
 }
 
 @end

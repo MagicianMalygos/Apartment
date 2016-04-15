@@ -57,7 +57,7 @@
 - (void)constructData {
     
     // 文字主题颜色
-    UIColor *textColor = (self.appTheme == LightTheme)?[UIColor blackColor]:[UIColor whiteColor];
+    UIColor *textColor = ([ZCPControlingCenter sharedInstance].appTheme == LightTheme)?[UIColor blackColor]:[UIColor whiteColor];
     NSMutableArray *items = [NSMutableArray array];
     
     // thesisItem

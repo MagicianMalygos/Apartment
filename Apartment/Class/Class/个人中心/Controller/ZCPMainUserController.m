@@ -38,19 +38,13 @@
     // 重新刷新用户信息
     [self constructData];
     [self.tableView reloadData];
+    // 设置背景颜色
+    [self setThemeColor];
 }
 - (void)viewWillLayoutSubviews {
     [super viewWillLayoutSubviews];
     
     self.tableView.frame = CGRectMake(0, 0, APPLICATIONWIDTH, APPLICATIONHEIGHT - Height_NavigationBar - Height_TABBAR);
-    
-    self.appTheme = [[ZCPControlingCenter sharedInstance] appTheme];
-    if (self.appTheme == LightTheme) {
-        [self.tableView setBackgroundColor:[UIColor colorFromHexRGB:@"ececec"]];
-    }
-    else if(self.appTheme == DarkTheme) {
-        [self.tableView setBackgroundColor:[UIColor lightGrayColor]];
-    }
 }
 
 #pragma mark - constructData
@@ -59,7 +53,7 @@
     ZCPUserModel *currUserModel = [ZCPUserCenter sharedInstance].currentUserModel;
     
     // 文字主题颜色
-    UIColor *textColor = (self.appTheme == LightTheme)?[UIColor blackColor]:[UIColor whiteColor];
+    UIColor *textColor = ([ZCPControlingCenter sharedInstance].appTheme == LightTheme)?LIGHT_TEXT_COLOR: NIGHT_TEXT_COLOR;
     
     // userImage
     ZCPUserImageCellItem *userImageItem = [[ZCPUserImageCellItem alloc] initWithDefault];
@@ -256,7 +250,24 @@
     else {
         [[ZCPControlingCenter sharedInstance] setAppTheme:DarkTheme];
     }
-    [self viewWillLayoutSubviews];
+    
+    // 设置背景颜色
+    [self setThemeColor];
+    
+    // 重新刷新用户信息，更新颜色
+    [self constructData];
+    [self.tableView reloadData];
+}
+
+#pragma mark - private method
+- (void)setThemeColor {
+    // 设置主题颜色
+    if ([ZCPControlingCenter sharedInstance].appTheme == LightTheme) {
+        [self.tableView setBackgroundColor:LIGHT_BG_COLOR];
+    }
+    else if([ZCPControlingCenter sharedInstance].appTheme == DarkTheme) {
+        [self.tableView setBackgroundColor:NIGHT_BG_COLOR];
+    }
 }
 
 @end
