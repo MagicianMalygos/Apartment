@@ -206,7 +206,11 @@
     self.imageViewClickBlock = imageViewClickBlock;
     
     if ([URLString is_url]) {
-        [self.imageView sd_setImageWithURL:[NSURL URLWithString:URLString] placeholderImage:[UIImage imageNamed:ADVERTISEMEN_IMAGE_DEFAULT] completed:nil];
+        
+        UIImage *image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:URLString]]];
+        image = (image != nil)? image: [UIImage imageNamed:ADVERTISEMEN_IMAGE_DEFAULT];
+        [self.imageView setImage:image];
+//        [self.imageView sd_setImageWithURL:[NSURL URLWithString:URLString] placeholderImage:[UIImage imageNamed:ADVERTISEMEN_IMAGE_DEFAULT] completed:nil];
     } else {
         [self.imageView setImage:[UIImage imageNamed:URLString]];
     }

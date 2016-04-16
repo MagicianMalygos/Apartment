@@ -54,6 +54,9 @@
     // 更新cell颜色
     [self constructData];
     [self.tableView reloadData];
+    
+    // 刷新广告
+    [self reloadAd];
 }
 - (void)viewWillLayoutSubviews {
     [super viewWillLayoutSubviews];
@@ -62,6 +65,10 @@
 
 #pragma mark - construct data
 - (void)constructData {
+    
+    // 刷新广告
+    [self reloadAd];
+    
     NSMutableArray *items = [NSMutableArray array];
     
     for (ZCPBookPostCommentModel *model in self.hotBookpostAndCommentArr) {
@@ -93,8 +100,8 @@
                                 , advertisementGetURL(@"thesis_ad.png")
                                 , advertisementGetURL(@"question_ad.png")
                                 , advertisementGetURL(@"book_ad.png")];
-        self.imageCircleView.imageNameArray = imageArray;
-        self.imageCircleView.delegate = self;
+        _imageCircleView.imageNameArray = imageArray;
+        _imageCircleView.delegate = self;
     }
     return _imageCircleView;
 }
@@ -217,6 +224,15 @@
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         TTDPRINT(@"%@", error);
     }];
+}
+
+- (void)reloadAd {
+    // 刷新广告图
+    NSArray *imageArray = @[advertisementGetURL(@"couplet_ad.png")
+                            , advertisementGetURL(@"thesis_ad.png")
+                            , advertisementGetURL(@"question_ad.png")
+                            , advertisementGetURL(@"book_ad.png")];
+    self.imageCircleView.imageNameArray = imageArray;
 }
 
 @end
