@@ -54,14 +54,8 @@
     self.selectedBackgroundView.frame = self.bounds;
     
     // 设置上下边线颜色
-    if ([[ZCPControlingCenter sharedInstance] appTheme] == LightTheme) {
-        _lineUpper.backgroundColor = [UIColor colorFromHexRGB:@"e4e4e7"];
-        _lineLower.backgroundColor = [UIColor colorFromHexRGB:@"e4e4e7"];
-    }
-    else if([[ZCPControlingCenter sharedInstance] appTheme] == DarkTheme) {
-        _lineUpper.backgroundColor = [UIColor colorFromHexRGB:@"262937"];
-        _lineLower.backgroundColor = [UIColor colorFromHexRGB:@"262937"];
-    }
+    _lineUpper.backgroundColor = APP_THEME_LINE_COLOR;
+    _lineLower.backgroundColor = APP_THEME_LINE_COLOR
 }
 
 @end

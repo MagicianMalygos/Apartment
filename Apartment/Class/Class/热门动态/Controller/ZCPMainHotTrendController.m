@@ -48,6 +48,12 @@
     [super viewWillAppear:animated];
     [self clearNavigationBar];
     self.tabBarController.title = @"热门动态";
+    
+    // 设置主题颜色
+    self.tableView.backgroundColor = APP_THEME_BG_COLOR;
+    // 更新cell颜色
+    [self constructData];
+    [self.tableView reloadData];
 }
 - (void)viewWillLayoutSubviews {
     [super viewWillLayoutSubviews];

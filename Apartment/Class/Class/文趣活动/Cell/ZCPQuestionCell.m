@@ -32,6 +32,7 @@
     self.questionContentLabel = [[UILabel alloc] init];
     self.questionContentLabel.numberOfLines = 0;
     self.questionContentLabel.font = [UIFont defaultBoldFontWithSize:17.0f];
+    self.questionContentLabel.textColor = [UIColor boldTextDefaultColor];
     self.collectButton = [UIButton buttonWithType:UIButtonTypeCustom];
     [self.collectButton setImageNameNormal:@"collection_normal" Highlighted:@"collectv_selected" Selected:@"collection_selected" Disabled:@"collection_normal"];
     [self.collectButton addTarget:self action:@selector(buttonClicked:) forControlEvents:UIControlEventTouchUpInside];
@@ -54,16 +55,19 @@
     self.optionOneLabel = [[UILabel alloc] init];
     self.optionOneLabel.numberOfLines = 0;
     self.optionOneLabel.font = [UIFont defaultFontWithSize:15.0f];
+    self.optionOneLabel.textColor = [UIColor textDefaultColor];
     self.optionTwoLabel = [[UILabel alloc] init];
     self.optionTwoLabel.numberOfLines = 0;
     self.optionTwoLabel.font = [UIFont defaultFontWithSize:15.0f];
+    self.optionTwoLabel.textColor = [UIColor textDefaultColor];
     self.optionThreeLabel = [[UILabel alloc] init];
     self.optionThreeLabel.numberOfLines = 0;
     self.optionThreeLabel.font = [UIFont defaultFontWithSize:15.0f];
+    self.optionThreeLabel.textColor = [UIColor textDefaultColor];
     self.optionFourLabel = [[UILabel alloc] init];
     self.optionFourLabel.numberOfLines = 0;
     self.optionFourLabel.font = [UIFont defaultFontWithSize:15.0f];
-    
+    self.optionFourLabel.textColor = [UIColor textDefaultColor];
     
     self.questionContentLabel.backgroundColor = [UIColor clearColor];
     self.collectButton.backgroundColor = [UIColor clearColor];

@@ -23,15 +23,9 @@
 }
 - (void)setObject:(NSObject *)object {
     if (object) {
-        self.item = (ZCPRoundCellItem *)object;
-        ZCPRoundCellItem *item = (ZCPRoundCellItem *)object;
+        self.item = (ZCPLineCellItem *)object;
         
-        if (item.roundContentColor) {
-            self.roundContentView.backgroundColor = item.roundContentColor;
-        } else {
-            self.roundContentView.backgroundColor = [UIColor whiteColor];
-        }
-        
+        self.roundContentView.backgroundColor = APP_THEME_CELL_BG_COLOR;
     }
 }
 + (CGFloat)tableView:(UITableView *)tableView rowHeightForObject:(id)object {
@@ -43,22 +37,6 @@
     self.roundContentView.frame = CGRectMake(HorizontalMargin, VerticalMargin, APPLICATIONWIDTH - HorizontalMargin * 2, self.contentView.height - VerticalMargin * 2);
     self.roundContentView.layer.masksToBounds = YES;
     self.roundContentView.layer.cornerRadius = 5.0;
-}
-
-@end
-
-@implementation ZCPRoundCellItem
-
-#pragma mark - synthesize
-@synthesize roundContentColor = _roundContentColor;
-
-#pragma mark - init
-- (instancetype)initWithDefault {
-    if (self = [super initWithDefault]) {
-        self.cellClass = [ZCPRoundCell class];
-        self.cellType = [ZCPRoundCell cellIdentifier];
-    }
-    return self;
 }
 
 @end

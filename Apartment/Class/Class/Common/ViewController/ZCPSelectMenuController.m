@@ -25,7 +25,7 @@
     [super viewDidLoad];
     
     // 初始化
-    self.view.backgroundColor = [UIColor PALightGrayColor];
+    self.view.backgroundColor = [UIColor lightGrayColor];
     self.view.alpha = 0.0f;
     self.viewHidden = YES;
     

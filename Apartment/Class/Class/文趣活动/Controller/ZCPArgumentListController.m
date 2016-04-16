@@ -54,6 +54,12 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     self.title = self.argumentBelong == ZCPProsArgument? @"正方论据": @"反方论据";
+    
+    // 设置主题颜色
+    self.tableView.backgroundColor = APP_THEME_BG_COLOR;
+    // 更新cell颜色
+    [self constructData];
+    [self.tableView reloadData];
 }
 - (void)viewWillLayoutSubviews {
     [super viewWillLayoutSubviews];

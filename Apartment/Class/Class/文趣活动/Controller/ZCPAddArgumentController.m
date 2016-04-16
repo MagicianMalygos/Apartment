@@ -38,6 +38,12 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     self.title = @"发表观点";
+    
+    // 设置主题颜色
+    self.tableView.backgroundColor = APP_THEME_BG_COLOR;
+    // 更新cell颜色
+    [self constructData];
+    [self.tableView reloadData];
 }
 - (void)viewWillLayoutSubviews {
     [super viewWillLayoutSubviews];
@@ -50,7 +56,7 @@
     
     // section
     ZCPSectionCellItem *sectionItem = [[ZCPSectionCellItem alloc] initWithDefault];
-    sectionItem.sectionTitle = @"输入论据内容";
+    sectionItem.sectionAttrTitle = [[NSMutableAttributedString alloc] initWithString:@"输入论据内容" attributes:@{NSForegroundColorAttributeName: APP_THEME_TEXT_COLOR, NSFontAttributeName: [UIFont defaultFontWithSize:14.0f]}];
     // 论据内容
     ZCPTextViewCellItem *argumentItem = [[ZCPTextViewCellItem alloc] initWithDefault];
     argumentItem.placeholder = @"请输入论据内容,不超过50字...";
@@ -72,6 +78,9 @@
     // 提交按钮
     ZCPButtonCellItem *determineItem = [[ZCPButtonCellItem alloc] initWithDefault];
     determineItem.buttonTitle = @"提交";
+    determineItem.buttonConfigBlock = ^(UIButton *button) {
+        [button setTitleColor:[UIColor buttonTitleDefaultColor] forState:UIControlStateNormal];
+    };
     determineItem.delegate = self;
     
     [items addObject:sectionItem];

@@ -79,6 +79,12 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
 #define LIGHT_BG_COLOR      [UIColor colorFromHexRGB:@"efeff4"]   // 日间模式背景颜色
 #define NIGHT_BG_COLOR      [UIColor colorFromHexRGB:@"252634"]   // 夜间模式背景颜色
 
+#define APP_THEME_COLOR(lightColor, nightColor) (([ZCPControlingCenter sharedInstance].appTheme == LightTheme)? lightColor: nightColor)
+#define APP_THEME_TEXT_COLOR    APP_THEME_COLOR(LIGHT_TEXT_COLOR, NIGHT_TEXT_COLOR)
+#define APP_THEME_CELL_BG_COLOR APP_THEME_COLOR(LIGHT_CELL_BG_COLOR, NIGHT_CELL_BG_COLOR)
+#define APP_THEME_BG_COLOR      APP_THEME_COLOR(LIGHT_BG_COLOR, NIGHT_BG_COLOR)
+#define APP_THEME_LINE_COLOR    APP_THEME_COLOR([UIColor colorFromHexRGB:@"e4e4e7"], [UIColor colorFromHexRGB:@"262937"]);
+
 // 忽略PerformSelectorleak警告宏
 #define SuppressPerformSelectorLeakWarning(Stuff) \
 do { \

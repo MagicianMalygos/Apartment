@@ -34,10 +34,10 @@
         
         self.accessoryType = item.accessoryType;
         CGFloat cellHeight = [item.cellHeight floatValue];
-        
         self.textLabel.frame = CGRectMake(MARGIN_DEFAULT, MARGIN_DEFAULT, CELLWIDTH_DEFAULT - MARGIN_DEFAULT * 2 - RIGHT_WIDTH, cellHeight - MARGIN_DEFAULT * 2);
-        
         [self.textLabel setAttributedText:item.text];
+        // 设置文字主题颜色
+        self.textLabel.textColor = APP_THEME_TEXT_COLOR;
     }
 }
 /**
@@ -115,6 +115,9 @@
             [self.imgIcon setImage:[UIImage imageNamed:item.imageName]];
         }
         [self.textLabel setAttributedText:item.text];
+        
+        // 设置文字主题颜色
+        self.textLabel.textColor = APP_THEME_TEXT_COLOR;
     }
 }
 /**
@@ -200,6 +203,13 @@
         [self.textLabel setAttributedText:item.text];
         [self.switchView addTarget:self action:@selector(switchValueChanged:) forControlEvents:UIControlEventValueChanged];
         [self.switchView setOn:([[ZCPControlingCenter sharedInstance] appTheme] == LightTheme)?NO:YES];
+        
+        // 设置文字主题颜色
+        if ([ZCPControlingCenter sharedInstance].appTheme == LightTheme) {
+            self.textLabel.textColor = LIGHT_TEXT_COLOR;
+        } else if ([ZCPControlingCenter sharedInstance].appTheme == DarkTheme) {
+            self.textLabel.textColor = NIGHT_TEXT_COLOR;
+        }
     }
 }
 /**
@@ -261,12 +271,13 @@
     self.imgIcon = [[UIImageView alloc] init];
     self.textLabel = [[UILabel alloc] init];
     self.button = [[UIButton alloc] init];
+        self.button.titleLabel.font = [UIFont defaultFontWithSize:13.0f];
+    [self.button addTarget:self action:@selector(buttonClicked:) forControlEvents:UIControlEventTouchUpInside];
+    [self.button setTitleColor:[UIColor buttonTitleDefaultColor] forState:UIControlStateNormal];
     
     self.imgIcon.backgroundColor = [UIColor clearColor];
     self.textLabel.backgroundColor = [UIColor clearColor];
     self.button.backgroundColor = [UIColor clearColor];
-    self.button.titleLabel.font = [UIFont defaultFontWithSize:13.0f];
-    [self.button addTarget:self action:@selector(buttonClicked:) forControlEvents:UIControlEventTouchUpInside];
     
     [self.contentView addSubview:self.imgIcon];
     [self.contentView addSubview:self.textLabel];
@@ -296,9 +307,17 @@
         [self.imgIcon changeToRound];
         [self.textLabel setAttributedText:item.text];
         
+        // 设置按钮
         [self.button changeToFillet];
         if (item.buttonConfigBlock) {
             item.buttonConfigBlock(self.button);
+        }
+        
+        // 设置文字主题颜色
+        if ([ZCPControlingCenter sharedInstance].appTheme == LightTheme) {
+            self.textLabel.textColor = LIGHT_TEXT_COLOR;
+        } else if ([ZCPControlingCenter sharedInstance].appTheme == DarkTheme) {
+            self.textLabel.textColor = NIGHT_TEXT_COLOR;
         }
     }
 }

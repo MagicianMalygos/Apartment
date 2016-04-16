@@ -65,6 +65,12 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     self.title = @"对联详情";
+    
+    // 设置主题颜色
+    self.tableView.backgroundColor = APP_THEME_BG_COLOR;
+    // 更新cell颜色
+    [self constructData];
+    [self.tableView reloadData];
 }
 - (void)viewWillLayoutSubviews {
     [super viewWillLayoutSubviews];
@@ -85,7 +91,7 @@
 
     ZCPSectionCellItem * section = [[ZCPSectionCellItem alloc] initWithDefault];
     section.cellHeight = @20;
-    section.sectionTitle = @"评论";
+    section.sectionAttrTitle = [[NSAttributedString alloc] initWithString:(self.coupletReplyModelArr.count > 0)? @"评论": @"暂无评论" attributes:@{NSForegroundColorAttributeName: APP_THEME_TEXT_COLOR, NSFontAttributeName: [UIFont defaultFontWithSize:14.0f]}];;
     [items addObject:section];
     
     for (ZCPCoupletReplyModel *model in self.coupletReplyModelArr) {

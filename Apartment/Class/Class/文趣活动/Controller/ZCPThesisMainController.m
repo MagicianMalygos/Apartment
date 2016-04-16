@@ -48,6 +48,15 @@
         [weakSelf.tableView.mj_header endRefreshing];
     }];
 }
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
+    // 设置主题颜色
+    self.tableView.backgroundColor = APP_THEME_BG_COLOR;
+    // 更新cell颜色
+    [self constructData];
+    [self.tableView reloadData];
+}
 - (void)viewWillLayoutSubviews {
     [super viewWillLayoutSubviews];
     self.tableView.frame = CGRectMake(0, self.thesisView.bottom, APPLICATIONWIDTH, APPLICATIONHEIGHT - Height_NavigationBar - Height_TABBAR - OptionHeight);

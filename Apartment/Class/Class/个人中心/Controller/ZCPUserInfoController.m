@@ -43,25 +43,20 @@
     // 重新刷新用户信息
     [self constructData];
     [self.tableView reloadData];
+    
+    // 设置主题颜色
+    self.tableView.backgroundColor = APP_THEME_BG_COLOR;
 }
 - (void)viewWillLayoutSubviews {
     [super viewWillLayoutSubviews];
     self.tableView.frame = CGRectMake(0, 0, APPLICATIONWIDTH, APPLICATIONHEIGHT - Height_NavigationBar);
-    
-    // 设置主题颜色
-    if ([ZCPControlingCenter sharedInstance].appTheme == LightTheme) {
-        [self.tableView setBackgroundColor:LIGHT_BG_COLOR];
-    }
-    else if([ZCPControlingCenter sharedInstance].appTheme == DarkTheme) {
-        [self.tableView setBackgroundColor:NIGHT_BG_COLOR];
-    }
 }
 
 #pragma mark - constructData
 - (void)constructData {
     
     // 文字主题颜色
-    UIColor *textColor = ([ZCPControlingCenter sharedInstance].appTheme == LightTheme)?[UIColor blackColor]:[UIColor whiteColor];
+    UIColor *textColor = APP_THEME_TEXT_COLOR;
     
     // userImage
     ZCPUserImageCellItem *userImageItem = [[ZCPUserImageCellItem alloc] initWithDefault];
@@ -153,14 +148,14 @@
     focusItem.delegate = self;
     focusItem.buttonConfigBlock = ^(UIButton *button) {
         // 设置为不可用
-        button.backgroundColor = [UIColor darkGrayColor];
+        button.backgroundColor = [UIColor buttonDefaultColor];
         [button setTitle:@"关注" forState:UIControlStateNormal];
+        [button setTitleColor:[UIColor buttonTitleDefaultColor] forState:UIControlStateNormal];
         button.enabled = NO;
         
         [[ZCPRequestManager sharedInstance] judgeUserCollectOtherUserID:self.currUserModel.userId currUserID:[ZCPUserCenter sharedInstance].currentUserModel.userId success:^(AFHTTPRequestOperation *operation, BOOL isSuccess) {
             
             button.enabled = YES;
-            button.backgroundColor = [UIColor buttonDefaultColor];
             
             if (isSuccess) {
                 // 已收藏时

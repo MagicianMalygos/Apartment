@@ -32,7 +32,6 @@
     self.userNameLabel.numberOfLines = 1;
     self.userNameLabel.textAlignment = NSTextAlignmentCenter;
     self.userNameLabel.font = [UIFont defaultBoldFontWithSize:20.0f];
-    self.userNameLabel.textColor = [UIColor whiteColor];
     
     self.userNameBgView = [[UIView alloc] init];
     self.userNameBgView.alpha = 0.4f;
@@ -55,6 +54,7 @@
         self.item = (ZCPUserImageCellItem *)object;
     
         // 设置属性
+        WEAK_SELF;
         [self.userHeadImageView sd_setImageWithURL:[NSURL URLWithString:self.item.bgImageURL] placeholderImage:[UIImage imageNamed:HEAD_IMAGE_NAME_DEFAULT] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
             UIImage *loadImage = [UIImage imageNamed:HEAD_IMAGE_NAME_DEFAULT];
             if (image != nil) {
@@ -79,13 +79,23 @@
 //            effectview.frame = CGRectMake(0, 0, self.bgImageView.width, self.bgImageView.height);
 //            [self.bgImageView addSubview:effectview];
             
-            // 第三方实现模糊
-            UIImage *blurImage = [loadImage imageByBlurRadius:20 tintColor:nil tintMode:0 saturation:1 maskImage:nil];
-            [self.bgImageView setImage:blurImage];
+            if ([ZCPControlingCenter sharedInstance].appTheme == LightTheme) {
+                // 第三方实现模糊
+                UIImage *blurImage = [loadImage imageByBlurRadius:20 tintColor:nil tintMode:0 saturation:1 maskImage:nil];
+                [weakSelf.bgImageView setImage:blurImage];
+            } else if ([ZCPControlingCenter sharedInstance].appTheme == DarkTheme) {
+                weakSelf.bgImageView.image = nil;
+                weakSelf.bgImageView.backgroundColor = NIGHT_CELL_BG_COLOR;
+            }
         }];
         
         // 设置属性
         self.userNameLabel.text = self.item.userName;
+        if ([ZCPControlingCenter sharedInstance].appTheme == LightTheme) {
+            self.userNameLabel.textColor = [UIColor colorFromHexRGB:@"f8f8f8"];
+        } else if ([ZCPControlingCenter sharedInstance].appTheme == DarkTheme) {
+            self.userNameLabel.textColor = [UIColor colorFromHexRGB:@"dbdbdb"];
+        }
     }
 }
 + (CGFloat)tableView:(UITableView *)tableView rowHeightForObject:(id)object {

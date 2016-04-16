@@ -27,6 +27,12 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     self.title = @"分享辩题";
+    
+    // 设置主题颜色
+    self.tableView.backgroundColor = APP_THEME_BG_COLOR;
+    // 更新cell颜色
+    [self constructData];
+    [self.tableView reloadData];
 }
 - (void)viewWillLayoutSubviews {
     [super viewWillLayoutSubviews];
@@ -43,44 +49,44 @@
     
     // section 1
     ZCPSectionCellItem *sectionItem1 = [[ZCPSectionCellItem alloc] initWithDefault];
-    sectionItem1.sectionTitle = @"你希望辩题的内容是";
+    sectionItem1.sectionAttrTitle = [[NSMutableAttributedString alloc] initWithString:@"你希望的辩题内容是" attributes:@{NSForegroundColorAttributeName: APP_THEME_TEXT_COLOR, NSFontAttributeName: [UIFont defaultFontWithSize:14.0f]}];;
     // 期望辩题内容
     ZCPTextViewCellItem *hopeThesisItem = [[ZCPTextViewCellItem alloc] initWithDefault];
     hopeThesisItem.placeholder = @"请输入辩题内容,不超过50字...";
     
     // section 2
     ZCPSectionCellItem *sectionItem2 = [[ZCPSectionCellItem alloc] initWithDefault];
-    sectionItem2.sectionTitle = @"正方论点";
+    sectionItem2.sectionAttrTitle = [[NSMutableAttributedString alloc] initWithString:@"正方论点" attributes:@{NSForegroundColorAttributeName: APP_THEME_TEXT_COLOR, NSFontAttributeName: [UIFont defaultFontWithSize:14.0f]}];;
     // 正方论点
     ZCPTextViewCellItem *prosArgumentItem = [[ZCPTextViewCellItem alloc] initWithDefault];
     prosArgumentItem.placeholder = @"请输入正方论点内容,不超过50字...";
     
     // section 3
     ZCPSectionCellItem *sectionItem3 = [[ZCPSectionCellItem alloc] initWithDefault];
-    sectionItem3.sectionTitle = @"反方论点";
+    sectionItem3.sectionAttrTitle = [[NSMutableAttributedString alloc] initWithString:@"反方论点" attributes:@{NSForegroundColorAttributeName: APP_THEME_TEXT_COLOR, NSFontAttributeName: [UIFont defaultFontWithSize:14.0f]}];;
     // 反方论点
     ZCPTextViewCellItem *consArgumentItem = [[ZCPTextViewCellItem alloc] initWithDefault];
     consArgumentItem.placeholder = @"请输入反方论点内容,不超过50字...";
     
     // section 4
     ZCPSectionCellItem *sectionItem4 = [[ZCPSectionCellItem alloc] initWithDefault];
-    sectionItem4.sectionTitle = @"为什么选择这个辩题";
+    sectionItem4.sectionAttrTitle = [[NSMutableAttributedString alloc] initWithString:@"为什么选择这个辩题" attributes:@{NSForegroundColorAttributeName: APP_THEME_TEXT_COLOR, NSFontAttributeName: [UIFont defaultFontWithSize:14.0f]}];;
     // 为什么选择这个辩题
     ZCPTextViewCellItem *reasonItem = [[ZCPTextViewCellItem alloc] initWithDefault];
     reasonItem.placeholder = @"请输入原因...";
-    
     
     // blank item
     ZCPLineCellItem *blackItem = [[ZCPLineCellItem alloc] initWithDefault];
     // 提交按钮
     ZCPButtonCellItem *determineItem = [[ZCPButtonCellItem alloc] initWithDefault];
     determineItem.buttonTitle = @"提交";
+    determineItem.buttonConfigBlock = ^(UIButton *button) {
+        [button setTitleColor:[UIColor buttonTitleDefaultColor] forState:UIControlStateNormal];
+    };
     determineItem.delegate = self;
-    
     
     [items addObject:sectionItem1];
     [items addObject:hopeThesisItem];
-    
     [items addObject:sectionItem2];
     [items addObject:prosArgumentItem];
     

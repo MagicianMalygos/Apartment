@@ -15,34 +15,15 @@
 
 // button默认颜色
 + (UIColor *)buttonDefaultColor;
+// 按钮标题默认颜色
++ (UIColor *)buttonTitleDefaultColor;
 
-// - - - - - - - - - - - - - - - - - - - - - - - -
-+ (UIColor *)PADefaultBackgroundColor;
-+ (UIColor *)PAGrayColor;
-+ (UIColor *)PALightGrayColor;
-+ (UIColor *)PAOrangeColor;
-+ (UIColor *)PABtnBgOrangeColor;
-+ (UIColor *)PAOrangeHighlightColor;
-+ (UIColor *)PAGreenColor;
-+ (UIColor *)PAGreenHighlightColor;
-+ (UIColor *)PABlackTextColor;
-+ (UIColor *)PADimColor;
-+ (UIColor *)PABlueColor;
-+ (UIColor *)PARateGreenColor;
-//导航条背景色
-+ (UIColor *)PANavigationBarBgColor;
-//工具栏、电话条背景
-+ (UIColor *)PAToolBarBgColor;
-//优惠icon颜色
-+ (UIColor *)PAYouHuiColor;
-//价格颜色
-+ (UIColor *)PAPriceColor;
-//价格单位颜色
-+ (UIColor *)PAPriceUnitColor;
-//列表主标题颜色
-+ (UIColor *)PATitleColor;
-//列表子标题颜色
-+ (UIColor *)PASubTitleColor;
+// 默认文字颜色
++ (UIColor *)textDefaultColor;
+// 默认加粗文字颜色
++ (UIColor *)boldTextDefaultColor;
+// 默认文字颜色
++ (UIColor *)lightTextDefaultColor;
 
 // 计算器饼图颜色
 + (UIColor *)PACalRedColor;

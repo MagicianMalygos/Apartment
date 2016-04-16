@@ -36,21 +36,25 @@
     self.userNameLabel = [[UILabel alloc] initWithFrame:CGRectMake(self.userHeadImageView.right + UIMargin, VerticalMargin, APPLICATIONWIDTH - self.userHeadImageView.right - HorizontalMargin - UIMargin, 20)];
     self.userNameLabel.textAlignment = NSTextAlignmentLeft;
     self.userNameLabel.font =[UIFont defaultFontWithSize:15.0f];
+    self.userNameLabel.textColor = [UIColor textDefaultColor];
     
     // 第二行
     self.bookreplyContentLabel = [[UILabel alloc] init];
     self.bookreplyContentLabel.textAlignment = NSTextAlignmentLeft;
     self.bookreplyContentLabel.font = [UIFont defaultFontWithSize:15.0f];
     self.bookreplyContentLabel.numberOfLines = 0;
+    self.bookreplyContentLabel.textColor = [UIColor textDefaultColor];
     
     // 第三行
     self.bookreplyTiemLabel = [[UILabel alloc] init];
     self.bookreplyTiemLabel.textAlignment = NSTextAlignmentLeft;
     self.bookreplyTiemLabel.font = [UIFont defaultFontWithSize:13.0f];
+    self.bookreplyTiemLabel.textColor = [UIColor textDefaultColor];
     
     self.bookreplySupportLabel = [[UILabel alloc] init];
     self.bookreplySupportLabel.textAlignment = NSTextAlignmentRight;
     self.bookreplySupportLabel.font = [UIFont defaultFontWithSize:13.0f];
+    self.bookreplySupportLabel.textColor = [UIColor textDefaultColor];
     
     self.supportButton = [UIButton buttonWithType:UIButtonTypeCustom];
     [self.supportButton setImageNameNormal:@"support_normal"

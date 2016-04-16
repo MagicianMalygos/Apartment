@@ -53,7 +53,7 @@
     ZCPUserModel *currUserModel = [ZCPUserCenter sharedInstance].currentUserModel;
     
     // 文字主题颜色
-    UIColor *textColor = ([ZCPControlingCenter sharedInstance].appTheme == LightTheme)?LIGHT_TEXT_COLOR: NIGHT_TEXT_COLOR;
+    UIColor *textColor = APP_THEME_TEXT_COLOR;
     
     // userImage
     ZCPUserImageCellItem *userImageItem = [[ZCPUserImageCellItem alloc] initWithDefault];
@@ -266,6 +266,8 @@
     // 设置主题颜色
     if ([ZCPControlingCenter sharedInstance].appTheme == LightTheme) {
         [self.tableView setBackgroundColor:LIGHT_BG_COLOR];
+        // 设置状态栏文字
+        [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault];
         // 设置nav颜色
         [self setNavigationColor:LIGHT_CELL_BG_COLOR];
         // 设置tabbar颜色
@@ -274,6 +276,8 @@
     }
     else if([ZCPControlingCenter sharedInstance].appTheme == DarkTheme) {
         [self.tableView setBackgroundColor:NIGHT_BG_COLOR];
+        // 设置状态栏文字
+        [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
         // 设置nav颜色
         [self setNavigationColor:NIGHT_CELL_BG_COLOR];
         // 设置tabbar颜色

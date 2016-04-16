@@ -48,6 +48,7 @@
     self.nameLabel.textAlignment = NSTextAlignmentCenter;
     self.nameLabel.font = [UIFont defaultFontWithSize:18.0f];
     self.nameLabel.numberOfLines = 2;
+    self.nameLabel.textColor = [UIColor boldTextDefaultColor];
     
     // 第二行
     self.authorLabel = [[UILabel alloc] initWithFrame:CGRectMake(self.coverImageView.right + UIMargin
@@ -56,6 +57,7 @@
                                                                  , LABEL_HEIGHT)];
     self.authorLabel.textAlignment = NSTextAlignmentLeft;
     self.authorLabel.font = [UIFont defaultFontWithSize:15.0f];
+    self.authorLabel.textColor = [UIColor textDefaultColor];
     
     // 第三行
     self.publisherLabel = [[UILabel alloc] initWithFrame:CGRectMake(self.coverImageView.right + UIMargin
@@ -64,6 +66,7 @@
                                                                     , LABEL_HEIGHT)];
     self.publisherLabel.textAlignment = NSTextAlignmentLeft;
     self.publisherLabel.font = [UIFont defaultFontWithSize:15.0f];
+    self.publisherLabel.textColor = [UIColor textDefaultColor];
     
     // 第四行
     self.publishTimeLabel = [[UILabel alloc] initWithFrame:CGRectMake(self.coverImageView.right + UIMargin
@@ -72,6 +75,7 @@
                                                                       , LABEL_HEIGHT)];
     self.publishTimeLabel.textAlignment = NSTextAlignmentLeft;
     self.publishTimeLabel.font = [UIFont defaultFontWithSize:15.0f];
+    self.publishTimeLabel.textColor = [UIColor textDefaultColor];
     
     self.fieldLabel = [[UILabel alloc] initWithFrame:CGRectMake(self.publishTimeLabel.right + UIMargin
                                                                 , self.publisherLabel.bottom + UIMargin
@@ -79,6 +83,7 @@
                                                                 , LABEL_HEIGHT)];
     self.fieldLabel.textAlignment = NSTextAlignmentCenter;
     self.fieldLabel.font = [UIFont defaultFontWithSize:15.0f];
+    self.fieldLabel.textColor = [UIColor textDefaultColor];
     
     // 贡献者，计数
     self.contributorLabel = [[UILabel alloc] initWithFrame:CGRectMake(HorizontalMargin
@@ -87,6 +92,7 @@
                                                                 , LABEL_HEIGHT)];
     self.contributorLabel.textAlignment = NSTextAlignmentLeft;
     self.contributorLabel.font = [UIFont defaultFontWithSize:13.0f];
+    self.contributorLabel.textColor = [UIColor textDefaultColor];
     
     self.collectNumberLabel = [[UILabel alloc] initWithFrame:CGRectMake(CELLWIDTH_DEFAULT - HorizontalMargin - UIMargin - NUMBERLABEL_WIDTH * 2
                                                                         , self.coverImageView.bottom + UIMargin
@@ -94,6 +100,7 @@
                                                                         , LABEL_HEIGHT)];
     self.collectNumberLabel.textAlignment = NSTextAlignmentRight;
     self.collectNumberLabel.font = [UIFont defaultFontWithSize:13.0f];
+    self.collectNumberLabel.textColor = [UIColor textDefaultColor];
     
     self.commentCountLabel = [[UILabel alloc] initWithFrame:CGRectMake(CELLWIDTH_DEFAULT - HorizontalMargin - NUMBERLABEL_WIDTH
                                                                        , self.coverImageView.bottom + UIMargin
@@ -101,6 +108,7 @@
                                                                        , LABEL_HEIGHT)];
     self.commentCountLabel.textAlignment = NSTextAlignmentRight;
     self.commentCountLabel.font = [UIFont defaultFontWithSize:13.0f];
+    self.commentCountLabel.textColor = [UIColor textDefaultColor];
     
     self.coverImageView.backgroundColor = [UIColor clearColor];
     self.nameLabel.backgroundColor = [UIColor clearColor];
@@ -167,6 +175,7 @@
     self.bookpostSearchButton.titleLabel.font = [UIFont defaultFontWithSize:13.0f];
     [self.bookpostSearchButton changeToFillet];
     [self.bookpostSearchButton addTarget:self action:@selector(buttonClicked:) forControlEvents:UIControlEventTouchUpInside];
+    [self.bookpostSearchButton setTitleColor:[UIColor buttonTitleDefaultColor] forState:UIControlStateNormal];
     
     self.webSearchButton = [UIButton buttonWithType:UIButtonTypeCustom];
     self.webSearchButton.frame = CGRectMake(self.bookpostSearchButton.right + UIMargin
@@ -177,6 +186,7 @@
     self.webSearchButton.titleLabel.font = [UIFont defaultFontWithSize:13.0f];
     [self.webSearchButton changeToFillet];
     [self.webSearchButton addTarget:self action:@selector(buttonClicked:) forControlEvents:UIControlEventTouchUpInside];
+    [self.webSearchButton setTitleColor:[UIColor buttonTitleDefaultColor] forState:UIControlStateNormal];
     
     self.collectionButton = [UIButton buttonWithType:UIButtonTypeCustom];
     self.collectionButton.frame = CGRectMake(APPLICATIONWIDTH - HorizontalMargin - UIMargin * 2 - 20 * 2

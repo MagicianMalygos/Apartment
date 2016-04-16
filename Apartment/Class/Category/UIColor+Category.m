@@ -23,94 +23,26 @@
 + (UIColor *)buttonDefaultColor {
     return [UIColor colorFromHexRGB:@"3a76cf"];
 }
-
-
-// - - - - - - - - - - - - - - - - - - - - - - - - - - 
-+ (UIColor *)PADefaultBackgroundColor  {
-     return [UIColor colorFromHexRGB:@"4499ee"];
+/**
+ *  按钮标题默认颜色
+ */
++ (UIColor *)buttonTitleDefaultColor {
+    return [UIColor colorFromHexRGB:@"dbdbdb"];
 }
 
-+ (UIColor *)PAGrayColor
-{
-    return [UIColor colorWithRed:102/255.0 green:102/255.0 blue:102/255.0 alpha:1];
+// 默认文字颜色
++ (UIColor *)textDefaultColor {
+    return [UIColor colorFromHexRGB:@"636363"];
+}
+// 默认加粗文字颜色
++ (UIColor *)boldTextDefaultColor {
+    return [UIColor colorFromHexRGB:@"424c64"];
+}
+// 默认浅色文字颜色
++ (UIColor *)lightTextDefaultColor {
+    return [UIColor colorFromHexRGB:@"a5a5a5"];
 }
 
-+ (UIColor *)PALightGrayColor
-{
-    return [UIColor colorFromHexRGB:@"dddddd"];
-}
-
-+ (UIColor *)PAOrangeColor
-{
-    return UIColorFromRGB(0xff9434);
-}
-
-+ (UIColor *)PABtnBgOrangeColor
-{
-    return UIColorFromRGB(0xff7800);
-}
-
-+ (UIColor *)PAOrangeHighlightColor
-{
-    return UIColorFromRGB(0xf78e6f);
-}
-
-+ (UIColor *)PAGreenColor
-{
-    return UIColorFromRGB(0x2eaf01);
-}
-
-+ (UIColor *)PAGreenHighlightColor{
-    return UIColorFromRGB(0x5da03c);
-}
-
-+ (UIColor *)PABlackTextColor
-{
-    return [UIColor colorWithRed:51/255.0 green:51/255.0 blue:51/255.0 alpha:1];
-}
-
-+ (UIColor *)PADimColor
-{
-    return [UIColor colorWithRed:0 green:0 blue:0 alpha:0.5];
-}
-
-+ (UIColor *)PABlueColor
-{
-    return [UIColor colorFromHexRGB:@"1c71b9"];
-}
-
-+ (UIColor *)PARateGreenColor
-{
-    return [UIColor colorFromHexRGB:@"339900"];
-}
-
-+ (UIColor *)PANavigationBarBgColor{
-    return [UIColor colorFromHexRGB:@"5a8ae2"];
-}
-
-+ (UIColor *)PAToolBarBgColor{
-    return [UIColor colorFromHexRGB:@"fc8d2a"];
-}
-
-+ (UIColor *)PAYouHuiColor{
-    return [UIColor colorFromHexRGB:@"ff5a75"];
-}
-
-+ (UIColor *)PAPriceColor{
-    return [UIColor colorFromHexRGB:@"fa5728"];
-}
-
-+ (UIColor *)PAPriceUnitColor{
-    return [UIColor colorFromHexRGB:@"818181"];
-}
-
-+ (UIColor *)PATitleColor{
-    return [UIColor colorFromHexRGB:@"494949"];
-}
-
-+ (UIColor *)PASubTitleColor{
-    return [UIColor colorFromHexRGB:@"818181"];
-}
 
 /*!
  * @method 通过16进制计算颜色

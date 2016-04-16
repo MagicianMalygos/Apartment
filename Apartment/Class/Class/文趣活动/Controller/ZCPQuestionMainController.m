@@ -45,6 +45,15 @@
     // 添加选项视图
     [self.view addSubview:self.optionView];
 }
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
+    // 设置主题颜色
+    self.tableView.backgroundColor = APP_THEME_BG_COLOR;
+    // 更新cell颜色
+    [self constructData];
+    [self.tableView reloadData];
+}
 - (void)viewWillLayoutSubviews {
     [super viewWillLayoutSubviews];
     self.tableView.frame = CGRectMake(0, 0, APPLICATIONWIDTH, APPLICATIONHEIGHT - Height_NavigationBar - Height_TABBAR - OptionHeight);
@@ -59,7 +68,7 @@
     optionItem.cellHeight = @(35.0f);
     optionItem.delegate = self;
     optionItem.attributedStringArr = @[[[NSAttributedString alloc] initWithString:@"点我，可以出题哦~"
-                                                                       attributes:@{NSFontAttributeName: [UIFont defaultFontWithSize:13.0f]}]];
+                                                                       attributes:@{NSFontAttributeName: [UIFont defaultFontWithSize:13.0f], NSForegroundColorAttributeName: APP_THEME_TEXT_COLOR}]];
     [items addObject:optionItem];
     
     // 问题Item
@@ -82,6 +91,9 @@
     ZCPLineCellItem *bottomBlankItem = [[ZCPLineCellItem alloc] initWithDefault];
     bottomBlankItem.cellHeight = @(10);
     ZCPButtonCellItem *determineItem = [[ZCPButtonCellItem alloc] initWithDefault];
+    determineItem.buttonConfigBlock = ^(UIButton *button) {
+        [button setTitleColor:[UIColor buttonTitleDefaultColor] forState:UIControlStateNormal];
+    };
     if (self.userHaveAnswer) {
         determineItem.buttonTitle = @"您已答过本期题目";
     } else {

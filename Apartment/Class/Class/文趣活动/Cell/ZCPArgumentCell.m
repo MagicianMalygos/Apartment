@@ -39,6 +39,7 @@
     self.supportNumberLabel = [[UILabel alloc] initWithFrame:CGRectMake(CELLWIDTH_DEFAULT - HorizontalMargin - UIMargin - SUPPORTLABEL_WIDTH - BUTTON_WIDTH, VerticalMargin + 10, SUPPORTLABEL_WIDTH, SUPPORTLABEL_HEIGHT)];
     self.supportNumberLabel.textAlignment = NSTextAlignmentRight;
     self.supportNumberLabel.font = [UIFont defaultFontWithSize:13.0f];
+    self.supportNumberLabel.textColor = [UIColor textDefaultColor];
     
     self.supportButton = [UIButton buttonWithType:UIButtonTypeCustom];
     self.supportButton.frame = CGRectMake(CELLWIDTH_DEFAULT - HorizontalMargin - BUTTON_WIDTH, VerticalMargin + 5, BUTTON_WIDTH, BUTTON_HEIGHT);
@@ -48,17 +49,20 @@
     self.userNameLabel = [[UILabel alloc] initWithFrame:CGRectMake(self.userHeadImgView.right + UIMargin, VerticalMargin, CELLWIDTH_DEFAULT - HorizontalMargin * 2 - UIMargin * 3 - IMG_WIDTH - BUTTON_WIDTH - SUPPORTLABEL_WIDTH, NAMELABEL_HEIGHT)];
     self.userNameLabel.textAlignment = NSTextAlignmentLeft;
     self.userNameLabel.font = [UIFont defaultFontWithSize:15.0f];
+    self.userNameLabel.textColor = [UIColor textDefaultColor];
     
     // 第二行
     self.argumentContentLabel = [[UILabel alloc] init];
     self.argumentContentLabel.numberOfLines = 0;
     self.argumentContentLabel.textAlignment = NSTextAlignmentLeft;
     self.argumentContentLabel.font = [UIFont defaultBoldFontWithSize:18.0f];
+    self.argumentContentLabel.textColor = [UIColor boldTextDefaultColor];
     
     // 第三行
     self.timeLabel = [[UILabel alloc] init];
     self.timeLabel.textAlignment = NSTextAlignmentRight;
     self.timeLabel.font = [UIFont defaultFontWithSize:13.0f];
+    self.timeLabel.textColor = [UIColor textDefaultColor];
     
     self.userHeadImgView.backgroundColor = [UIColor clearColor];
     self.userNameLabel.backgroundColor = [UIColor clearColor];

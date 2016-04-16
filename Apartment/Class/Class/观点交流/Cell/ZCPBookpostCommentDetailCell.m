@@ -42,6 +42,7 @@
         CGRectMake(self.userHeadImageView.right + UIMargin, VerticalMargin, APPLICATIONWIDTH - 20 - IMAGE_SIDE - HorizontalMargin * 2 - UIMargin * 2, 20);
     })];
     self.userNameLabel.font = [UIFont defaultFontWithSize:14.0f];
+    self.userNameLabel.textColor = [UIColor textDefaultColor];
     
     // 第二行
     self.commentContentLabel = [[UILabel alloc] initWithFrame:({
@@ -49,13 +50,14 @@
     })];
     self.commentContentLabel.font = [UIFont defaultFontWithSize:14.0f];
     self.commentContentLabel.numberOfLines = 0;
+    self.commentContentLabel.textColor = [UIColor textDefaultColor];
     
     // 第三行
     self.commentTimeLabel = [[UILabel alloc] initWithFrame:({
         CGRectMake(APPLICATIONWIDTH - HorizontalMargin - TIME_LABEL_WIDTH, ToBeCalculated, TIME_LABEL_WIDTH, 20);
     })];
-    self.commentTimeLabel.alpha = 0.6f;
     self.commentTimeLabel.font = [UIFont defaultFontWithSize:14.0f];
+    self.commentTimeLabel.textColor = [UIColor textDefaultColor];
     
     self.userHeadImageView.backgroundColor = [UIColor clearColor];
     self.replyButton.backgroundColor = [UIColor clearColor];

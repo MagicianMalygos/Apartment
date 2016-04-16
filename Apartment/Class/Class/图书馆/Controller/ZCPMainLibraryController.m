@@ -73,6 +73,12 @@
     [super viewWillAppear:animated];
     [self clearNavigationBar];
     self.tabBarController.title = @"图书馆";
+    
+    // 设置主题颜色
+    self.tableView.backgroundColor = APP_THEME_BG_COLOR;
+    // 更新cell颜色
+    [self constructData];
+    [self.tableView reloadData];
 }
 - (void)viewWillLayoutSubviews {
     [super viewWillLayoutSubviews];
@@ -98,12 +104,13 @@
  */
 - (ZCPOptionView *)optionView {
     if (_optionView == nil) {
+        NSDictionary *attributes = @{NSFontAttributeName: [UIFont defaultFontWithSize:13.0f], NSForegroundColorAttributeName:[UIColor textDefaultColor]};
         NSArray *attrStringArr = @[[[NSAttributedString alloc] initWithString:@"排序方式"
-                                                                   attributes:@{NSFontAttributeName: [UIFont defaultFontWithSize:13.0f]}]
+                                                                   attributes:attributes]
                                    ,[[NSAttributedString alloc] initWithString:@"分类"
-                                                                    attributes:@{NSFontAttributeName: [UIFont defaultFontWithSize:13.0f]}]
+                                                                    attributes:attributes]
                                    ,[[NSAttributedString alloc] initWithString:@"上传"
-                                                                    attributes:@{NSFontAttributeName: [UIFont defaultFontWithSize:13.0f]}]];
+                                                                    attributes:attributes]];
         _optionView = [[ZCPOptionView alloc] initWithFrame:({
             CGRectMake(0, SearchBarHeight, self.view.width, OPTION_VIEW_DEFAULT_HEIGHT);
         }) attributeStringArr:attrStringArr];

@@ -48,7 +48,15 @@
     self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(headerRefresh)];
     self.tableView.mj_footer = [MJRefreshBackFooter footerWithRefreshingTarget:self refreshingAction:@selector(footerRefresh)];
 }
-
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
+    // 设置主题颜色
+    self.tableView.backgroundColor = APP_THEME_BG_COLOR;
+    // 更新cell颜色
+    [self constructData];
+    [self.tableView reloadData];
+}
 - (void)viewWillLayoutSubviews {
     [super viewWillLayoutSubviews];
     self.tableView.frame = CGRectMake(0, 0, APPLICATIONWIDTH, APPLICATIONHEIGHT - Height_NavigationBar - Height_TABBAR - OptionHeight);
@@ -62,12 +70,13 @@
     ZCPOptionCellItem *optionItem = [[ZCPOptionCellItem alloc] initWithDefault];
     optionItem.cellHeight = @(35.0f);
     optionItem.delegate = self;
+    NSDictionary *attributes = @{NSFontAttributeName: [UIFont defaultFontWithSize:13.0f], NSForegroundColorAttributeName:[UIColor textDefaultColor]};
     optionItem.attributedStringArr = @[[[NSAttributedString alloc] initWithString:@"按时间排序"
-                                                                       attributes:@{NSFontAttributeName: [UIFont defaultFontWithSize:13.0f]}]
+                                                                       attributes:attributes]
                                        ,[[NSAttributedString alloc] initWithString:@"按点赞量排序"
-                                                                        attributes:@{NSFontAttributeName: [UIFont defaultFontWithSize:13.0f]}]
+                                                                        attributes:attributes]
                                        ,[[NSAttributedString alloc] initWithString:@"写对联"
-                                                                        attributes:@{NSFontAttributeName: [UIFont defaultFontWithSize:13.0f]}]];
+                                                                        attributes:attributes]];
     [items addObject:optionItem];
     
     // 对联列表cell

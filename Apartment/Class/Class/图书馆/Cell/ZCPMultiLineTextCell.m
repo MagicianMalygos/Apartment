@@ -20,6 +20,7 @@
     self.multiLineTextLabel.numberOfLines = 0;
     self.multiLineTextLabel.textAlignment = NSTextAlignmentLeft;
     self.multiLineTextLabel.font = [UIFont fontWithName:@"CourierNewPSMT" size:13.0f];
+    self.multiLineTextLabel.textColor = [UIColor textDefaultColor];
     
     [self.contentView addSubview:self.multiLineTextLabel];
 }

@@ -30,23 +30,28 @@
     self.userNameLabel = [[UILabel alloc] initWithFrame:CGRectMake(self.userHeadImgView.right + HorizontalMargin, VerticalMargin, CELLWIDTH_DEFAULT - self.userHeadImgView.right - HorizontalMargin * 2, 25)];
     self.userNameLabel.textAlignment = NSTextAlignmentLeft;
     self.userNameLabel.font = [UIFont defaultFontWithSize:14.0f];
+    self.userNameLabel.textColor = [UIColor textDefaultColor];
     
     // 第二行
     self.coupletContentLabel = [[UILabel alloc] init];
     self.coupletContentLabel.textAlignment = NSTextAlignmentLeft;  // 左对齐
     self.coupletContentLabel.font = [UIFont defaultBoldFontWithSize:18.0f];  // 设置字体样式
     self.coupletContentLabel.numberOfLines = 0;  // 多行显示
+    self.coupletContentLabel.textColor = [UIColor boldTextDefaultColor];
     
     // 第三行
     self.timeLabel = [[UILabel alloc] init];
     self.timeLabel.font = [UIFont defaultFontWithSize:13.0f];
     self.timeLabel.textAlignment = NSTextAlignmentRight;
+    self.timeLabel.textColor = [UIColor textDefaultColor];
     self.supportLabel = [[UILabel alloc] init];
     self.supportLabel.font = [UIFont defaultFontWithSize:13.0f];
     self.supportLabel.textAlignment = NSTextAlignmentRight;
+    self.supportLabel.textColor = [UIColor textDefaultColor];
     self.replyNumLabel = [[UILabel alloc] init];
     self.replyNumLabel.font = [UIFont defaultFontWithSize:13.0f];
     self.replyNumLabel.textAlignment = NSTextAlignmentRight;
+    self.replyNumLabel.textColor = [UIColor textDefaultColor];
     
     // 设置背景颜色
     self.userHeadImgView.backgroundColor = [UIColor clearColor];

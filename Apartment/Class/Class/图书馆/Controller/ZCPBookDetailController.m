@@ -70,7 +70,13 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [self clearNavigationBar];
-    self.tabBarController.title = @"图书详情";
+    self.title = @"图书详情";
+    
+    // 设置主题颜色
+    self.tableView.backgroundColor = APP_THEME_BG_COLOR;
+    // 更新cell颜色
+    [self constructData];
+    [self.tableView reloadData];
 }
 - (void)viewWillLayoutSubviews {
     [super viewWillLayoutSubviews];
@@ -98,7 +104,7 @@
     
     // sectionItem1
     ZCPSectionCellItem *sectionItem1 = [[ZCPSectionCellItem alloc] initWithDefault];
-    sectionItem1.sectionTitle = @"简介";
+    sectionItem1.sectionAttrTitle = [[NSMutableAttributedString alloc] initWithString:@"简介" attributes:@{NSForegroundColorAttributeName: APP_THEME_TEXT_COLOR, NSFontAttributeName: [UIFont defaultFontWithSize:14.0f]}];;
     
     // introductionItem
     ZCPMultiLineTextCellItem *introductionItem = [[ZCPMultiLineTextCellItem alloc] initWithDefault];
@@ -106,7 +112,7 @@
     
     // sectionItem2
     ZCPSectionCellItem *sectionItem2 = [[ZCPSectionCellItem alloc] initWithDefault];
-    sectionItem2.sectionTitle = @"相关评论";
+    sectionItem2.sectionAttrTitle = [[NSMutableAttributedString alloc] initWithString:@"相关评论" attributes:@{NSForegroundColorAttributeName: APP_THEME_TEXT_COLOR, NSFontAttributeName: [UIFont defaultFontWithSize:14.0f]}];;
     
     [items addObject:bookDetailItem];
     [items addObject:sectionItem1];

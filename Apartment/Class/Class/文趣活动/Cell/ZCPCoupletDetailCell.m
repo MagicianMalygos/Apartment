@@ -40,16 +40,19 @@
     self.coupletContentLabel.textAlignment = NSTextAlignmentLeft;               // 左对齐
     self.coupletContentLabel.font = [UIFont defaultBoldFontWithSize:18.0f];     // 设置字体样式
     self.coupletContentLabel.numberOfLines = 0;                                 // 多行显示
+    self.coupletContentLabel.textColor = [UIColor boldTextDefaultColor];
     
     // 第三行
     self.userHeadImgView = [[UIImageView alloc] init];
     self.userNameLabel = [[UILabel alloc] init];
     self.userNameLabel.textAlignment = NSTextAlignmentLeft;
     self.userNameLabel.font = [UIFont defaultFontWithSize:13.0f];
+    self.userNameLabel.textColor = [UIColor textDefaultColor];
     
     self.timeLabel = [[UILabel alloc] init];
     self.timeLabel.textAlignment = NSTextAlignmentRight;
     self.timeLabel.font = [UIFont defaultFontWithSize:13.0f];
+    self.timeLabel.textColor = [UIColor textDefaultColor];
     
     // 设置背景颜色
     self.commentButton.backgroundColor = [UIColor clearColor];

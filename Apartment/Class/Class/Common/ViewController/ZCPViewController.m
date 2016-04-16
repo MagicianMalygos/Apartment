@@ -53,9 +53,13 @@
     // 设置主题颜色
     if ([ZCPControlingCenter sharedInstance].appTheme == LightTheme) {
         [self.view setBackgroundColor:LIGHT_BG_COLOR];
+        // 设置状态栏文字颜色
+        [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault];
     }
     else if([ZCPControlingCenter sharedInstance].appTheme == DarkTheme) {
         [self.view setBackgroundColor:NIGHT_BG_COLOR];
+        // 设置状态栏文字颜色
+        [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
     }
 }
 - (void)viewDidAppear:(BOOL)animated {

@@ -23,18 +23,13 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     self.title = @"用户设置";
+    
+    // 设置主题颜色
+    self.tableView.backgroundColor = APP_THEME_BG_COLOR;
 }
 - (void)viewWillLayoutSubviews {
     [super viewWillLayoutSubviews];
     self.tableView.frame = CGRectMake(0, 0, APPLICATIONWIDTH, APPLICATIONHEIGHT - Height_NavigationBar);
-    
-    // 设置主题颜色
-    if ([ZCPControlingCenter sharedInstance].appTheme == LightTheme) {
-        [self.tableView setBackgroundColor:LIGHT_BG_COLOR];
-    }
-    else if([ZCPControlingCenter sharedInstance].appTheme == DarkTheme) {
-        [self.tableView setBackgroundColor:NIGHT_BG_COLOR];
-    }
 }
 
 #pragma mark - constructData

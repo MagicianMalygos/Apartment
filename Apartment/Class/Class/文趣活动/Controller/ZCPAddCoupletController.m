@@ -22,6 +22,12 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     self.title = @"写对联";
+    
+    // 设置主题颜色
+    self.tableView.backgroundColor = APP_THEME_BG_COLOR;
+    // 更新cell颜色
+    [self constructData];
+    [self.tableView reloadData];
 }
 - (void)viewWillLayoutSubviews {
     [super viewWillLayoutSubviews];
@@ -34,7 +40,8 @@
     
     // section
     ZCPSectionCellItem *sectionItem = [[ZCPSectionCellItem alloc] initWithDefault];
-    sectionItem.sectionTitle = @"写对联";
+    sectionItem.sectionAttrTitle = [[NSMutableAttributedString alloc] initWithString:@"写对联" attributes:@{NSForegroundColorAttributeName: APP_THEME_TEXT_COLOR, NSFontAttributeName: [UIFont defaultFontWithSize:14.0f]}];
+
     // 对联内容
     ZCPTextViewCellItem *textItem = [[ZCPTextViewCellItem alloc] initWithDefault];
     textItem.cellHeight = @40;
@@ -45,12 +52,13 @@
     // 提交按钮
     ZCPButtonCellItem *determineItem = [[ZCPButtonCellItem alloc] initWithDefault];
     determineItem.buttonTitle = @"提交";
+    determineItem.buttonConfigBlock = ^(UIButton *button) {
+        [button setTitleColor:[UIColor buttonTitleDefaultColor] forState:UIControlStateNormal];
+    };
     determineItem.delegate = self;
-    
     
     [items addObject:sectionItem];
     [items addObject:textItem];
-    
     [items addObject:blankItem];
     [items addObject:determineItem];
     

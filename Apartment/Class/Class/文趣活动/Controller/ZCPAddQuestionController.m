@@ -28,6 +28,12 @@
     [super viewWillAppear:animated];
     [self clearNavigationBar];
     self.title = @"上传问题";
+    
+    // 设置主题颜色
+    self.tableView.backgroundColor = APP_THEME_BG_COLOR;
+    // 更新cell颜色
+    [self constructData];
+    [self.tableView reloadData];
 }
 - (void)viewWillLayoutSubviews {
     [super viewWillLayoutSubviews];
@@ -44,14 +50,14 @@
     
     // section
     ZCPSectionCellItem *sectionItem = [[ZCPSectionCellItem alloc] initWithDefault];
-    sectionItem.sectionTitle = @"问题";
+    sectionItem.sectionAttrTitle = [[NSMutableAttributedString alloc] initWithString:@"问题" attributes:@{NSForegroundColorAttributeName: APP_THEME_TEXT_COLOR, NSFontAttributeName: [UIFont defaultFontWithSize:14.0f]}];;
     // 题目
     ZCPTextViewCellItem *questionItem = [[ZCPTextViewCellItem alloc] initWithDefault];
     questionItem.placeholder = @"请输入问题内容,不超过50字...";
     
     // section 1
     ZCPSectionCellItem *sectionItem1 = [[ZCPSectionCellItem alloc] initWithDefault];
-    sectionItem1.sectionTitle = @"选项一";
+    sectionItem1.sectionAttrTitle = [[NSMutableAttributedString alloc] initWithString:@"选项一" attributes:@{NSForegroundColorAttributeName: APP_THEME_TEXT_COLOR, NSFontAttributeName: [UIFont defaultFontWithSize:14.0f]}];;
     // 选项一
     ZCPTextViewCellItem *optionItem1 = [[ZCPTextViewCellItem alloc] initWithDefault];
     optionItem1.cellHeight = @40;
@@ -59,7 +65,7 @@
     
     // section 2
     ZCPSectionCellItem *sectionItem2 = [[ZCPSectionCellItem alloc] initWithDefault];
-    sectionItem2.sectionTitle = @"选项二";
+    sectionItem2.sectionAttrTitle = [[NSMutableAttributedString alloc] initWithString:@"选项二" attributes:@{NSForegroundColorAttributeName: APP_THEME_TEXT_COLOR, NSFontAttributeName: [UIFont defaultFontWithSize:14.0f]}];;
     // 选项二
     ZCPTextViewCellItem *optionItem2 = [[ZCPTextViewCellItem alloc] initWithDefault];
     optionItem2.cellHeight = @40;
@@ -67,7 +73,7 @@
     
     // section 3
     ZCPSectionCellItem *sectionItem3 = [[ZCPSectionCellItem alloc] initWithDefault];
-    sectionItem3.sectionTitle = @"选项三";
+    sectionItem3.sectionAttrTitle = [[NSMutableAttributedString alloc] initWithString:@"选项三" attributes:@{NSForegroundColorAttributeName: APP_THEME_TEXT_COLOR, NSFontAttributeName: [UIFont defaultFontWithSize:14.0f]}];;
     // 选项三
     ZCPTextViewCellItem *optionItem3 = [[ZCPTextViewCellItem alloc] initWithDefault];
     optionItem3.cellHeight = @40;
@@ -75,7 +81,7 @@
     
     // section 4
     ZCPSectionCellItem *sectionItem4 = [[ZCPSectionCellItem alloc] initWithDefault];
-    sectionItem4.sectionTitle = @"正确答案";
+    sectionItem4.sectionAttrTitle = [[NSMutableAttributedString alloc] initWithString:@"正确答案" attributes:@{NSForegroundColorAttributeName: APP_THEME_TEXT_COLOR, NSFontAttributeName: [UIFont defaultFontWithSize:14.0f]}];;
     // 正确答案
     ZCPTextViewCellItem *answerItem = [[ZCPTextViewCellItem alloc] initWithDefault];
     answerItem.cellHeight = @40;
@@ -86,6 +92,9 @@
     // 提交按钮
     ZCPButtonCellItem *determineItem = [[ZCPButtonCellItem alloc] initWithDefault];
     determineItem.buttonTitle = @"提交";
+    determineItem.buttonConfigBlock = ^(UIButton *button) {
+        [button setTitleColor:[UIColor buttonTitleDefaultColor] forState:UIControlStateNormal];
+    };
     determineItem.delegate = self;
     
     [items addObject:sectionItem];

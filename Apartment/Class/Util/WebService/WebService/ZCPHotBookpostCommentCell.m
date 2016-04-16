@@ -35,8 +35,9 @@
     }]];
     
     self.bookpostTitleLabel = [[UILabel alloc] init];
-    self.bookpostTitleLabel.font = [UIFont defaultFontWithSize:17.0f];
+    self.bookpostTitleLabel.font = [UIFont defaultBoldFontWithSize:17.0f];
     self.bookpostTitleLabel.numberOfLines = 2;
+    self.bookpostTitleLabel.textColor = [UIColor boldTextDefaultColor];
     
     // 分割线
     self.lineView = [[UIView alloc] init];
@@ -60,13 +61,14 @@
     self.bpcContentLabel = [[UILabel alloc] init];
     self.bpcContentLabel.font = [UIFont defaultFontWithSize:14.0f];
     self.bpcContentLabel.numberOfLines = 3;
+    self.bpcContentLabel.textColor = [UIColor textDefaultColor];
     
     self.bpView.backgroundColor = [UIColor clearColor];
     self.bookpostTitleLabel.backgroundColor = [UIColor clearColor];
-    self.lineView.backgroundColor = [UIColor colorFromHexRGB:@"dddddd"];
+    self.lineView.backgroundColor = APP_THEME_LINE_COLOR;
     self.bpcView.backgroundColor = [UIColor clearColor];
     self.bpcUserHeadImageView.backgroundColor = [UIColor clearColor];
-    self.supportNumberLabel.backgroundColor = [UIColor blueColor];
+    self.supportNumberLabel.backgroundColor = [UIColor buttonDefaultColor];
     self.bpcContentLabel.backgroundColor = [UIColor clearColor];
     
     [self.bpView addSubview:self.bookpostTitleLabel];
@@ -97,6 +99,9 @@
         CGFloat bpTitleHeight = [item.bpcModel.bookpost.bookpostTitle boundingRectWithSize:CGSizeMake(APPLICATIONWIDTH - HorizontalMargin * 4, 40) options:NSStringDrawingUsesFontLeading| NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName: [UIFont defaultFontWithSize:17.0f]} context:nil].size.height;
         CGFloat leftInfoHeight = 25 + 16 + UIMargin;
         self.item.cellHeight = @(bpTitleHeight + VerticalMargin * 2 + OnePoint + leftInfoHeight + VerticalMargin * 2 + VerticalMargin * 2);
+
+        // 设置分割线颜色
+        self.lineView.backgroundColor = APP_THEME_LINE_COLOR;
     }
 }
 

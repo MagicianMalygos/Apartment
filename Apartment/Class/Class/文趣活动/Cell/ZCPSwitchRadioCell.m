@@ -24,10 +24,12 @@
     
     // 开关
     self.switchView = [[UISwitch alloc] init];
+    self.switchView.onTintColor = [UIColor buttonDefaultColor];
     [self.switchView addTarget:self action:@selector(switchValueChanged:) forControlEvents:UIControlEventValueChanged];
     self.switchLabel = [[UILabel alloc] init];
     self.switchLabel.textAlignment = NSTextAlignmentLeft;
     self.switchLabel.font = [UIFont defaultFontWithSize:15.0f];
+    self.switchLabel.textColor = [UIColor textDefaultColor];
     // 按钮一
     self.radioButtonOne = [UIButton buttonWithType:UIButtonTypeCustom];
     self.radioButtonOne.selected = YES;  // 按钮一默认被选中
@@ -36,6 +38,7 @@
     self.radioLabelOne = [[UILabel alloc] init];
     self.radioLabelOne.textAlignment = NSTextAlignmentLeft;
     self.radioLabelOne.font = [UIFont defaultFontWithSize:15.0f];
+    self.radioLabelOne.textColor = [UIColor textDefaultColor];
     // 按钮二
     self.radioButtonTwo = [UIButton buttonWithType:UIButtonTypeCustom];
     [self.radioButtonTwo addTarget:self action:@selector(buttonClicked:) forControlEvents:UIControlEventTouchUpInside];
@@ -43,6 +46,7 @@
     self.radioLabelTwo = [[UILabel alloc] init];
     self.radioLabelTwo.textAlignment = NSTextAlignmentLeft;
     self.radioLabelTwo.font = [UIFont defaultFontWithSize:15.0f];
+    self.radioLabelTwo.textColor = [UIColor textDefaultColor];
     
     // 设置背景颜色
     self.radioLabelOne.backgroundColor = [UIColor clearColor];

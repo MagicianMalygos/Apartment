@@ -37,6 +37,12 @@
     [super viewWillAppear:animated];
     [self clearNavigationBar];
     self.title = @"添加观点";
+    
+    // 设置主题颜色
+    self.tableView.backgroundColor = APP_THEME_BG_COLOR;
+    // 更新cell颜色
+    [self constructData];
+    [self.tableView reloadData];
 }
 - (void)viewWillLayoutSubviews {
     [super viewWillLayoutSubviews];
@@ -85,6 +91,9 @@
 
     ZCPButtonCellItem *determineItem = [[ZCPButtonCellItem alloc] initWithDefault];
     determineItem.buttonTitle = @"提交";
+    determineItem.buttonConfigBlock = ^(UIButton *button) {
+        [button setTitleColor:[UIColor buttonTitleDefaultColor] forState:UIControlStateNormal];
+    };
     determineItem.delegate = self;
     
     [items addObject:sectionItem1];

@@ -48,6 +48,12 @@
     [super viewWillAppear:animated];
     [self clearNavigationBar];
     self.tabBarController.title = @"上传图书";
+    
+    // 设置主题颜色
+    self.tableView.backgroundColor = APP_THEME_BG_COLOR;
+    // 更新cell颜色
+    [self constructData];
+    [self.tableView reloadData];
 }
 - (void)viewWillLayoutSubviews {
     [super viewWillLayoutSubviews];
@@ -116,6 +122,9 @@
     ZCPLineCellItem *blankItem = [[ZCPLineCellItem alloc] initWithDefault];
     ZCPButtonCellItem *determineItem = [[ZCPButtonCellItem alloc] initWithDefault];
     determineItem.buttonTitle = @"提交";
+    determineItem.buttonConfigBlock = ^(UIButton *button) {
+        [button setTitleColor:[UIColor buttonTitleDefaultColor] forState:UIControlStateNormal];
+    };
     determineItem.delegate = self;
     
     [items addObject:addpictureItem];

@@ -104,7 +104,7 @@
         _pageControl = [[UIPageControl alloc] initWithFrame:({
             CGRectMake(15, self.collectionView.height - 15, 70, 15);
         })];
-        _pageControl.currentPageIndicatorTintColor = [UIColor orangeColor];
+        _pageControl.currentPageIndicatorTintColor = [UIColor buttonDefaultColor];
     }
     return _pageControl;
 }

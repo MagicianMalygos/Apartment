@@ -43,6 +43,7 @@
                                                                        , 20)];
     self.replySupportLabel.textAlignment = NSTextAlignmentRight;
     self.replySupportLabel.font = [UIFont defaultFontWithSize:13.0f];
+    self.replySupportLabel.textColor = [UIColor textDefaultColor];
     
     self.userNameLabel = [[UILabel alloc] initWithFrame:CGRectMake(self.userHeadImgView.right + UIMargin
                                                                    , VerticalMargin
@@ -50,17 +51,20 @@
                                                                    , 25)];
     self.userNameLabel.textAlignment = NSTextAlignmentLeft;
     self.userNameLabel.font = [UIFont defaultFontWithSize:14.0f];
+    self.userNameLabel.textColor = [UIColor textDefaultColor];
     
     // 第二行
     self.replyContentLabel = [[UILabel alloc] init];
     self.replyContentLabel.numberOfLines = 0;
     self.replyContentLabel.font = [UIFont defaultBoldFontWithSize:18.0f];
     self.replyContentLabel.textAlignment = NSTextAlignmentLeft;
+    self.replyContentLabel.textColor = [UIColor boldTextDefaultColor];
     
     // 第三行
     self.replyTimeLabel = [[UILabel alloc] init];
     self.replyTimeLabel.textAlignment = NSTextAlignmentRight;
     self.replyTimeLabel.font = [UIFont defaultFontWithSize:13.0f];
+    self.replyTimeLabel.textColor = [UIColor textDefaultColor];
     
     self.userHeadImgView.backgroundColor = [UIColor clearColor];
     self.userNameLabel.backgroundColor = [UIColor clearColor];

@@ -61,6 +61,12 @@
     [self clearNavigationBar];
     // 设置nav Title
     self.title = @"图书贴详情";
+    
+    // 设置主题颜色
+    self.tableView.backgroundColor = APP_THEME_BG_COLOR;
+    // 更新cell颜色
+    [self constructData];
+    [self.tableView reloadData];
 }
 - (void)viewWillLayoutSubviews {
     [super viewWillLayoutSubviews];
@@ -86,7 +92,7 @@
     
     ZCPSectionCellItem * section = [[ZCPSectionCellItem alloc] initWithDefault];
     section.cellHeight = @20;
-    section.sectionTitle = (self.bookpostCommentArray.count == 0)? @"暂无评论": @"评论";
+    section.sectionAttrTitle = [[NSMutableAttributedString alloc] initWithString:(self.bookpostCommentArray.count == 0)? @"暂无评论": @"评论" attributes:@{NSForegroundColorAttributeName: APP_THEME_TEXT_COLOR, NSFontAttributeName: [UIFont defaultFontWithSize:14.0f]}];
     [items addObject:section];
     
     for (ZCPBookPostCommentModel *model in self.bookpostCommentArray) {

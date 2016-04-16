@@ -46,6 +46,13 @@
     [self.view addSubview:self.optionView];
     [self.view addSubview:self.mainScrollView];
 }
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
+    [self.coupletController viewWillAppear:animated];
+    [self.thesisController viewWillAppear:animated];
+    [self.questionController viewWillAppear:animated];
+}
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     
@@ -64,12 +71,13 @@
  */
 - (ZCPOptionView *)optionView {
     if (_optionView == nil) {
+        NSDictionary *attributes = @{NSFontAttributeName: [UIFont defaultFontWithSize:14.0f], NSForegroundColorAttributeName:[UIColor textDefaultColor]};
         NSArray *attrStringArr = @[[[NSAttributedString alloc] initWithString:@"对对联"
-                                                                   attributes:@{NSFontAttributeName: [UIFont defaultFontWithSize:14.0f]}]
+                                                                   attributes:attributes]
                                    ,[[NSAttributedString alloc] initWithString:@"舌场争锋"
-                                                                    attributes:@{NSFontAttributeName: [UIFont defaultFontWithSize:14.0f]}]
+                                                                    attributes:attributes]
                                    ,[[NSAttributedString alloc] initWithString:@"头脑风暴"
-                                                                    attributes:@{NSFontAttributeName: [UIFont defaultFontWithSize:14.0f]}]];
+                                                                    attributes:attributes]];
         _optionView = [[ZCPOptionView alloc] initWithFrame:CGRectMake(0, 0, self.view.width, OptionHeight) attributeStringArr:attrStringArr];
         _optionView.delegate = self;
     }

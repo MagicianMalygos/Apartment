@@ -34,13 +34,13 @@
         CGRectMake(self.userHeadImageView.right + UIMargin, VerticalMargin, APPLICATIONWIDTH - IMAGE_SIDE - TIME_LABEL_WIDTH - UIMargin * 2 - HorizontalMargin * 2, 20);
     })];
     self.userNameLabel.font = [UIFont defaultFontWithSize:14.0f];
-    self.userNameLabel.alpha = 0.6f;
+    self.userNameLabel.textColor = [UIColor lightTextDefaultColor];
     
     self.replyTimeLabel = [[UILabel alloc] initWithFrame:({
         CGRectMake(APPLICATIONWIDTH - TIME_LABEL_WIDTH - HorizontalMargin, VerticalMargin, TIME_LABEL_WIDTH, 20);
     })];
-    self.replyTimeLabel.alpha = 0.6f;
     self.replyTimeLabel.font = [UIFont defaultFontWithSize:13.0f];
+    self.replyTimeLabel.textColor = [UIColor lightTextDefaultColor];
     
     // 第二行
     self.replyContentLabel = [[UILabel alloc] initWithFrame:({
@@ -48,6 +48,8 @@
     })];
     self.replyContentLabel.font = [UIFont defaultFontWithSize:13.0f];
     self.replyContentLabel.numberOfLines = 0;
+    self.replyContentLabel.textColor = [UIColor textDefaultColor];
+    
     // 第三行
     self.supportNumberLabel = [[UILabel alloc] initWithFrame:({
         CGRectMake(APPLICATIONWIDTH - HorizontalMargin - 30, ToBeCalculated, 30, 20);
@@ -55,6 +57,7 @@
     self.supportNumberLabel.textAlignment = NSTextAlignmentCenter;
     self.supportNumberLabel.font = [UIFont defaultFontWithSize:12.0f];
     self.supportNumberLabel.alpha = 0.6;
+    self.supportNumberLabel.textColor = [UIColor textDefaultColor];
     
     self.supportButton = [UIButton buttonWithType:UIButtonTypeCustom];
     self.supportButton.frame = CGRectMake(self.supportNumberLabel.left - UIMargin - 20, ToBeCalculated, 20, 20);

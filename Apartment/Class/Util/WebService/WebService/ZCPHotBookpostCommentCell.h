@@ -23,7 +23,7 @@
 
 @end
 
-@interface ZCPHotBookpostCommentCellItem : ZCPRoundCellItem
+@interface ZCPHotBookpostCommentCellItem : ZCPLineCellItem
 
 @property (nonatomic, strong) ZCPBookPostCommentModel *bpcModel;                // 图书贴评论模型
 @property (nonatomic, copy) ZCPImageViewConfigBlock headImageViewConfigBlock;   // 用户头像配置块

@@ -32,8 +32,9 @@
         CGRectMake(self.userHeadImageView.right + UIMargin, VerticalMargin, APPLICATIONWIDTH - HEAD_IMAGE_SIDE - HorizontalMargin * 2 - UIMargin, self.userHeadImageView.height);
     })];
     self.userNameLabel.textAlignment = NSTextAlignmentLeft;
-    self.userNameLabel.alpha = 0.6f;
     self.userNameLabel.font = [UIFont defaultFontWithSize:14.0f];
+    self.userNameLabel.textColor = [UIColor lightTextDefaultColor];
+    
     // 第二行
     self.supportNumberLabel = [[UILabel alloc] initWithFrame:({
         CGRectMake(HorizontalMargin, self.userHeadImageView.bottom + UIMargin, self.userHeadImageView.width, 16);
@@ -47,6 +48,7 @@
     })];
     self.commentContentLabel.font = [UIFont defaultFontWithSize:14.0f];
     self.commentContentLabel.numberOfLines = 3;
+    self.commentContentLabel.textColor = [UIColor textDefaultColor];
     
     self.userHeadImageView.backgroundColor = [UIColor clearColor];
     self.userNameLabel.backgroundColor = [UIColor clearColor];
@@ -76,7 +78,6 @@
         // 计算内容高度
         CGFloat contentLabelHeight = [self.commentContentLabel.text boundingRectWithSize:CGSizeMake(self.commentContentLabel.width, 60.0f) options:NSStringDrawingUsesFontLeading| NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName: [UIFont defaultFontWithSize:14.0f]} context:nil].size.height;
         self.commentContentLabel.height = (contentLabelHeight > LABEL_HEIGHT)? contentLabelHeight: LABEL_HEIGHT;
-        
     }
 }
 + (CGFloat)tableView:(UITableView *)tableView rowHeightForObject:(id)object {

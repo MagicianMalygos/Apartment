@@ -75,8 +75,13 @@
 //            effectview.frame = CGRectMake(0, 0, weakSelf.bgImageView.width, weakSelf.bgImageView.height);
 //            [weakSelf.bgImageView addSubview:effectview];
             
-            // 第三方实现模糊
-            weakSelf.bgImageView.image = [weakSelf.bgImageView.image imageByBlurRadius:20 tintColor:nil tintMode:0 saturation:1 maskImage:nil];
+            if ([ZCPControlingCenter sharedInstance].appTheme == LightTheme) {
+                // 第三方实现模糊
+                weakSelf.bgImageView.image = [weakSelf.bgImageView.image imageByBlurRadius:20 tintColor:nil tintMode:0 saturation:1 maskImage:nil];
+            } else if ([ZCPControlingCenter sharedInstance].appTheme == DarkTheme) {
+                weakSelf.bgImageView.image = nil;
+                weakSelf.bgImageView.backgroundColor = NIGHT_CELL_BG_COLOR;
+            }
         }];
         
         // 添加头像按钮点击事件

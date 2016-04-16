@@ -112,18 +112,13 @@ typedef NS_ENUM(NSInteger, ZCPCollectionListType) {
     [super viewWillAppear:animated];
     [self clearNavigationBar];
     self.title = @"个人收藏";
+    
+    // 设置主题颜色
+    self.tableView.backgroundColor = APP_THEME_BG_COLOR;
 }
 - (void)viewWillLayoutSubviews {
     [super viewWillLayoutSubviews];
     self.tableView.frame = CGRectMake(0, self.optionView.bottom, APPLICATIONWIDTH, APPLICATIONHEIGHT - Height_NavigationBar - OPTION_VIEW_DEFAULT_HEIGHT);
-    
-    // 设置主题颜色
-    if ([ZCPControlingCenter sharedInstance].appTheme == LightTheme) {
-        [self.tableView setBackgroundColor:LIGHT_BG_COLOR];
-    }
-    else if([ZCPControlingCenter sharedInstance].appTheme == DarkTheme) {
-        [self.tableView setBackgroundColor:NIGHT_BG_COLOR];
-    }
 }
 
 #pragma mark - constructData
@@ -190,16 +185,18 @@ typedef NS_ENUM(NSInteger, ZCPCollectionListType) {
  */
 - (ZCPOptionView *)optionView {
     if (_optionView == nil) {
+        
+        NSDictionary *attributes = @{NSFontAttributeName: [UIFont defaultFontWithSize:13.0f], NSForegroundColorAttributeName:[UIColor textDefaultColor]};
         NSArray *attrStringArr = @[[[NSAttributedString alloc] initWithString:@"图书贴"
-                                                                   attributes:@{NSFontAttributeName: [UIFont defaultFontWithSize:13.0f]}]
+                                                                   attributes:attributes]
                                    ,[[NSAttributedString alloc] initWithString:@"图书"
-                                                                    attributes:@{NSFontAttributeName: [UIFont defaultFontWithSize:13.0f]}]
+                                                                    attributes:attributes]
                                    ,[[NSAttributedString alloc] initWithString:@"对联"
-                                                                    attributes:@{NSFontAttributeName: [UIFont defaultFontWithSize:13.0f]}]
+                                                                    attributes:attributes]
                                    ,[[NSAttributedString alloc] initWithString:@"辩题"
-                                                                    attributes:@{NSFontAttributeName: [UIFont defaultFontWithSize:13.0f]}]
+                                                                    attributes:attributes]
                                    ,[[NSAttributedString alloc] initWithString:@"问题"
-                                                                    attributes:@{NSFontAttributeName: [UIFont defaultFontWithSize:13.0f]}]
+                                                                    attributes:attributes]
                                    ];
         _optionView = [[ZCPOptionView alloc] initWithFrame:({
             CGRectMake(0, 0, self.view.width, OPTION_VIEW_DEFAULT_HEIGHT);

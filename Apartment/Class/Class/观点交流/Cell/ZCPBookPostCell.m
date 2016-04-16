@@ -32,22 +32,27 @@
     // 第一行
     self.fieldLabel = [[UILabel alloc] init];
     self.fieldLabel.font = [UIFont defaultFontWithSize:15.0f];
-    self.fieldLabel.alpha = 0.6f;
+    self.fieldLabel.textColor = [UIColor lightTextDefaultColor];
     self.bookNameLabel = [[UILabel alloc] init];
     self.bookNameLabel.font = [UIFont defaultFontWithSize:15.0f];
     self.bookNameLabel.numberOfLines = 0;
+    self.bookNameLabel.textColor = [UIColor textDefaultColor];
     
     // 第二行
     self.bpTitleLabel = [[UILabel alloc] init];
     self.bpTitleLabel.font = [UIFont defaultBoldFontWithSize:18.0f];
     self.bpTitleLabel.numberOfLines = 0;
+    self.bpTitleLabel.textColor = [UIColor boldTextDefaultColor];
     // 第三行
     self.supportNumberLabel = [[UILabel alloc] init];
     self.supportNumberLabel.font = [UIFont defaultFontWithSize:13.0f];
+    self.supportNumberLabel.textColor = [UIColor textDefaultColor];
     self.collectionNumberLabel = [[UILabel alloc] init];
     self.collectionNumberLabel.font = [UIFont defaultFontWithSize:13.0f];
+    self.collectionNumberLabel.textColor = [UIColor textDefaultColor];
     self.replyNumberLabel = [[UILabel alloc] init];
     self.replyNumberLabel.font = [UIFont defaultFontWithSize:13.0f];
+    self.replyNumberLabel.textColor = [UIColor textDefaultColor];
     
     self.bpTitleLabel.backgroundColor = [UIColor clearColor];
     self.fieldLabel.backgroundColor = [UIColor clearColor];

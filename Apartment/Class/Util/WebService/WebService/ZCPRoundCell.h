@@ -16,9 +16,3 @@
 @property (nonatomic, strong) UIView *roundContentView;     // 圆形内容视图
 
 @end
-
-@interface ZCPRoundCellItem : ZCPLineCellItem
-
-@property (nonatomic, strong) UIColor *roundContentColor;   //圆形内容视图颜色
-
-@end

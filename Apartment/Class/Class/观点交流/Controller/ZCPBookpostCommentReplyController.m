@@ -52,13 +52,14 @@
 }
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    
-    // 加载数据
-    [self loadData];
-    
     [self clearNavigationBar];
     self.title = @"回复列表";
     self.navigationItem.rightBarButtonItem = [UIBarButtonItem barItemWithTitle:@"+" font:[UIFont defaultBoldFontWithSize:20.0f] target:self action:@selector(addReply)];
+    
+    // 加载数据
+    [self loadData];
+    // 设置主题颜色
+    self.tableView.backgroundColor = APP_THEME_BG_COLOR;
 }
 - (void)viewWillLayoutSubviews {
     [super viewWillLayoutSubviews];

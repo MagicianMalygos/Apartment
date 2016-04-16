@@ -63,7 +63,7 @@
     
     // 初始化lineView
     self.lineView = [[UIView alloc] initWithFrame:CGRectMake(0, self.height, self.width, -OnePoint)];
-    self.lineView.backgroundColor = [UIColor colorFromHexRGB:@"dddddd"];
+    self.lineView.backgroundColor = APP_THEME_LINE_COLOR;
     [self addSubview:self.lineView];
 }
 /**

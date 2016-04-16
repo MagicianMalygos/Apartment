@@ -79,20 +79,25 @@
     self.thesisContentLabel.numberOfLines = 0;
     self.thesisContentLabel.textAlignment = NSTextAlignmentCenter;
     self.thesisContentLabel.font = [UIFont defaultFontWithSize:18.0f];
+    self.thesisContentLabel.textColor = [UIColor boldTextDefaultColor];
     
     self.thesisProsLabel = [[UILabel alloc] init];
     self.thesisProsLabel.numberOfLines = 0;
     self.thesisProsLabel.font = [UIFont defaultFontWithSize:15.0f];
+    self.thesisProsLabel.textColor = [UIColor boldTextDefaultColor];
     
     self.thesisConsLabel = [[UILabel alloc] init];
     self.thesisConsLabel.numberOfLines = 0;
     self.thesisConsLabel.font = [UIFont defaultFontWithSize:15.0f];
+    self.thesisConsLabel.textColor = [UIColor boldTextDefaultColor];
     
     self.replyNumberLabel = [[UILabel alloc] init];
     self.replyNumberLabel.font = [UIFont defaultFontWithSize:13.0f];
+    self.replyNumberLabel.textColor = [UIColor textDefaultColor];
     
     self.collectionNumberLabel = [[UILabel alloc] init];
     self.collectionNumberLabel.font = [UIFont defaultFontWithSize:13.0f];
+    self.collectionNumberLabel.textColor = [UIColor textDefaultColor];
     
     // 设置背景颜色
     self.thesisContentLabel.backgroundColor = [UIColor clearColor];

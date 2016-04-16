@@ -33,6 +33,7 @@
                                                               , 30)];
     self.tipLabel.textAlignment = NSTextAlignmentCenter;
     self.tipLabel.font = [UIFont defaultBoldFontWithSize:18.0f];
+    self.tipLabel.textColor = [UIColor textDefaultColor];
     
     // 背景颜色
     self.uploadImageView.backgroundColor = [UIColor clearColor];
