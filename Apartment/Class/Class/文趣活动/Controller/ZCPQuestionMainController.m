@@ -167,7 +167,7 @@
     }
     
     // item索引
-    NSUInteger itemIndex = [self.tableViewAdaptor.items indexOfObject:cell.item];
+    NSUInteger itemIndex = [self.tableViewAdaptor.items indexOfObject:cell.item] - 1;
     // 设置用户选择选项
     self.userSelectAnswerArr[itemIndex] = @(index);
     
@@ -200,6 +200,7 @@
     [[ZCPRequestManager sharedInstance] submitQuestionAnswersWithCurrUserID:[ZCPUserCenter sharedInstance].currentUserModel.userId answers:answers success:^(AFHTTPRequestOperation *operation, BOOL isSuccess, NSInteger score) {
         if (isSuccess) {
             [MBProgressHUD showError:[NSString stringWithFormat:@"提交成功，您获得了%li分", score]];
+            [ZCPUserCenter sharedInstance].currentUserModel.userScore += score;
         } else {
             [MBProgressHUD showError:@"网络异常！"];
         }

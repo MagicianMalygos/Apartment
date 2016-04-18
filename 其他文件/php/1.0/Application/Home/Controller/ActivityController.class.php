@@ -17,6 +17,7 @@ class activityController {
         $pageIndex = ($pagination - 1) * $pageCount;
 
         $db = M();
+        $db_levels = M('levels');
         $sql = "call proc_Couplet_SelectByMultiCondition($sortMethod, $pageIndex, $pageCount)";
         $result = $db->query($sql);
 
@@ -50,7 +51,7 @@ class activityController {
             $userArr["userName"] = $row["user_name"];
             $userArr["userAge"] = $row["user_age"];
             $userArr["userFaceURL"] = $row["user_face_url"];
-            $userArr["userEXP"] = $row["user_exp"];
+            $userArr["userLevel"] = $db_levels->where($row['user_exp'].' BETWEEN level_min_exp AND level_max_exp')->getField('level_name');
             $coupletArr[$i]["user"] = $userArr;
             $i++;
         }
@@ -67,6 +68,7 @@ class activityController {
 
         $db = M();
         $db_user = M('user');
+        $db_levels = M('levels');
         $db_couplet = M('couplet');
         $result = $db_couplet->where('couplet_usable=1 AND fk_couplet_user_id='.$currUserID)->order('couplet_time desc')->limit($pageIndex.','.$pageCount)->select();
 
@@ -86,7 +88,7 @@ class activityController {
             $userArr["userName"] = $userResult[0]["user_name"];
             $userArr["userAge"] = $userResult[0]["user_age"];
             $userArr["userFaceURL"] = $userResult[0]["user_face_url"];
-            $userArr["userEXP"] = $userResult[0]["user_exp"];
+            $userArr["userLevel"] = $db_levels->where($userResult[0]['user_exp'].' BETWEEN level_min_exp AND level_max_exp')->getField('level_name');
             $coupletArr[$i]['user'] = $userArr;
 
             $judgeSupportSQL = "call proc_UserSupportCoupletByCoupletIDUserID_Select(".$row["pk_couplet_id"].", $myUserID)";
@@ -119,6 +121,7 @@ class activityController {
 
         $db = M();
         $db_user = M('user');
+        $db_levels = M('levels');
         $db_couplet = M('couplet');
         $db_couplet_collect = M('user_collect_couplet');
         $result = $db_couplet_collect->where('collect_usable=1 AND fk_ucc_user_id='.$currUserID)->limit($pageIndex.','.$pageCount)->join('__COUPLET__ on __COUPLET__.pk_couplet_id=__USER_COLLECT_COUPLET__.fk_ucc_couplet_id', 'LEFT')->order('couplet_time desc')->select();
@@ -139,7 +142,7 @@ class activityController {
             $userArr["userName"] = $userResult[0]["user_name"];
             $userArr["userAge"] = $userResult[0]["user_age"];
             $userArr["userFaceURL"] = $userResult[0]["user_face_url"];
-            $userArr["userEXP"] = $userResult[0]["user_exp"];
+            $userArr["userLevel"] = $db_levels->where($userResult[0]['user_exp'].' BETWEEN level_min_exp AND level_max_exp')->getField('level_name');
             $coupletArr[$i]['user'] = $userArr;
 
             $judgeSupportSQL = "call proc_UserSupportCoupletByCoupletIDUserID_Select(".$row["pk_couplet_id"].", $myUserID)";
@@ -174,6 +177,7 @@ class activityController {
         $pageIndex = ($pagination - 1) * $pageCount;
 
         $db = M();
+        $db_levels = M('levels');
         $sql = "call proc_CoupletReplyByCoupletID_Select($currCoupletID, $pageIndex, $pageCount)";
         $result = $db->query($sql);
 
@@ -200,7 +204,7 @@ class activityController {
             $userArr["userName"] = $row["user_name"];
             $userArr["userAge"] = $row["user_age"];
             $userArr["userFaceURL"] = $row["user_face_url"];
-            $userArr["userEXP"] = $row["user_exp"];
+            $userArr["userLevel"] = $db_levels->where($row['user_exp'].' BETWEEN level_min_exp AND level_max_exp')->getField('level_name');
             $coupletReplyArr[$i]["user"] = $userArr;
             $i++;
         }
@@ -473,6 +477,7 @@ class activityController {
         $pageIndex = ($pagination - 1) * $pageCount;
 
         $db = M();
+        $db_levels = M('levels');
         $sql = "call proc_ArgumentByBelong_Select($belong, $pageIndex, $pageCount)";
         $result = $db->query($sql);
 
@@ -500,7 +505,7 @@ class activityController {
             $userArr["userName"] = $row["user_name"];
             $userArr["userAge"] = $row["user_age"];
             $userArr["userFaceURL"] = $row["user_face_url"];
-            $userArr["userEXP"] = $row["user_exp"];
+            $userArr["userLevel"] = $db_levels->where($row['user_exp'].' BETWEEN level_min_exp AND level_max_exp')->getField('level_name');
             $argumentArr["$i"]["user"] = $userArr;
 
             $stateArr = array();
@@ -628,6 +633,7 @@ class activityController {
         $stateValue = 2;
 
         $db = M();
+        $db_levels = M('levels');
         $sql = "call proc_QuestionByQuestionState_Select($stateValue, $pageCount)";
         $result = $db->query($sql);
 
@@ -650,6 +656,7 @@ class activityController {
             $userArr["userAccount"] = $row["user_account"];
             $userArr["userName"] = $row["user_name"];
             $userArr["userFaceURL"] = $row["user_face_url"];
+            $userArr["userLevel"] = $db_levels->where($row['user_exp'].' BETWEEN level_min_exp AND level_max_exp')->getField('level_name');
             $questionArr[$i]["user"] = $userArr;
 
             // 收藏状态
@@ -847,7 +854,7 @@ class activityController {
         // 保存用户答题记录，为用户增加分数
         $oldScore = $db_user->where('pk_user_id='.$currUserID)->getField('user_score');
         $newScore = $score + $oldScore;
-        $db_user->where('pk_user_id='.$currUserID)->save(@['user_score'=>$score]);
+        $db_user->where('pk_user_id='.$currUserID)->save(@['user_score'=>$newScore]);
 
         echo json_encode(@['code'=>0, 'msg'=>'', 'result'=>1, 'score'=>$score]);
     }

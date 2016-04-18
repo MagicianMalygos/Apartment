@@ -885,3 +885,1085 @@ INFO: [ app_end ] --START--
 INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000535s ]
 INFO: [ app_end ] --END-- [ RunTime:0.000577s ]
 
+[ 2016-04-14T11:48:49+08:00 ] ::1 /1.0/user/getUserByAccountPassword
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000018s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000706s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000887s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000958s ]
+SQL: call proc_UserByAccount_Select(18850459303) [ RunTime:0.0005s ]
+SQL: call proc_UserFocusFieldByUserID_Select(1) [ RunTime:0.0004s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000841s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000893s ]
+
+[ 2016-04-14T12:34:33+08:00 ] ::1 /1.0/user/getUserByAccountPassword
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000609s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000374s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000412s ]
+SQL: call proc_UserByAccount_Select(18850459303) [ RunTime:0.0006s ]
+SQL: call proc_UserFocusFieldByUserID_Select(1) [ RunTime:0.0004s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000511s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000552s ]
+
+[ 2016-04-14T12:34:35+08:00 ] ::1 /1.0/common/getField
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000273s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000410s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000455s ]
+SQL: SHOW COLUMNS FROM `t_field` [ RunTime:0.0261s ]
+SQL: SELECT * FROM `t_field`  [ RunTime:0.0004s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000641s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000698s ]
+
+[ 2016-04-14T12:34:36+08:00 ] ::1 /1.0/communion/getBookpostBySearchTextSortMethodFieldID
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000016s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000390s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000503s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000557s ]
+SQL: call proc_Bp_SelectByMultiCondition('%%', 0, 0, 0, 10) [ RunTime:0.0733s ]
+SQL: call proc_UserCollectBpByBookpostIDUserID_Select(19, 1) [ RunTime:0.0004s ]
+SQL: call proc_UserSupportBpByBookpostIDUserID_Select(19, 1) [ RunTime:0.0003s ]
+SQL: call proc_UserCollectBpByBookpostIDUserID_Select(18, 1) [ RunTime:0.0002s ]
+SQL: call proc_UserSupportBpByBookpostIDUserID_Select(18, 1) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBpByBookpostIDUserID_Select(17, 1) [ RunTime:0.0002s ]
+SQL: call proc_UserSupportBpByBookpostIDUserID_Select(17, 1) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBpByBookpostIDUserID_Select(16, 1) [ RunTime:0.0002s ]
+SQL: call proc_UserSupportBpByBookpostIDUserID_Select(16, 1) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBpByBookpostIDUserID_Select(10, 1) [ RunTime:0.0002s ]
+SQL: call proc_UserSupportBpByBookpostIDUserID_Select(10, 1) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBpByBookpostIDUserID_Select(9, 1) [ RunTime:0.0002s ]
+SQL: call proc_UserSupportBpByBookpostIDUserID_Select(9, 1) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBpByBookpostIDUserID_Select(8, 1) [ RunTime:0.0002s ]
+SQL: call proc_UserSupportBpByBookpostIDUserID_Select(8, 1) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBpByBookpostIDUserID_Select(7, 1) [ RunTime:0.0002s ]
+SQL: call proc_UserSupportBpByBookpostIDUserID_Select(7, 1) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBpByBookpostIDUserID_Select(6, 1) [ RunTime:0.0002s ]
+SQL: call proc_UserSupportBpByBookpostIDUserID_Select(6, 1) [ RunTime:0.0003s ]
+SQL: call proc_UserCollectBpByBookpostIDUserID_Select(5, 1) [ RunTime:0.0002s ]
+SQL: call proc_UserSupportBpByBookpostIDUserID_Select(5, 1) [ RunTime:0.0002s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000551s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000595s ]
+
+[ 2016-04-14T12:34:37+08:00 ] ::1 /1.0/activity/getCoupletBySortMethod
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000022s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000901s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000540s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000601s ]
+SQL: call proc_Couplet_SelectByMultiCondition(0, 0, 10) [ RunTime:0.0047s ]
+SQL: call proc_UserSupportCoupletByCoupletIDUserID_Select(26, 1) [ RunTime:0.0004s ]
+SQL: call proc_UserCollectCoupletByCoupletIDUserID_Select(26, 1) [ RunTime:0.0003s ]
+SQL: call proc_UserSupportCoupletByCoupletIDUserID_Select(25, 1) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectCoupletByCoupletIDUserID_Select(25, 1) [ RunTime:0.0002s ]
+SQL: call proc_UserSupportCoupletByCoupletIDUserID_Select(24, 1) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectCoupletByCoupletIDUserID_Select(24, 1) [ RunTime:0.0002s ]
+SQL: call proc_UserSupportCoupletByCoupletIDUserID_Select(23, 1) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectCoupletByCoupletIDUserID_Select(23, 1) [ RunTime:0.0002s ]
+SQL: call proc_UserSupportCoupletByCoupletIDUserID_Select(22, 1) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectCoupletByCoupletIDUserID_Select(22, 1) [ RunTime:0.0002s ]
+SQL: call proc_UserSupportCoupletByCoupletIDUserID_Select(21, 1) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectCoupletByCoupletIDUserID_Select(21, 1) [ RunTime:0.0002s ]
+SQL: call proc_UserSupportCoupletByCoupletIDUserID_Select(20, 1) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectCoupletByCoupletIDUserID_Select(20, 1) [ RunTime:0.0002s ]
+SQL: call proc_UserSupportCoupletByCoupletIDUserID_Select(19, 1) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectCoupletByCoupletIDUserID_Select(19, 1) [ RunTime:0.0002s ]
+SQL: call proc_UserSupportCoupletByCoupletIDUserID_Select(18, 1) [ RunTime:0.0003s ]
+SQL: call proc_UserCollectCoupletByCoupletIDUserID_Select(18, 1) [ RunTime:0.0002s ]
+SQL: call proc_UserSupportCoupletByCoupletIDUserID_Select(17, 1) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectCoupletByCoupletIDUserID_Select(17, 1) [ RunTime:0.0002s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000649s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000699s ]
+
+[ 2016-04-14T12:34:37+08:00 ] ::1 /1.0/activity/getCurrThesis
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000015s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000393s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000501s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000559s ]
+SQL: call proc_ThesisByThesisState_Select() [ RunTime:0.0011s ]
+SQL: call proc_UserCollectThesisBythesisIDUserID_Select(1, 1) [ RunTime:0.0007s ]
+SQL: call proc_ArgumentByBelong_Select(1, 0, 1) [ RunTime:0.0012s ]
+SQL: call proc_UserSupportArgumentByArgumentIDUserID_Select(38, 1) [ RunTime:0.0004s ]
+SQL: call proc_ArgumentByBelong_Select(0, 0, 1) [ RunTime:0.0006s ]
+SQL: call proc_UserSupportArgumentByArgumentIDUserID_Select(34, 1) [ RunTime:0.0003s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000761s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000824s ]
+
+[ 2016-04-14T12:34:37+08:00 ] ::1 /1.0/activity/getAnswerRecordByUserID
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000015s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000396s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000508s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000563s ]
+SQL: SHOW COLUMNS FROM `t_question` [ RunTime:0.0556s ]
+SQL: SHOW COLUMNS FROM `t_answer_record` [ RunTime:0.0212s ]
+SQL: SHOW COLUMNS FROM `t_user` [ RunTime:0.0207s ]
+SQL: SELECT `pk_question_id`,`question_answer`,`question_show_order` FROM `t_question` WHERE ( question_usable=1 AND fk_question_state_id=7 )  [ RunTime:0.0003s ]
+SQL: SELECT `answer_record_answer` FROM `t_answer_record` WHERE ( fk_answer_record_user_id=1 AND fk_answer_record_question_id=1 ) LIMIT 1   [ RunTime:0.0002s ]
+SQL: SELECT `answer_record_answer` FROM `t_answer_record` WHERE ( fk_answer_record_user_id=1 AND fk_answer_record_question_id=2 ) LIMIT 1   [ RunTime:0.0002s ]
+SQL: SELECT `answer_record_answer` FROM `t_answer_record` WHERE ( fk_answer_record_user_id=1 AND fk_answer_record_question_id=3 ) LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT `answer_record_answer` FROM `t_answer_record` WHERE ( fk_answer_record_user_id=1 AND fk_answer_record_question_id=4 ) LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT `answer_record_answer` FROM `t_answer_record` WHERE ( fk_answer_record_user_id=1 AND fk_answer_record_question_id=5 ) LIMIT 1   [ RunTime:0.0001s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000491s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000528s ]
+
+[ 2016-04-14T12:34:37+08:00 ] ::1 /1.0/Application/Home/Images/Head/zcp
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000320s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000406s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000449s ]
+ERR: 无法加载控制器:Application
+
+[ 2016-04-14T12:34:37+08:00 ] ::1 /1.0/activity/getQuestion
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000014s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000411s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000605s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000671s ]
+SQL: call proc_QuestionByQuestionState_Select(2, 5) [ RunTime:0.0008s ]
+SQL: call proc_UserCollectQuestionByQuestionIDUserID_Select(1, 1) [ RunTime:0.0005s ]
+SQL: call proc_UserCollectQuestionByQuestionIDUserID_Select(2, 1) [ RunTime:0.0006s ]
+SQL: call proc_UserCollectQuestionByQuestionIDUserID_Select(3, 1) [ RunTime:0.0003s ]
+SQL: call proc_UserCollectQuestionByQuestionIDUserID_Select(4, 1) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectQuestionByQuestionIDUserID_Select(5, 1) [ RunTime:0.0002s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000473s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000512s ]
+
+[ 2016-04-14T12:34:37+08:00 ] ::1 /1.0/Application/Home/Images/Head/zcp
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000022s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000856s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000576s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000638s ]
+ERR: 无法加载控制器:Application
+
+[ 2016-04-14T12:34:38+08:00 ] ::1 /1.0/common/getField
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000281s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000546s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000608s ]
+SQL: SHOW COLUMNS FROM `t_field` [ RunTime:0.0377s ]
+SQL: SELECT * FROM `t_field`  [ RunTime:0.0003s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000602s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000648s ]
+
+[ 2016-04-14T12:34:38+08:00 ] ::1 /1.0/library/getBookBySearchTextSortMethodFieldID
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000016s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000401s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000513s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000569s ]
+SQL: call WenHuiApartment.proc_Book_SelectByMultiCondition('%%', 0, 0, 0, 10); [ RunTime:0.0313s ]
+SQL: call WenHuiApartment.proc_UserCollectBookByBookIDUserID_Select(51, 1) [ RunTime:0.0005s ]
+SQL: call WenHuiApartment.proc_UserCollectBookByBookIDUserID_Select(50, 1) [ RunTime:0.0003s ]
+SQL: call WenHuiApartment.proc_UserCollectBookByBookIDUserID_Select(49, 1) [ RunTime:0.0002s ]
+SQL: call WenHuiApartment.proc_UserCollectBookByBookIDUserID_Select(48, 1) [ RunTime:0.0002s ]
+SQL: call WenHuiApartment.proc_UserCollectBookByBookIDUserID_Select(12, 1) [ RunTime:0.0002s ]
+SQL: call WenHuiApartment.proc_UserCollectBookByBookIDUserID_Select(11, 1) [ RunTime:0.0002s ]
+SQL: call WenHuiApartment.proc_UserCollectBookByBookIDUserID_Select(10, 1) [ RunTime:0.0002s ]
+SQL: call WenHuiApartment.proc_UserCollectBookByBookIDUserID_Select(9, 1) [ RunTime:0.0003s ]
+SQL: call WenHuiApartment.proc_UserCollectBookByBookIDUserID_Select(8, 1) [ RunTime:0.0002s ]
+SQL: call WenHuiApartment.proc_UserCollectBookByBookIDUserID_Select(7, 1) [ RunTime:0.0002s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000705s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000765s ]
+
+[ 2016-04-14T13:06:07+08:00 ] ::1 /1.0/user/getUserByAccountPassword
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000015s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000728s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000808s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000878s ]
+SQL: call proc_UserByAccount_Select(18850459303) [ RunTime:0.0005s ]
+SQL: call proc_UserFocusFieldByUserID_Select(1) [ RunTime:0.0004s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000912s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000969s ]
+
+[ 2016-04-14T13:07:27+08:00 ] ::1 /1.0/user/getUserByAccountPassword
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000280s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000350s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000385s ]
+SQL: call proc_UserByAccount_Select(18850459303) [ RunTime:0.0005s ]
+SQL: call proc_UserFocusFieldByUserID_Select(1) [ RunTime:0.0004s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000488s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000538s ]
+
+[ 2016-04-14T13:08:45+08:00 ] ::1 /1.0/user/getUserByAccountPassword
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000277s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000360s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000399s ]
+SQL: call proc_UserByAccount_Select(18850459303) [ RunTime:0.0005s ]
+SQL: call proc_UserFocusFieldByUserID_Select(1) [ RunTime:0.0004s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000558s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000602s ]
+
+[ 2016-04-14T13:11:52+08:00 ] ::1 /1.0/user/getUserByAccountPassword
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000270s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000617s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000751s ]
+SQL: call proc_UserByAccount_Select(18850459303) [ RunTime:0.0005s ]
+SQL: call proc_UserFocusFieldByUserID_Select(1) [ RunTime:0.0004s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000504s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000547s ]
+
+[ 2016-04-14T13:13:14+08:00 ] ::1 /1.0/user/getUserByAccountPassword
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000273s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000340s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000376s ]
+SQL: call proc_UserByAccount_Select(18850459303) [ RunTime:0.0005s ]
+SQL: call proc_UserFocusFieldByUserID_Select(1) [ RunTime:0.0005s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000594s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000637s ]
+
+[ 2016-04-14T13:14:10+08:00 ] ::1 /1.0/user/getUserByAccountPassword
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000274s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000351s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000389s ]
+SQL: call proc_UserByAccount_Select(18850459303) [ RunTime:0.0005s ]
+SQL: call proc_UserFocusFieldByUserID_Select(1) [ RunTime:0.0004s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000471s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000507s ]
+
+[ 2016-04-14T13:14:38+08:00 ] ::1 /1.0/user/getUserByAccountPassword
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000274s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000344s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000381s ]
+SQL: call proc_UserByAccount_Select(18850459303) [ RunTime:0.0005s ]
+SQL: call proc_UserFocusFieldByUserID_Select(1) [ RunTime:0.0005s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000570s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000617s ]
+
+[ 2016-04-14T13:15:46+08:00 ] ::1 /1.0/user/getUserByAccountPassword
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000273s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000344s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000380s ]
+SQL: call proc_UserByAccount_Select(18850459303) [ RunTime:0.0005s ]
+SQL: call proc_UserFocusFieldByUserID_Select(1) [ RunTime:0.0005s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000558s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000602s ]
+
+[ 2016-04-14T13:16:51+08:00 ] ::1 /1.0/user/getUserByAccountPassword
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000276s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000346s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000381s ]
+SQL: call proc_UserByAccount_Select(18850459303) [ RunTime:0.0005s ]
+SQL: call proc_UserFocusFieldByUserID_Select(1) [ RunTime:0.0005s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000530s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000571s ]
+
+[ 2016-04-14T13:17:12+08:00 ] ::1 /1.0/user/getUserByAccountPassword
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000272s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000344s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000378s ]
+SQL: call proc_UserByAccount_Select(18850459303) [ RunTime:0.0005s ]
+SQL: call proc_UserFocusFieldByUserID_Select(1) [ RunTime:0.0004s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000536s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000578s ]
+
+[ 2016-04-14T13:17:39+08:00 ] ::1 /1.0/user/getUserByAccountPassword
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000278s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000434s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000493s ]
+SQL: call proc_UserByAccount_Select(18850459303) [ RunTime:0.0005s ]
+SQL: call proc_UserFocusFieldByUserID_Select(1) [ RunTime:0.0005s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000566s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000612s ]
+
+[ 2016-04-14T13:18:20+08:00 ] ::1 /1.0/user/getUserByAccountPassword
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000273s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000359s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000426s ]
+SQL: call proc_UserByAccount_Select(18850459303) [ RunTime:0.0005s ]
+SQL: call proc_UserFocusFieldByUserID_Select(1) [ RunTime:0.0004s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000565s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000612s ]
+
+[ 2016-04-14T13:18:49+08:00 ] ::1 /1.0/user/getUserByAccountPassword
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000273s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000341s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000375s ]
+SQL: call proc_UserByAccount_Select(18850459303) [ RunTime:0.0005s ]
+SQL: call proc_UserFocusFieldByUserID_Select(1) [ RunTime:0.0004s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000568s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000611s ]
+
+[ 2016-04-14T13:19:30+08:00 ] ::1 /1.0/user/getUserByAccountPassword
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000270s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000343s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000378s ]
+SQL: call proc_UserByAccount_Select(18850459303) [ RunTime:0.0005s ]
+SQL: call proc_UserFocusFieldByUserID_Select(1) [ RunTime:0.0004s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000565s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000612s ]
+
+[ 2016-04-14T13:20:28+08:00 ] ::1 /1.0/user/uploadUserHead
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000049s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000783s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000455s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000510s ]
+SQL: SHOW COLUMNS FROM `t_user` [ RunTime:0.0427s ]
+SQL: SELECT `user_face_url` FROM `t_user` WHERE `pk_user_id` = 1 LIMIT 1   [ RunTime:0.0003s ]
+SQL: UPDATE `t_user` SET `user_face_url`='201604141320284188.jpeg' WHERE `pk_user_id` = 1 [ RunTime:0.0013s ]
+SQL: call WenHuiApartment.proc_UserByUserID_Select(1) [ RunTime:0.0007s ]
+SQL: call proc_UserFocusFieldByUserID_Select(1) [ RunTime:0.0004s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000979s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001126s ]
+
+[ 2016-04-14T13:21:10+08:00 ] ::1 /1.0/common/getField
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000295s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000953s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001097s ]
+SQL: SHOW COLUMNS FROM `t_field` [ RunTime:0.0316s ]
+SQL: SELECT * FROM `t_field`  [ RunTime:0.0008s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001139s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001294s ]
+
+[ 2016-04-14T13:21:10+08:00 ] ::1 /1.0/library/getBookBySearchTextSortMethodFieldID
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000017s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000472s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000546s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000606s ]
+SQL: call WenHuiApartment.proc_Book_SelectByMultiCondition('%%', 0, 0, 0, 10); [ RunTime:0.0351s ]
+SQL: call WenHuiApartment.proc_UserCollectBookByBookIDUserID_Select(51, 1) [ RunTime:0.0003s ]
+SQL: call WenHuiApartment.proc_UserCollectBookByBookIDUserID_Select(50, 1) [ RunTime:0.0002s ]
+SQL: call WenHuiApartment.proc_UserCollectBookByBookIDUserID_Select(49, 1) [ RunTime:0.0002s ]
+SQL: call WenHuiApartment.proc_UserCollectBookByBookIDUserID_Select(48, 1) [ RunTime:0.0003s ]
+SQL: call WenHuiApartment.proc_UserCollectBookByBookIDUserID_Select(12, 1) [ RunTime:0.0002s ]
+SQL: call WenHuiApartment.proc_UserCollectBookByBookIDUserID_Select(11, 1) [ RunTime:0.0002s ]
+SQL: call WenHuiApartment.proc_UserCollectBookByBookIDUserID_Select(10, 1) [ RunTime:0.0002s ]
+SQL: call WenHuiApartment.proc_UserCollectBookByBookIDUserID_Select(9, 1) [ RunTime:0.0003s ]
+SQL: call WenHuiApartment.proc_UserCollectBookByBookIDUserID_Select(8, 1) [ RunTime:0.0002s ]
+SQL: call WenHuiApartment.proc_UserCollectBookByBookIDUserID_Select(7, 1) [ RunTime:0.0002s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000685s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000736s ]
+
+[ 2016-04-14T13:21:11+08:00 ] ::1 /1.0/activity/getCoupletBySortMethod
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000015s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000393s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000504s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000557s ]
+SQL: call proc_Couplet_SelectByMultiCondition(0, 0, 10) [ RunTime:0.0045s ]
+SQL: call proc_UserSupportCoupletByCoupletIDUserID_Select(26, 1) [ RunTime:0.0004s ]
+SQL: call proc_UserCollectCoupletByCoupletIDUserID_Select(26, 1) [ RunTime:0.0003s ]
+SQL: call proc_UserSupportCoupletByCoupletIDUserID_Select(25, 1) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectCoupletByCoupletIDUserID_Select(25, 1) [ RunTime:0.0002s ]
+SQL: call proc_UserSupportCoupletByCoupletIDUserID_Select(24, 1) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectCoupletByCoupletIDUserID_Select(24, 1) [ RunTime:0.0002s ]
+SQL: call proc_UserSupportCoupletByCoupletIDUserID_Select(23, 1) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectCoupletByCoupletIDUserID_Select(23, 1) [ RunTime:0.0002s ]
+SQL: call proc_UserSupportCoupletByCoupletIDUserID_Select(22, 1) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectCoupletByCoupletIDUserID_Select(22, 1) [ RunTime:0.0002s ]
+SQL: call proc_UserSupportCoupletByCoupletIDUserID_Select(21, 1) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectCoupletByCoupletIDUserID_Select(21, 1) [ RunTime:0.0002s ]
+SQL: call proc_UserSupportCoupletByCoupletIDUserID_Select(20, 1) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectCoupletByCoupletIDUserID_Select(20, 1) [ RunTime:0.0002s ]
+SQL: call proc_UserSupportCoupletByCoupletIDUserID_Select(19, 1) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectCoupletByCoupletIDUserID_Select(19, 1) [ RunTime:0.0002s ]
+SQL: call proc_UserSupportCoupletByCoupletIDUserID_Select(18, 1) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectCoupletByCoupletIDUserID_Select(18, 1) [ RunTime:0.0002s ]
+SQL: call proc_UserSupportCoupletByCoupletIDUserID_Select(17, 1) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectCoupletByCoupletIDUserID_Select(17, 1) [ RunTime:0.0002s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000510s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000549s ]
+
+[ 2016-04-14T13:21:11+08:00 ] ::1 /1.0/activity/getCurrThesis
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000017s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000394s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000514s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000566s ]
+SQL: call proc_ThesisByThesisState_Select() [ RunTime:0.0007s ]
+SQL: call proc_UserCollectThesisBythesisIDUserID_Select(1, 1) [ RunTime:0.0004s ]
+SQL: call proc_ArgumentByBelong_Select(1, 0, 1) [ RunTime:0.0008s ]
+SQL: call proc_UserSupportArgumentByArgumentIDUserID_Select(38, 1) [ RunTime:0.0011s ]
+SQL: call proc_ArgumentByBelong_Select(0, 0, 1) [ RunTime:0.0005s ]
+SQL: call proc_UserSupportArgumentByArgumentIDUserID_Select(34, 1) [ RunTime:0.0002s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000519s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000562s ]
+
+[ 2016-04-14T13:21:11+08:00 ] ::1 /1.0/Application/Home/Images/Head/zcp
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000382s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000614s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000668s ]
+ERR: 无法加载控制器:Application
+
+[ 2016-04-14T13:21:11+08:00 ] ::1 /1.0/activity/getAnswerRecordByUserID
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000374s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000496s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000546s ]
+SQL: SHOW COLUMNS FROM `t_question` [ RunTime:0.0344s ]
+SQL: SHOW COLUMNS FROM `t_answer_record` [ RunTime:0.0096s ]
+SQL: SHOW COLUMNS FROM `t_user` [ RunTime:0.0083s ]
+SQL: SELECT `pk_question_id`,`question_answer`,`question_show_order` FROM `t_question` WHERE ( question_usable=1 AND fk_question_state_id=7 )  [ RunTime:0.0003s ]
+SQL: SELECT `answer_record_answer` FROM `t_answer_record` WHERE ( fk_answer_record_user_id=1 AND fk_answer_record_question_id=1 ) LIMIT 1   [ RunTime:0.0002s ]
+SQL: SELECT `answer_record_answer` FROM `t_answer_record` WHERE ( fk_answer_record_user_id=1 AND fk_answer_record_question_id=2 ) LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT `answer_record_answer` FROM `t_answer_record` WHERE ( fk_answer_record_user_id=1 AND fk_answer_record_question_id=3 ) LIMIT 1   [ RunTime:0.0005s ]
+SQL: SELECT `answer_record_answer` FROM `t_answer_record` WHERE ( fk_answer_record_user_id=1 AND fk_answer_record_question_id=4 ) LIMIT 1   [ RunTime:0.0002s ]
+SQL: SELECT `answer_record_answer` FROM `t_answer_record` WHERE ( fk_answer_record_user_id=1 AND fk_answer_record_question_id=5 ) LIMIT 1   [ RunTime:0.0002s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.006194s ]
+INFO: [ app_end ] --END-- [ RunTime:0.006301s ]
+
+[ 2016-04-14T13:21:11+08:00 ] ::1 /1.0/activity/getQuestion
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000264s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000337s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000371s ]
+SQL: call proc_QuestionByQuestionState_Select(2, 5) [ RunTime:0.0007s ]
+SQL: call proc_UserCollectQuestionByQuestionIDUserID_Select(1, 1) [ RunTime:0.0003s ]
+SQL: call proc_UserCollectQuestionByQuestionIDUserID_Select(2, 1) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectQuestionByQuestionIDUserID_Select(3, 1) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectQuestionByQuestionIDUserID_Select(4, 1) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectQuestionByQuestionIDUserID_Select(5, 1) [ RunTime:0.0002s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000550s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000589s ]
+
+[ 2016-04-14T13:21:13+08:00 ] ::1 /1.0/common/getField
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000017s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000402s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000505s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000565s ]
+SQL: SHOW COLUMNS FROM `t_field` [ RunTime:0.0220s ]
+SQL: SELECT * FROM `t_field`  [ RunTime:0.0003s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000614s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000660s ]
+
+[ 2016-04-14T13:21:13+08:00 ] ::1 /1.0/communion/getBookpostBySearchTextSortMethodFieldID
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000272s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000353s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000391s ]
+SQL: call proc_Bp_SelectByMultiCondition('%%', 0, 0, 0, 10) [ RunTime:0.0636s ]
+SQL: call proc_UserCollectBpByBookpostIDUserID_Select(19, 1) [ RunTime:0.0008s ]
+SQL: call proc_UserSupportBpByBookpostIDUserID_Select(19, 1) [ RunTime:0.0003s ]
+SQL: call proc_UserCollectBpByBookpostIDUserID_Select(18, 1) [ RunTime:0.0002s ]
+SQL: call proc_UserSupportBpByBookpostIDUserID_Select(18, 1) [ RunTime:0.0003s ]
+SQL: call proc_UserCollectBpByBookpostIDUserID_Select(17, 1) [ RunTime:0.0002s ]
+SQL: call proc_UserSupportBpByBookpostIDUserID_Select(17, 1) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBpByBookpostIDUserID_Select(16, 1) [ RunTime:0.0002s ]
+SQL: call proc_UserSupportBpByBookpostIDUserID_Select(16, 1) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBpByBookpostIDUserID_Select(10, 1) [ RunTime:0.0002s ]
+SQL: call proc_UserSupportBpByBookpostIDUserID_Select(10, 1) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBpByBookpostIDUserID_Select(9, 1) [ RunTime:0.0003s ]
+SQL: call proc_UserSupportBpByBookpostIDUserID_Select(9, 1) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBpByBookpostIDUserID_Select(8, 1) [ RunTime:0.0002s ]
+SQL: call proc_UserSupportBpByBookpostIDUserID_Select(8, 1) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBpByBookpostIDUserID_Select(7, 1) [ RunTime:0.0002s ]
+SQL: call proc_UserSupportBpByBookpostIDUserID_Select(7, 1) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBpByBookpostIDUserID_Select(6, 1) [ RunTime:0.0002s ]
+SQL: call proc_UserSupportBpByBookpostIDUserID_Select(6, 1) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBpByBookpostIDUserID_Select(5, 1) [ RunTime:0.0002s ]
+SQL: call proc_UserSupportBpByBookpostIDUserID_Select(5, 1) [ RunTime:0.0002s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000551s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000594s ]
+
+[ 2016-04-14T13:56:10+08:00 ] ::1 /1.0/user/getUserByAccountPassword
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000018s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000752s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000874s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000951s ]
+SQL: call proc_UserByAccount_Select(18850459303) [ RunTime:0.0005s ]
+SQL: call proc_UserFocusFieldByUserID_Select(1) [ RunTime:0.0004s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000907s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000966s ]
+
+[ 2016-04-14T13:56:12+08:00 ] ::1 /1.0/common/getField
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000312s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000482s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000539s ]
+SQL: SHOW COLUMNS FROM `t_field` [ RunTime:0.0468s ]
+SQL: SELECT * FROM `t_field`  [ RunTime:0.0020s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000620s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000665s ]
+
+[ 2016-04-14T13:56:12+08:00 ] ::1 /1.0/library/getBookBySearchTextSortMethodFieldID
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000016s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000403s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000524s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000580s ]
+SQL: call WenHuiApartment.proc_Book_SelectByMultiCondition('%%', 0, 0, 0, 10); [ RunTime:0.0407s ]
+SQL: call WenHuiApartment.proc_UserCollectBookByBookIDUserID_Select(51, 1) [ RunTime:0.0004s ]
+SQL: call WenHuiApartment.proc_UserCollectBookByBookIDUserID_Select(50, 1) [ RunTime:0.0002s ]
+SQL: call WenHuiApartment.proc_UserCollectBookByBookIDUserID_Select(49, 1) [ RunTime:0.0003s ]
+SQL: call WenHuiApartment.proc_UserCollectBookByBookIDUserID_Select(48, 1) [ RunTime:0.0002s ]
+SQL: call WenHuiApartment.proc_UserCollectBookByBookIDUserID_Select(12, 1) [ RunTime:0.0002s ]
+SQL: call WenHuiApartment.proc_UserCollectBookByBookIDUserID_Select(11, 1) [ RunTime:0.0002s ]
+SQL: call WenHuiApartment.proc_UserCollectBookByBookIDUserID_Select(10, 1) [ RunTime:0.0002s ]
+SQL: call WenHuiApartment.proc_UserCollectBookByBookIDUserID_Select(9, 1) [ RunTime:0.0002s ]
+SQL: call WenHuiApartment.proc_UserCollectBookByBookIDUserID_Select(8, 1) [ RunTime:0.0002s ]
+SQL: call WenHuiApartment.proc_UserCollectBookByBookIDUserID_Select(7, 1) [ RunTime:0.0002s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000690s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000758s ]
+
+[ 2016-04-14T14:42:32+08:00 ] ::1 /1.0/hottrend/getHotInfo
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000026s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001192s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000829s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000904s ]
+ERR: syntax error, unexpected '}'
+
+[ 2016-04-14T14:43:59+08:00 ] ::1 /1.0/hottrend/getHotInfo
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000019s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000460s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000469s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000536s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000957s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001044s ]
+
+[ 2016-04-14T14:45:12+08:00 ] ::1 /1.0/hottrend/getHotInfo
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000016s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000640s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000880s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000976s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000961s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001044s ]
+
+[ 2016-04-14T14:45:54+08:00 ] ::1 /1.0/hottrend/getHotInfo
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000018s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000447s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000656s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000736s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000508s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000567s ]
+
+[ 2016-04-14T14:45:59+08:00 ] ::1 /1.0/hottrend/getHotInfo
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000021s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000473s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000681s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000770s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000660s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000744s ]
+
+[ 2016-04-14T14:46:05+08:00 ] ::1 /1.0/hottrend/getHotInfo
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000019s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000486s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000560s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000666s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000621s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000703s ]
+
+[ 2016-04-14T14:50:34+08:00 ] ::1 /1.0/hottrend/getHotInfo
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000020s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000785s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000845s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000928s ]
+ERR: syntax error, unexpected '.'
+
+[ 2016-04-14T14:50:39+08:00 ] ::1 /1.0/hottrend/getHotInfo
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000021s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000496s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000604s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000689s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001466s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001599s ]
+
+[ 2016-04-14T15:00:38+08:00 ] ::1 /1.0/hottrend/getHotInfo
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000021s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000651s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000849s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000941s ]
+ERR: syntax error, unexpected '$currUserID' (T_VARIABLE), expecting ',' or ';'
+
+[ 2016-04-14T15:00:54+08:00 ] ::1 /1.0/hottrend/getHotInfo
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000021s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000456s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000548s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000612s ]
+ERR: syntax error, unexpected '}', expecting ',' or ';'
+
+[ 2016-04-14T15:01:08+08:00 ] ::1 /1.0/hottrend/getHotInfo
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000021s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000440s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000578s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000650s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000913s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001010s ]
+
+[ 2016-04-14T15:02:51+08:00 ] ::1 /1.0/hottrend/getHotInfo
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000434s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000521s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000582s ]
+NOTIC: [8] Undefined index: currUserID /Applications/MAMP/htdocs/1.0/Application/HOME/Controller/HottrendController.class.php 第 8 行.
+NOTIC: [8] Undefined index: pagination /Applications/MAMP/htdocs/1.0/Application/HOME/Controller/HottrendController.class.php 第 9 行.
+NOTIC: [8] Undefined index: pageCount /Applications/MAMP/htdocs/1.0/Application/HOME/Controller/HottrendController.class.php 第 10 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000734s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000802s ]
+
+[ 2016-04-14T15:02:51+08:00 ] ::1 /1.0/hottrend/getHotInfo
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000291s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000361s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000399s ]
+NOTIC: [8] Undefined index: currUserID /Applications/MAMP/htdocs/1.0/Application/HOME/Controller/HottrendController.class.php 第 8 行.
+NOTIC: [8] Undefined index: pagination /Applications/MAMP/htdocs/1.0/Application/HOME/Controller/HottrendController.class.php 第 9 行.
+NOTIC: [8] Undefined index: pageCount /Applications/MAMP/htdocs/1.0/Application/HOME/Controller/HottrendController.class.php 第 10 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000408s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000454s ]
+
+[ 2016-04-14T15:09:36+08:00 ] ::1 /1.0/hottrend/getHotInfo
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000483s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000543s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000600s ]
+NOTIC: [8] Undefined index: currUserID /Applications/MAMP/htdocs/1.0/Application/HOME/Controller/HottrendController.class.php 第 8 行.
+NOTIC: [8] Undefined index: pagination /Applications/MAMP/htdocs/1.0/Application/HOME/Controller/HottrendController.class.php 第 9 行.
+NOTIC: [8] Undefined index: pageCount /Applications/MAMP/htdocs/1.0/Application/HOME/Controller/HottrendController.class.php 第 10 行.
+SQL: SHOW COLUMNS FROM `t_user` [ RunTime:0.0317s ]
+SQL: SHOW COLUMNS FROM `t_field` [ RunTime:0.0168s ]
+SQL: SHOW COLUMNS FROM `t_bookpost` [ RunTime:0.0154s ]
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '00:00:00 AND bookpost_time <=2016-04-14 15:09:36 )' at line 1
+ [ SQL语句 ] : SELECT * FROM `t_bookpost` LEFT JOIN T_user on T_user.pk_user_id=T_bookpost.fk_bp_user_id LEFT JOIN T_field on T_field.pk_field_id=T_bookpost.fk_bp_field_id  WHERE ( bookpost_usable=1 AND bookpost_time>=2016-04-07 00:00:00 AND bookpost_time <=2016-04-14 15:09:36 ) 
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '00:00:00 AND bookpost_time <=2016-04-14 15:09:36 )' at line 1
+ [ SQL语句 ] : SELECT * FROM `t_bookpost` LEFT JOIN T_user on T_user.pk_user_id=T_bookpost.fk_bp_user_id LEFT JOIN T_field on T_field.pk_field_id=T_bookpost.fk_bp_field_id  WHERE ( bookpost_usable=1 AND bookpost_time>=2016-04-07 00:00:00 AND bookpost_time <=2016-04-14 15:09:36 ) 
+
+[ 2016-04-14T15:11:40+08:00 ] ::1 /1.0/hottrend/getHotInfo
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000021s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000470s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000599s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000674s ]
+NOTIC: [8] Undefined index: currUserID /Applications/MAMP/htdocs/1.0/Application/HOME/Controller/HottrendController.class.php 第 8 行.
+NOTIC: [8] Undefined index: pagination /Applications/MAMP/htdocs/1.0/Application/HOME/Controller/HottrendController.class.php 第 9 行.
+NOTIC: [8] Undefined index: pageCount /Applications/MAMP/htdocs/1.0/Application/HOME/Controller/HottrendController.class.php 第 10 行.
+SQL: SHOW COLUMNS FROM `t_user` [ RunTime:0.0366s ]
+SQL: SHOW COLUMNS FROM `t_field` [ RunTime:0.0259s ]
+SQL: SHOW COLUMNS FROM `t_bookpost` [ RunTime:0.0073s ]
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '00:00:00 AND bookpost_time <="2016-4-14 15:10:10" )' at line 1
+ [ SQL语句 ] : SELECT * FROM `t_bookpost` LEFT JOIN T_user on T_user.pk_user_id=T_bookpost.fk_bp_user_id LEFT JOIN T_field on T_field.pk_field_id=T_bookpost.fk_bp_field_id  WHERE ( bookpost_usable=1 AND bookpost_time>=2016-04-07 00:00:00 AND bookpost_time <="2016-4-14 15:10:10" ) 
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '00:00:00 AND bookpost_time <="2016-4-14 15:10:10" )' at line 1
+ [ SQL语句 ] : SELECT * FROM `t_bookpost` LEFT JOIN T_user on T_user.pk_user_id=T_bookpost.fk_bp_user_id LEFT JOIN T_field on T_field.pk_field_id=T_bookpost.fk_bp_field_id  WHERE ( bookpost_usable=1 AND bookpost_time>=2016-04-07 00:00:00 AND bookpost_time <="2016-4-14 15:10:10" ) 
+
+[ 2016-04-14T15:12:11+08:00 ] ::1 /1.0/hottrend/getHotInfo
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000021s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000491s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000584s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000658s ]
+ERR: syntax error, unexpected '$timeMax' (T_VARIABLE)
+
+[ 2016-04-14T15:12:40+08:00 ] ::1 /1.0/hottrend/getHotInfo
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000020s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000469s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000623s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000709s ]
+ERR: syntax error, unexpected '$timeMax' (T_VARIABLE)
+
+[ 2016-04-14T15:13:24+08:00 ] ::1 /1.0/hottrend/getHotInfo
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000017s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000495s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000607s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000695s ]
+ERR: syntax error, unexpected '$timeMax' (T_VARIABLE)
+
+[ 2016-04-14T15:13:30+08:00 ] ::1 /1.0/hottrend/getHotInfo
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000018s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000404s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000577s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000650s ]
+ERR: syntax error, unexpected '$timeMax' (T_VARIABLE)
+
+[ 2016-04-14T15:13:44+08:00 ] ::1 /1.0/hottrend/getHotInfo
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000018s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000410s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000549s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000609s ]
+ERR: syntax error, unexpected '}'
+
+[ 2016-04-14T15:13:58+08:00 ] ::1 /1.0/hottrend/getHotInfo
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000018s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000441s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000458s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000520s ]
+NOTIC: [8] Undefined index: currUserID /Applications/MAMP/htdocs/1.0/Application/HOME/Controller/HottrendController.class.php 第 8 行.
+NOTIC: [8] Undefined index: pagination /Applications/MAMP/htdocs/1.0/Application/HOME/Controller/HottrendController.class.php 第 9 行.
+NOTIC: [8] Undefined index: pageCount /Applications/MAMP/htdocs/1.0/Application/HOME/Controller/HottrendController.class.php 第 10 行.
+SQL: SHOW COLUMNS FROM `t_user` [ RunTime:0.0398s ]
+SQL: SHOW COLUMNS FROM `t_field` [ RunTime:0.0271s ]
+SQL: SHOW COLUMNS FROM `t_bookpost` [ RunTime:0.0274s ]
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '00:00:00 AND bookpost_time <=2016-04-14 15:13:58 )' at line 1
+ [ SQL语句 ] : SELECT * FROM `t_bookpost` LEFT JOIN T_user on T_user.pk_user_id=T_bookpost.fk_bp_user_id LEFT JOIN T_field on T_field.pk_field_id=T_bookpost.fk_bp_field_id  WHERE ( bookpost_usable=1 AND bookpost_time>=2016-04-07 00:00:00 AND bookpost_time <=2016-04-14 15:13:58 ) 
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '00:00:00 AND bookpost_time <=2016-04-14 15:13:58 )' at line 1
+ [ SQL语句 ] : SELECT * FROM `t_bookpost` LEFT JOIN T_user on T_user.pk_user_id=T_bookpost.fk_bp_user_id LEFT JOIN T_field on T_field.pk_field_id=T_bookpost.fk_bp_field_id  WHERE ( bookpost_usable=1 AND bookpost_time>=2016-04-07 00:00:00 AND bookpost_time <=2016-04-14 15:13:58 ) 
+
+[ 2016-04-14T15:14:33+08:00 ] ::1 /1.0/hottrend/getHotInfo
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000016s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000455s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000464s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000518s ]
+NOTIC: [8] Undefined index: currUserID /Applications/MAMP/htdocs/1.0/Application/HOME/Controller/HottrendController.class.php 第 8 行.
+NOTIC: [8] Undefined index: pagination /Applications/MAMP/htdocs/1.0/Application/HOME/Controller/HottrendController.class.php 第 9 行.
+NOTIC: [8] Undefined index: pageCount /Applications/MAMP/htdocs/1.0/Application/HOME/Controller/HottrendController.class.php 第 10 行.
+SQL: SHOW COLUMNS FROM `t_user` [ RunTime:0.0429s ]
+SQL: SHOW COLUMNS FROM `t_field` [ RunTime:0.0216s ]
+SQL: SHOW COLUMNS FROM `t_bookpost` [ RunTime:0.0227s ]
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '15:14:33 )' at line 1
+ [ SQL语句 ] : SELECT * FROM `t_bookpost` LEFT JOIN T_user on T_user.pk_user_id=T_bookpost.fk_bp_user_id LEFT JOIN T_field on T_field.pk_field_id=T_bookpost.fk_bp_field_id  WHERE ( bookpost_usable=1 AND bookpost_time>="2016-4-07 00:00:00" AND bookpost_time <=2016-04-14 15:14:33 ) 
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '15:14:33 )' at line 1
+ [ SQL语句 ] : SELECT * FROM `t_bookpost` LEFT JOIN T_user on T_user.pk_user_id=T_bookpost.fk_bp_user_id LEFT JOIN T_field on T_field.pk_field_id=T_bookpost.fk_bp_field_id  WHERE ( bookpost_usable=1 AND bookpost_time>="2016-4-07 00:00:00" AND bookpost_time <=2016-04-14 15:14:33 ) 
+
+[ 2016-04-14T15:15:24+08:00 ] ::1 /1.0/hottrend/getHotInfo
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000016s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000402s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000588s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000667s ]
+NOTIC: [8] Undefined index: currUserID /Applications/MAMP/htdocs/1.0/Application/HOME/Controller/HottrendController.class.php 第 8 行.
+NOTIC: [8] Undefined index: pagination /Applications/MAMP/htdocs/1.0/Application/HOME/Controller/HottrendController.class.php 第 9 行.
+NOTIC: [8] Undefined index: pageCount /Applications/MAMP/htdocs/1.0/Application/HOME/Controller/HottrendController.class.php 第 10 行.
+SQL: SHOW COLUMNS FROM `t_user` [ RunTime:0.0459s ]
+SQL: SHOW COLUMNS FROM `t_field` [ RunTime:0.0228s ]
+SQL: SHOW COLUMNS FROM `t_bookpost` [ RunTime:0.0165s ]
+SQL: SELECT * FROM `t_bookpost` LEFT JOIN T_user on T_user.pk_user_id=T_bookpost.fk_bp_user_id LEFT JOIN T_field on T_field.pk_field_id=T_bookpost.fk_bp_field_id  WHERE ( bookpost_usable=1 AND bookpost_time>="2016-4-07 00:00:00" AND bookpost_time <="2016-04-14 15:15:24" )  [ RunTime:0.0004s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000535s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000576s ]
+
+[ 2016-04-14T15:15:48+08:00 ] ::1 /1.0/hottrend/getHotInfo
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000017s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000421s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000526s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000602s ]
+NOTIC: [8] Undefined index: currUserID /Applications/MAMP/htdocs/1.0/Application/HOME/Controller/HottrendController.class.php 第 8 行.
+NOTIC: [8] Undefined index: pagination /Applications/MAMP/htdocs/1.0/Application/HOME/Controller/HottrendController.class.php 第 9 行.
+NOTIC: [8] Undefined index: pageCount /Applications/MAMP/htdocs/1.0/Application/HOME/Controller/HottrendController.class.php 第 10 行.
+SQL: SHOW COLUMNS FROM `t_user` [ RunTime:0.0105s ]
+SQL: SHOW COLUMNS FROM `t_field` [ RunTime:0.0109s ]
+SQL: SHOW COLUMNS FROM `t_bookpost` [ RunTime:0.0230s ]
+SQL: SELECT * FROM `t_bookpost` LEFT JOIN T_user on T_user.pk_user_id=T_bookpost.fk_bp_user_id LEFT JOIN T_field on T_field.pk_field_id=T_bookpost.fk_bp_field_id  WHERE ( bookpost_usable=1 AND bookpost_time>="2016-04-07 00:00:00" AND bookpost_time <="2016-04-14 15:15:48" )  [ RunTime:0.0004s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000535s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000577s ]
+
+[ 2016-04-14T15:16:40+08:00 ] ::1 /1.0/hottrend/getHotInfo
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000017s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000431s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000450s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000508s ]
+NOTIC: [8] Undefined index: currUserID /Applications/MAMP/htdocs/1.0/Application/HOME/Controller/HottrendController.class.php 第 8 行.
+NOTIC: [8] Undefined index: pagination /Applications/MAMP/htdocs/1.0/Application/HOME/Controller/HottrendController.class.php 第 9 行.
+NOTIC: [8] Undefined index: pageCount /Applications/MAMP/htdocs/1.0/Application/HOME/Controller/HottrendController.class.php 第 10 行.
+SQL: SHOW COLUMNS FROM `t_user` [ RunTime:0.0261s ]
+SQL: SHOW COLUMNS FROM `t_field` [ RunTime:0.0155s ]
+SQL: SHOW COLUMNS FROM `t_bookpost` [ RunTime:0.0266s ]
+SQL: SELECT * FROM `t_bookpost` LEFT JOIN T_user on T_user.pk_user_id=T_bookpost.fk_bp_user_id LEFT JOIN T_field on T_field.pk_field_id=T_bookpost.fk_bp_field_id  WHERE ( bookpost_usable=1 AND bookpost_time>="2016-04-07 00:00:00" AND bookpost_time <="2016-04-14 15:16:40" )  [ RunTime:0.0004s ]
+SQL: SELECT * FROM `t_field` WHERE ( pk_field_id=1 )  [ RunTime:0.0002s ]
+NOTIC: [8] Undefined variable: myUserID /Applications/MAMP/htdocs/1.0/Application/HOME/Controller/HottrendController.class.php 第 59 行.
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')' at line 1
+ [ SQL语句 ] : call proc_UserCollectBpByBookpostIDUserID_Select(17, )
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')' at line 1
+ [ SQL语句 ] : call proc_UserCollectBpByBookpostIDUserID_Select(17, )
+
+[ 2016-04-14T15:16:55+08:00 ] ::1 /1.0/hottrend/getHotInfo
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000314s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000410s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000453s ]
+NOTIC: [8] Undefined index: pagination /Applications/MAMP/htdocs/1.0/Application/HOME/Controller/HottrendController.class.php 第 9 行.
+NOTIC: [8] Undefined index: pageCount /Applications/MAMP/htdocs/1.0/Application/HOME/Controller/HottrendController.class.php 第 10 行.
+SQL: SHOW COLUMNS FROM `t_user` [ RunTime:0.0266s ]
+SQL: SHOW COLUMNS FROM `t_field` [ RunTime:0.0153s ]
+SQL: SHOW COLUMNS FROM `t_bookpost` [ RunTime:0.0281s ]
+SQL: SELECT * FROM `t_bookpost` LEFT JOIN T_user on T_user.pk_user_id=T_bookpost.fk_bp_user_id LEFT JOIN T_field on T_field.pk_field_id=T_bookpost.fk_bp_field_id  WHERE ( bookpost_usable=1 AND bookpost_time>="2016-04-07 00:00:00" AND bookpost_time <="2016-04-14 15:16:55" )  [ RunTime:0.0004s ]
+SQL: SELECT * FROM `t_field` WHERE ( pk_field_id=1 )  [ RunTime:0.0002s ]
+NOTIC: [8] Undefined variable: myUserID /Applications/MAMP/htdocs/1.0/Application/HOME/Controller/HottrendController.class.php 第 59 行.
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')' at line 1
+ [ SQL语句 ] : call proc_UserCollectBpByBookpostIDUserID_Select(17, )
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')' at line 1
+ [ SQL语句 ] : call proc_UserCollectBpByBookpostIDUserID_Select(17, )
+
+[ 2016-04-14T15:17:05+08:00 ] ::1 /1.0/hottrend/getHotInfo
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000018s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000423s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000544s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000630s ]
+NOTIC: [8] Undefined index: pagination /Applications/MAMP/htdocs/1.0/Application/HOME/Controller/HottrendController.class.php 第 9 行.
+NOTIC: [8] Undefined index: pageCount /Applications/MAMP/htdocs/1.0/Application/HOME/Controller/HottrendController.class.php 第 10 行.
+SQL: SHOW COLUMNS FROM `t_user` [ RunTime:0.0185s ]
+SQL: SHOW COLUMNS FROM `t_field` [ RunTime:0.0247s ]
+SQL: SHOW COLUMNS FROM `t_bookpost` [ RunTime:0.0078s ]
+SQL: SELECT * FROM `t_bookpost` LEFT JOIN T_user on T_user.pk_user_id=T_bookpost.fk_bp_user_id LEFT JOIN T_field on T_field.pk_field_id=T_bookpost.fk_bp_field_id  WHERE ( bookpost_usable=1 AND bookpost_time>="2016-04-07 00:00:00" AND bookpost_time <="2016-04-14 15:17:05" )  [ RunTime:0.0004s ]
+SQL: SELECT * FROM `t_field` WHERE ( pk_field_id=1 )  [ RunTime:0.0003s ]
+NOTIC: [8] Undefined variable: myUserID /Applications/MAMP/htdocs/1.0/Application/HOME/Controller/HottrendController.class.php 第 59 行.
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')' at line 1
+ [ SQL语句 ] : call proc_UserCollectBpByBookpostIDUserID_Select(17, )
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')' at line 1
+ [ SQL语句 ] : call proc_UserCollectBpByBookpostIDUserID_Select(17, )
+
+[ 2016-04-14T15:17:24+08:00 ] ::1 /1.0/hottrend/getHotInfo
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000016s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000340s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000367s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000407s ]
+NOTIC: [8] Undefined index: pagination /Applications/MAMP/htdocs/1.0/Application/HOME/Controller/HottrendController.class.php 第 9 行.
+NOTIC: [8] Undefined index: pageCount /Applications/MAMP/htdocs/1.0/Application/HOME/Controller/HottrendController.class.php 第 10 行.
+SQL: SHOW COLUMNS FROM `t_user` [ RunTime:0.0477s ]
+SQL: SHOW COLUMNS FROM `t_field` [ RunTime:0.0109s ]
+SQL: SHOW COLUMNS FROM `t_bookpost` [ RunTime:0.0153s ]
+SQL: SELECT * FROM `t_bookpost` LEFT JOIN T_user on T_user.pk_user_id=T_bookpost.fk_bp_user_id LEFT JOIN T_field on T_field.pk_field_id=T_bookpost.fk_bp_field_id  WHERE ( bookpost_usable=1 AND bookpost_time>="2016-04-07 00:00:00" AND bookpost_time <="2016-04-14 15:17:24" )  [ RunTime:0.0005s ]
+SQL: SELECT * FROM `t_field` WHERE ( pk_field_id=1 )  [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBpByBookpostIDUserID_Select(17, 1) [ RunTime:0.0007s ]
+NOTIC: [8] Undefined variable: myUserID /Applications/MAMP/htdocs/1.0/Application/HOME/Controller/HottrendController.class.php 第 66 行.
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')' at line 1
+ [ SQL语句 ] : call proc_UserSupportBpByBookpostIDUserID_Select(17, )
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')' at line 1
+ [ SQL语句 ] : call proc_UserSupportBpByBookpostIDUserID_Select(17, )
+
+[ 2016-04-14T15:17:33+08:00 ] ::1 /1.0/hottrend/getHotInfo
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000015s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000424s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000608s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000672s ]
+NOTIC: [8] Undefined index: pagination /Applications/MAMP/htdocs/1.0/Application/HOME/Controller/HottrendController.class.php 第 9 行.
+NOTIC: [8] Undefined index: pageCount /Applications/MAMP/htdocs/1.0/Application/HOME/Controller/HottrendController.class.php 第 10 行.
+SQL: SHOW COLUMNS FROM `t_user` [ RunTime:0.0469s ]
+SQL: SHOW COLUMNS FROM `t_field` [ RunTime:0.0079s ]
+SQL: SHOW COLUMNS FROM `t_bookpost` [ RunTime:0.0283s ]
+SQL: SELECT * FROM `t_bookpost` LEFT JOIN T_user on T_user.pk_user_id=T_bookpost.fk_bp_user_id LEFT JOIN T_field on T_field.pk_field_id=T_bookpost.fk_bp_field_id  WHERE ( bookpost_usable=1 AND bookpost_time>="2016-04-07 00:00:00" AND bookpost_time <="2016-04-14 15:17:33" )  [ RunTime:0.0004s ]
+SQL: SELECT * FROM `t_field` WHERE ( pk_field_id=1 )  [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBpByBookpostIDUserID_Select(17, 1) [ RunTime:0.0004s ]
+SQL: call proc_UserSupportBpByBookpostIDUserID_Select(17, 1) [ RunTime:0.0003s ]
+SQL: SELECT * FROM `t_field` WHERE ( pk_field_id=1 )  [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBpByBookpostIDUserID_Select(18, 1) [ RunTime:0.0003s ]
+SQL: call proc_UserSupportBpByBookpostIDUserID_Select(18, 1) [ RunTime:0.0002s ]
+SQL: SELECT * FROM `t_field` WHERE ( pk_field_id=2 )  [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBpByBookpostIDUserID_Select(19, 1) [ RunTime:0.0003s ]
+SQL: call proc_UserSupportBpByBookpostIDUserID_Select(19, 1) [ RunTime:0.0002s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000567s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000666s ]
+
+[ 2016-04-14T15:17:59+08:00 ] ::1 /1.0/hottrend/getHotInfo
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000020s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000452s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000611s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000696s ]
+NOTIC: [8] Undefined index: pagination /Applications/MAMP/htdocs/1.0/Application/HOME/Controller/HottrendController.class.php 第 9 行.
+NOTIC: [8] Undefined index: pageCount /Applications/MAMP/htdocs/1.0/Application/HOME/Controller/HottrendController.class.php 第 10 行.
+SQL: SHOW COLUMNS FROM `t_user` [ RunTime:0.0249s ]
+SQL: SHOW COLUMNS FROM `t_field` [ RunTime:0.0282s ]
+SQL: SHOW COLUMNS FROM `t_bookpost` [ RunTime:0.0101s ]
+SQL: SELECT * FROM `t_bookpost` LEFT JOIN T_user on T_user.pk_user_id=T_bookpost.fk_bp_user_id LEFT JOIN T_field on T_field.pk_field_id=T_bookpost.fk_bp_field_id  WHERE ( bookpost_usable=1 AND bookpost_time>="2016-04-07 00:00:00" AND bookpost_time <="2016-04-14 15:17:59" )  [ RunTime:0.0004s ]
+SQL: SELECT * FROM `t_field` WHERE ( pk_field_id=1 )  [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBpByBookpostIDUserID_Select(17, 1) [ RunTime:0.0004s ]
+SQL: call proc_UserSupportBpByBookpostIDUserID_Select(17, 1) [ RunTime:0.0003s ]
+SQL: SELECT * FROM `t_field` WHERE ( pk_field_id=1 )  [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBpByBookpostIDUserID_Select(18, 1) [ RunTime:0.0003s ]
+SQL: call proc_UserSupportBpByBookpostIDUserID_Select(18, 1) [ RunTime:0.0002s ]
+SQL: SELECT * FROM `t_field` WHERE ( pk_field_id=2 )  [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBpByBookpostIDUserID_Select(19, 1) [ RunTime:0.0003s ]
+SQL: call proc_UserSupportBpByBookpostIDUserID_Select(19, 1) [ RunTime:0.0002s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000558s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000602s ]
+
+[ 2016-04-14T15:18:41+08:00 ] ::1 /1.0/hottrend/getHotInfo
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000395s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000357s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000392s ]
+NOTIC: [8] Undefined index: pagination /Applications/MAMP/htdocs/1.0/Application/HOME/Controller/HottrendController.class.php 第 9 行.
+NOTIC: [8] Undefined index: pageCount /Applications/MAMP/htdocs/1.0/Application/HOME/Controller/HottrendController.class.php 第 10 行.
+SQL: SHOW COLUMNS FROM `t_user` [ RunTime:0.0436s ]
+SQL: SHOW COLUMNS FROM `t_field` [ RunTime:0.0098s ]
+SQL: SHOW COLUMNS FROM `t_bookpost` [ RunTime:0.0156s ]
+SQL: SELECT * FROM `t_bookpost` LEFT JOIN T_user on T_user.pk_user_id=T_bookpost.fk_bp_user_id LEFT JOIN T_field on T_field.pk_field_id=T_bookpost.fk_bp_field_id  WHERE ( bookpost_usable=1 AND bookpost_time>="2016-04-07 00:00:00" AND bookpost_time <="2016-04-14 15:18:41" )  [ RunTime:0.0004s ]
+SQL: call proc_UserCollectBpByBookpostIDUserID_Select(17, 1) [ RunTime:0.0004s ]
+SQL: call proc_UserSupportBpByBookpostIDUserID_Select(17, 1) [ RunTime:0.0003s ]
+SQL: call proc_UserCollectBpByBookpostIDUserID_Select(18, 1) [ RunTime:0.0002s ]
+SQL: call proc_UserSupportBpByBookpostIDUserID_Select(18, 1) [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBpByBookpostIDUserID_Select(19, 1) [ RunTime:0.0002s ]
+SQL: call proc_UserSupportBpByBookpostIDUserID_Select(19, 1) [ RunTime:0.0002s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000539s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000583s ]
+

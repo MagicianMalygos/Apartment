@@ -50,13 +50,18 @@
  *  @return 辩题模型与一个正方模型一个反方论据模型组成的字典
  */
 + (NSDictionary *)translateResponse_CurrThesisAndArgument:(NSDictionary *)dict {
-    ZCPThesisModel *currThesisModel = [ZCPThesisModel modelFromDictionary:[dict valueForKey:@"currThesis"]];
-    ZCPArgumentModel *prosArgumentModel = [ZCPArgumentModel modelFromDictionary:[dict valueForKey:@"prosArgument"]];
-    ZCPArgumentModel *consArgumentModel = [ZCPArgumentModel modelFromDictionary:[dict valueForKey:@"consArgument"]];
+    NSMutableDictionary *translateResult = [NSMutableDictionary dictionary];
     
-    return @{@"currThesisModel": currThesisModel
-             ,@"prosArgumentModel": prosArgumentModel
-             ,@"consArgumentModel": consArgumentModel};
+    if (![[dict valueForKey:@"currThesis"] isNilOrNull]) {
+        [translateResult setObject:[ZCPThesisModel modelFromDictionary:[dict valueForKey:@"currThesis"]] forKey:@"currThesisModel"];
+    }
+    if (![[dict valueForKey:@"prosArgument"] isNilOrNull]) {
+        [translateResult setObject:[ZCPArgumentModel modelFromDictionary:[dict valueForKey:@"prosArgument"]] forKey:@"prosArgumentModel"];
+    }
+    if (![[dict valueForKey:@"consArgument"] isNilOrNull]) {
+        [translateResult setObject:[ZCPArgumentModel modelFromDictionary:[dict valueForKey:@"consArgument"]] forKey:@"consArgumentModel"];
+    }
+    return translateResult;
 }
 
 /**

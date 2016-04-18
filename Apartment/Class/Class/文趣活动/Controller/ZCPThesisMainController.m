@@ -80,7 +80,7 @@
     sectionItem1.cellHeight = @20;
     sectionItem1.titleEdgeInset = UIEdgeInsetsZero;
     sectionItem1.backgroundColor = [UIColor lightGrayColor];
-    sectionItem1.sectionAttrTitle = [[NSAttributedString alloc] initWithString:@"正方观点" attributes:@{NSForegroundColorAttributeName: textColor, NSFontAttributeName: [UIFont defaultFontWithSize:14.0f]}];
+    sectionItem1.sectionAttrTitle = [[NSAttributedString alloc] initWithString:(self.prosArgumentArr.count > 0)? @"正方观点": @"暂无正方观点" attributes:@{NSForegroundColorAttributeName: textColor, NSFontAttributeName: [UIFont defaultFontWithSize:14.0f]}];
     [items addObject:sectionItem1];
     
     for (ZCPArgumentModel *model in self.prosArgumentArr) {
@@ -95,7 +95,7 @@
     sectionItem2.cellHeight = @20;
     sectionItem2.titleEdgeInset = UIEdgeInsetsZero;
     sectionItem2.backgroundColor = [UIColor lightGrayColor];
-    sectionItem2.sectionAttrTitle = [[NSAttributedString alloc] initWithString:@"反方观点" attributes:@{NSForegroundColorAttributeName: textColor, NSFontAttributeName: [UIFont defaultFontWithSize:14.0f]}];
+    sectionItem2.sectionAttrTitle = [[NSAttributedString alloc] initWithString:(self.consArgumentArr.count > 0)? @"反方观点": @"暂无反方观点" attributes:@{NSForegroundColorAttributeName: textColor, NSFontAttributeName: [UIFont defaultFontWithSize:14.0f]}];
     [items addObject:sectionItem2];
     
     for (ZCPArgumentModel *model in self.consArgumentArr) {

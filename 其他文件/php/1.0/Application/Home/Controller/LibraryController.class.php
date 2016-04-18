@@ -14,6 +14,7 @@ class LibraryController extends Controller {
         $pageIndex = ($pagination - 1) * $pageCount;
 
         $db = M();
+        $db_levels = M('levels');
         $sql = "call WenHuiApartment.proc_Book_SelectByMultiCondition('$searchText', $sortMethod, $fieldID, $pageIndex, $pageCount);";
         $result = $db->query($sql);
 
@@ -40,6 +41,9 @@ class LibraryController extends Controller {
             $userArr['userId'] = $row['pk_user_id'];
             $userArr['userAccount'] = $row['user_account'];
             $userArr['userName'] = $row['user_name'];
+            $userArr["userAge"] = $row["user_age"];
+            $userArr["userFaceURL"] = $row["user_face_url"];
+            $userArr["userLevel"] = $db_levels->where($row['user_exp'].' BETWEEN level_min_exp AND level_max_exp')->getField('level_name');
             $bookArr[$i]['contributor'] = $userArr;
 
             $judgeCollectSQL = "call WenHuiApartment.proc_UserCollectBookByBookIDUserID_Select(".$row["pk_book_id"].", $currUserID)";
@@ -65,6 +69,7 @@ class LibraryController extends Controller {
 
         $db = M();
         $db_user = M('user');
+        $db_levels = M('levels');
         $db_field = M('field');
         $db_book = M('book');
         $result = $db_book->where('book_usable=1 AND fk_book_user_id='.$currUserID)->order('book_time desc')->limit($pageIndex.','.$pageCount)->select();
@@ -90,7 +95,7 @@ class LibraryController extends Controller {
             $userArr["userName"] = $userResult[0]["user_name"];
             $userArr["userAge"] = $userResult[0]["user_age"];
             $userArr["userFaceURL"] = $userResult[0]["user_face_url"];
-            $userArr["userEXP"] = $userResult[0]["user_exp"];
+            $userArr["userLevel"] = $db_levels->where($userResult[0]['user_exp'].' BETWEEN level_min_exp AND level_max_exp')->getField('level_name');
             $bookArr[$i]['contributor'] = $userArr;
 
             $fieldArr = array();
@@ -122,6 +127,7 @@ class LibraryController extends Controller {
 
         $db = M();
         $db_user = M('user');
+        $db_levels = M('levels');
         $db_field = M('field');
         $db_book = M('book');
         $db_book_collect = M('user_collect_book');
@@ -148,7 +154,7 @@ class LibraryController extends Controller {
             $userArr["userName"] = $userResult[0]["user_name"];
             $userArr["userAge"] = $userResult[0]["user_age"];
             $userArr["userFaceURL"] = $userResult[0]["user_face_url"];
-            $userArr["userEXP"] = $userResult[0]["user_exp"];
+            $userArr["userLevel"] = $db_levels->where($userResult[0]['user_exp'].' BETWEEN level_min_exp AND level_max_exp')->getField('level_name');
             $bookArr[$i]['contributor'] = $userArr;
 
             $fieldArr = array();
@@ -178,6 +184,7 @@ class LibraryController extends Controller {
         $pageIndex = ($pagination - 1) * $pageCount;
 
         $db = M();
+        $db_levels = M('levels');
         $sql = "call WenHuiApartment.proc_BookReplyByBookID_Select($currBookID, $pageIndex, $pageCount);";
         $result = $db->query($sql);
 
@@ -193,6 +200,9 @@ class LibraryController extends Controller {
             $userArr['userId'] = $row['pk_user_id'];
             $userArr['userAccount'] = $row['user_account'];
             $userArr['userName'] = $row['user_name'];
+            $userArr["userAge"] = $row["user_age"];
+            $userArr["userFaceURL"] = $row["user_face_url"];
+            $userArr["userLevel"] = $db_levels->where($row['user_exp'].' BETWEEN level_min_exp AND level_max_exp')->getField('level_name');
             $bookReplyArr[$i]['user'] = $userArr;
 
             $judgeCollectSQL = "call WenHuiApartment.proc_UserSupportBookReplyByReplyIDUserID_Select(".$row["pk_book_reply_id"].", $currUserID)";

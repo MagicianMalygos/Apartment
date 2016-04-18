@@ -26,8 +26,10 @@
 }
 
 - (BOOL)isNilOrNull{
-    BOOL flag = self && self != [NSNull null];
-    return !flag;
+    if ((self != nil) && (self != [NSNull null])) {
+        return NO;
+    }
+    return YES;
 }
 
 
