@@ -130,8 +130,8 @@
     NSString * path         = urlForKey(MODIFY_USER_PASSWORD);
     
     AFHTTPRequestOperation *operation = [self POST:ZCPMakeURLString(scheme, host, path)
-                                        parameters:@{@"newPassword":newPassword
-                                                     ,@"oldPassword":oldPassword
+                                        parameters:@{@"newPassword":[newPassword md5]
+                                                     ,@"oldPassword":[oldPassword md5]
                                                      ,@"currUserID":@(currUserID)}
                                            success:^(AFHTTPRequestOperation *operation, id responseObject) {
                                                ZCPUserModel *model = nil;

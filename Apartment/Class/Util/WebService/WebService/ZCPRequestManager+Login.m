@@ -28,7 +28,7 @@
     
     AFHTTPRequestOperation *operation = [self POST:ZCPMakeURLString(scheme, host, path)
                                         parameters:@{@"account": account
-                                                     , @"password": password}
+                                                     , @"password": [password md5]}
                                            success:^(AFHTTPRequestOperation *operation, id responseObject) {
                                                NSInteger code = [responseObject[@"code"] integerValue];
                                                NSString *msg = responseObject[@"msg"];
@@ -89,7 +89,7 @@
     AFHTTPRequestOperation *operation = [self POST:ZCPMakeURLString(scheme, host, path)
                                         parameters:@{@"userName": userName
                                                      , @"account": account
-                                                     , @"password": password}
+                                                     , @"password": [password md5]}
                                            success:^(AFHTTPRequestOperation *operation, id responseObject) {
                                                NSInteger code = [responseObject[@"code"] integerValue];
                                                NSString *msg = responseObject[@"msg"];
@@ -124,7 +124,7 @@
     NSString * path         = urlForKey(RESET_PASSWORD);
     
     AFHTTPRequestOperation *operation = [self POST:ZCPMakeURLString(scheme, host, path)
-                                        parameters:@{@"newPassword": newPassword
+                                        parameters:@{@"newPassword": [newPassword md5]
                                                      , @"account": account}
                                            success:^(AFHTTPRequestOperation *operation, id responseObject) {
                                                success(operation, [responseObject[@"result"] boolValue]);
