@@ -153,6 +153,7 @@
 		18EF8A051C57088900924CCF /* ZCPArgumentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 18EF8A041C57088900924CCF /* ZCPArgumentCell.m */; };
 		18EFA87F1C770F6000A8378D /* ZCPMainLoginController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18EFA87E1C770F6000A8378D /* ZCPMainLoginController.m */; };
 		18F1BD641C5F057C003C43A8 /* ZCPBookReplyCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F1BD631C5F057C003C43A8 /* ZCPBookReplyCell.m */; };
+		18FA733B1CC5D14400B632B9 /* ZCPWebSeverTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 18FA733A1CC5D14400B632B9 /* ZCPWebSeverTest.m */; };
 		18FE5EB91C73077500F3CFEA /* ZCPURLCommon.m in Sources */ = {isa = PBXBuildFile; fileRef = 18FE5EB81C73077500F3CFEA /* ZCPURLCommon.m */; };
 		59270AFCF362F5F599DC29B9 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CF86021FDC156551CF6948C1 /* libPods.a */; };
 /* End PBXBuildFile section */
@@ -469,6 +470,8 @@
 		18EFA87E1C770F6000A8378D /* ZCPMainLoginController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZCPMainLoginController.m; sourceTree = "<group>"; };
 		18F1BD621C5F057C003C43A8 /* ZCPBookReplyCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZCPBookReplyCell.h; sourceTree = "<group>"; };
 		18F1BD631C5F057C003C43A8 /* ZCPBookReplyCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZCPBookReplyCell.m; sourceTree = "<group>"; };
+		18FA733A1CC5D14400B632B9 /* ZCPWebSeverTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZCPWebSeverTest.m; sourceTree = "<group>"; };
+		18FA733C1CC5D2F700B632B9 /* ZCPTestHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZCPTestHeader.h; sourceTree = "<group>"; };
 		18FE5EB71C73077500F3CFEA /* ZCPURLCommon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZCPURLCommon.h; sourceTree = "<group>"; };
 		18FE5EB81C73077500F3CFEA /* ZCPURLCommon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZCPURLCommon.m; sourceTree = "<group>"; };
 		8364B8CEAECFADBA9DD965F8 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
@@ -925,8 +928,10 @@
 		18AB4D6D1C30DA2300C52BF6 /* ApartmentTests */ = {
 			isa = PBXGroup;
 			children = (
+				18FA733A1CC5D14400B632B9 /* ZCPWebSeverTest.m */,
 				18AB4D6E1C30DA2300C52BF6 /* ApartmentTests.m */,
 				18AB4D701C30DA2300C52BF6 /* Info.plist */,
+				18FA733C1CC5D2F700B632B9 /* ZCPTestHeader.h */,
 			);
 			path = ApartmentTests;
 			sourceTree = "<group>";
@@ -1514,6 +1519,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				18FA733B1CC5D14400B632B9 /* ZCPWebSeverTest.m in Sources */,
 				18AB4D6F1C30DA2300C52BF6 /* ApartmentTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1673,8 +1679,24 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"${PODS_ROOT}/Headers/Public\"",
+					"\"${PODS_ROOT}/Headers/Public/AFNetworking\"",
+					"\"${PODS_ROOT}/Headers/Public/IQKeyboardManager\"",
+					"\"${PODS_ROOT}/Headers/Public/MBProgressHUD\"",
+					"\"${PODS_ROOT}/Headers/Public/MGBoxKit\"",
+					"\"${PODS_ROOT}/Headers/Public/MGEvents\"",
+					"\"${PODS_ROOT}/Headers/Public/MGMushParser\"",
+					"\"${PODS_ROOT}/Headers/Public/MJRefresh\"",
+					"\"${PODS_ROOT}/Headers/Public/RDVTabBarController\"",
+					"\"${PODS_ROOT}/Headers/Public/SDWebImage\"",
+					"\"${PODS_ROOT}/Headers/Public/SMSSDK\"",
+					"\"${PODS_ROOT}/Headers/Public/YYKit\"",
+				);
 				INFOPLIST_FILE = ApartmentTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PODS_ROOT = "${SRCROOT}/Pods";
 				PRODUCT_BUNDLE_IDENTIFIER = zcp.ApartmentTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Apartment.app/Apartment";
@@ -1685,8 +1707,24 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"${PODS_ROOT}/Headers/Public\"",
+					"\"${PODS_ROOT}/Headers/Public/AFNetworking\"",
+					"\"${PODS_ROOT}/Headers/Public/IQKeyboardManager\"",
+					"\"${PODS_ROOT}/Headers/Public/MBProgressHUD\"",
+					"\"${PODS_ROOT}/Headers/Public/MGBoxKit\"",
+					"\"${PODS_ROOT}/Headers/Public/MGEvents\"",
+					"\"${PODS_ROOT}/Headers/Public/MGMushParser\"",
+					"\"${PODS_ROOT}/Headers/Public/MJRefresh\"",
+					"\"${PODS_ROOT}/Headers/Public/RDVTabBarController\"",
+					"\"${PODS_ROOT}/Headers/Public/SDWebImage\"",
+					"\"${PODS_ROOT}/Headers/Public/SMSSDK\"",
+					"\"${PODS_ROOT}/Headers/Public/YYKit\"",
+				);
 				INFOPLIST_FILE = ApartmentTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PODS_ROOT = "${SRCROOT}/Pods";
 				PRODUCT_BUNDLE_IDENTIFIER = zcp.ApartmentTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Apartment.app/Apartment";
