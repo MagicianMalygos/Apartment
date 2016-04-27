@@ -237,21 +237,31 @@ typedef NS_ENUM(NSInteger, ZCPShowState) {
             || [ZCPJudge judgeOutOfRangeTextInput:password range:[ZCPLengthRange rangeWithMin:6 max:18] showErrorMsg:@"密码长度超过限制！"]) {
             return;
         }
-        [[ZCPRequestManager sharedInstance] JudgeAccountCanBeRegisterWithAccount:phone success:^(AFHTTPRequestOperation *operation, BOOL isSuccess, NSString *msg) {
-            if (isSuccess) {
-                // 进入注册页面
-                ZCPVerifyCodeController *verifyCodeVC = [[ZCPVerifyCodeController alloc] init];
-                verifyCodeVC.userName = userName;
-                verifyCodeVC.phone = phone;
-                verifyCodeVC.password = password;
-                
-                [self.navigationController pushViewController:verifyCodeVC animated:YES];
+        
+        // 发送验证码请求
+        [SMSSDK getVerificationCodeByMethod:SMSGetCodeMethodSMS phoneNumber:phone zone:@"86" customIdentifier:nil result:^(NSError *error) {
+            if (error) {
+                TTDPRINT(@"获取验证码失败：%@", error);
+                [MBProgressHUD showError:[NSString stringWithFormat:@"%@", [[error userInfo] valueForKey:@"getVerificationCode"]]];
             } else {
-                [MBProgressHUD showError:msg];
+                TTDPRINT(@"获取验证码成功");
+                [[ZCPRequestManager sharedInstance] JudgeAccountCanBeRegisterWithAccount:phone success:^(AFHTTPRequestOperation *operation, BOOL isSuccess, NSString *msg) {
+                    if (isSuccess) {
+                        // 进入注册页面
+                        ZCPVerifyCodeController *verifyCodeVC = [[ZCPVerifyCodeController alloc] init];
+                        verifyCodeVC.userName = userName;
+                        verifyCodeVC.phone = phone;
+                        verifyCodeVC.password = password;
+                        
+                        [self.navigationController pushViewController:verifyCodeVC animated:YES];
+                    } else {
+                        [MBProgressHUD showError:msg];
+                    }
+                } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                    TTDPRINT(@"%@", error);
+                    [MBProgressHUD showError:@"网络异常"];
+                }];
             }
-        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-            TTDPRINT(@"%@", error);
-            [MBProgressHUD showError:@"网络异常"];
         }];
     }
 }

@@ -26,7 +26,7 @@
 }
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    self.title = @"分享辩题";
+    self.title = @"自定辩题";
     
     // 设置主题颜色
     self.tableView.backgroundColor = APP_THEME_BG_COLOR;

@@ -27,7 +27,7 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [self clearNavigationBar];
-    self.title = @"上传问题";
+    self.title = @"出题";
     
     // 设置主题颜色
     self.tableView.backgroundColor = APP_THEME_BG_COLOR;
