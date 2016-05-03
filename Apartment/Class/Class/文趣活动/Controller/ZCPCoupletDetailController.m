@@ -91,7 +91,7 @@
 
     ZCPSectionCellItem * section = [[ZCPSectionCellItem alloc] initWithDefault];
     section.cellHeight = @20;
-    section.sectionAttrTitle = [[NSAttributedString alloc] initWithString:(self.coupletReplyModelArr.count > 0)? @"评论": @"暂无评论" attributes:@{NSForegroundColorAttributeName: APP_THEME_TEXT_COLOR, NSFontAttributeName: [UIFont defaultFontWithSize:14.0f]}];;
+    section.sectionAttrTitle = [[NSAttributedString alloc] initWithString:(self.coupletReplyModelArr.count > 0)? @"对句及相关评论": @"暂无对句及相关评论" attributes:@{NSForegroundColorAttributeName: APP_THEME_TEXT_COLOR, NSFontAttributeName: [UIFont defaultFontWithSize:14.0f]}];;
     [items addObject:section];
     
     for (ZCPCoupletReplyModel *model in self.coupletReplyModelArr) {

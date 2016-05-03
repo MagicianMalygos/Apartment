@@ -10,6 +10,7 @@
 #import "ZCPResetPwdController.h"
 #import "ZCPTextField.h"
 #import "ZCPRequestManager+Login.h"
+#import "ZCPJudge.h"
 
 @interface ZCPResetPwdInputPhoneController ()
 
@@ -66,6 +67,11 @@
 - (void)buttonClick {
     
     NSString *phone = self.phoneTextField.text;
+    
+    // 输入判断
+    if ([ZCPJudge judgeNullTextInput:phone showErrorMsg:@"手机号不能为空"]) {
+        return;
+    }
     
     // 判断此手机号是否已注册
     [[ZCPRequestManager sharedInstance] JudgeAccountCanBeRegisterWithAccount:phone success:^(AFHTTPRequestOperation *operation, BOOL isSuccess, NSString *msg) {

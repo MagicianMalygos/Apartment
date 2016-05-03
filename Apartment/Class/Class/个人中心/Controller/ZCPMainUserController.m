@@ -114,7 +114,7 @@
             [fields appendString:@"  "];
         }
     }
-    fieldItem.text = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"关注领域： %@", fields] attributes:@{NSForegroundColorAttributeName: textColor}];
+    fieldItem.text = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"喜欢分类： %@", fields] attributes:@{NSForegroundColorAttributeName: textColor}];
     
     // 所关注人cell
     ZCPImageTextCellItem *peopleItem = [[ZCPImageTextCellItem alloc] initWithDefault];

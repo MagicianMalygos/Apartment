@@ -108,7 +108,7 @@
                                                                    attributes:attributes]
                                    ,[[NSAttributedString alloc] initWithString:@"分类"
                                                                     attributes:attributes]
-                                   ,[[NSAttributedString alloc] initWithString:@"上传"
+                                   ,[[NSAttributedString alloc] initWithString:@"发表观点"
                                                                     attributes:attributes]];
         _optionView = [[ZCPOptionView alloc] initWithFrame:CGRectMake(0
                                                                       , SearchBarHeight

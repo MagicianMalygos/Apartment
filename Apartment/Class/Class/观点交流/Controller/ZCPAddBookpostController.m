@@ -36,7 +36,7 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [self clearNavigationBar];
-    self.title = @"添加观点";
+    self.title = @"发表观点";
     
     // 设置主题颜色
     self.tableView.backgroundColor = APP_THEME_BG_COLOR;

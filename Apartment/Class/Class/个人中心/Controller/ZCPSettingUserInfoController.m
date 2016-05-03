@@ -81,7 +81,7 @@
     ZCPSectionCellItem *sectionItem2 = [[ZCPSectionCellItem alloc] initWithDefault];
     sectionItem2.backgroundColor = [UIColor lightGrayColor];
     sectionItem2.titleEdgeInset = UIEdgeInsetsZero;
-    sectionItem2.sectionAttrTitle = [[NSMutableAttributedString alloc] initWithString:@"修改领域" attributes:@{NSForegroundColorAttributeName: textColor, NSFontAttributeName: [UIFont defaultFontWithSize:14.0f]}];
+    sectionItem2.sectionAttrTitle = [[NSMutableAttributedString alloc] initWithString:@"修改喜欢分类" attributes:@{NSForegroundColorAttributeName: textColor, NSFontAttributeName: [UIFont defaultFontWithSize:14.0f]}];
     // 领域
     ZCPPickerView *fieldPicker = getPicker(@[self.fieldArray, self.fieldArray, self.fieldArray]);
     ZCPTextFieldCellItem *fieldItem = [[ZCPTextFieldCellItem alloc] initWithDefault];
