@@ -75,6 +75,25 @@
     }
 }
 
+// 0 - n-1
+- (void)changeImageAtIndex:(NSInteger)index {
+    [UIView animateWithDuration:1.0f animations:^{
+        self.collectionView.contentOffset = CGPointMake(index * APPLICATIONWIDTH, 0);
+    }];
+    
+    UICollectionView *collectionView = self.collectionView;
+    NSIndexPath *indexPath = [collectionView indexPathForItemAtPoint:CGPointMake(index * APPLICATIONWIDTH, 0)];
+    // 更新pageControl当前显示页
+    _currentPage = indexPath.item % self.pageCount;
+    self.pageControl.currentPage = self.currentPage;
+    if ([self.delegate respondsToSelector:@selector(pageView:didChangeToIndex:)] && !self.disableCycle) {
+        [self.delegate pageView:self didChangeToIndex:indexPath.item % self.pageCount];
+    }
+    if (indexPath.item + 1 == self.totalPageCount) {
+        [collectionView scrollToItemAtIndexPath:[NSIndexPath indexPathForItem:1 inSection:0] atScrollPosition:UICollectionViewScrollPositionNone animated:NO];
+    }
+}
+
 #pragma mark - getter / setter
 - (void)setImageNameArray:(NSArray *)imageNameArray {
     _imageNameArray = imageNameArray;

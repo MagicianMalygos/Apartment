@@ -22,6 +22,7 @@
 @property (nonatomic, strong) ZCPImageCircleView *imageCircleView;      // 图片轮播视图
 @property (nonatomic, strong) NSMutableArray *hotBookpostAndCommentArr; // 热门图书贴评论+图书贴信息
 @property (nonatomic, assign) NSInteger pagination;                     // 页码
+@property (nonatomic, strong) dispatch_source_t timerSource;            // 定时器
 
 @end
 
@@ -36,6 +37,8 @@
     
     // 设置图片轮播视图
     [self.view addSubview:self.imageCircleView];
+    // 初始化图片轮播视图后开启定时器
+//    [self openTimer];
     
     // 加载数据
     [self loadData];
@@ -233,6 +236,29 @@
                             , advertisementGetURL(@"question_ad.png")
                             , advertisementGetURL(@"book_ad.png")];
     self.imageCircleView.imageNameArray = imageArray;
+}
+
+#pragma mark - other method
+- (void)openTimer {
+    /// 初始化一个gcd队列.
+    dispatch_queue_t timerQueue = dispatch_queue_create("timerQueue", 0);
+    
+    /// 创建 gcd timer.
+    _timerSource = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0, timerQueue);
+    double interval = 2 * NSEC_PER_SEC; /// 间隔2秒
+    dispatch_source_set_timer(_timerSource, dispatch_time(DISPATCH_TIME_NOW, 0), interval, 0);
+    
+    WEAK_SELF;
+    /// 定时器block设置
+    dispatch_source_set_event_handler(_timerSource, ^{
+        dispatch_async(dispatch_get_main_queue(), ^{
+            // 切换banner图片
+            [weakSelf.imageCircleView changeImageAtIndex:weakSelf.imageCircleView.currentPage + 1];
+        });
+    });
+    
+    /// 唤起定时器任务.
+    dispatch_resume(_timerSource);
 }
 
 @end

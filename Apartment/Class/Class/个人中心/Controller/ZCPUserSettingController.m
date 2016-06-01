@@ -194,10 +194,10 @@
 }
 #pragma mark - UIImagePickerControllerDelegate
 /**
- *  点击图片响应事件
+ *  图片选择响应事件
  *
  *  @param picker 相册视图控制器
- *  @param info   点击图片信息
+ *  @param info   选择图片信息
  */
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info {
     TTDPRINT(@"所选图片信息：%@", info);

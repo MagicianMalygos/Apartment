@@ -20,6 +20,7 @@
 @property (nonatomic, weak) id<ZCPImageCircleViewDelegate> delegate;    // delegate
 
 - (void)reloadData;
+- (void)changeImageAtIndex:(NSInteger)index;
 
 @end
 
