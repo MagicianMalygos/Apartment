@@ -1,0 +1,142 @@
+[ 2016-04-30T08:52:54+08:00 ] ::1 /1.0/user/getUserByAccountPassword
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000022s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001273s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000869s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000944s ]
+SQL: call proc_UserByAccount_Select(18850459303) [ RunTime:0.0411s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000936s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001024s ]
+
+[ 2016-04-30T08:52:59+08:00 ] ::1 /1.0/user/getUserByAccountPassword
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000016s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000332s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000361s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000396s ]
+SQL: call proc_UserByAccount_Select(18850459303) [ RunTime:0.0347s ]
+SQL: call proc_UserFocusFieldByUserID_Select(1) [ RunTime:0.0034s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000555s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000600s ]
+
+[ 2016-04-30T08:53:00+08:00 ] ::1 /1.0/hottrend/getHotBookpostComment
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000287s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000359s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000395s ]
+SQL: SHOW COLUMNS FROM `t_user` [ RunTime:0.0470s ]
+SQL: SHOW COLUMNS FROM `t_levels` [ RunTime:0.0449s ]
+SQL: SHOW COLUMNS FROM `t_field` [ RunTime:0.0532s ]
+SQL: SHOW COLUMNS FROM `t_bookpost_comment` [ RunTime:0.0378s ]
+SQL: SELECT * FROM `t_bookpost_comment` LEFT JOIN T_user on T_user.pk_user_id=T_bookpost_comment.fk_bpc_user_id  WHERE ( comment_usable=1 AND comment_time>="2016-04-23 00:00:00" AND comment_time <="2016-04-30 08:52:59" ) ORDER BY comment_support desc, comment_reply_number desc LIMIT 0,10   [ RunTime:0.0013s ]
+SQL: SELECT `level_name` FROM `t_levels` WHERE ( 687 BETWEEN level_min_exp AND level_max_exp ) LIMIT 1   [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `t_bookpost` [ RunTime:0.0321s ]
+SQL: SELECT * FROM `t_bookpost` LEFT JOIN T_user on T_user.pk_user_id=T_bookpost.fk_bp_user_id LEFT JOIN T_field on T_field.pk_field_id=T_bookpost.fk_bp_field_id  WHERE ( bookpost_usable=1 AND pk_bookpost_id=11 )  [ RunTime:0.0005s ]
+SQL: call proc_UserCollectBpByBookpostIDUserID_Select(11, 1) [ RunTime:0.0021s ]
+SQL: call proc_UserSupportBpByBookpostIDUserID_Select(11, 1) [ RunTime:0.0025s ]
+SQL: call proc_UserSupportBpCommentByCommentIDUserID_Select(3, 1) [ RunTime:0.0019s ]
+SQL: SELECT `level_name` FROM `t_levels` WHERE ( 687 BETWEEN level_min_exp AND level_max_exp ) LIMIT 1   [ RunTime:0.0002s ]
+SQL: SELECT * FROM `t_bookpost` LEFT JOIN T_user on T_user.pk_user_id=T_bookpost.fk_bp_user_id LEFT JOIN T_field on T_field.pk_field_id=T_bookpost.fk_bp_field_id  WHERE ( bookpost_usable=1 AND pk_bookpost_id=16 )  [ RunTime:0.0003s ]
+SQL: call proc_UserCollectBpByBookpostIDUserID_Select(16, 1) [ RunTime:0.0003s ]
+SQL: call proc_UserSupportBpByBookpostIDUserID_Select(16, 1) [ RunTime:0.0006s ]
+SQL: call proc_UserSupportBpCommentByCommentIDUserID_Select(7, 1) [ RunTime:0.0005s ]
+SQL: SELECT `level_name` FROM `t_levels` WHERE ( 125 BETWEEN level_min_exp AND level_max_exp ) LIMIT 1   [ RunTime:0.0005s ]
+SQL: SELECT * FROM `t_bookpost` LEFT JOIN T_user on T_user.pk_user_id=T_bookpost.fk_bp_user_id LEFT JOIN T_field on T_field.pk_field_id=T_bookpost.fk_bp_field_id  WHERE ( bookpost_usable=1 AND pk_bookpost_id=3 )  [ RunTime:0.0003s ]
+SQL: call proc_UserCollectBpByBookpostIDUserID_Select(3, 1) [ RunTime:0.0002s ]
+SQL: call proc_UserSupportBpByBookpostIDUserID_Select(3, 1) [ RunTime:0.0002s ]
+SQL: call proc_UserSupportBpCommentByCommentIDUserID_Select(1, 1) [ RunTime:0.0002s ]
+SQL: SELECT `level_name` FROM `t_levels` WHERE ( 225 BETWEEN level_min_exp AND level_max_exp ) LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT * FROM `t_bookpost` LEFT JOIN T_user on T_user.pk_user_id=T_bookpost.fk_bp_user_id LEFT JOIN T_field on T_field.pk_field_id=T_bookpost.fk_bp_field_id  WHERE ( bookpost_usable=1 AND pk_bookpost_id=3 )  [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBpByBookpostIDUserID_Select(3, 1) [ RunTime:0.0002s ]
+SQL: call proc_UserSupportBpByBookpostIDUserID_Select(3, 1) [ RunTime:0.0002s ]
+SQL: call proc_UserSupportBpCommentByCommentIDUserID_Select(2, 1) [ RunTime:0.0002s ]
+SQL: SELECT `level_name` FROM `t_levels` WHERE ( 687 BETWEEN level_min_exp AND level_max_exp ) LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT * FROM `t_bookpost` LEFT JOIN T_user on T_user.pk_user_id=T_bookpost.fk_bp_user_id LEFT JOIN T_field on T_field.pk_field_id=T_bookpost.fk_bp_field_id  WHERE ( bookpost_usable=1 AND pk_bookpost_id=1 )  [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBpByBookpostIDUserID_Select(1, 1) [ RunTime:0.0002s ]
+SQL: call proc_UserSupportBpByBookpostIDUserID_Select(1, 1) [ RunTime:0.0002s ]
+SQL: call proc_UserSupportBpCommentByCommentIDUserID_Select(4, 1) [ RunTime:0.0002s ]
+SQL: SELECT `level_name` FROM `t_levels` WHERE ( 687 BETWEEN level_min_exp AND level_max_exp ) LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT * FROM `t_bookpost` LEFT JOIN T_user on T_user.pk_user_id=T_bookpost.fk_bp_user_id LEFT JOIN T_field on T_field.pk_field_id=T_bookpost.fk_bp_field_id  WHERE ( bookpost_usable=1 AND pk_bookpost_id=1 )  [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBpByBookpostIDUserID_Select(1, 1) [ RunTime:0.0002s ]
+SQL: call proc_UserSupportBpByBookpostIDUserID_Select(1, 1) [ RunTime:0.0002s ]
+SQL: call proc_UserSupportBpCommentByCommentIDUserID_Select(5, 1) [ RunTime:0.0002s ]
+SQL: SELECT `level_name` FROM `t_levels` WHERE ( 687 BETWEEN level_min_exp AND level_max_exp ) LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT * FROM `t_bookpost` LEFT JOIN T_user on T_user.pk_user_id=T_bookpost.fk_bp_user_id LEFT JOIN T_field on T_field.pk_field_id=T_bookpost.fk_bp_field_id  WHERE ( bookpost_usable=1 AND pk_bookpost_id=15 )  [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBpByBookpostIDUserID_Select(15, 1) [ RunTime:0.0003s ]
+SQL: call proc_UserSupportBpByBookpostIDUserID_Select(15, 1) [ RunTime:0.0020s ]
+SQL: call proc_UserSupportBpCommentByCommentIDUserID_Select(6, 1) [ RunTime:0.0008s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000745s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000840s ]
+
+[ 2016-04-30T08:53:00+08:00 ] ::1 /1.0/Application/Home/Images/Head/zcp
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000016s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000515s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000424s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000469s ]
+ERR: 无法加载控制器:Application
+
+[ 2016-04-30T09:47:35+08:00 ] ::1 /1.0/communion/getBookpostBySearchTextSortMethodFieldID
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000027s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000518s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000614s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000684s ]
+SQL: SHOW COLUMNS FROM `t_levels` [ RunTime:0.0337s ]
+SQL: call proc_Bp_SelectByMultiCondition('%%', 0, 0, 0, 10) [ RunTime:0.1607s ]
+SQL: SELECT `level_name` FROM `t_levels` WHERE ( 125 BETWEEN level_min_exp AND level_max_exp ) LIMIT 1   [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBpByBookpostIDUserID_Select(4, 1) [ RunTime:0.0004s ]
+SQL: call proc_UserSupportBpByBookpostIDUserID_Select(4, 1) [ RunTime:0.0003s ]
+SQL: SELECT `level_name` FROM `t_levels` WHERE ( 687 BETWEEN level_min_exp AND level_max_exp ) LIMIT 1   [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBpByBookpostIDUserID_Select(3, 1) [ RunTime:0.0002s ]
+SQL: call proc_UserSupportBpByBookpostIDUserID_Select(3, 1) [ RunTime:0.0002s ]
+SQL: SELECT `level_name` FROM `t_levels` WHERE ( 125 BETWEEN level_min_exp AND level_max_exp ) LIMIT 1   [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBpByBookpostIDUserID_Select(2, 1) [ RunTime:0.0003s ]
+SQL: call proc_UserSupportBpByBookpostIDUserID_Select(2, 1) [ RunTime:0.0002s ]
+SQL: SELECT `level_name` FROM `t_levels` WHERE ( 687 BETWEEN level_min_exp AND level_max_exp ) LIMIT 1   [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBpByBookpostIDUserID_Select(1, 1) [ RunTime:0.0002s ]
+SQL: call proc_UserSupportBpByBookpostIDUserID_Select(1, 1) [ RunTime:0.0002s ]
+SQL: SELECT `level_name` FROM `t_levels` WHERE ( 687 BETWEEN level_min_exp AND level_max_exp ) LIMIT 1   [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBpByBookpostIDUserID_Select(16, 1) [ RunTime:0.0003s ]
+SQL: call proc_UserSupportBpByBookpostIDUserID_Select(16, 1) [ RunTime:0.0002s ]
+SQL: SELECT `level_name` FROM `t_levels` WHERE ( 687 BETWEEN level_min_exp AND level_max_exp ) LIMIT 1   [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBpByBookpostIDUserID_Select(15, 1) [ RunTime:0.0002s ]
+SQL: call proc_UserSupportBpByBookpostIDUserID_Select(15, 1) [ RunTime:0.0002s ]
+SQL: SELECT `level_name` FROM `t_levels` WHERE ( 687 BETWEEN level_min_exp AND level_max_exp ) LIMIT 1   [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBpByBookpostIDUserID_Select(14, 1) [ RunTime:0.0003s ]
+SQL: call proc_UserSupportBpByBookpostIDUserID_Select(14, 1) [ RunTime:0.0002s ]
+SQL: SELECT `level_name` FROM `t_levels` WHERE ( 225 BETWEEN level_min_exp AND level_max_exp ) LIMIT 1   [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBpByBookpostIDUserID_Select(12, 1) [ RunTime:0.0002s ]
+SQL: call proc_UserSupportBpByBookpostIDUserID_Select(12, 1) [ RunTime:0.0004s ]
+SQL: SELECT `level_name` FROM `t_levels` WHERE ( 125 BETWEEN level_min_exp AND level_max_exp ) LIMIT 1   [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBpByBookpostIDUserID_Select(13, 1) [ RunTime:0.0003s ]
+SQL: call proc_UserSupportBpByBookpostIDUserID_Select(13, 1) [ RunTime:0.0002s ]
+SQL: SELECT `level_name` FROM `t_levels` WHERE ( 3200 BETWEEN level_min_exp AND level_max_exp ) LIMIT 1   [ RunTime:0.0002s ]
+SQL: call proc_UserCollectBpByBookpostIDUserID_Select(11, 1) [ RunTime:0.0003s ]
+SQL: call proc_UserSupportBpByBookpostIDUserID_Select(11, 1) [ RunTime:0.0002s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000611s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000665s ]
+
+[ 2016-04-30T09:47:35+08:00 ] ::1 /1.0/common/getField
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000027s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000564s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000594s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000657s ]
+SQL: SHOW COLUMNS FROM `t_field` [ RunTime:0.0328s ]
+SQL: SELECT * FROM `t_field`  [ RunTime:0.0003s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000541s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000584s ]
+
