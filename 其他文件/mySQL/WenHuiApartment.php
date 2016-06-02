@@ -1,0 +1,255 @@
+用户表 T_USER
+	用户表编号 pk_user_id
+	用户账号 user_account
+	用户密码 user_password
+	用户昵称 user_name
+	用户年龄 user_age
+	用户头像URL user_face_url
+	用户答题得分值 user_score
+	用户经验值 user_exp
+	用户注册时间 user_register_time
+	是否可用 user_usable
+密保问题表 T_SECURITY_QUESTION
+	密保问题表编号 pk_security_question_id
+	密保问题一 security_question_one
+	密保问题二 security_question_two
+	密保问题三 security_question_three
+	密保答案一 security_question_answer_one
+	密保答案二 security_question_answer_two
+	密保答案三 security_question_answer_three
+	记录添加时间 security_time
+	是否可用 security_usable
+	用户编号 fk_security_question_user_id
+等级表 T_LEVEL
+	等级表编号 pk_level_id
+	等级称谓 level_name
+	等级最低经验值 level_min_exp
+	等级最高经验值 level_max_exp
+	记录添加时间 level_time
+	是否可用 level_usable
+关注人表 T_CONCER_PERSON
+	关注人表编号 pk_concer_person_id
+	记录添加时间 concer_person_time
+	是否可用 concer_person_usable
+	用户编号 fk_concer_person_user_id
+	被关注人编号 fk_concer_person_user_id_concered
+领域表 T_FIELD
+	领域表编号 field_id
+	领域名称 field_name
+	记录添加时间 field_time
+	是否可用 field_usable
+用户关注领域表 T_USER_FOCUS_FIELD
+	用户关注领域表编号 pk_user_focus_field_id
+	记录添加时间 user_focus_field_time
+	是否可用 user_focus_field_usable
+	用户编号 fk_user_focus_field_user_id
+	领域表编号 fk_user_focus_field_field_id
+图书帖表 T_BOOKPOST
+	图书贴表编号 pk_bookpost_id
+	帖子标题 bookpost_title
+	帖子内容 bookpost_content
+	发帖人定位位置 bookpost_position
+	帖子回复人数 bookpost_reply_number
+	收藏帖子人数 bookpost_collect_number
+	帖子点赞量 bookpost_support
+	发帖时间 bookpost_time
+	是否可用 bookpost_usable
+	帖子作者 fk_bp_user_id
+	帖子类别 fk_bp_field_id
+	帖子关联书籍 fk_bp_book_id
+图书帖点赞记录表 T_BOOKPOST_SUP_RECORD
+	图书贴点赞记录表编号 pk_support_record_id
+	记录添加时间 support_record_time
+	是否可用 support_record_usable
+	图书贴编号 fk_bp_sup_record_bp_id
+	点赞人编号 fk_bp_sup_record_user_id
+图书帖评论表 T_BOOKPOST_COMMENT
+	图书贴评论表编号 pk_bookpost_comment_id
+	评论内容 comment_content
+	评论人定位位置 comment_position
+	评论回复人数 comment_reply_number
+	评论点赞量 comment_support
+	评论时间 comment_time
+	是否可用 comment_usable
+	评论人 fk_bpc_user_id
+	评论帖子编号 fk_bpc_bp_id
+图书帖评论点赞记录表 T_BOOKPOST_COMMENT_SUP_RECORD
+	评论点赞记录表编号 pk_support_record_id
+	记录添加时间 support_record_time1
+	是否可用 support_record_usable
+	评论编号 fk_bpc_sup_record_bpc_id
+	点赞人编号 fk_bpc_sup_record_user_id
+图书帖评论回复表 T_BOOKPOST_COMMENT_REPLY
+	图书评论回复表编号 pk_reply_id
+	回复内容 reply_content
+	回复点赞量 reply_support
+	回复时间 reply_time
+	是否可用 reply_usable
+	回复人 fk_bpcr_user_id
+	回复接收人 fk_bpcr_user_id_receiver (接收人不一定为作者，所以加此字段)
+	评论编号 fk_bpcr_bpc_id
+图书贴评论回复点赞记录表 T_BOOKPOST_COMMENT_REPLY_SUP_RECORD
+	图书贴评论回复点赞记录表编号 pk_support_record_id
+	记录添加时间 support_record_time
+	是否可用 support_usable
+	回复编号 fk_bpcr_sup_record_bpcr_id
+	点赞人编号 fk_bpcr_sup_record_user_id
+
+对联表 T_COUPLET
+	对联表编号 pk_couplet_id
+	对联内容 couplet_content
+	对联点赞量 couplet_support
+	对联回复人数 couplet_reply_number
+	收藏对联人数 couplet_collect_number
+	记录添加时间 couplet_time
+	是否可用 couplet_usable
+	出对人 fk_couplet_user_id
+对联点赞记录表 T_COUPLET_SUP_RECORD
+	对联点赞记录表编号 pk_support_record_id
+	记录添加时间 support_record_time
+	是否可用 support_record_usable
+	对联编号 fk_couplet_sup_record_couplet_id
+	点赞人编号 fk_couplet_sup_record_user_id
+对联回复表 T_COUPLET_REPLY
+	对联回复表编号 pk_couplet_reply_id
+	回复内容 reply_content
+	回复点赞量 reply_support
+	回复时间 reply_time
+	是否可用 reply_usable
+	所回复的对联 fk_cr_couplet_id
+	回复人 fk_cr_user_id
+对联回复点赞记录表 T_COUPLET_REPLY_SUP_RECORD
+	对联回复点赞记录编号 pk_support_record_id
+	记录添加时间 support_record_time
+	是否可用 support_record_usable
+	对联回复编号 fk_cr_sup_record_cr_id
+	点赞人编号 fk_cr_sup_record_user_id
+辩题表 T_THESIS
+	辩题表编号 pk_thesis_id 
+	辩题内容 thesis_content
+	正方论点 thesis_pros
+	正方支持人数 thesis_pros_count
+	正方回复人数 thesis_pros_reply_number
+	反方论点 thesis_cons
+	反方支持人数 thesis_cons_count
+	反方回复人数 thesis_cons_reply_number
+	收藏辩题人数 thesis_collect_number
+	添加辩题原因 thesis_add_reson
+	辩题开始时间 thesis_start_time
+	辩题结束时间 thesis_end_time
+	记录添加时间 thesis_time
+	是否可用 thesis_usable
+	添加辩题原因 thesis_add_reson
+	辩题状态 fk_thesis_state_id (0待审核, 1未使用, 2正在使用, 3已使用)
+	贡献辩题人 fk_thesis_user_id
+		(有时间去做：用户可以改变观点)
+		(历史辩题)
+论据表 T_ARGUMENT
+	论据表编号 pk_argument_id
+	论据内容 argument_content
+	论据点赞量 argument_support
+	论据所属正反方 argument_belong(0反方, 1正方)
+	记录添加时间 argument_time
+	是否可用 argument_usable
+	辩题编号 fk_argument_thesis_id
+	辩论人编号 fk_argument_user_id
+	匿名状态 fk_argument_state_id (0不匿名, 1匿名)
+论据点赞记录表 T_ARGUMENT_SUP_RECORD
+	论据点赞记录表编号 pk_support_record_id
+	记录添加时间 support_record_time
+	是否可用 support_record_usable
+	论据编号 fk_argument_sup_record_argument_id
+	点赞人编号 fk_argument_sup_record_user_id
+题目表 T_QUESTION
+	题目表编号 pk_question_id
+	题目内容 question_content
+	选项一 question_option_one
+	选项二 question_option_two
+	选项三 question_option_three
+	正确答案 question_answer
+	收藏题目人数 question_collect_number
+	记录添加时间 question_time
+	是否可用 question_usable
+	出题人 fk_question_user_id
+	题目状态 fk_question_state_id (0待审核, 1未使用, 2正在使用, 3已使用)
+		(头脑风暴，每10分钟显示10道题的形式)
+答题记录表 T_ANSWER_RECORD (此表每当题目更新则清理一次)
+	答题记录表编号 pk_answer_record_id
+	记录添加时间 answer_record_time
+	是否可用 answer_record_usable
+	答案 answer_record_answers
+	答题人 fk_answer_record_user_id
+状态表 T_STATE
+	状态表编号 pk_state_id
+	状态名称 state_name
+	状态值 state_value
+	状态类型 state_type(*标识所属哪个表*)
+	记录添加时间 state_time
+	是否可用 state_usable
+图书表 T_BOOK
+	图书表编号 pk_book_id
+	图书名称 book_name
+	图书作者 book_author
+	图书出版日期 book_publish_time
+	图书封面 book_cover_url
+	图书出版社 book_publisher
+	图书简介 book_summary
+	图书评论量 book_reply_count
+	收藏图书人数 book_collect_number
+	记录添加时间 book_time
+	是否可用 book_usable
+	图书所在领域 fk_book_field_id
+	图书贡献者 fk_book_user_id
+	图书状态 fk_book_state_id
+图书评论表 T_BOOK_REPLY
+	图书评论表编号 pk_book_reply_id
+	评论内容 book_reply_content
+	评论点赞量 book_reply_support
+	评论时间 book_reply_time
+	是否可用 book_reply_usable
+	评论人 fk_br_user_id
+	图书编号 fk_br_book_id
+图书评论点赞记录表 T_BOOK_REPLY_SUP_RECORD
+	图书评论点赞记录表编号 pk_support_record_id
+	记录添加时间 support_record_time
+	是否可用 support_record_usable
+	图书评论编号 fk_br_sup_record_br_id
+	点赞人编号 fk_br_sup_record_user_id
+
+用户收藏图书表 T_USER_COLLECT_BOOK
+	用户收藏图书表编号 pk_user_collect_book_id
+	记录添加时间 collect_time
+	是否可用 collect_usable
+	用户编号 fk_ucb_user_id
+	图书表编号 fk_ucb_book_id
+用户收藏图书贴表 T_USER_COLLECT_BOOKPOST
+	用户收藏图书贴表编号 pk_user_collect_bookpost_id
+	记录添加时间 collect_time
+	是否可用 collect_usable
+	用户编号 fk_ucbp_user_id
+	图书贴编号 fk_ucbp_bookpost_id
+用户收藏对联表 T_USER_COLLECT_COUPLET
+	用户收藏对联表编号 pk_user_collect_couplet_id
+	记录添加时间 collect_time
+	是否可用 collect_usable
+	用户编号 fk_ucc_user_id
+	对联编号 fk_ucc_couplet_id
+用户收藏辩题表 T_USER_COLLECT_THESIS
+	用户收藏辩题表编号 pk_user_collect_thesis_id
+	记录添加时间 collect_time
+	是否可用 collect_usable
+	用户编号 fk_uct_user_id
+	辩题编号 fk_uct_thesis_id
+用户收藏问题表 T_USER_COLLECT_QUESTION
+	用户收藏问题表编号 pk_user_collect_question_id
+	记录添加时间 collect_time
+	是否可用 collect_usable
+	用户编号 fk_ucq_user_id
+	问题编号 fk_ucq_question_id
+
+
+
+
+
+
+
